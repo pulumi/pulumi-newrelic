@@ -53,7 +53,7 @@ type SecureCredential struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID where you want to create the secure credential.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The secure credential's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
@@ -109,7 +109,7 @@ func GetSecureCredential(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SecureCredential resources.
 type secureCredentialState struct {
 	// The New Relic account ID where you want to create the secure credential.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
 	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
@@ -123,7 +123,7 @@ type secureCredentialState struct {
 
 type SecureCredentialState struct {
 	// The New Relic account ID where you want to create the secure credential.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
 	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
@@ -141,7 +141,7 @@ func (SecureCredentialState) ElementType() reflect.Type {
 
 type secureCredentialArgs struct {
 	// The New Relic account ID where you want to create the secure credential.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
 	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
@@ -156,7 +156,7 @@ type secureCredentialArgs struct {
 // The set of arguments for constructing a SecureCredential resource.
 type SecureCredentialArgs struct {
 	// The New Relic account ID where you want to create the secure credential.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
 	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
@@ -256,8 +256,8 @@ func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.
 }
 
 // The New Relic account ID where you want to create the secure credential.
-func (o SecureCredentialOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *SecureCredential) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o SecureCredentialOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The secure credential's description.

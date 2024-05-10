@@ -46,7 +46,7 @@ export class OneDashboardJson extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The unique entity identifier of the dashboard in New Relic.
      */
@@ -105,7 +105,7 @@ export interface OneDashboardJsonState {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The unique entity identifier of the dashboard in New Relic.
      */
@@ -131,7 +131,7 @@ export interface OneDashboardJsonArgs {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */

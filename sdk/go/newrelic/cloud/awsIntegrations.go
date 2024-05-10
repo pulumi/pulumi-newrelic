@@ -500,7 +500,7 @@ type AwsIntegrations struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// AWS ALB. See Integration blocks below for details.
 	Alb AwsIntegrationsAlbPtrOutput `pulumi:"alb"`
 	// AWS API Gateway. See Integration blocks below for details.
@@ -590,7 +590,7 @@ type AwsIntegrations struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
 	// Amazon RDS. See Integration blocks below for details.
 	Rds AwsIntegrationsRdsPtrOutput `pulumi:"rds"`
 	// Amazon Redshift. See Integration blocks below for details.
@@ -652,7 +652,7 @@ func GetAwsIntegrations(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AwsIntegrations resources.
 type awsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// AWS ALB. See Integration blocks below for details.
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
 	// AWS API Gateway. See Integration blocks below for details.
@@ -742,7 +742,7 @@ type awsIntegrationsState struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	LinkedAccountId *string `pulumi:"linkedAccountId"`
 	// Amazon RDS. See Integration blocks below for details.
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
 	// Amazon Redshift. See Integration blocks below for details.
@@ -772,7 +772,7 @@ type awsIntegrationsState struct {
 
 type AwsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// AWS ALB. See Integration blocks below for details.
 	Alb AwsIntegrationsAlbPtrInput
 	// AWS API Gateway. See Integration blocks below for details.
@@ -862,7 +862,7 @@ type AwsIntegrationsState struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId pulumi.IntPtrInput
+	LinkedAccountId pulumi.StringPtrInput
 	// Amazon RDS. See Integration blocks below for details.
 	Rds AwsIntegrationsRdsPtrInput
 	// Amazon Redshift. See Integration blocks below for details.
@@ -896,7 +896,7 @@ func (AwsIntegrationsState) ElementType() reflect.Type {
 
 type awsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// AWS ALB. See Integration blocks below for details.
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
 	// AWS API Gateway. See Integration blocks below for details.
@@ -986,7 +986,7 @@ type awsIntegrationsArgs struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId int `pulumi:"linkedAccountId"`
+	LinkedAccountId string `pulumi:"linkedAccountId"`
 	// Amazon RDS. See Integration blocks below for details.
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
 	// Amazon Redshift. See Integration blocks below for details.
@@ -1017,7 +1017,7 @@ type awsIntegrationsArgs struct {
 // The set of arguments for constructing a AwsIntegrations resource.
 type AwsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// AWS ALB. See Integration blocks below for details.
 	Alb AwsIntegrationsAlbPtrInput
 	// AWS API Gateway. See Integration blocks below for details.
@@ -1107,7 +1107,7 @@ type AwsIntegrationsArgs struct {
 	// The ID of the linked AWS account in New Relic.
 	//
 	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-	LinkedAccountId pulumi.IntInput
+	LinkedAccountId pulumi.StringInput
 	// Amazon RDS. See Integration blocks below for details.
 	Rds AwsIntegrationsRdsPtrInput
 	// Amazon Redshift. See Integration blocks below for details.
@@ -1223,8 +1223,8 @@ func (o AwsIntegrationsOutput) ToAwsIntegrationsOutputWithContext(ctx context.Co
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AwsIntegrationsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AwsIntegrationsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // AWS ALB. See Integration blocks below for details.
@@ -1442,8 +1442,8 @@ func (o AwsIntegrationsOutput) Lambda() AwsIntegrationsLambdaPtrOutput {
 // The ID of the linked AWS account in New Relic.
 //
 // The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
-func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
 }
 
 // Amazon RDS. See Integration blocks below for details.

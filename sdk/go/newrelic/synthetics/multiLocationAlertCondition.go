@@ -199,7 +199,7 @@ type MultiLocationAlertCondition struct {
 	// The title of this condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
@@ -259,7 +259,7 @@ type multiLocationAlertConditionState struct {
 	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
@@ -281,7 +281,7 @@ type MultiLocationAlertConditionState struct {
 	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition will be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
@@ -305,7 +305,7 @@ type multiLocationAlertConditionArgs struct {
 	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition will be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
@@ -326,7 +326,7 @@ type MultiLocationAlertConditionArgs struct {
 	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition will be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
@@ -449,8 +449,8 @@ func (o MultiLocationAlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the policy where this condition will be used.
-func (o MultiLocationAlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o MultiLocationAlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Runbook URL to display in notifications.

@@ -11,7 +11,6 @@ import com.pulumi.newrelic.AlertChannelArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.AlertChannelState;
 import com.pulumi.newrelic.outputs.AlertChannelConfig;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -341,14 +340,14 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * The New Relic account ID where you want to create alert channels.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID where you want to create alert channels.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

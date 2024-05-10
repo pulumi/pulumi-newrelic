@@ -27,7 +27,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "webhook-example",
     ///         Type = "WEBHOOK",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "servicenow-incident-example",
     ///         Type = "SERVICENOW_INCIDENTS",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -98,7 +98,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "email-example",
     ///         Type = "EMAIL",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -132,7 +132,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "jira-example",
     ///         Type = "JIRA_CLASSIC",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -176,7 +176,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "pagerduty-account-example",
     ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -234,7 +234,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "pagerduty-account-example",
     ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -281,7 +281,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "mobile-push-example",
     ///         Type = "MOBILE_PUSH",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -302,7 +302,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "event-bridge-example",
     ///         Type = "EVENT_BRIDGE",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -336,7 +336,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "slack-example",
     ///         Type = "SLACK",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
@@ -376,7 +376,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var webhook_destination = new NewRelic.NotificationDestination("webhook-destination", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "destination-webhook",
     ///         Type = "WEBHOOK",
     ///         Properties = new[]
@@ -408,7 +408,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var webhook_channel = new NewRelic.NotificationChannel("webhook-channel", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
     ///         Name = "channel-webhook",
     ///         Type = "WEBHOOK",
     ///         DestinationId = webhook_destination.Id,
@@ -452,7 +452,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the channel is active.
@@ -546,7 +546,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the channel is active.
@@ -602,7 +602,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the channel is active.

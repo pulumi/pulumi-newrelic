@@ -201,7 +201,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
@@ -311,7 +311,7 @@ export interface WorkflowState {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
@@ -368,7 +368,7 @@ export interface WorkflowArgs {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */

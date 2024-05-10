@@ -263,7 +263,7 @@ type AlertChannel struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID where you want to create alert channels.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The configuration block for the alert channel.
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
 	// (Required) The name of the channel.
@@ -306,7 +306,7 @@ func GetAlertChannel(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertChannel resources.
 type alertChannelState struct {
 	// The New Relic account ID where you want to create alert channels.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The configuration block for the alert channel.
 	Config *AlertChannelConfig `pulumi:"config"`
 	// (Required) The name of the channel.
@@ -317,7 +317,7 @@ type alertChannelState struct {
 
 type AlertChannelState struct {
 	// The New Relic account ID where you want to create alert channels.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The configuration block for the alert channel.
 	Config AlertChannelConfigPtrInput
 	// (Required) The name of the channel.
@@ -332,7 +332,7 @@ func (AlertChannelState) ElementType() reflect.Type {
 
 type alertChannelArgs struct {
 	// The New Relic account ID where you want to create alert channels.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The configuration block for the alert channel.
 	Config *AlertChannelConfig `pulumi:"config"`
 	// (Required) The name of the channel.
@@ -344,7 +344,7 @@ type alertChannelArgs struct {
 // The set of arguments for constructing a AlertChannel resource.
 type AlertChannelArgs struct {
 	// The New Relic account ID where you want to create alert channels.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The configuration block for the alert channel.
 	Config AlertChannelConfigPtrInput
 	// (Required) The name of the channel.
@@ -441,8 +441,8 @@ func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context)
 }
 
 // The New Relic account ID where you want to create alert channels.
-func (o AlertChannelOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AlertChannelOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The configuration block for the alert channel.

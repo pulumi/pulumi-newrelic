@@ -71,7 +71,7 @@ export class AwsLinkAccount extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
@@ -124,7 +124,7 @@ export interface AwsLinkAccountState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
@@ -146,7 +146,7 @@ export interface AwsLinkAccountArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */

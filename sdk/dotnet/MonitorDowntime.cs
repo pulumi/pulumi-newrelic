@@ -251,7 +251,7 @@ namespace Pulumi.NewRelic
         /// provider{} configuration if not specified.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -358,7 +358,7 @@ namespace Pulumi.NewRelic
         /// provider{} configuration if not specified.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
@@ -439,7 +439,7 @@ namespace Pulumi.NewRelic
         /// provider{} configuration if not specified.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.

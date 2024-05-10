@@ -24,8 +24,8 @@ class GetNotificationDestinationResult:
     A collection of values returned by getNotificationDestination.
     """
     def __init__(__self__, account_id=None, active=None, guid=None, id=None, name=None, properties=None, secure_urls=None, status=None, type=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
@@ -54,7 +54,7 @@ class GetNotificationDestinationResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
+    def account_id(self) -> str:
         return pulumi.get(self, "account_id")
 
     @property
@@ -136,7 +136,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
             type=self.type)
 
 
-def get_notification_destination(account_id: Optional[int] = None,
+def get_notification_destination(account_id: Optional[str] = None,
                                  id: Optional[str] = None,
                                  name: Optional[str] = None,
                                  secure_urls: Optional[Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']]] = None,
@@ -144,7 +144,7 @@ def get_notification_destination(account_id: Optional[int] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    :param str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str id: The id of the notification destination in New Relic.
     :param str name: The name of the notification destination.
            
@@ -172,7 +172,7 @@ def get_notification_destination(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_notification_destination)
-def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                         id: Optional[pulumi.Input[Optional[str]]] = None,
                                         name: Optional[pulumi.Input[Optional[str]]] = None,
                                         secure_urls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']]]]] = None,
@@ -180,7 +180,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
     """
     Use this data source to access information about an existing resource.
 
-    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    :param str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str id: The id of the notification destination in New Relic.
     :param str name: The name of the notification destination.
            

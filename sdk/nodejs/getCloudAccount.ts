@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const account = newrelic.getCloudAccount({
- *     accountId: 12345,
+ *     accountId: "12345",
  *     cloudProvider: "aws",
  *     name: "my aws account",
  * });
@@ -38,7 +38,7 @@ export interface GetCloudAccountArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The cloud provider of the account (aws, gcp, azure, etc)
      */
@@ -53,7 +53,7 @@ export interface GetCloudAccountArgs {
  * A collection of values returned by getCloudAccount.
  */
 export interface GetCloudAccountResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     readonly cloudProvider: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -72,7 +72,7 @@ export interface GetCloudAccountResult {
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const account = newrelic.getCloudAccount({
- *     accountId: 12345,
+ *     accountId: "12345",
  *     cloudProvider: "aws",
  *     name: "my aws account",
  * });
@@ -89,7 +89,7 @@ export interface GetCloudAccountOutputArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The cloud provider of the account (aws, gcp, azure, etc)
      */

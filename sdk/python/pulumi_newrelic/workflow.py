@@ -19,7 +19,7 @@ class WorkflowArgs:
                  destinations: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]],
                  issues_filter: pulumi.Input['WorkflowIssuesFilterArgs'],
                  muting_rules_handling: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
@@ -30,7 +30,7 @@ class WorkflowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
@@ -95,14 +95,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -173,7 +173,7 @@ class WorkflowArgs:
 @pulumi.input_type
 class _WorkflowState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -187,7 +187,7 @@ class _WorkflowState:
                  workflow_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
@@ -231,14 +231,14 @@ class _WorkflowState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -383,7 +383,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -553,7 +553,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
@@ -743,7 +743,7 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -789,7 +789,7 @@ class Workflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
             destinations_enabled: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -808,7 +808,7 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
@@ -842,7 +842,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """

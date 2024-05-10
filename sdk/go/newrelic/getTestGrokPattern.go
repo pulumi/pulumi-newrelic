@@ -54,7 +54,7 @@ func GetTestGrokPattern(ctx *pulumi.Context, args *GetTestGrokPatternArgs, opts 
 // A collection of arguments for invoking getTestGrokPattern.
 type GetTestGrokPatternArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The Grok pattern to test.
 	Grok string `pulumi:"grok"`
 	// The log lines to test the Grok pattern against.
@@ -63,8 +63,8 @@ type GetTestGrokPatternArgs struct {
 
 // A collection of values returned by getTestGrokPattern.
 type GetTestGrokPatternResult struct {
-	AccountId *int   `pulumi:"accountId"`
-	Grok      string `pulumi:"grok"`
+	AccountId *string `pulumi:"accountId"`
+	Grok      string  `pulumi:"grok"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string   `pulumi:"id"`
 	LogLines []string `pulumi:"logLines"`
@@ -88,7 +88,7 @@ func GetTestGrokPatternOutput(ctx *pulumi.Context, args GetTestGrokPatternOutput
 // A collection of arguments for invoking getTestGrokPattern.
 type GetTestGrokPatternOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The Grok pattern to test.
 	Grok pulumi.StringInput `pulumi:"grok"`
 	// The log lines to test the Grok pattern against.
@@ -114,8 +114,8 @@ func (o GetTestGrokPatternResultOutput) ToGetTestGrokPatternResultOutputWithCont
 	return o
 }
 
-func (o GetTestGrokPatternResultOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetTestGrokPatternResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o GetTestGrokPatternResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTestGrokPatternResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTestGrokPatternResultOutput) Grok() pulumi.StringOutput {

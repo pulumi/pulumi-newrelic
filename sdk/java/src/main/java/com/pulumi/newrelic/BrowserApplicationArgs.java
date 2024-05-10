@@ -6,7 +6,6 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,13 +21,13 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -126,7 +125,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -137,7 +136,7 @@ public final class BrowserApplicationArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

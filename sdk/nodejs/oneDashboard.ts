@@ -48,7 +48,7 @@ export class OneDashboard extends pulumi.CustomResource {
     /**
      * The New Relic account ID where you want to create the dashboard.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * (Optional) Brief text describing the page.
      */
@@ -123,7 +123,7 @@ export interface OneDashboardState {
     /**
      * The New Relic account ID where you want to create the dashboard.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Optional) Brief text describing the page.
      */
@@ -159,7 +159,7 @@ export interface OneDashboardArgs {
     /**
      * The New Relic account ID where you want to create the dashboard.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * (Optional) Brief text describing the page.
      */

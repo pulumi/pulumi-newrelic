@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.GcpLinkAccountArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpLinkAccountState;
-import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -85,14 +84,14 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * Account ID of the New Relic account.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account ID of the New Relic account.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

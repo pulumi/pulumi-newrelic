@@ -5,7 +5,6 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -22,13 +21,13 @@ public final class GetPrivateLocationPlainArgs extends com.pulumi.resources.Invo
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -94,7 +93,7 @@ public final class GetPrivateLocationPlainArgs extends com.pulumi.resources.Invo
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }

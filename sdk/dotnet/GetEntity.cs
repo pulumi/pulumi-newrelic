@@ -55,7 +55,7 @@ namespace Pulumi.NewRelic
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
-        ///         AccountId = 654321,
+        ///         AccountId = "654321",
         ///         Domain = "APM",
         ///         Type = "APPLICATION",
         ///     });
@@ -159,7 +159,7 @@ namespace Pulumi.NewRelic
         ///     var app = NewRelic.GetEntity.Invoke(new()
         ///     {
         ///         Name = "my-app",
-        ///         AccountId = 654321,
+        ///         AccountId = "654321",
         ///         Domain = "APM",
         ///         Type = "APPLICATION",
         ///     });
@@ -227,7 +227,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
@@ -285,7 +285,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
@@ -341,11 +341,11 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetEntityResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// The domain-specific application ID of the entity. Only returned for APM and Browser applications.
         /// </summary>
-        public readonly int ApplicationId;
+        public readonly string ApplicationId;
         public readonly string Domain;
         /// <summary>
         /// The unique GUID of the entity.
@@ -361,15 +361,15 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
         /// </summary>
-        public readonly int ServingApmApplicationId;
+        public readonly string ServingApmApplicationId;
         public readonly ImmutableArray<Outputs.GetEntityTagResult> Tags;
         public readonly string Type;
 
         [OutputConstructor]
         private GetEntityResult(
-            int accountId,
+            string accountId,
 
-            int applicationId,
+            string applicationId,
 
             string domain,
 
@@ -383,7 +383,7 @@ namespace Pulumi.NewRelic
 
             string name,
 
-            int servingApmApplicationId,
+            string servingApmApplicationId,
 
             ImmutableArray<Outputs.GetEntityTagResult> tags,
 

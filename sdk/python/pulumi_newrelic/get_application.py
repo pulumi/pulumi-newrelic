@@ -37,7 +37,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="hostIds")
-    def host_ids(self) -> Sequence[int]:
+    def host_ids(self) -> Sequence[str]:
         """
         A list of host IDs associated with the application.
         """
@@ -53,7 +53,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="instanceIds")
-    def instance_ids(self) -> Sequence[int]:
+    def instance_ids(self) -> Sequence[str]:
         """
         A list of instance IDs associated with the application.
         """

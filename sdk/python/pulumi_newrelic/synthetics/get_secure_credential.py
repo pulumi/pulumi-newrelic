@@ -22,8 +22,8 @@ class GetSecureCredentialResult:
     A collection of values returned by getSecureCredential.
     """
     def __init__(__self__, account_id=None, description=None, id=None, key=None, last_updated=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -40,7 +40,7 @@ class GetSecureCredentialResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
+    def account_id(self) -> str:
         return pulumi.get(self, "account_id")
 
     @property
@@ -86,7 +86,7 @@ class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
             last_updated=self.last_updated)
 
 
-def get_secure_credential(account_id: Optional[int] = None,
+def get_secure_credential(account_id: Optional[str] = None,
                           key: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecureCredentialResult:
     """
@@ -118,7 +118,7 @@ def get_secure_credential(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_secure_credential)
-def get_secure_credential_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_secure_credential_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  key: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecureCredentialResult]:
     """

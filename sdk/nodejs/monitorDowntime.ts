@@ -214,7 +214,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
@@ -313,7 +313,7 @@ export interface MonitorDowntimeState {
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
@@ -360,7 +360,7 @@ export interface MonitorDowntimeArgs {
      * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */

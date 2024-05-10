@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const example = newrelic.synthetics.getPrivateLocation({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "My private location",
  * });
  * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const example = newrelic.synthetics.getPrivateLocation({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "My private location",
  * });
  * const foo = new newrelic.synthetics.StepMonitor("foo", {locationPrivates: [{
@@ -50,7 +50,7 @@ export interface GetPrivateLocationArgs {
     /**
      * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The key of the private location.
      */
@@ -65,7 +65,7 @@ export interface GetPrivateLocationArgs {
  * A collection of values returned by getPrivateLocation.
  */
 export interface GetPrivateLocationResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -86,7 +86,7 @@ export interface GetPrivateLocationResult {
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const example = newrelic.synthetics.getPrivateLocation({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "My private location",
  * });
  * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [example.then(example => example.id)]});
@@ -97,7 +97,7 @@ export interface GetPrivateLocationResult {
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const example = newrelic.synthetics.getPrivateLocation({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "My private location",
  * });
  * const foo = new newrelic.synthetics.StepMonitor("foo", {locationPrivates: [{
@@ -116,7 +116,7 @@ export interface GetPrivateLocationOutputArgs {
     /**
      * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The key of the private location.
      */

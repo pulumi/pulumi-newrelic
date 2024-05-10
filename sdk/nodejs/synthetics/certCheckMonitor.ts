@@ -104,7 +104,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The desired number of remaining days until the certificate expires to trigger a monitor failure.
      */
@@ -216,7 +216,7 @@ export interface CertCheckMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The desired number of remaining days until the certificate expires to trigger a monitor failure.
      */
@@ -272,7 +272,7 @@ export interface CertCheckMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The desired number of remaining days until the certificate expires to trigger a monitor failure.
      */

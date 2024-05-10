@@ -18,7 +18,7 @@ class MonitorArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -128,14 +128,14 @@ class MonitorArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -350,7 +350,7 @@ class MonitorArgs:
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class _MonitorState:
                  verify_ssl: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -444,14 +444,14 @@ class _MonitorState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -704,7 +704,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -864,7 +864,7 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -1047,7 +1047,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -1111,7 +1111,7 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             bypass_head_request: Optional[pulumi.Input[bool]] = None,
             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
             device_orientation: Optional[pulumi.Input[str]] = None,
@@ -1139,7 +1139,7 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -1194,7 +1194,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the Synthetics monitor will be created.
         """

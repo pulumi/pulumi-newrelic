@@ -158,7 +158,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A list of host IDs associated with the application.
         /// </summary>
-        public readonly ImmutableArray<int> HostIds;
+        public readonly ImmutableArray<string> HostIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -166,16 +166,16 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A list of instance IDs associated with the application.
         /// </summary>
-        public readonly ImmutableArray<int> InstanceIds;
+        public readonly ImmutableArray<string> InstanceIds;
         public readonly string Name;
 
         [OutputConstructor]
         private GetApplicationResult(
-            ImmutableArray<int> hostIds,
+            ImmutableArray<string> hostIds,
 
             string id,
 
-            ImmutableArray<int> instanceIds,
+            ImmutableArray<string> instanceIds,
 
             string name)
         {

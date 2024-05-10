@@ -32,8 +32,8 @@ namespace Pulumi.NewRelic
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("newrelic");
 
-        private static readonly __Value<int?> _accountId = new __Value<int?>(() => __config.GetInt32("accountId") ?? Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID"));
-        public static int? AccountId
+        private static readonly __Value<string?> _accountId = new __Value<string?>(() => __config.Get("accountId") ?? Utilities.GetEnv("NEW_RELIC_ACCOUNT_ID"));
+        public static string? AccountId
         {
             get => _accountId.Get();
             set => _accountId.Set(value);

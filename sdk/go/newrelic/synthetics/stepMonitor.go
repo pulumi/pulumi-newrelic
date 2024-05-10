@@ -145,7 +145,7 @@ type StepMonitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique entity identifier of the monitor in New Relic.
@@ -214,7 +214,7 @@ func GetStepMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering StepMonitor resources.
 type stepMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique entity identifier of the monitor in New Relic.
@@ -245,7 +245,7 @@ type stepMonitorState struct {
 
 type StepMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The unique entity identifier of the monitor in New Relic.
@@ -280,7 +280,7 @@ func (StepMonitorState) ElementType() reflect.Type {
 
 type stepMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
@@ -308,7 +308,7 @@ type stepMonitorArgs struct {
 // The set of arguments for constructing a StepMonitor resource.
 type StepMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
@@ -421,8 +421,8 @@ func (o StepMonitorOutput) ToStepMonitorOutputWithContext(ctx context.Context) S
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o StepMonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *StepMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o StepMonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Capture a screenshot during job execution.

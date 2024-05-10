@@ -6,7 +6,6 @@ package com.pulumi.newrelic.synthetics.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -82,13 +81,13 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="policyId")
-    private @Nullable Output<Integer> policyId;
+    private @Nullable Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Optional<Output<Integer>> policyId() {
+    public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
 
@@ -226,7 +225,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder policyId(@Nullable Output<Integer> policyId) {
+        public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -237,7 +236,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

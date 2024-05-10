@@ -179,7 +179,7 @@ export class AlertChannel extends pulumi.CustomResource {
     /**
      * The New Relic account ID where you want to create alert channels.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The configuration block for the alert channel.
      */
@@ -232,7 +232,7 @@ export interface AlertChannelState {
     /**
      * The New Relic account ID where you want to create alert channels.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The configuration block for the alert channel.
      */
@@ -254,7 +254,7 @@ export interface AlertChannelArgs {
     /**
      * The New Relic account ID where you want to create alert channels.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The configuration block for the alert channel.
      */

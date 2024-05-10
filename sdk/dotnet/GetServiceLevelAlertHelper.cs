@@ -37,7 +37,7 @@ namespace Pulumi.NewRelic
         ///         Description = "Proportion of requests that are served faster than a threshold.",
         ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
         ///         {
-        ///             AccountId = 12345678,
+        ///             AccountId = "12345678",
         ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
         ///             {
         ///                 From = "Transaction",
@@ -90,8 +90,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Name = "Slow burn alert",
         ///         Enabled = true,
@@ -141,8 +141,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Name = "Custom burn alert",
         ///         Enabled = true,
@@ -197,7 +197,7 @@ namespace Pulumi.NewRelic
         ///         Description = "Proportion of requests that are served faster than a threshold.",
         ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
         ///         {
-        ///             AccountId = 12345678,
+        ///             AccountId = "12345678",
         ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
         ///             {
         ///                 From = "Transaction",
@@ -250,8 +250,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Name = "Slow burn alert",
         ///         Enabled = true,
@@ -301,8 +301,8 @@ namespace Pulumi.NewRelic
         /// 
         ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
         ///     {
-        ///         AccountId = 12345678,
-        ///         PolicyId = 67890,
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
         ///         Type = "static",
         ///         Name = "Custom burn alert",
         ///         Enabled = true,

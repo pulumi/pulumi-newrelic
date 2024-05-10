@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// The account id used for the NRQL query.
         /// </summary>
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private OneDashboardPageWidgetTableNrqlQuery(
-            int? accountId,
+            string? accountId,
 
             string query)
         {

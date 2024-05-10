@@ -27,7 +27,7 @@ export interface GetAlertChannelArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The name of the alert channel in New Relic.
      */
@@ -38,7 +38,7 @@ export interface GetAlertChannelArgs {
  * A collection of values returned by getAlertChannel.
  */
 export interface GetAlertChannelResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * Alert channel configuration.
      */
@@ -51,7 +51,7 @@ export interface GetAlertChannelResult {
     /**
      * A list of policy IDs associated with the alert channel.
      */
-    readonly policyIds: number[];
+    readonly policyIds: string[];
     /**
      * Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
      */
@@ -73,7 +73,7 @@ export interface GetAlertChannelOutputArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The name of the alert channel in New Relic.
      */

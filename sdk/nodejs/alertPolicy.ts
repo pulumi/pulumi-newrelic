@@ -135,11 +135,11 @@ export class AlertPolicy extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    public readonly channelIds!: pulumi.Output<number[] | undefined>;
+    public readonly channelIds!: pulumi.Output<string[] | undefined>;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
      * is PER_POLICY.
@@ -186,11 +186,11 @@ export interface AlertPolicyState {
     /**
      * The New Relic account ID to operate on.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
      * is PER_POLICY.
@@ -209,11 +209,11 @@ export interface AlertPolicyArgs {
     /**
      * The New Relic account ID to operate on.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
      * is PER_POLICY.

@@ -654,7 +654,7 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -799,7 +799,7 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -944,7 +944,7 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1085,7 +1085,7 @@ export interface OneDashboardPageWidgetBulletNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1222,7 +1222,7 @@ export interface OneDashboardPageWidgetFunnelNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1367,7 +1367,7 @@ export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1504,7 +1504,7 @@ export interface OneDashboardPageWidgetHistogramNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1641,7 +1641,7 @@ export interface OneDashboardPageWidgetJsonNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1782,7 +1782,7 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -1919,7 +1919,7 @@ export interface OneDashboardPageWidgetLogTableNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2190,7 +2190,7 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2327,7 +2327,7 @@ export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2472,7 +2472,7 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * The account id used for the NRQL query.
      */
-    accountId: number;
+    accountId: string;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2635,7 +2635,7 @@ export interface OneDashboardVariableNrqlQuery {
     /**
      * New Relic account ID(s) to issue the query against.
      */
-    accountIds?: number[];
+    accountIds?: string[];
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -2650,7 +2650,7 @@ export interface OneDashboardVariableOption {
 }
 
 export interface ServiceLevelEvents {
-    accountId: number;
+    accountId: string;
     badEvents?: outputs.ServiceLevelEventsBadEvents;
     goodEvents?: outputs.ServiceLevelEventsGoodEvents;
     validEvents: outputs.ServiceLevelEventsValidEvents;
@@ -2747,7 +2747,7 @@ export interface WorkflowEnrichmentsNrql {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId: number;
+    accountId: string;
     /**
      * A set of key-value pairs to represent a enrichment configuration.
      */

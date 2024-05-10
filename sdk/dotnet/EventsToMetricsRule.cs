@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.EventsToMetricsRule("foo", new()
     ///     {
-    ///         AccountId = 12345,
+    ///         AccountId = "12345",
     ///         Name = "Example events to metrics rule",
     ///         Description = "Example description",
     ///         Nrql = "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
@@ -52,7 +52,7 @@ namespace Pulumi.NewRelic
         /// Account with the event and where the metrics will be put.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Provides additional information about the rule.
@@ -134,7 +134,7 @@ namespace Pulumi.NewRelic
         /// Account with the event and where the metrics will be put.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Provides additional information about the rule.
@@ -172,7 +172,7 @@ namespace Pulumi.NewRelic
         /// Account with the event and where the metrics will be put.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Provides additional information about the rule.

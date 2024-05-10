@@ -25,7 +25,7 @@ type OneDashboard struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID where you want to create the dashboard.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// (Optional) Brief text describing the page.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
@@ -76,7 +76,7 @@ func GetOneDashboard(ctx *pulumi.Context,
 // Input properties used for looking up and filtering OneDashboard resources.
 type oneDashboardState struct {
 	// The New Relic account ID where you want to create the dashboard.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Optional) Brief text describing the page.
 	Description *string `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
@@ -95,7 +95,7 @@ type oneDashboardState struct {
 
 type OneDashboardState struct {
 	// The New Relic account ID where you want to create the dashboard.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// (Optional) Brief text describing the page.
 	Description pulumi.StringPtrInput
 	// The unique entity identifier of the dashboard page in New Relic.
@@ -118,7 +118,7 @@ func (OneDashboardState) ElementType() reflect.Type {
 
 type oneDashboardArgs struct {
 	// The New Relic account ID where you want to create the dashboard.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Optional) Brief text describing the page.
 	Description *string `pulumi:"description"`
 	// (Required) The variable identifier.
@@ -134,7 +134,7 @@ type oneDashboardArgs struct {
 // The set of arguments for constructing a OneDashboard resource.
 type OneDashboardArgs struct {
 	// The New Relic account ID where you want to create the dashboard.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// (Optional) Brief text describing the page.
 	Description pulumi.StringPtrInput
 	// (Required) The variable identifier.
@@ -235,8 +235,8 @@ func (o OneDashboardOutput) ToOneDashboardOutputWithContext(ctx context.Context)
 }
 
 // The New Relic account ID where you want to create the dashboard.
-func (o OneDashboardOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *OneDashboard) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // (Optional) Brief text describing the page.

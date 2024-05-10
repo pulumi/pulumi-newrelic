@@ -71,7 +71,7 @@ namespace Pulumi.NewRelic
         /// The account ID in New Relic.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The account name in New Relic.
@@ -97,7 +97,7 @@ namespace Pulumi.NewRelic
         /// The account ID in New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The account name in New Relic.
@@ -121,7 +121,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAccountResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -131,7 +131,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAccountResult(
-            int? accountId,
+            string? accountId,
 
             string id,
 

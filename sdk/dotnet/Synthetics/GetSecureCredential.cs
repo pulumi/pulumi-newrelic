@@ -68,7 +68,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class GetSecureCredentialArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class GetSecureCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.NewRelic.Synthetics
     [OutputType]
     public sealed class GetSecureCredentialResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// The secure credential's description.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.NewRelic.Synthetics
 
         [OutputConstructor]
         private GetSecureCredentialResult(
-            int accountId,
+            string accountId,
 
             string description,
 

@@ -27,7 +27,9 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/walk"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
 	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
@@ -73,6 +75,35 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 // makeResource manufactures a standard resource token given a module and resource name.
 func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
+}
+
+func setIDType(info tfbridge.PropertyVisitInfo) (tfbridge.PropertyVisitResult, error) {
+	p := info.SchemaPath()
+	attr, _ := p[len(p)-1].(walk.GetAttrStep)
+
+	switch {
+	// manufactures a schema for a string ID. This is used to override a number of
+	// NewRelic *_id fields which use integers for inputs, which are incompatible with
+	// a number of string outputs (including Pulumi's built-in IDs, which are always
+	// strings).
+	case strings.HasSuffix(attr.Name, "_id"):
+		info.SchemaInfo().Type = "string"
+	// manufactures a schema for a list of string IDs. This is used to override a
+	// number of NewRelic *_ids fields which use integers for inputs, which are
+	// incompatible with a number of string outputs (including Pulumi's built-in IDs,
+	// which are always strings).
+	case (strings.HasSuffix(attr.Name, "_ids") || attr.Name == "entities") &&
+		(info.ShimSchema().Type() == shim.TypeList || info.ShimSchema().Type() == shim.TypeSet):
+		schema := info.SchemaInfo()
+		if schema.Elem == nil {
+			schema.Elem = &tfbridge.SchemaInfo{}
+		}
+		schema.Elem.Type = "string"
+	default:
+		return tfbridge.PropertyVisitResult{}, nil
+	}
+
+	return tfbridge.PropertyVisitResult{HasEffect: true}, nil
 }
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
@@ -238,6 +269,8 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: namespaceMap,
 		},
 	}
+
+	tfbridge.MustTraverseProperties(&prov, "set-id-type", setIDType)
 
 	prov.MustComputeTokens(tfbridgetokens.KnownModules("newrelic_", mainMod, []string{
 		"cloud_",

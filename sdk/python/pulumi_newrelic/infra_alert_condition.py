@@ -16,7 +16,7 @@ __all__ = ['InfraAlertConditionArgs', 'InfraAlertCondition']
 @pulumi.input_type
 class InfraAlertConditionArgs:
     def __init__(__self__, *,
-                 policy_id: pulumi.Input[int],
+                 policy_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  comparison: Optional[pulumi.Input[str]] = None,
                  critical: Optional[pulumi.Input['InfraAlertConditionCriticalArgs']] = None,
@@ -33,7 +33,7 @@ class InfraAlertConditionArgs:
                  where: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InfraAlertCondition resource.
-        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] type: The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
                infra_host_not_reporting.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
@@ -87,14 +87,14 @@ class InfraAlertConditionArgs:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Input[int]:
+    def policy_id(self) -> pulumi.Input[str]:
         """
         The ID of the alert policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: pulumi.Input[int]):
+    def policy_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -285,7 +285,7 @@ class _InfraAlertConditionState:
                  event: Optional[pulumi.Input[str]] = None,
                  integration_provider: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  process_where: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  select: Optional[pulumi.Input[str]] = None,
@@ -306,7 +306,7 @@ class _InfraAlertConditionState:
         :param pulumi.Input[str] event: The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
-        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
                type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -470,14 +470,14 @@ class _InfraAlertConditionState:
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[int]]:
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the alert policy where this condition should be used.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[int]]):
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
 
     @property
@@ -595,7 +595,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  event: Optional[pulumi.Input[str]] = None,
                  integration_provider: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  process_where: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  select: Optional[pulumi.Input[str]] = None,
@@ -744,7 +744,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] event: The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
-        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
                type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -917,7 +917,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  event: Optional[pulumi.Input[str]] = None,
                  integration_provider: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[int]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  process_where: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  select: Optional[pulumi.Input[str]] = None,
@@ -975,7 +975,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             event: Optional[pulumi.Input[str]] = None,
             integration_provider: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[int]] = None,
+            policy_id: Optional[pulumi.Input[str]] = None,
             process_where: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
             select: Optional[pulumi.Input[str]] = None,
@@ -1001,7 +1001,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] event: The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
-        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[str] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: commandName = 'java'. Supported by the infra_process_running condition
                type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -1116,7 +1116,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[int]:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         The ID of the alert policy where this condition should be used.
         """

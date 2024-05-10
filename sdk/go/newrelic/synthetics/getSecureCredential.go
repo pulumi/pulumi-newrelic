@@ -52,13 +52,13 @@ func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArg
 
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialArgs struct {
-	AccountId *int   `pulumi:"accountId"`
-	Key       string `pulumi:"key"`
+	AccountId *string `pulumi:"accountId"`
+	Key       string  `pulumi:"key"`
 }
 
 // A collection of values returned by getSecureCredential.
 type LookupSecureCredentialResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -83,8 +83,8 @@ func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredenti
 
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialOutputArgs struct {
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
-	Key       pulumi.StringInput `pulumi:"key"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	Key       pulumi.StringInput    `pulumi:"key"`
 }
 
 func (LookupSecureCredentialOutputArgs) ElementType() reflect.Type {
@@ -106,8 +106,8 @@ func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutput
 	return o
 }
 
-func (o LookupSecureCredentialResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupSecureCredentialResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupSecureCredentialResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The secure credential's description.

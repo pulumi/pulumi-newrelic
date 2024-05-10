@@ -27,7 +27,7 @@ namespace Pulumi.NewRelic
         /// {
         ///     var account = NewRelic.GetCloudAccount.Invoke(new()
         ///     {
-        ///         AccountId = 12345,
+        ///         AccountId = "12345",
         ///         CloudProvider = "aws",
         ///         Name = "my aws account",
         ///     });
@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic
         /// {
         ///     var account = NewRelic.GetCloudAccount.Invoke(new()
         ///     {
-        ///         AccountId = 12345,
+        ///         AccountId = "12345",
         ///         CloudProvider = "aws",
         ///         Name = "my aws account",
         ///     });
@@ -73,7 +73,7 @@ namespace Pulumi.NewRelic
         /// The account ID in New Relic.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The cloud provider of the account (aws, gcp, azure, etc)
@@ -99,7 +99,7 @@ namespace Pulumi.NewRelic
         /// The account ID in New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The cloud provider of the account (aws, gcp, azure, etc)
@@ -123,7 +123,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetCloudAccountResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         public readonly string CloudProvider;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -133,7 +133,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetCloudAccountResult(
-            int? accountId,
+            string? accountId,
 
             string cloudProvider,
 

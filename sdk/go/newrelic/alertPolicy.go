@@ -97,7 +97,7 @@ import (
 //			_, err = newrelic.NewAlertPolicy(ctx, "policy_with_channels", &newrelic.AlertPolicyArgs{
 //				Name:               pulumi.String("example-with-channels"),
 //				IncidentPreference: pulumi.String("PER_CONDITION"),
-//				ChannelIds: pulumi.IntArray{
+//				ChannelIds: pulumi.StringArray{
 //					slackChannel.ID(),
 //					emailChannel.ID(),
 //				},
@@ -142,7 +142,7 @@ import (
 //			_, err = newrelic.NewAlertPolicy(ctx, "policy_with_channels", &newrelic.AlertPolicyArgs{
 //				Name:               pulumi.String("example-with-channels"),
 //				IncidentPreference: pulumi.String("PER_CONDITION"),
-//				ChannelIds: pulumi.IntArray{
+//				ChannelIds: pulumi.StringArray{
 //					pulumi.String(slackChannel.Id),
 //					pulumi.String(emailChannel.Id),
 //				},
@@ -170,9 +170,9 @@ type AlertPolicy struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
-	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
+	ChannelIds pulumi.StringArrayOutput `pulumi:"channelIds"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
 	// is PER_POLICY.
 	IncidentPreference pulumi.StringPtrOutput `pulumi:"incidentPreference"`
@@ -211,9 +211,9 @@ func GetAlertPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertPolicy resources.
 type alertPolicyState struct {
 	// The New Relic account ID to operate on.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
-	ChannelIds []int `pulumi:"channelIds"`
+	ChannelIds []string `pulumi:"channelIds"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
 	// is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -223,9 +223,9 @@ type alertPolicyState struct {
 
 type AlertPolicyState struct {
 	// The New Relic account ID to operate on.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
-	ChannelIds pulumi.IntArrayInput
+	ChannelIds pulumi.StringArrayInput
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
 	// is PER_POLICY.
 	IncidentPreference pulumi.StringPtrInput
@@ -239,9 +239,9 @@ func (AlertPolicyState) ElementType() reflect.Type {
 
 type alertPolicyArgs struct {
 	// The New Relic account ID to operate on.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
-	ChannelIds []int `pulumi:"channelIds"`
+	ChannelIds []string `pulumi:"channelIds"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
 	// is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -252,9 +252,9 @@ type alertPolicyArgs struct {
 // The set of arguments for constructing a AlertPolicy resource.
 type AlertPolicyArgs struct {
 	// The New Relic account ID to operate on.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
-	ChannelIds pulumi.IntArrayInput
+	ChannelIds pulumi.StringArrayInput
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
 	// is PER_POLICY.
 	IncidentPreference pulumi.StringPtrInput
@@ -350,13 +350,13 @@ func (o AlertPolicyOutput) ToAlertPolicyOutputWithContext(ctx context.Context) A
 }
 
 // The New Relic account ID to operate on.
-func (o AlertPolicyOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertPolicy) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AlertPolicyOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Deprecated: The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
-func (o AlertPolicyOutput) ChannelIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *AlertPolicy) pulumi.IntArrayOutput { return v.ChannelIds }).(pulumi.IntArrayOutput)
+func (o AlertPolicyOutput) ChannelIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringArrayOutput { return v.ChannelIds }).(pulumi.StringArrayOutput)
 }
 
 // The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default

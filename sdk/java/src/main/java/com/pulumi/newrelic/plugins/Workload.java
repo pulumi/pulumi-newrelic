@@ -13,7 +13,6 @@ import com.pulumi.newrelic.plugins.inputs.WorkloadState;
 import com.pulumi.newrelic.plugins.outputs.WorkloadEntitySearchQuery;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomatic;
 import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigStatic;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -292,14 +291,14 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The New Relic account ID where you want to create the workload.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID where you want to create the workload.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -404,14 +403,14 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * A list of account IDs that will be used to get entities from.
      * 
      */
-    @Export(name="scopeAccountIds", refs={List.class,Integer.class}, tree="[0,1]")
-    private Output<List<Integer>> scopeAccountIds;
+    @Export(name="scopeAccountIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> scopeAccountIds;
 
     /**
      * @return A list of account IDs that will be used to get entities from.
      * 
      */
-    public Output<List<Integer>> scopeAccountIds() {
+    public Output<List<String>> scopeAccountIds() {
         return this.scopeAccountIds;
     }
     /**
@@ -446,14 +445,14 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * The unique entity identifier of the workload.
      * 
      */
-    @Export(name="workloadId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> workloadId;
+    @Export(name="workloadId", refs={String.class}, tree="[0]")
+    private Output<String> workloadId;
 
     /**
      * @return The unique entity identifier of the workload.
      * 
      */
-    public Output<Integer> workloadId() {
+    public Output<String> workloadId() {
         return this.workloadId;
     }
 

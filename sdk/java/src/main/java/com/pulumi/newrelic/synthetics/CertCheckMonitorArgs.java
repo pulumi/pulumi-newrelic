@@ -24,13 +24,13 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The account in which the Synthetics monitor will be created.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -228,7 +228,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -239,7 +239,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

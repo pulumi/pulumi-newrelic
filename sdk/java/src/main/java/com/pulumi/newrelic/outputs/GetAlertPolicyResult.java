@@ -5,7 +5,6 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,7 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAlertPolicyResult {
-    private Integer accountId;
+    private String accountId;
     /**
      * @return The time the policy was created.
      * 
@@ -37,7 +36,7 @@ public final class GetAlertPolicyResult {
     private String updatedAt;
 
     private GetAlertPolicyResult() {}
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     /**
@@ -81,7 +80,7 @@ public final class GetAlertPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
+        private String accountId;
         private String createdAt;
         private String id;
         private @Nullable String incidentPreference;
@@ -99,7 +98,7 @@ public final class GetAlertPolicyResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("GetAlertPolicyResult", "accountId");
             }

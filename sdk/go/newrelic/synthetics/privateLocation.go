@@ -52,7 +52,7 @@ type PrivateLocation struct {
 	pulumi.CustomResourceState
 
 	// The account in which the private location will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The private location description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The private location globally unique identifier.
@@ -103,7 +103,7 @@ func GetPrivateLocation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PrivateLocation resources.
 type privateLocationState struct {
 	// The account in which the private location will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The private location description.
 	Description *string `pulumi:"description"`
 	// The private location globally unique identifier.
@@ -122,7 +122,7 @@ type privateLocationState struct {
 
 type PrivateLocationState struct {
 	// The account in which the private location will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The private location description.
 	Description pulumi.StringPtrInput
 	// The private location globally unique identifier.
@@ -145,7 +145,7 @@ func (PrivateLocationState) ElementType() reflect.Type {
 
 type privateLocationArgs struct {
 	// The account in which the private location will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The private location description.
 	Description string `pulumi:"description"`
 	// The name of the private location.
@@ -157,7 +157,7 @@ type privateLocationArgs struct {
 // The set of arguments for constructing a PrivateLocation resource.
 type PrivateLocationArgs struct {
 	// The account in which the private location will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The private location description.
 	Description pulumi.StringInput
 	// The name of the private location.
@@ -254,8 +254,8 @@ func (o PrivateLocationOutput) ToPrivateLocationOutputWithContext(ctx context.Co
 }
 
 // The account in which the private location will be created.
-func (o PrivateLocationOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *PrivateLocation) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o PrivateLocationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLocation) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The private location description.

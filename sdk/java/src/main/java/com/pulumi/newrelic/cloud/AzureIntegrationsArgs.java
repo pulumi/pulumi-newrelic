@@ -38,7 +38,7 @@ import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVirtualMachineArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVirtualNetworksArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVmsArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsVpnGatewayArgs;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -53,13 +53,13 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -265,7 +265,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="linkedAccountId", required=true)
-    private Output<Integer> linkedAccountId;
+    private Output<String> linkedAccountId;
 
     /**
      * @return The ID of the linked Azure account in New Relic.
@@ -273,7 +273,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
      * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
      * 
      */
-    public Output<Integer> linkedAccountId() {
+    public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
 
@@ -637,7 +637,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -648,7 +648,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -933,7 +933,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder linkedAccountId(Output<Integer> linkedAccountId) {
+        public Builder linkedAccountId(Output<String> linkedAccountId) {
             $.linkedAccountId = linkedAccountId;
             return this;
         }
@@ -946,7 +946,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder linkedAccountId(Integer linkedAccountId) {
+        public Builder linkedAccountId(String linkedAccountId) {
             return linkedAccountId(Output.of(linkedAccountId));
         }
 

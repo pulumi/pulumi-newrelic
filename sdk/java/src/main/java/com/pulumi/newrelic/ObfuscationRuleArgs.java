@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,13 +24,13 @@ public final class ObfuscationRuleArgs extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The account id associated with the obfuscation rule.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -145,7 +144,7 @@ public final class ObfuscationRuleArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -156,7 +155,7 @@ public final class ObfuscationRuleArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

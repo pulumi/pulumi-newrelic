@@ -6,14 +6,13 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetAlertChannelConfig;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetAlertChannelResult {
-    private Integer accountId;
+    private String accountId;
     /**
      * @return Alert channel configuration.
      * 
@@ -29,7 +28,7 @@ public final class GetAlertChannelResult {
      * @return A list of policy IDs associated with the alert channel.
      * 
      */
-    private List<Integer> policyIds;
+    private List<String> policyIds;
     /**
      * @return Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
      * 
@@ -37,7 +36,7 @@ public final class GetAlertChannelResult {
     private String type;
 
     private GetAlertChannelResult() {}
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     /**
@@ -61,7 +60,7 @@ public final class GetAlertChannelResult {
      * @return A list of policy IDs associated with the alert channel.
      * 
      */
-    public List<Integer> policyIds() {
+    public List<String> policyIds() {
         return this.policyIds;
     }
     /**
@@ -81,11 +80,11 @@ public final class GetAlertChannelResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
+        private String accountId;
         private GetAlertChannelConfig config;
         private String id;
         private String name;
-        private List<Integer> policyIds;
+        private List<String> policyIds;
         private String type;
         public Builder() {}
         public Builder(GetAlertChannelResult defaults) {
@@ -99,7 +98,7 @@ public final class GetAlertChannelResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("GetAlertChannelResult", "accountId");
             }
@@ -131,14 +130,14 @@ public final class GetAlertChannelResult {
             return this;
         }
         @CustomType.Setter
-        public Builder policyIds(List<Integer> policyIds) {
+        public Builder policyIds(List<String> policyIds) {
             if (policyIds == null) {
               throw new MissingRequiredPropertyException("GetAlertChannelResult", "policyIds");
             }
             this.policyIds = policyIds;
             return this;
         }
-        public Builder policyIds(Integer... policyIds) {
+        public Builder policyIds(String... policyIds) {
             return policyIds(List.of(policyIds));
         }
         @CustomType.Setter

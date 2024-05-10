@@ -5,7 +5,6 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationSecureUrl;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -22,13 +21,13 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -114,7 +113,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }

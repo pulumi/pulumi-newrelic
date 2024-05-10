@@ -222,14 +222,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The instance IDs associated with this condition.
      * 
      */
-    @Export(name="entities", refs={List.class,Integer.class}, tree="[0,1]")
-    private Output<List<Integer>> entities;
+    @Export(name="entities", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> entities;
 
     /**
      * @return The instance IDs associated with this condition.
      * 
      */
-    public Output<List<Integer>> entities() {
+    public Output<List<String>> entities() {
         return this.entities;
     }
     /**
@@ -294,14 +294,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**

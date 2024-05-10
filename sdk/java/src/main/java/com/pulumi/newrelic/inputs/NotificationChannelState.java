@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,13 +23,13 @@ public final class NotificationChannelState extends com.pulumi.resources.Resourc
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -176,7 +175,7 @@ public final class NotificationChannelState extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -187,7 +186,7 @@ public final class NotificationChannelState extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

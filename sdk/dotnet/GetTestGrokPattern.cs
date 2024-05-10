@@ -75,7 +75,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The Grok pattern to test.
@@ -107,7 +107,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The Grok pattern to test.
@@ -137,7 +137,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetTestGrokPatternResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         public readonly string Grok;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -151,7 +151,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetTestGrokPatternResult(
-            int? accountId,
+            string? accountId,
 
             string grok,
 

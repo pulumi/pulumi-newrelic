@@ -27,7 +27,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID where you want to create the dashboard.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) Brief text describing the page.
@@ -119,7 +119,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID where you want to create the dashboard.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// (Optional) Brief text describing the page.
@@ -172,7 +172,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID where you want to create the dashboard.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// (Optional) Brief text describing the page.

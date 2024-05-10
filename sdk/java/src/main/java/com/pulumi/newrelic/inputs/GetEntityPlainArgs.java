@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.GetEntityTag;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,13 +23,13 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -164,7 +163,7 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }

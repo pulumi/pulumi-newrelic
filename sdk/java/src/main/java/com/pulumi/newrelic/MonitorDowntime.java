@@ -12,7 +12,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.MonitorDowntimeState;
 import com.pulumi.newrelic.outputs.MonitorDowntimeEndRepeat;
 import com.pulumi.newrelic.outputs.MonitorDowntimeFrequency;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -344,15 +343,15 @@ public class MonitorDowntime extends com.pulumi.resources.CustomResource {
      * provider{} configuration if not specified.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
      * provider{} configuration if not specified.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

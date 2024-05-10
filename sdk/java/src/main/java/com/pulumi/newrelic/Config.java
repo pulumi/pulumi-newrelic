@@ -5,15 +5,14 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 
 public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("newrelic");
-    public Integer accountId() {
-        return Codegen.integerProp("accountId").config(config).env("NEW_RELIC_ACCOUNT_ID").require();
+    public String accountId() {
+        return Codegen.stringProp("accountId").config(config).env("NEW_RELIC_ACCOUNT_ID").require();
     }
     public Optional<String> adminApiKey() {
         return Codegen.stringProp("adminApiKey").config(config).get();

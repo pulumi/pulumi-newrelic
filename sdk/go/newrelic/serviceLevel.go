@@ -41,7 +41,7 @@ import (
 //				Name:        pulumi.String("Latency"),
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(12345678),
+//					AccountId: pulumi.String("12345678"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
@@ -91,7 +91,7 @@ import (
 //				Name:        pulumi.String("My synthethic monitor - Success"),
 //				Description: pulumi.String("Proportion of successful synthetic checks."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(12345678),
+//					AccountId: pulumi.String("12345678"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("SyntheticCheck"),
 //						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
@@ -160,7 +160,7 @@ import (
 //				Name:        pulumi.String("Duration distribution is under 7"),
 //				Description: pulumi.String("Monitor created to test concurrent request from terraform"),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(313870),
+//					AccountId: pulumi.String("313870"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From: pulumi.String("Metric"),
 //						Select: &newrelic.ServiceLevelEventsValidEventsSelectArgs{

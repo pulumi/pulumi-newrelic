@@ -65,7 +65,7 @@ export class ApiAccessKey extends pulumi.CustomResource {
     /**
      * The New Relic account ID of the account you wish to create the API access key.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      */
@@ -89,7 +89,7 @@ export class ApiAccessKey extends pulumi.CustomResource {
     /**
      * Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      */
-    public readonly userId!: pulumi.Output<number>;
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a ApiAccessKey resource with the given unique name, arguments, and options.
@@ -141,7 +141,7 @@ export interface ApiAccessKeyState {
     /**
      * The New Relic account ID of the account you wish to create the API access key.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      */
@@ -165,7 +165,7 @@ export interface ApiAccessKeyState {
     /**
      * Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      */
-    userId?: pulumi.Input<number>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface ApiAccessKeyArgs {
     /**
      * The New Relic account ID of the account you wish to create the API access key.
      */
-    accountId: pulumi.Input<number>;
+    accountId: pulumi.Input<string>;
     /**
      * Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      */
@@ -195,5 +195,5 @@ export interface ApiAccessKeyArgs {
     /**
      * Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      */
-    userId?: pulumi.Input<number>;
+    userId?: pulumi.Input<string>;
 }

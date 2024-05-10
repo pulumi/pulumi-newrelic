@@ -16,8 +16,8 @@ __all__ = ['AzureIntegrationsArgs', 'AzureIntegrations']
 @pulumi.input_type
 class AzureIntegrationsArgs:
     def __init__(__self__, *,
-                 linked_account_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
                  app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
                  app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
@@ -52,11 +52,11 @@ class AzureIntegrationsArgs:
                  vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None):
         """
         The set of arguments for constructing a AzureIntegrations resource.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppGatewayArgs'] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
@@ -166,7 +166,7 @@ class AzureIntegrationsArgs:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Input[int]:
+    def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked Azure account in New Relic.
 
@@ -176,19 +176,19 @@ class AzureIntegrationsArgs:
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: pulumi.Input[int]):
+    def linked_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -585,7 +585,7 @@ class AzureIntegrationsArgs:
 @pulumi.input_type
 class _AzureIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
                  app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
                  app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
@@ -599,7 +599,7 @@ class _AzureIntegrationsState:
                  front_door: Optional[pulumi.Input['AzureIntegrationsFrontDoorArgs']] = None,
                  functions: Optional[pulumi.Input['AzureIntegrationsFunctionsArgs']] = None,
                  key_vault: Optional[pulumi.Input['AzureIntegrationsKeyVaultArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancer: Optional[pulumi.Input['AzureIntegrationsLoadBalancerArgs']] = None,
                  logic_apps: Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']] = None,
                  machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
@@ -621,7 +621,7 @@ class _AzureIntegrationsState:
                  vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None):
         """
         Input properties used for looking up and filtering AzureIntegrations resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppGatewayArgs'] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
@@ -635,7 +635,7 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsFrontDoorArgs'] front_door: Azure Front Door. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsFunctionsArgs'] functions: Azure Functions. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
@@ -736,14 +736,14 @@ class _AzureIntegrationsState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -904,7 +904,7 @@ class _AzureIntegrationsState:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[int]]:
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the linked Azure account in New Relic.
 
@@ -914,7 +914,7 @@ class _AzureIntegrationsState:
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[int]]):
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
@@ -1157,7 +1157,7 @@ class AzureIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']]] = None,
                  app_gateway: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']]] = None,
                  app_service: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']]] = None,
@@ -1171,7 +1171,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  front_door: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']]] = None,
                  functions: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']]] = None,
                  key_vault: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancer: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']]] = None,
                  logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
@@ -1370,7 +1370,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']] app_service: Azure App Service. See Integration blocks below for details.
@@ -1384,7 +1384,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: Azure Front Door. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: Azure Functions. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
@@ -1611,7 +1611,7 @@ class AzureIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']]] = None,
                  app_gateway: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']]] = None,
                  app_service: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']]] = None,
@@ -1625,7 +1625,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  front_door: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']]] = None,
                  functions: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']]] = None,
                  key_vault: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancer: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']]] = None,
                  logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
@@ -1700,7 +1700,7 @@ class AzureIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             api_management: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']]] = None,
             app_gateway: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']]] = None,
             app_service: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']]] = None,
@@ -1714,7 +1714,7 @@ class AzureIntegrations(pulumi.CustomResource):
             front_door: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']]] = None,
             functions: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']]] = None,
             key_vault: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']]] = None,
-            linked_account_id: Optional[pulumi.Input[int]] = None,
+            linked_account_id: Optional[pulumi.Input[str]] = None,
             load_balancer: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']]] = None,
             logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
             machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
@@ -1741,7 +1741,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']] app_service: Azure App Service. See Integration blocks below for details.
@@ -1755,7 +1755,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: Azure Front Door. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: Azure Functions. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
@@ -1827,7 +1827,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -1939,7 +1939,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Output[int]:
+    def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked Azure account in New Relic.
 

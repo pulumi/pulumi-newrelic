@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
 import com.pulumi.newrelic.inputs.MonitorDowntimeFrequencyArgs;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,14 +24,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
      * provider{} configuration if not specified.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -211,7 +210,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -223,7 +222,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 

@@ -5,7 +5,6 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,9 +16,9 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
     public static final GetSecureCredentialPlainArgs Empty = new GetSecureCredentialPlainArgs();
 
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -55,7 +54,7 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
             $ = new GetSecureCredentialPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }

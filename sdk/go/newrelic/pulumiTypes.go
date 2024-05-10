@@ -4515,7 +4515,7 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi
 
 type OneDashboardPageWidgetAreaNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -4533,7 +4533,7 @@ type OneDashboardPageWidgetAreaNrqlQueryInput interface {
 
 type OneDashboardPageWidgetAreaNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -4590,8 +4590,8 @@ func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaN
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetAreaNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -5501,7 +5501,7 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.
 
 type OneDashboardPageWidgetBarNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -5519,7 +5519,7 @@ type OneDashboardPageWidgetBarNrqlQueryInput interface {
 
 type OneDashboardPageWidgetBarNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -5576,8 +5576,8 @@ func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrq
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetBarNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -6491,7 +6491,7 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i p
 
 type OneDashboardPageWidgetBillboardNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -6509,7 +6509,7 @@ type OneDashboardPageWidgetBillboardNrqlQueryInput interface {
 
 type OneDashboardPageWidgetBillboardNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -6566,8 +6566,8 @@ func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidget
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -7468,7 +7468,7 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulu
 
 type OneDashboardPageWidgetBulletNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -7486,7 +7486,7 @@ type OneDashboardPageWidgetBulletNrqlQueryInput interface {
 
 type OneDashboardPageWidgetBulletNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -7543,8 +7543,8 @@ func (o OneDashboardPageWidgetBulletNrqlQueryOutput) ToOneDashboardPageWidgetBul
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetBulletNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBulletNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetBulletNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -8436,7 +8436,7 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulu
 
 type OneDashboardPageWidgetFunnelNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -8454,7 +8454,7 @@ type OneDashboardPageWidgetFunnelNrqlQueryInput interface {
 
 type OneDashboardPageWidgetFunnelNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -8511,8 +8511,8 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) ToOneDashboardPageWidgetFun
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -9422,7 +9422,7 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pul
 
 type OneDashboardPageWidgetHeatmapNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -9440,7 +9440,7 @@ type OneDashboardPageWidgetHeatmapNrqlQueryInput interface {
 
 type OneDashboardPageWidgetHeatmapNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -9497,8 +9497,8 @@ func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) ToOneDashboardPageWidgetHe
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -10394,7 +10394,7 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i p
 
 type OneDashboardPageWidgetHistogramNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -10412,7 +10412,7 @@ type OneDashboardPageWidgetHistogramNrqlQueryInput interface {
 
 type OneDashboardPageWidgetHistogramNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -10469,8 +10469,8 @@ func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) ToOneDashboardPageWidget
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -11362,7 +11362,7 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi
 
 type OneDashboardPageWidgetJsonNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -11380,7 +11380,7 @@ type OneDashboardPageWidgetJsonNrqlQueryInput interface {
 
 type OneDashboardPageWidgetJsonNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -11437,8 +11437,8 @@ func (o OneDashboardPageWidgetJsonNrqlQueryOutput) ToOneDashboardPageWidgetJsonN
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetJsonNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetJsonNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetJsonNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -12339,7 +12339,7 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi
 
 type OneDashboardPageWidgetLineNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -12357,7 +12357,7 @@ type OneDashboardPageWidgetLineNrqlQueryInput interface {
 
 type OneDashboardPageWidgetLineNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -12414,8 +12414,8 @@ func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineN
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetLineNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -13307,7 +13307,7 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pu
 
 type OneDashboardPageWidgetLogTableNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -13325,7 +13325,7 @@ type OneDashboardPageWidgetLogTableNrqlQueryInput interface {
 
 type OneDashboardPageWidgetLogTableNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -13382,8 +13382,8 @@ func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetL
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -15155,7 +15155,7 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.I
 
 type OneDashboardPageWidgetPyNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -15173,7 +15173,7 @@ type OneDashboardPageWidgetPyNrqlQueryInput interface {
 
 type OneDashboardPageWidgetPyNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -15230,8 +15230,8 @@ func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQ
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetPyNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -16127,7 +16127,7 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i 
 
 type OneDashboardPageWidgetStackedBarNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -16145,7 +16145,7 @@ type OneDashboardPageWidgetStackedBarNrqlQueryInput interface {
 
 type OneDashboardPageWidgetStackedBarNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -16202,8 +16202,8 @@ func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidge
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -17113,7 +17113,7 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulum
 
 type OneDashboardPageWidgetTableNrqlQuery struct {
 	// The account id used for the NRQL query.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -17131,7 +17131,7 @@ type OneDashboardPageWidgetTableNrqlQueryInput interface {
 
 type OneDashboardPageWidgetTableNrqlQueryArgs struct {
 	// The account id used for the NRQL query.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -17188,8 +17188,8 @@ func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTabl
 }
 
 // The account id used for the NRQL query.
-func (o OneDashboardPageWidgetTableNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -18215,7 +18215,7 @@ func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboa
 
 type OneDashboardVariableNrqlQuery struct {
 	// New Relic account ID(s) to issue the query against.
-	AccountIds []int `pulumi:"accountIds"`
+	AccountIds []string `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -18233,7 +18233,7 @@ type OneDashboardVariableNrqlQueryInput interface {
 
 type OneDashboardVariableNrqlQueryArgs struct {
 	// New Relic account ID(s) to issue the query against.
-	AccountIds pulumi.IntArrayInput `pulumi:"accountIds"`
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -18316,8 +18316,8 @@ func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrO
 }
 
 // New Relic account ID(s) to issue the query against.
-func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []int { return v.AccountIds }).(pulumi.IntArrayOutput)
+func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -18350,13 +18350,13 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQ
 }
 
 // New Relic account ID(s) to issue the query against.
-func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []int {
+func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []string {
 		if v == nil {
 			return nil
 		}
 		return v.AccountIds
-	}).(pulumi.IntArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -18467,7 +18467,7 @@ func (o OneDashboardVariableOptionArrayOutput) Index(i pulumi.IntInput) OneDashb
 }
 
 type ServiceLevelEvents struct {
-	AccountId   int                           `pulumi:"accountId"`
+	AccountId   string                        `pulumi:"accountId"`
 	BadEvents   *ServiceLevelEventsBadEvents  `pulumi:"badEvents"`
 	GoodEvents  *ServiceLevelEventsGoodEvents `pulumi:"goodEvents"`
 	ValidEvents ServiceLevelEventsValidEvents `pulumi:"validEvents"`
@@ -18485,7 +18485,7 @@ type ServiceLevelEventsInput interface {
 }
 
 type ServiceLevelEventsArgs struct {
-	AccountId   pulumi.IntInput                      `pulumi:"accountId"`
+	AccountId   pulumi.StringInput                   `pulumi:"accountId"`
 	BadEvents   ServiceLevelEventsBadEventsPtrInput  `pulumi:"badEvents"`
 	GoodEvents  ServiceLevelEventsGoodEventsPtrInput `pulumi:"goodEvents"`
 	ValidEvents ServiceLevelEventsValidEventsInput   `pulumi:"validEvents"`
@@ -18568,8 +18568,8 @@ func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx c
 	}).(ServiceLevelEventsPtrOutput)
 }
 
-func (o ServiceLevelEventsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v ServiceLevelEvents) int { return v.AccountId }).(pulumi.IntOutput)
+func (o ServiceLevelEventsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 func (o ServiceLevelEventsOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutput {
@@ -18608,13 +18608,13 @@ func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
 	}).(ServiceLevelEventsOutput)
 }
 
-func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceLevelEvents) *int {
+func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.AccountId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ServiceLevelEventsPtrOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutput {
@@ -20356,7 +20356,7 @@ func (o WorkflowEnrichmentsPtrOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput
 
 type WorkflowEnrichmentsNrql struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A set of key-value pairs to represent a enrichment configuration.
 	Configurations []WorkflowEnrichmentsNrqlConfiguration `pulumi:"configurations"`
 	// Enrichment's id.
@@ -20380,7 +20380,7 @@ type WorkflowEnrichmentsNrqlInput interface {
 
 type WorkflowEnrichmentsNrqlArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// A set of key-value pairs to represent a enrichment configuration.
 	Configurations WorkflowEnrichmentsNrqlConfigurationArrayInput `pulumi:"configurations"`
 	// Enrichment's id.
@@ -20443,8 +20443,8 @@ func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutputWithContex
 }
 
 // Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-func (o WorkflowEnrichmentsNrqlOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o WorkflowEnrichmentsNrqlOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // A set of key-value pairs to represent a enrichment configuration.

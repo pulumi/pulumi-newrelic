@@ -59,7 +59,7 @@ export class SecureCredential extends pulumi.CustomResource {
     /**
      * The New Relic account ID where you want to create the secure credential.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The secure credential's description.
      */
@@ -124,7 +124,7 @@ export interface SecureCredentialState {
     /**
      * The New Relic account ID where you want to create the secure credential.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The secure credential's description.
      */
@@ -151,7 +151,7 @@ export interface SecureCredentialArgs {
     /**
      * The New Relic account ID where you want to create the secure credential.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The secure credential's description.
      */

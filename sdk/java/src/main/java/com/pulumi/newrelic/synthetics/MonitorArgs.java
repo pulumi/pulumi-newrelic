@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
 import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -26,13 +25,13 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The account in which the Synthetics monitor will be created.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -378,7 +377,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -389,7 +388,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
