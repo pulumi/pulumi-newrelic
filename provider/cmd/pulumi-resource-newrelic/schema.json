@@ -9909,7 +9909,6 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n",
                     "deprecationMessage": "The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider."
                 },
                 "incidentPreference": {
@@ -9936,7 +9935,6 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n",
                     "deprecationMessage": "The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.",
                     "willReplaceOnChanges": true
                 },
@@ -9962,7 +9960,6 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n",
                         "deprecationMessage": "The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.",
                         "willReplaceOnChanges": true
                     },
