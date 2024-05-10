@@ -48,22 +48,24 @@ import (
 //			}
 //			_, err = cloud.NewAwsIntegrations(ctx, "bar", &cloud.AwsIntegrationsArgs{
 //				LinkedAccountId: foo.ID(),
-//				Billing:         nil,
+//				Billing: &cloud.AwsIntegrationsBillingArgs{
+//					MetricsPollingInterval: pulumi.Int(3600),
+//				},
 //				Cloudtrail: &cloud.AwsIntegrationsCloudtrailArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //						pulumi.String("us-east-2"),
 //					},
 //				},
 //				Health: &cloud.AwsIntegrationsHealthArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				TrustedAdvisor: &cloud.AwsIntegrationsTrustedAdvisorArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //				},
 //				Vpc: &cloud.AwsIntegrationsVpcArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(900),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //						pulumi.String("us-east-2"),
@@ -74,17 +76,17 @@ import (
 //					TagValue:        pulumi.String("tag value"),
 //				},
 //				XRay: &cloud.AwsIntegrationsXRayArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //						pulumi.String("us-east-2"),
 //					},
 //				},
 //				S3: &cloud.AwsIntegrationsS3Args{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //				},
 //				DocDb: &cloud.AwsIntegrationsDocDbArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Sqs: &cloud.AwsIntegrationsSqsArgs{
 //					FetchExtendedInventory: pulumi.Bool(true),
@@ -92,7 +94,7 @@ import (
 //					QueuePrefixes: pulumi.StringArray{
 //						pulumi.String("queue prefix"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
@@ -100,7 +102,7 @@ import (
 //					TagValue: pulumi.String("tag value"),
 //				},
 //				Ebs: &cloud.AwsIntegrationsEbsArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(900),
 //					FetchExtendedInventory: pulumi.Bool(true),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
@@ -114,7 +116,7 @@ import (
 //					LoadBalancerPrefixes: pulumi.StringArray{
 //						pulumi.String("load balancer prefix"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
@@ -126,12 +128,12 @@ import (
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
 //				ApiGateway: &cloud.AwsIntegrationsApiGatewayArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
@@ -145,126 +147,126 @@ import (
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsAppSync: &cloud.AwsIntegrationsAwsAppSyncArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsAthena: &cloud.AwsIntegrationsAwsAthenaArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsCognito: &cloud.AwsIntegrationsAwsCognitoArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsConnect: &cloud.AwsIntegrationsAwsConnectArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsDirectConnect: &cloud.AwsIntegrationsAwsDirectConnectArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsFsx: &cloud.AwsIntegrationsAwsFsxArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsGlue: &cloud.AwsIntegrationsAwsGlueArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsKinesisAnalytics: &cloud.AwsIntegrationsAwsKinesisAnalyticsArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsMediaConvert: &cloud.AwsIntegrationsAwsMediaConvertArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsMediaPackageVod: &cloud.AwsIntegrationsAwsMediaPackageVodArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsMq: &cloud.AwsIntegrationsAwsMqArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsMsk: &cloud.AwsIntegrationsAwsMskArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsNeptune: &cloud.AwsIntegrationsAwsNeptuneArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsQldb: &cloud.AwsIntegrationsAwsQldbArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsRoute53resolver: &cloud.AwsIntegrationsAwsRoute53resolverArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsStates: &cloud.AwsIntegrationsAwsStatesArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsTransitGateway: &cloud.AwsIntegrationsAwsTransitGatewayArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsWaf: &cloud.AwsIntegrationsAwsWafArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				AwsWafv2: &cloud.AwsIntegrationsAwsWafv2Args{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Cloudfront: &cloud.AwsIntegrationsCloudfrontArgs{
 //					FetchLambdasAtEdge:     pulumi.Bool(true),
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -274,7 +276,7 @@ import (
 //					},
 //					FetchExtendedInventory: pulumi.Bool(true),
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -284,7 +286,7 @@ import (
 //					},
 //					DuplicateEc2Tags:       pulumi.Bool(true),
 //					FetchIpAddresses:       pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -293,7 +295,7 @@ import (
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -302,7 +304,7 @@ import (
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -312,7 +314,7 @@ import (
 //					},
 //					FetchExtendedInventory: pulumi.Bool(true),
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -321,7 +323,7 @@ import (
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchNodes:             pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -331,19 +333,19 @@ import (
 //					},
 //					FetchExtendedInventory: pulumi.Bool(true),
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Emr: &cloud.AwsIntegrationsEmrArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
 //				Iam: &cloud.AwsIntegrationsIamArgs{
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -351,7 +353,7 @@ import (
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Kinesis: &cloud.AwsIntegrationsKinesisArgs{
 //					AwsRegions: pulumi.StringArray{
@@ -359,7 +361,7 @@ import (
 //					},
 //					FetchShards:            pulumi.Bool(true),
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(900),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -367,14 +369,14 @@ import (
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Lambda: &cloud.AwsIntegrationsLambdaArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -383,7 +385,7 @@ import (
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchTags:              pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
@@ -391,26 +393,26 @@ import (
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					TagKey:                 pulumi.String("tag key"),
 //					TagValue:               pulumi.String("tag value"),
 //				},
 //				Route53: &cloud.AwsIntegrationsRoute53Args{
 //					FetchExtendedInventory: pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Ses: &cloud.AwsIntegrationsSesArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Sns: &cloud.AwsIntegrationsSnsArgs{
 //					AwsRegions: pulumi.StringArray{
 //						pulumi.String("us-east-1"),
 //					},
 //					FetchExtendedInventory: pulumi.Bool(true),
-//					MetricsPollingInterval: pulumi.Int(6000),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //			})
 //			if err != nil {
@@ -421,6 +423,69 @@ import (
 //	}
 //
 // ```
+//
+// ## Supported AWS Integrations
+//
+// <details>
+//
+//	<summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
+//
+// | Block                   | Description                   |
+// |-------------------------|-------------------------------|
+// | `alb`                   | ALB Integration               |
+// | `apiGateway`           | API Gateway Integration       |
+// | `autoScaling`          | Auto Scaling Integration      |
+// | `awsAppSync`          | AppSync Integration           |
+// | `awsAthena`            | Athena Integration            |
+// | `awsCognito`           | Cognito Integration           |
+// | `awsConnect`           | Connect Integration           |
+// | `awsDirectConnect`    | Direct Connect Integration    |
+// | `awsFsx`               | FSx Integration               |
+// | `awsGlue`              | Glue Integration              |
+// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
+// | `awsMediaConvert`     | MediaConvert Integration      |
+// | `awsMediaPackageVod` | Media Package VOD Integration |
+// | `awsMq`                | MQ Integration                |
+// | `awsMsk`               | MSK Integration               |
+// | `awsNeptune`           | Neptune Integration           |
+// | `awsQldb`              | QLDB Integration              |
+// | `awsRoute53resolver`   | Route53 Resolver Integration  |
+// | `awsStates`            | States Integration            |
+// | `awsTransitGateway`   | Transit Gateway Integration   |
+// | `awsWaf`               | WAF Integration               |
+// | `awsWafv2`             | WAFv2 Integration             |
+// | `billing`               | Billing Integration           |
+// | `cloudfront`            | CloudFront Integration        |
+// | `cloudtrail`            | CloudTrail Integration        |
+// | `docDb`                | DocumentDB Integration        |
+// | `dynamodb`              | DynamoDB Integration          |
+// | `ebs`                   | EBS Integration               |
+// | `ec2`                   | EC2 Integration               |
+// | `ecs`                   | ECS Integration               |
+// | `efs`                   | EFS Integration               |
+// | `elasticache`           | ElastiCache Integration       |
+// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
+// | `elasticsearch`         | Elasticsearch Integration     |
+// | `elb`                   | ELB Integration               |
+// | `emr`                   | EMR Integration               |
+// | `health`                | Health Integration            |
+// | `iam`                   | IAM Integration               |
+// | `iot`                   | IoT Integration               |
+// | `kinesis`               | Kinesis Integration           |
+// | `kinesisFirehose`      | Kinesis Firehose Integration  |
+// | `lambda`                | Lambda Integration            |
+// | `rds`                   | RDS Integration               |
+// | `redshift`              | Redshift Integration          |
+// | `route53`               | Route53 Integration           |
+// | `s3`                    | S3 Integration                |
+// | `ses`                   | SES Integration               |
+// | `sns`                   | SNS Integration               |
+// | `sqs`                   | SQS Integration               |
+// | `trustedAdvisor`       | Trusted Advisor Integration   |
+// | `vpc`                   | VPC Integration               |
+// | `xRay`                 | X-Ray Integration             |
+//
+// </details>
 //
 // ## Import
 //
@@ -436,172 +501,120 @@ type AwsIntegrations struct {
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// ALB integration
+	// AWS ALB. See Integration blocks below for details.
 	Alb AwsIntegrationsAlbPtrOutput `pulumi:"alb"`
-	// API Gateway integration
+	// AWS API Gateway. See Integration blocks below for details.
 	ApiGateway AwsIntegrationsApiGatewayPtrOutput `pulumi:"apiGateway"`
-	// AutoScaling integration
+	// AWS Auto Scaling. See Integration blocks below for details.
 	AutoScaling AwsIntegrationsAutoScalingPtrOutput `pulumi:"autoScaling"`
-	// Aws Appsync integration
+	// AWS AppSync. See Integration blocks below for details.
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrOutput `pulumi:"awsAppSync"`
-	// Aws Athena integration
+	// AWS Athena. See Integration blocks below for details.
 	AwsAthena AwsIntegrationsAwsAthenaPtrOutput `pulumi:"awsAthena"`
-	// Aws Cognito integration
+	// AWS Cognito. See Integration blocks below for details.
 	AwsCognito AwsIntegrationsAwsCognitoPtrOutput `pulumi:"awsCognito"`
-	// Aws Connect integration
+	// AWS Connect. See Integration blocks below for details.
 	AwsConnect AwsIntegrationsAwsConnectPtrOutput `pulumi:"awsConnect"`
-	// Aws Direct Connect integration
+	// AWS Direct Connect. See Integration blocks below for details.
 	AwsDirectConnect AwsIntegrationsAwsDirectConnectPtrOutput `pulumi:"awsDirectConnect"`
-	// Aws Fsx integration
+	// AWS FSx. See Integration blocks below for details.
 	AwsFsx AwsIntegrationsAwsFsxPtrOutput `pulumi:"awsFsx"`
-	// Aws Glue integration
+	// AWS Glue. See Integration blocks below for details.
 	AwsGlue AwsIntegrationsAwsGluePtrOutput `pulumi:"awsGlue"`
-	// Aws Kinesis Analytics integration
+	// AWS Kinesis Data Analytics. See Integration blocks below for details.
 	AwsKinesisAnalytics AwsIntegrationsAwsKinesisAnalyticsPtrOutput `pulumi:"awsKinesisAnalytics"`
-	// Aws Media Convert integration
+	// AWS Media Convert. See Integration blocks below for details.
 	AwsMediaConvert AwsIntegrationsAwsMediaConvertPtrOutput `pulumi:"awsMediaConvert"`
-	// Aws Media PackageVod integration
+	// AWS MediaPackage VOD. See Integration blocks below for details.
 	AwsMediaPackageVod AwsIntegrationsAwsMediaPackageVodPtrOutput `pulumi:"awsMediaPackageVod"`
-	// Aws Mq integration
+	// AWS MQ. See Integration blocks below for details.
 	AwsMq AwsIntegrationsAwsMqPtrOutput `pulumi:"awsMq"`
-	// Aws Msk integration
+	// Amazon Managed Kafka (MSK). See Integration blocks below for details.
 	AwsMsk AwsIntegrationsAwsMskPtrOutput `pulumi:"awsMsk"`
-	// Aws Neptune integration
+	// AWS Neptune. See Integration blocks below for details.
 	AwsNeptune AwsIntegrationsAwsNeptunePtrOutput `pulumi:"awsNeptune"`
-	// Aws Qldb integration
+	// Amazon QLDB. See Integration blocks below for details.
 	AwsQldb AwsIntegrationsAwsQldbPtrOutput `pulumi:"awsQldb"`
-	// Aws Route53resolver integration
+	// AWS Route53 Resolver. See Integration blocks below for details.
 	AwsRoute53resolver AwsIntegrationsAwsRoute53resolverPtrOutput `pulumi:"awsRoute53resolver"`
 	// Aws states integration
 	AwsStates AwsIntegrationsAwsStatesPtrOutput `pulumi:"awsStates"`
-	// Aws Transit Gateway integration
+	// Amazon Transit Gateway. See Integration blocks below for details.
 	AwsTransitGateway AwsIntegrationsAwsTransitGatewayPtrOutput `pulumi:"awsTransitGateway"`
-	// Aws Waf integration
+	// AWS WAF. See Integration blocks below for details.
 	AwsWaf AwsIntegrationsAwsWafPtrOutput `pulumi:"awsWaf"`
-	// Aws Wafv2 integration
+	// AWS WAF V2. See Integration blocks below for details.
 	AwsWafv2 AwsIntegrationsAwsWafv2PtrOutput `pulumi:"awsWafv2"`
-	// Billing integration
+	// AWS Billing. See Integration blocks below for details.
 	Billing AwsIntegrationsBillingPtrOutput `pulumi:"billing"`
-	// Cloudfront integration
+	// AWS CloudFront. See Integration blocks below for details.
 	Cloudfront AwsIntegrationsCloudfrontPtrOutput `pulumi:"cloudfront"`
-	// CloudTrail integration
+	// AWS CloudTrail. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrOutput `pulumi:"cloudtrail"`
-	// Doc DB integration
+	// AWS DocumentDB. See Integration blocks below for details.
 	DocDb AwsIntegrationsDocDbPtrOutput `pulumi:"docDb"`
-	// Dynamo DB integration
+	// Amazon DynamoDB. See Integration blocks below for details.
 	Dynamodb AwsIntegrationsDynamodbPtrOutput `pulumi:"dynamodb"`
-	// EBS integration
+	// Amazon EBS. See Integration blocks below for details.
 	Ebs AwsIntegrationsEbsPtrOutput `pulumi:"ebs"`
-	// Ec2 integration
+	// Amazon EC2. See Integration blocks below for details.
 	Ec2 AwsIntegrationsEc2PtrOutput `pulumi:"ec2"`
-	// Ecs integration
+	// Amazon ECS. See Integration blocks below for details.
 	Ecs AwsIntegrationsEcsPtrOutput `pulumi:"ecs"`
-	// Efs integration
+	// Amazon EFS. See Integration blocks below for details.
 	Efs AwsIntegrationsEfsPtrOutput `pulumi:"efs"`
-	// Elasticache integration
+	// AWS ElastiCache. See Integration blocks below for details.
 	Elasticache AwsIntegrationsElasticachePtrOutput `pulumi:"elasticache"`
-	// Elastic Bean Stalk integration
+	// AWS Elastic Beanstalk. See Integration blocks below for details.
 	Elasticbeanstalk AwsIntegrationsElasticbeanstalkPtrOutput `pulumi:"elasticbeanstalk"`
-	// Elastic Search integration
+	// AWS ElasticSearch. See Integration blocks below for details.
 	Elasticsearch AwsIntegrationsElasticsearchPtrOutput `pulumi:"elasticsearch"`
-	// Elb integration
+	// AWS ELB (Classic). See Integration blocks below for details.
 	Elb AwsIntegrationsElbPtrOutput `pulumi:"elb"`
-	// Emr integration
+	// AWS EMR. See Integration blocks below for details.
 	Emr AwsIntegrationsEmrPtrOutput `pulumi:"emr"`
-	// Health integration
+	// AWS Health. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrOutput `pulumi:"health"`
-	// Iam integration
+	// AWS IAM. See Integration blocks below for details.
 	Iam AwsIntegrationsIamPtrOutput `pulumi:"iam"`
-	// Iot integration
+	// AWS IoT. See Integration blocks below for details.
 	Iot AwsIntegrationsIotPtrOutput `pulumi:"iot"`
-	// Kinesis integration
+	// AWS Kinesis. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Kinesis AwsIntegrationsKinesisPtrOutput `pulumi:"kinesis"`
-	// Kinesis Firehose integration
+	// Amazon Kinesis Data Firehose. See Integration blocks below for details.
 	KinesisFirehose AwsIntegrationsKinesisFirehosePtrOutput `pulumi:"kinesisFirehose"`
-	// Lambda integration
+	// AWS Lambda. See Integration blocks below for details.
 	Lambda AwsIntegrationsLambdaPtrOutput `pulumi:"lambda"`
 	// The ID of the linked AWS account in New Relic.
 	//
-	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-	//
-	// | Block                   | Description                   |
-	// |-------------------------|-------------------------------|
-	// | `alb`                   | ALB Integration               |
-	// | `apiGateway`           | API Gateway Integration       |
-	// | `autoScaling`          | Auto Scaling Integration      |
-	// | `awsAppSync`          | AppSync Integration           |
-	// | `awsAthena`            | Athena Integration            |
-	// | `awsCognito`           | Cognito Integration           |
-	// | `awsConnect`           | Connect Integration           |
-	// | `awsDirectConnect`    | Direct Connect Integration    |
-	// | `awsFsx`               | FSx Integration               |
-	// | `awsGlue`              | Glue Integration              |
-	// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-	// | `awsMediaConvert`     | MediaConvert Integration      |
-	// | `awsMediaPackageVod` | Media Package VOD Integration |
-	// | `awsMq`                | MQ Integration                |
-	// | `awsMsk`               | MSK Integration               |
-	// | `awsNeptune`           | Neptune Integration           |
-	// | `awsQldb`              | QLDB Integration              |
-	// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-	// | `awsStates`            | States Integration            |
-	// | `awsTransitGateway`   | Transit Gateway Integration   |
-	// | `awsWaf`               | WAF Integration               |
-	// | `awsWafv2`             | WAFv2 Integration             |
-	// | `billing`               | Billing Integration           |
-	// | `cloudfront`            | CloudFront Integration        |
-	// | `cloudtrail`            | CloudTrail Integration        |
-	// | `docDb`                | DocumentDB Integration        |
-	// | `dynamodb`              | DynamoDB Integration          |
-	// | `ebs`                   | EBS Integration               |
-	// | `ec2`                   | EC2 Integration               |
-	// | `ecs`                   | ECS Integration               |
-	// | `efs`                   | EFS Integration               |
-	// | `elasticache`           | ElastiCache Integration       |
-	// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-	// | `elasticsearch`         | Elasticsearch Integration     |
-	// | `elb`                   | ELB Integration               |
-	// | `emr`                   | EMR Integration               |
-	// | `health`                | Health Integration            |
-	// | `iam`                   | IAM Integration               |
-	// | `iot`                   | IoT Integration               |
-	// | `kinesis`               | Kinesis Integration           |
-	// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-	// | `lambda`                | Lambda Integration            |
-	// | `rds`                   | RDS Integration               |
-	// | `redshift`              | Redshift Integration          |
-	// | `route53`               | Route53 Integration           |
-	// | `s3`                    | S3 Integration                |
-	// | `ses`                   | SES Integration               |
-	// | `sns`                   | SNS Integration               |
-	// | `sqs`                   | SQS Integration               |
-	// | `trustedAdvisor`       | Trusted Advisor Integration   |
-	// | `vpc`                   | VPC Integration               |
-	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
-	// Rds integration
+	// Amazon RDS. See Integration blocks below for details.
 	Rds AwsIntegrationsRdsPtrOutput `pulumi:"rds"`
-	// Redshift integration
+	// Amazon Redshift. See Integration blocks below for details.
 	Redshift AwsIntegrationsRedshiftPtrOutput `pulumi:"redshift"`
-	// Route53 integration
+	// Amazon Route 53. See Integration blocks below for details.
 	Route53 AwsIntegrationsRoute53PtrOutput `pulumi:"route53"`
-	// S3 integration
+	// Amazon S3. See Integration blocks below for details.
 	S3 AwsIntegrationsS3PtrOutput `pulumi:"s3"`
-	// Ses integration
+	// Amazon SES. See Integration blocks below for details.
 	Ses AwsIntegrationsSesPtrOutput `pulumi:"ses"`
-	// Sns integration
+	// AWS SNS. See Integration blocks below for details.
 	Sns AwsIntegrationsSnsPtrOutput `pulumi:"sns"`
-	// SQS integration
+	// AWS SQS. See Integration blocks below for details.
 	Sqs AwsIntegrationsSqsPtrOutput `pulumi:"sqs"`
-	// Trusted Advisor integration
+	// AWS Trusted Advisor. See Integration blocks below for details.
+	//
+	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrOutput `pulumi:"trustedAdvisor"`
 	// VPC integration
 	Vpc AwsIntegrationsVpcPtrOutput `pulumi:"vpc"`
-	// X-Ray integration
+	// AWS X-Ray. See Integration blocks below for details.
+	// x
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 900 seconds.
 	XRay AwsIntegrationsXRayPtrOutput `pulumi:"xRay"`
 }
 
@@ -640,344 +653,240 @@ func GetAwsIntegrations(ctx *pulumi.Context,
 type awsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
-	// ALB integration
+	// AWS ALB. See Integration blocks below for details.
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
-	// API Gateway integration
+	// AWS API Gateway. See Integration blocks below for details.
 	ApiGateway *AwsIntegrationsApiGateway `pulumi:"apiGateway"`
-	// AutoScaling integration
+	// AWS Auto Scaling. See Integration blocks below for details.
 	AutoScaling *AwsIntegrationsAutoScaling `pulumi:"autoScaling"`
-	// Aws Appsync integration
+	// AWS AppSync. See Integration blocks below for details.
 	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
-	// Aws Athena integration
+	// AWS Athena. See Integration blocks below for details.
 	AwsAthena *AwsIntegrationsAwsAthena `pulumi:"awsAthena"`
-	// Aws Cognito integration
+	// AWS Cognito. See Integration blocks below for details.
 	AwsCognito *AwsIntegrationsAwsCognito `pulumi:"awsCognito"`
-	// Aws Connect integration
+	// AWS Connect. See Integration blocks below for details.
 	AwsConnect *AwsIntegrationsAwsConnect `pulumi:"awsConnect"`
-	// Aws Direct Connect integration
+	// AWS Direct Connect. See Integration blocks below for details.
 	AwsDirectConnect *AwsIntegrationsAwsDirectConnect `pulumi:"awsDirectConnect"`
-	// Aws Fsx integration
+	// AWS FSx. See Integration blocks below for details.
 	AwsFsx *AwsIntegrationsAwsFsx `pulumi:"awsFsx"`
-	// Aws Glue integration
+	// AWS Glue. See Integration blocks below for details.
 	AwsGlue *AwsIntegrationsAwsGlue `pulumi:"awsGlue"`
-	// Aws Kinesis Analytics integration
+	// AWS Kinesis Data Analytics. See Integration blocks below for details.
 	AwsKinesisAnalytics *AwsIntegrationsAwsKinesisAnalytics `pulumi:"awsKinesisAnalytics"`
-	// Aws Media Convert integration
+	// AWS Media Convert. See Integration blocks below for details.
 	AwsMediaConvert *AwsIntegrationsAwsMediaConvert `pulumi:"awsMediaConvert"`
-	// Aws Media PackageVod integration
+	// AWS MediaPackage VOD. See Integration blocks below for details.
 	AwsMediaPackageVod *AwsIntegrationsAwsMediaPackageVod `pulumi:"awsMediaPackageVod"`
-	// Aws Mq integration
+	// AWS MQ. See Integration blocks below for details.
 	AwsMq *AwsIntegrationsAwsMq `pulumi:"awsMq"`
-	// Aws Msk integration
+	// Amazon Managed Kafka (MSK). See Integration blocks below for details.
 	AwsMsk *AwsIntegrationsAwsMsk `pulumi:"awsMsk"`
-	// Aws Neptune integration
+	// AWS Neptune. See Integration blocks below for details.
 	AwsNeptune *AwsIntegrationsAwsNeptune `pulumi:"awsNeptune"`
-	// Aws Qldb integration
+	// Amazon QLDB. See Integration blocks below for details.
 	AwsQldb *AwsIntegrationsAwsQldb `pulumi:"awsQldb"`
-	// Aws Route53resolver integration
+	// AWS Route53 Resolver. See Integration blocks below for details.
 	AwsRoute53resolver *AwsIntegrationsAwsRoute53resolver `pulumi:"awsRoute53resolver"`
 	// Aws states integration
 	AwsStates *AwsIntegrationsAwsStates `pulumi:"awsStates"`
-	// Aws Transit Gateway integration
+	// Amazon Transit Gateway. See Integration blocks below for details.
 	AwsTransitGateway *AwsIntegrationsAwsTransitGateway `pulumi:"awsTransitGateway"`
-	// Aws Waf integration
+	// AWS WAF. See Integration blocks below for details.
 	AwsWaf *AwsIntegrationsAwsWaf `pulumi:"awsWaf"`
-	// Aws Wafv2 integration
+	// AWS WAF V2. See Integration blocks below for details.
 	AwsWafv2 *AwsIntegrationsAwsWafv2 `pulumi:"awsWafv2"`
-	// Billing integration
+	// AWS Billing. See Integration blocks below for details.
 	Billing *AwsIntegrationsBilling `pulumi:"billing"`
-	// Cloudfront integration
+	// AWS CloudFront. See Integration blocks below for details.
 	Cloudfront *AwsIntegrationsCloudfront `pulumi:"cloudfront"`
-	// CloudTrail integration
+	// AWS CloudTrail. See Integration blocks below for details.
 	Cloudtrail *AwsIntegrationsCloudtrail `pulumi:"cloudtrail"`
-	// Doc DB integration
+	// AWS DocumentDB. See Integration blocks below for details.
 	DocDb *AwsIntegrationsDocDb `pulumi:"docDb"`
-	// Dynamo DB integration
+	// Amazon DynamoDB. See Integration blocks below for details.
 	Dynamodb *AwsIntegrationsDynamodb `pulumi:"dynamodb"`
-	// EBS integration
+	// Amazon EBS. See Integration blocks below for details.
 	Ebs *AwsIntegrationsEbs `pulumi:"ebs"`
-	// Ec2 integration
+	// Amazon EC2. See Integration blocks below for details.
 	Ec2 *AwsIntegrationsEc2 `pulumi:"ec2"`
-	// Ecs integration
+	// Amazon ECS. See Integration blocks below for details.
 	Ecs *AwsIntegrationsEcs `pulumi:"ecs"`
-	// Efs integration
+	// Amazon EFS. See Integration blocks below for details.
 	Efs *AwsIntegrationsEfs `pulumi:"efs"`
-	// Elasticache integration
+	// AWS ElastiCache. See Integration blocks below for details.
 	Elasticache *AwsIntegrationsElasticache `pulumi:"elasticache"`
-	// Elastic Bean Stalk integration
+	// AWS Elastic Beanstalk. See Integration blocks below for details.
 	Elasticbeanstalk *AwsIntegrationsElasticbeanstalk `pulumi:"elasticbeanstalk"`
-	// Elastic Search integration
+	// AWS ElasticSearch. See Integration blocks below for details.
 	Elasticsearch *AwsIntegrationsElasticsearch `pulumi:"elasticsearch"`
-	// Elb integration
+	// AWS ELB (Classic). See Integration blocks below for details.
 	Elb *AwsIntegrationsElb `pulumi:"elb"`
-	// Emr integration
+	// AWS EMR. See Integration blocks below for details.
 	Emr *AwsIntegrationsEmr `pulumi:"emr"`
-	// Health integration
+	// AWS Health. See Integration blocks below for details.
 	Health *AwsIntegrationsHealth `pulumi:"health"`
-	// Iam integration
+	// AWS IAM. See Integration blocks below for details.
 	Iam *AwsIntegrationsIam `pulumi:"iam"`
-	// Iot integration
+	// AWS IoT. See Integration blocks below for details.
 	Iot *AwsIntegrationsIot `pulumi:"iot"`
-	// Kinesis integration
+	// AWS Kinesis. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Kinesis *AwsIntegrationsKinesis `pulumi:"kinesis"`
-	// Kinesis Firehose integration
+	// Amazon Kinesis Data Firehose. See Integration blocks below for details.
 	KinesisFirehose *AwsIntegrationsKinesisFirehose `pulumi:"kinesisFirehose"`
-	// Lambda integration
+	// AWS Lambda. See Integration blocks below for details.
 	Lambda *AwsIntegrationsLambda `pulumi:"lambda"`
 	// The ID of the linked AWS account in New Relic.
 	//
-	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-	//
-	// | Block                   | Description                   |
-	// |-------------------------|-------------------------------|
-	// | `alb`                   | ALB Integration               |
-	// | `apiGateway`           | API Gateway Integration       |
-	// | `autoScaling`          | Auto Scaling Integration      |
-	// | `awsAppSync`          | AppSync Integration           |
-	// | `awsAthena`            | Athena Integration            |
-	// | `awsCognito`           | Cognito Integration           |
-	// | `awsConnect`           | Connect Integration           |
-	// | `awsDirectConnect`    | Direct Connect Integration    |
-	// | `awsFsx`               | FSx Integration               |
-	// | `awsGlue`              | Glue Integration              |
-	// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-	// | `awsMediaConvert`     | MediaConvert Integration      |
-	// | `awsMediaPackageVod` | Media Package VOD Integration |
-	// | `awsMq`                | MQ Integration                |
-	// | `awsMsk`               | MSK Integration               |
-	// | `awsNeptune`           | Neptune Integration           |
-	// | `awsQldb`              | QLDB Integration              |
-	// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-	// | `awsStates`            | States Integration            |
-	// | `awsTransitGateway`   | Transit Gateway Integration   |
-	// | `awsWaf`               | WAF Integration               |
-	// | `awsWafv2`             | WAFv2 Integration             |
-	// | `billing`               | Billing Integration           |
-	// | `cloudfront`            | CloudFront Integration        |
-	// | `cloudtrail`            | CloudTrail Integration        |
-	// | `docDb`                | DocumentDB Integration        |
-	// | `dynamodb`              | DynamoDB Integration          |
-	// | `ebs`                   | EBS Integration               |
-	// | `ec2`                   | EC2 Integration               |
-	// | `ecs`                   | ECS Integration               |
-	// | `efs`                   | EFS Integration               |
-	// | `elasticache`           | ElastiCache Integration       |
-	// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-	// | `elasticsearch`         | Elasticsearch Integration     |
-	// | `elb`                   | ELB Integration               |
-	// | `emr`                   | EMR Integration               |
-	// | `health`                | Health Integration            |
-	// | `iam`                   | IAM Integration               |
-	// | `iot`                   | IoT Integration               |
-	// | `kinesis`               | Kinesis Integration           |
-	// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-	// | `lambda`                | Lambda Integration            |
-	// | `rds`                   | RDS Integration               |
-	// | `redshift`              | Redshift Integration          |
-	// | `route53`               | Route53 Integration           |
-	// | `s3`                    | S3 Integration                |
-	// | `ses`                   | SES Integration               |
-	// | `sns`                   | SNS Integration               |
-	// | `sqs`                   | SQS Integration               |
-	// | `trustedAdvisor`       | Trusted Advisor Integration   |
-	// | `vpc`                   | VPC Integration               |
-	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
-	// Rds integration
+	// Amazon RDS. See Integration blocks below for details.
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
-	// Redshift integration
+	// Amazon Redshift. See Integration blocks below for details.
 	Redshift *AwsIntegrationsRedshift `pulumi:"redshift"`
-	// Route53 integration
+	// Amazon Route 53. See Integration blocks below for details.
 	Route53 *AwsIntegrationsRoute53 `pulumi:"route53"`
-	// S3 integration
+	// Amazon S3. See Integration blocks below for details.
 	S3 *AwsIntegrationsS3 `pulumi:"s3"`
-	// Ses integration
+	// Amazon SES. See Integration blocks below for details.
 	Ses *AwsIntegrationsSes `pulumi:"ses"`
-	// Sns integration
+	// AWS SNS. See Integration blocks below for details.
 	Sns *AwsIntegrationsSns `pulumi:"sns"`
-	// SQS integration
+	// AWS SQS. See Integration blocks below for details.
 	Sqs *AwsIntegrationsSqs `pulumi:"sqs"`
-	// Trusted Advisor integration
+	// AWS Trusted Advisor. See Integration blocks below for details.
+	//
+	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
 	TrustedAdvisor *AwsIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// VPC integration
 	Vpc *AwsIntegrationsVpc `pulumi:"vpc"`
-	// X-Ray integration
+	// AWS X-Ray. See Integration blocks below for details.
+	// x
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 900 seconds.
 	XRay *AwsIntegrationsXRay `pulumi:"xRay"`
 }
 
 type AwsIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
-	// ALB integration
+	// AWS ALB. See Integration blocks below for details.
 	Alb AwsIntegrationsAlbPtrInput
-	// API Gateway integration
+	// AWS API Gateway. See Integration blocks below for details.
 	ApiGateway AwsIntegrationsApiGatewayPtrInput
-	// AutoScaling integration
+	// AWS Auto Scaling. See Integration blocks below for details.
 	AutoScaling AwsIntegrationsAutoScalingPtrInput
-	// Aws Appsync integration
+	// AWS AppSync. See Integration blocks below for details.
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
-	// Aws Athena integration
+	// AWS Athena. See Integration blocks below for details.
 	AwsAthena AwsIntegrationsAwsAthenaPtrInput
-	// Aws Cognito integration
+	// AWS Cognito. See Integration blocks below for details.
 	AwsCognito AwsIntegrationsAwsCognitoPtrInput
-	// Aws Connect integration
+	// AWS Connect. See Integration blocks below for details.
 	AwsConnect AwsIntegrationsAwsConnectPtrInput
-	// Aws Direct Connect integration
+	// AWS Direct Connect. See Integration blocks below for details.
 	AwsDirectConnect AwsIntegrationsAwsDirectConnectPtrInput
-	// Aws Fsx integration
+	// AWS FSx. See Integration blocks below for details.
 	AwsFsx AwsIntegrationsAwsFsxPtrInput
-	// Aws Glue integration
+	// AWS Glue. See Integration blocks below for details.
 	AwsGlue AwsIntegrationsAwsGluePtrInput
-	// Aws Kinesis Analytics integration
+	// AWS Kinesis Data Analytics. See Integration blocks below for details.
 	AwsKinesisAnalytics AwsIntegrationsAwsKinesisAnalyticsPtrInput
-	// Aws Media Convert integration
+	// AWS Media Convert. See Integration blocks below for details.
 	AwsMediaConvert AwsIntegrationsAwsMediaConvertPtrInput
-	// Aws Media PackageVod integration
+	// AWS MediaPackage VOD. See Integration blocks below for details.
 	AwsMediaPackageVod AwsIntegrationsAwsMediaPackageVodPtrInput
-	// Aws Mq integration
+	// AWS MQ. See Integration blocks below for details.
 	AwsMq AwsIntegrationsAwsMqPtrInput
-	// Aws Msk integration
+	// Amazon Managed Kafka (MSK). See Integration blocks below for details.
 	AwsMsk AwsIntegrationsAwsMskPtrInput
-	// Aws Neptune integration
+	// AWS Neptune. See Integration blocks below for details.
 	AwsNeptune AwsIntegrationsAwsNeptunePtrInput
-	// Aws Qldb integration
+	// Amazon QLDB. See Integration blocks below for details.
 	AwsQldb AwsIntegrationsAwsQldbPtrInput
-	// Aws Route53resolver integration
+	// AWS Route53 Resolver. See Integration blocks below for details.
 	AwsRoute53resolver AwsIntegrationsAwsRoute53resolverPtrInput
 	// Aws states integration
 	AwsStates AwsIntegrationsAwsStatesPtrInput
-	// Aws Transit Gateway integration
+	// Amazon Transit Gateway. See Integration blocks below for details.
 	AwsTransitGateway AwsIntegrationsAwsTransitGatewayPtrInput
-	// Aws Waf integration
+	// AWS WAF. See Integration blocks below for details.
 	AwsWaf AwsIntegrationsAwsWafPtrInput
-	// Aws Wafv2 integration
+	// AWS WAF V2. See Integration blocks below for details.
 	AwsWafv2 AwsIntegrationsAwsWafv2PtrInput
-	// Billing integration
+	// AWS Billing. See Integration blocks below for details.
 	Billing AwsIntegrationsBillingPtrInput
-	// Cloudfront integration
+	// AWS CloudFront. See Integration blocks below for details.
 	Cloudfront AwsIntegrationsCloudfrontPtrInput
-	// CloudTrail integration
+	// AWS CloudTrail. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrInput
-	// Doc DB integration
+	// AWS DocumentDB. See Integration blocks below for details.
 	DocDb AwsIntegrationsDocDbPtrInput
-	// Dynamo DB integration
+	// Amazon DynamoDB. See Integration blocks below for details.
 	Dynamodb AwsIntegrationsDynamodbPtrInput
-	// EBS integration
+	// Amazon EBS. See Integration blocks below for details.
 	Ebs AwsIntegrationsEbsPtrInput
-	// Ec2 integration
+	// Amazon EC2. See Integration blocks below for details.
 	Ec2 AwsIntegrationsEc2PtrInput
-	// Ecs integration
+	// Amazon ECS. See Integration blocks below for details.
 	Ecs AwsIntegrationsEcsPtrInput
-	// Efs integration
+	// Amazon EFS. See Integration blocks below for details.
 	Efs AwsIntegrationsEfsPtrInput
-	// Elasticache integration
+	// AWS ElastiCache. See Integration blocks below for details.
 	Elasticache AwsIntegrationsElasticachePtrInput
-	// Elastic Bean Stalk integration
+	// AWS Elastic Beanstalk. See Integration blocks below for details.
 	Elasticbeanstalk AwsIntegrationsElasticbeanstalkPtrInput
-	// Elastic Search integration
+	// AWS ElasticSearch. See Integration blocks below for details.
 	Elasticsearch AwsIntegrationsElasticsearchPtrInput
-	// Elb integration
+	// AWS ELB (Classic). See Integration blocks below for details.
 	Elb AwsIntegrationsElbPtrInput
-	// Emr integration
+	// AWS EMR. See Integration blocks below for details.
 	Emr AwsIntegrationsEmrPtrInput
-	// Health integration
+	// AWS Health. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrInput
-	// Iam integration
+	// AWS IAM. See Integration blocks below for details.
 	Iam AwsIntegrationsIamPtrInput
-	// Iot integration
+	// AWS IoT. See Integration blocks below for details.
 	Iot AwsIntegrationsIotPtrInput
-	// Kinesis integration
+	// AWS Kinesis. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Kinesis AwsIntegrationsKinesisPtrInput
-	// Kinesis Firehose integration
+	// Amazon Kinesis Data Firehose. See Integration blocks below for details.
 	KinesisFirehose AwsIntegrationsKinesisFirehosePtrInput
-	// Lambda integration
+	// AWS Lambda. See Integration blocks below for details.
 	Lambda AwsIntegrationsLambdaPtrInput
 	// The ID of the linked AWS account in New Relic.
 	//
-	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-	//
-	// | Block                   | Description                   |
-	// |-------------------------|-------------------------------|
-	// | `alb`                   | ALB Integration               |
-	// | `apiGateway`           | API Gateway Integration       |
-	// | `autoScaling`          | Auto Scaling Integration      |
-	// | `awsAppSync`          | AppSync Integration           |
-	// | `awsAthena`            | Athena Integration            |
-	// | `awsCognito`           | Cognito Integration           |
-	// | `awsConnect`           | Connect Integration           |
-	// | `awsDirectConnect`    | Direct Connect Integration    |
-	// | `awsFsx`               | FSx Integration               |
-	// | `awsGlue`              | Glue Integration              |
-	// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-	// | `awsMediaConvert`     | MediaConvert Integration      |
-	// | `awsMediaPackageVod` | Media Package VOD Integration |
-	// | `awsMq`                | MQ Integration                |
-	// | `awsMsk`               | MSK Integration               |
-	// | `awsNeptune`           | Neptune Integration           |
-	// | `awsQldb`              | QLDB Integration              |
-	// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-	// | `awsStates`            | States Integration            |
-	// | `awsTransitGateway`   | Transit Gateway Integration   |
-	// | `awsWaf`               | WAF Integration               |
-	// | `awsWafv2`             | WAFv2 Integration             |
-	// | `billing`               | Billing Integration           |
-	// | `cloudfront`            | CloudFront Integration        |
-	// | `cloudtrail`            | CloudTrail Integration        |
-	// | `docDb`                | DocumentDB Integration        |
-	// | `dynamodb`              | DynamoDB Integration          |
-	// | `ebs`                   | EBS Integration               |
-	// | `ec2`                   | EC2 Integration               |
-	// | `ecs`                   | ECS Integration               |
-	// | `efs`                   | EFS Integration               |
-	// | `elasticache`           | ElastiCache Integration       |
-	// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-	// | `elasticsearch`         | Elasticsearch Integration     |
-	// | `elb`                   | ELB Integration               |
-	// | `emr`                   | EMR Integration               |
-	// | `health`                | Health Integration            |
-	// | `iam`                   | IAM Integration               |
-	// | `iot`                   | IoT Integration               |
-	// | `kinesis`               | Kinesis Integration           |
-	// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-	// | `lambda`                | Lambda Integration            |
-	// | `rds`                   | RDS Integration               |
-	// | `redshift`              | Redshift Integration          |
-	// | `route53`               | Route53 Integration           |
-	// | `s3`                    | S3 Integration                |
-	// | `ses`                   | SES Integration               |
-	// | `sns`                   | SNS Integration               |
-	// | `sqs`                   | SQS Integration               |
-	// | `trustedAdvisor`       | Trusted Advisor Integration   |
-	// | `vpc`                   | VPC Integration               |
-	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId pulumi.IntPtrInput
-	// Rds integration
+	// Amazon RDS. See Integration blocks below for details.
 	Rds AwsIntegrationsRdsPtrInput
-	// Redshift integration
+	// Amazon Redshift. See Integration blocks below for details.
 	Redshift AwsIntegrationsRedshiftPtrInput
-	// Route53 integration
+	// Amazon Route 53. See Integration blocks below for details.
 	Route53 AwsIntegrationsRoute53PtrInput
-	// S3 integration
+	// Amazon S3. See Integration blocks below for details.
 	S3 AwsIntegrationsS3PtrInput
-	// Ses integration
+	// Amazon SES. See Integration blocks below for details.
 	Ses AwsIntegrationsSesPtrInput
-	// Sns integration
+	// AWS SNS. See Integration blocks below for details.
 	Sns AwsIntegrationsSnsPtrInput
-	// SQS integration
+	// AWS SQS. See Integration blocks below for details.
 	Sqs AwsIntegrationsSqsPtrInput
-	// Trusted Advisor integration
+	// AWS Trusted Advisor. See Integration blocks below for details.
+	//
+	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrInput
 	// VPC integration
 	Vpc AwsIntegrationsVpcPtrInput
-	// X-Ray integration
+	// AWS X-Ray. See Integration blocks below for details.
+	// x
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 900 seconds.
 	XRay AwsIntegrationsXRayPtrInput
 }
 
@@ -988,172 +897,120 @@ func (AwsIntegrationsState) ElementType() reflect.Type {
 type awsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
-	// ALB integration
+	// AWS ALB. See Integration blocks below for details.
 	Alb *AwsIntegrationsAlb `pulumi:"alb"`
-	// API Gateway integration
+	// AWS API Gateway. See Integration blocks below for details.
 	ApiGateway *AwsIntegrationsApiGateway `pulumi:"apiGateway"`
-	// AutoScaling integration
+	// AWS Auto Scaling. See Integration blocks below for details.
 	AutoScaling *AwsIntegrationsAutoScaling `pulumi:"autoScaling"`
-	// Aws Appsync integration
+	// AWS AppSync. See Integration blocks below for details.
 	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
-	// Aws Athena integration
+	// AWS Athena. See Integration blocks below for details.
 	AwsAthena *AwsIntegrationsAwsAthena `pulumi:"awsAthena"`
-	// Aws Cognito integration
+	// AWS Cognito. See Integration blocks below for details.
 	AwsCognito *AwsIntegrationsAwsCognito `pulumi:"awsCognito"`
-	// Aws Connect integration
+	// AWS Connect. See Integration blocks below for details.
 	AwsConnect *AwsIntegrationsAwsConnect `pulumi:"awsConnect"`
-	// Aws Direct Connect integration
+	// AWS Direct Connect. See Integration blocks below for details.
 	AwsDirectConnect *AwsIntegrationsAwsDirectConnect `pulumi:"awsDirectConnect"`
-	// Aws Fsx integration
+	// AWS FSx. See Integration blocks below for details.
 	AwsFsx *AwsIntegrationsAwsFsx `pulumi:"awsFsx"`
-	// Aws Glue integration
+	// AWS Glue. See Integration blocks below for details.
 	AwsGlue *AwsIntegrationsAwsGlue `pulumi:"awsGlue"`
-	// Aws Kinesis Analytics integration
+	// AWS Kinesis Data Analytics. See Integration blocks below for details.
 	AwsKinesisAnalytics *AwsIntegrationsAwsKinesisAnalytics `pulumi:"awsKinesisAnalytics"`
-	// Aws Media Convert integration
+	// AWS Media Convert. See Integration blocks below for details.
 	AwsMediaConvert *AwsIntegrationsAwsMediaConvert `pulumi:"awsMediaConvert"`
-	// Aws Media PackageVod integration
+	// AWS MediaPackage VOD. See Integration blocks below for details.
 	AwsMediaPackageVod *AwsIntegrationsAwsMediaPackageVod `pulumi:"awsMediaPackageVod"`
-	// Aws Mq integration
+	// AWS MQ. See Integration blocks below for details.
 	AwsMq *AwsIntegrationsAwsMq `pulumi:"awsMq"`
-	// Aws Msk integration
+	// Amazon Managed Kafka (MSK). See Integration blocks below for details.
 	AwsMsk *AwsIntegrationsAwsMsk `pulumi:"awsMsk"`
-	// Aws Neptune integration
+	// AWS Neptune. See Integration blocks below for details.
 	AwsNeptune *AwsIntegrationsAwsNeptune `pulumi:"awsNeptune"`
-	// Aws Qldb integration
+	// Amazon QLDB. See Integration blocks below for details.
 	AwsQldb *AwsIntegrationsAwsQldb `pulumi:"awsQldb"`
-	// Aws Route53resolver integration
+	// AWS Route53 Resolver. See Integration blocks below for details.
 	AwsRoute53resolver *AwsIntegrationsAwsRoute53resolver `pulumi:"awsRoute53resolver"`
 	// Aws states integration
 	AwsStates *AwsIntegrationsAwsStates `pulumi:"awsStates"`
-	// Aws Transit Gateway integration
+	// Amazon Transit Gateway. See Integration blocks below for details.
 	AwsTransitGateway *AwsIntegrationsAwsTransitGateway `pulumi:"awsTransitGateway"`
-	// Aws Waf integration
+	// AWS WAF. See Integration blocks below for details.
 	AwsWaf *AwsIntegrationsAwsWaf `pulumi:"awsWaf"`
-	// Aws Wafv2 integration
+	// AWS WAF V2. See Integration blocks below for details.
 	AwsWafv2 *AwsIntegrationsAwsWafv2 `pulumi:"awsWafv2"`
-	// Billing integration
+	// AWS Billing. See Integration blocks below for details.
 	Billing *AwsIntegrationsBilling `pulumi:"billing"`
-	// Cloudfront integration
+	// AWS CloudFront. See Integration blocks below for details.
 	Cloudfront *AwsIntegrationsCloudfront `pulumi:"cloudfront"`
-	// CloudTrail integration
+	// AWS CloudTrail. See Integration blocks below for details.
 	Cloudtrail *AwsIntegrationsCloudtrail `pulumi:"cloudtrail"`
-	// Doc DB integration
+	// AWS DocumentDB. See Integration blocks below for details.
 	DocDb *AwsIntegrationsDocDb `pulumi:"docDb"`
-	// Dynamo DB integration
+	// Amazon DynamoDB. See Integration blocks below for details.
 	Dynamodb *AwsIntegrationsDynamodb `pulumi:"dynamodb"`
-	// EBS integration
+	// Amazon EBS. See Integration blocks below for details.
 	Ebs *AwsIntegrationsEbs `pulumi:"ebs"`
-	// Ec2 integration
+	// Amazon EC2. See Integration blocks below for details.
 	Ec2 *AwsIntegrationsEc2 `pulumi:"ec2"`
-	// Ecs integration
+	// Amazon ECS. See Integration blocks below for details.
 	Ecs *AwsIntegrationsEcs `pulumi:"ecs"`
-	// Efs integration
+	// Amazon EFS. See Integration blocks below for details.
 	Efs *AwsIntegrationsEfs `pulumi:"efs"`
-	// Elasticache integration
+	// AWS ElastiCache. See Integration blocks below for details.
 	Elasticache *AwsIntegrationsElasticache `pulumi:"elasticache"`
-	// Elastic Bean Stalk integration
+	// AWS Elastic Beanstalk. See Integration blocks below for details.
 	Elasticbeanstalk *AwsIntegrationsElasticbeanstalk `pulumi:"elasticbeanstalk"`
-	// Elastic Search integration
+	// AWS ElasticSearch. See Integration blocks below for details.
 	Elasticsearch *AwsIntegrationsElasticsearch `pulumi:"elasticsearch"`
-	// Elb integration
+	// AWS ELB (Classic). See Integration blocks below for details.
 	Elb *AwsIntegrationsElb `pulumi:"elb"`
-	// Emr integration
+	// AWS EMR. See Integration blocks below for details.
 	Emr *AwsIntegrationsEmr `pulumi:"emr"`
-	// Health integration
+	// AWS Health. See Integration blocks below for details.
 	Health *AwsIntegrationsHealth `pulumi:"health"`
-	// Iam integration
+	// AWS IAM. See Integration blocks below for details.
 	Iam *AwsIntegrationsIam `pulumi:"iam"`
-	// Iot integration
+	// AWS IoT. See Integration blocks below for details.
 	Iot *AwsIntegrationsIot `pulumi:"iot"`
-	// Kinesis integration
+	// AWS Kinesis. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Kinesis *AwsIntegrationsKinesis `pulumi:"kinesis"`
-	// Kinesis Firehose integration
+	// Amazon Kinesis Data Firehose. See Integration blocks below for details.
 	KinesisFirehose *AwsIntegrationsKinesisFirehose `pulumi:"kinesisFirehose"`
-	// Lambda integration
+	// AWS Lambda. See Integration blocks below for details.
 	Lambda *AwsIntegrationsLambda `pulumi:"lambda"`
 	// The ID of the linked AWS account in New Relic.
 	//
-	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-	//
-	// | Block                   | Description                   |
-	// |-------------------------|-------------------------------|
-	// | `alb`                   | ALB Integration               |
-	// | `apiGateway`           | API Gateway Integration       |
-	// | `autoScaling`          | Auto Scaling Integration      |
-	// | `awsAppSync`          | AppSync Integration           |
-	// | `awsAthena`            | Athena Integration            |
-	// | `awsCognito`           | Cognito Integration           |
-	// | `awsConnect`           | Connect Integration           |
-	// | `awsDirectConnect`    | Direct Connect Integration    |
-	// | `awsFsx`               | FSx Integration               |
-	// | `awsGlue`              | Glue Integration              |
-	// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-	// | `awsMediaConvert`     | MediaConvert Integration      |
-	// | `awsMediaPackageVod` | Media Package VOD Integration |
-	// | `awsMq`                | MQ Integration                |
-	// | `awsMsk`               | MSK Integration               |
-	// | `awsNeptune`           | Neptune Integration           |
-	// | `awsQldb`              | QLDB Integration              |
-	// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-	// | `awsStates`            | States Integration            |
-	// | `awsTransitGateway`   | Transit Gateway Integration   |
-	// | `awsWaf`               | WAF Integration               |
-	// | `awsWafv2`             | WAFv2 Integration             |
-	// | `billing`               | Billing Integration           |
-	// | `cloudfront`            | CloudFront Integration        |
-	// | `cloudtrail`            | CloudTrail Integration        |
-	// | `docDb`                | DocumentDB Integration        |
-	// | `dynamodb`              | DynamoDB Integration          |
-	// | `ebs`                   | EBS Integration               |
-	// | `ec2`                   | EC2 Integration               |
-	// | `ecs`                   | ECS Integration               |
-	// | `efs`                   | EFS Integration               |
-	// | `elasticache`           | ElastiCache Integration       |
-	// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-	// | `elasticsearch`         | Elasticsearch Integration     |
-	// | `elb`                   | ELB Integration               |
-	// | `emr`                   | EMR Integration               |
-	// | `health`                | Health Integration            |
-	// | `iam`                   | IAM Integration               |
-	// | `iot`                   | IoT Integration               |
-	// | `kinesis`               | Kinesis Integration           |
-	// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-	// | `lambda`                | Lambda Integration            |
-	// | `rds`                   | RDS Integration               |
-	// | `redshift`              | Redshift Integration          |
-	// | `route53`               | Route53 Integration           |
-	// | `s3`                    | S3 Integration                |
-	// | `ses`                   | SES Integration               |
-	// | `sns`                   | SNS Integration               |
-	// | `sqs`                   | SQS Integration               |
-	// | `trustedAdvisor`       | Trusted Advisor Integration   |
-	// | `vpc`                   | VPC Integration               |
-	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId int `pulumi:"linkedAccountId"`
-	// Rds integration
+	// Amazon RDS. See Integration blocks below for details.
 	Rds *AwsIntegrationsRds `pulumi:"rds"`
-	// Redshift integration
+	// Amazon Redshift. See Integration blocks below for details.
 	Redshift *AwsIntegrationsRedshift `pulumi:"redshift"`
-	// Route53 integration
+	// Amazon Route 53. See Integration blocks below for details.
 	Route53 *AwsIntegrationsRoute53 `pulumi:"route53"`
-	// S3 integration
+	// Amazon S3. See Integration blocks below for details.
 	S3 *AwsIntegrationsS3 `pulumi:"s3"`
-	// Ses integration
+	// Amazon SES. See Integration blocks below for details.
 	Ses *AwsIntegrationsSes `pulumi:"ses"`
-	// Sns integration
+	// AWS SNS. See Integration blocks below for details.
 	Sns *AwsIntegrationsSns `pulumi:"sns"`
-	// SQS integration
+	// AWS SQS. See Integration blocks below for details.
 	Sqs *AwsIntegrationsSqs `pulumi:"sqs"`
-	// Trusted Advisor integration
+	// AWS Trusted Advisor. See Integration blocks below for details.
+	//
+	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
 	TrustedAdvisor *AwsIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// VPC integration
 	Vpc *AwsIntegrationsVpc `pulumi:"vpc"`
-	// X-Ray integration
+	// AWS X-Ray. See Integration blocks below for details.
+	// x
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 900 seconds.
 	XRay *AwsIntegrationsXRay `pulumi:"xRay"`
 }
 
@@ -1161,172 +1018,120 @@ type awsIntegrationsArgs struct {
 type AwsIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
-	// ALB integration
+	// AWS ALB. See Integration blocks below for details.
 	Alb AwsIntegrationsAlbPtrInput
-	// API Gateway integration
+	// AWS API Gateway. See Integration blocks below for details.
 	ApiGateway AwsIntegrationsApiGatewayPtrInput
-	// AutoScaling integration
+	// AWS Auto Scaling. See Integration blocks below for details.
 	AutoScaling AwsIntegrationsAutoScalingPtrInput
-	// Aws Appsync integration
+	// AWS AppSync. See Integration blocks below for details.
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
-	// Aws Athena integration
+	// AWS Athena. See Integration blocks below for details.
 	AwsAthena AwsIntegrationsAwsAthenaPtrInput
-	// Aws Cognito integration
+	// AWS Cognito. See Integration blocks below for details.
 	AwsCognito AwsIntegrationsAwsCognitoPtrInput
-	// Aws Connect integration
+	// AWS Connect. See Integration blocks below for details.
 	AwsConnect AwsIntegrationsAwsConnectPtrInput
-	// Aws Direct Connect integration
+	// AWS Direct Connect. See Integration blocks below for details.
 	AwsDirectConnect AwsIntegrationsAwsDirectConnectPtrInput
-	// Aws Fsx integration
+	// AWS FSx. See Integration blocks below for details.
 	AwsFsx AwsIntegrationsAwsFsxPtrInput
-	// Aws Glue integration
+	// AWS Glue. See Integration blocks below for details.
 	AwsGlue AwsIntegrationsAwsGluePtrInput
-	// Aws Kinesis Analytics integration
+	// AWS Kinesis Data Analytics. See Integration blocks below for details.
 	AwsKinesisAnalytics AwsIntegrationsAwsKinesisAnalyticsPtrInput
-	// Aws Media Convert integration
+	// AWS Media Convert. See Integration blocks below for details.
 	AwsMediaConvert AwsIntegrationsAwsMediaConvertPtrInput
-	// Aws Media PackageVod integration
+	// AWS MediaPackage VOD. See Integration blocks below for details.
 	AwsMediaPackageVod AwsIntegrationsAwsMediaPackageVodPtrInput
-	// Aws Mq integration
+	// AWS MQ. See Integration blocks below for details.
 	AwsMq AwsIntegrationsAwsMqPtrInput
-	// Aws Msk integration
+	// Amazon Managed Kafka (MSK). See Integration blocks below for details.
 	AwsMsk AwsIntegrationsAwsMskPtrInput
-	// Aws Neptune integration
+	// AWS Neptune. See Integration blocks below for details.
 	AwsNeptune AwsIntegrationsAwsNeptunePtrInput
-	// Aws Qldb integration
+	// Amazon QLDB. See Integration blocks below for details.
 	AwsQldb AwsIntegrationsAwsQldbPtrInput
-	// Aws Route53resolver integration
+	// AWS Route53 Resolver. See Integration blocks below for details.
 	AwsRoute53resolver AwsIntegrationsAwsRoute53resolverPtrInput
 	// Aws states integration
 	AwsStates AwsIntegrationsAwsStatesPtrInput
-	// Aws Transit Gateway integration
+	// Amazon Transit Gateway. See Integration blocks below for details.
 	AwsTransitGateway AwsIntegrationsAwsTransitGatewayPtrInput
-	// Aws Waf integration
+	// AWS WAF. See Integration blocks below for details.
 	AwsWaf AwsIntegrationsAwsWafPtrInput
-	// Aws Wafv2 integration
+	// AWS WAF V2. See Integration blocks below for details.
 	AwsWafv2 AwsIntegrationsAwsWafv2PtrInput
-	// Billing integration
+	// AWS Billing. See Integration blocks below for details.
 	Billing AwsIntegrationsBillingPtrInput
-	// Cloudfront integration
+	// AWS CloudFront. See Integration blocks below for details.
 	Cloudfront AwsIntegrationsCloudfrontPtrInput
-	// CloudTrail integration
+	// AWS CloudTrail. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrInput
-	// Doc DB integration
+	// AWS DocumentDB. See Integration blocks below for details.
 	DocDb AwsIntegrationsDocDbPtrInput
-	// Dynamo DB integration
+	// Amazon DynamoDB. See Integration blocks below for details.
 	Dynamodb AwsIntegrationsDynamodbPtrInput
-	// EBS integration
+	// Amazon EBS. See Integration blocks below for details.
 	Ebs AwsIntegrationsEbsPtrInput
-	// Ec2 integration
+	// Amazon EC2. See Integration blocks below for details.
 	Ec2 AwsIntegrationsEc2PtrInput
-	// Ecs integration
+	// Amazon ECS. See Integration blocks below for details.
 	Ecs AwsIntegrationsEcsPtrInput
-	// Efs integration
+	// Amazon EFS. See Integration blocks below for details.
 	Efs AwsIntegrationsEfsPtrInput
-	// Elasticache integration
+	// AWS ElastiCache. See Integration blocks below for details.
 	Elasticache AwsIntegrationsElasticachePtrInput
-	// Elastic Bean Stalk integration
+	// AWS Elastic Beanstalk. See Integration blocks below for details.
 	Elasticbeanstalk AwsIntegrationsElasticbeanstalkPtrInput
-	// Elastic Search integration
+	// AWS ElasticSearch. See Integration blocks below for details.
 	Elasticsearch AwsIntegrationsElasticsearchPtrInput
-	// Elb integration
+	// AWS ELB (Classic). See Integration blocks below for details.
 	Elb AwsIntegrationsElbPtrInput
-	// Emr integration
+	// AWS EMR. See Integration blocks below for details.
 	Emr AwsIntegrationsEmrPtrInput
-	// Health integration
+	// AWS Health. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrInput
-	// Iam integration
+	// AWS IAM. See Integration blocks below for details.
 	Iam AwsIntegrationsIamPtrInput
-	// Iot integration
+	// AWS IoT. See Integration blocks below for details.
 	Iot AwsIntegrationsIotPtrInput
-	// Kinesis integration
+	// AWS Kinesis. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Kinesis AwsIntegrationsKinesisPtrInput
-	// Kinesis Firehose integration
+	// Amazon Kinesis Data Firehose. See Integration blocks below for details.
 	KinesisFirehose AwsIntegrationsKinesisFirehosePtrInput
-	// Lambda integration
+	// AWS Lambda. See Integration blocks below for details.
 	Lambda AwsIntegrationsLambdaPtrInput
 	// The ID of the linked AWS account in New Relic.
 	//
-	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-	// <details>
-	// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-	//
-	// | Block                   | Description                   |
-	// |-------------------------|-------------------------------|
-	// | `alb`                   | ALB Integration               |
-	// | `apiGateway`           | API Gateway Integration       |
-	// | `autoScaling`          | Auto Scaling Integration      |
-	// | `awsAppSync`          | AppSync Integration           |
-	// | `awsAthena`            | Athena Integration            |
-	// | `awsCognito`           | Cognito Integration           |
-	// | `awsConnect`           | Connect Integration           |
-	// | `awsDirectConnect`    | Direct Connect Integration    |
-	// | `awsFsx`               | FSx Integration               |
-	// | `awsGlue`              | Glue Integration              |
-	// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-	// | `awsMediaConvert`     | MediaConvert Integration      |
-	// | `awsMediaPackageVod` | Media Package VOD Integration |
-	// | `awsMq`                | MQ Integration                |
-	// | `awsMsk`               | MSK Integration               |
-	// | `awsNeptune`           | Neptune Integration           |
-	// | `awsQldb`              | QLDB Integration              |
-	// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-	// | `awsStates`            | States Integration            |
-	// | `awsTransitGateway`   | Transit Gateway Integration   |
-	// | `awsWaf`               | WAF Integration               |
-	// | `awsWafv2`             | WAFv2 Integration             |
-	// | `billing`               | Billing Integration           |
-	// | `cloudfront`            | CloudFront Integration        |
-	// | `cloudtrail`            | CloudTrail Integration        |
-	// | `docDb`                | DocumentDB Integration        |
-	// | `dynamodb`              | DynamoDB Integration          |
-	// | `ebs`                   | EBS Integration               |
-	// | `ec2`                   | EC2 Integration               |
-	// | `ecs`                   | ECS Integration               |
-	// | `efs`                   | EFS Integration               |
-	// | `elasticache`           | ElastiCache Integration       |
-	// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-	// | `elasticsearch`         | Elasticsearch Integration     |
-	// | `elb`                   | ELB Integration               |
-	// | `emr`                   | EMR Integration               |
-	// | `health`                | Health Integration            |
-	// | `iam`                   | IAM Integration               |
-	// | `iot`                   | IoT Integration               |
-	// | `kinesis`               | Kinesis Integration           |
-	// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-	// | `lambda`                | Lambda Integration            |
-	// | `rds`                   | RDS Integration               |
-	// | `redshift`              | Redshift Integration          |
-	// | `route53`               | Route53 Integration           |
-	// | `s3`                    | S3 Integration                |
-	// | `ses`                   | SES Integration               |
-	// | `sns`                   | SNS Integration               |
-	// | `sqs`                   | SQS Integration               |
-	// | `trustedAdvisor`       | Trusted Advisor Integration   |
-	// | `vpc`                   | VPC Integration               |
-	// | `xRay`                 | X-Ray Integration             |
-	//
-	// </details>
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId pulumi.IntInput
-	// Rds integration
+	// Amazon RDS. See Integration blocks below for details.
 	Rds AwsIntegrationsRdsPtrInput
-	// Redshift integration
+	// Amazon Redshift. See Integration blocks below for details.
 	Redshift AwsIntegrationsRedshiftPtrInput
-	// Route53 integration
+	// Amazon Route 53. See Integration blocks below for details.
 	Route53 AwsIntegrationsRoute53PtrInput
-	// S3 integration
+	// Amazon S3. See Integration blocks below for details.
 	S3 AwsIntegrationsS3PtrInput
-	// Ses integration
+	// Amazon SES. See Integration blocks below for details.
 	Ses AwsIntegrationsSesPtrInput
-	// Sns integration
+	// AWS SNS. See Integration blocks below for details.
 	Sns AwsIntegrationsSnsPtrInput
-	// SQS integration
+	// AWS SQS. See Integration blocks below for details.
 	Sqs AwsIntegrationsSqsPtrInput
-	// Trusted Advisor integration
+	// AWS Trusted Advisor. See Integration blocks below for details.
+	//
+	// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrInput
 	// VPC integration
 	Vpc AwsIntegrationsVpcPtrInput
-	// X-Ray integration
+	// AWS X-Ray. See Integration blocks below for details.
+	// x
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 900 seconds.
 	XRay AwsIntegrationsXRayPtrInput
 }
 
@@ -1422,92 +1227,92 @@ func (o AwsIntegrationsOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// ALB integration
+// AWS ALB. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Alb() AwsIntegrationsAlbPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAlbPtrOutput { return v.Alb }).(AwsIntegrationsAlbPtrOutput)
 }
 
-// API Gateway integration
+// AWS API Gateway. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) ApiGateway() AwsIntegrationsApiGatewayPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsApiGatewayPtrOutput { return v.ApiGateway }).(AwsIntegrationsApiGatewayPtrOutput)
 }
 
-// AutoScaling integration
+// AWS Auto Scaling. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AutoScaling() AwsIntegrationsAutoScalingPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAutoScalingPtrOutput { return v.AutoScaling }).(AwsIntegrationsAutoScalingPtrOutput)
 }
 
-// Aws Appsync integration
+// AWS AppSync. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsAppSync() AwsIntegrationsAwsAppSyncPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsAppSyncPtrOutput { return v.AwsAppSync }).(AwsIntegrationsAwsAppSyncPtrOutput)
 }
 
-// Aws Athena integration
+// AWS Athena. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsAthena() AwsIntegrationsAwsAthenaPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsAthenaPtrOutput { return v.AwsAthena }).(AwsIntegrationsAwsAthenaPtrOutput)
 }
 
-// Aws Cognito integration
+// AWS Cognito. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsCognito() AwsIntegrationsAwsCognitoPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsCognitoPtrOutput { return v.AwsCognito }).(AwsIntegrationsAwsCognitoPtrOutput)
 }
 
-// Aws Connect integration
+// AWS Connect. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsConnect() AwsIntegrationsAwsConnectPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsConnectPtrOutput { return v.AwsConnect }).(AwsIntegrationsAwsConnectPtrOutput)
 }
 
-// Aws Direct Connect integration
+// AWS Direct Connect. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsDirectConnect() AwsIntegrationsAwsDirectConnectPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsDirectConnectPtrOutput { return v.AwsDirectConnect }).(AwsIntegrationsAwsDirectConnectPtrOutput)
 }
 
-// Aws Fsx integration
+// AWS FSx. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsFsx() AwsIntegrationsAwsFsxPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsFsxPtrOutput { return v.AwsFsx }).(AwsIntegrationsAwsFsxPtrOutput)
 }
 
-// Aws Glue integration
+// AWS Glue. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsGlue() AwsIntegrationsAwsGluePtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsGluePtrOutput { return v.AwsGlue }).(AwsIntegrationsAwsGluePtrOutput)
 }
 
-// Aws Kinesis Analytics integration
+// AWS Kinesis Data Analytics. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsKinesisAnalytics() AwsIntegrationsAwsKinesisAnalyticsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsKinesisAnalyticsPtrOutput { return v.AwsKinesisAnalytics }).(AwsIntegrationsAwsKinesisAnalyticsPtrOutput)
 }
 
-// Aws Media Convert integration
+// AWS Media Convert. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsMediaConvert() AwsIntegrationsAwsMediaConvertPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsMediaConvertPtrOutput { return v.AwsMediaConvert }).(AwsIntegrationsAwsMediaConvertPtrOutput)
 }
 
-// Aws Media PackageVod integration
+// AWS MediaPackage VOD. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsMediaPackageVod() AwsIntegrationsAwsMediaPackageVodPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsMediaPackageVodPtrOutput { return v.AwsMediaPackageVod }).(AwsIntegrationsAwsMediaPackageVodPtrOutput)
 }
 
-// Aws Mq integration
+// AWS MQ. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsMq() AwsIntegrationsAwsMqPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsMqPtrOutput { return v.AwsMq }).(AwsIntegrationsAwsMqPtrOutput)
 }
 
-// Aws Msk integration
+// Amazon Managed Kafka (MSK). See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsMsk() AwsIntegrationsAwsMskPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsMskPtrOutput { return v.AwsMsk }).(AwsIntegrationsAwsMskPtrOutput)
 }
 
-// Aws Neptune integration
+// AWS Neptune. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsNeptune() AwsIntegrationsAwsNeptunePtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsNeptunePtrOutput { return v.AwsNeptune }).(AwsIntegrationsAwsNeptunePtrOutput)
 }
 
-// Aws Qldb integration
+// Amazon QLDB. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsQldb() AwsIntegrationsAwsQldbPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsQldbPtrOutput { return v.AwsQldb }).(AwsIntegrationsAwsQldbPtrOutput)
 }
 
-// Aws Route53resolver integration
+// AWS Route53 Resolver. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsRoute53resolver() AwsIntegrationsAwsRoute53resolverPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsRoute53resolverPtrOutput { return v.AwsRoute53resolver }).(AwsIntegrationsAwsRoute53resolverPtrOutput)
 }
@@ -1517,223 +1322,168 @@ func (o AwsIntegrationsOutput) AwsStates() AwsIntegrationsAwsStatesPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsStatesPtrOutput { return v.AwsStates }).(AwsIntegrationsAwsStatesPtrOutput)
 }
 
-// Aws Transit Gateway integration
+// Amazon Transit Gateway. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsTransitGateway() AwsIntegrationsAwsTransitGatewayPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsTransitGatewayPtrOutput { return v.AwsTransitGateway }).(AwsIntegrationsAwsTransitGatewayPtrOutput)
 }
 
-// Aws Waf integration
+// AWS WAF. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsWaf() AwsIntegrationsAwsWafPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsWafPtrOutput { return v.AwsWaf }).(AwsIntegrationsAwsWafPtrOutput)
 }
 
-// Aws Wafv2 integration
+// AWS WAF V2. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) AwsWafv2() AwsIntegrationsAwsWafv2PtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsWafv2PtrOutput { return v.AwsWafv2 }).(AwsIntegrationsAwsWafv2PtrOutput)
 }
 
-// Billing integration
+// AWS Billing. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Billing() AwsIntegrationsBillingPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsBillingPtrOutput { return v.Billing }).(AwsIntegrationsBillingPtrOutput)
 }
 
-// Cloudfront integration
+// AWS CloudFront. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Cloudfront() AwsIntegrationsCloudfrontPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsCloudfrontPtrOutput { return v.Cloudfront }).(AwsIntegrationsCloudfrontPtrOutput)
 }
 
-// CloudTrail integration
+// AWS CloudTrail. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Cloudtrail() AwsIntegrationsCloudtrailPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsCloudtrailPtrOutput { return v.Cloudtrail }).(AwsIntegrationsCloudtrailPtrOutput)
 }
 
-// Doc DB integration
+// AWS DocumentDB. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) DocDb() AwsIntegrationsDocDbPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsDocDbPtrOutput { return v.DocDb }).(AwsIntegrationsDocDbPtrOutput)
 }
 
-// Dynamo DB integration
+// Amazon DynamoDB. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Dynamodb() AwsIntegrationsDynamodbPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsDynamodbPtrOutput { return v.Dynamodb }).(AwsIntegrationsDynamodbPtrOutput)
 }
 
-// EBS integration
+// Amazon EBS. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Ebs() AwsIntegrationsEbsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsEbsPtrOutput { return v.Ebs }).(AwsIntegrationsEbsPtrOutput)
 }
 
-// Ec2 integration
+// Amazon EC2. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Ec2() AwsIntegrationsEc2PtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsEc2PtrOutput { return v.Ec2 }).(AwsIntegrationsEc2PtrOutput)
 }
 
-// Ecs integration
+// Amazon ECS. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Ecs() AwsIntegrationsEcsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsEcsPtrOutput { return v.Ecs }).(AwsIntegrationsEcsPtrOutput)
 }
 
-// Efs integration
+// Amazon EFS. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Efs() AwsIntegrationsEfsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsEfsPtrOutput { return v.Efs }).(AwsIntegrationsEfsPtrOutput)
 }
 
-// Elasticache integration
+// AWS ElastiCache. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Elasticache() AwsIntegrationsElasticachePtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsElasticachePtrOutput { return v.Elasticache }).(AwsIntegrationsElasticachePtrOutput)
 }
 
-// Elastic Bean Stalk integration
+// AWS Elastic Beanstalk. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Elasticbeanstalk() AwsIntegrationsElasticbeanstalkPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsElasticbeanstalkPtrOutput { return v.Elasticbeanstalk }).(AwsIntegrationsElasticbeanstalkPtrOutput)
 }
 
-// Elastic Search integration
+// AWS ElasticSearch. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Elasticsearch() AwsIntegrationsElasticsearchPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsElasticsearchPtrOutput { return v.Elasticsearch }).(AwsIntegrationsElasticsearchPtrOutput)
 }
 
-// Elb integration
+// AWS ELB (Classic). See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Elb() AwsIntegrationsElbPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsElbPtrOutput { return v.Elb }).(AwsIntegrationsElbPtrOutput)
 }
 
-// Emr integration
+// AWS EMR. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Emr() AwsIntegrationsEmrPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsEmrPtrOutput { return v.Emr }).(AwsIntegrationsEmrPtrOutput)
 }
 
-// Health integration
+// AWS Health. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Health() AwsIntegrationsHealthPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsHealthPtrOutput { return v.Health }).(AwsIntegrationsHealthPtrOutput)
 }
 
-// Iam integration
+// AWS IAM. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Iam() AwsIntegrationsIamPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsIamPtrOutput { return v.Iam }).(AwsIntegrationsIamPtrOutput)
 }
 
-// Iot integration
+// AWS IoT. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Iot() AwsIntegrationsIotPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsIotPtrOutput { return v.Iot }).(AwsIntegrationsIotPtrOutput)
 }
 
-// Kinesis integration
+// AWS Kinesis. See Integration blocks below for details.
+//
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 func (o AwsIntegrationsOutput) Kinesis() AwsIntegrationsKinesisPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsKinesisPtrOutput { return v.Kinesis }).(AwsIntegrationsKinesisPtrOutput)
 }
 
-// Kinesis Firehose integration
+// Amazon Kinesis Data Firehose. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) KinesisFirehose() AwsIntegrationsKinesisFirehosePtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsKinesisFirehosePtrOutput { return v.KinesisFirehose }).(AwsIntegrationsKinesisFirehosePtrOutput)
 }
 
-// Lambda integration
+// AWS Lambda. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Lambda() AwsIntegrationsLambdaPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsLambdaPtrOutput { return v.Lambda }).(AwsIntegrationsLambdaPtrOutput)
 }
 
 // The ID of the linked AWS account in New Relic.
 //
-// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-// <details>
-// <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-//
-// | Block                   | Description                   |
-// |-------------------------|-------------------------------|
-// | `alb`                   | ALB Integration               |
-// | `apiGateway`           | API Gateway Integration       |
-// | `autoScaling`          | Auto Scaling Integration      |
-// | `awsAppSync`          | AppSync Integration           |
-// | `awsAthena`            | Athena Integration            |
-// | `awsCognito`           | Cognito Integration           |
-// | `awsConnect`           | Connect Integration           |
-// | `awsDirectConnect`    | Direct Connect Integration    |
-// | `awsFsx`               | FSx Integration               |
-// | `awsGlue`              | Glue Integration              |
-// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-// | `awsMediaConvert`     | MediaConvert Integration      |
-// | `awsMediaPackageVod` | Media Package VOD Integration |
-// | `awsMq`                | MQ Integration                |
-// | `awsMsk`               | MSK Integration               |
-// | `awsNeptune`           | Neptune Integration           |
-// | `awsQldb`              | QLDB Integration              |
-// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-// | `awsStates`            | States Integration            |
-// | `awsTransitGateway`   | Transit Gateway Integration   |
-// | `awsWaf`               | WAF Integration               |
-// | `awsWafv2`             | WAFv2 Integration             |
-// | `billing`               | Billing Integration           |
-// | `cloudfront`            | CloudFront Integration        |
-// | `cloudtrail`            | CloudTrail Integration        |
-// | `docDb`                | DocumentDB Integration        |
-// | `dynamodb`              | DynamoDB Integration          |
-// | `ebs`                   | EBS Integration               |
-// | `ec2`                   | EC2 Integration               |
-// | `ecs`                   | ECS Integration               |
-// | `efs`                   | EFS Integration               |
-// | `elasticache`           | ElastiCache Integration       |
-// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-// | `elasticsearch`         | Elasticsearch Integration     |
-// | `elb`                   | ELB Integration               |
-// | `emr`                   | EMR Integration               |
-// | `health`                | Health Integration            |
-// | `iam`                   | IAM Integration               |
-// | `iot`                   | IoT Integration               |
-// | `kinesis`               | Kinesis Integration           |
-// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-// | `lambda`                | Lambda Integration            |
-// | `rds`                   | RDS Integration               |
-// | `redshift`              | Redshift Integration          |
-// | `route53`               | Route53 Integration           |
-// | `s3`                    | S3 Integration                |
-// | `ses`                   | SES Integration               |
-// | `sns`                   | SNS Integration               |
-// | `sqs`                   | SQS Integration               |
-// | `trustedAdvisor`       | Trusted Advisor Integration   |
-// | `vpc`                   | VPC Integration               |
-// | `xRay`                 | X-Ray Integration             |
-//
-// </details>
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
 }
 
-// Rds integration
+// Amazon RDS. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Rds() AwsIntegrationsRdsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsRdsPtrOutput { return v.Rds }).(AwsIntegrationsRdsPtrOutput)
 }
 
-// Redshift integration
+// Amazon Redshift. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Redshift() AwsIntegrationsRedshiftPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsRedshiftPtrOutput { return v.Redshift }).(AwsIntegrationsRedshiftPtrOutput)
 }
 
-// Route53 integration
+// Amazon Route 53. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Route53() AwsIntegrationsRoute53PtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsRoute53PtrOutput { return v.Route53 }).(AwsIntegrationsRoute53PtrOutput)
 }
 
-// S3 integration
+// Amazon S3. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) S3() AwsIntegrationsS3PtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsS3PtrOutput { return v.S3 }).(AwsIntegrationsS3PtrOutput)
 }
 
-// Ses integration
+// Amazon SES. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Ses() AwsIntegrationsSesPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsSesPtrOutput { return v.Ses }).(AwsIntegrationsSesPtrOutput)
 }
 
-// Sns integration
+// AWS SNS. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Sns() AwsIntegrationsSnsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsSnsPtrOutput { return v.Sns }).(AwsIntegrationsSnsPtrOutput)
 }
 
-// SQS integration
+// AWS SQS. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Sqs() AwsIntegrationsSqsPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsSqsPtrOutput { return v.Sqs }).(AwsIntegrationsSqsPtrOutput)
 }
 
-// Trusted Advisor integration
+// AWS Trusted Advisor. See Integration blocks below for details.
+//
+// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
 func (o AwsIntegrationsOutput) TrustedAdvisor() AwsIntegrationsTrustedAdvisorPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsTrustedAdvisorPtrOutput { return v.TrustedAdvisor }).(AwsIntegrationsTrustedAdvisorPtrOutput)
 }
@@ -1743,7 +1493,10 @@ func (o AwsIntegrationsOutput) Vpc() AwsIntegrationsVpcPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsVpcPtrOutput { return v.Vpc }).(AwsIntegrationsVpcPtrOutput)
 }
 
-// X-Ray integration
+// AWS X-Ray. See Integration blocks below for details.
+// x
+//
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 900 seconds.
 func (o AwsIntegrationsOutput) XRay() AwsIntegrationsXRayPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsXRayPtrOutput { return v.XRay }).(AwsIntegrationsXRayPtrOutput)
 }

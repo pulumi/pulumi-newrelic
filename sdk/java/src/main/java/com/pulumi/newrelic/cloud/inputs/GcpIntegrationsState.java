@@ -284,12 +284,16 @@ public final class GcpIntegrationsState extends com.pulumi.resources.ResourceArg
     /**
      * The ID of the linked GCP account in New Relic.
      * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * 
      */
     @Import(name="linkedAccountId")
     private @Nullable Output<Integer> linkedAccountId;
 
     /**
      * @return The ID of the linked GCP account in New Relic.
+     * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
      * 
      */
     public Optional<Output<Integer>> linkedAccountId() {
@@ -851,6 +855,8 @@ public final class GcpIntegrationsState extends com.pulumi.resources.ResourceArg
         /**
          * @param linkedAccountId The ID of the linked GCP account in New Relic.
          * 
+         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+         * 
          * @return builder
          * 
          */
@@ -861,6 +867,8 @@ public final class GcpIntegrationsState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param linkedAccountId The ID of the linked GCP account in New Relic.
+         * 
+         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
          * 
          * @return builder
          * 

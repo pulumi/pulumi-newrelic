@@ -46,83 +46,83 @@ import (
 //			_, err = cloud.NewGcpIntegrations(ctx, "foo1", &cloud.GcpIntegrationsArgs{
 //				LinkedAccountId: foo.ID(),
 //				AppEngine: &cloud.GcpIntegrationsAppEngineArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				BigQuery: &cloud.GcpIntegrationsBigQueryArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					FetchTags:              pulumi.Bool(true),
 //				},
 //				BigTable: &cloud.GcpIntegrationsBigTableArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Composer: &cloud.GcpIntegrationsComposerArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				DataFlow: &cloud.GcpIntegrationsDataFlowArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				DataProc: &cloud.GcpIntegrationsDataProcArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				DataStore: &cloud.GcpIntegrationsDataStoreArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				FireBaseDatabase: &cloud.GcpIntegrationsFireBaseDatabaseArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				FireBaseHosting: &cloud.GcpIntegrationsFireBaseHostingArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				FireBaseStorage: &cloud.GcpIntegrationsFireBaseStorageArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				FireStore: &cloud.GcpIntegrationsFireStoreArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Functions: &cloud.GcpIntegrationsFunctionsArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Interconnect: &cloud.GcpIntegrationsInterconnectArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Kubernetes: &cloud.GcpIntegrationsKubernetesArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				LoadBalancing: &cloud.GcpIntegrationsLoadBalancingArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				MemCache: &cloud.GcpIntegrationsMemCacheArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				PubSub: &cloud.GcpIntegrationsPubSubArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					FetchTags:              pulumi.Bool(true),
 //				},
 //				Redis: &cloud.GcpIntegrationsRedisArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Router: &cloud.GcpIntegrationsRouterArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Run: &cloud.GcpIntegrationsRunArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Spanner: &cloud.GcpIntegrationsSpannerArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					FetchTags:              pulumi.Bool(true),
 //				},
 //				Sql: &cloud.GcpIntegrationsSqlArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				Storage: &cloud.GcpIntegrationsStorageArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					FetchTags:              pulumi.Bool(true),
 //				},
 //				VirtualMachines: &cloud.GcpIntegrationsVirtualMachinesArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //				VpcAccess: &cloud.GcpIntegrationsVpcAccessArgs{
-//					MetricsPollingInterval: pulumi.Int(400),
+//					MetricsPollingInterval: pulumi.Int(300),
 //				},
 //			})
 //			if err != nil {
@@ -179,6 +179,8 @@ type GcpIntegrations struct {
 	// Kubernetes integration. See Integration blocks below for details.
 	Kubernetes GcpIntegrationsKubernetesPtrOutput `pulumi:"kubernetes"`
 	// The ID of the linked GCP account in New Relic.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrOutput `pulumi:"loadBalancing"`
@@ -270,6 +272,8 @@ type gcpIntegrationsState struct {
 	// Kubernetes integration. See Integration blocks below for details.
 	Kubernetes *GcpIntegrationsKubernetes `pulumi:"kubernetes"`
 	// The ID of the linked GCP account in New Relic.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
@@ -329,6 +333,8 @@ type GcpIntegrationsState struct {
 	// Kubernetes integration. See Integration blocks below for details.
 	Kubernetes GcpIntegrationsKubernetesPtrInput
 	// The ID of the linked GCP account in New Relic.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId pulumi.IntPtrInput
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
@@ -392,6 +398,8 @@ type gcpIntegrationsArgs struct {
 	// Kubernetes integration. See Integration blocks below for details.
 	Kubernetes *GcpIntegrationsKubernetes `pulumi:"kubernetes"`
 	// The ID of the linked GCP account in New Relic.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId int `pulumi:"linkedAccountId"`
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing *GcpIntegrationsLoadBalancing `pulumi:"loadBalancing"`
@@ -452,6 +460,8 @@ type GcpIntegrationsArgs struct {
 	// Kubernetes integration. See Integration blocks below for details.
 	Kubernetes GcpIntegrationsKubernetesPtrInput
 	// The ID of the linked GCP account in New Relic.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	LinkedAccountId pulumi.IntInput
 	// Load Balancing integration. See Integration blocks below for details.
 	LoadBalancing GcpIntegrationsLoadBalancingPtrInput
@@ -645,6 +655,8 @@ func (o GcpIntegrationsOutput) Kubernetes() GcpIntegrationsKubernetesPtrOutput {
 }
 
 // The ID of the linked GCP account in New Relic.
+//
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 func (o GcpIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
 }
