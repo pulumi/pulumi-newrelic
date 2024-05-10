@@ -131,23 +131,23 @@ import javax.annotation.Nullable;
  *             .linkedAccountId(foo.id())
  *             .accountId("The New Relic account ID")
  *             .apiManagement(AzureIntegrationsApiManagementArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .appGateway(AzureIntegrationsAppGatewayArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .appService(AzureIntegrationsAppServiceArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .containers(AzureIntegrationsContainersArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .cosmosDb(AzureIntegrationsCosmosDbArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .costManagement(AzureIntegrationsCostManagementArgs.builder()
@@ -155,51 +155,51 @@ import javax.annotation.Nullable;
  *                 .tagKeys("tag_keys")
  *                 .build())
  *             .dataFactory(AzureIntegrationsDataFactoryArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .eventHub(AzureIntegrationsEventHubArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .expressRoute(AzureIntegrationsExpressRouteArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .firewalls(AzureIntegrationsFirewallsArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .frontDoor(AzureIntegrationsFrontDoorArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .functions(AzureIntegrationsFunctionsArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .keyVault(AzureIntegrationsKeyVaultArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .loadBalancer(AzureIntegrationsLoadBalancerArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .logicApps(AzureIntegrationsLogicAppsArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .machineLearning(AzureIntegrationsMachineLearningArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .mariaDb(AzureIntegrationsMariaDbArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(3600)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .monitor(AzureIntegrationsMonitorArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(60)
  *                 .resourceGroups("resource_groups")
  *                 .includeTags("env:production")
  *                 .excludeTags(                
@@ -209,59 +209,59 @@ import javax.annotation.Nullable;
  *                 .resourceTypes("microsoft.datashare/accounts")
  *                 .build())
  *             .mysql(AzureIntegrationsMysqlArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(3600)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .mysqlFlexible(AzureIntegrationsMysqlFlexibleArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(3600)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .postgresql(AzureIntegrationsPostgresqlArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(3600)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .postgresqlFlexible(AzureIntegrationsPostgresqlFlexibleArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(3600)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .powerBiDedicated(AzureIntegrationsPowerBiDedicatedArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .redisCache(AzureIntegrationsRedisCacheArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .serviceBus(AzureIntegrationsServiceBusArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .sql(AzureIntegrationsSqlArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .sqlManaged(AzureIntegrationsSqlManagedArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .storage(AzureIntegrationsStorageArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(1800)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .virtualMachine(AzureIntegrationsVirtualMachineArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .virtualNetworks(AzureIntegrationsVirtualNetworksArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .vms(AzureIntegrationsVmsArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .vpnGateway(AzureIntegrationsVpnGatewayArgs.builder()
- *                 .metricsPollingInterval(1200)
+ *                 .metricsPollingInterval(300)
  *                 .resourceGroups("resource_groups")
  *                 .build())
  *             .build());
@@ -484,12 +484,16 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the linked Azure account in New Relic.
      * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+     * 
      */
     @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
     private Output<Integer> linkedAccountId;
 
     /**
      * @return The ID of the linked Azure account in New Relic.
+     * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
      * 
      */
     public Output<Integer> linkedAccountId() {
@@ -554,12 +558,16 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * Azure Monitor. See Integration blocks below for details.
      * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * 
      */
     @Export(name="monitor", refs={AzureIntegrationsMonitor.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsMonitor> monitor;
 
     /**
      * @return Azure Monitor. See Integration blocks below for details.
+     * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
      * 
      */
     public Output<Optional<AzureIntegrationsMonitor>> monitor() {
@@ -694,12 +702,16 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * for Azure Storage. See Integration blocks below for details.
      * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * 
      */
     @Export(name="storage", refs={AzureIntegrationsStorage.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsStorage> storage;
 
     /**
      * @return for Azure Storage. See Integration blocks below for details.
+     * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
      * 
      */
     public Output<Optional<AzureIntegrationsStorage>> storage() {
@@ -722,16 +734,12 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
      * 
-     * Below argument supports the minimum metric polling interval of 3600 seconds
-     * 
      */
     @Export(name="virtualNetworks", refs={AzureIntegrationsVirtualNetworks.class}, tree="[0]")
     private Output</* @Nullable */ AzureIntegrationsVirtualNetworks> virtualNetworks;
 
     /**
      * @return for Azure Virtual networks. See Integration blocks below for details.
-     * 
-     * Below argument supports the minimum metric polling interval of 3600 seconds
      * 
      */
     public Output<Optional<AzureIntegrationsVirtualNetworks>> virtualNetworks() {
@@ -754,7 +762,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      * 
-     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
      * 
      */
     @Export(name="vpnGateway", refs={AzureIntegrationsVpnGateway.class}, tree="[0]")
@@ -763,7 +771,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * @return Azure VPN Gateway. See Integration blocks below for details.
      * 
-     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
      * 
      */
     public Output<Optional<AzureIntegrationsVpnGateway>> vpnGateway() {

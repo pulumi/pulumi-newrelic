@@ -30,83 +30,83 @@ import * as utilities from "../utilities";
  * const foo1 = new newrelic.cloud.GcpIntegrations("foo1", {
  *     linkedAccountId: foo.id,
  *     appEngine: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     bigQuery: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     bigTable: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     composer: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     dataFlow: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     dataProc: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     dataStore: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireBaseDatabase: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireBaseHosting: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireBaseStorage: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireStore: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     functions: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     interconnect: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     kubernetes: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     loadBalancing: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     memCache: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     pubSub: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     redis: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     router: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     run: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     spanner: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     sql: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     storage: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     virtualMachines: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     vpcAccess: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  * });
  * ```
@@ -215,6 +215,8 @@ export class GcpIntegrations extends pulumi.CustomResource {
     public readonly kubernetes!: pulumi.Output<outputs.cloud.GcpIntegrationsKubernetes | undefined>;
     /**
      * The ID of the linked GCP account in New Relic.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
     /**
@@ -412,6 +414,8 @@ export interface GcpIntegrationsState {
     kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes>;
     /**
      * The ID of the linked GCP account in New Relic.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
     linkedAccountId?: pulumi.Input<number>;
     /**
@@ -530,6 +534,8 @@ export interface GcpIntegrationsArgs {
     kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes>;
     /**
      * The ID of the linked GCP account in New Relic.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
     linkedAccountId: pulumi.Input<number>;
     /**

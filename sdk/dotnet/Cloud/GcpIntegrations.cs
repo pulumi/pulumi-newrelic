@@ -41,107 +41,107 @@ namespace Pulumi.NewRelic.Cloud
     ///         LinkedAccountId = foo.Id,
     ///         AppEngine = new NewRelic.Cloud.Inputs.GcpIntegrationsAppEngineArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         BigQuery = new NewRelic.Cloud.Inputs.GcpIntegrationsBigQueryArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///             FetchTags = true,
     ///         },
     ///         BigTable = new NewRelic.Cloud.Inputs.GcpIntegrationsBigTableArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Composer = new NewRelic.Cloud.Inputs.GcpIntegrationsComposerArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         DataFlow = new NewRelic.Cloud.Inputs.GcpIntegrationsDataFlowArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         DataProc = new NewRelic.Cloud.Inputs.GcpIntegrationsDataProcArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         DataStore = new NewRelic.Cloud.Inputs.GcpIntegrationsDataStoreArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         FireBaseDatabase = new NewRelic.Cloud.Inputs.GcpIntegrationsFireBaseDatabaseArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         FireBaseHosting = new NewRelic.Cloud.Inputs.GcpIntegrationsFireBaseHostingArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         FireBaseStorage = new NewRelic.Cloud.Inputs.GcpIntegrationsFireBaseStorageArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         FireStore = new NewRelic.Cloud.Inputs.GcpIntegrationsFireStoreArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Functions = new NewRelic.Cloud.Inputs.GcpIntegrationsFunctionsArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Interconnect = new NewRelic.Cloud.Inputs.GcpIntegrationsInterconnectArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Kubernetes = new NewRelic.Cloud.Inputs.GcpIntegrationsKubernetesArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         LoadBalancing = new NewRelic.Cloud.Inputs.GcpIntegrationsLoadBalancingArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         MemCache = new NewRelic.Cloud.Inputs.GcpIntegrationsMemCacheArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         PubSub = new NewRelic.Cloud.Inputs.GcpIntegrationsPubSubArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///             FetchTags = true,
     ///         },
     ///         Redis = new NewRelic.Cloud.Inputs.GcpIntegrationsRedisArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Router = new NewRelic.Cloud.Inputs.GcpIntegrationsRouterArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Run = new NewRelic.Cloud.Inputs.GcpIntegrationsRunArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Spanner = new NewRelic.Cloud.Inputs.GcpIntegrationsSpannerArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///             FetchTags = true,
     ///         },
     ///         Sql = new NewRelic.Cloud.Inputs.GcpIntegrationsSqlArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         Storage = new NewRelic.Cloud.Inputs.GcpIntegrationsStorageArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///             FetchTags = true,
     ///         },
     ///         VirtualMachines = new NewRelic.Cloud.Inputs.GcpIntegrationsVirtualMachinesArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///         VpcAccess = new NewRelic.Cloud.Inputs.GcpIntegrationsVpcAccessArgs
     ///         {
-    ///             MetricsPollingInterval = 400,
+    ///             MetricsPollingInterval = 300,
     ///         },
     ///     });
     /// 
@@ -259,6 +259,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked GCP account in New Relic.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Output("linkedAccountId")]
         public Output<int> LinkedAccountId { get; private set; } = null!;
@@ -473,6 +475,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked GCP account in New Relic.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
         public Input<int> LinkedAccountId { get; set; } = null!;
@@ -649,6 +653,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked GCP account in New Relic.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Input("linkedAccountId")]
         public Input<int>? LinkedAccountId { get; set; }
