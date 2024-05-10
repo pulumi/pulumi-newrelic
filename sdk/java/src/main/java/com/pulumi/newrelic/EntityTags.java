@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,29 +47,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var foo = NewrelicFunctions.getEntity(GetEntityArgs.builder()
- *             .name(&#34;Example application&#34;)
- *             .type(&#34;APPLICATION&#34;)
- *             .domain(&#34;APM&#34;)
+ *             .name("Example application")
+ *             .type("APPLICATION")
+ *             .domain("APM")
  *             .build());
  * 
- *         var fooEntityTags = new EntityTags(&#34;fooEntityTags&#34;, EntityTagsArgs.builder()        
- *             .guid(foo.applyValue(getEntityResult -&gt; getEntityResult.guid()))
+ *         var fooEntityTags = new EntityTags("fooEntityTags", EntityTagsArgs.builder()        
+ *             .guid(foo.applyValue(getEntityResult -> getEntityResult.guid()))
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -54,7 +54,8 @@ import javax.annotation.Nullable;
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,12 +103,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .projectId(&#34;&lt;Your GCP project ID&gt;&#34;)
+ *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()        
+ *             .name("example")
+ *             .projectId("<Your GCP project ID>")
  *             .build());
  * 
- *         var foo1 = new GcpIntegrations(&#34;foo1&#34;, GcpIntegrationsArgs.builder()        
+ *         var foo1 = new GcpIntegrations("foo1", GcpIntegrationsArgs.builder()        
  *             .linkedAccountId(foo.id())
  *             .appEngine(GcpIntegrationsAppEngineArgs.builder()
  *                 .metricsPollingInterval(400)
@@ -192,7 +193,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

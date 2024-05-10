@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * 
  * Use this example to create the log parse rule.
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new LogParsingRule(&#34;foo&#34;, LogParsingRuleArgs.builder()        
- *             .name(&#34;log_parse_rule&#34;)
- *             .attribute(&#34;message&#34;)
+ *         var foo = new LogParsingRule("foo", LogParsingRuleArgs.builder()        
+ *             .name("log_parse_rule")
+ *             .attribute("message")
  *             .enabled(true)
- *             .grok(&#34;sampleattribute=&#39;%{NUMBER:test:int}&#39;&#34;)
- *             .lucene(&#34;logtype:linux_messages&#34;)
- *             .nrql(&#34;SELECT * FROM Log WHERE logtype = &#39;linux_messages&#39;&#34;)
+ *             .grok("sampleattribute='%{NUMBER:test:int}'")
+ *             .lucene("logtype:linux_messages")
+ *             .nrql("SELECT * FROM Log WHERE logtype = 'linux_messages'")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Example
@@ -63,7 +65,8 @@ import javax.annotation.Nullable;
  * Use this example to validate a grok pattern and create the log parse rule.  More
  * information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,23 +90,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var grok = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
- *             .grok(&#34;%{IP:host_ip}&#34;)
- *             .logLines(&#34;host_ip: 43.3.120.2&#34;)
+ *             .grok("%{IP:host_ip}")
+ *             .logLines("host_ip: 43.3.120.2")
  *             .build());
  * 
- *         var foo = new LogParsingRule(&#34;foo&#34;, LogParsingRuleArgs.builder()        
- *             .name(&#34;log_parse_rule&#34;)
- *             .attribute(&#34;message&#34;)
+ *         var foo = new LogParsingRule("foo", LogParsingRuleArgs.builder()        
+ *             .name("log_parse_rule")
+ *             .attribute("message")
  *             .enabled(true)
- *             .grok(grok.applyValue(getTestGrokPatternResult -&gt; getTestGrokPatternResult.grok()))
- *             .lucene(&#34;logtype:linux_messages&#34;)
- *             .nrql(&#34;SELECT * FROM Log WHERE logtype = &#39;linux_messages&#39;&#34;)
- *             .matched(grok.applyValue(getTestGrokPatternResult -&gt; getTestGrokPatternResult.testGroks()[0].matched()))
+ *             .grok(grok.applyValue(getTestGrokPatternResult -> getTestGrokPatternResult.grok()))
+ *             .lucene("logtype:linux_messages")
+ *             .nrql("SELECT * FROM Log WHERE logtype = 'linux_messages'")
+ *             .matched(grok.applyValue(getTestGrokPatternResult -> getTestGrokPatternResult.testGroks()[0].matched()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

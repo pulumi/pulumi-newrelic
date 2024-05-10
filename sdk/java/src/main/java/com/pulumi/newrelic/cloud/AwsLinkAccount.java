@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * You can also use the full example, including the AWS set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,15 +53,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AwsLinkAccount(&#34;foo&#34;, AwsLinkAccountArgs.builder()        
- *             .arn(&#34;arn:aws:service:region:account-id:resource-id&#34;)
- *             .metricCollectionMode(&#34;PUSH&#34;)
- *             .name(&#34;account name&#34;)
+ *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()        
+ *             .arn("arn:aws:service:region:account-id:resource-id")
+ *             .metricCollectionMode("PUSH")
+ *             .name("account name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

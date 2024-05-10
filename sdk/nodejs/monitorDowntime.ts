@@ -211,7 +211,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
     public readonly accountId!: pulumi.Output<number>;
@@ -310,7 +310,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
  */
 export interface MonitorDowntimeState {
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
     accountId?: pulumi.Input<number>;
@@ -357,7 +357,7 @@ export interface MonitorDowntimeState {
  */
 export interface MonitorDowntimeArgs {
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
      * provider{} configuration if not specified.
      */
     accountId?: pulumi.Input<number>;

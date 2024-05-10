@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Create A New Relic One Dashboard With RawConfiguration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,80 +49,81 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampledash = new OneDashboardRaw(&#34;exampledash&#34;, OneDashboardRawArgs.builder()        
- *             .name(&#34;New Relic Terraform Example&#34;)
+ *         var exampledash = new OneDashboardRaw("exampledash", OneDashboardRawArgs.builder()        
+ *             .name("New Relic Terraform Example")
  *             .pages(OneDashboardRawPageArgs.builder()
- *                 .name(&#34;Page Name&#34;)
+ *                 .name("Page Name")
  *                 .widgets(                
  *                     OneDashboardRawPageWidgetArgs.builder()
- *                         .title(&#34;Custom widget&#34;)
+ *                         .title("Custom widget")
  *                         .row(1)
  *                         .column(1)
  *                         .width(1)
  *                         .height(1)
- *                         .visualizationId(&#34;viz.custom&#34;)
- *                         .configuration(&#34;&#34;&#34;
+ *                         .visualizationId("viz.custom")
+ *                         .configuration("""
  *       {
- *         &#34;legend&#34;: {
- *           &#34;enabled&#34;: false
+ *         "legend": {
+ *           "enabled": false
  *         },
- *         &#34;nrqlQueries&#34;: [
+ *         "nrqlQueries": [
  *           {
- *             &#34;accountId&#34;: ` + accountID + `,
- *             &#34;query&#34;: &#34;SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES&#34;
+ *             "accountId": ` + accountID + `,
+ *             "query": "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES"
  *           }
  *         ],
- *         &#34;yAxisLeft&#34;: {
- *           &#34;max&#34;: 100,
- *           &#34;min&#34;: 50,
- *           &#34;zero&#34;: false
+ *         "yAxisLeft": {
+ *           "max": 100,
+ *           "min": 50,
+ *           "zero": false
  *         }
  *       }
- *                         &#34;&#34;&#34;)
+ *                         """)
  *                         .build(),
  *                     OneDashboardRawPageWidgetArgs.builder()
- *                         .title(&#34;Server CPU&#34;)
+ *                         .title("Server CPU")
  *                         .row(1)
  *                         .column(2)
  *                         .width(1)
  *                         .height(1)
- *                         .visualizationId(&#34;viz.testing&#34;)
- *                         .configuration(&#34;&#34;&#34;
+ *                         .visualizationId("viz.testing")
+ *                         .configuration("""
  *       {
- *         &#34;nrqlQueries&#34;: [
+ *         "nrqlQueries": [
  *           {
- *             &#34;accountId&#34;: ` + accountID + `,
- *             &#34;query&#34;: &#34;SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400&#34;
+ *             "accountId": ` + accountID + `,
+ *             "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400"
  *           }
  *         ]
  *       }
- *                         &#34;&#34;&#34;)
+ *                         """)
  *                         .build(),
  *                     OneDashboardRawPageWidgetArgs.builder()
- *                         .title(&#34;Docker Server CPU&#34;)
+ *                         .title("Docker Server CPU")
  *                         .row(1)
  *                         .column(3)
  *                         .height(1)
  *                         .width(1)
- *                         .visualizationId(&#34;viz.bar&#34;)
+ *                         .visualizationId("viz.bar")
  *                         .configuration(serializeJson(
  *                             jsonObject(
- *                                 jsonProperty(&#34;facet&#34;, jsonObject(
- *                                     jsonProperty(&#34;showOtherSeries&#34;, false)
+ *                                 jsonProperty("facet", jsonObject(
+ *                                     jsonProperty("showOtherSeries", false)
  *                                 )),
- *                                 jsonProperty(&#34;nrqlQueries&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;accountId&#34;, accountID),
- *                                     jsonProperty(&#34;query&#34;, &#34;SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400&#34;)
+ *                                 jsonProperty("nrqlQueries", jsonArray(jsonObject(
+ *                                     jsonProperty("accountId", accountID),
+ *                                     jsonProperty("query", "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400")
  *                                 )))
  *                             )))
- *                         .linkedEntityGuids(&#34;MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc&#34;)
+ *                         .linkedEntityGuids("MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -18,14 +18,14 @@ public final class AwsIntegrationsCloudfrontArgs extends com.pulumi.resources.Re
     public static final AwsIntegrationsCloudfrontArgs Empty = new AwsIntegrationsCloudfrontArgs();
 
     /**
-     * Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * Specify if Lambdas{@literal @}Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     @Import(name="fetchLambdasAtEdge")
     private @Nullable Output<Boolean> fetchLambdasAtEdge;
 
     /**
-     * @return Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return Specify if Lambdas{@literal @}Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     public Optional<Output<Boolean>> fetchLambdasAtEdge() {
@@ -121,7 +121,7 @@ public final class AwsIntegrationsCloudfrontArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fetchLambdasAtEdge Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * @param fetchLambdasAtEdge Specify if Lambdas{@literal @}Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AwsIntegrationsCloudfrontArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fetchLambdasAtEdge Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * @param fetchLambdasAtEdge Specify if Lambdas{@literal @}Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
          * 
          * @return builder
          * 

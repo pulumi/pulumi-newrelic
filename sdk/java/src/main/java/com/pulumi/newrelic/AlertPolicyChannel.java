@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * The example below will apply multiple alert channels to an existing New Relic alert policy.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,33 +54,33 @@ import javax.annotation.Nullable;
  *         // Fetches the data for this policy from your New Relic account
  *         // and is referenced in the newrelic_alert_policy_channel block below.
  *         final var examplePolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
- *             .name(&#34;my-alert-policy&#34;)
+ *             .name("my-alert-policy")
  *             .build());
  * 
  *         // Creates an email alert channel.
- *         var emailChannel = new AlertChannel(&#34;emailChannel&#34;, AlertChannelArgs.builder()        
- *             .name(&#34;bar&#34;)
- *             .type(&#34;email&#34;)
+ *         var emailChannel = new AlertChannel("emailChannel", AlertChannelArgs.builder()        
+ *             .name("bar")
+ *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .recipients(&#34;foo@example.com&#34;)
- *                 .includeJsonAttachment(&#34;1&#34;)
+ *                 .recipients("foo{@literal @}example.com")
+ *                 .includeJsonAttachment("1")
  *                 .build())
  *             .build());
  * 
  *         // Creates a Slack alert channel.
- *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
- *             .name(&#34;slack-channel-example&#34;)
- *             .type(&#34;slack&#34;)
+ *         var slackChannel = new AlertChannel("slackChannel", AlertChannelArgs.builder()        
+ *             .name("slack-channel-example")
+ *             .type("slack")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .channel(&#34;#example-channel&#34;)
- *                 .url(&#34;http://example-org.slack.com&#34;)
+ *                 .channel("#example-channel")
+ *                 .url("http://example-org.slack.com")
  *                 .build())
  *             .build());
  * 
  *         // Applies the created channels above to the alert policy
  *         // referenced at the top of the config.
- *         var foo = new AlertPolicyChannel(&#34;foo&#34;, AlertPolicyChannelArgs.builder()        
- *             .policyId(examplePolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
+ *         var foo = new AlertPolicyChannel("foo", AlertPolicyChannelArgs.builder()        
+ *             .policyId(examplePolicy.applyValue(getAlertPolicyResult -> getAlertPolicyResult.id()))
  *             .channelIds(            
  *                 emailChannel.id(),
  *                 slackChannel.id())
@@ -87,7 +88,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,30 +50,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
- *             .name(&#34;Sample Step Monitor&#34;)
+ *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
+ *             .name("Sample Step Monitor")
  *             .enableScreenshotOnFailureAndScript(true)
  *             .locationsPublics(            
- *                 &#34;US_EAST_1&#34;,
- *                 &#34;US_EAST_2&#34;)
- *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .status(&#34;ENABLED&#34;)
- *             .runtimeType(&#34;CHROME_BROWSER&#34;)
- *             .runtimeTypeVersion(&#34;100&#34;)
+ *                 "US_EAST_1",
+ *                 "US_EAST_2")
+ *             .period("EVERY_6_HOURS")
+ *             .status("ENABLED")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .runtimeTypeVersion("100")
  *             .steps(StepMonitorStepArgs.builder()
  *                 .ordinal(0)
- *                 .type(&#34;NAVIGATE&#34;)
- *                 .values(&#34;https://www.newrelic.com&#34;)
+ *                 .type("NAVIGATE")
+ *                 .values("https://www.newrelic.com")
  *                 .build())
  *             .tags(StepMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
  * 
@@ -85,7 +87,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -111,34 +114,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PrivateLocation(&#34;foo&#34;, PrivateLocationArgs.builder()        
- *             .name(&#34;Sample Private Location&#34;)
- *             .description(&#34;Sample Private Location Description&#34;)
+ *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()        
+ *             .name("Sample Private Location")
+ *             .description("Sample Private Location Description")
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
- *         var fooStepMonitor = new StepMonitor(&#34;fooStepMonitor&#34;, StepMonitorArgs.builder()        
- *             .name(&#34;Sample Step Monitor&#34;)
- *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *         var fooStepMonitor = new StepMonitor("fooStepMonitor", StepMonitorArgs.builder()        
+ *             .name("Sample Step Monitor")
+ *             .period("EVERY_6_HOURS")
+ *             .status("ENABLED")
  *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
  *                 .guid(foo.id())
- *                 .vsePassword(&#34;secret&#34;)
+ *                 .vsePassword("secret")
  *                 .build())
  *             .steps(StepMonitorStepArgs.builder()
  *                 .ordinal(0)
- *                 .type(&#34;NAVIGATE&#34;)
- *                 .values(&#34;https://google.com&#34;)
+ *                 .type("NAVIGATE")
+ *                 .values("https://google.com")
  *                 .build())
  *             .tags(StepMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

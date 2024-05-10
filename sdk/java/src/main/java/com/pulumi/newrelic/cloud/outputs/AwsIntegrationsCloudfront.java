@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsIntegrationsCloudfront {
     /**
-     * @return Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return Specify if Lambdas{@literal @}Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     private @Nullable Boolean fetchLambdasAtEdge;
@@ -41,7 +41,7 @@ public final class AwsIntegrationsCloudfront {
 
     private AwsIntegrationsCloudfront() {}
     /**
-     * @return Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+     * @return Specify if Lambdas{@literal @}Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     public Optional<Boolean> fetchLambdasAtEdge() {

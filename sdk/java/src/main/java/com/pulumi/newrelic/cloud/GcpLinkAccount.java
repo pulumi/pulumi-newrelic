@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * You can also use the full example, including the GCP set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,15 +56,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
- *             .accountId(&#34;account id of newrelic account&#34;)
- *             .projectId(&#34;id of the Project&#34;)
- *             .name(&#34;account name&#34;)
+ *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()        
+ *             .accountId("account id of newrelic account")
+ *             .projectId("id of the Project")
+ *             .name("account name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new EventsToMetricsRule(&#34;foo&#34;, EventsToMetricsRuleArgs.builder()        
+ *         var foo = new EventsToMetricsRule("foo", EventsToMetricsRuleArgs.builder()        
  *             .accountId(12345)
- *             .name(&#34;Example events to metrics rule&#34;)
- *             .description(&#34;Example description&#34;)
- *             .nrql(&#34;SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name&#34;)
+ *             .name("Example events to metrics rule")
+ *             .description("Example description")
+ *             .nrql("SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

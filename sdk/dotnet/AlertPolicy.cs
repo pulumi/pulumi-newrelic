@@ -151,11 +151,6 @@ namespace Pulumi.NewRelic
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-        /// imported via terraform import.
-        /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
 
@@ -226,12 +221,6 @@ namespace Pulumi.NewRelic
 
         [Input("channelIds")]
         private InputList<int>? _channelIds;
-
-        /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-        /// imported via terraform import.
-        /// </summary>
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<int> ChannelIds
         {
@@ -268,12 +257,6 @@ namespace Pulumi.NewRelic
 
         [Input("channelIds")]
         private InputList<int>? _channelIds;
-
-        /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-        /// imported via terraform import.
-        /// </summary>
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<int> ChannelIds
         {
