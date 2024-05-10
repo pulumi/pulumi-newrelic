@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertCondition(&#34;foo&#34;, AlertConditionArgs.builder()        
+ *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()        
  *             .policyId(fooNewrelicAlertPolicy.id())
- *             .name(&#34;foo&#34;)
+ *             .name("foo")
  *             .monitorId(fooNewrelicSyntheticsMonitor.id())
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .runbookUrl("https://www.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Tags
@@ -62,7 +64,8 @@ import javax.annotation.Nullable;
  * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,56 +95,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;foo policy&#34;)
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *             .name("foo policy")
  *             .build());
  * 
- *         var fooMonitor = new Monitor(&#34;fooMonitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .name(&#34;foo monitor&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .type(&#34;SIMPLE&#34;)
- *             .locationsPublics(&#34;AP_EAST_1&#34;)
+ *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()        
+ *             .status("ENABLED")
+ *             .name("foo monitor")
+ *             .period("EVERY_MINUTE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .type("SIMPLE")
+ *             .locationsPublics("AP_EAST_1")
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .treatRedirectAsFailure(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .bypassHeadRequest(true)
  *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
  *             .policyId(foo.id())
- *             .name(&#34;foo synthetics condition&#34;)
+ *             .name("foo synthetics condition")
  *             .monitorId(fooMonitor.id())
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .runbookUrl("https://www.example.com")
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

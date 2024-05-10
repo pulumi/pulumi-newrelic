@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Type: `static` (default)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,48 +57,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *             .name("foo")
  *             .build());
  * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()        
  *             .accountId(12345678)
  *             .policyId(foo.id())
- *             .type(&#34;static&#34;)
- *             .name(&#34;foo&#34;)
- *             .description(&#34;Alert when transactions are taking too long&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .type("static")
+ *             .name("foo")
+ *             .description("Alert when transactions are taking too long")
+ *             .runbookUrl("https://www.example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
- *             .fillOption(&#34;static&#34;)
+ *             .fillOption("static")
  *             .fillValue(1)
  *             .aggregationWindow(60)
- *             .aggregationMethod(&#34;event_flow&#34;)
+ *             .aggregationMethod("event_flow")
  *             .aggregationDelay(120)
  *             .expirationDuration(120)
  *             .openViolationOnExpiration(true)
  *             .closeViolationsOnExpiration(true)
  *             .slideBy(30)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT average(duration) FROM Transaction where appName = &#39;Your App&#39;&#34;)
+ *                 .query("SELECT average(duration) FROM Transaction where appName = 'Your App'")
  *                 .build())
  *             .critical(NrqlAlertConditionCriticalArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .threshold(5.5)
  *                 .thresholdDuration(300)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .thresholdOccurrences("ALL")
  *                 .build())
  *             .warning(NrqlAlertConditionWarningArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .threshold(3.5)
  *                 .thresholdDuration(600)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .thresholdOccurrences("ALL")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NRQL
@@ -139,7 +141,8 @@ import javax.annotation.Nullable;
  * [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -165,48 +168,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *             .name("foo")
  *             .build());
  * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
- *             .accountId(&#34;your_account_id&#34;)
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()        
+ *             .accountId("your_account_id")
  *             .policyId(foo.id())
- *             .type(&#34;static&#34;)
- *             .name(&#34;foo&#34;)
- *             .description(&#34;Alert when transactions are taking too long&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .type("static")
+ *             .name("foo")
+ *             .description("Alert when transactions are taking too long")
+ *             .runbookUrl("https://www.example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
- *             .fillOption(&#34;static&#34;)
+ *             .fillOption("static")
  *             .fillValue(1)
  *             .aggregationWindow(60)
- *             .aggregationMethod(&#34;event_flow&#34;)
+ *             .aggregationMethod("event_flow")
  *             .aggregationDelay(120)
  *             .expirationDuration(120)
  *             .openViolationOnExpiration(true)
  *             .closeViolationsOnExpiration(true)
  *             .slideBy(30)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT average(duration) FROM Transaction where appName = &#39;Your App&#39;&#34;)
+ *                 .query("SELECT average(duration) FROM Transaction where appName = 'Your App'")
  *                 .build())
  *             .critical(NrqlAlertConditionCriticalArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .threshold(5.5)
  *                 .thresholdDuration(300)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .thresholdOccurrences("ALL")
  *                 .build())
  *             .warning(NrqlAlertConditionWarningArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .threshold(3.5)
  *                 .thresholdDuration(600)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .thresholdOccurrences("ALL")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Tags
@@ -214,7 +218,8 @@ import javax.annotation.Nullable;
  * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -243,63 +248,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *             .name("foo")
  *             .build());
  * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()        
  *             .accountId(12345678)
  *             .policyId(foo.id())
- *             .type(&#34;static&#34;)
- *             .name(&#34;foo&#34;)
- *             .description(&#34;Alert when transactions are taking too long&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .type("static")
+ *             .name("foo")
+ *             .description("Alert when transactions are taking too long")
+ *             .runbookUrl("https://www.example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
- *             .fillOption(&#34;static&#34;)
+ *             .fillOption("static")
  *             .fillValue(1)
  *             .aggregationWindow(60)
- *             .aggregationMethod(&#34;event_flow&#34;)
+ *             .aggregationMethod("event_flow")
  *             .aggregationDelay(120)
  *             .expirationDuration(120)
  *             .openViolationOnExpiration(true)
  *             .closeViolationsOnExpiration(true)
  *             .slideBy(30)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT average(duration) FROM Transaction where appName = &#39;Your App&#39;&#34;)
+ *                 .query("SELECT average(duration) FROM Transaction where appName = 'Your App'")
  *                 .build())
  *             .critical(NrqlAlertConditionCriticalArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .threshold(5.5)
  *                 .thresholdDuration(300)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .thresholdOccurrences("ALL")
  *                 .build())
  *             .warning(NrqlAlertConditionWarningArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .threshold(3.5)
  *                 .thresholdDuration(600)
- *                 .thresholdOccurrences(&#34;ALL&#34;)
+ *                 .thresholdOccurrences("ALL")
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
  *             .guid(fooNrqlAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**{@literal /}policies/**\&lt;policy_id\&gt;**{@literal /}conditions/**\&lt;condition_id\&gt;**{@literal /}edit&lt;/small&gt;
@@ -313,7 +319,8 @@ import javax.annotation.Nullable;
  * An example resource from 1.x might look like the following.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -336,34 +343,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var z = new NrqlAlertCondition(&#34;z&#34;, NrqlAlertConditionArgs.builder()        
+ *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()        
  *             .policyId(zNewrelicAlertPolicy.id())
- *             .name(&#34;zleslie-test&#34;)
- *             .type(&#34;static&#34;)
- *             .runbookUrl(&#34;https://localhost&#34;)
+ *             .name("zleslie-test")
+ *             .type("static")
+ *             .runbookUrl("https://localhost")
  *             .enabled(true)
- *             .violationTimeLimit(&#34;TWENTY_FOUR_HOURS&#34;)
+ *             .violationTimeLimit("TWENTY_FOUR_HOURS")
  *             .critical(NrqlAlertConditionCriticalArgs.builder()
- *                 .operator(&#34;above&#34;)
+ *                 .operator("above")
  *                 .thresholdDuration(120)
  *                 .threshold(3)
- *                 .thresholdOccurrences(&#34;AT_LEAST_ONCE&#34;)
+ *                 .thresholdOccurrences("AT_LEAST_ONCE")
  *                 .build())
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT count(*) FROM TransactionError WHERE appName like &#39;%Dummy App%&#39; FACET appName&#34;)
+ *                 .query("SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * After making the appropriate adjustments mentioned in the deprecation warnings,
  * the resource now looks like the following.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -386,28 +395,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var z = new NrqlAlertCondition(&#34;z&#34;, NrqlAlertConditionArgs.builder()        
+ *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()        
  *             .policyId(zNewrelicAlertPolicy.id())
- *             .name(&#34;zleslie-test&#34;)
- *             .type(&#34;static&#34;)
- *             .runbookUrl(&#34;https://localhost&#34;)
+ *             .name("zleslie-test")
+ *             .type("static")
+ *             .runbookUrl("https://localhost")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(86400)
  *             .terms(NrqlAlertConditionTermArgs.builder()
- *                 .priority(&#34;critical&#34;)
- *                 .operator(&#34;above&#34;)
+ *                 .priority("critical")
+ *                 .operator("above")
  *                 .threshold(3)
  *                 .duration(5)
- *                 .timeFunction(&#34;any&#34;)
+ *                 .timeFunction("any")
  *                 .build())
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT count(*) FROM TransactionError WHERE appName like &#39;%Dummy App%&#39; FACET appName&#34;)
+ *                 .query("SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

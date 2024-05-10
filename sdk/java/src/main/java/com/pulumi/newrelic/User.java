@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
- *             .name(&#34;Test Authentication Domain&#34;)
+ *             .name("Test Authentication Domain")
  *             .build());
  * 
- *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
- *             .name(&#34;Test New User&#34;)
- *             .emailId(&#34;test_user@test.com&#34;)
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
- *             .userType(&#34;CORE_USER_TIER&#34;)
+ *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *             .name("Test New User")
+ *             .emailId("test_user{@literal @}test.com")
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+ *             .userType("CORE_USER_TIER")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,14 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .incidentPreference(&#34;PER_POLICY&#34;)
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *             .name("example")
+ *             .incidentPreference("PER_POLICY")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Provision multiple notification channels and add those channels to a policy
@@ -71,7 +73,8 @@ import javax.annotation.Nullable;
  * 
  * ##### Provision multiple notification channels and add those channels to a policy
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -96,29 +99,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Provision a Slack notification channel.
- *         var slackChannel = new AlertChannel(&#34;slackChannel&#34;, AlertChannelArgs.builder()        
- *             .name(&#34;slack-example&#34;)
- *             .type(&#34;slack&#34;)
+ *         var slackChannel = new AlertChannel("slackChannel", AlertChannelArgs.builder()        
+ *             .name("slack-example")
+ *             .type("slack")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .url(&#34;https://hooks.slack.com/services/xxxxxxx/yyyyyyyy&#34;)
- *                 .channel(&#34;example-alerts-channel&#34;)
+ *                 .url("https://hooks.slack.com/services/xxxxxxx/yyyyyyyy")
+ *                 .channel("example-alerts-channel")
  *                 .build())
  *             .build());
  * 
  *         // Provision an email notification channel.
- *         var emailChannel = new AlertChannel(&#34;emailChannel&#34;, AlertChannelArgs.builder()        
- *             .name(&#34;email-example&#34;)
- *             .type(&#34;email&#34;)
+ *         var emailChannel = new AlertChannel("emailChannel", AlertChannelArgs.builder()        
+ *             .name("email-example")
+ *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .recipients(&#34;example@testing.com&#34;)
- *                 .includeJsonAttachment(&#34;1&#34;)
+ *                 .recipients("example{@literal @}testing.com")
+ *                 .includeJsonAttachment("1")
  *                 .build())
  *             .build());
  * 
  *         // Provision the alert policy.
- *         var policyWithChannels = new AlertPolicy(&#34;policyWithChannels&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;example-with-channels&#34;)
- *             .incidentPreference(&#34;PER_CONDITION&#34;)
+ *         var policyWithChannels = new AlertPolicy("policyWithChannels", AlertPolicyArgs.builder()        
+ *             .name("example-with-channels")
+ *             .incidentPreference("PER_CONDITION")
  *             .channelIds(            
  *                 slackChannel.id(),
  *                 emailChannel.id())
@@ -126,12 +129,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Reference existing notification channels and add those channel to a policy
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -156,26 +161,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Reference an existing Slack notification channel.
  *         final var slackChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
- *             .name(&#34;slack-channel-notification&#34;)
+ *             .name("slack-channel-notification")
  *             .build());
  * 
  *         // Reference an existing email notification channel.
  *         final var emailChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
- *             .name(&#34;test@example.com&#34;)
+ *             .name("test{@literal @}example.com")
  *             .build());
  * 
  *         // Provision the alert policy.
- *         var policyWithChannels = new AlertPolicy(&#34;policyWithChannels&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;example-with-channels&#34;)
- *             .incidentPreference(&#34;PER_CONDITION&#34;)
+ *         var policyWithChannels = new AlertPolicy("policyWithChannels", AlertPolicyArgs.builder()        
+ *             .name("example-with-channels")
+ *             .incidentPreference("PER_CONDITION")
  *             .channelIds(            
- *                 slackChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()),
- *                 emailChannel.applyValue(getAlertChannelResult -&gt; getAlertChannelResult.id()))
+ *                 slackChannel.applyValue(getAlertChannelResult -> getAlertChannelResult.id()),
+ *                 emailChannel.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -207,10 +213,6 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
-     * 
      * @deprecated
      * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
      * 
@@ -219,12 +221,6 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
     @Export(name="channelIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> channelIds;
 
-    /**
-     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
-     * 
-     */
     public Output<Optional<List<Integer>>> channelIds() {
         return Codegen.optional(this.channelIds);
     }

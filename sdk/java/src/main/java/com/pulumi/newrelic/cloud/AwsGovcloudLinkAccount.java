@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,18 +54,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AwsGovcloudLinkAccount(&#34;foo&#34;, AwsGovcloudLinkAccountArgs.builder()        
- *             .accountId(&#34;The New Relic account ID where you want to link the AWS GovCloud account&#34;)
- *             .accessKeyId(&#34;access-key-id of aws govcloud account&#34;)
- *             .awsAccountId(&#34;aws govcloud account id&#34;)
- *             .metricCollectionMode(&#34;PULL&#34;)
- *             .name(&#34;account name&#34;)
- *             .secretAccessKey(&#34;secret access key of the aws govcloud account&#34;)
+ *         var foo = new AwsGovcloudLinkAccount("foo", AwsGovcloudLinkAccountArgs.builder()        
+ *             .accountId("The New Relic account ID where you want to link the AWS GovCloud account")
+ *             .accessKeyId("access-key-id of aws govcloud account")
+ *             .awsAccountId("aws govcloud account id")
+ *             .metricCollectionMode("PULL")
+ *             .name("account name")
+ *             .secretAccessKey("secret access key of the aws govcloud account")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

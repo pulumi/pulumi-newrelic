@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
- *             .name(&#34;Test Authentication Domain&#34;)
+ *             .name("Test Authentication Domain")
  *             .build());
  * 
- *         var fooGroup = new Group(&#34;fooGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;Test Group&#34;)
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()        
+ *             .name("Test Group")
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userIds(            
- *                 &#34;0001112222&#34;,
- *                 &#34;2221110000&#34;)
+ *                 "0001112222",
+ *                 "2221110000")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Examples
@@ -68,7 +70,8 @@ import javax.annotation.Nullable;
  * The following example illustrates the creation of a group using the `newrelic.Group` resource, to which users created using the `newrelic.User` resource are added.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,26 +97,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
- *             .name(&#34;Test Authentication Domain&#34;)
+ *             .name("Test Authentication Domain")
  *             .build());
  * 
- *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
- *             .name(&#34;Test User One&#34;)
- *             .emailId(&#34;test_user_one@test.com&#34;)
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
- *             .userType(&#34;CORE_USER_TIER&#34;)
+ *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *             .name("Test User One")
+ *             .emailId("test_user_one{@literal @}test.com")
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+ *             .userType("CORE_USER_TIER")
  *             .build());
  * 
- *         var bar = new User(&#34;bar&#34;, UserArgs.builder()        
- *             .name(&#34;Test User Two&#34;)
- *             .emailId(&#34;test_user_two@test.com&#34;)
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
- *             .userType(&#34;BASIC_USER_TIER&#34;)
+ *         var bar = new User("bar", UserArgs.builder()        
+ *             .name("Test User Two")
+ *             .emailId("test_user_two{@literal @}test.com")
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+ *             .userType("BASIC_USER_TIER")
  *             .build());
  * 
- *         var fooGroup = new Group(&#34;fooGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;Test Group&#34;)
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()        
+ *             .name("Test Group")
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userIds(            
  *                 fooUser.id(),
  *                 bar.id())
@@ -121,7 +124,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Addition of Existing Users to a New Group
@@ -129,7 +133,8 @@ import javax.annotation.Nullable;
  * The following example demonstrates the usage of the `newrelic.Group` resource to create a group, wherein the `newrelic.User` data source is employed to associate existing users with the newly formed group.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -154,30 +159,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
- *             .name(&#34;Test Authentication Domain&#34;)
+ *             .name("Test Authentication Domain")
  *             .build());
  * 
  *         final var fooGetUser = NewrelicFunctions.getUser(GetUserArgs.builder()
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
- *             .emailId(&#34;test_user_one@test.com&#34;)
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+ *             .emailId("test_user_one{@literal @}test.com")
  *             .build());
  * 
  *         final var bar = NewrelicFunctions.getUser(GetUserArgs.builder()
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
- *             .name(&#34;Test User Two&#34;)
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+ *             .name("Test User Two")
  *             .build());
  * 
- *         var fooGroup = new Group(&#34;fooGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;Test Group&#34;)
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -&gt; getAuthenticationDomainResult.id()))
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()        
+ *             .name("Test Group")
+ *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userIds(            
- *                 fooGetUser.applyValue(getUserResult -&gt; getUserResult.id()),
- *                 bar.applyValue(getUserResult -&gt; getUserResult.id()))
+ *                 fooGetUser.applyValue(getUserResult -> getUserResult.id()),
+ *                 bar.applyValue(getUserResult -> getUserResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.

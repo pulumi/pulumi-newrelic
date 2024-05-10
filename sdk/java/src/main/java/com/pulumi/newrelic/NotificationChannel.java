@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * 
  * ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,22 +50,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;webhook-example&#34;)
- *             .type(&#34;WEBHOOK&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("webhook-example")
+ *             .type("WEBHOOK")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(NotificationChannelPropertyArgs.builder()
- *                 .key(&#34;payload&#34;)
- *                 .value(&#34;name: {{ foo }}&#34;)
- *                 .label(&#34;Payload Template&#34;)
+ *                 .key("payload")
+ *                 .value("name: {{ foo }}")
+ *                 .label("Payload Template")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
  * 
@@ -76,7 +78,8 @@ import javax.annotation.Nullable;
  * To see the properties’ keys for your account, check ServiceNow incidents table.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,31 +101,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;servicenow-incident-example&#34;)
- *             .type(&#34;SERVICENOW_INCIDENTS&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("servicenow-incident-example")
+ *             .type("SERVICENOW_INCIDENTS")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;description&#34;)
- *                     .value(&#34;General description&#34;)
+ *                     .key("description")
+ *                     .value("General description")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;short_description&#34;)
- *                     .value(&#34;Short description&#34;)
+ *                     .key("short_description")
+ *                     .value("Short description")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -144,31 +149,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;email-example&#34;)
- *             .type(&#34;EMAIL&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("email-example")
+ *             .type("EMAIL")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;subject&#34;)
- *                     .value(&#34;New Subject Title&#34;)
+ *                     .key("subject")
+ *                     .value("New Subject Title")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;customDetailsEmail&#34;)
- *                     .value(&#34;issue id - {{issueId}}&#34;)
+ *                     .key("customDetailsEmail")
+ *                     .value("issue id - {{issueId}}")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -190,39 +197,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;jira-example&#34;)
- *             .type(&#34;JIRA_CLASSIC&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;ERROR_TRACKING&#34;)
+ *             .name("jira-example")
+ *             .type("JIRA_CLASSIC")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("ERROR_TRACKING")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;project&#34;)
- *                     .value(&#34;10000&#34;)
+ *                     .key("project")
+ *                     .value("10000")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;issuetype&#34;)
- *                     .value(&#34;10004&#34;)
+ *                     .key("issuetype")
+ *                     .value("10004")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;description&#34;)
- *                     .value(&#34;Issue ID: {{ issueId }}&#34;)
+ *                     .key("description")
+ *                     .value("Issue ID: {{ issueId }}")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;summary&#34;)
- *                     .value(&#34;{{ annotations.title.[0] }}&#34;)
+ *                     .key("summary")
+ *                     .value("{{ annotations.title.[0] }}")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -244,54 +253,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;pagerduty-account-example&#34;)
- *             .type(&#34;PAGERDUTY_ACCOUNT_INTEGRATION&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("pagerduty-account-example")
+ *             .type("PAGERDUTY_ACCOUNT_INTEGRATION")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;summary&#34;)
- *                     .value(&#34;General summary&#34;)
+ *                     .key("summary")
+ *                     .value("General summary")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;service&#34;)
- *                     .label(&#34;Service Name&#34;)
- *                     .value(&#34;PTQK3FM&#34;)
+ *                     .key("service")
+ *                     .label("Service Name")
+ *                     .value("PTQK3FM")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;email&#34;)
- *                     .value(&#34;example@email.com&#34;)
+ *                     .key("email")
+ *                     .value("example{@literal @}email.com")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;customDetails&#34;)
- *                     .value(&#34;&#34;&#34;
+ *                     .key("customDetails")
+ *                     .value("""
  * {
- * &#34;id&#34;:{{json issueId}},
- * &#34;IssueURL&#34;:{{json issuePageUrl}},
- * &#34;NewRelic priority&#34;:{{json priority}},
- * &#34;Total Incidents&#34;:{{json totalIncidents}},
- * &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;isCorrelated&#34;:{{json isCorrelated}},
- * &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Workflow Name&#34;:{{json workflowName}}
+ * "id":{{json issueId}},
+ * "IssueURL":{{json issuePageUrl}},
+ * "NewRelic priority":{{json priority}},
+ * "Total Incidents":{{json totalIncidents}},
+ * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Description":"{{#each annotations.description}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "isCorrelated":{{json isCorrelated}},
+ * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Workflow Name":{{json workflowName}}
  * }
- *                     &#34;&#34;&#34;)
+ *                     """)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -313,45 +324,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;pagerduty-account-example&#34;)
- *             .type(&#34;PAGERDUTY_SERVICE_INTEGRATION&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("pagerduty-account-example")
+ *             .type("PAGERDUTY_SERVICE_INTEGRATION")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;summary&#34;)
- *                     .value(&#34;General summary&#34;)
+ *                     .key("summary")
+ *                     .value("General summary")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;customDetails&#34;)
- *                     .value(&#34;&#34;&#34;
+ *                     .key("customDetails")
+ *                     .value("""
  * {
- * &#34;id&#34;:{{json issueId}},
- * &#34;IssueURL&#34;:{{json issuePageUrl}},
- * &#34;NewRelic priority&#34;:{{json priority}},
- * &#34;Total Incidents&#34;:{{json totalIncidents}},
- * &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;isCorrelated&#34;:{{json isCorrelated}},
- * &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
- * &#34;Workflow Name&#34;:{{json workflowName}}
+ * "id":{{json issueId}},
+ * "IssueURL":{{json issuePageUrl}},
+ * "NewRelic priority":{{json priority}},
+ * "Total Incidents":{{json totalIncidents}},
+ * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Description":"{{#each annotations.description}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "isCorrelated":{{json isCorrelated}},
+ * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
+ * "Workflow Name":{{json workflowName}}
  * }
- *                     &#34;&#34;&#34;)
+ *                     """)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * #### Mobile Push
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -372,22 +385,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;mobile-push-example&#34;)
- *             .type(&#34;MOBILE_PUSH&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("mobile-push-example")
+ *             .type("MOBILE_PUSH")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -409,31 +424,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;event-bridge-example&#34;)
- *             .type(&#34;EVENT_BRIDGE&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("event-bridge-example")
+ *             .type("EVENT_BRIDGE")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;eventSource&#34;)
- *                     .value(&#34;aws.partner/mydomain/myaccountid/name&#34;)
+ *                     .key("eventSource")
+ *                     .value("aws.partner/mydomain/myaccountid/name")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;eventContent&#34;)
- *                     .value(&#34;{ id: {{ json issueId }} }&#34;)
+ *                     .key("eventContent")
+ *                     .value("{ id: {{ json issueId }} }")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -455,26 +472,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;slack-example&#34;)
- *             .type(&#34;SLACK&#34;)
- *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
- *             .product(&#34;IINT&#34;)
+ *             .name("slack-example")
+ *             .type("SLACK")
+ *             .destinationId("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8")
+ *             .product("IINT")
  *             .properties(            
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;channelId&#34;)
- *                     .value(&#34;123456&#34;)
+ *                     .key("channelId")
+ *                     .value("123456")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
- *                     .key(&#34;customDetailsSlack&#34;)
- *                     .value(&#34;issue id - {{issueId}}&#34;)
+ *                     .key("customDetailsSlack")
+ *                     .value("issue id - {{issueId}}")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
@@ -485,7 +503,8 @@ import javax.annotation.Nullable;
  * 
  * ### Create a destination
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -508,28 +527,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
+ *         var webhook_destination = new NotificationDestination("webhook-destination", NotificationDestinationArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;destination-webhook&#34;)
- *             .type(&#34;WEBHOOK&#34;)
+ *             .name("destination-webhook")
+ *             .type("WEBHOOK")
  *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;url&#34;)
- *                 .value(&#34;https://webhook.mywebhook.com&#34;)
+ *                 .key("url")
+ *                 .value("https://webhook.mywebhook.com")
  *                 .build())
  *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .user(&#34;username&#34;)
- *                 .password(&#34;password&#34;)
+ *                 .user("username")
+ *                 .password("password")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create a channel
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -551,22 +572,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
+ *         var webhook_channel = new NotificationChannel("webhook-channel", NotificationChannelArgs.builder()        
  *             .accountId(12345678)
- *             .name(&#34;channel-webhook&#34;)
- *             .type(&#34;WEBHOOK&#34;)
+ *             .name("channel-webhook")
+ *             .type("WEBHOOK")
  *             .destinationId(webhook_destination.id())
- *             .product(&#34;IINT&#34;)
+ *             .product("IINT")
  *             .properties(NotificationChannelPropertyArgs.builder()
- *                 .key(&#34;payload&#34;)
- *                 .value(&#34;{name: foo}&#34;)
- *                 .label(&#34;Payload Template&#34;)
+ *                 .key("payload")
+ *                 .value("{name: foo}")
+ *                 .label("Payload Template")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Information

@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,19 +58,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ServiceLevel(&#34;foo&#34;, ServiceLevelArgs.builder()        
- *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
- *             .name(&#34;Latency&#34;)
- *             .description(&#34;Proportion of requests that are served faster than a threshold.&#34;)
+ *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+ *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
+ *             .name("Latency")
+ *             .description("Proportion of requests that are served faster than a threshold.")
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId(12345678)
  *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
- *                     .from(&#34;Transaction&#34;)
- *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType=&#39;Web&#39;)&#34;)
+ *                     .from("Transaction")
+ *                     .where("appName = 'Example application' AND (transactionType='Web')")
  *                     .build())
  *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
- *                     .from(&#34;Transaction&#34;)
- *                     .where(&#34;appName = &#39;Example application&#39; AND (transactionType= &#39;Web&#39;) AND duration &lt; 0.1&#34;)
+ *                     .from("Transaction")
+ *                     .where("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1")
  *                     .build())
  *                 .build())
  *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -77,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
  *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
  *                         .count(7)
- *                         .unit(&#34;DAY&#34;)
+ *                         .unit("DAY")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -85,7 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Example
@@ -93,7 +95,8 @@ import javax.annotation.Nullable;
  * Service level with tags:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,19 +126,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySyntheticMonitorServiceLevel = new ServiceLevel(&#34;mySyntheticMonitorServiceLevel&#34;, ServiceLevelArgs.builder()        
- *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
- *             .name(&#34;My synthethic monitor - Success&#34;)
- *             .description(&#34;Proportion of successful synthetic checks.&#34;)
+ *         var mySyntheticMonitorServiceLevel = new ServiceLevel("mySyntheticMonitorServiceLevel", ServiceLevelArgs.builder()        
+ *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
+ *             .name("My synthethic monitor - Success")
+ *             .description("Proportion of successful synthetic checks.")
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId(12345678)
  *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
- *                     .from(&#34;SyntheticCheck&#34;)
- *                     .where(&#34;entityGuid = &#39;MXxBUE18QVBQTElDQVRJT058MQ&#39;&#34;)
+ *                     .from("SyntheticCheck")
+ *                     .where("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'")
  *                     .build())
  *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
- *                     .from(&#34;SyntheticCheck&#34;)
- *                     .where(&#34;entityGuid = &#39;MXxBUE18QVBQTElDQVRJT058MQ&#39; AND result=&#39;SUCCESS&#39;&#34;)
+ *                     .from("SyntheticCheck")
+ *                     .where("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'")
  *                     .build())
  *                 .build())
  *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -143,36 +146,38 @@ import javax.annotation.Nullable;
  *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
  *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
  *                         .count(7)
- *                         .unit(&#34;DAY&#34;)
+ *                         .unit("DAY")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var mySyntheticMonitorServiceLevelTags = new EntityTags(&#34;mySyntheticMonitorServiceLevelTags&#34;, EntityTagsArgs.builder()        
+ *         var mySyntheticMonitorServiceLevelTags = new EntityTags("mySyntheticMonitorServiceLevelTags", EntityTagsArgs.builder()        
  *             .guid(mySyntheticMonitorServiceLevel.sliGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;user_journey&#34;)
+ *                     .key("user_journey")
  *                     .values(                    
- *                         &#34;authentication&#34;,
- *                         &#34;sso&#34;)
+ *                         "authentication",
+ *                         "sso")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;owner&#34;)
- *                     .values(&#34;identityTeam&#34;)
+ *                     .key("owner")
+ *                     .values("identityTeam")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Using `select` for events
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -201,28 +206,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel(&#34;mySyntheticMonitorDurationServiceLevel&#34;, ServiceLevelArgs.builder()        
- *             .guid(&#34;MXxBUE18QVBQTElDQVRJT058MQ&#34;)
- *             .name(&#34;Duration distribution is under 7&#34;)
- *             .description(&#34;Monitor created to test concurrent request from terraform&#34;)
+ *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel("mySyntheticMonitorDurationServiceLevel", ServiceLevelArgs.builder()        
+ *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
+ *             .name("Duration distribution is under 7")
+ *             .description("Monitor created to test concurrent request from terraform")
  *             .events(ServiceLevelEventsArgs.builder()
  *                 .accountId(313870)
  *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
- *                     .from(&#34;Metric&#34;)
+ *                     .from("Metric")
  *                     .select(ServiceLevelEventsValidEventsSelectArgs.builder()
- *                         .attribute(&#34;`query.wallClockTime.negative.distribution`&#34;)
- *                         .function(&#34;GET_FIELD&#34;)
+ *                         .attribute("`query.wallClockTime.negative.distribution`")
+ *                         .function("GET_FIELD")
  *                         .build())
- *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
+ *                     .where("metricName = 'query.wallClockTime.negative.distribution'")
  *                     .build())
  *                 .goodEvents(ServiceLevelEventsGoodEventsArgs.builder()
- *                     .from(&#34;Metric&#34;)
+ *                     .from("Metric")
  *                     .select(ServiceLevelEventsGoodEventsSelectArgs.builder()
- *                         .attribute(&#34;`query.wallClockTime.negative.distribution`&#34;)
- *                         .function(&#34;GET_CDF_COUNT&#34;)
+ *                         .attribute("`query.wallClockTime.negative.distribution`")
+ *                         .function("GET_CDF_COUNT")
  *                         .threshold(7)
  *                         .build())
- *                     .where(&#34;metricName = &#39;query.wallClockTime.negative.distribution&#39;&#34;)
+ *                     .where("metricName = 'query.wallClockTime.negative.distribution'")
  *                     .build())
  *                 .build())
  *             .objective(ServiceLevelObjectiveArgs.builder()
@@ -230,7 +235,7 @@ import javax.annotation.Nullable;
  *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
  *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
  *                         .count(7)
- *                         .unit(&#34;DAY&#34;)
+ *                         .unit("DAY")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -238,7 +243,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * For up-to-date documentation about the tagging resource, please check newrelic.EntityTags

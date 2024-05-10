@@ -23,7 +23,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,20 +49,22 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,18 +90,19 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
-     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,20 +141,22 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -175,18 +182,19 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
-     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -199,7 +207,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -224,20 +233,22 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,18 +274,19 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
-     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -287,7 +299,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -312,20 +325,22 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,18 +366,19 @@ public final class SyntheticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
      *             .accountId(123456)
-     *             .name(&#34;My private location&#34;)
+     *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
-     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +393,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -399,12 +416,13 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SyntheticsFunctions.getSecureCredential(GetSecureCredentialArgs.builder()
-     *             .key(&#34;MY_KEY&#34;)
+     *             .key("MY_KEY")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -419,7 +437,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -441,12 +460,13 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SyntheticsFunctions.getSecureCredential(GetSecureCredentialArgs.builder()
-     *             .key(&#34;MY_KEY&#34;)
+     *             .key("MY_KEY")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -461,7 +481,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -483,12 +504,13 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SyntheticsFunctions.getSecureCredential(GetSecureCredentialArgs.builder()
-     *             .key(&#34;MY_KEY&#34;)
+     *             .key("MY_KEY")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -503,7 +525,8 @@ public final class SyntheticsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -525,12 +548,13 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SyntheticsFunctions.getSecureCredential(GetSecureCredentialArgs.builder()
-     *             .key(&#34;MY_KEY&#34;)
+     *             .key("MY_KEY")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

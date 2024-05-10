@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,35 +49,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .name(&#34;monitor&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .type(&#34;SIMPLE&#34;)
- *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .status("ENABLED")
+ *             .name("monitor")
+ *             .period("EVERY_MINUTE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .type("SIMPLE")
+ *             .locationsPublics("AP_SOUTH_1")
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .treatRedirectAsFailure(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .bypassHeadRequest(true)
  *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `SIMPLE BROWSER`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -99,29 +102,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .name(&#34;monitor&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .type(&#34;BROWSER&#34;)
- *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .status("ENABLED")
+ *             .name("monitor")
+ *             .period("EVERY_MINUTE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .type("BROWSER")
+ *             .locationsPublics("AP_SOUTH_1")
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .enableScreenshotOnFailureAndScript(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
  * 
@@ -136,7 +140,8 @@ import javax.annotation.Nullable;
  * ##### Type: `SIMPLE`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -161,41 +166,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Example private location&#34;)
- *             .name(&#34;private_location&#34;)
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *             .description("Example private location")
+ *             .name("private_location")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .name(&#34;monitor&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .type(&#34;SIMPLE&#34;)
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .status("ENABLED")
+ *             .name("monitor")
+ *             .period("EVERY_MINUTE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .type("SIMPLE")
  *             .locationsPrivates(location.id())
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .treatRedirectAsFailure(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .bypassHeadRequest(true)
  *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `BROWSER`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -220,38 +227,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Example private location&#34;)
- *             .name(&#34;private-location&#34;)
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *             .description("Example private location")
+ *             .name("private-location")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .type(&#34;BROWSER&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .name(&#34;monitor&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .status("ENABLED")
+ *             .type("BROWSER")
+ *             .uri("https://www.one.newrelic.com")
+ *             .name("monitor")
+ *             .period("EVERY_MINUTE")
  *             .locationsPrivates(location.id())
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .enableScreenshotOnFailureAndScript(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .verifySsl(true)
- *             .runtimeTypeVersion(&#34;100&#34;)
- *             .runtimeType(&#34;CHROME_BROWSER&#34;)
- *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
+ *             .runtimeTypeVersion("100")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .scriptLanguage("JAVASCRIPT")
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

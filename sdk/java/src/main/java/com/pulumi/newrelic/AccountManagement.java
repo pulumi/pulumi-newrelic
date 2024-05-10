@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ##### Create Account
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AccountManagement(&#34;foo&#34;, AccountManagementArgs.builder()        
- *             .name(&#34;Test Account Name&#34;)
- *             .region(&#34;us01&#34;)
+ *         var foo = new AccountManagement("foo", AccountManagementArgs.builder()        
+ *             .name("Test Account Name")
+ *             .region("us01")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

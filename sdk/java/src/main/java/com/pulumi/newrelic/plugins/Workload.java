@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * 
  * Include entities with a certain string on the name.
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,24 +53,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
- *             .name(&#34;Example workload&#34;)
+ *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *             .name("Example workload")
  *             .accountId(12345678)
- *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
- *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
+ *                 .query("name like '%Example application%'")
  *                 .build())
  *             .scopeAccountIds(12345678)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Include entities with a set of tags.
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -91,24 +94,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
- *             .name(&#34;Example workload with tags&#34;)
+ *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *             .name("Example workload with tags")
  *             .accountId(12345678)
- *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
- *                 .query(&#34;tags.accountId = &#39;12345678&#39; AND tags.environment=&#39;production&#39; AND tags.language=&#39;java&#39;&#34;)
+ *                 .query("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'")
  *                 .build())
  *             .scopeAccountIds(12345678)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Include entities with a set of tags.
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -130,19 +135,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
- *             .name(&#34;Example workload with tags&#34;)
+ *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *             .name("Example workload with tags")
  *             .accountId(12345678)
- *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
- *                 .query(&#34;tags.accountId = &#39;12345678&#39; AND tags.environment=&#39;production&#39; AND tags.language=&#39;java&#39;&#34;)
+ *                 .query("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'")
  *                 .build())
  *             .scopeAccountIds(12345678)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Include automatic status
@@ -150,7 +156,8 @@ import javax.annotation.Nullable;
  * &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -175,33 +182,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
- *             .name(&#34;Example workload&#34;)
+ *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *             .name("Example workload")
  *             .accountId(12345678)
- *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
- *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
+ *                 .query("name like '%Example application%'")
  *                 .build())
  *             .scopeAccountIds(12345678)
- *             .description(&#34;Description&#34;)
+ *             .description("Description")
  *             .statusConfigAutomatic(WorkloadStatusConfigAutomaticArgs.builder()
  *                 .enabled(true)
  *                 .remainingEntitiesRule(WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs.builder()
  *                     .remainingEntitiesRuleRollup(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs.builder()
- *                         .strategy(&#34;BEST_STATUS_WINS&#34;)
- *                         .thresholdType(&#34;FIXED&#34;)
+ *                         .strategy("BEST_STATUS_WINS")
+ *                         .thresholdType("FIXED")
  *                         .thresholdValue(100)
- *                         .groupBy(&#34;ENTITY_TYPE&#34;)
+ *                         .groupBy("ENTITY_TYPE")
  *                         .build())
  *                     .build())
  *                 .rules(WorkloadStatusConfigAutomaticRuleArgs.builder()
- *                     .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *                     .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *                     .nrqlQueries(WorkloadStatusConfigAutomaticRuleNrqlQueryArgs.builder()
- *                         .query(&#34;name like &#39;%Example application2%&#39;&#34;)
+ *                         .query("name like '%Example application2%'")
  *                         .build())
  *                     .rollup(WorkloadStatusConfigAutomaticRuleRollupArgs.builder()
- *                         .strategy(&#34;BEST_STATUS_WINS&#34;)
- *                         .thresholdType(&#34;FIXED&#34;)
+ *                         .strategy("BEST_STATUS_WINS")
+ *                         .thresholdType("FIXED")
  *                         .thresholdValue(100)
  *                         .build())
  *                     .build())
@@ -210,7 +217,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Include static status
@@ -218,7 +226,8 @@ import javax.annotation.Nullable;
  * &gt; You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -241,26 +250,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
- *             .name(&#34;Example workload&#34;)
+ *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *             .name("Example workload")
  *             .accountId(12345678)
- *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
- *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
+ *                 .query("name like '%Example application%'")
  *                 .build())
  *             .scopeAccountIds(12345678)
- *             .description(&#34;Description&#34;)
+ *             .description("Description")
  *             .statusConfigStatic(WorkloadStatusConfigStaticArgs.builder()
- *                 .description(&#34;test&#34;)
+ *                 .description("test")
  *                 .enabled(true)
- *                 .status(&#34;OPERATIONAL&#34;)
- *                 .summary(&#34;summary of the status&#34;)
+ *                 .status("OPERATIONAL")
+ *                 .summary("summary of the status")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

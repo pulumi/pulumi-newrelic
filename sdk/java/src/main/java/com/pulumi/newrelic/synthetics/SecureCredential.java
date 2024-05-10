@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new SecureCredential(&#34;foo&#34;, SecureCredentialArgs.builder()        
- *             .key(&#34;MY_KEY&#34;)
- *             .value(&#34;My value&#34;)
- *             .description(&#34;My description&#34;)
+ *         var foo = new SecureCredential("foo", SecureCredentialArgs.builder()        
+ *             .key("MY_KEY")
+ *             .value("My value")
+ *             .description("My description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

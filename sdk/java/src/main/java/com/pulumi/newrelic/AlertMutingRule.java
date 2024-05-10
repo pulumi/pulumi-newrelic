@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,40 +46,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertMutingRule(&#34;foo&#34;, AlertMutingRuleArgs.builder()        
- *             .name(&#34;Example Muting Rule&#34;)
+ *         var foo = new AlertMutingRule("foo", AlertMutingRuleArgs.builder()        
+ *             .name("Example Muting Rule")
  *             .enabled(true)
- *             .description(&#34;muting rule test.&#34;)
+ *             .description("muting rule test.")
  *             .condition(AlertMutingRuleConditionArgs.builder()
  *                 .conditions(                
  *                     AlertMutingRuleConditionConditionArgs.builder()
- *                         .attribute(&#34;product&#34;)
- *                         .operator(&#34;EQUALS&#34;)
- *                         .values(&#34;APM&#34;)
+ *                         .attribute("product")
+ *                         .operator("EQUALS")
+ *                         .values("APM")
  *                         .build(),
  *                     AlertMutingRuleConditionConditionArgs.builder()
- *                         .attribute(&#34;targetId&#34;)
- *                         .operator(&#34;EQUALS&#34;)
- *                         .values(&#34;Muted&#34;)
+ *                         .attribute("targetId")
+ *                         .operator("EQUALS")
+ *                         .values("Muted")
  *                         .build())
- *                 .operator(&#34;AND&#34;)
+ *                 .operator("AND")
  *                 .build())
  *             .schedule(AlertMutingRuleScheduleArgs.builder()
- *                 .startTime(&#34;2021-01-28T15:30:00&#34;)
- *                 .endTime(&#34;2021-01-28T16:30:00&#34;)
- *                 .timeZone(&#34;America/Los_Angeles&#34;)
- *                 .repeat(&#34;WEEKLY&#34;)
+ *                 .startTime("2021-01-28T15:30:00")
+ *                 .endTime("2021-01-28T16:30:00")
+ *                 .timeZone("America/Los_Angeles")
+ *                 .repeat("WEEKLY")
  *                 .weeklyRepeatDays(                
- *                     &#34;MONDAY&#34;,
- *                     &#34;WEDNESDAY&#34;,
- *                     &#34;FRIDAY&#34;)
+ *                     "MONDAY",
+ *                     "WEDNESDAY",
+ *                     "FRIDAY")
  *                 .repeatCount(42)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

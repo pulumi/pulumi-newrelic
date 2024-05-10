@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,35 +54,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
- *             .name(&#34;my-app&#34;)
- *             .type(&#34;APPLICATION&#34;)
- *             .domain(&#34;APM&#34;)
+ *             .name("my-app")
+ *             .type("APPLICATION")
+ *             .domain("APM")
  *             .build());
  * 
- *         var foo = new AlertPolicy(&#34;foo&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *             .name("foo")
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
  *             .policyId(foo.id())
- *             .name(&#34;foo&#34;)
- *             .type(&#34;apm_app_metric&#34;)
- *             .entities(app.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
- *             .metric(&#34;apdex&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
- *             .conditionScope(&#34;application&#34;)
+ *             .name("foo")
+ *             .type("apm_app_metric")
+ *             .entities(app.applyValue(getEntityResult -> getEntityResult.applicationId()))
+ *             .metric("apdex")
+ *             .runbookUrl("https://www.example.com")
+ *             .conditionScope("application")
  *             .terms(AlertConditionTermArgs.builder()
  *                 .duration(5)
- *                 .operator(&#34;below&#34;)
- *                 .priority(&#34;critical&#34;)
- *                 .threshold(&#34;0.75&#34;)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .operator("below")
+ *                 .priority("critical")
+ *                 .threshold("0.75")
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Terms
@@ -99,7 +101,8 @@ import javax.annotation.Nullable;
  * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,48 +132,49 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var foo = NewrelicFunctions.getEntity(GetEntityArgs.builder()
- *             .name(&#34;foo entitiy&#34;)
+ *             .name("foo entitiy")
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;, AlertPolicyArgs.builder()        
- *             .name(&#34;foo policy&#34;)
+ *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
+ *             .name("foo policy")
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
  *             .policyId(fooAlertPolicy.id())
- *             .name(&#34;foo condition&#34;)
- *             .type(&#34;apm_app_metric&#34;)
- *             .entities(foo.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
- *             .metric(&#34;apdex&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
- *             .conditionScope(&#34;application&#34;)
+ *             .name("foo condition")
+ *             .type("apm_app_metric")
+ *             .entities(foo.applyValue(getEntityResult -> getEntityResult.applicationId()))
+ *             .metric("apdex")
+ *             .runbookUrl("https://www.example.com")
+ *             .conditionScope("application")
  *             .terms(AlertConditionTermArgs.builder()
  *                 .duration(5)
- *                 .operator(&#34;below&#34;)
- *                 .priority(&#34;critical&#34;)
- *                 .threshold(&#34;0.75&#34;)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .operator("below")
+ *                 .priority("critical")
+ *                 .threshold("0.75")
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
