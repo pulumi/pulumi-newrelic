@@ -180,12 +180,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: makeResource(syntheticsMod, "BrokenLinksMonitor"),
 				Docs: &tfbridge.DocInfo{
 					Source: "synthetics_monitor_broken_links.html.markdown",
-				}},
+				},
+			},
 			"newrelic_synthetics_cert_check_monitor": {
 				Tok: makeResource(syntheticsMod, "CertCheckMonitor"),
 				Docs: &tfbridge.DocInfo{
 					Source: "synthetics_monitor_cert_check.html.markdown",
-				}},
+				},
+			},
 			"newrelic_synthetics_private_location": {
 				Tok: makeResource(syntheticsMod, "PrivateLocation"),
 			},
@@ -228,7 +230,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: makeDataSource(mainMod, "getTestGrokPattern"),
 				Docs: &tfbridge.DocInfo{
 					Source: "log_test_grok.html.markdown",
-				}},
+				},
+			},
 
 			"newrelic_notification_destination": {
 				Tok:  makeDataSource(mainMod, "getNotificationDestination"),
@@ -243,12 +246,15 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
+			RespectSchemaVersion: true,
 		},
 		Python: (func() *tfbridge.PythonInfo {
 			i := &tfbridge.PythonInfo{
+				RespectSchemaVersion: true,
 				Requires: map[string]string{
 					"pulumi": ">=3.0.0,<4.0.0",
-				}}
+				},
+			}
 			i.PyProject.Enabled = true
 			return i
 		})(),
@@ -261,8 +267,10 @@ func Provider() tfbridge.ProviderInfo {
 				mainPkg,
 			),
 			GenerateResourceContainerTypes: true,
+			RespectSchemaVersion:           true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
