@@ -938,6 +938,7 @@ type AlertMutingRuleSchedule struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat *string `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	EndTime *string `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat *string `pulumi:"repeat"`
@@ -966,6 +967,7 @@ type AlertMutingRuleScheduleArgs struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat pulumi.StringPtrInput `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat pulumi.StringPtrInput `pulumi:"repeat"`
@@ -1062,6 +1064,7 @@ func (o AlertMutingRuleScheduleOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 func (o AlertMutingRuleScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
@@ -1126,6 +1129,7 @@ func (o AlertMutingRuleSchedulePtrOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 func (o AlertMutingRuleSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
 		if v == nil {
