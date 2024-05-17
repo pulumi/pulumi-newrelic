@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("example")
  *             .incidentPreference("PER_POLICY")
  *             .build());
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Provision a Slack notification channel.
- *         var slackChannel = new AlertChannel("slackChannel", AlertChannelArgs.builder()        
+ *         var slackChannel = new AlertChannel("slackChannel", AlertChannelArgs.builder()
  *             .name("slack-example")
  *             .type("slack")
  *             .config(AlertChannelConfigArgs.builder()
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Provision an email notification channel.
- *         var emailChannel = new AlertChannel("emailChannel", AlertChannelArgs.builder()        
+ *         var emailChannel = new AlertChannel("emailChannel", AlertChannelArgs.builder()
  *             .name("email-example")
  *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Provision the alert policy.
- *         var policyWithChannels = new AlertPolicy("policyWithChannels", AlertPolicyArgs.builder()        
+ *         var policyWithChannels = new AlertPolicy("policyWithChannels", AlertPolicyArgs.builder()
  *             .name("example-with-channels")
  *             .incidentPreference("PER_CONDITION")
  *             .channelIds(            
@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Provision the alert policy.
- *         var policyWithChannels = new AlertPolicy("policyWithChannels", AlertPolicyArgs.builder()        
+ *         var policyWithChannels = new AlertPolicy("policyWithChannels", AlertPolicyArgs.builder()
  *             .name("example-with-channels")
  *             .incidentPreference("PER_CONDITION")
  *             .channelIds(            

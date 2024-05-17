@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+ *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
  *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .name("Latency")
  *             .description("Proportion of requests that are served faster than a threshold.")
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySyntheticMonitorServiceLevel = new ServiceLevel("mySyntheticMonitorServiceLevel", ServiceLevelArgs.builder()        
+ *         var mySyntheticMonitorServiceLevel = new ServiceLevel("mySyntheticMonitorServiceLevel", ServiceLevelArgs.builder()
  *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .name("My synthethic monitor - Success")
  *             .description("Proportion of successful synthetic checks.")
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mySyntheticMonitorServiceLevelTags = new EntityTags("mySyntheticMonitorServiceLevelTags", EntityTagsArgs.builder()        
+ *         var mySyntheticMonitorServiceLevelTags = new EntityTags("mySyntheticMonitorServiceLevelTags", EntityTagsArgs.builder()
  *             .guid(mySyntheticMonitorServiceLevel.sliGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel("mySyntheticMonitorDurationServiceLevel", ServiceLevelArgs.builder()        
+ *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel("mySyntheticMonitorDurationServiceLevel", ServiceLevelArgs.builder()
  *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .name("Duration distribution is under 7")
  *             .description("Monitor created to test concurrent request from terraform")

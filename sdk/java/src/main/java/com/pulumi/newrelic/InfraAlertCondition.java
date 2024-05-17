@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var highDiskUsage = new InfraAlertCondition("highDiskUsage", InfraAlertConditionArgs.builder()        
+ *         var highDiskUsage = new InfraAlertCondition("highDiskUsage", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("High disk usage")
  *             .description("Warning if disk usage goes above 80% and critical alert if goes above 90%")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var highDbConnCount = new InfraAlertCondition("highDbConnCount", InfraAlertConditionArgs.builder()        
+ *         var highDbConnCount = new InfraAlertCondition("highDbConnCount", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("High database connection count")
  *             .description("Critical alert when the number of database connections goes above 90")
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var processNotRunning = new InfraAlertCondition("processNotRunning", InfraAlertConditionArgs.builder()        
+ *         var processNotRunning = new InfraAlertCondition("processNotRunning", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("Process not running (/usr/bin/ruby)")
  *             .description("Critical alert when ruby isn't running")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var hostNotReporting = new InfraAlertCondition("hostNotReporting", InfraAlertConditionArgs.builder()        
+ *         var hostNotReporting = new InfraAlertCondition("hostNotReporting", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("Host not reporting")
  *             .description("Critical alert when the host is not reporting")
@@ -167,11 +167,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooInfraAlertCondition = new InfraAlertCondition("fooInfraAlertCondition", InfraAlertConditionArgs.builder()        
+ *         var fooInfraAlertCondition = new InfraAlertCondition("fooInfraAlertCondition", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo infra condition")
  *             .description("Warning if disk usage goes above 80% and critical alert if goes above 90%")
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooInfraAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("monitor")
  *             .period("EVERY_MINUTE")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("monitor")
  *             .period("EVERY_MINUTE")
@@ -166,13 +166,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
  *             .description("Example private location")
  *             .name("private_location")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("monitor")
  *             .period("EVERY_MINUTE")
@@ -227,13 +227,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
  *             .description("Example private location")
  *             .name("private-location")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .type("BROWSER")
  *             .uri("https://www.one.newrelic.com")

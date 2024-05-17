@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new EventsToMetricsRule("foo", EventsToMetricsRuleArgs.builder()        
+ *         var foo = new EventsToMetricsRule("foo", EventsToMetricsRuleArgs.builder()
  *             .accountId(12345)
  *             .name("Example events to metrics rule")
  *             .description("Example description")

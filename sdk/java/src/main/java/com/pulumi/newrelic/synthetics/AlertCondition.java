@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()        
+ *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()
  *             .policyId(fooNewrelicAlertPolicy.id())
  *             .name("foo")
  *             .monitorId(fooNewrelicSyntheticsMonitor.id())
@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()        
+ *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("foo monitor")
  *             .period("EVERY_MINUTE")
@@ -119,14 +119,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo synthetics condition")
  *             .monitorId(fooMonitor.id())
  *             .runbookUrl("https://www.example.com")
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()

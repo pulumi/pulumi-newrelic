@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload with tags")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload with tags")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -249,7 +249,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")

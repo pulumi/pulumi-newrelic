@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()        
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()
  *             .accountId(12345678)
  *             .policyId(foo.id())
  *             .type("static")
@@ -168,11 +168,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()        
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()
  *             .accountId("your_account_id")
  *             .policyId(foo.id())
  *             .type("static")
@@ -248,11 +248,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()        
+ *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()
  *             .accountId(12345678)
  *             .policyId(foo.id())
  *             .type("static")
@@ -287,7 +287,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooNrqlAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -343,7 +343,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()        
+ *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()
  *             .policyId(zNewrelicAlertPolicy.id())
  *             .name("zleslie-test")
  *             .type("static")
@@ -395,7 +395,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()        
+ *         var z = new NrqlAlertCondition("z", NrqlAlertConditionArgs.builder()
  *             .policyId(zNewrelicAlertPolicy.id())
  *             .name("zleslie-test")
  *             .type("static")

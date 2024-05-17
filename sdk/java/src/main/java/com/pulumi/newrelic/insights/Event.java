@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Event("foo", EventArgs.builder()        
+ *         var foo = new Event("foo", EventArgs.builder()
  *             .events(EventEventArgs.builder()
  *                 .type("MyEvent")
  *                 .timestamp(1232471100)

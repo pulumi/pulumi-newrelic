@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .domain("APM")
  *             .build());
  * 
- *         var fooEntityTags = new EntityTags("fooEntityTags", EntityTagsArgs.builder()        
+ *         var fooEntityTags = new EntityTags("fooEntityTags", EntityTagsArgs.builder()
  *             .guid(foo.applyValue(getEntityResult -> getEntityResult.guid()))
  *             .tags(            
  *                 EntityTagsTagArgs.builder()

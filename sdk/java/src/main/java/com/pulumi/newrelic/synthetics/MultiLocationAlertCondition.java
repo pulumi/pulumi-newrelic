@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new AlertPolicy("policy", AlertPolicyArgs.builder()        
+ *         var policy = new AlertPolicy("policy", AlertPolicyArgs.builder()
  *             .name("my-policy")
  *             .build());
  * 
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .locationsPublics("US_WEST_1")
  *             .name("my-monitor")
  *             .period("EVERY_10_MINUTES")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .uri("https://www.one.newrelic.com")
  *             .build());
  * 
- *         var example = new MultiLocationAlertCondition("example", MultiLocationAlertConditionArgs.builder()        
+ *         var example = new MultiLocationAlertCondition("example", MultiLocationAlertConditionArgs.builder()
  *             .policyId(policy.id())
  *             .name("Example condition")
  *             .runbookUrl("https://example.com")
@@ -126,11 +126,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()        
+ *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("foo monitor")
  *             .period("EVERY_MINUTE")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooMultiLocationAlertCondition = new MultiLocationAlertCondition("fooMultiLocationAlertCondition", MultiLocationAlertConditionArgs.builder()        
+ *         var fooMultiLocationAlertCondition = new MultiLocationAlertCondition("fooMultiLocationAlertCondition", MultiLocationAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo condition")
  *             .runbookUrl("https://example.com")
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooMultiLocationAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()

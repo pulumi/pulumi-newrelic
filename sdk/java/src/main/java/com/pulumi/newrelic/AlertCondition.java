@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  *             .domain("APM")
  *             .build());
  * 
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo")
  *             .type("apm_app_metric")
@@ -135,11 +135,11 @@ import javax.annotation.Nullable;
  *             .name("foo entitiy")
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
+ *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(fooAlertPolicy.id())
  *             .name("foo condition")
  *             .type("apm_app_metric")
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()

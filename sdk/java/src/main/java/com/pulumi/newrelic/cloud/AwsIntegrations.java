@@ -158,13 +158,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()        
+ *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()
  *             .arn(newrelicAwsRole.arn())
  *             .metricCollectionMode("PULL")
  *             .name("foo")
  *             .build());
  * 
- *         var bar = new AwsIntegrations("bar", AwsIntegrationsArgs.builder()        
+ *         var bar = new AwsIntegrations("bar", AwsIntegrationsArgs.builder()
  *             .linkedAccountId(foo.id())
  *             .billing(AwsIntegrationsBillingArgs.builder()
  *                 .metricsPollingInterval(3600)

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("foo")
  *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("slack-example")
  *             .type("slack")
  *             .config(AlertChannelConfigArgs.builder()
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("opsgenie-example")
  *             .type("opsgenie")
  *             .config(AlertChannelConfigArgs.builder()
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("pagerduty-example")
  *             .type("pagerduty")
  *             .config(AlertChannelConfigArgs.builder()
@@ -212,7 +212,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("victorops-example")
  *             .type("victorops")
  *             .config(AlertChannelConfigArgs.builder()
@@ -252,7 +252,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("webhook-example")
  *             .type("webhook")
  *             .config(AlertChannelConfigArgs.builder()
@@ -300,7 +300,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("webhook-example")
  *             .type("webhook")
  *             .config(AlertChannelConfigArgs.builder()

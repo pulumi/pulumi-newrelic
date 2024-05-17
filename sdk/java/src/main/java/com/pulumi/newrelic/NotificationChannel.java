@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("webhook-example")
  *             .type("WEBHOOK")
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("servicenow-incident-example")
  *             .type("SERVICENOW_INCIDENTS")
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("email-example")
  *             .type("EMAIL")
@@ -196,7 +196,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("jira-example")
  *             .type("JIRA_CLASSIC")
@@ -252,7 +252,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("pagerduty-account-example")
  *             .type("PAGERDUTY_ACCOUNT_INTEGRATION")
@@ -323,7 +323,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("pagerduty-account-example")
  *             .type("PAGERDUTY_SERVICE_INTEGRATION")
@@ -384,7 +384,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("mobile-push-example")
  *             .type("MOBILE_PUSH")
@@ -423,7 +423,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("event-bridge-example")
  *             .type("EVENT_BRIDGE")
@@ -471,7 +471,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()        
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("slack-example")
  *             .type("SLACK")
@@ -526,7 +526,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var webhook_destination = new NotificationDestination("webhook-destination", NotificationDestinationArgs.builder()        
+ *         var webhook_destination = new NotificationDestination("webhook-destination", NotificationDestinationArgs.builder()
  *             .accountId(12345678)
  *             .name("destination-webhook")
  *             .type("WEBHOOK")
@@ -571,7 +571,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var webhook_channel = new NotificationChannel("webhook-channel", NotificationChannelArgs.builder()        
+ *         var webhook_channel = new NotificationChannel("webhook-channel", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("channel-webhook")
  *             .type("WEBHOOK")

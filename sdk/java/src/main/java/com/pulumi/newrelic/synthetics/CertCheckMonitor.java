@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new CertCheckMonitor("foo", CertCheckMonitorArgs.builder()        
+ *         var foo = new CertCheckMonitor("foo", CertCheckMonitorArgs.builder()
  *             .name("Sample Cert Check Monitor")
  *             .domain("www.example.com")
  *             .locationsPublics("AP_SOUTH_1")
@@ -102,13 +102,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()        
+ *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()
  *             .name("Sample Private Location")
  *             .description("Sample Private Location Description")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var fooCertCheckMonitor = new CertCheckMonitor("fooCertCheckMonitor", CertCheckMonitorArgs.builder()        
+ *         var fooCertCheckMonitor = new CertCheckMonitor("fooCertCheckMonitor", CertCheckMonitorArgs.builder()
  *             .name("Sample Cert Check Monitor")
  *             .domain("www.one.example.com")
  *             .locationsPrivates(foo.id())

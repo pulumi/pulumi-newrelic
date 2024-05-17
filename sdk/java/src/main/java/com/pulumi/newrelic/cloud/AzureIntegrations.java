@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AzureLinkAccount("foo", AzureLinkAccountArgs.builder()        
+ *         var foo = new AzureLinkAccount("foo", AzureLinkAccountArgs.builder()
  *             .accountId("The New Relic account ID where you want to link the Azure account")
  *             .applicationId("ID of the application")
  *             .clientSecret("Secret value of client's Azure account")
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *             .name("Name of the linked account")
  *             .build());
  * 
- *         var fooAzureIntegrations = new AzureIntegrations("fooAzureIntegrations", AzureIntegrationsArgs.builder()        
+ *         var fooAzureIntegrations = new AzureIntegrations("fooAzureIntegrations", AzureIntegrationsArgs.builder()
  *             .linkedAccountId(foo.id())
  *             .accountId("The New Relic account ID")
  *             .apiManagement(AzureIntegrationsApiManagementArgs.builder()

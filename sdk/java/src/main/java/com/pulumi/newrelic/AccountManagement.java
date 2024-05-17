@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AccountManagement("foo", AccountManagementArgs.builder()        
+ *         var foo = new AccountManagement("foo", AccountManagementArgs.builder()
  *             .name("Test Account Name")
  *             .region("us01")
  *             .build());

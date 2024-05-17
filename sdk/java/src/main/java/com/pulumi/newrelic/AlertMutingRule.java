@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertMutingRule("foo", AlertMutingRuleArgs.builder()        
+ *         var foo = new AlertMutingRule("foo", AlertMutingRuleArgs.builder()
  *             .name("Example Muting Rule")
  *             .enabled(true)
  *             .description("muting rule test.")

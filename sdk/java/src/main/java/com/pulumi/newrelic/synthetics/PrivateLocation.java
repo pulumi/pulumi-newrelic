@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
  *             .description("The private location description")
  *             .name("The name of the private location")
  *             .build());
