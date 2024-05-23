@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workflow("foo", WorkflowArgs.builder()        
+ *         var foo = new Workflow("foo", WorkflowArgs.builder()
  *             .name("workflow-example")
  *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
@@ -112,12 +112,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a policy to track
- *         var my_policy = new AlertPolicy("my-policy", AlertPolicyArgs.builder()        
+ *         var my_policy = new AlertPolicy("my-policy", AlertPolicyArgs.builder()
  *             .name("my_policy")
  *             .build());
  * 
  *         // Create a reusable notification destination
- *         var webhook_destination = new NotificationDestination("webhook-destination", NotificationDestinationArgs.builder()        
+ *         var webhook_destination = new NotificationDestination("webhook-destination", NotificationDestinationArgs.builder()
  *             .name("destination-webhook")
  *             .type("WEBHOOK")
  *             .properties(NotificationDestinationPropertyArgs.builder()
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a notification channel to use in the workflow
- *         var webhook_channel = new NotificationChannel("webhook-channel", NotificationChannelArgs.builder()        
+ *         var webhook_channel = new NotificationChannel("webhook-channel", NotificationChannelArgs.builder()
  *             .name("channel-webhook")
  *             .type("WEBHOOK")
  *             .destinationId(webhook_destination.id())
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // A workflow that matches issues that include incidents triggered by the policy
- *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()        
+ *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()
  *             .name("workflow-example")
  *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()        
+ *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()
  *             .name("workflow-enrichment-example")
  *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
@@ -253,7 +253,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()        
+ *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()
  *             .name("workflow-enrichment-example")
  *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()

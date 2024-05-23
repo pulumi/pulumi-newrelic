@@ -262,13 +262,13 @@ import (
 type AlertChannel struct {
 	pulumi.CustomResourceState
 
-	// The New Relic account ID where you want to create alert channels.
+	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The configuration block for the alert channel.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
-	// (Required) The name of the channel.
+	// The name of the channel.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -305,24 +305,24 @@ func GetAlertChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertChannel resources.
 type alertChannelState struct {
-	// The New Relic account ID where you want to create alert channels.
+	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
-	// The configuration block for the alert channel.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
-	// (Required) The name of the channel.
+	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type *string `pulumi:"type"`
 }
 
 type AlertChannelState struct {
-	// The New Relic account ID where you want to create alert channels.
+	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput
-	// The configuration block for the alert channel.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
-	// (Required) The name of the channel.
+	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type pulumi.StringPtrInput
 }
 
@@ -331,25 +331,25 @@ func (AlertChannelState) ElementType() reflect.Type {
 }
 
 type alertChannelArgs struct {
-	// The New Relic account ID where you want to create alert channels.
+	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
-	// The configuration block for the alert channel.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
-	// (Required) The name of the channel.
+	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AlertChannel resource.
 type AlertChannelArgs struct {
-	// The New Relic account ID where you want to create alert channels.
+	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput
-	// The configuration block for the alert channel.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
-	// (Required) The name of the channel.
+	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type pulumi.StringInput
 }
 
@@ -440,22 +440,22 @@ func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The New Relic account ID where you want to create alert channels.
+// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
 func (o AlertChannelOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The configuration block for the alert channel.
+// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 func (o AlertChannelOutput) Config() AlertChannelConfigPtrOutput {
 	return o.ApplyT(func(v *AlertChannel) AlertChannelConfigPtrOutput { return v.Config }).(AlertChannelConfigPtrOutput)
 }
 
-// (Required) The name of the channel.
+// The name of the channel.
 func (o AlertChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 func (o AlertChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

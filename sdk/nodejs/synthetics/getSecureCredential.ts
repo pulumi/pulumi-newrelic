@@ -33,7 +33,13 @@ export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialArgs {
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     */
     accountId?: string;
+    /**
+     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     */
     key: string;
 }
 
@@ -80,6 +86,12 @@ export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, o
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialOutputArgs {
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     */
     accountId?: pulumi.Input<string>;
+    /**
+     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     */
     key: pulumi.Input<string>;
 }

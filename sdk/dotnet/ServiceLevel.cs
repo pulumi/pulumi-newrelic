@@ -215,18 +215,35 @@ namespace Pulumi.NewRelic
     [NewRelicResourceType("newrelic:index/serviceLevel:ServiceLevel")]
     public partial class ServiceLevel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description of the SLI.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The events that define the NRDB data for the SLI/SLO calculations.
+        /// See Events below for details.
+        /// </summary>
         [Output("events")]
         public Output<Outputs.ServiceLevelEvents> Events { get; private set; } = null!;
 
+        /// <summary>
+        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+        /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
 
+        /// <summary>
+        /// A short name for the SLI that will help anyone understand what it is about.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The objective of the SLI, only one can be defined.
+        /// See Objective below for details.
+        /// </summary>
         [Output("objective")]
         public Output<Outputs.ServiceLevelObjective> Objective { get; private set; } = null!;
 
@@ -288,18 +305,35 @@ namespace Pulumi.NewRelic
 
     public sealed class ServiceLevelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the SLI.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The events that define the NRDB data for the SLI/SLO calculations.
+        /// See Events below for details.
+        /// </summary>
         [Input("events", required: true)]
         public Input<Inputs.ServiceLevelEventsArgs> Events { get; set; } = null!;
 
+        /// <summary>
+        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+        /// </summary>
         [Input("guid", required: true)]
         public Input<string> Guid { get; set; } = null!;
 
+        /// <summary>
+        /// A short name for the SLI that will help anyone understand what it is about.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The objective of the SLI, only one can be defined.
+        /// See Objective below for details.
+        /// </summary>
         [Input("objective", required: true)]
         public Input<Inputs.ServiceLevelObjectiveArgs> Objective { get; set; } = null!;
 
@@ -311,18 +345,35 @@ namespace Pulumi.NewRelic
 
     public sealed class ServiceLevelState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the SLI.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The events that define the NRDB data for the SLI/SLO calculations.
+        /// See Events below for details.
+        /// </summary>
         [Input("events")]
         public Input<Inputs.ServiceLevelEventsGetArgs>? Events { get; set; }
 
+        /// <summary>
+        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+        /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
 
+        /// <summary>
+        /// A short name for the SLI that will help anyone understand what it is about.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The objective of the SLI, only one can be defined.
+        /// See Objective below for details.
+        /// </summary>
         [Input("objective")]
         public Input<Inputs.ServiceLevelObjectiveGetArgs>? Objective { get; set; }
 

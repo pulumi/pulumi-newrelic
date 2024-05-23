@@ -84,11 +84,11 @@ export class AlertMutingRule extends pulumi.CustomResource {
     }
 
     /**
-     * The account id of the MutingRule..
+     * The account id of the MutingRule.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The condition that defines which incidents to target.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     public readonly condition!: pulumi.Output<outputs.AlertMutingRuleCondition>;
     /**
@@ -104,7 +104,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The time window when the MutingRule should actively mute incidents.
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
     public readonly schedule!: pulumi.Output<outputs.AlertMutingRuleSchedule | undefined>;
 
@@ -152,11 +152,11 @@ export class AlertMutingRule extends pulumi.CustomResource {
  */
 export interface AlertMutingRuleState {
     /**
-     * The account id of the MutingRule..
+     * The account id of the MutingRule.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The condition that defines which incidents to target.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     condition?: pulumi.Input<inputs.AlertMutingRuleCondition>;
     /**
@@ -172,7 +172,7 @@ export interface AlertMutingRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The time window when the MutingRule should actively mute incidents.
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
     schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
 }
@@ -182,11 +182,11 @@ export interface AlertMutingRuleState {
  */
 export interface AlertMutingRuleArgs {
     /**
-     * The account id of the MutingRule..
+     * The account id of the MutingRule.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The condition that defines which incidents to target.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     condition: pulumi.Input<inputs.AlertMutingRuleCondition>;
     /**
@@ -202,7 +202,7 @@ export interface AlertMutingRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The time window when the MutingRule should actively mute incidents.
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
     schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
 }

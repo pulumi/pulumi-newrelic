@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new MonitorDowntime("foo", MonitorDowntimeArgs.builder()        
+ *         var foo = new MonitorDowntime("foo", MonitorDowntimeArgs.builder()
  *             .name("Sample Monitor Downtime")
  *             .monitorGuids(            
  *                 "<GUID-1>",
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleOneTimeNewrelicMonitorDowntime = new MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()        
+ *         var sampleOneTimeNewrelicMonitorDowntime = new MonitorDowntime("sampleOneTimeNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()
  *             .name("Sample One Time Monitor Downtime")
  *             .monitorGuids(            
  *                 "<GUID-1>",
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleDailyNewrelicMonitorDowntime = new MonitorDowntime("sampleDailyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()        
+ *         var sampleDailyNewrelicMonitorDowntime = new MonitorDowntime("sampleDailyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()
  *             .name("Sample Daily Monitor Downtime")
  *             .monitorGuids(            
  *                 "<GUID-1>",
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleWeeklyNewrelicMonitorDowntime = new MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()        
+ *         var sampleWeeklyNewrelicMonitorDowntime = new MonitorDowntime("sampleWeeklyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()
  *             .name("Sample Weekly Monitor Downtime")
  *             .monitorGuids(            
  *                 "<GUID-1>",
@@ -247,7 +247,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleMonthlyNewrelicMonitorDowntime = new MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()        
+ *         var sampleMonthlyNewrelicMonitorDowntime = new MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()
  *             .name("Sample Monthly Monitor Downtime")
  *             .monitorGuids(            
  *                 "<GUID-1>",
@@ -298,7 +298,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleMonthlyNewrelicMonitorDowntime = new MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()        
+ *         var sampleMonthlyNewrelicMonitorDowntime = new MonitorDowntime("sampleMonthlyNewrelicMonitorDowntime", MonitorDowntimeArgs.builder()
  *             .name("Sample Monthly Monitor Downtime")
  *             .monitorGuids(            
  *                 "<GUID-1>",

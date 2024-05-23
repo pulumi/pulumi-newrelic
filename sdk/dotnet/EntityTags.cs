@@ -79,7 +79,7 @@ namespace Pulumi.NewRelic
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs to represent a tag. For example: Team:TeamName
+        /// A nested block that describes an entity tag. See Nested tag blocks below for details.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.EntityTagsTag>> Tags { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.EntityTagsTagArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs to represent a tag. For example: Team:TeamName
+        /// A nested block that describes an entity tag. See Nested tag blocks below for details.
         /// </summary>
         public InputList<Inputs.EntityTagsTagArgs> Tags
         {
@@ -166,7 +166,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.EntityTagsTagGetArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs to represent a tag. For example: Team:TeamName
+        /// A nested block that describes an entity tag. See Nested tag blocks below for details.
         /// </summary>
         public InputList<Inputs.EntityTagsTagGetArgs> Tags
         {

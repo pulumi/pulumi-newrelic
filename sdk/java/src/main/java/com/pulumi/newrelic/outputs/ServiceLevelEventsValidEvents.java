@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelEventsValidEvents {
+    /**
+     * @return The event type where NRDB data will be fetched from.
+     * 
+     */
     private String from;
+    /**
+     * @return The NRQL SELECT clause to aggregate events.
+     * 
+     */
     private @Nullable ServiceLevelEventsValidEventsSelect select;
+    /**
+     * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * 
+     */
     private @Nullable String where;
 
     private ServiceLevelEventsValidEvents() {}
+    /**
+     * @return The event type where NRDB data will be fetched from.
+     * 
+     */
     public String from() {
         return this.from;
     }
+    /**
+     * @return The NRQL SELECT clause to aggregate events.
+     * 
+     */
     public Optional<ServiceLevelEventsValidEventsSelect> select() {
         return Optional.ofNullable(this.select);
     }
+    /**
+     * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * 
+     */
     public Optional<String> where() {
         return Optional.ofNullable(this.where);
     }

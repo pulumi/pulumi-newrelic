@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new ApplicationSettings("app", ApplicationSettingsArgs.builder()        
+ *         var app = new ApplicationSettings("app", ApplicationSettingsArgs.builder()
  *             .name("my-app")
  *             .appApdexThreshold("0.7")
  *             .endUserApdexThreshold("0.8")

@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardPage {
     /**
-     * @return (Optional) Brief text describing the page.
+     * @return Brief text describing the dashboard.
      * 
      */
     private @Nullable String description;
@@ -38,7 +38,7 @@ public final class OneDashboardPage {
      */
     private @Nullable String guid;
     /**
-     * @return (Required) The variable identifier.
+     * @return The title of the dashboard.
      * 
      */
     private String name;
@@ -115,7 +115,7 @@ public final class OneDashboardPage {
 
     private OneDashboardPage() {}
     /**
-     * @return (Optional) Brief text describing the page.
+     * @return Brief text describing the dashboard.
      * 
      */
     public Optional<String> description() {
@@ -129,7 +129,7 @@ public final class OneDashboardPage {
         return Optional.ofNullable(this.guid);
     }
     /**
-     * @return (Required) The variable identifier.
+     * @return The title of the dashboard.
      * 
      */
     public String name() {

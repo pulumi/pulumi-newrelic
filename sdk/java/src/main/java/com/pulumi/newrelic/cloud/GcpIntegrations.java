@@ -103,12 +103,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()        
+ *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()
  *             .name("example")
  *             .projectId("<Your GCP project ID>")
  *             .build());
  * 
- *         var foo1 = new GcpIntegrations("foo1", GcpIntegrationsArgs.builder()        
+ *         var foo1 = new GcpIntegrations("foo1", GcpIntegrationsArgs.builder()
  *             .linkedAccountId(foo.id())
  *             .appEngine(GcpIntegrationsAppEngineArgs.builder()
  *                 .metricsPollingInterval(300)

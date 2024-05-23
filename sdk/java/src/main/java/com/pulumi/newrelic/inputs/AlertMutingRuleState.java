@@ -19,14 +19,14 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
     public static final AlertMutingRuleState Empty = new AlertMutingRuleState();
 
     /**
-     * The account id of the MutingRule..
+     * The account id of the MutingRule.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The account id of the MutingRule..
+     * @return The account id of the MutingRule.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -34,14 +34,14 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The condition that defines which incidents to target.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<AlertMutingRuleConditionArgs> condition;
 
     /**
-     * @return The condition that defines which incidents to target.
+     * @return The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     public Optional<Output<AlertMutingRuleConditionArgs>> condition() {
@@ -94,14 +94,14 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The time window when the MutingRule should actively mute incidents.
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<AlertMutingRuleScheduleArgs> schedule;
 
     /**
-     * @return The time window when the MutingRule should actively mute incidents.
+     * @return Specify a schedule for enabling the MutingRule. See Schedule below for details
      * 
      */
     public Optional<Output<AlertMutingRuleScheduleArgs>> schedule() {
@@ -138,7 +138,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The account id of the MutingRule..
+         * @param accountId The account id of the MutingRule.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The account id of the MutingRule..
+         * @param accountId The account id of the MutingRule.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param condition The condition that defines which incidents to target.
+         * @param condition The condition that defines which incidents to target. See Nested condition blocks below for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param condition The condition that defines which incidents to target.
+         * @param condition The condition that defines which incidents to target. See Nested condition blocks below for details.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schedule The time window when the MutingRule should actively mute incidents.
+         * @param schedule Specify a schedule for enabling the MutingRule. See Schedule below for details
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schedule The time window when the MutingRule should actively mute incidents.
+         * @param schedule Specify a schedule for enabling the MutingRule. See Schedule below for details
          * 
          * @return builder
          * 

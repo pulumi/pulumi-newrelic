@@ -12,15 +12,27 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class ServiceLevelObjectiveArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the SLI.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A short name for the SLI that will help anyone understand what it is about.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+        /// </summary>
         [Input("target", required: true)]
         public Input<double> Target { get; set; } = null!;
 
+        /// <summary>
+        /// Time window is the period of the objective.
+        /// </summary>
         [Input("timeWindow", required: true)]
         public Input<Inputs.ServiceLevelObjectiveTimeWindowArgs> TimeWindow { get; set; } = null!;
 

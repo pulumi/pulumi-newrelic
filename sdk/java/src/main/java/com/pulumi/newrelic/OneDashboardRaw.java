@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampledash = new OneDashboardRaw("exampledash", OneDashboardRawArgs.builder()        
+ *         var exampledash = new OneDashboardRaw("exampledash", OneDashboardRawArgs.builder()
  *             .name("New Relic Terraform Example")
  *             .pages(OneDashboardRawPageArgs.builder()
  *                 .name("Page Name")

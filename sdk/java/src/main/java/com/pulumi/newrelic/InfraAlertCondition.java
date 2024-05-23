@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var highDiskUsage = new InfraAlertCondition("highDiskUsage", InfraAlertConditionArgs.builder()        
+ *         var highDiskUsage = new InfraAlertCondition("highDiskUsage", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("High disk usage")
  *             .description("Warning if disk usage goes above 80% and critical alert if goes above 90%")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var highDbConnCount = new InfraAlertCondition("highDbConnCount", InfraAlertConditionArgs.builder()        
+ *         var highDbConnCount = new InfraAlertCondition("highDbConnCount", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("High database connection count")
  *             .description("Critical alert when the number of database connections goes above 90")
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var processNotRunning = new InfraAlertCondition("processNotRunning", InfraAlertConditionArgs.builder()        
+ *         var processNotRunning = new InfraAlertCondition("processNotRunning", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("Process not running (/usr/bin/ruby)")
  *             .description("Critical alert when ruby isn't running")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var hostNotReporting = new InfraAlertCondition("hostNotReporting", InfraAlertConditionArgs.builder()        
+ *         var hostNotReporting = new InfraAlertCondition("hostNotReporting", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("Host not reporting")
  *             .description("Critical alert when the host is not reporting")
@@ -167,11 +167,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooInfraAlertCondition = new InfraAlertCondition("fooInfraAlertCondition", InfraAlertConditionArgs.builder()        
+ *         var fooInfraAlertCondition = new InfraAlertCondition("fooInfraAlertCondition", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo infra condition")
  *             .description("Warning if disk usage goes above 80% and critical alert if goes above 90%")
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooInfraAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -225,16 +225,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/infraAlertCondition:InfraAlertCondition")
 public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
     /**
-     * The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-     * infra_metric and infra_process_running condition types.
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
      * 
      */
     @Export(name="comparison", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comparison;
 
     /**
-     * @return The operator used to evaluate the threshold value. Valid values are above, below, and equal. Supported by the
-     * infra_metric and infra_process_running condition types.
+     * @return The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
      * 
      */
     public Output<Optional<String>> comparison() {
@@ -255,14 +253,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * Identifies the threshold parameters for opening a critical alert incident.
+     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
     @Export(name="critical", refs={InfraAlertConditionCritical.class}, tree="[0]")
     private Output</* @Nullable */ InfraAlertConditionCritical> critical;
 
     /**
-     * @return Identifies the threshold parameters for opening a critical alert incident.
+     * @return Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
     public Output<Optional<InfraAlertConditionCritical>> critical() {
@@ -283,14 +281,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
+     * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether the condition is turned on or off. Valid values are true and false. Defaults to true.
+     * @return Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -311,28 +309,28 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.entityGuid;
     }
     /**
-     * The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
      * 
      */
     @Export(name="event", refs={String.class}, tree="[0]")
     private Output<String> event;
 
     /**
-     * @return The metric event; for example, SystemSample or StorageSample. Supported by the infra_metric condition type.
+     * @return The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
      * 
      */
     public Output<String> event() {
         return this.event;
     }
     /**
-     * For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+     * For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
      * 
      */
     @Export(name="integrationProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationProvider;
 
     /**
-     * @return For alerts on integrations, use this instead of event. Supported by the infra_metric condition type.
+     * @return For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
      * 
      */
     public Output<Optional<String>> integrationProvider() {
@@ -367,16 +365,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.policyId;
     }
     /**
-     * Any filters applied to processes; for example: commandName = &#39;java&#39;. Supported by the infra_process_running condition
-     * type.
+     * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
      * 
      */
     @Export(name="processWhere", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> processWhere;
 
     /**
-     * @return Any filters applied to processes; for example: commandName = &#39;java&#39;. Supported by the infra_process_running condition
-     * type.
+     * @return Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
      * 
      */
     public Output<Optional<String>> processWhere() {
@@ -397,36 +393,28 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runbookUrl);
     }
     /**
-     * The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
-     * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
-     * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-     * infra_metric condition type.
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
      * 
      */
     @Export(name="select", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> select;
 
     /**
-     * @return The attribute name to identify the metric being targeted; for example, cpuPercent, diskFreePercent, or
-     * memoryResidentSizeBytes. The underlying API will automatically populate this value for Infrastructure integrations (for
-     * example diskFreePercent), so make sure to explicitly include this value to avoid diff issues. Supported by the
-     * infra_metric condition type.
+     * @return The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
      * 
      */
     public Output<Optional<String>> select() {
         return Codegen.optional(this.select);
     }
     /**
-     * The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
-     * infra_host_not_reporting.
+     * The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of Infrastructure alert condition. Valid values are infra_process_running, infra_metric, and
-     * infra_host_not_reporting.
+     * @return The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
      * 
      */
     public Output<String> type() {
@@ -447,44 +435,42 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.updatedAt;
     }
     /**
-     * Determines how much time, in hours, will pass before an incident is automatically closed. Valid values are 1, 2, 4, 8,
-     * 12, 24, 48, or 72
+     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
      */
     @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
-     * @return Determines how much time, in hours, will pass before an incident is automatically closed. Valid values are 1, 2, 4, 8,
-     * 12, 24, 48, or 72
+     * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {
         return Codegen.optional(this.violationCloseTimer);
     }
     /**
-     * Identifies the threshold parameters for opening a warning alert incident.
+     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
     @Export(name="warning", refs={InfraAlertConditionWarning.class}, tree="[0]")
     private Output</* @Nullable */ InfraAlertConditionWarning> warning;
 
     /**
-     * @return Identifies the threshold parameters for opening a warning alert incident.
+     * @return Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
     public Output<Optional<InfraAlertConditionWarning>> warning() {
         return Codegen.optional(this.warning);
     }
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: hostname LIKE &#39;%cassandra%&#39;.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     @Export(name="where", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: hostname LIKE &#39;%cassandra%&#39;.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     public Output<Optional<String>> where() {

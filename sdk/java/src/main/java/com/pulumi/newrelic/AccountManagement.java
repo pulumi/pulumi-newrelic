@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AccountManagement("foo", AccountManagementArgs.builder()        
+ *         var foo = new AccountManagement("foo", AccountManagementArgs.builder()
  *             .name("Test Account Name")
  *             .region("us01")
  *             .build());
@@ -69,28 +69,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/accountManagement:AccountManagement")
 public class AccountManagement extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the account to be created
+     * The name of the Account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the account to be created
+     * @return The name of the Account.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A description of what this parsing rule represents.
+     * The region code of the account.  One of: `us01`, `eu01`.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return A description of what this parsing rule represents.
+     * @return The region code of the account.  One of: `us01`, `eu01`.
      * 
      */
     public Output<String> region() {

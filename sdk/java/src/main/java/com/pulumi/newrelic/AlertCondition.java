@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  *             .domain("APM")
  *             .build());
  * 
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo")
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo")
  *             .type("apm_app_metric")
@@ -135,11 +135,11 @@ import javax.annotation.Nullable;
  *             .name("foo entitiy")
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
+ *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(fooAlertPolicy.id())
  *             .name("foo condition")
  *             .type("apm_app_metric")
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -189,30 +189,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/alertCondition:AlertCondition")
 public class AlertCondition extends com.pulumi.resources.CustomResource {
     /**
-     * One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      * 
      */
     @Export(name="conditionScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conditionScope;
 
     /**
-     * @return One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * @return `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      * 
      */
     public Output<Optional<String>> conditionScope() {
         return Codegen.optional(this.conditionScope);
     }
     /**
-     * Whether the condition is enabled.
+     * Whether the condition is enabled or not. Defaults to true.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether the condition is enabled.
+     * @return Whether the condition is enabled or not. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -247,44 +245,42 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return this.entityGuid;
     }
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      * 
      */
     @Export(name="gcMetric", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gcMetric;
 
     /**
-     * @return A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * @return A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      * 
      */
     public Output<Optional<String>> gcMetric() {
         return Codegen.optional(this.gcMetric);
     }
     /**
-     * The metric field accepts parameters based on the type set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * 
      */
     @Export(name="metric", refs={String.class}, tree="[0]")
     private Output<String> metric;
 
     /**
-     * @return The metric field accepts parameters based on the type set.
+     * @return The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * 
      */
     public Output<String> metric() {
         return this.metric;
     }
     /**
-     * The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * The title of the condition. Must be between 1 and 64 characters, inclusive.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * @return The title of the condition. Must be between 1 and 64 characters, inclusive.
      * 
      */
     public Output<String> name() {
@@ -318,23 +314,29 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> runbookUrl() {
         return Codegen.optional(this.runbookUrl);
     }
+    /**
+     * A list of terms for this condition. See Terms below for details.
+     * 
+     */
     @Export(name="terms", refs={List.class,AlertConditionTerm.class}, tree="[0,1]")
     private Output<List<AlertConditionTerm>> terms;
 
+    /**
+     * @return A list of terms for this condition. See Terms below for details.
+     * 
+     */
     public Output<List<AlertConditionTerm>> terms() {
         return this.terms;
     }
     /**
-     * The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * @return The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      * 
      */
     public Output<String> type() {
@@ -355,30 +357,36 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userDefinedMetric);
     }
     /**
-     * One of: (average, min, max, total, sample_size, percent, rate).
+     * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * 
+     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
      * 
      */
     @Export(name="userDefinedValueFunction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDefinedValueFunction;
 
     /**
-     * @return One of: (average, min, max, total, sample_size, percent, rate).
+     * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * 
+     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
      * 
      */
     public Output<Optional<String>> userDefinedValueFunction() {
         return Codegen.optional(this.userDefinedValueFunction);
     }
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+     * * when `type` = `apm_jvm_metric`
      * 
      */
     @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
-     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+     * * when `type` = `apm_jvm_metric`
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {

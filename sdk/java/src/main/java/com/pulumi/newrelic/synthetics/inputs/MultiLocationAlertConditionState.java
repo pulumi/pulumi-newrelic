@@ -21,14 +21,14 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     public static final MultiLocationAlertConditionState Empty = new MultiLocationAlertConditionState();
 
     /**
-     * A condition term with priority set to critical.
+     * A condition term with the priority set to critical.
      * 
      */
     @Import(name="critical")
     private @Nullable Output<MultiLocationAlertConditionCriticalArgs> critical;
 
     /**
-     * @return A condition term with priority set to critical.
+     * @return A condition term with the priority set to critical.
      * 
      */
     public Optional<Output<MultiLocationAlertConditionCriticalArgs>> critical() {
@@ -36,14 +36,14 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
-     * Set whether to enable the alert condition. Defaults to true.
+     * Set whether to enable the alert condition.  Defaults to true.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Set whether to enable the alert condition. Defaults to true.
+     * @return Set whether to enable the alert condition.  Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -51,14 +51,14 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
-     * The GUIDs of the Synthetics monitors to alert on.
+     * The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
     @Import(name="entities")
     private @Nullable Output<List<String>> entities;
 
     /**
-     * @return The GUIDs of the Synthetics monitors to alert on.
+     * @return The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
     public Optional<Output<List<String>>> entities() {
@@ -81,14 +81,14 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
-     * The title of this condition.
+     * The title of the condition.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The title of this condition.
+     * @return The title of the condition.
      * 
      */
     public Optional<Output<String>> name() {
@@ -126,16 +126,14 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-     * select. Must be in the range of 300 to 2592000 (inclusive)
+     * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      * 
      */
     @Import(name="violationTimeLimitSeconds")
     private @Nullable Output<Integer> violationTimeLimitSeconds;
 
     /**
-     * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-     * select. Must be in the range of 300 to 2592000 (inclusive)
+     * @return The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      * 
      */
     public Optional<Output<Integer>> violationTimeLimitSeconds() {
@@ -143,14 +141,18 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
-     * A condition term with priority set to warning.
+     * A condition term with the priority set to warning.
+     * 
+     * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * 
      */
     @Import(name="warning")
     private @Nullable Output<MultiLocationAlertConditionWarningArgs> warning;
 
     /**
-     * @return A condition term with priority set to warning.
+     * @return A condition term with the priority set to warning.
+     * 
+     * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * 
      */
     public Optional<Output<MultiLocationAlertConditionWarningArgs>> warning() {
@@ -190,7 +192,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param critical A condition term with priority set to critical.
+         * @param critical A condition term with the priority set to critical.
          * 
          * @return builder
          * 
@@ -201,7 +203,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param critical A condition term with priority set to critical.
+         * @param critical A condition term with the priority set to critical.
          * 
          * @return builder
          * 
@@ -211,7 +213,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param enabled Set whether to enable the alert condition. Defaults to true.
+         * @param enabled Set whether to enable the alert condition.  Defaults to true.
          * 
          * @return builder
          * 
@@ -222,7 +224,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param enabled Set whether to enable the alert condition. Defaults to true.
+         * @param enabled Set whether to enable the alert condition.  Defaults to true.
          * 
          * @return builder
          * 
@@ -232,7 +234,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param entities The GUIDs of the Synthetics monitors to alert on.
+         * @param entities The Monitor GUID&#39;s of the Synthetics monitors to alert on.
          * 
          * @return builder
          * 
@@ -243,7 +245,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param entities The GUIDs of the Synthetics monitors to alert on.
+         * @param entities The Monitor GUID&#39;s of the Synthetics monitors to alert on.
          * 
          * @return builder
          * 
@@ -253,7 +255,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param entities The GUIDs of the Synthetics monitors to alert on.
+         * @param entities The Monitor GUID&#39;s of the Synthetics monitors to alert on.
          * 
          * @return builder
          * 
@@ -284,7 +286,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param name The title of this condition.
+         * @param name The title of the condition.
          * 
          * @return builder
          * 
@@ -295,7 +297,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param name The title of this condition.
+         * @param name The title of the condition.
          * 
          * @return builder
          * 
@@ -347,8 +349,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-         * select. Must be in the range of 300 to 2592000 (inclusive)
+         * @param violationTimeLimitSeconds The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
          * 
          * @return builder
          * 
@@ -359,8 +360,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-         * select. Must be in the range of 300 to 2592000 (inclusive)
+         * @param violationTimeLimitSeconds The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
          * 
          * @return builder
          * 
@@ -370,7 +370,9 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param warning A condition term with priority set to warning.
+         * @param warning A condition term with the priority set to warning.
+         * 
+         * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
          * 
          * @return builder
          * 
@@ -381,7 +383,9 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param warning A condition term with priority set to warning.
+         * @param warning A condition term with the priority set to warning.
+         * 
+         * &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
          * 
          * @return builder
          * 

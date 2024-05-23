@@ -12,14 +12,20 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class ServiceLevelEventsBadEventsSelectGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event attribute to use in the SELECT clause.
+        /// </summary>
         [Input("attribute")]
         public Input<string>? Attribute { get; set; }
 
+        /// <summary>
+        /// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        /// </summary>
         [Input("function", required: true)]
         public Input<string> Function { get; set; } = null!;
 
         /// <summary>
-        /// The event threshold to use in the SELECT clause
+        /// Limit for values to be counter by `GET_CDF_COUNT` function.
         /// </summary>
         [Input("threshold")]
         public Input<double>? Threshold { get; set; }

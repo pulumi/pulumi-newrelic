@@ -83,7 +83,7 @@ export class EntityTags extends pulumi.CustomResource {
      */
     public readonly guid!: pulumi.Output<string>;
     /**
-     * A set of key-value pairs to represent a tag. For example: Team:TeamName
+     * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
     public readonly tags!: pulumi.Output<outputs.EntityTagsTag[]>;
 
@@ -127,7 +127,7 @@ export interface EntityTagsState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * A set of key-value pairs to represent a tag. For example: Team:TeamName
+     * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
 }
@@ -141,7 +141,7 @@ export interface EntityTagsArgs {
      */
     guid: pulumi.Input<string>;
     /**
-     * A set of key-value pairs to represent a tag. For example: Team:TeamName
+     * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
     tags: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
 }

@@ -17,14 +17,14 @@ public final class OneDashboardPageWidgetHistogramNrqlQueryArgs extends com.pulu
     public static final OneDashboardPageWidgetHistogramNrqlQueryArgs Empty = new OneDashboardPageWidgetHistogramNrqlQueryArgs();
 
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The account id used for the NRQL query.
+     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -72,7 +72,7 @@ public final class OneDashboardPageWidgetHistogramNrqlQueryArgs extends com.pulu
         }
 
         /**
-         * @param accountId The account id used for the NRQL query.
+         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OneDashboardPageWidgetHistogramNrqlQueryArgs extends com.pulu
         }
 
         /**
-         * @param accountId The account id used for the NRQL query.
+         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 

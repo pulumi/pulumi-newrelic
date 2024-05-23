@@ -20,9 +20,9 @@ class AlertPolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
-        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
-        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-               is PER_POLICY.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
         if account_id is not None:
@@ -41,7 +41,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The New Relic account ID to operate on.
+        The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
@@ -52,6 +52,9 @@ class AlertPolicyArgs:
     @property
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        """
         warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
         pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
 
@@ -65,8 +68,7 @@ class AlertPolicyArgs:
     @pulumi.getter(name="incidentPreference")
     def incident_preference(self) -> Optional[pulumi.Input[str]]:
         """
-        The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-        is PER_POLICY.
+        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         """
         return pulumi.get(self, "incident_preference")
 
@@ -96,9 +98,9 @@ class _AlertPolicyState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
-        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
-        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-               is PER_POLICY.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
         if account_id is not None:
@@ -117,7 +119,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The New Relic account ID to operate on.
+        The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
@@ -128,6 +130,9 @@ class _AlertPolicyState:
     @property
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        """
         warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
         pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
 
@@ -141,8 +146,7 @@ class _AlertPolicyState:
     @pulumi.getter(name="incidentPreference")
     def incident_preference(self) -> Optional[pulumi.Input[str]]:
         """
-        The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-        is PER_POLICY.
+        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         """
         return pulumi.get(self, "incident_preference")
 
@@ -266,9 +270,9 @@ class AlertPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
-        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-               is PER_POLICY.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
         ...
@@ -421,9 +425,9 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.
-        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-               is PER_POLICY.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -440,13 +444,16 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        The New Relic account ID to operate on.
+        The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        """
         warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
         pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
 
@@ -456,8 +463,7 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="incidentPreference")
     def incident_preference(self) -> pulumi.Output[Optional[str]]:
         """
-        The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-        is PER_POLICY.
+        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         """
         return pulumi.get(self, "incident_preference")
 

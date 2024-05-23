@@ -146,17 +146,19 @@ namespace Pulumi.NewRelic
     public partial class AlertPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on.
+        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<string>> ChannelIds { get; private set; } = null!;
 
         /// <summary>
-        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-        /// is PER_POLICY.
+        /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         /// </summary>
         [Output("incidentPreference")]
         public Output<string?> IncidentPreference { get; private set; } = null!;
@@ -214,13 +216,17 @@ namespace Pulumi.NewRelic
     public sealed class AlertPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.
+        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
         private InputList<string>? _channelIds;
+
+        /// <summary>
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        /// </summary>
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<string> ChannelIds
         {
@@ -229,8 +235,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-        /// is PER_POLICY.
+        /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         /// </summary>
         [Input("incidentPreference")]
         public Input<string>? IncidentPreference { get; set; }
@@ -250,13 +255,17 @@ namespace Pulumi.NewRelic
     public sealed class AlertPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.
+        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
         private InputList<string>? _channelIds;
+
+        /// <summary>
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        /// </summary>
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<string> ChannelIds
         {
@@ -265,8 +274,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default
-        /// is PER_POLICY.
+        /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         /// </summary>
         [Input("incidentPreference")]
         public Input<string>? IncidentPreference { get; set; }

@@ -52,7 +52,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *         var foo = new Monitor("foo", MonitorArgs.builder()
      *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
@@ -93,7 +93,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
      *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
@@ -144,7 +144,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *         var foo = new Monitor("foo", MonitorArgs.builder()
      *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
@@ -185,7 +185,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
      *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
@@ -236,7 +236,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *         var foo = new Monitor("foo", MonitorArgs.builder()
      *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
@@ -277,7 +277,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
      *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())
@@ -328,7 +328,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new Monitor("foo", MonitorArgs.builder()        
+     *         var foo = new Monitor("foo", MonitorArgs.builder()
      *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *             .build());
      * 
@@ -369,7 +369,7 @@ public final class SyntheticsFunctions {
      *             .name("My private location")
      *             .build());
      * 
-     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()
      *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
      *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
      *                 .build())

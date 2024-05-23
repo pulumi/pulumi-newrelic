@@ -603,8 +603,8 @@ class AlertMutingRuleConditionArgs:
                  conditions: pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]],
                  operator: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]] conditions: The individual MutingRuleConditions within the group.
-        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         pulumi.set(__self__, "conditions", conditions)
         pulumi.set(__self__, "operator", operator)
@@ -613,7 +613,7 @@ class AlertMutingRuleConditionArgs:
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]:
         """
-        The individual MutingRuleConditions within the group.
+        The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
         """
         return pulumi.get(self, "conditions")
 
@@ -625,7 +625,7 @@ class AlertMutingRuleConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        The operator used to combine all the MutingRuleConditions within the group.
+        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         return pulumi.get(self, "operator")
 
@@ -700,6 +700,7 @@ class AlertMutingRuleScheduleArgs:
         :param pulumi.Input[str] time_zone: The time zone that applies to the MutingRule schedule.
         :param pulumi.Input[str] end_repeat: The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
         :param pulumi.Input[str] end_time: The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+               * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         :param pulumi.Input[str] repeat: The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
         :param pulumi.Input[int] repeat_count: The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
         :param pulumi.Input[str] start_time: The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
@@ -748,6 +749,7 @@ class AlertMutingRuleScheduleArgs:
     def end_time(self) -> Optional[pulumi.Input[str]]:
         """
         The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+        * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         """
         return pulumi.get(self, "end_time")
 
@@ -1776,8 +1778,8 @@ class OneDashboardPageArgs:
                  widget_stacked_bars: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]]] = None,
                  widget_tables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: (Required) The variable identifier.
-        :param pulumi.Input[str] description: (Optional) Brief text describing the page.
+        :param pulumi.Input[str] name: The title of the dashboard.
+        :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]] widget_areas: An area widget.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]] widget_bars: A bar widget.
@@ -1832,7 +1834,7 @@ class OneDashboardPageArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        (Required) The variable identifier.
+        The title of the dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -1844,7 +1846,7 @@ class OneDashboardPageArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Brief text describing the page.
+        Brief text describing the dashboard.
         """
         return pulumi.get(self, "description")
 
@@ -2357,7 +2359,7 @@ class OneDashboardPageWidgetAreaNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -2379,7 +2381,7 @@ class OneDashboardPageWidgetAreaNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -2900,7 +2902,7 @@ class OneDashboardPageWidgetBarNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -2922,7 +2924,7 @@ class OneDashboardPageWidgetBarNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -3443,7 +3445,7 @@ class OneDashboardPageWidgetBillboardNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -3465,7 +3467,7 @@ class OneDashboardPageWidgetBillboardNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -3969,7 +3971,7 @@ class OneDashboardPageWidgetBulletNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -3991,7 +3993,7 @@ class OneDashboardPageWidgetBulletNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -4480,7 +4482,7 @@ class OneDashboardPageWidgetFunnelNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -4502,7 +4504,7 @@ class OneDashboardPageWidgetFunnelNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -5023,7 +5025,7 @@ class OneDashboardPageWidgetHeatmapNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -5045,7 +5047,7 @@ class OneDashboardPageWidgetHeatmapNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -5534,7 +5536,7 @@ class OneDashboardPageWidgetHistogramNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -5556,7 +5558,7 @@ class OneDashboardPageWidgetHistogramNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -6045,7 +6047,7 @@ class OneDashboardPageWidgetJsonNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -6067,7 +6069,7 @@ class OneDashboardPageWidgetJsonNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -6572,7 +6574,7 @@ class OneDashboardPageWidgetLineNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -6594,7 +6596,7 @@ class OneDashboardPageWidgetLineNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -7083,7 +7085,7 @@ class OneDashboardPageWidgetLogTableNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -7105,7 +7107,7 @@ class OneDashboardPageWidgetLogTableNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -8099,7 +8101,7 @@ class OneDashboardPageWidgetPyNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -8121,7 +8123,7 @@ class OneDashboardPageWidgetPyNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -8610,7 +8612,7 @@ class OneDashboardPageWidgetStackedBarNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -8632,7 +8634,7 @@ class OneDashboardPageWidgetStackedBarNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -9153,7 +9155,7 @@ class OneDashboardPageWidgetTableNrqlQueryArgs:
                  account_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[str] account_id: The account id used for the NRQL query.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -9175,7 +9177,7 @@ class OneDashboardPageWidgetTableNrqlQueryArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account id used for the NRQL query.
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -9569,7 +9571,7 @@ class OneDashboardVariableArgs:
                  nrql_query: Optional[pulumi.Input['OneDashboardVariableNrqlQueryArgs']] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableOptionArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: (Required) The variable identifier.
+        :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[str] replacement_strategy: (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[str] type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
@@ -9598,7 +9600,7 @@ class OneDashboardVariableArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        (Required) The variable identifier.
+        The title of the dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -9809,6 +9811,13 @@ class ServiceLevelEventsArgs:
                  valid_events: pulumi.Input['ServiceLevelEventsValidEventsArgs'],
                  bad_events: Optional[pulumi.Input['ServiceLevelEventsBadEventsArgs']] = None,
                  good_events: Optional[pulumi.Input['ServiceLevelEventsGoodEventsArgs']] = None):
+        """
+        :param pulumi.Input[str] account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+               and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+        :param pulumi.Input['ServiceLevelEventsValidEventsArgs'] valid_events: The definition of valid requests.
+        :param pulumi.Input['ServiceLevelEventsBadEventsArgs'] bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        :param pulumi.Input['ServiceLevelEventsGoodEventsArgs'] good_events: The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "valid_events", valid_events)
         if bad_events is not None:
@@ -9819,6 +9828,10 @@ class ServiceLevelEventsArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+        and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -9828,6 +9841,9 @@ class ServiceLevelEventsArgs:
     @property
     @pulumi.getter(name="validEvents")
     def valid_events(self) -> pulumi.Input['ServiceLevelEventsValidEventsArgs']:
+        """
+        The definition of valid requests.
+        """
         return pulumi.get(self, "valid_events")
 
     @valid_events.setter
@@ -9837,6 +9853,9 @@ class ServiceLevelEventsArgs:
     @property
     @pulumi.getter(name="badEvents")
     def bad_events(self) -> Optional[pulumi.Input['ServiceLevelEventsBadEventsArgs']]:
+        """
+        The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        """
         return pulumi.get(self, "bad_events")
 
     @bad_events.setter
@@ -9846,6 +9865,9 @@ class ServiceLevelEventsArgs:
     @property
     @pulumi.getter(name="goodEvents")
     def good_events(self) -> Optional[pulumi.Input['ServiceLevelEventsGoodEventsArgs']]:
+        """
+        The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+        """
         return pulumi.get(self, "good_events")
 
     @good_events.setter
@@ -9859,6 +9881,12 @@ class ServiceLevelEventsBadEventsArgs:
                  from_: pulumi.Input[str],
                  select: Optional[pulumi.Input['ServiceLevelEventsBadEventsSelectArgs']] = None,
                  where: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] from_: The event type where NRDB data will be fetched from.
+        :param pulumi.Input['ServiceLevelEventsBadEventsSelectArgs'] select: The NRQL SELECT clause to aggregate events.
+        :param pulumi.Input[str] where: A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+               a particular entity and returned an error).
+        """
         pulumi.set(__self__, "from_", from_)
         if select is not None:
             pulumi.set(__self__, "select", select)
@@ -9868,6 +9896,9 @@ class ServiceLevelEventsBadEventsArgs:
     @property
     @pulumi.getter(name="from")
     def from_(self) -> pulumi.Input[str]:
+        """
+        The event type where NRDB data will be fetched from.
+        """
         return pulumi.get(self, "from_")
 
     @from_.setter
@@ -9877,6 +9908,9 @@ class ServiceLevelEventsBadEventsArgs:
     @property
     @pulumi.getter
     def select(self) -> Optional[pulumi.Input['ServiceLevelEventsBadEventsSelectArgs']]:
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
         return pulumi.get(self, "select")
 
     @select.setter
@@ -9886,6 +9920,10 @@ class ServiceLevelEventsBadEventsArgs:
     @property
     @pulumi.getter
     def where(self) -> Optional[pulumi.Input[str]]:
+        """
+        A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+        a particular entity and returned an error).
+        """
         return pulumi.get(self, "where")
 
     @where.setter
@@ -9900,7 +9938,9 @@ class ServiceLevelEventsBadEventsSelectArgs:
                  attribute: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] threshold: The event threshold to use in the SELECT clause
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
+        :param pulumi.Input[float] threshold: Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
@@ -9911,6 +9951,9 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @property
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        """
         return pulumi.get(self, "function")
 
     @function.setter
@@ -9920,6 +9963,9 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @property
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event attribute to use in the SELECT clause.
+        """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
@@ -9930,7 +9976,7 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The event threshold to use in the SELECT clause
+        Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         return pulumi.get(self, "threshold")
 
@@ -9945,6 +9991,12 @@ class ServiceLevelEventsGoodEventsArgs:
                  from_: pulumi.Input[str],
                  select: Optional[pulumi.Input['ServiceLevelEventsGoodEventsSelectArgs']] = None,
                  where: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] from_: The event type where NRDB data will be fetched from.
+        :param pulumi.Input['ServiceLevelEventsGoodEventsSelectArgs'] select: The NRQL SELECT clause to aggregate events.
+        :param pulumi.Input[str] where: A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+               a particular entity and were successful).
+        """
         pulumi.set(__self__, "from_", from_)
         if select is not None:
             pulumi.set(__self__, "select", select)
@@ -9954,6 +10006,9 @@ class ServiceLevelEventsGoodEventsArgs:
     @property
     @pulumi.getter(name="from")
     def from_(self) -> pulumi.Input[str]:
+        """
+        The event type where NRDB data will be fetched from.
+        """
         return pulumi.get(self, "from_")
 
     @from_.setter
@@ -9963,6 +10018,9 @@ class ServiceLevelEventsGoodEventsArgs:
     @property
     @pulumi.getter
     def select(self) -> Optional[pulumi.Input['ServiceLevelEventsGoodEventsSelectArgs']]:
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
         return pulumi.get(self, "select")
 
     @select.setter
@@ -9972,6 +10030,10 @@ class ServiceLevelEventsGoodEventsArgs:
     @property
     @pulumi.getter
     def where(self) -> Optional[pulumi.Input[str]]:
+        """
+        A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        a particular entity and were successful).
+        """
         return pulumi.get(self, "where")
 
     @where.setter
@@ -9986,7 +10048,9 @@ class ServiceLevelEventsGoodEventsSelectArgs:
                  attribute: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] threshold: The event threshold to use in the SELECT clause
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
+        :param pulumi.Input[float] threshold: Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
@@ -9997,6 +10061,9 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @property
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        """
         return pulumi.get(self, "function")
 
     @function.setter
@@ -10006,6 +10073,9 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @property
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event attribute to use in the SELECT clause.
+        """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
@@ -10016,7 +10086,7 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The event threshold to use in the SELECT clause
+        Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         return pulumi.get(self, "threshold")
 
@@ -10031,6 +10101,11 @@ class ServiceLevelEventsValidEventsArgs:
                  from_: pulumi.Input[str],
                  select: Optional[pulumi.Input['ServiceLevelEventsValidEventsSelectArgs']] = None,
                  where: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] from_: The event type where NRDB data will be fetched from.
+        :param pulumi.Input['ServiceLevelEventsValidEventsSelectArgs'] select: The NRQL SELECT clause to aggregate events.
+        :param pulumi.Input[str] where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        """
         pulumi.set(__self__, "from_", from_)
         if select is not None:
             pulumi.set(__self__, "select", select)
@@ -10040,6 +10115,9 @@ class ServiceLevelEventsValidEventsArgs:
     @property
     @pulumi.getter(name="from")
     def from_(self) -> pulumi.Input[str]:
+        """
+        The event type where NRDB data will be fetched from.
+        """
         return pulumi.get(self, "from_")
 
     @from_.setter
@@ -10049,6 +10127,9 @@ class ServiceLevelEventsValidEventsArgs:
     @property
     @pulumi.getter
     def select(self) -> Optional[pulumi.Input['ServiceLevelEventsValidEventsSelectArgs']]:
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
         return pulumi.get(self, "select")
 
     @select.setter
@@ -10058,6 +10139,9 @@ class ServiceLevelEventsValidEventsArgs:
     @property
     @pulumi.getter
     def where(self) -> Optional[pulumi.Input[str]]:
+        """
+        A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        """
         return pulumi.get(self, "where")
 
     @where.setter
@@ -10072,7 +10156,9 @@ class ServiceLevelEventsValidEventsSelectArgs:
                  attribute: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] threshold: The event threshold to use in the SELECT clause
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
+        :param pulumi.Input[float] threshold: Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
@@ -10083,6 +10169,9 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @property
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        """
         return pulumi.get(self, "function")
 
     @function.setter
@@ -10092,6 +10181,9 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @property
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event attribute to use in the SELECT clause.
+        """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
@@ -10102,7 +10194,7 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The event threshold to use in the SELECT clause
+        Limit for values to be counter by `GET_CDF_COUNT` function.
         """
         return pulumi.get(self, "threshold")
 
@@ -10118,6 +10210,12 @@ class ServiceLevelObjectiveArgs:
                  time_window: pulumi.Input['ServiceLevelObjectiveTimeWindowArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] target: The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+        :param pulumi.Input['ServiceLevelObjectiveTimeWindowArgs'] time_window: Time window is the period of the objective.
+        :param pulumi.Input[str] description: The description of the SLI.
+        :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
+        """
         pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "time_window", time_window)
         if description is not None:
@@ -10128,6 +10226,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[float]:
+        """
+        The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -10137,6 +10238,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter(name="timeWindow")
     def time_window(self) -> pulumi.Input['ServiceLevelObjectiveTimeWindowArgs']:
+        """
+        Time window is the period of the objective.
+        """
         return pulumi.get(self, "time_window")
 
     @time_window.setter
@@ -10146,6 +10250,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the SLI.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -10155,6 +10262,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short name for the SLI that will help anyone understand what it is about.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -10166,11 +10276,17 @@ class ServiceLevelObjectiveArgs:
 class ServiceLevelObjectiveTimeWindowArgs:
     def __init__(__self__, *,
                  rolling: pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgs']):
+        """
+        :param pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgs'] rolling: Rolling window.
+        """
         pulumi.set(__self__, "rolling", rolling)
 
     @property
     @pulumi.getter
     def rolling(self) -> pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgs']:
+        """
+        Rolling window.
+        """
         return pulumi.get(self, "rolling")
 
     @rolling.setter
@@ -10183,12 +10299,19 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  unit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] count: Valid values are `1`, `7` and `28`.
+        :param pulumi.Input[str] unit: The only supported value is `DAY`.
+        """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
+        """
+        Valid values are `1`, `7` and `28`.
+        """
         return pulumi.get(self, "count")
 
     @count.setter
@@ -10198,6 +10321,9 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        The only supported value is `DAY`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
