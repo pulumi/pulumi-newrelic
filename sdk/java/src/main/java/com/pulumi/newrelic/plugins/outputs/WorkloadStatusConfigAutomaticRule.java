@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkloadStatusConfigAutomaticRule {
     /**
-     * @return A list of entity GUIDs composing the rule.
+     * @return A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
      * 
      */
     private @Nullable List<String> entityGuids;
     /**
-     * @return A list of entity search queries used to retrieve the entities that compose the rule.
+     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
      * 
      */
     private @Nullable List<WorkloadStatusConfigAutomaticRuleNrqlQuery> nrqlQueries;
     /**
-     * @return The input object used to represent a rollup strategy.
+     * @return The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
      * 
      */
     private WorkloadStatusConfigAutomaticRuleRollup rollup;
 
     private WorkloadStatusConfigAutomaticRule() {}
     /**
-     * @return A list of entity GUIDs composing the rule.
+     * @return A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
      * 
      */
     public List<String> entityGuids() {
         return this.entityGuids == null ? List.of() : this.entityGuids;
     }
     /**
-     * @return A list of entity search queries used to retrieve the entities that compose the rule.
+     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
      * 
      */
     public List<WorkloadStatusConfigAutomaticRuleNrqlQuery> nrqlQueries() {
         return this.nrqlQueries == null ? List.of() : this.nrqlQueries;
     }
     /**
-     * @return The input object used to represent a rollup strategy.
+     * @return The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
      * 
      */
     public WorkloadStatusConfigAutomaticRuleRollup rollup() {

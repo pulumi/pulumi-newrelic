@@ -183,19 +183,19 @@ namespace Pulumi.NewRelic.Synthetics
     public partial class MultiLocationAlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A condition term with priority set to critical.
+        /// A condition term with the priority set to critical.
         /// </summary>
         [Output("critical")]
         public Output<Outputs.MultiLocationAlertConditionCritical> Critical { get; private set; } = null!;
 
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to true.
+        /// Set whether to enable the alert condition.  Defaults to true.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The GUIDs of the Synthetics monitors to alert on.
+        /// The Monitor GUID's of the Synthetics monitors to alert on.
         /// </summary>
         [Output("entities")]
         public Output<ImmutableArray<string>> Entities { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The title of this condition.
+        /// The title of the condition.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -225,14 +225,16 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-        /// select. Must be in the range of 300 to 2592000 (inclusive)
+        /// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         /// </summary>
         [Output("violationTimeLimitSeconds")]
         public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// A condition term with priority set to warning.
+        /// A condition term with the priority set to warning.
+        /// 
+        /// 
+        /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Output("warning")]
         public Output<Outputs.MultiLocationAlertConditionWarning?> Warning { get; private set; } = null!;
@@ -284,13 +286,13 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class MultiLocationAlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A condition term with priority set to critical.
+        /// A condition term with the priority set to critical.
         /// </summary>
         [Input("critical", required: true)]
         public Input<Inputs.MultiLocationAlertConditionCriticalArgs> Critical { get; set; } = null!;
 
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to true.
+        /// Set whether to enable the alert condition.  Defaults to true.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -299,7 +301,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _entities;
 
         /// <summary>
-        /// The GUIDs of the Synthetics monitors to alert on.
+        /// The Monitor GUID's of the Synthetics monitors to alert on.
         /// </summary>
         public InputList<string> Entities
         {
@@ -308,7 +310,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// The title of this condition.
+        /// The title of the condition.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -326,14 +328,16 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-        /// select. Must be in the range of 300 to 2592000 (inclusive)
+        /// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
-        /// A condition term with priority set to warning.
+        /// A condition term with the priority set to warning.
+        /// 
+        /// 
+        /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningArgs>? Warning { get; set; }
@@ -347,13 +351,13 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class MultiLocationAlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A condition term with priority set to critical.
+        /// A condition term with the priority set to critical.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.MultiLocationAlertConditionCriticalGetArgs>? Critical { get; set; }
 
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to true.
+        /// Set whether to enable the alert condition.  Defaults to true.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -362,7 +366,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _entities;
 
         /// <summary>
-        /// The GUIDs of the Synthetics monitors to alert on.
+        /// The Monitor GUID's of the Synthetics monitors to alert on.
         /// </summary>
         public InputList<string> Entities
         {
@@ -377,7 +381,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
-        /// The title of this condition.
+        /// The title of the condition.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -395,14 +399,16 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you
-        /// select. Must be in the range of 300 to 2592000 (inclusive)
+        /// The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
-        /// A condition term with priority set to warning.
+        /// A condition term with the priority set to warning.
+        /// 
+        /// 
+        /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.MultiLocationAlertConditionWarningGetArgs>? Warning { get; set; }

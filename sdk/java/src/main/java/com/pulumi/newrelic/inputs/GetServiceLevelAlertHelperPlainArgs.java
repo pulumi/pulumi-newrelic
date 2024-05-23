@@ -18,51 +18,107 @@ public final class GetServiceLevelAlertHelperPlainArgs extends com.pulumi.resour
 
     public static final GetServiceLevelAlertHelperPlainArgs Empty = new GetServiceLevelAlertHelperPlainArgs();
 
+    /**
+     * The type of alert we want to set. Valid values are:
+     * 
+     */
     @Import(name="alertType", required=true)
     private String alertType;
 
+    /**
+     * @return The type of alert we want to set. Valid values are:
+     * 
+     */
     public String alertType() {
         return this.alertType;
     }
 
+    /**
+     * Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+     * 
+     */
     @Import(name="customEvaluationPeriod")
     private @Nullable Integer customEvaluationPeriod;
 
+    /**
+     * @return Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+     * 
+     */
     public Optional<Integer> customEvaluationPeriod() {
         return Optional.ofNullable(this.customEvaluationPeriod);
     }
 
+    /**
+     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+     * 
+     */
     @Import(name="customToleratedBudgetConsumption")
     private @Nullable Double customToleratedBudgetConsumption;
 
+    /**
+     * @return How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+     * 
+     */
     public Optional<Double> customToleratedBudgetConsumption() {
         return Optional.ofNullable(this.customToleratedBudgetConsumption);
     }
 
+    /**
+     * If the SLI is defined using bad events. Defaults to `false`
+     * 
+     */
     @Import(name="isBadEvents")
     private @Nullable Boolean isBadEvents;
 
+    /**
+     * @return If the SLI is defined using bad events. Defaults to `false`
+     * 
+     */
     public Optional<Boolean> isBadEvents() {
         return Optional.ofNullable(this.isBadEvents);
     }
 
+    /**
+     * The guid of the sli we want to set the alert on.
+     * 
+     */
     @Import(name="sliGuid", required=true)
     private String sliGuid;
 
+    /**
+     * @return The guid of the sli we want to set the alert on.
+     * 
+     */
     public String sliGuid() {
         return this.sliGuid;
     }
 
+    /**
+     * The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+     * 
+     */
     @Import(name="sloPeriod", required=true)
     private Integer sloPeriod;
 
+    /**
+     * @return The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+     * 
+     */
     public Integer sloPeriod() {
         return this.sloPeriod;
     }
 
+    /**
+     * The target of the Service Level Objective, valid values between `0` and `100`.
+     * 
+     */
     @Import(name="sloTarget", required=true)
     private Double sloTarget;
 
+    /**
+     * @return The target of the Service Level Objective, valid values between `0` and `100`.
+     * 
+     */
     public Double sloTarget() {
         return this.sloTarget;
     }
@@ -97,36 +153,78 @@ public final class GetServiceLevelAlertHelperPlainArgs extends com.pulumi.resour
             $ = new GetServiceLevelAlertHelperPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alertType The type of alert we want to set. Valid values are:
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertType(String alertType) {
             $.alertType = alertType;
             return this;
         }
 
+        /**
+         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customEvaluationPeriod(@Nullable Integer customEvaluationPeriod) {
             $.customEvaluationPeriod = customEvaluationPeriod;
             return this;
         }
 
+        /**
+         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customToleratedBudgetConsumption(@Nullable Double customToleratedBudgetConsumption) {
             $.customToleratedBudgetConsumption = customToleratedBudgetConsumption;
             return this;
         }
 
+        /**
+         * @param isBadEvents If the SLI is defined using bad events. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
         public Builder isBadEvents(@Nullable Boolean isBadEvents) {
             $.isBadEvents = isBadEvents;
             return this;
         }
 
+        /**
+         * @param sliGuid The guid of the sli we want to set the alert on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sliGuid(String sliGuid) {
             $.sliGuid = sliGuid;
             return this;
         }
 
+        /**
+         * @param sloPeriod The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloPeriod(Integer sloPeriod) {
             $.sloPeriod = sloPeriod;
             return this;
         }
 
+        /**
+         * @param sloTarget The target of the Service Level Objective, valid values between `0` and `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sloTarget(Double sloTarget) {
             $.sloTarget = sloTarget;
             return this;

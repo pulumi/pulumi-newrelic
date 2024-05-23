@@ -48,13 +48,13 @@ namespace Pulumi.NewRelic
     public partial class AccountManagement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the account to be created
+        /// The name of the Account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A description of what this parsing rule represents.
+        /// The region code of the account.  One of: `us01`, `eu01`.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -106,13 +106,13 @@ namespace Pulumi.NewRelic
     public sealed class AccountManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the account to be created
+        /// The name of the Account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A description of what this parsing rule represents.
+        /// The region code of the account.  One of: `us01`, `eu01`.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.NewRelic
     public sealed class AccountManagementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the account to be created
+        /// The name of the Account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A description of what this parsing rule represents.
+        /// The region code of the account.  One of: `us01`, `eu01`.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -20,14 +20,14 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
     public static final OneDashboardArgs Empty = new OneDashboardArgs();
 
     /**
-     * The New Relic account ID where you want to create the dashboard.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID where you want to create the dashboard.
+     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -35,14 +35,14 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Brief text describing the page.
+     * Brief text describing the dashboard.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return (Optional) Brief text describing the page.
+     * @return Brief text describing the dashboard.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,38 +50,44 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required) The variable identifier.
+     * The title of the dashboard.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return (Required) The variable identifier.
+     * @return The title of the dashboard.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * A nested block that describes a page. See Nested page blocks below for details.
+     * 
+     */
     @Import(name="pages", required=true)
     private Output<List<OneDashboardPageArgs>> pages;
 
+    /**
+     * @return A nested block that describes a page. See Nested page blocks below for details.
+     * 
+     */
     public Output<List<OneDashboardPageArgs>> pages() {
         return this.pages;
     }
 
     /**
-     * Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-     * public_read_only.
+     * Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<String> permissions;
 
     /**
-     * @return Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-     * public_read_only.
+     * @return Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
      * 
      */
     public Optional<Output<String>> permissions() {
@@ -89,14 +95,14 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Dashboard-local variable definitions.
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
      * 
      */
     @Import(name="variables")
     private @Nullable Output<List<OneDashboardVariableArgs>> variables;
 
     /**
-     * @return Dashboard-local variable definitions.
+     * @return A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
      * 
      */
     public Optional<Output<List<OneDashboardVariableArgs>>> variables() {
@@ -133,7 +139,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID where you want to create the dashboard.
+         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
@@ -144,7 +150,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID where you want to create the dashboard.
+         * @param accountId Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
@@ -154,7 +160,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description (Optional) Brief text describing the page.
+         * @param description Brief text describing the dashboard.
          * 
          * @return builder
          * 
@@ -165,7 +171,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description (Optional) Brief text describing the page.
+         * @param description Brief text describing the dashboard.
          * 
          * @return builder
          * 
@@ -175,7 +181,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name (Required) The variable identifier.
+         * @param name The title of the dashboard.
          * 
          * @return builder
          * 
@@ -186,7 +192,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name (Required) The variable identifier.
+         * @param name The title of the dashboard.
          * 
          * @return builder
          * 
@@ -195,22 +201,39 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param pages A nested block that describes a page. See Nested page blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pages(Output<List<OneDashboardPageArgs>> pages) {
             $.pages = pages;
             return this;
         }
 
+        /**
+         * @param pages A nested block that describes a page. See Nested page blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pages(List<OneDashboardPageArgs> pages) {
             return pages(Output.of(pages));
         }
 
+        /**
+         * @param pages A nested block that describes a page. See Nested page blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pages(OneDashboardPageArgs... pages) {
             return pages(List.of(pages));
         }
 
         /**
-         * @param permissions Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-         * public_read_only.
+         * @param permissions Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
          * 
          * @return builder
          * 
@@ -221,8 +244,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-         * public_read_only.
+         * @param permissions Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
          * 
          * @return builder
          * 
@@ -232,7 +254,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Dashboard-local variable definitions.
+         * @param variables A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
          * 
          * @return builder
          * 
@@ -243,7 +265,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Dashboard-local variable definitions.
+         * @param variables A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
          * 
          * @return builder
          * 
@@ -253,7 +275,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Dashboard-local variable definitions.
+         * @param variables A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
          * 
          * @return builder
          * 

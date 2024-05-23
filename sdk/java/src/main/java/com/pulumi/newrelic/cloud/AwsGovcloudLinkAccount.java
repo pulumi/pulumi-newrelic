@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AwsGovcloudLinkAccount("foo", AwsGovcloudLinkAccountArgs.builder()        
+ *         var foo = new AwsGovcloudLinkAccount("foo", AwsGovcloudLinkAccountArgs.builder()
  *             .accountId("The New Relic account ID where you want to link the AWS GovCloud account")
  *             .accessKeyId("access-key-id of aws govcloud account")
  *             .awsAccountId("aws govcloud account id")

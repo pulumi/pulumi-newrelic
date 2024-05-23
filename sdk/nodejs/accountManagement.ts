@@ -61,11 +61,11 @@ export class AccountManagement extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the account to be created
+     * The name of the Account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A description of what this parsing rule represents.
+     * The region code of the account.  One of: `us01`, `eu01`.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -102,11 +102,11 @@ export class AccountManagement extends pulumi.CustomResource {
  */
 export interface AccountManagementState {
     /**
-     * Name of the account to be created
+     * The name of the Account.
      */
     name?: pulumi.Input<string>;
     /**
-     * A description of what this parsing rule represents.
+     * The region code of the account.  One of: `us01`, `eu01`.
      */
     region?: pulumi.Input<string>;
 }
@@ -116,11 +116,11 @@ export interface AccountManagementState {
  */
 export interface AccountManagementArgs {
     /**
-     * Name of the account to be created
+     * The name of the Account.
      */
     name?: pulumi.Input<string>;
     /**
-     * A description of what this parsing rule represents.
+     * The region code of the account.  One of: `us01`, `eu01`.
      */
     region: pulumi.Input<string>;
 }

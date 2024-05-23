@@ -102,6 +102,10 @@ def get_secure_credential(account_id: Optional[str] = None,
 
     foo = newrelic.synthetics.get_secure_credential(key="MY_KEY")
     ```
+
+
+    :param str account_id: The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+    :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -134,5 +138,9 @@ def get_secure_credential_output(account_id: Optional[pulumi.Input[Optional[str]
 
     foo = newrelic.synthetics.get_secure_credential(key="MY_KEY")
     ```
+
+
+    :param str account_id: The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+    :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """
     ...

@@ -52,12 +52,11 @@ import (
 type SecureCredential struct {
 	pulumi.CustomResourceState
 
-	// The New Relic account ID where you want to create the secure credential.
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The secure credential's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
-	// key to the underlying API.
+	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The time the secure credential was last updated.
 	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
@@ -108,12 +107,11 @@ func GetSecureCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecureCredential resources.
 type secureCredentialState struct {
-	// The New Relic account ID where you want to create the secure credential.
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
-	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
-	// key to the underlying API.
+	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key *string `pulumi:"key"`
 	// The time the secure credential was last updated.
 	LastUpdated *string `pulumi:"lastUpdated"`
@@ -122,12 +120,11 @@ type secureCredentialState struct {
 }
 
 type SecureCredentialState struct {
-	// The New Relic account ID where you want to create the secure credential.
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
-	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
-	// key to the underlying API.
+	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringPtrInput
 	// The time the secure credential was last updated.
 	LastUpdated pulumi.StringPtrInput
@@ -140,12 +137,11 @@ func (SecureCredentialState) ElementType() reflect.Type {
 }
 
 type secureCredentialArgs struct {
-	// The New Relic account ID where you want to create the secure credential.
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
-	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
-	// key to the underlying API.
+	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key string `pulumi:"key"`
 	// The time the secure credential was last updated.
 	LastUpdated *string `pulumi:"lastUpdated"`
@@ -155,12 +151,11 @@ type secureCredentialArgs struct {
 
 // The set of arguments for constructing a SecureCredential resource.
 type SecureCredentialArgs struct {
-	// The New Relic account ID where you want to create the secure credential.
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
-	// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
-	// key to the underlying API.
+	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringInput
 	// The time the secure credential was last updated.
 	LastUpdated pulumi.StringPtrInput
@@ -255,7 +250,7 @@ func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.
 	return o
 }
 
-// The New Relic account ID where you want to create the secure credential.
+// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
 func (o SecureCredentialOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -265,8 +260,7 @@ func (o SecureCredentialOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecureCredential) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The secure credential's key name. Regardless of the case used in the configuration, the provider will provide an upcased
-// key to the underlying API.
+// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 func (o SecureCredentialOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .name("Test Authentication Domain")
  *             .build());
  * 
- *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *         var fooUser = new User("fooUser", UserArgs.builder()
  *             .name("Test New User")
  *             .emailId("test_user{@literal @}test.com")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))

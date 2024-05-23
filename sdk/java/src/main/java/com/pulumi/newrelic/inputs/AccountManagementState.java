@@ -16,14 +16,14 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
     public static final AccountManagementState Empty = new AccountManagementState();
 
     /**
-     * Name of the account to be created
+     * The name of the Account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the account to be created
+     * @return The name of the Account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A description of what this parsing rule represents.
+     * The region code of the account.  One of: `us01`, `eu01`.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return A description of what this parsing rule represents.
+     * @return The region code of the account.  One of: `us01`, `eu01`.
      * 
      */
     public Optional<Output<String>> region() {
@@ -71,7 +71,7 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Name of the account to be created
+         * @param name The name of the Account.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Name of the account to be created
+         * @param name The name of the Account.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region A description of what this parsing rule represents.
+         * @param region The region code of the account.  One of: `us01`, `eu01`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region A description of what this parsing rule represents.
+         * @param region The region code of the account.  One of: `us01`, `eu01`.
          * 
          * @return builder
          * 

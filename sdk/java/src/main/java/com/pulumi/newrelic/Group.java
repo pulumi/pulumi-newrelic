@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .name("Test Authentication Domain")
  *             .build());
  * 
- *         var fooGroup = new Group("fooGroup", GroupArgs.builder()        
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()
  *             .name("Test Group")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userIds(            
@@ -100,21 +100,21 @@ import javax.annotation.Nullable;
  *             .name("Test Authentication Domain")
  *             .build());
  * 
- *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *         var fooUser = new User("fooUser", UserArgs.builder()
  *             .name("Test User One")
  *             .emailId("test_user_one{@literal @}test.com")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userType("CORE_USER_TIER")
  *             .build());
  * 
- *         var bar = new User("bar", UserArgs.builder()        
+ *         var bar = new User("bar", UserArgs.builder()
  *             .name("Test User Two")
  *             .emailId("test_user_two{@literal @}test.com")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userType("BASIC_USER_TIER")
  *             .build());
  * 
- *         var fooGroup = new Group("fooGroup", GroupArgs.builder()        
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()
  *             .name("Test Group")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userIds(            
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *             .name("Test User Two")
  *             .build());
  * 
- *         var fooGroup = new Group("fooGroup", GroupArgs.builder()        
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()
  *             .name("Test Group")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userIds(            

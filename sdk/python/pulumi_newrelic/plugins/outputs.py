@@ -233,9 +233,9 @@ class WorkloadStatusConfigAutomaticRule(dict):
                  entity_guids: Optional[Sequence[str]] = None,
                  nrql_queries: Optional[Sequence['outputs.WorkloadStatusConfigAutomaticRuleNrqlQuery']] = None):
         """
-        :param 'WorkloadStatusConfigAutomaticRuleRollupArgs' rollup: The input object used to represent a rollup strategy.
-        :param Sequence[str] entity_guids: A list of entity GUIDs composing the rule.
-        :param Sequence['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs'] nrql_queries: A list of entity search queries used to retrieve the entities that compose the rule.
+        :param 'WorkloadStatusConfigAutomaticRuleRollupArgs' rollup: The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+        :param Sequence[str] entity_guids: A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+        :param Sequence['WorkloadStatusConfigAutomaticRuleNrqlQueryArgs'] nrql_queries: A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
         """
         pulumi.set(__self__, "rollup", rollup)
         if entity_guids is not None:
@@ -247,7 +247,7 @@ class WorkloadStatusConfigAutomaticRule(dict):
     @pulumi.getter
     def rollup(self) -> 'outputs.WorkloadStatusConfigAutomaticRuleRollup':
         """
-        The input object used to represent a rollup strategy.
+        The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
         """
         return pulumi.get(self, "rollup")
 
@@ -255,7 +255,7 @@ class WorkloadStatusConfigAutomaticRule(dict):
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> Optional[Sequence[str]]:
         """
-        A list of entity GUIDs composing the rule.
+        A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -263,7 +263,7 @@ class WorkloadStatusConfigAutomaticRule(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Optional[Sequence['outputs.WorkloadStatusConfigAutomaticRuleNrqlQuery']]:
         """
-        A list of entity search queries used to retrieve the entities that compose the rule.
+        A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -357,7 +357,7 @@ class WorkloadStatusConfigStatic(dict):
         """
         :param bool enabled: Whether the static status configuration is enabled or not.
         :param str status: The status of the workload.
-        :param str description: A description that provides additional details about the status of the workload.
+        :param str description: Relevant information about the workload.
         :param str summary: A short description of the status of the workload.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -387,7 +387,7 @@ class WorkloadStatusConfigStatic(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description that provides additional details about the status of the workload.
+        Relevant information about the workload.
         """
         return pulumi.get(self, "description")
 

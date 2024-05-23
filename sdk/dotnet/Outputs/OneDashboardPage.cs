@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPage
     {
         /// <summary>
-        /// (Optional) Brief text describing the page.
+        /// Brief text describing the dashboard.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Guid;
         /// <summary>
-        /// (Required) The variable identifier.
+        /// The title of the dashboard.
         /// </summary>
         public readonly string Name;
         /// <summary>

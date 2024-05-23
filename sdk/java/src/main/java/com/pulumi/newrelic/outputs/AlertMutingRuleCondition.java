@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class AlertMutingRuleCondition {
     /**
-     * @return The individual MutingRuleConditions within the group.
+     * @return The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
      * 
      */
     private List<AlertMutingRuleConditionCondition> conditions;
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group.
+     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      * 
      */
     private String operator;
 
     private AlertMutingRuleCondition() {}
     /**
-     * @return The individual MutingRuleConditions within the group.
+     * @return The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
      * 
      */
     public List<AlertMutingRuleConditionCondition> conditions() {
         return this.conditions;
     }
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group.
+     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      * 
      */
     public String operator() {

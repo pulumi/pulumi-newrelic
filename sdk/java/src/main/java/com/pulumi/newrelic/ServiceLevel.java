@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+ *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
  *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .name("Latency")
  *             .description("Proportion of requests that are served faster than a threshold.")
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySyntheticMonitorServiceLevel = new ServiceLevel("mySyntheticMonitorServiceLevel", ServiceLevelArgs.builder()        
+ *         var mySyntheticMonitorServiceLevel = new ServiceLevel("mySyntheticMonitorServiceLevel", ServiceLevelArgs.builder()
  *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .name("My synthethic monitor - Success")
  *             .description("Proportion of successful synthetic checks.")
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mySyntheticMonitorServiceLevelTags = new EntityTags("mySyntheticMonitorServiceLevelTags", EntityTagsArgs.builder()        
+ *         var mySyntheticMonitorServiceLevelTags = new EntityTags("mySyntheticMonitorServiceLevelTags", EntityTagsArgs.builder()
  *             .guid(mySyntheticMonitorServiceLevel.sliGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel("mySyntheticMonitorDurationServiceLevel", ServiceLevelArgs.builder()        
+ *         var mySyntheticMonitorDurationServiceLevel = new ServiceLevel("mySyntheticMonitorDurationServiceLevel", ServiceLevelArgs.builder()
  *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .name("Duration distribution is under 7")
  *             .description("Monitor created to test concurrent request from terraform")
@@ -266,33 +266,77 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="newrelic:index/serviceLevel:ServiceLevel")
 public class ServiceLevel extends com.pulumi.resources.CustomResource {
+    /**
+     * The description of the SLI.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the SLI.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The events that define the NRDB data for the SLI/SLO calculations.
+     * See Events below for details.
+     * 
+     */
     @Export(name="events", refs={ServiceLevelEvents.class}, tree="[0]")
     private Output<ServiceLevelEvents> events;
 
+    /**
+     * @return The events that define the NRDB data for the SLI/SLO calculations.
+     * See Events below for details.
+     * 
+     */
     public Output<ServiceLevelEvents> events() {
         return this.events;
     }
+    /**
+     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+     * 
+     */
     @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
+    /**
+     * @return The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+     * 
+     */
     public Output<String> guid() {
         return this.guid;
     }
+    /**
+     * A short name for the SLI that will help anyone understand what it is about.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return A short name for the SLI that will help anyone understand what it is about.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The objective of the SLI, only one can be defined.
+     * See Objective below for details.
+     * 
+     */
     @Export(name="objective", refs={ServiceLevelObjective.class}, tree="[0]")
     private Output<ServiceLevelObjective> objective;
 
+    /**
+     * @return The objective of the SLI, only one can be defined.
+     * See Objective below for details.
+     * 
+     */
     public Output<ServiceLevelObjective> objective() {
         return this.objective;
     }

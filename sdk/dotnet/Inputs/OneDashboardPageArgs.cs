@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Brief text describing the page.
+        /// Brief text describing the dashboard.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// (Required) The variable identifier.
+        /// The title of the dashboard.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

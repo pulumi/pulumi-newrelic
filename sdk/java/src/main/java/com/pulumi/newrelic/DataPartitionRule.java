@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DataPartitionRule("foo", DataPartitionRuleArgs.builder()        
+ *         var foo = new DataPartitionRule("foo", DataPartitionRuleArgs.builder()
  *             .description("description")
  *             .enabled(true)
  *             .nrql("logtype='node'")

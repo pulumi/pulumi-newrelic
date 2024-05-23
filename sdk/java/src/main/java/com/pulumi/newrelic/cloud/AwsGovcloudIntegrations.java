@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var account = new CloudAwsGovcloudLinkAccount("account", CloudAwsGovcloudLinkAccountArgs.builder()        
+ *         var account = new CloudAwsGovcloudLinkAccount("account", CloudAwsGovcloudLinkAccountArgs.builder()
  *             .accessKeyId("%[1]s")
  *             .awsAccountId("%[2]s")
  *             .metricCollectionMode("PULL")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .secretAccessKey("%[3]s")
  *             .build());
  * 
- *         var foo = new AwsGovcloudIntegrations("foo", AwsGovcloudIntegrationsArgs.builder()        
+ *         var foo = new AwsGovcloudIntegrations("foo", AwsGovcloudIntegrationsArgs.builder()
  *             .accountId(3806526)
  *             .linkedAccountId(account.id())
  *             .alb(AwsGovcloudIntegrationsAlbArgs.builder()

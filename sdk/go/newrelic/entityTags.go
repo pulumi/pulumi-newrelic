@@ -79,7 +79,7 @@ type EntityTags struct {
 
 	// The guid of the entity to tag.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// A set of key-value pairs to represent a tag. For example: Team:TeamName
+	// A nested block that describes an entity tag. See Nested tag blocks below for details.
 	Tags EntityTagsTagArrayOutput `pulumi:"tags"`
 }
 
@@ -121,14 +121,14 @@ func GetEntityTags(ctx *pulumi.Context,
 type entityTagsState struct {
 	// The guid of the entity to tag.
 	Guid *string `pulumi:"guid"`
-	// A set of key-value pairs to represent a tag. For example: Team:TeamName
+	// A nested block that describes an entity tag. See Nested tag blocks below for details.
 	Tags []EntityTagsTag `pulumi:"tags"`
 }
 
 type EntityTagsState struct {
 	// The guid of the entity to tag.
 	Guid pulumi.StringPtrInput
-	// A set of key-value pairs to represent a tag. For example: Team:TeamName
+	// A nested block that describes an entity tag. See Nested tag blocks below for details.
 	Tags EntityTagsTagArrayInput
 }
 
@@ -139,7 +139,7 @@ func (EntityTagsState) ElementType() reflect.Type {
 type entityTagsArgs struct {
 	// The guid of the entity to tag.
 	Guid string `pulumi:"guid"`
-	// A set of key-value pairs to represent a tag. For example: Team:TeamName
+	// A nested block that describes an entity tag. See Nested tag blocks below for details.
 	Tags []EntityTagsTag `pulumi:"tags"`
 }
 
@@ -147,7 +147,7 @@ type entityTagsArgs struct {
 type EntityTagsArgs struct {
 	// The guid of the entity to tag.
 	Guid pulumi.StringInput
-	// A set of key-value pairs to represent a tag. For example: Team:TeamName
+	// A nested block that describes an entity tag. See Nested tag blocks below for details.
 	Tags EntityTagsTagArrayInput
 }
 
@@ -243,7 +243,7 @@ func (o EntityTagsOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityTags) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// A set of key-value pairs to represent a tag. For example: Team:TeamName
+// A nested block that describes an entity tag. See Nested tag blocks below for details.
 func (o EntityTagsOutput) Tags() EntityTagsTagArrayOutput {
 	return o.ApplyT(func(v *EntityTags) EntityTagsTagArrayOutput { return v.Tags }).(EntityTagsTagArrayOutput)
 }

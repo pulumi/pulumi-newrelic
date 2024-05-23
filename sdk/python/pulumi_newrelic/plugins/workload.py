@@ -28,12 +28,12 @@ class WorkloadArgs:
         The set of arguments for constructing a Workload resource.
         :param pulumi.Input[str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.
-        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.
+        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -80,7 +80,7 @@ class WorkloadArgs:
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of entity GUIDs manually assigned to this workload.
+        A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -92,7 +92,7 @@ class WorkloadArgs:
     @pulumi.getter(name="entitySearchQueries")
     def entity_search_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
         """
-        A list of search queries that define a dynamic workload.
+        A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
@@ -128,7 +128,7 @@ class WorkloadArgs:
     @pulumi.getter(name="statusConfigAutomatic")
     def status_config_automatic(self) -> Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']]:
         """
-        An input object used to represent an automatic status configuration.
+        An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
@@ -140,7 +140,7 @@ class WorkloadArgs:
     @pulumi.getter(name="statusConfigStatic")
     def status_config_static(self) -> Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']]:
         """
-        A list of static status configurations. You can only configure one static status for a workload.
+        A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
@@ -169,14 +169,14 @@ class _WorkloadState:
         :param pulumi.Input[str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[str] guid: The unique entity identifier of the workload in New Relic.
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[str] permalink: The URL of the workload.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.
-        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.
+        :param pulumi.Input['WorkloadStatusConfigAutomaticArgs'] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input['WorkloadStatusConfigStaticArgs'] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         :param pulumi.Input[str] workload_id: The unique entity identifier of the workload.
         """
         if account_id is not None:
@@ -244,7 +244,7 @@ class _WorkloadState:
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of entity GUIDs manually assigned to this workload.
+        A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -256,7 +256,7 @@ class _WorkloadState:
     @pulumi.getter(name="entitySearchQueries")
     def entity_search_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
         """
-        A list of search queries that define a dynamic workload.
+        A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
@@ -316,7 +316,7 @@ class _WorkloadState:
     @pulumi.getter(name="statusConfigAutomatic")
     def status_config_automatic(self) -> Optional[pulumi.Input['WorkloadStatusConfigAutomaticArgs']]:
         """
-        An input object used to represent an automatic status configuration.
+        An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
@@ -328,7 +328,7 @@ class _WorkloadState:
     @pulumi.getter(name="statusConfigStatic")
     def status_config_static(self) -> Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']]:
         """
-        A list of static status configurations. You can only configure one static status for a workload.
+        A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 
@@ -499,12 +499,12 @@ class Workload(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]] entity_search_queries: A list of search queries that define a dynamic workload.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']] status_config_automatic: An input object used to represent an automatic status configuration.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.
+        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         ...
     @overload
@@ -720,14 +720,14 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]] entity_search_queries: A list of search queries that define a dynamic workload.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[str] guid: The unique entity identifier of the workload in New Relic.
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[str] permalink: The URL of the workload.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']] status_config_automatic: An input object used to represent an automatic status configuration.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.
+        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         :param pulumi.Input[str] workload_id: The unique entity identifier of the workload.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -776,7 +776,7 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="entityGuids")
     def entity_guids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of entity GUIDs manually assigned to this workload.
+        A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         """
         return pulumi.get(self, "entity_guids")
 
@@ -784,7 +784,7 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="entitySearchQueries")
     def entity_search_queries(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadEntitySearchQuery']]]:
         """
-        A list of search queries that define a dynamic workload.
+        A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         """
         return pulumi.get(self, "entity_search_queries")
 
@@ -824,7 +824,7 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="statusConfigAutomatic")
     def status_config_automatic(self) -> pulumi.Output[Optional['outputs.WorkloadStatusConfigAutomatic']]:
         """
-        An input object used to represent an automatic status configuration.
+        An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
         """
         return pulumi.get(self, "status_config_automatic")
 
@@ -832,7 +832,7 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="statusConfigStatic")
     def status_config_static(self) -> pulumi.Output[Optional['outputs.WorkloadStatusConfigStatic']]:
         """
-        A list of static status configurations. You can only configure one static status for a workload.
+        A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         return pulumi.get(self, "status_config_static")
 

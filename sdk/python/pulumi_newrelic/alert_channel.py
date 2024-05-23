@@ -22,10 +22,10 @@ class AlertChannelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertChannel resource.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
-        :param pulumi.Input[str] account_id: The New Relic account ID where you want to create alert channels.
-        :param pulumi.Input['AlertChannelConfigArgs'] config: The configuration block for the alert channel.
-        :param pulumi.Input[str] name: (Required) The name of the channel.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input['AlertChannelConfigArgs'] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[str] name: The name of the channel.
         """
         pulumi.set(__self__, "type", type)
         if account_id is not None:
@@ -39,7 +39,7 @@ class AlertChannelArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+        The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         return pulumi.get(self, "type")
 
@@ -51,7 +51,7 @@ class AlertChannelArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The New Relic account ID where you want to create alert channels.
+        Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -63,7 +63,7 @@ class AlertChannelArgs:
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input['AlertChannelConfigArgs']]:
         """
-        The configuration block for the alert channel.
+        A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         """
         return pulumi.get(self, "config")
 
@@ -75,7 +75,7 @@ class AlertChannelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) The name of the channel.
+        The name of the channel.
         """
         return pulumi.get(self, "name")
 
@@ -93,10 +93,10 @@ class _AlertChannelState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlertChannel resources.
-        :param pulumi.Input[str] account_id: The New Relic account ID where you want to create alert channels.
-        :param pulumi.Input['AlertChannelConfigArgs'] config: The configuration block for the alert channel.
-        :param pulumi.Input[str] name: (Required) The name of the channel.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input['AlertChannelConfigArgs'] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[str] name: The name of the channel.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -111,7 +111,7 @@ class _AlertChannelState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The New Relic account ID where you want to create alert channels.
+        Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -123,7 +123,7 @@ class _AlertChannelState:
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input['AlertChannelConfigArgs']]:
         """
-        The configuration block for the alert channel.
+        A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         """
         return pulumi.get(self, "config")
 
@@ -135,7 +135,7 @@ class _AlertChannelState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) The name of the channel.
+        The name of the channel.
         """
         return pulumi.get(self, "name")
 
@@ -147,7 +147,7 @@ class _AlertChannelState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+        The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         return pulumi.get(self, "type")
 
@@ -303,10 +303,10 @@ class AlertChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The New Relic account ID where you want to create alert channels.
-        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: The configuration block for the alert channel.
-        :param pulumi.Input[str] name: (Required) The name of the channel.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[str] name: The name of the channel.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         ...
     @overload
@@ -504,10 +504,10 @@ class AlertChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The New Relic account ID where you want to create alert channels.
-        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: The configuration block for the alert channel.
-        :param pulumi.Input[str] name: (Required) The name of the channel.
-        :param pulumi.Input[str] type: (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[str] name: The name of the channel.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -523,7 +523,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        The New Relic account ID where you want to create alert channels.
+        Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
@@ -531,7 +531,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional['outputs.AlertChannelConfig']]:
         """
-        The configuration block for the alert channel.
+        A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         """
         return pulumi.get(self, "config")
 
@@ -539,7 +539,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        (Required) The name of the channel.
+        The name of the channel.
         """
         return pulumi.get(self, "name")
 
@@ -547,7 +547,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+        The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         return pulumi.get(self, "type")
 

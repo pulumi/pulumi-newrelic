@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()        
+ *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()
  *             .accountId("account id of newrelic account")
  *             .projectId("id of the Project")
  *             .name("account name")

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new BrokenLinksMonitor("foo", BrokenLinksMonitorArgs.builder()        
+ *         var foo = new BrokenLinksMonitor("foo", BrokenLinksMonitorArgs.builder()
  *             .name("Sample Broken Links Monitor")
  *             .uri("https://www.one.example.com")
  *             .locationsPublics("AP_SOUTH_1")
@@ -103,13 +103,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()        
+ *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()
  *             .name("Sample Private Location")
  *             .description("Sample Private Location Description")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var fooBrokenLinksMonitor = new BrokenLinksMonitor("fooBrokenLinksMonitor", BrokenLinksMonitorArgs.builder()        
+ *         var fooBrokenLinksMonitor = new BrokenLinksMonitor("fooBrokenLinksMonitor", BrokenLinksMonitorArgs.builder()
  *             .name("Sample Broken Links Monitor")
  *             .uri("https://www.one.example.com")
  *             .locationsPrivates(foo.id())

@@ -81,13 +81,13 @@ namespace Pulumi.NewRelic
     public partial class AlertMutingRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The account id of the MutingRule..
+        /// The account id of the MutingRule.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The condition that defines which incidents to target.
+        /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Output("condition")]
         public Output<Outputs.AlertMutingRuleCondition> Condition { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The time window when the MutingRule should actively mute incidents.
+        /// Specify a schedule for enabling the MutingRule. See Schedule below for details
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.AlertMutingRuleSchedule?> Schedule { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.NewRelic
     public sealed class AlertMutingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account id of the MutingRule..
+        /// The account id of the MutingRule.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The condition that defines which incidents to target.
+        /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Inputs.AlertMutingRuleConditionArgs> Condition { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The time window when the MutingRule should actively mute incidents.
+        /// Specify a schedule for enabling the MutingRule. See Schedule below for details
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.AlertMutingRuleScheduleArgs>? Schedule { get; set; }
@@ -207,13 +207,13 @@ namespace Pulumi.NewRelic
     public sealed class AlertMutingRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account id of the MutingRule..
+        /// The account id of the MutingRule.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The condition that defines which incidents to target.
+        /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.AlertMutingRuleConditionGetArgs>? Condition { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The time window when the MutingRule should actively mute incidents.
+        /// Specify a schedule for enabling the MutingRule. See Schedule below for details
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.AlertMutingRuleScheduleGetArgs>? Schedule { get; set; }

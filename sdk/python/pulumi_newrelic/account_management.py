@@ -18,8 +18,8 @@ class AccountManagementArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountManagement resource.
-        :param pulumi.Input[str] region: A description of what this parsing rule represents.
-        :param pulumi.Input[str] name: Name of the account to be created
+        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
+        :param pulumi.Input[str] name: The name of the Account.
         """
         pulumi.set(__self__, "region", region)
         if name is not None:
@@ -29,7 +29,7 @@ class AccountManagementArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
         """
-        A description of what this parsing rule represents.
+        The region code of the account.  One of: `us01`, `eu01`.
         """
         return pulumi.get(self, "region")
 
@@ -41,7 +41,7 @@ class AccountManagementArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the account to be created
+        The name of the Account.
         """
         return pulumi.get(self, "name")
 
@@ -57,8 +57,8 @@ class _AccountManagementState:
                  region: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountManagement resources.
-        :param pulumi.Input[str] name: Name of the account to be created
-        :param pulumi.Input[str] region: A description of what this parsing rule represents.
+        :param pulumi.Input[str] name: The name of the Account.
+        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -69,7 +69,7 @@ class _AccountManagementState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the account to be created
+        The name of the Account.
         """
         return pulumi.get(self, "name")
 
@@ -81,7 +81,7 @@ class _AccountManagementState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of what this parsing rule represents.
+        The region code of the account.  One of: `us01`, `eu01`.
         """
         return pulumi.get(self, "region")
 
@@ -127,8 +127,8 @@ class AccountManagement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the account to be created
-        :param pulumi.Input[str] region: A description of what this parsing rule represents.
+        :param pulumi.Input[str] name: The name of the Account.
+        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
         """
         ...
     @overload
@@ -212,8 +212,8 @@ class AccountManagement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the account to be created
-        :param pulumi.Input[str] region: A description of what this parsing rule represents.
+        :param pulumi.Input[str] name: The name of the Account.
+        :param pulumi.Input[str] region: The region code of the account.  One of: `us01`, `eu01`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -227,7 +227,7 @@ class AccountManagement(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the account to be created
+        The name of the Account.
         """
         return pulumi.get(self, "name")
 
@@ -235,7 +235,7 @@ class AccountManagement(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
         """
-        A description of what this parsing rule represents.
+        The region code of the account.  One of: `us01`, `eu01`.
         """
         return pulumi.get(self, "region")
 
