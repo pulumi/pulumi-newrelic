@@ -8,7 +8,9 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineNullValue;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineThreshold;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineUnit;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineYAxisRight;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -51,6 +53,11 @@ public final class OneDashboardPageWidgetLine {
      */
     private @Nullable Boolean ignoreTimeRange;
     /**
+     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * 
+     */
+    private @Nullable Boolean isLabelVisible;
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -70,6 +77,11 @@ public final class OneDashboardPageWidgetLine {
      * 
      */
     private Integer row;
+    /**
+     * @return (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    private @Nullable List<OneDashboardPageWidgetLineThreshold> thresholds;
     /**
      * @return (Optional) A human-friendly display string for this value.
      * 
@@ -96,6 +108,11 @@ public final class OneDashboardPageWidgetLine {
      * 
      */
     private @Nullable Boolean yAxisLeftZero;
+    /**
+     * @return (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetLineYAxisRight yAxisRight;
 
     private OneDashboardPageWidgetLine() {}
     /**
@@ -141,6 +158,13 @@ public final class OneDashboardPageWidgetLine {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
     /**
+     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * 
+     */
+    public Optional<Boolean> isLabelVisible() {
+        return Optional.ofNullable(this.isLabelVisible);
+    }
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -167,6 +191,13 @@ public final class OneDashboardPageWidgetLine {
      */
     public Integer row() {
         return this.row;
+    }
+    /**
+     * @return (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public List<OneDashboardPageWidgetLineThreshold> thresholds() {
+        return this.thresholds == null ? List.of() : this.thresholds;
     }
     /**
      * @return (Optional) A human-friendly display string for this value.
@@ -206,6 +237,13 @@ public final class OneDashboardPageWidgetLine {
     public Optional<Boolean> yAxisLeftZero() {
         return Optional.ofNullable(this.yAxisLeftZero);
     }
+    /**
+     * @return (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+     * 
+     */
+    public Optional<OneDashboardPageWidgetLineYAxisRight> yAxisRight() {
+        return Optional.ofNullable(this.yAxisRight);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -222,16 +260,19 @@ public final class OneDashboardPageWidgetLine {
         private @Nullable Integer height;
         private @Nullable String id;
         private @Nullable Boolean ignoreTimeRange;
+        private @Nullable Boolean isLabelVisible;
         private @Nullable Boolean legendEnabled;
         private List<OneDashboardPageWidgetLineNrqlQuery> nrqlQueries;
         private @Nullable List<OneDashboardPageWidgetLineNullValue> nullValues;
         private Integer row;
+        private @Nullable List<OneDashboardPageWidgetLineThreshold> thresholds;
         private String title;
         private @Nullable List<OneDashboardPageWidgetLineUnit> units;
         private @Nullable Integer width;
         private @Nullable Double yAxisLeftMax;
         private @Nullable Double yAxisLeftMin;
         private @Nullable Boolean yAxisLeftZero;
+        private @Nullable OneDashboardPageWidgetLineYAxisRight yAxisRight;
         public Builder() {}
         public Builder(OneDashboardPageWidgetLine defaults) {
     	      Objects.requireNonNull(defaults);
@@ -241,16 +282,19 @@ public final class OneDashboardPageWidgetLine {
     	      this.height = defaults.height;
     	      this.id = defaults.id;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
+    	      this.isLabelVisible = defaults.isLabelVisible;
     	      this.legendEnabled = defaults.legendEnabled;
     	      this.nrqlQueries = defaults.nrqlQueries;
     	      this.nullValues = defaults.nullValues;
     	      this.row = defaults.row;
+    	      this.thresholds = defaults.thresholds;
     	      this.title = defaults.title;
     	      this.units = defaults.units;
     	      this.width = defaults.width;
     	      this.yAxisLeftMax = defaults.yAxisLeftMax;
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
     	      this.yAxisLeftZero = defaults.yAxisLeftZero;
+    	      this.yAxisRight = defaults.yAxisRight;
         }
 
         @CustomType.Setter
@@ -295,6 +339,12 @@ public final class OneDashboardPageWidgetLine {
             return this;
         }
         @CustomType.Setter
+        public Builder isLabelVisible(@Nullable Boolean isLabelVisible) {
+
+            this.isLabelVisible = isLabelVisible;
+            return this;
+        }
+        @CustomType.Setter
         public Builder legendEnabled(@Nullable Boolean legendEnabled) {
 
             this.legendEnabled = legendEnabled;
@@ -327,6 +377,15 @@ public final class OneDashboardPageWidgetLine {
             }
             this.row = row;
             return this;
+        }
+        @CustomType.Setter
+        public Builder thresholds(@Nullable List<OneDashboardPageWidgetLineThreshold> thresholds) {
+
+            this.thresholds = thresholds;
+            return this;
+        }
+        public Builder thresholds(OneDashboardPageWidgetLineThreshold... thresholds) {
+            return thresholds(List.of(thresholds));
         }
         @CustomType.Setter
         public Builder title(String title) {
@@ -369,6 +428,12 @@ public final class OneDashboardPageWidgetLine {
             this.yAxisLeftZero = yAxisLeftZero;
             return this;
         }
+        @CustomType.Setter
+        public Builder yAxisRight(@Nullable OneDashboardPageWidgetLineYAxisRight yAxisRight) {
+
+            this.yAxisRight = yAxisRight;
+            return this;
+        }
         public OneDashboardPageWidgetLine build() {
             final var _resultValue = new OneDashboardPageWidgetLine();
             _resultValue.colors = colors;
@@ -377,16 +442,19 @@ public final class OneDashboardPageWidgetLine {
             _resultValue.height = height;
             _resultValue.id = id;
             _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.isLabelVisible = isLabelVisible;
             _resultValue.legendEnabled = legendEnabled;
             _resultValue.nrqlQueries = nrqlQueries;
             _resultValue.nullValues = nullValues;
             _resultValue.row = row;
+            _resultValue.thresholds = thresholds;
             _resultValue.title = title;
             _resultValue.units = units;
             _resultValue.width = width;
             _resultValue.yAxisLeftMax = yAxisLeftMax;
             _resultValue.yAxisLeftMin = yAxisLeftMin;
             _resultValue.yAxisLeftZero = yAxisLeftZero;
+            _resultValue.yAxisRight = yAxisRight;
             return _resultValue;
         }
     }

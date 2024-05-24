@@ -38,6 +38,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly bool? IgnoreTimeRange;
         /// <summary>
+        /// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+        /// </summary>
+        public readonly bool? IsLabelVisible;
+        /// <summary>
         /// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         /// </summary>
         public readonly bool? LegendEnabled;
@@ -53,6 +57,10 @@ namespace Pulumi.NewRelic.Outputs
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>
         public readonly int Row;
+        /// <summary>
+        /// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLineThreshold> Thresholds;
         /// <summary>
         /// (Optional) A human-friendly display string for this value.
         /// </summary>
@@ -74,6 +82,10 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
         /// </summary>
         public readonly bool? YAxisLeftZero;
+        /// <summary>
+        /// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetLineYAxisRight? YAxisRight;
 
         [OutputConstructor]
         private OneDashboardPageWidgetLine(
@@ -89,6 +101,8 @@ namespace Pulumi.NewRelic.Outputs
 
             bool? ignoreTimeRange,
 
+            bool? isLabelVisible,
+
             bool? legendEnabled,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetLineNrqlQuery> nrqlQueries,
@@ -96,6 +110,8 @@ namespace Pulumi.NewRelic.Outputs
             ImmutableArray<Outputs.OneDashboardPageWidgetLineNullValue> nullValues,
 
             int row,
+
+            ImmutableArray<Outputs.OneDashboardPageWidgetLineThreshold> thresholds,
 
             string title,
 
@@ -107,7 +123,9 @@ namespace Pulumi.NewRelic.Outputs
 
             double? yAxisLeftMin,
 
-            bool? yAxisLeftZero)
+            bool? yAxisLeftZero,
+
+            Outputs.OneDashboardPageWidgetLineYAxisRight? yAxisRight)
         {
             Colors = colors;
             Column = column;
@@ -115,16 +133,19 @@ namespace Pulumi.NewRelic.Outputs
             Height = height;
             Id = id;
             IgnoreTimeRange = ignoreTimeRange;
+            IsLabelVisible = isLabelVisible;
             LegendEnabled = legendEnabled;
             NrqlQueries = nrqlQueries;
             NullValues = nullValues;
             Row = row;
+            Thresholds = thresholds;
             Title = title;
             Units = units;
             Width = width;
             YAxisLeftMax = yAxisLeftMax;
             YAxisLeftMin = yAxisLeftMin;
             YAxisLeftZero = yAxisLeftZero;
+            YAxisRight = yAxisRight;
         }
     }
 }

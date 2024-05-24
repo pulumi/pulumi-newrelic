@@ -62,6 +62,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly int Row;
         /// <summary>
+        /// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTableThreshold> Thresholds;
+        /// <summary>
         /// (Optional) A human-friendly display string for this value.
         /// </summary>
         public readonly string Title;
@@ -105,6 +109,8 @@ namespace Pulumi.NewRelic.Outputs
 
             int row,
 
+            ImmutableArray<Outputs.OneDashboardPageWidgetTableThreshold> thresholds,
+
             string title,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetTableUnit> units,
@@ -127,6 +133,7 @@ namespace Pulumi.NewRelic.Outputs
             NrqlQueries = nrqlQueries;
             NullValues = nullValues;
             Row = row;
+            Thresholds = thresholds;
             Title = title;
             Units = units;
             Width = width;

@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
+ * ~> **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
+ *
  * Destination id can be found in the Destinations page -> three dots at the right of the chosen destination -> copy destination id to clipboard.
  *
  * This example is especially useful for slack destinations which *must* be imported.
@@ -26,16 +28,16 @@ import * as utilities from "./utilities";
  * ```
  *
  * 3. Run the following command after the import successfully done and copy the information to your resource:
+ *    
+ *    `terraform state show newrelic_notification_destination.foo`
  *
- * `terraform state show newrelic_notification_destination.foo`
- *
- * 4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+ * 4. Add `ignore_changes` attribute on `all` in your imported resource:
  *
  * terraform
  *
  * lifecycle {
  *
- *     ignore_changes = [auth_token]
+ *     ignore_changes = all
  *
  *   }
  *
@@ -47,7 +49,7 @@ import * as utilities from "./utilities";
  *
  *   lifecycle {
  *
- *     ignore_changes = [auth_token]
+ *     ignore_changes = all
  *
  *   }
  *

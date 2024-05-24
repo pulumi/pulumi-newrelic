@@ -103,8 +103,10 @@ __all__ = [
     'OneDashboardPageWidgetLineNrqlQueryArgs',
     'OneDashboardPageWidgetLineNullValueArgs',
     'OneDashboardPageWidgetLineNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetLineThresholdArgs',
     'OneDashboardPageWidgetLineUnitArgs',
     'OneDashboardPageWidgetLineUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetLineYAxisRightArgs',
     'OneDashboardPageWidgetLogTableArgs',
     'OneDashboardPageWidgetLogTableColorArgs',
     'OneDashboardPageWidgetLogTableColorSeriesOverrideArgs',
@@ -142,6 +144,7 @@ __all__ = [
     'OneDashboardPageWidgetTableNrqlQueryArgs',
     'OneDashboardPageWidgetTableNullValueArgs',
     'OneDashboardPageWidgetTableNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetTableThresholdArgs',
     'OneDashboardPageWidgetTableUnitArgs',
     'OneDashboardPageWidgetTableUnitSeriesOverrideArgs',
     'OneDashboardRawPageArgs',
@@ -6246,13 +6249,16 @@ class OneDashboardPageWidgetLineArgs:
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ignore_time_range: Optional[pulumi.Input[bool]] = None,
+                 is_label_visible: Optional[pulumi.Input[bool]] = None,
                  legend_enabled: Optional[pulumi.Input[bool]] = None,
                  null_values: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]]] = None,
                  units: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]]] = None,
                  width: Optional[pulumi.Input[int]] = None,
                  y_axis_left_max: Optional[pulumi.Input[float]] = None,
                  y_axis_left_min: Optional[pulumi.Input[float]] = None,
-                 y_axis_left_zero: Optional[pulumi.Input[bool]] = None):
+                 y_axis_left_zero: Optional[pulumi.Input[bool]] = None,
+                 y_axis_right: Optional[pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgs']] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
@@ -6263,12 +6269,15 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[str] id: The ID of the widget.
         :param pulumi.Input[bool] ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param pulumi.Input[bool] is_label_visible: (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param pulumi.Input[float] y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         :param pulumi.Input[bool] y_axis_left_zero: (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+        :param pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgs'] y_axis_right: (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
@@ -6284,10 +6293,14 @@ class OneDashboardPageWidgetLineArgs:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if is_label_visible is not None:
+            pulumi.set(__self__, "is_label_visible", is_label_visible)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if thresholds is not None:
+            pulumi.set(__self__, "thresholds", thresholds)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -6298,6 +6311,8 @@ class OneDashboardPageWidgetLineArgs:
             pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
         if y_axis_left_zero is not None:
             pulumi.set(__self__, "y_axis_left_zero", y_axis_left_zero)
+        if y_axis_right is not None:
+            pulumi.set(__self__, "y_axis_right", y_axis_right)
 
     @property
     @pulumi.getter
@@ -6408,6 +6423,18 @@ class OneDashboardPageWidgetLineArgs:
         pulumi.set(self, "ignore_time_range", value)
 
     @property
+    @pulumi.getter(name="isLabelVisible")
+    def is_label_visible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+        """
+        return pulumi.get(self, "is_label_visible")
+
+    @is_label_visible.setter
+    def is_label_visible(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_label_visible", value)
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -6430,6 +6457,18 @@ class OneDashboardPageWidgetLineArgs:
     @null_values.setter
     def null_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]]]):
         pulumi.set(self, "null_values", value)
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]]]:
+        """
+        (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "thresholds")
+
+    @thresholds.setter
+    def thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]]]):
+        pulumi.set(self, "thresholds", value)
 
     @property
     @pulumi.getter
@@ -6487,6 +6526,18 @@ class OneDashboardPageWidgetLineArgs:
     @y_axis_left_zero.setter
     def y_axis_left_zero(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "y_axis_left_zero", value)
+
+    @property
+    @pulumi.getter(name="yAxisRight")
+    def y_axis_right(self) -> Optional[pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgs']]:
+        """
+        (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+        """
+        return pulumi.get(self, "y_axis_right")
+
+    @y_axis_right.setter
+    def y_axis_right(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgs']]):
+        pulumi.set(self, "y_axis_right", value)
 
 
 @pulumi.input_type
@@ -6684,6 +6735,77 @@ class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
 
 
 @pulumi.input_type
+class OneDashboardPageWidgetLineThresholdArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] from_: The value 'from' which the threshold would need to be applied.
+        :param pulumi.Input[str] name: The title of the dashboard.
+        :param pulumi.Input[str] severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        :param pulumi.Input[int] to: The value until which the threshold would need to be applied.
+        """
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value 'from' which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value until which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
 class OneDashboardPageWidgetLineUnitArgs:
     def __init__(__self__, *,
                  series_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitSeriesOverrideArgs']]]] = None,
@@ -6759,6 +6881,77 @@ class OneDashboardPageWidgetLineUnitSeriesOverrideArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class OneDashboardPageWidgetLineYAxisRightArgs:
+    def __init__(__self__, *,
+                 y_axis_right_max: Optional[pulumi.Input[float]] = None,
+                 y_axis_right_min: Optional[pulumi.Input[float]] = None,
+                 y_axis_right_series: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 y_axis_right_zero: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[float] y_axis_right_max: Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+        :param pulumi.Input[float] y_axis_right_min: , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] y_axis_right_series: (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+        :param pulumi.Input[bool] y_axis_right_zero: (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+        """
+        if y_axis_right_max is not None:
+            pulumi.set(__self__, "y_axis_right_max", y_axis_right_max)
+        if y_axis_right_min is not None:
+            pulumi.set(__self__, "y_axis_right_min", y_axis_right_min)
+        if y_axis_right_series is not None:
+            pulumi.set(__self__, "y_axis_right_series", y_axis_right_series)
+        if y_axis_right_zero is not None:
+            pulumi.set(__self__, "y_axis_right_zero", y_axis_right_zero)
+
+    @property
+    @pulumi.getter(name="yAxisRightMax")
+    def y_axis_right_max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+        """
+        return pulumi.get(self, "y_axis_right_max")
+
+    @y_axis_right_max.setter
+    def y_axis_right_max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "y_axis_right_max", value)
+
+    @property
+    @pulumi.getter(name="yAxisRightMin")
+    def y_axis_right_min(self) -> Optional[pulumi.Input[float]]:
+        """
+        , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+        """
+        return pulumi.get(self, "y_axis_right_min")
+
+    @y_axis_right_min.setter
+    def y_axis_right_min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "y_axis_right_min", value)
+
+    @property
+    @pulumi.getter(name="yAxisRightSeries")
+    def y_axis_right_series(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+        """
+        return pulumi.get(self, "y_axis_right_series")
+
+    @y_axis_right_series.setter
+    def y_axis_right_series(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "y_axis_right_series", value)
+
+    @property
+    @pulumi.getter(name="yAxisRightZero")
+    def y_axis_right_zero(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+        """
+        return pulumi.get(self, "y_axis_right_zero")
+
+    @y_axis_right_zero.setter
+    def y_axis_right_zero(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "y_axis_right_zero", value)
 
 
 @pulumi.input_type
@@ -8815,6 +9008,7 @@ class OneDashboardPageWidgetTableArgs:
                  legend_enabled: Optional[pulumi.Input[bool]] = None,
                  linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  null_values: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueArgs']]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgs']]]] = None,
                  units: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitArgs']]]] = None,
                  width: Optional[pulumi.Input[int]] = None,
                  y_axis_left_max: Optional[pulumi.Input[float]] = None,
@@ -8833,6 +9027,7 @@ class OneDashboardPageWidgetTableArgs:
         :param pulumi.Input[bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgs']]] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitArgs']]] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param pulumi.Input[float] y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -8859,6 +9054,8 @@ class OneDashboardPageWidgetTableArgs:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if thresholds is not None:
+            pulumi.set(__self__, "thresholds", thresholds)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -9023,6 +9220,18 @@ class OneDashboardPageWidgetTableArgs:
     @null_values.setter
     def null_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueArgs']]]]):
         pulumi.set(self, "null_values", value)
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgs']]]]:
+        """
+        (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "thresholds")
+
+    @thresholds.setter
+    def thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgs']]]]):
+        pulumi.set(self, "thresholds", value)
 
     @property
     @pulumi.getter
@@ -9262,6 +9471,77 @@ class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
     @series_name.setter
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
+
+
+@pulumi.input_type
+class OneDashboardPageWidgetTableThresholdArgs:
+    def __init__(__self__, *,
+                 column_name: Optional[pulumi.Input[str]] = None,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] column_name: The name of the column in the table, to which the threshold would need to be applied.
+        :param pulumi.Input[int] from_: The value 'from' which the threshold would need to be applied.
+        :param pulumi.Input[str] severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        :param pulumi.Input[int] to: The value until which the threshold would need to be applied.
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the column in the table, to which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value 'from' which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value until which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
 
 
 @pulumi.input_type

@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetTableColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetTableNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetTableNullValueArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetTableThresholdArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetTableUnitArgs;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -205,6 +206,21 @@ public final class OneDashboardPageWidgetTableArgs extends com.pulumi.resources.
     }
 
     /**
+     * (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    @Import(name="thresholds")
+    private @Nullable Output<List<OneDashboardPageWidgetTableThresholdArgs>> thresholds;
+
+    /**
+     * @return (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public Optional<Output<List<OneDashboardPageWidgetTableThresholdArgs>>> thresholds() {
+        return Optional.ofNullable(this.thresholds);
+    }
+
+    /**
      * (Optional) A human-friendly display string for this value.
      * 
      */
@@ -286,6 +302,7 @@ public final class OneDashboardPageWidgetTableArgs extends com.pulumi.resources.
         this.nrqlQueries = $.nrqlQueries;
         this.nullValues = $.nullValues;
         this.row = $.row;
+        this.thresholds = $.thresholds;
         this.title = $.title;
         this.units = $.units;
         this.width = $.width;
@@ -601,6 +618,37 @@ public final class OneDashboardPageWidgetTableArgs extends com.pulumi.resources.
          */
         public Builder row(Integer row) {
             return row(Output.of(row));
+        }
+
+        /**
+         * @param thresholds (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholds(@Nullable Output<List<OneDashboardPageWidgetTableThresholdArgs>> thresholds) {
+            $.thresholds = thresholds;
+            return this;
+        }
+
+        /**
+         * @param thresholds (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholds(List<OneDashboardPageWidgetTableThresholdArgs> thresholds) {
+            return thresholds(Output.of(thresholds));
+        }
+
+        /**
+         * @param thresholds (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholds(OneDashboardPageWidgetTableThresholdArgs... thresholds) {
+            return thresholds(List.of(thresholds));
         }
 
         /**

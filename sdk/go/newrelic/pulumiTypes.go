@@ -11911,6 +11911,8 @@ type OneDashboardPageWidgetLine struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+	IsLabelVisible *bool `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -11919,6 +11921,8 @@ type OneDashboardPageWidgetLine struct {
 	NullValues []OneDashboardPageWidgetLineNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds []OneDashboardPageWidgetLineThreshold `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -11930,6 +11934,8 @@ type OneDashboardPageWidgetLine struct {
 	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
 	YAxisLeftZero *bool `pulumi:"yAxisLeftZero"`
+	// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+	YAxisRight *OneDashboardPageWidgetLineYAxisRight `pulumi:"yAxisRight"`
 }
 
 // OneDashboardPageWidgetLineInput is an input type that accepts OneDashboardPageWidgetLineArgs and OneDashboardPageWidgetLineOutput values.
@@ -11956,6 +11962,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+	IsLabelVisible pulumi.BoolPtrInput `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -11964,6 +11972,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	NullValues OneDashboardPageWidgetLineNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds OneDashboardPageWidgetLineThresholdArrayInput `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -11975,6 +11985,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
 	YAxisLeftZero pulumi.BoolPtrInput `pulumi:"yAxisLeftZero"`
+	// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+	YAxisRight OneDashboardPageWidgetLineYAxisRightPtrInput `pulumi:"yAxisRight"`
 }
 
 func (OneDashboardPageWidgetLineArgs) ElementType() reflect.Type {
@@ -12058,6 +12070,11 @@ func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+func (o OneDashboardPageWidgetLineOutput) IsLabelVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IsLabelVisible }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetLineOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -12076,6 +12093,11 @@ func (o OneDashboardPageWidgetLineOutput) NullValues() OneDashboardPageWidgetLin
 // (Required) Row position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetLineOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetLineOutput) Thresholds() OneDashboardPageWidgetLineThresholdArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineThreshold { return v.Thresholds }).(OneDashboardPageWidgetLineThresholdArrayOutput)
 }
 
 // (Optional) A human-friendly display string for this value.
@@ -12105,6 +12127,11 @@ func (o OneDashboardPageWidgetLineOutput) YAxisLeftMin() pulumi.Float64PtrOutput
 // (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
 func (o OneDashboardPageWidgetLineOutput) YAxisLeftZero() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.YAxisLeftZero }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+func (o OneDashboardPageWidgetLineOutput) YAxisRight() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *OneDashboardPageWidgetLineYAxisRight { return v.YAxisRight }).(OneDashboardPageWidgetLineYAxisRightPtrOutput)
 }
 
 type OneDashboardPageWidgetLineArrayOutput struct{ *pulumi.OutputState }
@@ -12661,6 +12688,130 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pu
 	}).(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput)
 }
 
+type OneDashboardPageWidgetLineThreshold struct {
+	// The value 'from' which the threshold would need to be applied.
+	From *int `pulumi:"from"`
+	// The title of the dashboard.
+	Name *string `pulumi:"name"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity *string `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To *int `pulumi:"to"`
+}
+
+// OneDashboardPageWidgetLineThresholdInput is an input type that accepts OneDashboardPageWidgetLineThresholdArgs and OneDashboardPageWidgetLineThresholdOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineThresholdInput` via:
+//
+//	OneDashboardPageWidgetLineThresholdArgs{...}
+type OneDashboardPageWidgetLineThresholdInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineThresholdOutput() OneDashboardPageWidgetLineThresholdOutput
+	ToOneDashboardPageWidgetLineThresholdOutputWithContext(context.Context) OneDashboardPageWidgetLineThresholdOutput
+}
+
+type OneDashboardPageWidgetLineThresholdArgs struct {
+	// The value 'from' which the threshold would need to be applied.
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// The title of the dashboard.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (OneDashboardPageWidgetLineThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineThresholdArgs) ToOneDashboardPageWidgetLineThresholdOutput() OneDashboardPageWidgetLineThresholdOutput {
+	return i.ToOneDashboardPageWidgetLineThresholdOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineThresholdArgs) ToOneDashboardPageWidgetLineThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineThresholdOutput)
+}
+
+// OneDashboardPageWidgetLineThresholdArrayInput is an input type that accepts OneDashboardPageWidgetLineThresholdArray and OneDashboardPageWidgetLineThresholdArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineThresholdArrayInput` via:
+//
+//	OneDashboardPageWidgetLineThresholdArray{ OneDashboardPageWidgetLineThresholdArgs{...} }
+type OneDashboardPageWidgetLineThresholdArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineThresholdArrayOutput() OneDashboardPageWidgetLineThresholdArrayOutput
+	ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineThresholdArrayOutput
+}
+
+type OneDashboardPageWidgetLineThresholdArray []OneDashboardPageWidgetLineThresholdInput
+
+func (OneDashboardPageWidgetLineThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineThresholdArray) ToOneDashboardPageWidgetLineThresholdArrayOutput() OneDashboardPageWidgetLineThresholdArrayOutput {
+	return i.ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineThresholdArray) ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineThresholdArrayOutput)
+}
+
+type OneDashboardPageWidgetLineThresholdOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineThresholdOutput() OneDashboardPageWidgetLineThresholdOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdOutput {
+	return o
+}
+
+// The value 'from' which the threshold would need to be applied.
+func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLineThresholdOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+func (o OneDashboardPageWidgetLineThresholdOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The value until which the threshold would need to be applied.
+func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetLineThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineThresholdArrayOutput) ToOneDashboardPageWidgetLineThresholdArrayOutput() OneDashboardPageWidgetLineThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineThresholdArrayOutput) ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineThresholdArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineThreshold {
+		return vs[0].([]OneDashboardPageWidgetLineThreshold)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineThresholdOutput)
+}
+
 type OneDashboardPageWidgetLineUnit struct {
 	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
 	SeriesOverrides []OneDashboardPageWidgetLineUnitSeriesOverride `pulumi:"seriesOverrides"`
@@ -12873,6 +13024,200 @@ func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineUnitSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetLineUnitSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineUnitSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLineYAxisRight struct {
+	// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+	YAxisRightMax *float64 `pulumi:"yAxisRightMax"`
+	// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+	YAxisRightMin *float64 `pulumi:"yAxisRightMin"`
+	// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+	YAxisRightSeries []string `pulumi:"yAxisRightSeries"`
+	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+	YAxisRightZero *bool `pulumi:"yAxisRightZero"`
+}
+
+// OneDashboardPageWidgetLineYAxisRightInput is an input type that accepts OneDashboardPageWidgetLineYAxisRightArgs and OneDashboardPageWidgetLineYAxisRightOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineYAxisRightInput` via:
+//
+//	OneDashboardPageWidgetLineYAxisRightArgs{...}
+type OneDashboardPageWidgetLineYAxisRightInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineYAxisRightOutput() OneDashboardPageWidgetLineYAxisRightOutput
+	ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(context.Context) OneDashboardPageWidgetLineYAxisRightOutput
+}
+
+type OneDashboardPageWidgetLineYAxisRightArgs struct {
+	// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+	YAxisRightMax pulumi.Float64PtrInput `pulumi:"yAxisRightMax"`
+	// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+	YAxisRightMin pulumi.Float64PtrInput `pulumi:"yAxisRightMin"`
+	// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+	YAxisRightSeries pulumi.StringArrayInput `pulumi:"yAxisRightSeries"`
+	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+	YAxisRightZero pulumi.BoolPtrInput `pulumi:"yAxisRightZero"`
+}
+
+func (OneDashboardPageWidgetLineYAxisRightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightOutput() OneDashboardPageWidgetLineYAxisRightOutput {
+	return i.ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineYAxisRightOutput)
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return i.ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineYAxisRightOutput).ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLineYAxisRightPtrInput is an input type that accepts OneDashboardPageWidgetLineYAxisRightArgs, OneDashboardPageWidgetLineYAxisRightPtr and OneDashboardPageWidgetLineYAxisRightPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineYAxisRightPtrInput` via:
+//
+//	        OneDashboardPageWidgetLineYAxisRightArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLineYAxisRightPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput
+	ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput
+}
+
+type oneDashboardPageWidgetLineYAxisRightPtrType OneDashboardPageWidgetLineYAxisRightArgs
+
+func OneDashboardPageWidgetLineYAxisRightPtr(v *OneDashboardPageWidgetLineYAxisRightArgs) OneDashboardPageWidgetLineYAxisRightPtrInput {
+	return (*oneDashboardPageWidgetLineYAxisRightPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLineYAxisRightPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLineYAxisRightPtrType) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return i.ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLineYAxisRightPtrType) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineYAxisRightPtrOutput)
+}
+
+type OneDashboardPageWidgetLineYAxisRightOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineYAxisRightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightOutput() OneDashboardPageWidgetLineYAxisRightOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o.ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLineYAxisRight) *OneDashboardPageWidgetLineYAxisRight {
+		return &v
+	}).(OneDashboardPageWidgetLineYAxisRightPtrOutput)
+}
+
+// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) *float64 { return v.YAxisRightMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) *float64 { return v.YAxisRightMin }).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightSeries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) []string { return v.YAxisRightSeries }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) *bool { return v.YAxisRightZero }).(pulumi.BoolPtrOutput)
+}
+
+type OneDashboardPageWidgetLineYAxisRightPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineYAxisRightPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) Elem() OneDashboardPageWidgetLineYAxisRightOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) OneDashboardPageWidgetLineYAxisRight {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLineYAxisRight
+		return ret
+	}).(OneDashboardPageWidgetLineYAxisRightOutput)
+}
+
+// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightMax
+	}).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightMin
+	}).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightSeries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) []string {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightSeries
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightZero
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetLogTable struct {
@@ -16688,6 +17033,8 @@ type OneDashboardPageWidgetTable struct {
 	NullValues []OneDashboardPageWidgetTableNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds []OneDashboardPageWidgetTableThreshold `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -16735,6 +17082,8 @@ type OneDashboardPageWidgetTableArgs struct {
 	NullValues OneDashboardPageWidgetTableNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds OneDashboardPageWidgetTableThresholdArrayInput `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -16855,6 +17204,11 @@ func (o OneDashboardPageWidgetTableOutput) NullValues() OneDashboardPageWidgetTa
 // (Required) Row position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetTableOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetTableOutput) Thresholds() OneDashboardPageWidgetTableThresholdArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableThreshold { return v.Thresholds }).(OneDashboardPageWidgetTableThresholdArrayOutput)
 }
 
 // (Optional) A human-friendly display string for this value.
@@ -17433,6 +17787,130 @@ func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableNullValueSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetTableNullValueSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetTableThreshold struct {
+	// The name of the column in the table, to which the threshold would need to be applied.
+	ColumnName *string `pulumi:"columnName"`
+	// The value 'from' which the threshold would need to be applied.
+	From *int `pulumi:"from"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity *string `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To *int `pulumi:"to"`
+}
+
+// OneDashboardPageWidgetTableThresholdInput is an input type that accepts OneDashboardPageWidgetTableThresholdArgs and OneDashboardPageWidgetTableThresholdOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableThresholdInput` via:
+//
+//	OneDashboardPageWidgetTableThresholdArgs{...}
+type OneDashboardPageWidgetTableThresholdInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableThresholdOutput() OneDashboardPageWidgetTableThresholdOutput
+	ToOneDashboardPageWidgetTableThresholdOutputWithContext(context.Context) OneDashboardPageWidgetTableThresholdOutput
+}
+
+type OneDashboardPageWidgetTableThresholdArgs struct {
+	// The name of the column in the table, to which the threshold would need to be applied.
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// The value 'from' which the threshold would need to be applied.
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (OneDashboardPageWidgetTableThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableThresholdArgs) ToOneDashboardPageWidgetTableThresholdOutput() OneDashboardPageWidgetTableThresholdOutput {
+	return i.ToOneDashboardPageWidgetTableThresholdOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableThresholdArgs) ToOneDashboardPageWidgetTableThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableThresholdOutput)
+}
+
+// OneDashboardPageWidgetTableThresholdArrayInput is an input type that accepts OneDashboardPageWidgetTableThresholdArray and OneDashboardPageWidgetTableThresholdArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableThresholdArrayInput` via:
+//
+//	OneDashboardPageWidgetTableThresholdArray{ OneDashboardPageWidgetTableThresholdArgs{...} }
+type OneDashboardPageWidgetTableThresholdArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableThresholdArrayOutput() OneDashboardPageWidgetTableThresholdArrayOutput
+	ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableThresholdArrayOutput
+}
+
+type OneDashboardPageWidgetTableThresholdArray []OneDashboardPageWidgetTableThresholdInput
+
+func (OneDashboardPageWidgetTableThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableThresholdArray) ToOneDashboardPageWidgetTableThresholdArrayOutput() OneDashboardPageWidgetTableThresholdArrayOutput {
+	return i.ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableThresholdArray) ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableThresholdArrayOutput)
+}
+
+type OneDashboardPageWidgetTableThresholdOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableThresholdOutput) ToOneDashboardPageWidgetTableThresholdOutput() OneDashboardPageWidgetTableThresholdOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableThresholdOutput) ToOneDashboardPageWidgetTableThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdOutput {
+	return o
+}
+
+// The name of the column in the table, to which the threshold would need to be applied.
+func (o OneDashboardPageWidgetTableThresholdOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
+}
+
+// The value 'from' which the threshold would need to be applied.
+func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+func (o OneDashboardPageWidgetTableThresholdOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The value until which the threshold would need to be applied.
+func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetTableThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableThresholdArrayOutput) ToOneDashboardPageWidgetTableThresholdArrayOutput() OneDashboardPageWidgetTableThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableThresholdArrayOutput) ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableThresholdArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableThreshold {
+		return vs[0].([]OneDashboardPageWidgetTableThreshold)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableThresholdOutput)
 }
 
 type OneDashboardPageWidgetTableUnit struct {
@@ -21908,10 +22386,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineThresholdInput)(nil)).Elem(), OneDashboardPageWidgetLineThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineThresholdArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRightInput)(nil)).Elem(), OneDashboardPageWidgetLineYAxisRightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRightPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineYAxisRightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArgs{})
@@ -21986,6 +22468,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableThresholdInput)(nil)).Elem(), OneDashboardPageWidgetTableThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableThresholdArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitSeriesOverrideArgs{})
@@ -22231,10 +22715,14 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineThresholdOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineThresholdArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineYAxisRightOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineYAxisRightPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorOutput{})
@@ -22309,6 +22797,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableThresholdOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableThresholdArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitSeriesOverrideOutput{})
