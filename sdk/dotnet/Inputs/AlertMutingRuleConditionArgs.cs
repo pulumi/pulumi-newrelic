@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.AlertMutingRuleConditionConditionArgs>? _conditions;
 
         /// <summary>
-        /// The individual MutingRuleConditions within the group.
+        /// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
         /// </summary>
         public InputList<Inputs.AlertMutingRuleConditionConditionArgs> Conditions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// The operator used to combine all the MutingRuleConditions within the group.
+        /// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

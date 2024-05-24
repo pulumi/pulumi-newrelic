@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()        
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("script_monitor")
  *             .type("SCRIPT_API")
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()        
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("script_monitor")
  *             .type("SCRIPT_BROWSER")
@@ -164,13 +164,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
  *             .description("Example private location")
  *             .name("private_location")
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
- *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()        
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("script_monitor")
  *             .type("SCRIPT_API")
@@ -223,13 +223,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
  *             .description("Test Description")
  *             .name("private_location")
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
- *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()        
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("script_monitor")
  *             .type("SCRIPT_BROWSER")

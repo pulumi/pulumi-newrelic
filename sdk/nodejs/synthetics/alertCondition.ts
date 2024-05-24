@@ -113,7 +113,11 @@ export class AlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * Set whether to enable the alert condition. Defaults to true.
+     * Set whether to enable the alert condition. Defaults to `true`.
+     *
+     * ```
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -121,7 +125,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     public readonly monitorId!: pulumi.Output<string>;
     /**
@@ -181,7 +185,11 @@ export class AlertCondition extends pulumi.CustomResource {
  */
 export interface AlertConditionState {
     /**
-     * Set whether to enable the alert condition. Defaults to true.
+     * Set whether to enable the alert condition. Defaults to `true`.
+     *
+     * ```
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -189,7 +197,7 @@ export interface AlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     monitorId?: pulumi.Input<string>;
     /**
@@ -211,11 +219,15 @@ export interface AlertConditionState {
  */
 export interface AlertConditionArgs {
     /**
-     * Set whether to enable the alert condition. Defaults to true.
+     * Set whether to enable the alert condition. Defaults to `true`.
+     *
+     * ```
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     monitorId: pulumi.Input<string>;
     /**

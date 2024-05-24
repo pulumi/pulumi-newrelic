@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardPageWidgetBulletNrqlQuery {
     /**
-     * @return The account id used for the NRQL query.
+     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     private @Nullable String accountId;
@@ -25,7 +25,7 @@ public final class OneDashboardPageWidgetBulletNrqlQuery {
 
     private OneDashboardPageWidgetBulletNrqlQuery() {}
     /**
-     * @return The account id used for the NRQL query.
+     * @return Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Optional<String> accountId() {

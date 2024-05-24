@@ -46,11 +46,11 @@ export class OneDashboard extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID where you want to create the dashboard.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * (Optional) Brief text describing the page.
+     * Brief text describing the dashboard.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -58,21 +58,23 @@ export class OneDashboard extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
-     * (Required) The variable identifier.
+     * The title of the dashboard.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A nested block that describes a page. See Nested page blocks below for details.
+     */
     public readonly pages!: pulumi.Output<outputs.OneDashboardPage[]>;
     /**
      * The URL for viewing the dashboard.
      */
     public /*out*/ readonly permalink!: pulumi.Output<string>;
     /**
-     * Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-     * public_read_only.
+     * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
     /**
-     * Dashboard-local variable definitions.
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
      */
     public readonly variables!: pulumi.Output<outputs.OneDashboardVariable[] | undefined>;
 
@@ -121,11 +123,11 @@ export class OneDashboard extends pulumi.CustomResource {
  */
 export interface OneDashboardState {
     /**
-     * The New Relic account ID where you want to create the dashboard.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * (Optional) Brief text describing the page.
+     * Brief text describing the dashboard.
      */
     description?: pulumi.Input<string>;
     /**
@@ -133,21 +135,23 @@ export interface OneDashboardState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * (Required) The variable identifier.
+     * The title of the dashboard.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A nested block that describes a page. See Nested page blocks below for details.
+     */
     pages?: pulumi.Input<pulumi.Input<inputs.OneDashboardPage>[]>;
     /**
      * The URL for viewing the dashboard.
      */
     permalink?: pulumi.Input<string>;
     /**
-     * Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-     * public_read_only.
+     * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
     permissions?: pulumi.Input<string>;
     /**
-     * Dashboard-local variable definitions.
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
      */
     variables?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariable>[]>;
 }
@@ -157,25 +161,27 @@ export interface OneDashboardState {
  */
 export interface OneDashboardArgs {
     /**
-     * The New Relic account ID where you want to create the dashboard.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * (Optional) Brief text describing the page.
+     * Brief text describing the dashboard.
      */
     description?: pulumi.Input<string>;
     /**
-     * (Required) The variable identifier.
+     * The title of the dashboard.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A nested block that describes a page. See Nested page blocks below for details.
+     */
     pages: pulumi.Input<pulumi.Input<inputs.OneDashboardPage>[]>;
     /**
-     * Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-     * public_read_only.
+     * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
     permissions?: pulumi.Input<string>;
     /**
-     * Dashboard-local variable definitions.
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
      */
     variables?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariable>[]>;
 }

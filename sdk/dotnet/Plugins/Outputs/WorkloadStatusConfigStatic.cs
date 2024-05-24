@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class WorkloadStatusConfigStatic
     {
         /// <summary>
-        /// A description that provides additional details about the status of the workload.
+        /// Relevant information about the workload.
         /// </summary>
         public readonly string? Description;
         /// <summary>

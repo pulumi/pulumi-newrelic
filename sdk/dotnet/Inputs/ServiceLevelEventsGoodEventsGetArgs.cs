@@ -12,12 +12,22 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class ServiceLevelEventsGoodEventsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event type where NRDB data will be fetched from.
+        /// </summary>
         [Input("from", required: true)]
         public Input<string> From { get; set; } = null!;
 
+        /// <summary>
+        /// The NRQL SELECT clause to aggregate events.
+        /// </summary>
         [Input("select")]
         public Input<Inputs.ServiceLevelEventsGoodEventsSelectGetArgs>? Select { get; set; }
 
+        /// <summary>
+        /// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        /// a particular entity and were successful).
+        /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }
 

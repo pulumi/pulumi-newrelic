@@ -12,9 +12,15 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class ServiceLevelObjectiveTimeWindowRollingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Valid values are `1`, `7` and `28`.
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
+        /// <summary>
+        /// The only supported value is `DAY`.
+        /// </summary>
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 

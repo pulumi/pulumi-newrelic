@@ -16,16 +16,32 @@ public final class GetSecureCredentialArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetSecureCredentialArgs Empty = new GetSecureCredentialArgs();
 
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -55,20 +71,44 @@ public final class GetSecureCredentialArgs extends com.pulumi.resources.InvokeAr
             $ = new GetSecureCredentialArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param key The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

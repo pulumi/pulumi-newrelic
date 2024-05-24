@@ -18,37 +18,81 @@ public final class ServiceLevelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceLevelArgs Empty = new ServiceLevelArgs();
 
+    /**
+     * The description of the SLI.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the SLI.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The events that define the NRDB data for the SLI/SLO calculations.
+     * See Events below for details.
+     * 
+     */
     @Import(name="events", required=true)
     private Output<ServiceLevelEventsArgs> events;
 
+    /**
+     * @return The events that define the NRDB data for the SLI/SLO calculations.
+     * See Events below for details.
+     * 
+     */
     public Output<ServiceLevelEventsArgs> events() {
         return this.events;
     }
 
+    /**
+     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+     * 
+     */
     @Import(name="guid", required=true)
     private Output<String> guid;
 
+    /**
+     * @return The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+     * 
+     */
     public Output<String> guid() {
         return this.guid;
     }
 
+    /**
+     * A short name for the SLI that will help anyone understand what it is about.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return A short name for the SLI that will help anyone understand what it is about.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The objective of the SLI, only one can be defined.
+     * See Objective below for details.
+     * 
+     */
     @Import(name="objective", required=true)
     private Output<ServiceLevelObjectiveArgs> objective;
 
+    /**
+     * @return The objective of the SLI, only one can be defined.
+     * See Objective below for details.
+     * 
+     */
     public Output<ServiceLevelObjectiveArgs> objective() {
         return this.objective;
     }
@@ -81,47 +125,111 @@ public final class ServiceLevelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceLevelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description The description of the SLI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the SLI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param events The events that define the NRDB data for the SLI/SLO calculations.
+         * See Events below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(Output<ServiceLevelEventsArgs> events) {
             $.events = events;
             return this;
         }
 
+        /**
+         * @param events The events that define the NRDB data for the SLI/SLO calculations.
+         * See Events below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder events(ServiceLevelEventsArgs events) {
             return events(Output.of(events));
         }
 
+        /**
+         * @param guid The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder guid(Output<String> guid) {
             $.guid = guid;
             return this;
         }
 
+        /**
+         * @param guid The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder guid(String guid) {
             return guid(Output.of(guid));
         }
 
+        /**
+         * @param name A short name for the SLI that will help anyone understand what it is about.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A short name for the SLI that will help anyone understand what it is about.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param objective The objective of the SLI, only one can be defined.
+         * See Objective below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objective(Output<ServiceLevelObjectiveArgs> objective) {
             $.objective = objective;
             return this;
         }
 
+        /**
+         * @param objective The objective of the SLI, only one can be defined.
+         * See Objective below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objective(ServiceLevelObjectiveArgs objective) {
             return objective(Output.of(objective));
         }

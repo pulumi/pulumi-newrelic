@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()        
+ *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()
  *             .arn("arn:aws:service:region:account-id:resource-id")
  *             .metricCollectionMode("PUSH")
  *             .name("account name")

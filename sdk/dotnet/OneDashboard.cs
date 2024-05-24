@@ -24,13 +24,13 @@ namespace Pulumi.NewRelic
     public partial class OneDashboard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID where you want to create the dashboard.
+        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Brief text describing the page.
+        /// Brief text describing the dashboard.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -42,11 +42,14 @@ namespace Pulumi.NewRelic
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The variable identifier.
+        /// The title of the dashboard.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A nested block that describes a page. See Nested page blocks below for details.
+        /// </summary>
         [Output("pages")]
         public Output<ImmutableArray<Outputs.OneDashboardPage>> Pages { get; private set; } = null!;
 
@@ -57,14 +60,13 @@ namespace Pulumi.NewRelic
         public Output<string> Permalink { get; private set; } = null!;
 
         /// <summary>
-        /// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-        /// public_read_only.
+        /// Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         /// </summary>
         [Output("permissions")]
         public Output<string?> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Dashboard-local variable definitions.
+        /// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableArray<Outputs.OneDashboardVariable>> Variables { get; private set; } = null!;
@@ -116,25 +118,29 @@ namespace Pulumi.NewRelic
     public sealed class OneDashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to create the dashboard.
+        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// (Optional) Brief text describing the page.
+        /// Brief text describing the dashboard.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// (Required) The variable identifier.
+        /// The title of the dashboard.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("pages", required: true)]
         private InputList<Inputs.OneDashboardPageArgs>? _pages;
+
+        /// <summary>
+        /// A nested block that describes a page. See Nested page blocks below for details.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageArgs> Pages
         {
             get => _pages ?? (_pages = new InputList<Inputs.OneDashboardPageArgs>());
@@ -142,8 +148,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-        /// public_read_only.
+        /// Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
@@ -152,7 +157,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.OneDashboardVariableArgs>? _variables;
 
         /// <summary>
-        /// Dashboard-local variable definitions.
+        /// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         /// </summary>
         public InputList<Inputs.OneDashboardVariableArgs> Variables
         {
@@ -169,13 +174,13 @@ namespace Pulumi.NewRelic
     public sealed class OneDashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to create the dashboard.
+        /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// (Optional) Brief text describing the page.
+        /// Brief text describing the dashboard.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -187,13 +192,17 @@ namespace Pulumi.NewRelic
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// (Required) The variable identifier.
+        /// The title of the dashboard.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("pages")]
         private InputList<Inputs.OneDashboardPageGetArgs>? _pages;
+
+        /// <summary>
+        /// A nested block that describes a page. See Nested page blocks below for details.
+        /// </summary>
         public InputList<Inputs.OneDashboardPageGetArgs> Pages
         {
             get => _pages ?? (_pages = new InputList<Inputs.OneDashboardPageGetArgs>());
@@ -207,8 +216,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Permalink { get; set; }
 
         /// <summary>
-        /// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-        /// public_read_only.
+        /// Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
@@ -217,7 +225,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.OneDashboardVariableGetArgs>? _variables;
 
         /// <summary>
-        /// Dashboard-local variable definitions.
+        /// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         /// </summary>
         public InputList<Inputs.OneDashboardVariableGetArgs> Variables
         {

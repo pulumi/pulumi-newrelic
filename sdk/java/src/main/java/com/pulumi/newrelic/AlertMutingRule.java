@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertMutingRule("foo", AlertMutingRuleArgs.builder()        
+ *         var foo = new AlertMutingRule("foo", AlertMutingRuleArgs.builder()
  *             .name("Example Muting Rule")
  *             .enabled(true)
  *             .description("muting rule test.")
@@ -94,28 +94,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/alertMutingRule:AlertMutingRule")
 public class AlertMutingRule extends com.pulumi.resources.CustomResource {
     /**
-     * The account id of the MutingRule..
+     * The account id of the MutingRule.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The account id of the MutingRule..
+     * @return The account id of the MutingRule.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The condition that defines which incidents to target.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     @Export(name="condition", refs={AlertMutingRuleCondition.class}, tree="[0]")
     private Output<AlertMutingRuleCondition> condition;
 
     /**
-     * @return The condition that defines which incidents to target.
+     * @return The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     public Output<AlertMutingRuleCondition> condition() {
@@ -164,14 +164,14 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The time window when the MutingRule should actively mute incidents.
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
      * 
      */
     @Export(name="schedule", refs={AlertMutingRuleSchedule.class}, tree="[0]")
     private Output</* @Nullable */ AlertMutingRuleSchedule> schedule;
 
     /**
-     * @return The time window when the MutingRule should actively mute incidents.
+     * @return Specify a schedule for enabling the MutingRule. See Schedule below for details
      * 
      */
     public Output<Optional<AlertMutingRuleSchedule>> schedule() {

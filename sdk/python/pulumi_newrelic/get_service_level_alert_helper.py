@@ -274,6 +274,15 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         aggregation_delay="120",
         slide_by=60)
     ```
+
+
+    :param str alert_type: The type of alert we want to set. Valid values are:
+    :param int custom_evaluation_period: Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+    :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+    :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
+    :param str sli_guid: The guid of the sli we want to set the alert on.
+    :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+    :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.
     """
     __args__ = dict()
     __args__['alertType'] = alert_type
@@ -421,5 +430,14 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         aggregation_delay="120",
         slide_by=60)
     ```
+
+
+    :param str alert_type: The type of alert we want to set. Valid values are:
+    :param int custom_evaluation_period: Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+    :param float custom_tolerated_budget_consumption: How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+    :param bool is_bad_events: If the SLI is defined using bad events. Defaults to `false`
+    :param str sli_guid: The guid of the sli we want to set the alert on.
+    :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+    :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.
     """
     ...

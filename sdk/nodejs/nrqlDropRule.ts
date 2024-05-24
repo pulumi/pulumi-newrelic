@@ -83,19 +83,19 @@ export class NrqlDropRule extends pulumi.CustomResource {
     }
 
     /**
-     * Account with the NRQL drop rule will be put.
+     * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
      */
     public readonly action!: pulumi.Output<string>;
     /**
-     * Provides additional information about the rule.
+     * The description of the drop rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Explains which data to apply the drop rule to.
+     * A NRQL string that specifies what data types to drop.
      */
     public readonly nrql!: pulumi.Output<string>;
     /**
@@ -145,19 +145,19 @@ export class NrqlDropRule extends pulumi.CustomResource {
  */
 export interface NrqlDropRuleState {
     /**
-     * Account with the NRQL drop rule will be put.
+     * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
      */
     action?: pulumi.Input<string>;
     /**
-     * Provides additional information about the rule.
+     * The description of the drop rule.
      */
     description?: pulumi.Input<string>;
     /**
-     * Explains which data to apply the drop rule to.
+     * A NRQL string that specifies what data types to drop.
      */
     nrql?: pulumi.Input<string>;
     /**
@@ -171,19 +171,19 @@ export interface NrqlDropRuleState {
  */
 export interface NrqlDropRuleArgs {
     /**
-     * Account with the NRQL drop rule will be put.
+     * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
      */
     action: pulumi.Input<string>;
     /**
-     * Provides additional information about the rule.
+     * The description of the drop rule.
      */
     description?: pulumi.Input<string>;
     /**
-     * Explains which data to apply the drop rule to.
+     * A NRQL string that specifies what data types to drop.
      */
     nrql: pulumi.Input<string>;
 }

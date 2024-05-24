@@ -17,23 +17,47 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
 
     public static final ServiceLevelEventsValidEventsArgs Empty = new ServiceLevelEventsValidEventsArgs();
 
+    /**
+     * The event type where NRDB data will be fetched from.
+     * 
+     */
     @Import(name="from", required=true)
     private Output<String> from;
 
+    /**
+     * @return The event type where NRDB data will be fetched from.
+     * 
+     */
     public Output<String> from() {
         return this.from;
     }
 
+    /**
+     * The NRQL SELECT clause to aggregate events.
+     * 
+     */
     @Import(name="select")
     private @Nullable Output<ServiceLevelEventsValidEventsSelectArgs> select;
 
+    /**
+     * @return The NRQL SELECT clause to aggregate events.
+     * 
+     */
     public Optional<Output<ServiceLevelEventsValidEventsSelectArgs>> select() {
         return Optional.ofNullable(this.select);
     }
 
+    /**
+     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * 
+     */
     @Import(name="where")
     private @Nullable Output<String> where;
 
+    /**
+     * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * 
+     */
     public Optional<Output<String>> where() {
         return Optional.ofNullable(this.where);
     }
@@ -64,29 +88,65 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
             $ = new ServiceLevelEventsValidEventsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param from The event type where NRDB data will be fetched from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder from(Output<String> from) {
             $.from = from;
             return this;
         }
 
+        /**
+         * @param from The event type where NRDB data will be fetched from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder from(String from) {
             return from(Output.of(from));
         }
 
+        /**
+         * @param select The NRQL SELECT clause to aggregate events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder select(@Nullable Output<ServiceLevelEventsValidEventsSelectArgs> select) {
             $.select = select;
             return this;
         }
 
+        /**
+         * @param select The NRQL SELECT clause to aggregate events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder select(ServiceLevelEventsValidEventsSelectArgs select) {
             return select(Output.of(select));
         }
 
+        /**
+         * @param where A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+         * 
+         * @return builder
+         * 
+         */
         public Builder where(@Nullable Output<String> where) {
             $.where = where;
             return this;
         }
 
+        /**
+         * @param where A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+         * 
+         * @return builder
+         * 
+         */
         public Builder where(String where) {
             return where(Output.of(where));
         }

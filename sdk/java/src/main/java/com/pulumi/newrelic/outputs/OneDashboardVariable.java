@@ -33,7 +33,7 @@ public final class OneDashboardVariable {
      */
     private @Nullable List<OneDashboardVariableItem> items;
     /**
-     * @return (Required) The variable identifier.
+     * @return The title of the dashboard.
      * 
      */
     private String name;
@@ -86,7 +86,7 @@ public final class OneDashboardVariable {
         return this.items == null ? List.of() : this.items;
     }
     /**
-     * @return (Required) The variable identifier.
+     * @return The title of the dashboard.
      * 
      */
     public String name() {

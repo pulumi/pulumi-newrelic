@@ -141,12 +141,33 @@ export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs,
  * A collection of arguments for invoking getServiceLevelAlertHelper.
  */
 export interface GetServiceLevelAlertHelperArgs {
+    /**
+     * The type of alert we want to set. Valid values are:
+     */
     alertType: string;
+    /**
+     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
+     */
     customEvaluationPeriod?: number;
+    /**
+     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
+     */
     customToleratedBudgetConsumption?: number;
+    /**
+     * If the SLI is defined using bad events. Defaults to `false`
+     */
     isBadEvents?: boolean;
+    /**
+     * The guid of the sli we want to set the alert on.
+     */
     sliGuid: string;
+    /**
+     * The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+     */
     sloPeriod: number;
+    /**
+     * The target of the Service Level Objective, valid values between `0` and `100`.
+     */
     sloTarget: number;
 }
 
@@ -309,11 +330,32 @@ export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelpe
  * A collection of arguments for invoking getServiceLevelAlertHelper.
  */
 export interface GetServiceLevelAlertHelperOutputArgs {
+    /**
+     * The type of alert we want to set. Valid values are:
+     */
     alertType: pulumi.Input<string>;
+    /**
+     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
+     */
     customEvaluationPeriod?: pulumi.Input<number>;
+    /**
+     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
+     */
     customToleratedBudgetConsumption?: pulumi.Input<number>;
+    /**
+     * If the SLI is defined using bad events. Defaults to `false`
+     */
     isBadEvents?: pulumi.Input<boolean>;
+    /**
+     * The guid of the sli we want to set the alert on.
+     */
     sliGuid: pulumi.Input<string>;
+    /**
+     * The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+     */
     sloPeriod: pulumi.Input<number>;
+    /**
+     * The target of the Service Level Objective, valid values between `0` and `100`.
+     */
     sloTarget: pulumi.Input<number>;
 }

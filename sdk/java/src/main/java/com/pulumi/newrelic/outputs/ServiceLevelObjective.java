@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelObjective {
+    /**
+     * @return The description of the SLI.
+     * 
+     */
     private @Nullable String description;
+    /**
+     * @return A short name for the SLI that will help anyone understand what it is about.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+     * 
+     */
     private Double target;
+    /**
+     * @return Time window is the period of the objective.
+     * 
+     */
     private ServiceLevelObjectiveTimeWindow timeWindow;
 
     private ServiceLevelObjective() {}
+    /**
+     * @return The description of the SLI.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return A short name for the SLI that will help anyone understand what it is about.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+     * 
+     */
     public Double target() {
         return this.target;
     }
+    /**
+     * @return Time window is the period of the objective.
+     * 
+     */
     public ServiceLevelObjectiveTimeWindow timeWindow() {
         return this.timeWindow;
     }

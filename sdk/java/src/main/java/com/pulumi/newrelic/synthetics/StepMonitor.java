@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()        
+ *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()
  *             .name("Sample Step Monitor")
  *             .enableScreenshotOnFailureAndScript(true)
  *             .locationsPublics(            
@@ -116,13 +116,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()        
+ *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()
  *             .name("Sample Private Location")
  *             .description("Sample Private Location Description")
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
- *         var fooStepMonitor = new StepMonitor("fooStepMonitor", StepMonitorArgs.builder()        
+ *         var fooStepMonitor = new StepMonitor("fooStepMonitor", StepMonitorArgs.builder()
  *             .name("Sample Step Monitor")
  *             .period("EVERY_6_HOURS")
  *             .status("ENABLED")

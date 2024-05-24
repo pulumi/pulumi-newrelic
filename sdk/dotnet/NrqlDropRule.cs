@@ -74,25 +74,25 @@ namespace Pulumi.NewRelic
     public partial class NrqlDropRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Account with the NRQL drop rule will be put.
+        /// Account where the drop rule will be put. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        /// An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// Provides additional information about the rule.
+        /// The description of the drop rule.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Explains which data to apply the drop rule to.
+        /// A NRQL string that specifies what data types to drop.
         /// </summary>
         [Output("nrql")]
         public Output<string> Nrql { get; private set; } = null!;
@@ -150,25 +150,25 @@ namespace Pulumi.NewRelic
     public sealed class NrqlDropRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account with the NRQL drop rule will be put.
+        /// Account where the drop rule will be put. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        /// An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Provides additional information about the rule.
+        /// The description of the drop rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Explains which data to apply the drop rule to.
+        /// A NRQL string that specifies what data types to drop.
         /// </summary>
         [Input("nrql", required: true)]
         public Input<string> Nrql { get; set; } = null!;
@@ -182,25 +182,25 @@ namespace Pulumi.NewRelic
     public sealed class NrqlDropRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account with the NRQL drop rule will be put.
+        /// Account where the drop rule will be put. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+        /// An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// Provides additional information about the rule.
+        /// The description of the drop rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Explains which data to apply the drop rule to.
+        /// A NRQL string that specifies what data types to drop.
         /// </summary>
         [Input("nrql")]
         public Input<string>? Nrql { get; set; }

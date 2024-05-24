@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AzureLinkAccount("foo", AzureLinkAccountArgs.builder()        
+ *         var foo = new AzureLinkAccount("foo", AzureLinkAccountArgs.builder()
  *             .accountId("The New Relic account ID where you want to link the Azure account")
  *             .applicationId("ID of the application")
  *             .clientSecret("Secret value of client's Azure account")

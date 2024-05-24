@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new LogParsingRule("foo", LogParsingRuleArgs.builder()        
+ *         var foo = new LogParsingRule("foo", LogParsingRuleArgs.builder()
  *             .name("log_parse_rule")
  *             .attribute("message")
  *             .enabled(true)
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .logLines("host_ip: 43.3.120.2")
  *             .build());
  * 
- *         var foo = new LogParsingRule("foo", LogParsingRuleArgs.builder()        
+ *         var foo = new LogParsingRule("foo", LogParsingRuleArgs.builder()
  *             .name("log_parse_rule")
  *             .attribute("message")
  *             .enabled(true)

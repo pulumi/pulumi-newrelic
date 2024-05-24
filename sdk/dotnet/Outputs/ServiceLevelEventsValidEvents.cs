@@ -13,8 +13,17 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class ServiceLevelEventsValidEvents
     {
+        /// <summary>
+        /// The event type where NRDB data will be fetched from.
+        /// </summary>
         public readonly string From;
+        /// <summary>
+        /// The NRQL SELECT clause to aggregate events.
+        /// </summary>
         public readonly Outputs.ServiceLevelEventsValidEventsSelect? Select;
+        /// <summary>
+        /// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        /// </summary>
         public readonly string? Where;
 
         [OutputConstructor]
