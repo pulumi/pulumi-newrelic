@@ -1723,11 +1723,24 @@
                                                     }
                                                 }
                                             },
+                                            "threshold": {
+                                                "maxItemsOne": false
+                                            },
                                             "units": {
                                                 "maxItemsOne": false,
                                                 "elem": {
                                                     "fields": {
                                                         "series_overrides": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "y_axis_right": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "y_axis_right_series": {
                                                             "maxItemsOne": false
                                                         }
                                                     }
@@ -1925,6 +1938,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "threshold": {
+                                                "maxItemsOne": false
                                             },
                                             "units": {
                                                 "maxItemsOne": false,
