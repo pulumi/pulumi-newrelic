@@ -19,30 +19,64 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
 
     public static final ServiceLevelEventsArgs Empty = new ServiceLevelEventsArgs();
 
+    /**
+     * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+     * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+     * 
+     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
+    /**
+     * @return The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+     * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
+    /**
+     * The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+     * 
+     */
     @Import(name="badEvents")
     private @Nullable Output<ServiceLevelEventsBadEventsArgs> badEvents;
 
+    /**
+     * @return The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+     * 
+     */
     public Optional<Output<ServiceLevelEventsBadEventsArgs>> badEvents() {
         return Optional.ofNullable(this.badEvents);
     }
 
+    /**
+     * The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+     * 
+     */
     @Import(name="goodEvents")
     private @Nullable Output<ServiceLevelEventsGoodEventsArgs> goodEvents;
 
+    /**
+     * @return The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+     * 
+     */
     public Optional<Output<ServiceLevelEventsGoodEventsArgs>> goodEvents() {
         return Optional.ofNullable(this.goodEvents);
     }
 
+    /**
+     * The definition of valid requests.
+     * 
+     */
     @Import(name="validEvents", required=true)
     private Output<ServiceLevelEventsValidEventsArgs> validEvents;
 
+    /**
+     * @return The definition of valid requests.
+     * 
+     */
     public Output<ServiceLevelEventsValidEventsArgs> validEvents() {
         return this.validEvents;
     }
@@ -74,38 +108,88 @@ public final class ServiceLevelEventsArgs extends com.pulumi.resources.ResourceA
             $ = new ServiceLevelEventsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+         * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+         * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param badEvents The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder badEvents(@Nullable Output<ServiceLevelEventsBadEventsArgs> badEvents) {
             $.badEvents = badEvents;
             return this;
         }
 
+        /**
+         * @param badEvents The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder badEvents(ServiceLevelEventsBadEventsArgs badEvents) {
             return badEvents(Output.of(badEvents));
         }
 
+        /**
+         * @param goodEvents The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder goodEvents(@Nullable Output<ServiceLevelEventsGoodEventsArgs> goodEvents) {
             $.goodEvents = goodEvents;
             return this;
         }
 
+        /**
+         * @param goodEvents The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder goodEvents(ServiceLevelEventsGoodEventsArgs goodEvents) {
             return goodEvents(Output.of(goodEvents));
         }
 
+        /**
+         * @param validEvents The definition of valid requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validEvents(Output<ServiceLevelEventsValidEventsArgs> validEvents) {
             $.validEvents = validEvents;
             return this;
         }
 
+        /**
+         * @param validEvents The definition of valid requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validEvents(ServiceLevelEventsValidEventsArgs validEvents) {
             return validEvents(Output.of(validEvents));
         }

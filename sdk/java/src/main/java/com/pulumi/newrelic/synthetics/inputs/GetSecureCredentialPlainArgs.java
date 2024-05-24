@@ -15,16 +15,32 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetSecureCredentialPlainArgs Empty = new GetSecureCredentialPlainArgs();
 
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable String accountId;
 
+    /**
+     * @return The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -54,11 +70,23 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
             $ = new GetSecureCredentialPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param key The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;

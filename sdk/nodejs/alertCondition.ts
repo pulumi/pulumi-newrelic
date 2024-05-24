@@ -134,12 +134,11 @@ export class AlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     public readonly conditionScope!: pulumi.Output<string | undefined>;
     /**
-     * Whether the condition is enabled.
+     * Whether the condition is enabled or not. Defaults to true.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -151,16 +150,15 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
-     * gcCpuTime condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
     public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
-     * The metric field accepts parameters based on the type set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      */
     public readonly metric!: pulumi.Output<string>;
     /**
-     * The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -171,10 +169,12 @@ export class AlertCondition extends pulumi.CustomResource {
      * Runbook URL to display in notifications.
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    /**
+     * A list of terms for this condition. See Terms below for details.
+     */
     public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
-     * The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -182,12 +182,19 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly userDefinedMetric!: pulumi.Output<string | undefined>;
     /**
-     * One of: (average, min, max, total, sample_size, percent, rate).
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+     *
+     * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
 
@@ -260,12 +267,11 @@ export class AlertCondition extends pulumi.CustomResource {
  */
 export interface AlertConditionState {
     /**
-     * One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     conditionScope?: pulumi.Input<string>;
     /**
-     * Whether the condition is enabled.
+     * Whether the condition is enabled or not. Defaults to true.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -277,16 +283,15 @@ export interface AlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
-     * gcCpuTime condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
     gcMetric?: pulumi.Input<string>;
     /**
-     * The metric field accepts parameters based on the type set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      */
     metric?: pulumi.Input<string>;
     /**
-     * The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
     name?: pulumi.Input<string>;
     /**
@@ -297,10 +302,12 @@ export interface AlertConditionState {
      * Runbook URL to display in notifications.
      */
     runbookUrl?: pulumi.Input<string>;
+    /**
+     * A list of terms for this condition. See Terms below for details.
+     */
     terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     type?: pulumi.Input<string>;
     /**
@@ -308,12 +315,19 @@ export interface AlertConditionState {
      */
     userDefinedMetric?: pulumi.Input<string>;
     /**
-     * One of: (average, min, max, total, sample_size, percent, rate).
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+     *
+     * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      */
     violationCloseTimer?: pulumi.Input<number>;
 }
@@ -323,12 +337,11 @@ export interface AlertConditionState {
  */
 export interface AlertConditionArgs {
     /**
-     * One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     conditionScope?: pulumi.Input<string>;
     /**
-     * Whether the condition is enabled.
+     * Whether the condition is enabled or not. Defaults to true.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -336,16 +349,15 @@ export interface AlertConditionArgs {
      */
     entities: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apmJvmMetric with
-     * gcCpuTime condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
     gcMetric?: pulumi.Input<string>;
     /**
-     * The metric field accepts parameters based on the type set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      */
     metric: pulumi.Input<string>;
     /**
-     * The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
     name?: pulumi.Input<string>;
     /**
@@ -356,10 +368,12 @@ export interface AlertConditionArgs {
      * Runbook URL to display in notifications.
      */
     runbookUrl?: pulumi.Input<string>;
+    /**
+     * A list of terms for this condition. See Terms below for details.
+     */
     terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     type: pulumi.Input<string>;
     /**
@@ -367,12 +381,19 @@ export interface AlertConditionArgs {
      */
     userDefinedMetric?: pulumi.Input<string>;
     /**
-     * One of: (average, min, max, total, sample_size, percent, rate).
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
+     *
+     * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
+     *
+     * ```
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      */
     violationCloseTimer?: pulumi.Input<number>;
 }

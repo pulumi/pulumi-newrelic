@@ -18,14 +18,14 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
     public static final WorkloadStatusConfigStaticArgs Empty = new WorkloadStatusConfigStaticArgs();
 
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description that provides additional details about the status of the workload.
+     * @return Relevant information about the workload.
      * 
      */
     public Optional<Output<String>> description() {
@@ -105,7 +105,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param description A description that provides additional details about the status of the workload.
+         * @param description Relevant information about the workload.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param description A description that provides additional details about the status of the workload.
+         * @param description Relevant information about the workload.
          * 
          * @return builder
          * 

@@ -664,9 +664,9 @@ func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTe
 }
 
 type AlertMutingRuleCondition struct {
-	// The individual MutingRuleConditions within the group.
+	// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 	Conditions []AlertMutingRuleConditionCondition `pulumi:"conditions"`
-	// The operator used to combine all the MutingRuleConditions within the group.
+	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 	Operator string `pulumi:"operator"`
 }
 
@@ -682,9 +682,9 @@ type AlertMutingRuleConditionInput interface {
 }
 
 type AlertMutingRuleConditionArgs struct {
-	// The individual MutingRuleConditions within the group.
+	// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 	Conditions AlertMutingRuleConditionConditionArrayInput `pulumi:"conditions"`
-	// The operator used to combine all the MutingRuleConditions within the group.
+	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 }
 
@@ -765,12 +765,12 @@ func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionPtrOutputWithC
 	}).(AlertMutingRuleConditionPtrOutput)
 }
 
-// The individual MutingRuleConditions within the group.
+// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 func (o AlertMutingRuleConditionOutput) Conditions() AlertMutingRuleConditionConditionArrayOutput {
 	return o.ApplyT(func(v AlertMutingRuleCondition) []AlertMutingRuleConditionCondition { return v.Conditions }).(AlertMutingRuleConditionConditionArrayOutput)
 }
 
-// The operator used to combine all the MutingRuleConditions within the group.
+// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 func (o AlertMutingRuleConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -799,7 +799,7 @@ func (o AlertMutingRuleConditionPtrOutput) Elem() AlertMutingRuleConditionOutput
 	}).(AlertMutingRuleConditionOutput)
 }
 
-// The individual MutingRuleConditions within the group.
+// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 func (o AlertMutingRuleConditionPtrOutput) Conditions() AlertMutingRuleConditionConditionArrayOutput {
 	return o.ApplyT(func(v *AlertMutingRuleCondition) []AlertMutingRuleConditionCondition {
 		if v == nil {
@@ -809,7 +809,7 @@ func (o AlertMutingRuleConditionPtrOutput) Conditions() AlertMutingRuleCondition
 	}).(AlertMutingRuleConditionConditionArrayOutput)
 }
 
-// The operator used to combine all the MutingRuleConditions within the group.
+// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleCondition) *string {
 		if v == nil {
@@ -938,6 +938,7 @@ type AlertMutingRuleSchedule struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat *string `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	EndTime *string `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat *string `pulumi:"repeat"`
@@ -966,6 +967,7 @@ type AlertMutingRuleScheduleArgs struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat pulumi.StringPtrInput `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat pulumi.StringPtrInput `pulumi:"repeat"`
@@ -1062,6 +1064,7 @@ func (o AlertMutingRuleScheduleOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 func (o AlertMutingRuleScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
@@ -1126,6 +1129,7 @@ func (o AlertMutingRuleSchedulePtrOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 func (o AlertMutingRuleSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
 		if v == nil {
@@ -3839,11 +3843,11 @@ func (o ObfuscationRuleActionArrayOutput) Index(i pulumi.IntInput) ObfuscationRu
 }
 
 type OneDashboardPage struct {
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description *string `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid *string `pulumi:"guid"`
-	// (Required) The variable identifier.
+	// The title of the dashboard.
 	Name string `pulumi:"name"`
 	// An area widget.
 	WidgetAreas []OneDashboardPageWidgetArea `pulumi:"widgetAreas"`
@@ -3887,11 +3891,11 @@ type OneDashboardPageInput interface {
 }
 
 type OneDashboardPageArgs struct {
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid pulumi.StringPtrInput `pulumi:"guid"`
-	// (Required) The variable identifier.
+	// The title of the dashboard.
 	Name pulumi.StringInput `pulumi:"name"`
 	// An area widget.
 	WidgetAreas OneDashboardPageWidgetAreaArrayInput `pulumi:"widgetAreas"`
@@ -3974,7 +3978,7 @@ func (o OneDashboardPageOutput) ToOneDashboardPageOutputWithContext(ctx context.
 	return o
 }
 
-// (Optional) Brief text describing the page.
+// Brief text describing the dashboard.
 func (o OneDashboardPageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPage) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -3984,7 +3988,7 @@ func (o OneDashboardPageOutput) Guid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPage) *string { return v.Guid }).(pulumi.StringPtrOutput)
 }
 
-// (Required) The variable identifier.
+// The title of the dashboard.
 func (o OneDashboardPageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPage) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4514,7 +4518,7 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi
 }
 
 type OneDashboardPageWidgetAreaNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -4532,7 +4536,7 @@ type OneDashboardPageWidgetAreaNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetAreaNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -4589,7 +4593,7 @@ func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaN
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetAreaNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -5500,7 +5504,7 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.
 }
 
 type OneDashboardPageWidgetBarNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -5518,7 +5522,7 @@ type OneDashboardPageWidgetBarNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetBarNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -5575,7 +5579,7 @@ func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrq
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetBarNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -6490,7 +6494,7 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i p
 }
 
 type OneDashboardPageWidgetBillboardNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -6508,7 +6512,7 @@ type OneDashboardPageWidgetBillboardNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetBillboardNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -6565,7 +6569,7 @@ func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidget
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -7467,7 +7471,7 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulu
 }
 
 type OneDashboardPageWidgetBulletNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -7485,7 +7489,7 @@ type OneDashboardPageWidgetBulletNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetBulletNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -7542,7 +7546,7 @@ func (o OneDashboardPageWidgetBulletNrqlQueryOutput) ToOneDashboardPageWidgetBul
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetBulletNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBulletNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -8435,7 +8439,7 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulu
 }
 
 type OneDashboardPageWidgetFunnelNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -8453,7 +8457,7 @@ type OneDashboardPageWidgetFunnelNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetFunnelNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -8510,7 +8514,7 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) ToOneDashboardPageWidgetFun
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -9421,7 +9425,7 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pul
 }
 
 type OneDashboardPageWidgetHeatmapNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -9439,7 +9443,7 @@ type OneDashboardPageWidgetHeatmapNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetHeatmapNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -9496,7 +9500,7 @@ func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) ToOneDashboardPageWidgetHe
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -10393,7 +10397,7 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i p
 }
 
 type OneDashboardPageWidgetHistogramNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -10411,7 +10415,7 @@ type OneDashboardPageWidgetHistogramNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetHistogramNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -10468,7 +10472,7 @@ func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) ToOneDashboardPageWidget
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -11361,7 +11365,7 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi
 }
 
 type OneDashboardPageWidgetJsonNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -11379,7 +11383,7 @@ type OneDashboardPageWidgetJsonNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetJsonNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -11436,7 +11440,7 @@ func (o OneDashboardPageWidgetJsonNrqlQueryOutput) ToOneDashboardPageWidgetJsonN
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetJsonNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJsonNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -12338,7 +12342,7 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi
 }
 
 type OneDashboardPageWidgetLineNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -12356,7 +12360,7 @@ type OneDashboardPageWidgetLineNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetLineNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -12413,7 +12417,7 @@ func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineN
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetLineNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -13306,7 +13310,7 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pu
 }
 
 type OneDashboardPageWidgetLogTableNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -13324,7 +13328,7 @@ type OneDashboardPageWidgetLogTableNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetLogTableNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -13381,7 +13385,7 @@ func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetL
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -15154,7 +15158,7 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.I
 }
 
 type OneDashboardPageWidgetPyNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -15172,7 +15176,7 @@ type OneDashboardPageWidgetPyNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetPyNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -15229,7 +15233,7 @@ func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQ
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetPyNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -16126,7 +16130,7 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i 
 }
 
 type OneDashboardPageWidgetStackedBarNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -16144,7 +16148,7 @@ type OneDashboardPageWidgetStackedBarNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetStackedBarNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -16201,7 +16205,7 @@ func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidge
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -17112,7 +17116,7 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulum
 }
 
 type OneDashboardPageWidgetTableNrqlQuery struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -17130,7 +17134,7 @@ type OneDashboardPageWidgetTableNrqlQueryInput interface {
 }
 
 type OneDashboardPageWidgetTableNrqlQueryArgs struct {
-	// The account id used for the NRQL query.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -17187,7 +17191,7 @@ func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTabl
 	return o
 }
 
-// The account id used for the NRQL query.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardPageWidgetTableNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -17945,7 +17949,7 @@ type OneDashboardVariable struct {
 	IsMultiSelection *bool `pulumi:"isMultiSelection"`
 	// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
 	Items []OneDashboardVariableItem `pulumi:"items"`
-	// (Required) The variable identifier.
+	// The title of the dashboard.
 	Name string `pulumi:"name"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQuery *OneDashboardVariableNrqlQuery `pulumi:"nrqlQuery"`
@@ -17977,7 +17981,7 @@ type OneDashboardVariableArgs struct {
 	IsMultiSelection pulumi.BoolPtrInput `pulumi:"isMultiSelection"`
 	// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
 	Items OneDashboardVariableItemArrayInput `pulumi:"items"`
-	// (Required) The variable identifier.
+	// The title of the dashboard.
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQuery OneDashboardVariableNrqlQueryPtrInput `pulumi:"nrqlQuery"`
@@ -18057,7 +18061,7 @@ func (o OneDashboardVariableOutput) Items() OneDashboardVariableItemArrayOutput 
 	return o.ApplyT(func(v OneDashboardVariable) []OneDashboardVariableItem { return v.Items }).(OneDashboardVariableItemArrayOutput)
 }
 
-// (Required) The variable identifier.
+// The title of the dashboard.
 func (o OneDashboardVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -18467,9 +18471,14 @@ func (o OneDashboardVariableOptionArrayOutput) Index(i pulumi.IntInput) OneDashb
 }
 
 type ServiceLevelEvents struct {
-	AccountId   string                        `pulumi:"accountId"`
-	BadEvents   *ServiceLevelEventsBadEvents  `pulumi:"badEvents"`
-	GoodEvents  *ServiceLevelEventsGoodEvents `pulumi:"goodEvents"`
+	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+	AccountId string `pulumi:"accountId"`
+	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+	BadEvents *ServiceLevelEventsBadEvents `pulumi:"badEvents"`
+	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+	GoodEvents *ServiceLevelEventsGoodEvents `pulumi:"goodEvents"`
+	// The definition of valid requests.
 	ValidEvents ServiceLevelEventsValidEvents `pulumi:"validEvents"`
 }
 
@@ -18485,10 +18494,15 @@ type ServiceLevelEventsInput interface {
 }
 
 type ServiceLevelEventsArgs struct {
-	AccountId   pulumi.StringInput                   `pulumi:"accountId"`
-	BadEvents   ServiceLevelEventsBadEventsPtrInput  `pulumi:"badEvents"`
-	GoodEvents  ServiceLevelEventsGoodEventsPtrInput `pulumi:"goodEvents"`
-	ValidEvents ServiceLevelEventsValidEventsInput   `pulumi:"validEvents"`
+	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+	BadEvents ServiceLevelEventsBadEventsPtrInput `pulumi:"badEvents"`
+	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+	GoodEvents ServiceLevelEventsGoodEventsPtrInput `pulumi:"goodEvents"`
+	// The definition of valid requests.
+	ValidEvents ServiceLevelEventsValidEventsInput `pulumi:"validEvents"`
 }
 
 func (ServiceLevelEventsArgs) ElementType() reflect.Type {
@@ -18568,18 +18582,23 @@ func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx c
 	}).(ServiceLevelEventsPtrOutput)
 }
 
+// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
 func (o ServiceLevelEventsOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEvents) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 func (o ServiceLevelEventsOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEventsBadEvents { return v.BadEvents }).(ServiceLevelEventsBadEventsPtrOutput)
 }
 
+// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
 func (o ServiceLevelEventsOutput) GoodEvents() ServiceLevelEventsGoodEventsPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEventsGoodEvents { return v.GoodEvents }).(ServiceLevelEventsGoodEventsPtrOutput)
 }
 
+// The definition of valid requests.
 func (o ServiceLevelEventsOutput) ValidEvents() ServiceLevelEventsValidEventsOutput {
 	return o.ApplyT(func(v ServiceLevelEvents) ServiceLevelEventsValidEvents { return v.ValidEvents }).(ServiceLevelEventsValidEventsOutput)
 }
@@ -18608,6 +18627,8 @@ func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
 	}).(ServiceLevelEventsOutput)
 }
 
+// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
 func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEvents) *string {
 		if v == nil {
@@ -18617,6 +18638,7 @@ func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 func (o ServiceLevelEventsPtrOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEvents) *ServiceLevelEventsBadEvents {
 		if v == nil {
@@ -18626,6 +18648,7 @@ func (o ServiceLevelEventsPtrOutput) BadEvents() ServiceLevelEventsBadEventsPtrO
 	}).(ServiceLevelEventsBadEventsPtrOutput)
 }
 
+// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
 func (o ServiceLevelEventsPtrOutput) GoodEvents() ServiceLevelEventsGoodEventsPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEvents) *ServiceLevelEventsGoodEvents {
 		if v == nil {
@@ -18635,6 +18658,7 @@ func (o ServiceLevelEventsPtrOutput) GoodEvents() ServiceLevelEventsGoodEventsPt
 	}).(ServiceLevelEventsGoodEventsPtrOutput)
 }
 
+// The definition of valid requests.
 func (o ServiceLevelEventsPtrOutput) ValidEvents() ServiceLevelEventsValidEventsPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEvents) *ServiceLevelEventsValidEvents {
 		if v == nil {
@@ -18645,9 +18669,13 @@ func (o ServiceLevelEventsPtrOutput) ValidEvents() ServiceLevelEventsValidEvents
 }
 
 type ServiceLevelEventsBadEvents struct {
-	From   string                             `pulumi:"from"`
+	// The event type where NRDB data will be fetched from.
+	From string `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsBadEventsSelect `pulumi:"select"`
-	Where  *string                            `pulumi:"where"`
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+	// a particular entity and returned an error).
+	Where *string `pulumi:"where"`
 }
 
 // ServiceLevelEventsBadEventsInput is an input type that accepts ServiceLevelEventsBadEventsArgs and ServiceLevelEventsBadEventsOutput values.
@@ -18662,9 +18690,13 @@ type ServiceLevelEventsBadEventsInput interface {
 }
 
 type ServiceLevelEventsBadEventsArgs struct {
-	From   pulumi.StringInput                        `pulumi:"from"`
+	// The event type where NRDB data will be fetched from.
+	From pulumi.StringInput `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsBadEventsSelectPtrInput `pulumi:"select"`
-	Where  pulumi.StringPtrInput                     `pulumi:"where"`
+	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+	// a particular entity and returned an error).
+	Where pulumi.StringPtrInput `pulumi:"where"`
 }
 
 func (ServiceLevelEventsBadEventsArgs) ElementType() reflect.Type {
@@ -18744,14 +18776,18 @@ func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsPtrOutpu
 	}).(ServiceLevelEventsBadEventsPtrOutput)
 }
 
+// The event type where NRDB data will be fetched from.
 func (o ServiceLevelEventsBadEventsOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEvents) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
 func (o ServiceLevelEventsBadEventsOutput) Select() ServiceLevelEventsBadEventsSelectPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEventsSelect { return v.Select }).(ServiceLevelEventsBadEventsSelectPtrOutput)
 }
 
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+// a particular entity and returned an error).
 func (o ServiceLevelEventsBadEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
 }
@@ -18780,6 +18816,7 @@ func (o ServiceLevelEventsBadEventsPtrOutput) Elem() ServiceLevelEventsBadEvents
 	}).(ServiceLevelEventsBadEventsOutput)
 }
 
+// The event type where NRDB data will be fetched from.
 func (o ServiceLevelEventsBadEventsPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *string {
 		if v == nil {
@@ -18789,6 +18826,7 @@ func (o ServiceLevelEventsBadEventsPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
 func (o ServiceLevelEventsBadEventsPtrOutput) Select() ServiceLevelEventsBadEventsSelectPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEventsSelect {
 		if v == nil {
@@ -18798,6 +18836,8 @@ func (o ServiceLevelEventsBadEventsPtrOutput) Select() ServiceLevelEventsBadEven
 	}).(ServiceLevelEventsBadEventsSelectPtrOutput)
 }
 
+// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+// a particular entity and returned an error).
 func (o ServiceLevelEventsBadEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *string {
 		if v == nil {
@@ -18808,9 +18848,11 @@ func (o ServiceLevelEventsBadEventsPtrOutput) Where() pulumi.StringPtrOutput {
 }
 
 type ServiceLevelEventsBadEventsSelect struct {
+	// The event attribute to use in the SELECT clause.
 	Attribute *string `pulumi:"attribute"`
-	Function  string  `pulumi:"function"`
-	// The event threshold to use in the SELECT clause
+	// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+	Function string `pulumi:"function"`
+	// Limit for values to be counter by `GET_CDF_COUNT` function.
 	Threshold *float64 `pulumi:"threshold"`
 }
 
@@ -18826,9 +18868,11 @@ type ServiceLevelEventsBadEventsSelectInput interface {
 }
 
 type ServiceLevelEventsBadEventsSelectArgs struct {
+	// The event attribute to use in the SELECT clause.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	Function  pulumi.StringInput    `pulumi:"function"`
-	// The event threshold to use in the SELECT clause
+	// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+	Function pulumi.StringInput `pulumi:"function"`
+	// Limit for values to be counter by `GET_CDF_COUNT` function.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
@@ -18909,15 +18953,17 @@ func (o ServiceLevelEventsBadEventsSelectOutput) ToServiceLevelEventsBadEventsSe
 	}).(ServiceLevelEventsBadEventsSelectPtrOutput)
 }
 
+// The event attribute to use in the SELECT clause.
 func (o ServiceLevelEventsBadEventsSelectOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
+// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
 func (o ServiceLevelEventsBadEventsSelectOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The event threshold to use in the SELECT clause
+// Limit for values to be counter by `GET_CDF_COUNT` function.
 func (o ServiceLevelEventsBadEventsSelectOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
@@ -18946,6 +18992,7 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) Elem() ServiceLevelEventsBad
 	}).(ServiceLevelEventsBadEventsSelectOutput)
 }
 
+// The event attribute to use in the SELECT clause.
 func (o ServiceLevelEventsBadEventsSelectPtrOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *string {
 		if v == nil {
@@ -18955,6 +19002,7 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) Attribute() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
 func (o ServiceLevelEventsBadEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *string {
 		if v == nil {
@@ -18964,7 +19012,7 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) Function() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event threshold to use in the SELECT clause
+// Limit for values to be counter by `GET_CDF_COUNT` function.
 func (o ServiceLevelEventsBadEventsSelectPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *float64 {
 		if v == nil {
@@ -18975,9 +19023,13 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) Threshold() pulumi.Float64Pt
 }
 
 type ServiceLevelEventsGoodEvents struct {
-	From   string                              `pulumi:"from"`
+	// The event type where NRDB data will be fetched from.
+	From string `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsGoodEventsSelect `pulumi:"select"`
-	Where  *string                             `pulumi:"where"`
+	// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+	// a particular entity and were successful).
+	Where *string `pulumi:"where"`
 }
 
 // ServiceLevelEventsGoodEventsInput is an input type that accepts ServiceLevelEventsGoodEventsArgs and ServiceLevelEventsGoodEventsOutput values.
@@ -18992,9 +19044,13 @@ type ServiceLevelEventsGoodEventsInput interface {
 }
 
 type ServiceLevelEventsGoodEventsArgs struct {
-	From   pulumi.StringInput                         `pulumi:"from"`
+	// The event type where NRDB data will be fetched from.
+	From pulumi.StringInput `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsGoodEventsSelectPtrInput `pulumi:"select"`
-	Where  pulumi.StringPtrInput                      `pulumi:"where"`
+	// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+	// a particular entity and were successful).
+	Where pulumi.StringPtrInput `pulumi:"where"`
 }
 
 func (ServiceLevelEventsGoodEventsArgs) ElementType() reflect.Type {
@@ -19074,14 +19130,18 @@ func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsPtrOut
 	}).(ServiceLevelEventsGoodEventsPtrOutput)
 }
 
+// The event type where NRDB data will be fetched from.
 func (o ServiceLevelEventsGoodEventsOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
 func (o ServiceLevelEventsGoodEventsOutput) Select() ServiceLevelEventsGoodEventsSelectPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEventsSelect { return v.Select }).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
+// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+// a particular entity and were successful).
 func (o ServiceLevelEventsGoodEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
 }
@@ -19110,6 +19170,7 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Elem() ServiceLevelEventsGoodEven
 	}).(ServiceLevelEventsGoodEventsOutput)
 }
 
+// The event type where NRDB data will be fetched from.
 func (o ServiceLevelEventsGoodEventsPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *string {
 		if v == nil {
@@ -19119,6 +19180,7 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
 func (o ServiceLevelEventsGoodEventsPtrOutput) Select() ServiceLevelEventsGoodEventsSelectPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEventsSelect {
 		if v == nil {
@@ -19128,6 +19190,8 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Select() ServiceLevelEventsGoodEv
 	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
+// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+// a particular entity and were successful).
 func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *string {
 		if v == nil {
@@ -19138,9 +19202,11 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
 }
 
 type ServiceLevelEventsGoodEventsSelect struct {
+	// The event attribute to use in the SELECT clause.
 	Attribute *string `pulumi:"attribute"`
-	Function  string  `pulumi:"function"`
-	// The event threshold to use in the SELECT clause
+	// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+	Function string `pulumi:"function"`
+	// Limit for values to be counter by `GET_CDF_COUNT` function.
 	Threshold *float64 `pulumi:"threshold"`
 }
 
@@ -19156,9 +19222,11 @@ type ServiceLevelEventsGoodEventsSelectInput interface {
 }
 
 type ServiceLevelEventsGoodEventsSelectArgs struct {
+	// The event attribute to use in the SELECT clause.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	Function  pulumi.StringInput    `pulumi:"function"`
-	// The event threshold to use in the SELECT clause
+	// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+	Function pulumi.StringInput `pulumi:"function"`
+	// Limit for values to be counter by `GET_CDF_COUNT` function.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
@@ -19239,15 +19307,17 @@ func (o ServiceLevelEventsGoodEventsSelectOutput) ToServiceLevelEventsGoodEvents
 	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
+// The event attribute to use in the SELECT clause.
 func (o ServiceLevelEventsGoodEventsSelectOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
+// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
 func (o ServiceLevelEventsGoodEventsSelectOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The event threshold to use in the SELECT clause
+// Limit for values to be counter by `GET_CDF_COUNT` function.
 func (o ServiceLevelEventsGoodEventsSelectOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
@@ -19276,6 +19346,7 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Elem() ServiceLevelEventsGo
 	}).(ServiceLevelEventsGoodEventsSelectOutput)
 }
 
+// The event attribute to use in the SELECT clause.
 func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *string {
 		if v == nil {
@@ -19285,6 +19356,7 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Attribute() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
 func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *string {
 		if v == nil {
@@ -19294,7 +19366,7 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Function() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event threshold to use in the SELECT clause
+// Limit for values to be counter by `GET_CDF_COUNT` function.
 func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *float64 {
 		if v == nil {
@@ -19305,9 +19377,12 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Threshold() pulumi.Float64P
 }
 
 type ServiceLevelEventsValidEvents struct {
-	From   string                               `pulumi:"from"`
+	// The event type where NRDB data will be fetched from.
+	From string `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsValidEventsSelect `pulumi:"select"`
-	Where  *string                              `pulumi:"where"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	Where *string `pulumi:"where"`
 }
 
 // ServiceLevelEventsValidEventsInput is an input type that accepts ServiceLevelEventsValidEventsArgs and ServiceLevelEventsValidEventsOutput values.
@@ -19322,9 +19397,12 @@ type ServiceLevelEventsValidEventsInput interface {
 }
 
 type ServiceLevelEventsValidEventsArgs struct {
-	From   pulumi.StringInput                          `pulumi:"from"`
+	// The event type where NRDB data will be fetched from.
+	From pulumi.StringInput `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsValidEventsSelectPtrInput `pulumi:"select"`
-	Where  pulumi.StringPtrInput                       `pulumi:"where"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	Where pulumi.StringPtrInput `pulumi:"where"`
 }
 
 func (ServiceLevelEventsValidEventsArgs) ElementType() reflect.Type {
@@ -19404,14 +19482,17 @@ func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsPtrO
 	}).(ServiceLevelEventsValidEventsPtrOutput)
 }
 
+// The event type where NRDB data will be fetched from.
 func (o ServiceLevelEventsValidEventsOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
 func (o ServiceLevelEventsValidEventsOutput) Select() ServiceLevelEventsValidEventsSelectPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEventsSelect { return v.Select }).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 func (o ServiceLevelEventsValidEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
 }
@@ -19440,6 +19521,7 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Elem() ServiceLevelEventsValidEv
 	}).(ServiceLevelEventsValidEventsOutput)
 }
 
+// The event type where NRDB data will be fetched from.
 func (o ServiceLevelEventsValidEventsPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *string {
 		if v == nil {
@@ -19449,6 +19531,7 @@ func (o ServiceLevelEventsValidEventsPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
 func (o ServiceLevelEventsValidEventsPtrOutput) Select() ServiceLevelEventsValidEventsSelectPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEventsSelect {
 		if v == nil {
@@ -19458,6 +19541,7 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Select() ServiceLevelEventsValid
 	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *string {
 		if v == nil {
@@ -19468,9 +19552,11 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
 }
 
 type ServiceLevelEventsValidEventsSelect struct {
+	// The event attribute to use in the SELECT clause.
 	Attribute *string `pulumi:"attribute"`
-	Function  string  `pulumi:"function"`
-	// The event threshold to use in the SELECT clause
+	// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+	Function string `pulumi:"function"`
+	// Limit for values to be counter by `GET_CDF_COUNT` function.
 	Threshold *float64 `pulumi:"threshold"`
 }
 
@@ -19486,9 +19572,11 @@ type ServiceLevelEventsValidEventsSelectInput interface {
 }
 
 type ServiceLevelEventsValidEventsSelectArgs struct {
+	// The event attribute to use in the SELECT clause.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	Function  pulumi.StringInput    `pulumi:"function"`
-	// The event threshold to use in the SELECT clause
+	// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+	Function pulumi.StringInput `pulumi:"function"`
+	// Limit for values to be counter by `GET_CDF_COUNT` function.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
@@ -19569,15 +19657,17 @@ func (o ServiceLevelEventsValidEventsSelectOutput) ToServiceLevelEventsValidEven
 	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
+// The event attribute to use in the SELECT clause.
 func (o ServiceLevelEventsValidEventsSelectOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
+// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
 func (o ServiceLevelEventsValidEventsSelectOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The event threshold to use in the SELECT clause
+// Limit for values to be counter by `GET_CDF_COUNT` function.
 func (o ServiceLevelEventsValidEventsSelectOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
@@ -19606,6 +19696,7 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) Elem() ServiceLevelEventsV
 	}).(ServiceLevelEventsValidEventsSelectOutput)
 }
 
+// The event attribute to use in the SELECT clause.
 func (o ServiceLevelEventsValidEventsSelectPtrOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *string {
 		if v == nil {
@@ -19615,6 +19706,7 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) Attribute() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
 func (o ServiceLevelEventsValidEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *string {
 		if v == nil {
@@ -19624,7 +19716,7 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) Function() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event threshold to use in the SELECT clause
+// Limit for values to be counter by `GET_CDF_COUNT` function.
 func (o ServiceLevelEventsValidEventsSelectPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *float64 {
 		if v == nil {
@@ -19635,10 +19727,14 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) Threshold() pulumi.Float64
 }
 
 type ServiceLevelObjective struct {
-	Description *string                         `pulumi:"description"`
-	Name        *string                         `pulumi:"name"`
-	Target      float64                         `pulumi:"target"`
-	TimeWindow  ServiceLevelObjectiveTimeWindow `pulumi:"timeWindow"`
+	// The description of the SLI.
+	Description *string `pulumi:"description"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name *string `pulumi:"name"`
+	// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+	Target float64 `pulumi:"target"`
+	// Time window is the period of the objective.
+	TimeWindow ServiceLevelObjectiveTimeWindow `pulumi:"timeWindow"`
 }
 
 // ServiceLevelObjectiveInput is an input type that accepts ServiceLevelObjectiveArgs and ServiceLevelObjectiveOutput values.
@@ -19653,10 +19749,14 @@ type ServiceLevelObjectiveInput interface {
 }
 
 type ServiceLevelObjectiveArgs struct {
-	Description pulumi.StringPtrInput                `pulumi:"description"`
-	Name        pulumi.StringPtrInput                `pulumi:"name"`
-	Target      pulumi.Float64Input                  `pulumi:"target"`
-	TimeWindow  ServiceLevelObjectiveTimeWindowInput `pulumi:"timeWindow"`
+	// The description of the SLI.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+	Target pulumi.Float64Input `pulumi:"target"`
+	// Time window is the period of the objective.
+	TimeWindow ServiceLevelObjectiveTimeWindowInput `pulumi:"timeWindow"`
 }
 
 func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {
@@ -19736,18 +19836,22 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutputWithContext
 	}).(ServiceLevelObjectivePtrOutput)
 }
 
+// The description of the SLI.
 func (o ServiceLevelObjectiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjective) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A short name for the SLI that will help anyone understand what it is about.
 func (o ServiceLevelObjectiveOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjective) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
 func (o ServiceLevelObjectiveOutput) Target() pulumi.Float64Output {
 	return o.ApplyT(func(v ServiceLevelObjective) float64 { return v.Target }).(pulumi.Float64Output)
 }
 
+// Time window is the period of the objective.
 func (o ServiceLevelObjectiveOutput) TimeWindow() ServiceLevelObjectiveTimeWindowOutput {
 	return o.ApplyT(func(v ServiceLevelObjective) ServiceLevelObjectiveTimeWindow { return v.TimeWindow }).(ServiceLevelObjectiveTimeWindowOutput)
 }
@@ -19776,6 +19880,7 @@ func (o ServiceLevelObjectivePtrOutput) Elem() ServiceLevelObjectiveOutput {
 	}).(ServiceLevelObjectiveOutput)
 }
 
+// The description of the SLI.
 func (o ServiceLevelObjectivePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) *string {
 		if v == nil {
@@ -19785,6 +19890,7 @@ func (o ServiceLevelObjectivePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A short name for the SLI that will help anyone understand what it is about.
 func (o ServiceLevelObjectivePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) *string {
 		if v == nil {
@@ -19794,6 +19900,7 @@ func (o ServiceLevelObjectivePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
 func (o ServiceLevelObjectivePtrOutput) Target() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) *float64 {
 		if v == nil {
@@ -19803,6 +19910,7 @@ func (o ServiceLevelObjectivePtrOutput) Target() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Time window is the period of the objective.
 func (o ServiceLevelObjectivePtrOutput) TimeWindow() ServiceLevelObjectiveTimeWindowPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) *ServiceLevelObjectiveTimeWindow {
 		if v == nil {
@@ -19813,6 +19921,7 @@ func (o ServiceLevelObjectivePtrOutput) TimeWindow() ServiceLevelObjectiveTimeWi
 }
 
 type ServiceLevelObjectiveTimeWindow struct {
+	// Rolling window.
 	Rolling ServiceLevelObjectiveTimeWindowRolling `pulumi:"rolling"`
 }
 
@@ -19828,6 +19937,7 @@ type ServiceLevelObjectiveTimeWindowInput interface {
 }
 
 type ServiceLevelObjectiveTimeWindowArgs struct {
+	// Rolling window.
 	Rolling ServiceLevelObjectiveTimeWindowRollingInput `pulumi:"rolling"`
 }
 
@@ -19908,6 +20018,7 @@ func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindow
 	}).(ServiceLevelObjectiveTimeWindowPtrOutput)
 }
 
+// Rolling window.
 func (o ServiceLevelObjectiveTimeWindowOutput) Rolling() ServiceLevelObjectiveTimeWindowRollingOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindow) ServiceLevelObjectiveTimeWindowRolling { return v.Rolling }).(ServiceLevelObjectiveTimeWindowRollingOutput)
 }
@@ -19936,6 +20047,7 @@ func (o ServiceLevelObjectiveTimeWindowPtrOutput) Elem() ServiceLevelObjectiveTi
 	}).(ServiceLevelObjectiveTimeWindowOutput)
 }
 
+// Rolling window.
 func (o ServiceLevelObjectiveTimeWindowPtrOutput) Rolling() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindow) *ServiceLevelObjectiveTimeWindowRolling {
 		if v == nil {
@@ -19946,8 +20058,10 @@ func (o ServiceLevelObjectiveTimeWindowPtrOutput) Rolling() ServiceLevelObjectiv
 }
 
 type ServiceLevelObjectiveTimeWindowRolling struct {
-	Count int    `pulumi:"count"`
-	Unit  string `pulumi:"unit"`
+	// Valid values are `1`, `7` and `28`.
+	Count int `pulumi:"count"`
+	// The only supported value is `DAY`.
+	Unit string `pulumi:"unit"`
 }
 
 // ServiceLevelObjectiveTimeWindowRollingInput is an input type that accepts ServiceLevelObjectiveTimeWindowRollingArgs and ServiceLevelObjectiveTimeWindowRollingOutput values.
@@ -19962,8 +20076,10 @@ type ServiceLevelObjectiveTimeWindowRollingInput interface {
 }
 
 type ServiceLevelObjectiveTimeWindowRollingArgs struct {
-	Count pulumi.IntInput    `pulumi:"count"`
-	Unit  pulumi.StringInput `pulumi:"unit"`
+	// Valid values are `1`, `7` and `28`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The only supported value is `DAY`.
+	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
 func (ServiceLevelObjectiveTimeWindowRollingArgs) ElementType() reflect.Type {
@@ -20043,10 +20159,12 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTim
 	}).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
 }
 
+// Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
 }
 
+// The only supported value is `DAY`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -20075,6 +20193,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Elem() ServiceLevelObje
 	}).(ServiceLevelObjectiveTimeWindowRollingOutput)
 }
 
+// Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) *int {
 		if v == nil {
@@ -20084,6 +20203,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Count() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The only supported value is `DAY`.
 func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) *string {
 		if v == nil {

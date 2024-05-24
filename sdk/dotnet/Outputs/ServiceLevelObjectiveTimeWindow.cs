@@ -13,6 +13,9 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class ServiceLevelObjectiveTimeWindow
     {
+        /// <summary>
+        /// Rolling window.
+        /// </summary>
         public readonly Outputs.ServiceLevelObjectiveTimeWindowRolling Rolling;
 
         [OutputConstructor]

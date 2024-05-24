@@ -335,24 +335,45 @@ namespace Pulumi.NewRelic
 
     public sealed class GetServiceLevelAlertHelperArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The type of alert we want to set. Valid values are:
+        /// </summary>
         [Input("alertType", required: true)]
         public string AlertType { get; set; } = null!;
 
+        /// <summary>
+        /// Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+        /// </summary>
         [Input("customEvaluationPeriod")]
         public int? CustomEvaluationPeriod { get; set; }
 
+        /// <summary>
+        /// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+        /// </summary>
         [Input("customToleratedBudgetConsumption")]
         public double? CustomToleratedBudgetConsumption { get; set; }
 
+        /// <summary>
+        /// If the SLI is defined using bad events. Defaults to `false`
+        /// </summary>
         [Input("isBadEvents")]
         public bool? IsBadEvents { get; set; }
 
+        /// <summary>
+        /// The guid of the sli we want to set the alert on.
+        /// </summary>
         [Input("sliGuid", required: true)]
         public string SliGuid { get; set; } = null!;
 
+        /// <summary>
+        /// The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+        /// </summary>
         [Input("sloPeriod", required: true)]
         public int SloPeriod { get; set; }
 
+        /// <summary>
+        /// The target of the Service Level Objective, valid values between `0` and `100`.
+        /// </summary>
         [Input("sloTarget", required: true)]
         public double SloTarget { get; set; }
 
@@ -364,24 +385,45 @@ namespace Pulumi.NewRelic
 
     public sealed class GetServiceLevelAlertHelperInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The type of alert we want to set. Valid values are:
+        /// </summary>
         [Input("alertType", required: true)]
         public Input<string> AlertType { get; set; } = null!;
 
+        /// <summary>
+        /// Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+        /// </summary>
         [Input("customEvaluationPeriod")]
         public Input<int>? CustomEvaluationPeriod { get; set; }
 
+        /// <summary>
+        /// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+        /// </summary>
         [Input("customToleratedBudgetConsumption")]
         public Input<double>? CustomToleratedBudgetConsumption { get; set; }
 
+        /// <summary>
+        /// If the SLI is defined using bad events. Defaults to `false`
+        /// </summary>
         [Input("isBadEvents")]
         public Input<bool>? IsBadEvents { get; set; }
 
+        /// <summary>
+        /// The guid of the sli we want to set the alert on.
+        /// </summary>
         [Input("sliGuid", required: true)]
         public Input<string> SliGuid { get; set; } = null!;
 
+        /// <summary>
+        /// The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
+        /// </summary>
         [Input("sloPeriod", required: true)]
         public Input<int> SloPeriod { get; set; } = null!;
 
+        /// <summary>
+        /// The target of the Service Level Objective, valid values between `0` and `100`.
+        /// </summary>
         [Input("sloTarget", required: true)]
         public Input<double> SloTarget { get; set; } = null!;
 

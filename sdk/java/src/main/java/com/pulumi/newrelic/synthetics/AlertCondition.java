@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()        
+ *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()
  *             .policyId(fooNewrelicAlertPolicy.id())
  *             .name("foo")
  *             .monitorId(fooNewrelicSyntheticsMonitor.id())
@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
  *             .name("foo policy")
  *             .build());
  * 
- *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()        
+ *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()
  *             .status("ENABLED")
  *             .name("foo monitor")
  *             .period("EVERY_MINUTE")
@@ -119,14 +119,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(foo.id())
  *             .name("foo synthetics condition")
  *             .monitorId(fooMonitor.id())
  *             .runbookUrl("https://www.example.com")
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -159,14 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:synthetics/alertCondition:AlertCondition")
 public class AlertCondition extends com.pulumi.resources.CustomResource {
     /**
-     * Set whether to enable the alert condition. Defaults to true.
+     * Set whether to enable the alert condition. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Set whether to enable the alert condition. Defaults to true.
+     * @return Set whether to enable the alert condition. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -187,14 +187,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return this.entityGuid;
     }
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     @Export(name="monitorId", refs={String.class}, tree="[0]")
     private Output<String> monitorId;
 
     /**
-     * @return The ID of the Synthetics monitor to be referenced in the alert condition.
+     * @return The GUID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     public Output<String> monitorId() {

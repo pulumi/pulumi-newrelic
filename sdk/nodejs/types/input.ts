@@ -117,11 +117,11 @@ export interface AlertConditionTerm {
 
 export interface AlertMutingRuleCondition {
     /**
-     * The individual MutingRuleConditions within the group.
+     * The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
      */
     conditions: pulumi.Input<pulumi.Input<inputs.AlertMutingRuleConditionCondition>[]>;
     /**
-     * The operator used to combine all the MutingRuleConditions within the group.
+     * The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      */
     operator: pulumi.Input<string>;
 }
@@ -148,6 +148,7 @@ export interface AlertMutingRuleSchedule {
     endRepeat?: pulumi.Input<string>;
     /**
      * The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
      */
     endTime?: pulumi.Input<string>;
     /**
@@ -446,7 +447,7 @@ export interface ObfuscationRuleAction {
 
 export interface OneDashboardPage {
     /**
-     * (Optional) Brief text describing the page.
+     * Brief text describing the dashboard.
      */
     description?: pulumi.Input<string>;
     /**
@@ -454,7 +455,7 @@ export interface OneDashboardPage {
      */
     guid?: pulumi.Input<string>;
     /**
-     * (Required) The variable identifier.
+     * The title of the dashboard.
      */
     name: pulumi.Input<string>;
     /**
@@ -599,7 +600,7 @@ export interface OneDashboardPageWidgetAreaColorSeriesOverride {
 
 export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -744,7 +745,7 @@ export interface OneDashboardPageWidgetBarColorSeriesOverride {
 
 export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -889,7 +890,7 @@ export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
 
 export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1030,7 +1031,7 @@ export interface OneDashboardPageWidgetBulletColorSeriesOverride {
 
 export interface OneDashboardPageWidgetBulletNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1167,7 +1168,7 @@ export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
 
 export interface OneDashboardPageWidgetFunnelNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1312,7 +1313,7 @@ export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
 
 export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1449,7 +1450,7 @@ export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
 
 export interface OneDashboardPageWidgetHistogramNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1586,7 +1587,7 @@ export interface OneDashboardPageWidgetJsonColorSeriesOverride {
 
 export interface OneDashboardPageWidgetJsonNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1727,7 +1728,7 @@ export interface OneDashboardPageWidgetLineColorSeriesOverride {
 
 export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -1864,7 +1865,7 @@ export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
 
 export interface OneDashboardPageWidgetLogTableNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -2135,7 +2136,7 @@ export interface OneDashboardPageWidgetPyColorSeriesOverride {
 
 export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -2272,7 +2273,7 @@ export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
 
 export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -2417,7 +2418,7 @@ export interface OneDashboardPageWidgetTableColorSeriesOverride {
 
 export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
-     * The account id used for the NRQL query.
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -2542,7 +2543,7 @@ export interface OneDashboardVariable {
      */
     items?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableItem>[]>;
     /**
-     * (Required) The variable identifier.
+     * The title of the dashboard.
      */
     name: pulumi.Input<string>;
     /**
@@ -2597,70 +2598,151 @@ export interface OneDashboardVariableOption {
 }
 
 export interface ServiceLevelEvents {
+    /**
+     * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+     * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+     */
     accountId: pulumi.Input<string>;
+    /**
+     * The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+     */
     badEvents?: pulumi.Input<inputs.ServiceLevelEventsBadEvents>;
+    /**
+     * The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+     */
     goodEvents?: pulumi.Input<inputs.ServiceLevelEventsGoodEvents>;
+    /**
+     * The definition of valid requests.
+     */
     validEvents: pulumi.Input<inputs.ServiceLevelEventsValidEvents>;
 }
 
 export interface ServiceLevelEventsBadEvents {
+    /**
+     * The event type where NRDB data will be fetched from.
+     */
     from: pulumi.Input<string>;
+    /**
+     * The NRQL SELECT clause to aggregate events.
+     */
     select?: pulumi.Input<inputs.ServiceLevelEventsBadEventsSelect>;
+    /**
+     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+     * a particular entity and returned an error).
+     */
     where?: pulumi.Input<string>;
 }
 
 export interface ServiceLevelEventsBadEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
     attribute?: pulumi.Input<string>;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+     */
     function: pulumi.Input<string>;
     /**
-     * The event threshold to use in the SELECT clause
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
      */
     threshold?: pulumi.Input<number>;
 }
 
 export interface ServiceLevelEventsGoodEvents {
+    /**
+     * The event type where NRDB data will be fetched from.
+     */
     from: pulumi.Input<string>;
+    /**
+     * The NRQL SELECT clause to aggregate events.
+     */
     select?: pulumi.Input<inputs.ServiceLevelEventsGoodEventsSelect>;
+    /**
+     * A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+     * a particular entity and were successful).
+     */
     where?: pulumi.Input<string>;
 }
 
 export interface ServiceLevelEventsGoodEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
     attribute?: pulumi.Input<string>;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+     */
     function: pulumi.Input<string>;
     /**
-     * The event threshold to use in the SELECT clause
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
      */
     threshold?: pulumi.Input<number>;
 }
 
 export interface ServiceLevelEventsValidEvents {
+    /**
+     * The event type where NRDB data will be fetched from.
+     */
     from: pulumi.Input<string>;
+    /**
+     * The NRQL SELECT clause to aggregate events.
+     */
     select?: pulumi.Input<inputs.ServiceLevelEventsValidEventsSelect>;
+    /**
+     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     */
     where?: pulumi.Input<string>;
 }
 
 export interface ServiceLevelEventsValidEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
     attribute?: pulumi.Input<string>;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+     */
     function: pulumi.Input<string>;
     /**
-     * The event threshold to use in the SELECT clause
+     * Limit for values to be counter by `GET_CDF_COUNT` function.
      */
     threshold?: pulumi.Input<number>;
 }
 
 export interface ServiceLevelObjective {
+    /**
+     * The description of the SLI.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A short name for the SLI that will help anyone understand what it is about.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+     */
     target: pulumi.Input<number>;
+    /**
+     * Time window is the period of the objective.
+     */
     timeWindow: pulumi.Input<inputs.ServiceLevelObjectiveTimeWindow>;
 }
 
 export interface ServiceLevelObjectiveTimeWindow {
+    /**
+     * Rolling window.
+     */
     rolling: pulumi.Input<inputs.ServiceLevelObjectiveTimeWindowRolling>;
 }
 
 export interface ServiceLevelObjectiveTimeWindowRolling {
+    /**
+     * Valid values are `1`, `7` and `28`.
+     */
     count: pulumi.Input<number>;
+    /**
+     * The only supported value is `DAY`.
+     */
     unit: pulumi.Input<string>;
 }
 
@@ -4636,15 +4718,15 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigAutomaticRule {
         /**
-         * A list of entity GUIDs composing the rule.
+         * A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
          */
         entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of entity search queries used to retrieve the entities that compose the rule.
+         * A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
          */
         nrqlQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRuleNrqlQuery>[]>;
         /**
-         * The input object used to represent a rollup strategy.
+         * The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
          */
         rollup: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRuleRollup>;
     }
@@ -4673,7 +4755,7 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigStatic {
         /**
-         * A description that provides additional details about the status of the workload.
+         * Relevant information about the workload.
          */
         description?: pulumi.Input<string>;
         /**

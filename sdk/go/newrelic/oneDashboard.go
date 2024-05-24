@@ -24,21 +24,21 @@ import (
 type OneDashboard struct {
 	pulumi.CustomResourceState
 
-	// The New Relic account ID where you want to create the dashboard.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// (Required) The variable identifier.
-	Name  pulumi.StringOutput         `pulumi:"name"`
+	// The title of the dashboard.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A nested block that describes a page. See Nested page blocks below for details.
 	Pages OneDashboardPageArrayOutput `pulumi:"pages"`
 	// The URL for viewing the dashboard.
 	Permalink pulumi.StringOutput `pulumi:"permalink"`
-	// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-	// public_read_only.
+	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
-	// Dashboard-local variable definitions.
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
 	Variables OneDashboardVariableArrayOutput `pulumi:"variables"`
 }
 
@@ -75,40 +75,40 @@ func GetOneDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OneDashboard resources.
 type oneDashboardState struct {
-	// The New Relic account ID where you want to create the dashboard.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description *string `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid *string `pulumi:"guid"`
-	// (Required) The variable identifier.
-	Name  *string            `pulumi:"name"`
+	// The title of the dashboard.
+	Name *string `pulumi:"name"`
+	// A nested block that describes a page. See Nested page blocks below for details.
 	Pages []OneDashboardPage `pulumi:"pages"`
 	// The URL for viewing the dashboard.
 	Permalink *string `pulumi:"permalink"`
-	// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-	// public_read_only.
+	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions *string `pulumi:"permissions"`
-	// Dashboard-local variable definitions.
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
 	Variables []OneDashboardVariable `pulumi:"variables"`
 }
 
 type OneDashboardState struct {
-	// The New Relic account ID where you want to create the dashboard.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description pulumi.StringPtrInput
 	// The unique entity identifier of the dashboard page in New Relic.
 	Guid pulumi.StringPtrInput
-	// (Required) The variable identifier.
-	Name  pulumi.StringPtrInput
+	// The title of the dashboard.
+	Name pulumi.StringPtrInput
+	// A nested block that describes a page. See Nested page blocks below for details.
 	Pages OneDashboardPageArrayInput
 	// The URL for viewing the dashboard.
 	Permalink pulumi.StringPtrInput
-	// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-	// public_read_only.
+	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions pulumi.StringPtrInput
-	// Dashboard-local variable definitions.
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
 	Variables OneDashboardVariableArrayInput
 }
 
@@ -117,33 +117,33 @@ func (OneDashboardState) ElementType() reflect.Type {
 }
 
 type oneDashboardArgs struct {
-	// The New Relic account ID where you want to create the dashboard.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId *string `pulumi:"accountId"`
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description *string `pulumi:"description"`
-	// (Required) The variable identifier.
-	Name  *string            `pulumi:"name"`
+	// The title of the dashboard.
+	Name *string `pulumi:"name"`
+	// A nested block that describes a page. See Nested page blocks below for details.
 	Pages []OneDashboardPage `pulumi:"pages"`
-	// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-	// public_read_only.
+	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions *string `pulumi:"permissions"`
-	// Dashboard-local variable definitions.
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
 	Variables []OneDashboardVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a OneDashboard resource.
 type OneDashboardArgs struct {
-	// The New Relic account ID where you want to create the dashboard.
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.StringPtrInput
-	// (Optional) Brief text describing the page.
+	// Brief text describing the dashboard.
 	Description pulumi.StringPtrInput
-	// (Required) The variable identifier.
-	Name  pulumi.StringPtrInput
+	// The title of the dashboard.
+	Name pulumi.StringPtrInput
+	// A nested block that describes a page. See Nested page blocks below for details.
 	Pages OneDashboardPageArrayInput
-	// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-	// public_read_only.
+	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions pulumi.StringPtrInput
-	// Dashboard-local variable definitions.
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
 	Variables OneDashboardVariableArrayInput
 }
 
@@ -234,12 +234,12 @@ func (o OneDashboardOutput) ToOneDashboardOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The New Relic account ID where you want to create the dashboard.
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 func (o OneDashboardOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// (Optional) Brief text describing the page.
+// Brief text describing the dashboard.
 func (o OneDashboardOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -249,11 +249,12 @@ func (o OneDashboardOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// (Required) The variable identifier.
+// The title of the dashboard.
 func (o OneDashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A nested block that describes a page. See Nested page blocks below for details.
 func (o OneDashboardOutput) Pages() OneDashboardPageArrayOutput {
 	return o.ApplyT(func(v *OneDashboard) OneDashboardPageArrayOutput { return v.Pages }).(OneDashboardPageArrayOutput)
 }
@@ -263,13 +264,12 @@ func (o OneDashboardOutput) Permalink() pulumi.StringOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.Permalink }).(pulumi.StringOutput)
 }
 
-// Determines who can see or edit the dashboard. Valid values are private, public_read_only, public_read_write. Defaults to
-// public_read_only.
+// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 func (o OneDashboardOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
-// Dashboard-local variable definitions.
+// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
 func (o OneDashboardOutput) Variables() OneDashboardVariableArrayOutput {
 	return o.ApplyT(func(v *OneDashboard) OneDashboardVariableArrayOutput { return v.Variables }).(OneDashboardVariableArrayOutput)
 }

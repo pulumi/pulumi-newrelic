@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("foo")
  *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("slack-example")
  *             .type("slack")
  *             .config(AlertChannelConfigArgs.builder()
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("opsgenie-example")
  *             .type("opsgenie")
  *             .config(AlertChannelConfigArgs.builder()
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("pagerduty-example")
  *             .type("pagerduty")
  *             .config(AlertChannelConfigArgs.builder()
@@ -212,7 +212,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("victorops-example")
  *             .type("victorops")
  *             .config(AlertChannelConfigArgs.builder()
@@ -252,7 +252,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("webhook-example")
  *             .type("webhook")
  *             .config(AlertChannelConfigArgs.builder()
@@ -300,7 +300,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("webhook-example")
  *             .type("webhook")
  *             .config(AlertChannelConfigArgs.builder()
@@ -337,56 +337,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/alertChannel:AlertChannel")
 public class AlertChannel extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID where you want to create alert channels.
+     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID where you want to create alert channels.
+     * @return Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The configuration block for the alert channel.
+     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      * 
      */
     @Export(name="config", refs={AlertChannelConfig.class}, tree="[0]")
     private Output</* @Nullable */ AlertChannelConfig> config;
 
     /**
-     * @return The configuration block for the alert channel.
+     * @return A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      * 
      */
     public Output<Optional<AlertChannelConfig>> config() {
         return Codegen.optional(this.config);
     }
     /**
-     * (Required) The name of the channel.
+     * The name of the channel.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return (Required) The name of the channel.
+     * @return The name of the channel.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return (Required) The type of channel. One of: (email, opsgenie, pagerduty, slack, user, victorops, webhook).
+     * @return The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      * 
      */
     public Output<String> type() {

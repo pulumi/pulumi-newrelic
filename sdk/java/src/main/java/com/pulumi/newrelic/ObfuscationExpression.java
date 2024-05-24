@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ObfuscationExpression("foo", ObfuscationExpressionArgs.builder()        
+ *         var foo = new ObfuscationExpression("foo", ObfuscationExpressionArgs.builder()
  *             .accountId(12345)
  *             .name("OExp")
  *             .description("The description")

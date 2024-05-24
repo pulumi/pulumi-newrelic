@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .domain("APM")
  *             .build());
  * 
- *         var fooEntityTags = new EntityTags("fooEntityTags", EntityTagsArgs.builder()        
+ *         var fooEntityTags = new EntityTags("fooEntityTags", EntityTagsArgs.builder()
  *             .guid(foo.applyValue(getEntityResult -> getEntityResult.guid()))
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
@@ -103,14 +103,14 @@ public class EntityTags extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * A set of key-value pairs to represent a tag. For example: Team:TeamName
+     * A nested block that describes an entity tag. See Nested tag blocks below for details.
      * 
      */
     @Export(name="tags", refs={List.class,EntityTagsTag.class}, tree="[0,1]")
     private Output<List<EntityTagsTag>> tags;
 
     /**
-     * @return A set of key-value pairs to represent a tag. For example: Team:TeamName
+     * @return A nested block that describes an entity tag. See Nested tag blocks below for details.
      * 
      */
     public Output<List<EntityTagsTag>> tags() {

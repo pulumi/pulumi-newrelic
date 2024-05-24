@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload with tags")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload with tags")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -249,7 +249,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workload("foo", WorkloadArgs.builder()        
+ *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
  *             .accountId(12345678)
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
@@ -330,28 +330,28 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A list of entity GUIDs manually assigned to this workload.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
     @Export(name="entityGuids", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload.
+     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
     public Output<List<String>> entityGuids() {
         return this.entityGuids;
     }
     /**
-     * A list of search queries that define a dynamic workload.
+     * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
     @Export(name="entitySearchQueries", refs={List.class,WorkloadEntitySearchQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadEntitySearchQuery>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload.
+     * @return A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
     public Output<Optional<List<WorkloadEntitySearchQuery>>> entitySearchQueries() {
@@ -414,28 +414,28 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return this.scopeAccountIds;
     }
     /**
-     * An input object used to represent an automatic status configuration.
+     * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
      * 
      */
     @Export(name="statusConfigAutomatic", refs={WorkloadStatusConfigAutomatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigAutomatic> statusConfigAutomatic;
 
     /**
-     * @return An input object used to represent an automatic status configuration.
+     * @return An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
      * 
      */
     public Output<Optional<WorkloadStatusConfigAutomatic>> statusConfigAutomatic() {
         return Codegen.optional(this.statusConfigAutomatic);
     }
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
      * 
      */
     @Export(name="statusConfigStatic", refs={WorkloadStatusConfigStatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigStatic> statusConfigStatic;
 
     /**
-     * @return A list of static status configurations. You can only configure one static status for a workload.
+     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
      * 
      */
     public Output<Optional<WorkloadStatusConfigStatic>> statusConfigStatic() {

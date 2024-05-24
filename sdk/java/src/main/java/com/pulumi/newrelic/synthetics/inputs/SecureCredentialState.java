@@ -16,14 +16,14 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
     public static final SecureCredentialState Empty = new SecureCredentialState();
 
     /**
-     * The New Relic account ID where you want to create the secure credential.
+     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID where you want to create the secure credential.
+     * @return Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -46,16 +46,14 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The secure credential&#39;s key name. Regardless of the case used in the configuration, the provider will provide an upcased
-     * key to the underlying API.
+     * The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The secure credential&#39;s key name. Regardless of the case used in the configuration, the provider will provide an upcased
-     * key to the underlying API.
+     * @return The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      * 
      */
     public Optional<Output<String>> key() {
@@ -121,7 +119,7 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accountId The New Relic account ID where you want to create the secure credential.
+         * @param accountId Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
@@ -132,7 +130,7 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accountId The New Relic account ID where you want to create the secure credential.
+         * @param accountId Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
@@ -163,8 +161,7 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key The secure credential&#39;s key name. Regardless of the case used in the configuration, the provider will provide an upcased
-         * key to the underlying API.
+         * @param key The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
          * 
          * @return builder
          * 
@@ -175,8 +172,7 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key The secure credential&#39;s key name. Regardless of the case used in the configuration, the provider will provide an upcased
-         * key to the underlying API.
+         * @param key The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
          * 
          * @return builder
          * 

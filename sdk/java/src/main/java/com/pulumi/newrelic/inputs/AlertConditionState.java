@@ -20,16 +20,14 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     public static final AlertConditionState Empty = new AlertConditionState();
 
     /**
-     * One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      * 
      */
     @Import(name="conditionScope")
     private @Nullable Output<String> conditionScope;
 
     /**
-     * @return One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-     * instance setting allows your condition to trigger for specific app instances.
+     * @return `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      * 
      */
     public Optional<Output<String>> conditionScope() {
@@ -37,14 +35,14 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether the condition is enabled.
+     * Whether the condition is enabled or not. Defaults to true.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the condition is enabled.
+     * @return Whether the condition is enabled or not. Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -82,16 +80,14 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      * 
      */
     @Import(name="gcMetric")
     private @Nullable Output<String> gcMetric;
 
     /**
-     * @return A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-     * gc_cpu_time condition type.
+     * @return A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      * 
      */
     public Optional<Output<String>> gcMetric() {
@@ -99,14 +95,14 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The metric field accepts parameters based on the type set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * 
      */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
     /**
-     * @return The metric field accepts parameters based on the type set.
+     * @return The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * 
      */
     public Optional<Output<String>> metric() {
@@ -114,14 +110,14 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * The title of the condition. Must be between 1 and 64 characters, inclusive.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The title of the condition. Must be between 1 and 128 characters, inclusive.
+     * @return The title of the condition. Must be between 1 and 64 characters, inclusive.
      * 
      */
     public Optional<Output<String>> name() {
@@ -158,24 +154,30 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.runbookUrl);
     }
 
+    /**
+     * A list of terms for this condition. See Terms below for details.
+     * 
+     */
     @Import(name="terms")
     private @Nullable Output<List<AlertConditionTermArgs>> terms;
 
+    /**
+     * @return A list of terms for this condition. See Terms below for details.
+     * 
+     */
     public Optional<Output<List<AlertConditionTermArgs>>> terms() {
         return Optional.ofNullable(this.terms);
     }
 
     /**
-     * The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-     * servers_metric).
+     * @return The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      * 
      */
     public Optional<Output<String>> type() {
@@ -198,14 +200,18 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One of: (average, min, max, total, sample_size, percent, rate).
+     * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * 
+     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
      * 
      */
     @Import(name="userDefinedValueFunction")
     private @Nullable Output<String> userDefinedValueFunction;
 
     /**
-     * @return One of: (average, min, max, total, sample_size, percent, rate).
+     * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * 
+     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
      * 
      */
     public Optional<Output<String>> userDefinedValueFunction() {
@@ -213,16 +219,18 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+     * * when `type` = `apm_jvm_metric`
      * 
      */
     @Import(name="violationCloseTimer")
     private @Nullable Output<Integer> violationCloseTimer;
 
     /**
-     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-     * specified. Must be between 1 and 720 hours.
+     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+     * * when `type` = `apm_jvm_metric`
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -267,8 +275,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param conditionScope One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-         * instance setting allows your condition to trigger for specific app instances.
+         * @param conditionScope `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
          * 
          * @return builder
          * 
@@ -279,8 +286,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param conditionScope One of (application, instance). Choose application for most scenarios. If you are using the JVM plugin in New Relic, the
-         * instance setting allows your condition to trigger for specific app instances.
+         * @param conditionScope `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
          * 
          * @return builder
          * 
@@ -290,7 +296,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Whether the condition is enabled.
+         * @param enabled Whether the condition is enabled or not. Defaults to true.
          * 
          * @return builder
          * 
@@ -301,7 +307,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Whether the condition is enabled.
+         * @param enabled Whether the condition is enabled or not. Defaults to true.
          * 
          * @return builder
          * 
@@ -363,8 +369,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param gcMetric A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-         * gc_cpu_time condition type.
+         * @param gcMetric A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
          * 
          * @return builder
          * 
@@ -375,8 +380,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param gcMetric A valid Garbage Collection metric e.g. GC/G1 Young Generation. This is required if you are using apm_jvm_metric with
-         * gc_cpu_time condition type.
+         * @param gcMetric A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
          * 
          * @return builder
          * 
@@ -386,7 +390,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param metric The metric field accepts parameters based on the type set.
+         * @param metric The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
          * 
          * @return builder
          * 
@@ -397,7 +401,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param metric The metric field accepts parameters based on the type set.
+         * @param metric The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
          * 
          * @return builder
          * 
@@ -407,7 +411,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The title of the condition. Must be between 1 and 128 characters, inclusive.
+         * @param name The title of the condition. Must be between 1 and 64 characters, inclusive.
          * 
          * @return builder
          * 
@@ -418,7 +422,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The title of the condition. Must be between 1 and 128 characters, inclusive.
+         * @param name The title of the condition. Must be between 1 and 64 characters, inclusive.
          * 
          * @return builder
          * 
@@ -469,22 +473,39 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
             return runbookUrl(Output.of(runbookUrl));
         }
 
+        /**
+         * @param terms A list of terms for this condition. See Terms below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terms(@Nullable Output<List<AlertConditionTermArgs>> terms) {
             $.terms = terms;
             return this;
         }
 
+        /**
+         * @param terms A list of terms for this condition. See Terms below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terms(List<AlertConditionTermArgs> terms) {
             return terms(Output.of(terms));
         }
 
+        /**
+         * @param terms A list of terms for this condition. See Terms below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terms(AlertConditionTermArgs... terms) {
             return terms(List.of(terms));
         }
 
         /**
-         * @param type The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-         * servers_metric).
+         * @param type The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
          * 
          * @return builder
          * 
@@ -495,8 +516,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type The type of condition. One of: (apm_app_metric, apm_jvm_metric, apm_kt_metric, browser_metric, mobile_metric,
-         * servers_metric).
+         * @param type The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
          * 
          * @return builder
          * 
@@ -527,7 +547,9 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param userDefinedValueFunction One of: (average, min, max, total, sample_size, percent, rate).
+         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+         * 
+         * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
          * 
          * @return builder
          * 
@@ -538,7 +560,9 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param userDefinedValueFunction One of: (average, min, max, total, sample_size, percent, rate).
+         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+         * 
+         * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
          * 
          * @return builder
          * 
@@ -548,8 +572,9 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-         * specified. Must be between 1 and 720 hours.
+         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+         * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+         * * when `type` = `apm_jvm_metric`
          * 
          * @return builder
          * 
@@ -560,8 +585,9 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours
-         * specified. Must be between 1 and 720 hours.
+         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
+         * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
+         * * when `type` = `apm_jvm_metric`
          * 
          * @return builder
          * 

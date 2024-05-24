@@ -216,11 +216,18 @@ import (
 type ServiceLevel struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
-	Events      ServiceLevelEventsOutput    `pulumi:"events"`
-	Guid        pulumi.StringOutput         `pulumi:"guid"`
-	Name        pulumi.StringOutput         `pulumi:"name"`
-	Objective   ServiceLevelObjectiveOutput `pulumi:"objective"`
+	// The description of the SLI.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The events that define the NRDB data for the SLI/SLO calculations.
+	// See Events below for details.
+	Events ServiceLevelEventsOutput `pulumi:"events"`
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+	Guid pulumi.StringOutput `pulumi:"guid"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjectiveOutput `pulumi:"objective"`
 	// The unique entity identifier of the Service Level Indicator in New Relic.
 	SliGuid pulumi.StringOutput `pulumi:"sliGuid"`
 	// The unique entity identifier of the Service Level Indicator.
@@ -266,11 +273,18 @@ func GetServiceLevel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceLevel resources.
 type serviceLevelState struct {
-	Description *string                `pulumi:"description"`
-	Events      *ServiceLevelEvents    `pulumi:"events"`
-	Guid        *string                `pulumi:"guid"`
-	Name        *string                `pulumi:"name"`
-	Objective   *ServiceLevelObjective `pulumi:"objective"`
+	// The description of the SLI.
+	Description *string `pulumi:"description"`
+	// The events that define the NRDB data for the SLI/SLO calculations.
+	// See Events below for details.
+	Events *ServiceLevelEvents `pulumi:"events"`
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+	Guid *string `pulumi:"guid"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name *string `pulumi:"name"`
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective *ServiceLevelObjective `pulumi:"objective"`
 	// The unique entity identifier of the Service Level Indicator in New Relic.
 	SliGuid *string `pulumi:"sliGuid"`
 	// The unique entity identifier of the Service Level Indicator.
@@ -278,11 +292,18 @@ type serviceLevelState struct {
 }
 
 type ServiceLevelState struct {
+	// The description of the SLI.
 	Description pulumi.StringPtrInput
-	Events      ServiceLevelEventsPtrInput
-	Guid        pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Objective   ServiceLevelObjectivePtrInput
+	// The events that define the NRDB data for the SLI/SLO calculations.
+	// See Events below for details.
+	Events ServiceLevelEventsPtrInput
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+	Guid pulumi.StringPtrInput
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name pulumi.StringPtrInput
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjectivePtrInput
 	// The unique entity identifier of the Service Level Indicator in New Relic.
 	SliGuid pulumi.StringPtrInput
 	// The unique entity identifier of the Service Level Indicator.
@@ -294,20 +315,34 @@ func (ServiceLevelState) ElementType() reflect.Type {
 }
 
 type serviceLevelArgs struct {
-	Description *string               `pulumi:"description"`
-	Events      ServiceLevelEvents    `pulumi:"events"`
-	Guid        string                `pulumi:"guid"`
-	Name        *string               `pulumi:"name"`
-	Objective   ServiceLevelObjective `pulumi:"objective"`
+	// The description of the SLI.
+	Description *string `pulumi:"description"`
+	// The events that define the NRDB data for the SLI/SLO calculations.
+	// See Events below for details.
+	Events ServiceLevelEvents `pulumi:"events"`
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+	Guid string `pulumi:"guid"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name *string `pulumi:"name"`
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjective `pulumi:"objective"`
 }
 
 // The set of arguments for constructing a ServiceLevel resource.
 type ServiceLevelArgs struct {
+	// The description of the SLI.
 	Description pulumi.StringPtrInput
-	Events      ServiceLevelEventsInput
-	Guid        pulumi.StringInput
-	Name        pulumi.StringPtrInput
-	Objective   ServiceLevelObjectiveInput
+	// The events that define the NRDB data for the SLI/SLO calculations.
+	// See Events below for details.
+	Events ServiceLevelEventsInput
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+	Guid pulumi.StringInput
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name pulumi.StringPtrInput
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjectiveInput
 }
 
 func (ServiceLevelArgs) ElementType() reflect.Type {
@@ -397,22 +432,29 @@ func (o ServiceLevelOutput) ToServiceLevelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The description of the SLI.
 func (o ServiceLevelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The events that define the NRDB data for the SLI/SLO calculations.
+// See Events below for details.
 func (o ServiceLevelOutput) Events() ServiceLevelEventsOutput {
 	return o.ApplyT(func(v *ServiceLevel) ServiceLevelEventsOutput { return v.Events }).(ServiceLevelEventsOutput)
 }
 
+// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
 func (o ServiceLevelOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevel) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
+// A short name for the SLI that will help anyone understand what it is about.
 func (o ServiceLevelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The objective of the SLI, only one can be defined.
+// See Objective below for details.
 func (o ServiceLevelOutput) Objective() ServiceLevelObjectiveOutput {
 	return o.ApplyT(func(v *ServiceLevel) ServiceLevelObjectiveOutput { return v.Objective }).(ServiceLevelObjectiveOutput)
 }

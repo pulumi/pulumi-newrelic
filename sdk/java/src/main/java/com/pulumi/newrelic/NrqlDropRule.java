@@ -40,21 +40,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NrqlDropRule("foo", NrqlDropRuleArgs.builder()        
+ *         var foo = new NrqlDropRule("foo", NrqlDropRuleArgs.builder()
  *             .accountId(12345)
  *             .description("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.")
  *             .action("drop_data")
  *             .nrql("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'")
  *             .build());
  * 
- *         var bar = new NrqlDropRule("bar", NrqlDropRuleArgs.builder()        
+ *         var bar = new NrqlDropRule("bar", NrqlDropRuleArgs.builder()
  *             .accountId(12345)
  *             .description("Removes the user name and email fields from MyCustomEvent")
  *             .action("drop_attributes")
  *             .nrql("SELECT userEmail, userName FROM MyCustomEvent")
  *             .build());
  * 
- *         var baz = new NrqlDropRule("baz", NrqlDropRuleArgs.builder()        
+ *         var baz = new NrqlDropRule("baz", NrqlDropRuleArgs.builder()
  *             .accountId(12345)
  *             .description("Removes containerId from metric aggregates to reduce metric cardinality.")
  *             .action("drop_attributes_from_metric_aggregates")
@@ -94,56 +94,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/nrqlDropRule:NrqlDropRule")
 public class NrqlDropRule extends com.pulumi.resources.CustomResource {
     /**
-     * Account with the NRQL drop rule will be put.
+     * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return Account with the NRQL drop rule will be put.
+     * @return Account where the drop rule will be put. Defaults to the account associated with the API key used.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+     * An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return The drop rule action (drop_data, drop_attributes, or drop_attributes_from_metric_aggregates).
+     * @return An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
      * 
      */
     public Output<String> action() {
         return this.action;
     }
     /**
-     * Provides additional information about the rule.
+     * The description of the drop rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Provides additional information about the rule.
+     * @return The description of the drop rule.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Explains which data to apply the drop rule to.
+     * A NRQL string that specifies what data types to drop.
      * 
      */
     @Export(name="nrql", refs={String.class}, tree="[0]")
     private Output<String> nrql;
 
     /**
-     * @return Explains which data to apply the drop rule to.
+     * @return A NRQL string that specifies what data types to drop.
      * 
      */
     public Output<String> nrql() {

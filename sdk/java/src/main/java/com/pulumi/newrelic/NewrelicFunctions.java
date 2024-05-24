@@ -325,52 +325,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.AlertPolicy;
-     * import com.pulumi.newrelic.AlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Data source
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
-     *             .name("foo")
-     *             .build());
-     * 
-     *         // Using the data source and resource together
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -385,52 +339,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.AlertPolicy;
-     * import com.pulumi.newrelic.AlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Data source
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
-     *             .name("foo")
-     *             .build());
-     * 
-     *         // Using the data source and resource together
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -445,52 +353,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.AlertPolicy;
-     * import com.pulumi.newrelic.AlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Data source
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
-     *             .name("foo")
-     *             .build());
-     * 
-     *         // Using the data source and resource together
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -505,52 +367,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.AlertPolicy;
-     * import com.pulumi.newrelic.AlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Data source
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         // Resource
-     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()        
-     *             .name("foo")
-     *             .build());
-     * 
-     *         // Using the data source and resource together
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooAlertPolicy.id())
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -563,48 +379,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
-     *             .name("foo policy")
-     *             .build());
-     * 
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -> getAlertPolicyResult.id()))
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -617,48 +391,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
-     *             .name("foo policy")
-     *             .build());
-     * 
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -> getAlertPolicyResult.id()))
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -671,48 +403,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
-     *             .name("foo policy")
-     *             .build());
-     * 
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -> getAlertPolicyResult.id()))
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -725,48 +415,6 @@ public final class NewrelicFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.NewrelicFunctions;
-     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
-     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
-     * import com.pulumi.newrelic.AlertPolicyChannel;
-     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
-     *             .name("foo{@literal @}example.com")
-     *             .build());
-     * 
-     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
-     *             .name("foo policy")
-     *             .build());
-     * 
-     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()        
-     *             .policyId(fooGetAlertPolicy.applyValue(getAlertPolicyResult -> getAlertPolicyResult.id()))
-     *             .channelId(foo.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -812,11 +460,11 @@ public final class NewrelicFunctions {
      *             .name("my-app")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
@@ -881,11 +529,11 @@ public final class NewrelicFunctions {
      *             .name("my-app")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
@@ -950,11 +598,11 @@ public final class NewrelicFunctions {
      *             .name("my-app")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
@@ -1019,11 +667,11 @@ public final class NewrelicFunctions {
      *             .name("my-app")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
@@ -2522,11 +2170,11 @@ public final class NewrelicFunctions {
      *             .name("txn")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
@@ -2589,11 +2237,11 @@ public final class NewrelicFunctions {
      *             .name("txn")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
@@ -2656,11 +2304,11 @@ public final class NewrelicFunctions {
      *             .name("txn")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
@@ -2723,11 +2371,11 @@ public final class NewrelicFunctions {
      *             .name("txn")
      *             .build());
      * 
-     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()        
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()        
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
@@ -2807,7 +2455,7 @@ public final class NewrelicFunctions {
      *             .name("The expression")
      *             .build());
      * 
-     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()        
+     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()
      *             .name("ruleName")
      *             .description("description of the rule")
      *             .filter("hostStatus=running")
@@ -2865,7 +2513,7 @@ public final class NewrelicFunctions {
      *             .name("The expression")
      *             .build());
      * 
-     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()        
+     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()
      *             .name("ruleName")
      *             .description("description of the rule")
      *             .filter("hostStatus=running")
@@ -2923,7 +2571,7 @@ public final class NewrelicFunctions {
      *             .name("The expression")
      *             .build());
      * 
-     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()        
+     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()
      *             .name("ruleName")
      *             .description("description of the rule")
      *             .filter("hostStatus=running")
@@ -2981,7 +2629,7 @@ public final class NewrelicFunctions {
      *             .name("The expression")
      *             .build());
      * 
-     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()        
+     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()
      *             .name("ruleName")
      *             .description("description of the rule")
      *             .filter("hostStatus=running")
@@ -3043,7 +2691,7 @@ public final class NewrelicFunctions {
      * 
      *         final var fooPeriod = 28;
      * 
-     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
      *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
@@ -3115,7 +2763,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3183,7 +2831,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3256,7 +2904,7 @@ public final class NewrelicFunctions {
      * 
      *         final var fooPeriod = 28;
      * 
-     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
      *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
@@ -3328,7 +2976,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3396,7 +3044,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3469,7 +3117,7 @@ public final class NewrelicFunctions {
      * 
      *         final var fooPeriod = 28;
      * 
-     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
      *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
@@ -3541,7 +3189,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3609,7 +3257,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3682,7 +3330,7 @@ public final class NewrelicFunctions {
      * 
      *         final var fooPeriod = 28;
      * 
-     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()        
+     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
      *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
@@ -3754,7 +3402,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
@@ -3822,7 +3470,7 @@ public final class NewrelicFunctions {
      *             .isBadEvents(true)
      *             .build());
      * 
-     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()        
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
      *             .accountId(12345678)
      *             .policyId(67890)
      *             .type("static")
