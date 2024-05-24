@@ -1719,6 +1719,10 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     */
+    isLabelVisible?: boolean;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1734,6 +1738,10 @@ export interface OneDashboardPageWidgetLine {
      * (Required) Row position of widget from top left, starting at `1`.
      */
     row: number;
+    /**
+     * (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     */
+    thresholds?: outputs.OneDashboardPageWidgetLineThreshold[];
     /**
      * (Optional) A human-friendly display string for this value.
      */
@@ -1755,6 +1763,10 @@ export interface OneDashboardPageWidgetLine {
      * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
      */
     yAxisLeftZero?: boolean;
+    /**
+     * (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+     */
+    yAxisRight?: outputs.OneDashboardPageWidgetLineYAxisRight;
 }
 
 export interface OneDashboardPageWidgetLineColor {
@@ -1812,6 +1824,25 @@ export interface OneDashboardPageWidgetLineNullValueSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetLineThreshold {
+    /**
+     * The value 'from' which the threshold would need to be applied.
+     */
+    from?: number;
+    /**
+     * The title of the dashboard.
+     */
+    name?: string;
+    /**
+     * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+     */
+    severity?: string;
+    /**
+     * The value until which the threshold would need to be applied.
+     */
+    to?: number;
+}
+
 export interface OneDashboardPageWidgetLineUnit {
     /**
      * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
@@ -1832,6 +1863,25 @@ export interface OneDashboardPageWidgetLineUnitSeriesOverride {
      * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
      */
     unit?: string;
+}
+
+export interface OneDashboardPageWidgetLineYAxisRight {
+    /**
+     * Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+     */
+    yAxisRightMax?: number;
+    /**
+     * , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+     */
+    yAxisRightMin?: number;
+    /**
+     * (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+     */
+    yAxisRightSeries?: string[];
+    /**
+     * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+     */
+    yAxisRightZero?: boolean;
 }
 
 export interface OneDashboardPageWidgetLogTable {
@@ -2429,6 +2479,10 @@ export interface OneDashboardPageWidgetTable {
      */
     row: number;
     /**
+     * (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     */
+    thresholds?: outputs.OneDashboardPageWidgetTableThreshold[];
+    /**
      * (Optional) A human-friendly display string for this value.
      */
     title: string;
@@ -2500,6 +2554,25 @@ export interface OneDashboardPageWidgetTableNullValueSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetTableThreshold {
+    /**
+     * The name of the column in the table, to which the threshold would need to be applied.
+     */
+    columnName?: string;
+    /**
+     * The value 'from' which the threshold would need to be applied.
+     */
+    from?: number;
+    /**
+     * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+     */
+    severity?: string;
+    /**
+     * The value until which the threshold would need to be applied.
+     */
+    to?: number;
 }
 
 export interface OneDashboardPageWidgetTableUnit {

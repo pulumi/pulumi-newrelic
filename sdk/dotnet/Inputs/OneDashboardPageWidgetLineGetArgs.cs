@@ -55,6 +55,12 @@ namespace Pulumi.NewRelic.Inputs
         public Input<bool>? IgnoreTimeRange { get; set; }
 
         /// <summary>
+        /// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+        /// </summary>
+        [Input("isLabelVisible")]
+        public Input<bool>? IsLabelVisible { get; set; }
+
+        /// <summary>
         /// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         /// </summary>
         [Input("legendEnabled")]
@@ -89,6 +95,18 @@ namespace Pulumi.NewRelic.Inputs
         /// </summary>
         [Input("row", required: true)]
         public Input<int> Row { get; set; } = null!;
+
+        [Input("thresholds")]
+        private InputList<Inputs.OneDashboardPageWidgetLineThresholdGetArgs>? _thresholds;
+
+        /// <summary>
+        /// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetLineThresholdGetArgs> Thresholds
+        {
+            get => _thresholds ?? (_thresholds = new InputList<Inputs.OneDashboardPageWidgetLineThresholdGetArgs>());
+            set => _thresholds = value;
+        }
 
         /// <summary>
         /// (Optional) A human-friendly display string for this value.
@@ -128,6 +146,12 @@ namespace Pulumi.NewRelic.Inputs
         /// </summary>
         [Input("yAxisLeftZero")]
         public Input<bool>? YAxisLeftZero { get; set; }
+
+        /// <summary>
+        /// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+        /// </summary>
+        [Input("yAxisRight")]
+        public Input<Inputs.OneDashboardPageWidgetLineYAxisRightGetArgs>? YAxisRight { get; set; }
 
         public OneDashboardPageWidgetLineGetArgs()
         {
