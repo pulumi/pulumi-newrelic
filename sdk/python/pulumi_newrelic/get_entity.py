@@ -23,7 +23,7 @@ class GetEntityResult:
     """
     A collection of values returned by getEntity.
     """
-    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, ignore_case=None, ignore_not_found=None, name=None, serving_apm_application_id=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, application_id=None, domain=None, entity_tags=None, guid=None, id=None, ignore_case=None, ignore_not_found=None, name=None, serving_apm_application_id=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -33,6 +33,9 @@ class GetEntityResult:
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
+        if entity_tags and not isinstance(entity_tags, str):
+            raise TypeError("Expected argument 'entity_tags' to be a str")
+        pulumi.set(__self__, "entity_tags", entity_tags)
         if guid and not isinstance(guid, str):
             raise TypeError("Expected argument 'guid' to be a str")
         pulumi.set(__self__, "guid", guid)
@@ -75,6 +78,15 @@ class GetEntityResult:
     @pulumi.getter
     def domain(self) -> str:
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="entityTags")
+    def entity_tags(self) -> str:
+        """
+        A JSON-encoded string, comprising tags associated with the entity fetched.
+        * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        """
+        return pulumi.get(self, "entity_tags")
 
     @property
     @pulumi.getter
@@ -135,6 +147,7 @@ class AwaitableGetEntityResult(GetEntityResult):
             account_id=self.account_id,
             application_id=self.application_id,
             domain=self.domain,
+            entity_tags=self.entity_tags,
             guid=self.guid,
             id=self.id,
             ignore_case=self.ignore_case,
@@ -147,6 +160,7 @@ class AwaitableGetEntityResult(GetEntityResult):
 
 def get_entity(account_id: Optional[str] = None,
                domain: Optional[str] = None,
+               entity_tags: Optional[str] = None,
                ignore_case: Optional[bool] = None,
                ignore_not_found: Optional[bool] = None,
                name: Optional[str] = None,
@@ -154,69 +168,12 @@ def get_entity(account_id: Optional[str] = None,
                type: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
-    Use this data source to get information about a specific entity in New Relic One that already exists.
-
-    ### Example: Filter By Account ID
-
-    The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
-
-    This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    # The entity returned by this configuration would have to 
-    # belong to the account_id specified in the provider 
-    # configuration, i.e. NEW_RELIC_ACCOUNT_ID.
-    app = newrelic.get_entity(name="my-app",
-        domain="APM",
-        type="APPLICATION")
-    ```
-    However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    # The entity returned by this configuration, unlike in 
-    # the above example, would have to belong to the account_id 
-    # specified in the configuration below, i.e. 654321.
-    app = newrelic.get_entity(name="my-app",
-        account_id="654321",
-        domain="APM",
-        type="APPLICATION")
-    ```
-    The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
-
-    In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
-    ### Query for an OTEL entity
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    app = newrelic.get_entity(name="my-otel-app",
-        domain="EXT",
-        type="SERVICE",
-        tags=[newrelic.GetEntityTagArgs(
-            key="accountID",
-            value="12345",
-        )])
-    ```
-
-    ### Query for an entity by type (AWS Lambda entity in this example)
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    app = newrelic.get_entity(name="my_lambda_trace",
-        type="AWSLAMBDAFUNCTION")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
+    :param str entity_tags: A JSON-encoded string, comprising tags associated with the entity fetched.
+           * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param bool ignore_not_found: A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
            
@@ -228,6 +185,7 @@ def get_entity(account_id: Optional[str] = None,
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['domain'] = domain
+    __args__['entityTags'] = entity_tags
     __args__['ignoreCase'] = ignore_case
     __args__['ignoreNotFound'] = ignore_not_found
     __args__['name'] = name
@@ -240,6 +198,7 @@ def get_entity(account_id: Optional[str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         application_id=pulumi.get(__ret__, 'application_id'),
         domain=pulumi.get(__ret__, 'domain'),
+        entity_tags=pulumi.get(__ret__, 'entity_tags'),
         guid=pulumi.get(__ret__, 'guid'),
         id=pulumi.get(__ret__, 'id'),
         ignore_case=pulumi.get(__ret__, 'ignore_case'),
@@ -253,6 +212,7 @@ def get_entity(account_id: Optional[str] = None,
 @_utilities.lift_output_func(get_entity)
 def get_entity_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                       domain: Optional[pulumi.Input[Optional[str]]] = None,
+                      entity_tags: Optional[pulumi.Input[Optional[str]]] = None,
                       ignore_case: Optional[pulumi.Input[Optional[bool]]] = None,
                       ignore_not_found: Optional[pulumi.Input[Optional[bool]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
@@ -260,69 +220,12 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                       type: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
     """
-    Use this data source to get information about a specific entity in New Relic One that already exists.
-
-    ### Example: Filter By Account ID
-
-    The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
-
-    This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    # The entity returned by this configuration would have to 
-    # belong to the account_id specified in the provider 
-    # configuration, i.e. NEW_RELIC_ACCOUNT_ID.
-    app = newrelic.get_entity(name="my-app",
-        domain="APM",
-        type="APPLICATION")
-    ```
-    However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    # The entity returned by this configuration, unlike in 
-    # the above example, would have to belong to the account_id 
-    # specified in the configuration below, i.e. 654321.
-    app = newrelic.get_entity(name="my-app",
-        account_id="654321",
-        domain="APM",
-        type="APPLICATION")
-    ```
-    The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration.
-
-    In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
-    ### Query for an OTEL entity
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    app = newrelic.get_entity(name="my-otel-app",
-        domain="EXT",
-        type="SERVICE",
-        tags=[newrelic.GetEntityTagArgs(
-            key="accountID",
-            value="12345",
-        )])
-    ```
-
-    ### Query for an entity by type (AWS Lambda entity in this example)
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    app = newrelic.get_entity(name="my_lambda_trace",
-        type="AWSLAMBDAFUNCTION")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str account_id: The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
+    :param str entity_tags: A JSON-encoded string, comprising tags associated with the entity fetched.
+           * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param bool ignore_not_found: A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
            

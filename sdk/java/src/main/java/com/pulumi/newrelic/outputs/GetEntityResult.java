@@ -23,6 +23,12 @@ public final class GetEntityResult {
     private String applicationId;
     private String domain;
     /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    private String entityTags;
+    /**
      * @return The unique GUID of the entity.
      * 
      */
@@ -56,6 +62,14 @@ public final class GetEntityResult {
     }
     public String domain() {
         return this.domain;
+    }
+    /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    public String entityTags() {
+        return this.entityTags;
     }
     /**
      * @return The unique GUID of the entity.
@@ -106,6 +120,7 @@ public final class GetEntityResult {
         private String accountId;
         private String applicationId;
         private String domain;
+        private String entityTags;
         private String guid;
         private String id;
         private @Nullable Boolean ignoreCase;
@@ -120,6 +135,7 @@ public final class GetEntityResult {
     	      this.accountId = defaults.accountId;
     	      this.applicationId = defaults.applicationId;
     	      this.domain = defaults.domain;
+    	      this.entityTags = defaults.entityTags;
     	      this.guid = defaults.guid;
     	      this.id = defaults.id;
     	      this.ignoreCase = defaults.ignoreCase;
@@ -152,6 +168,14 @@ public final class GetEntityResult {
               throw new MissingRequiredPropertyException("GetEntityResult", "domain");
             }
             this.domain = domain;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder entityTags(String entityTags) {
+            if (entityTags == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "entityTags");
+            }
+            this.entityTags = entityTags;
             return this;
         }
         @CustomType.Setter
@@ -220,6 +244,7 @@ public final class GetEntityResult {
             _resultValue.accountId = accountId;
             _resultValue.applicationId = applicationId;
             _resultValue.domain = domain;
+            _resultValue.entityTags = entityTags;
             _resultValue.guid = guid;
             _resultValue.id = id;
             _resultValue.ignoreCase = ignoreCase;
