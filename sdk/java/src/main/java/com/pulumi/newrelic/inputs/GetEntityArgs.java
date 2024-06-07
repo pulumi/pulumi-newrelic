@@ -50,6 +50,23 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    @Import(name="entityTags")
+    private @Nullable Output<String> entityTags;
+
+    /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    public Optional<Output<String>> entityTags() {
+        return Optional.ofNullable(this.entityTags);
+    }
+
+    /**
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      * 
      */
@@ -133,6 +150,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     private GetEntityArgs(GetEntityArgs $) {
         this.accountId = $.accountId;
         this.domain = $.domain;
+        this.entityTags = $.entityTags;
         this.ignoreCase = $.ignoreCase;
         this.ignoreNotFound = $.ignoreNotFound;
         this.name = $.name;
@@ -198,6 +216,29 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityTags(@Nullable Output<String> entityTags) {
+            $.entityTags = entityTags;
+            return this;
+        }
+
+        /**
+         * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityTags(String entityTags) {
+            return entityTags(Output.of(entityTags));
         }
 
         /**

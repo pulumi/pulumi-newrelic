@@ -49,6 +49,23 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    @Import(name="entityTags")
+    private @Nullable String entityTags;
+
+    /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    public Optional<String> entityTags() {
+        return Optional.ofNullable(this.entityTags);
+    }
+
+    /**
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      * 
      */
@@ -132,6 +149,7 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetEntityPlainArgs(GetEntityPlainArgs $) {
         this.accountId = $.accountId;
         this.domain = $.domain;
+        this.entityTags = $.entityTags;
         this.ignoreCase = $.ignoreCase;
         this.ignoreNotFound = $.ignoreNotFound;
         this.name = $.name;
@@ -176,6 +194,18 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domain(@Nullable String domain) {
             $.domain = domain;
+            return this;
+        }
+
+        /**
+         * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityTags(@Nullable String entityTags) {
+            $.entityTags = entityTags;
             return this;
         }
 
