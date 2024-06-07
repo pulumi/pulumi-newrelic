@@ -18,8 +18,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 )
 
-const providerName = "newrelic"
-const defaultBaselineVersion = "5.22.1"
+const (
+	providerName           = "newrelic"
+	defaultBaselineVersion = "5.22.1"
+)
 
 var programs = []string{
 	"test-programs/index_alertpolicy",
@@ -53,6 +55,7 @@ func WithConfig(config map[string]string) func(opts *UpgradeTestOpts) {
 		opts.config = config
 	}
 }
+
 func testProviderUpgrade(t *testing.T, dir string, opts ...func(*UpgradeTestOpts)) {
 	options := &UpgradeTestOpts{}
 	for _, o := range opts {
