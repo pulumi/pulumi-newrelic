@@ -132,7 +132,7 @@ require (
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
-	github.com/imdario/mergo v0.3.15 // indirect
+	github.com/imdario/mergo v0.3.16 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
@@ -162,7 +162,7 @@ require (
 	github.com/muesli/termenv v0.15.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go/v2 v2.36.0 // indirect
+	github.com/newrelic/newrelic-client-go/v2 v2.37.0 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
@@ -192,7 +192,7 @@ require (
 	github.com/segmentio/encoding v0.3.5 // indirect
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
-	github.com/sirupsen/logrus v1.9.0 // indirect
+	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/skeema/knownhosts v1.2.2 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
@@ -205,7 +205,7 @@ require (
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/ulikunitz/xz v0.5.11 // indirect
-	github.com/valyala/fastjson v1.6.3 // indirect
+	github.com/valyala/fastjson v1.6.4 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
