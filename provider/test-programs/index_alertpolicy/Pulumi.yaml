@@ -1,0 +1,10 @@
+name: index_alertpolicyufqkZUAUFTgp
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/b7b1c630-28fc-4753-b473-a0d41b0fb0e1.zip
+resources:
+  my_alert_policy:
+    type: newrelic:AlertPolicy
