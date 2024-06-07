@@ -20,7 +20,7 @@ class CertCheckMonitorArgs:
                  domain: pulumi.Input[str],
                  period: pulumi.Input[str],
                  status: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -41,6 +41,8 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         pulumi.set(__self__, "certificate_expiration", certificate_expiration)
@@ -112,14 +114,14 @@ class CertCheckMonitorArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -177,6 +179,8 @@ class CertCheckMonitorArgs:
         The specific version of the runtime type selected.
 
         > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -200,7 +204,7 @@ class CertCheckMonitorArgs:
 @pulumi.input_type
 class _CertCheckMonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  certificate_expiration: Optional[pulumi.Input[int]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -214,7 +218,7 @@ class _CertCheckMonitorState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering CertCheckMonitor resources.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -226,6 +230,8 @@ class _CertCheckMonitorState:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -256,14 +262,14 @@ class _CertCheckMonitorState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -369,6 +375,8 @@ class _CertCheckMonitorState:
         The specific version of the runtime type selected.
 
         > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -406,7 +414,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  certificate_expiration: Optional[pulumi.Input[int]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -419,29 +427,30 @@ class CertCheckMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None,
                  __props__=None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.CertCheckMonitor("foo",
-            certificate_expiration=10,
+            name="Sample Cert Check Monitor",
             domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
+            certificate_expiration=10,
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -452,17 +461,18 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=False)
-        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor",
+        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("foo",
+            name="Sample Cert Check Monitor",
             domain="www.one.example.com",
-            locations_privates=[foo_private_location.id],
+            locations_privates=[foo.id],
             certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
@@ -471,7 +481,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -485,7 +494,7 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -496,6 +505,8 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -506,29 +517,30 @@ class CertCheckMonitor(pulumi.CustomResource):
                  args: CertCheckMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.CertCheckMonitor("foo",
-            certificate_expiration=10,
+            name="Sample Cert Check Monitor",
             domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
+            certificate_expiration=10,
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            status="ENABLED",
             tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -539,17 +551,18 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=False)
-        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("fooCertCheckMonitor",
+        foo_cert_check_monitor = newrelic.synthetics.CertCheckMonitor("foo",
+            name="Sample Cert Check Monitor",
             domain="www.one.example.com",
-            locations_privates=[foo_private_location.id],
+            locations_privates=[foo.id],
             certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
@@ -558,7 +571,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -585,7 +597,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  certificate_expiration: Optional[pulumi.Input[int]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -635,7 +647,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             certificate_expiration: Optional[pulumi.Input[int]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -654,7 +666,7 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -666,6 +678,8 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -689,7 +703,7 @@ class CertCheckMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the Synthetics monitor will be created.
         """
@@ -766,6 +780,8 @@ class CertCheckMonitor(pulumi.CustomResource):
         The specific version of the runtime type selected.
 
         > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         """
         return pulumi.get(self, "runtime_type_version")
 

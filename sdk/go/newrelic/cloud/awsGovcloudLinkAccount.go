@@ -26,7 +26,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,10 +39,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloud.NewAwsGovcloudLinkAccount(ctx, "foo", &cloud.AwsGovcloudLinkAccountArgs{
+//				AccountId:            pulumi.String("The New Relic account ID where you want to link the AWS GovCloud account"),
 //				AccessKeyId:          pulumi.String("access-key-id of aws govcloud account"),
-//				AccountId:            pulumi.Int("The New Relic account ID where you want to link the AWS GovCloud account"),
 //				AwsAccountId:         pulumi.String("aws govcloud account id"),
 //				MetricCollectionMode: pulumi.String("PULL"),
+//				Name:                 pulumi.String("account name"),
 //				SecretAccessKey:      pulumi.String("secret access key of the aws govcloud account"),
 //			})
 //			if err != nil {
@@ -54,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -71,7 +70,7 @@ type AwsGovcloudLinkAccount struct {
 	// The access key of the AwsGovCloud.
 	AccessKeyId pulumi.StringOutput `pulumi:"accessKeyId"`
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The AwsGovCloud account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -135,7 +134,7 @@ type awsGovcloudLinkAccountState struct {
 	// The access key of the AwsGovCloud.
 	AccessKeyId *string `pulumi:"accessKeyId"`
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The AwsGovCloud account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -150,7 +149,7 @@ type AwsGovcloudLinkAccountState struct {
 	// The access key of the AwsGovCloud.
 	AccessKeyId pulumi.StringPtrInput
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The AwsGovCloud account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -169,7 +168,7 @@ type awsGovcloudLinkAccountArgs struct {
 	// The access key of the AwsGovCloud.
 	AccessKeyId string `pulumi:"accessKeyId"`
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The AwsGovCloud account ID.
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -185,7 +184,7 @@ type AwsGovcloudLinkAccountArgs struct {
 	// The access key of the AwsGovCloud.
 	AccessKeyId pulumi.StringInput
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The AwsGovCloud account ID.
 	AwsAccountId pulumi.StringInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -289,8 +288,8 @@ func (o AwsGovcloudLinkAccountOutput) AccessKeyId() pulumi.StringOutput {
 }
 
 // The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AwsGovcloudLinkAccountOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AwsGovcloudLinkAccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The AwsGovCloud account ID.

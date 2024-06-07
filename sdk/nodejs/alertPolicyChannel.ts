@@ -13,16 +13,18 @@ import * as utilities from "./utilities";
  *
  * The example below will apply multiple alert channels to an existing New Relic alert policy.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // Fetches the data for this policy from your New Relic account
+ * // and is referenced in the newrelic_alert_policy_channel block below.
  * const examplePolicy = newrelic.getAlertPolicy({
  *     name: "my-alert-policy",
  * });
  * // Creates an email alert channel.
- * const emailChannel = new newrelic.AlertChannel("emailChannel", {
+ * const emailChannel = new newrelic.AlertChannel("email_channel", {
+ *     name: "bar",
  *     type: "email",
  *     config: {
  *         recipients: "foo@example.com",
@@ -30,7 +32,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Creates a Slack alert channel.
- * const slackChannel = new newrelic.AlertChannel("slackChannel", {
+ * const slackChannel = new newrelic.AlertChannel("slack_channel", {
+ *     name: "slack-channel-example",
  *     type: "slack",
  *     config: {
  *         channel: "#example-channel",
@@ -47,7 +50,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -89,15 +91,15 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    public readonly channelIds!: pulumi.Output<number[]>;
+    public readonly channelIds!: pulumi.Output<string[]>;
     /**
      * The ID of the policy.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
 
     /**
      * Create a AlertPolicyChannel resource with the given unique name, arguments, and options.
@@ -139,15 +141,15 @@ export interface AlertPolicyChannelState {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the policy.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
 }
 
 /**
@@ -157,13 +159,13 @@ export interface AlertPolicyChannelArgs {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    channelIds: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the policy.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
 }

@@ -17,7 +17,6 @@ import (
 //
 // Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,9 +33,10 @@ import (
 //			fooPeriod := 28
 //			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
 //				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Name:        pulumi.String("Latency"),
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(12345678),
+//					AccountId: pulumi.String("12345678"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
@@ -64,14 +64,12 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
 // Note that the Service Level was set up using bad events, that's why `isBadEvents` is set to `true`.
 // If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 //
 // Here is an example of a `slowBurn` alert.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,18 +84,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			fooSlowBurn, err := newrelic.GetServiceLevelAlertHelper(ctx, &newrelic.GetServiceLevelAlertHelperArgs{
 //				AlertType:   "slow_burn",
-//				SliGuid:     newrelic_service_level.Foo.Sli_guid,
-//				SloTarget:   local.Foo_target,
-//				SloPeriod:   local.Foo_period,
+//				SliGuid:     foo.SliGuid,
+//				SloTarget:   fooTarget,
+//				SloPeriod:   fooPeriod,
 //				IsBadEvents: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "yourCondition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                 pulumi.Int(12345678),
-//				PolicyId:                  pulumi.Int(67890),
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "your_condition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                 pulumi.String("12345678"),
+//				PolicyId:                  pulumi.String("67890"),
 //				Type:                      pulumi.String("static"),
+//				Name:                      pulumi.String("Slow burn alert"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(259200),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
@@ -123,11 +122,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Here is an example of a custom alert:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,9 +139,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			fooCustom, err := newrelic.GetServiceLevelAlertHelper(ctx, &newrelic.GetServiceLevelAlertHelperArgs{
 //				AlertType:                        "custom",
-//				SliGuid:                          newrelic_service_level.Foo.Sli_guid,
-//				SloTarget:                        local.Foo_target,
-//				SloPeriod:                        local.Foo_period,
+//				SliGuid:                          foo.SliGuid,
+//				SloTarget:                        fooTarget,
+//				SloPeriod:                        fooPeriod,
 //				CustomToleratedBudgetConsumption: pulumi.Float64Ref(4),
 //				CustomEvaluationPeriod:           pulumi.IntRef(5400),
 //				IsBadEvents:                      pulumi.BoolRef(true),
@@ -152,10 +149,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "yourCondition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                 pulumi.Int(12345678),
-//				PolicyId:                  pulumi.Int(67890),
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "your_condition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                 pulumi.String("12345678"),
+//				PolicyId:                  pulumi.String("67890"),
 //				Type:                      pulumi.String("static"),
+//				Name:                      pulumi.String("Custom burn alert"),
 //				Enabled:                   pulumi.Bool(true),
 //				ViolationTimeLimitSeconds: pulumi.Int(259200),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
@@ -181,7 +179,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetServiceLevelAlertHelper(ctx *pulumi.Context, args *GetServiceLevelAlertHelperArgs, opts ...pulumi.InvokeOption) (*GetServiceLevelAlertHelperResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceLevelAlertHelperResult

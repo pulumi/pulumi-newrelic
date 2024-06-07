@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,19 +27,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("foo", fooAuthenticationDomain.Id)
+//			ctx.Export("foo", foo.Id)
 //			return nil
 //		})
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetAuthenticationDomain(ctx *pulumi.Context, args *GetAuthenticationDomainArgs, opts ...pulumi.InvokeOption) (*GetAuthenticationDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthenticationDomainResult

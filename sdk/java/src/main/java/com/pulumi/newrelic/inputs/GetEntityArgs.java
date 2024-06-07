@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.GetEntityTagArgs;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,13 +24,13 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -48,6 +47,23 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
+    }
+
+    /**
+     * A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    @Import(name="entityTags")
+    private @Nullable Output<String> entityTags;
+
+    /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    public Optional<Output<String>> entityTags() {
+        return Optional.ofNullable(this.entityTags);
     }
 
     /**
@@ -134,6 +150,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     private GetEntityArgs(GetEntityArgs $) {
         this.accountId = $.accountId;
         this.domain = $.domain;
+        this.entityTags = $.entityTags;
         this.ignoreCase = $.ignoreCase;
         this.ignoreNotFound = $.ignoreNotFound;
         this.name = $.name;
@@ -165,7 +182,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -176,7 +193,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -199,6 +216,29 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityTags(@Nullable Output<String> entityTags) {
+            $.entityTags = entityTags;
+            return this;
+        }
+
+        /**
+         * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder entityTags(String entityTags) {
+            return entityTags(Output.of(entityTags));
         }
 
         /**

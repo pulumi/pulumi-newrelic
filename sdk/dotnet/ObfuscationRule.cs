@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +24,14 @@ namespace Pulumi.NewRelic
     /// {
     ///     var bar = new NewRelic.ObfuscationExpression("bar", new()
     ///     {
+    ///         Name = "expressionName",
     ///         Description = "description of the expression",
     ///         Regex = "(^http)",
     ///     });
     /// 
     ///     var foo = new NewRelic.ObfuscationRule("foo", new()
     ///     {
+    ///         Name = "ruleName",
     ///         Description = "description of the rule",
     ///         Filter = "hostStatus=running",
     ///         Enabled = true,
@@ -50,7 +51,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -69,7 +69,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Actions for the rule. The actions will be applied in the order specified by this list.
@@ -151,7 +151,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("actions", required: true)]
         private InputList<Inputs.ObfuscationRuleActionArgs>? _actions;
@@ -201,7 +201,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("actions")]
         private InputList<Inputs.ObfuscationRuleActionGetArgs>? _actions;

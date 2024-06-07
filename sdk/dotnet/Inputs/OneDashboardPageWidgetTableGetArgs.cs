@@ -108,6 +108,18 @@ namespace Pulumi.NewRelic.Inputs
         [Input("row", required: true)]
         public Input<int> Row { get; set; } = null!;
 
+        [Input("thresholds")]
+        private InputList<Inputs.OneDashboardPageWidgetTableThresholdGetArgs>? _thresholds;
+
+        /// <summary>
+        /// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetTableThresholdGetArgs> Thresholds
+        {
+            get => _thresholds ?? (_thresholds = new InputList<Inputs.OneDashboardPageWidgetTableThresholdGetArgs>());
+            set => _thresholds = value;
+        }
+
         /// <summary>
         /// (Optional) A human-friendly display string for this value.
         /// </summary>

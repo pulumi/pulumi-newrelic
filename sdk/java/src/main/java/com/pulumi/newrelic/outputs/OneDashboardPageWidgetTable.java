@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableNullValue;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableThreshold;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableUnit;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -80,6 +81,11 @@ public final class OneDashboardPageWidgetTable {
      * 
      */
     private Integer row;
+    /**
+     * @return (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    private @Nullable List<OneDashboardPageWidgetTableThreshold> thresholds;
     /**
      * @return (Optional) A human-friendly display string for this value.
      * 
@@ -188,6 +194,13 @@ public final class OneDashboardPageWidgetTable {
         return this.row;
     }
     /**
+     * @return (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public List<OneDashboardPageWidgetTableThreshold> thresholds() {
+        return this.thresholds == null ? List.of() : this.thresholds;
+    }
+    /**
      * @return (Optional) A human-friendly display string for this value.
      * 
      */
@@ -240,6 +253,7 @@ public final class OneDashboardPageWidgetTable {
         private List<OneDashboardPageWidgetTableNrqlQuery> nrqlQueries;
         private @Nullable List<OneDashboardPageWidgetTableNullValue> nullValues;
         private Integer row;
+        private @Nullable List<OneDashboardPageWidgetTableThreshold> thresholds;
         private String title;
         private @Nullable List<OneDashboardPageWidgetTableUnit> units;
         private @Nullable Integer width;
@@ -260,6 +274,7 @@ public final class OneDashboardPageWidgetTable {
     	      this.nrqlQueries = defaults.nrqlQueries;
     	      this.nullValues = defaults.nullValues;
     	      this.row = defaults.row;
+    	      this.thresholds = defaults.thresholds;
     	      this.title = defaults.title;
     	      this.units = defaults.units;
     	      this.width = defaults.width;
@@ -358,6 +373,15 @@ public final class OneDashboardPageWidgetTable {
             return this;
         }
         @CustomType.Setter
+        public Builder thresholds(@Nullable List<OneDashboardPageWidgetTableThreshold> thresholds) {
+
+            this.thresholds = thresholds;
+            return this;
+        }
+        public Builder thresholds(OneDashboardPageWidgetTableThreshold... thresholds) {
+            return thresholds(List.of(thresholds));
+        }
+        @CustomType.Setter
         public Builder title(String title) {
             if (title == null) {
               throw new MissingRequiredPropertyException("OneDashboardPageWidgetTable", "title");
@@ -406,6 +430,7 @@ public final class OneDashboardPageWidgetTable {
             _resultValue.nrqlQueries = nrqlQueries;
             _resultValue.nullValues = nullValues;
             _resultValue.row = row;
+            _resultValue.thresholds = thresholds;
             _resultValue.title = title;
             _resultValue.units = units;
             _resultValue.width = width;

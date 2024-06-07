@@ -16,13 +16,13 @@ namespace Pulumi.NewRelic.Inputs
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("configurations", required: true)]
         private InputList<Inputs.WorkflowEnrichmentsNrqlConfigurationArgs>? _configurations;
 
         /// <summary>
-        /// Another wrapper block
+        /// A set of key-value pairs to represent a enrichment configuration.
         /// </summary>
         public InputList<Inputs.WorkflowEnrichmentsNrqlConfigurationArgs> Configurations
         {
@@ -43,7 +43,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        /// The type of the enrichment. One of: (NRQL).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

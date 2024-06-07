@@ -5,7 +5,6 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,13 +20,13 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -77,7 +76,7 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }

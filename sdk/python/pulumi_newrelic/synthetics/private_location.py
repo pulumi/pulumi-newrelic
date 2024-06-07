@@ -15,13 +15,13 @@ __all__ = ['PrivateLocationArgs', 'PrivateLocation']
 class PrivateLocationArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  verified_script_execution: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a PrivateLocation resource.
         :param pulumi.Input[str] description: The private location description.
-        :param pulumi.Input[int] account_id: The account in which the private location will be created.
+        :param pulumi.Input[str] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] name: The name of the private location.
         :param pulumi.Input[bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
@@ -47,14 +47,14 @@ class PrivateLocationArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the private location will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -85,7 +85,7 @@ class PrivateLocationArgs:
 @pulumi.input_type
 class _PrivateLocationState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class _PrivateLocationState:
                  verified_script_execution: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering PrivateLocation resources.
-        :param pulumi.Input[int] account_id: The account in which the private location will be created.
+        :param pulumi.Input[str] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] description: The private location description.
         :param pulumi.Input[str] domain_id: The private location globally unique identifier.
         :param pulumi.Input[str] guid: The unique client identifier for the private location in New Relic. Same as `id`.
@@ -123,14 +123,14 @@ class _PrivateLocationState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the private location will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -223,7 +223,7 @@ class PrivateLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  verified_script_execution: Optional[pulumi.Input[bool]] = None,
@@ -233,14 +233,14 @@ class PrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="The private location description",
+            name="The name of the private location")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -252,7 +252,7 @@ class PrivateLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the private location will be created.
+        :param pulumi.Input[str] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] description: The private location description.
         :param pulumi.Input[str] name: The name of the private location.
         :param pulumi.Input[bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
@@ -268,14 +268,14 @@ class PrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="The private location description",
+            name="The name of the private location")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,7 +300,7 @@ class PrivateLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  verified_script_execution: Optional[pulumi.Input[bool]] = None,
@@ -333,7 +333,7 @@ class PrivateLocation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
             guid: Optional[pulumi.Input[str]] = None,
@@ -348,7 +348,7 @@ class PrivateLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the private location will be created.
+        :param pulumi.Input[str] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] description: The private location description.
         :param pulumi.Input[str] domain_id: The private location globally unique identifier.
         :param pulumi.Input[str] guid: The unique client identifier for the private location in New Relic. Same as `id`.
@@ -373,7 +373,7 @@ class PrivateLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the private location will be created.
         """

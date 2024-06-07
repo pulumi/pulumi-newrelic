@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AzureIntegrationsCostManagement {
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
     /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+     * @return Specify if additional cost data per tag should be collected. This field is case sensitive.
      * 
      */
     private @Nullable List<String> tagKeys;
 
     private AzureIntegrationsCostManagement() {}
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {
         return Optional.ofNullable(this.metricsPollingInterval);
     }
     /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+     * @return Specify if additional cost data per tag should be collected. This field is case sensitive.
      * 
      */
     public List<String> tagKeys() {

@@ -13,18 +13,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const app = new newrelic.plugins.ApplicationSettings("app", {
+ *     name: "my-app",
  *     appApdexThreshold: 0.7,
- *     enableRealUserMonitoring: false,
  *     endUserApdexThreshold: 0.8,
+ *     enableRealUserMonitoring: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Notes
  *
@@ -74,11 +73,9 @@ export class ApplicationSettings extends pulumi.CustomResource {
     /**
      * Enable or disable real user monitoring for the New Relic application.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly enableRealUserMonitoring!: pulumi.Output<boolean>;
     /**
@@ -139,11 +136,9 @@ export interface ApplicationSettingsState {
     /**
      * Enable or disable real user monitoring for the New Relic application.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
@@ -167,11 +162,9 @@ export interface ApplicationSettingsArgs {
     /**
      * Enable or disable real user monitoring for the New Relic application.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enableRealUserMonitoring: pulumi.Input<boolean>;
     /**

@@ -14,14 +14,14 @@ __all__ = ['BrowserApplicationArgs', 'BrowserApplication']
 @pulumi.input_type
 class BrowserApplicationArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  cookies_enabled: Optional[pulumi.Input[bool]] = None,
                  distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  loader_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BrowserApplication resource.
-        :param pulumi.Input[int] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
+        :param pulumi.Input[str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         :param pulumi.Input[bool] cookies_enabled: Configures cookies. Defaults to `true`, if not specified.
         :param pulumi.Input[bool] distributed_tracing_enabled: Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
         :param pulumi.Input[str] loader_type: Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
@@ -40,14 +40,14 @@ class BrowserApplicationArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -102,7 +102,7 @@ class BrowserApplicationArgs:
 @pulumi.input_type
 class _BrowserApplicationState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  cookies_enabled: Optional[pulumi.Input[bool]] = None,
                  distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
@@ -112,7 +112,7 @@ class _BrowserApplicationState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BrowserApplication resources.
-        :param pulumi.Input[int] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
+        :param pulumi.Input[str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         :param pulumi.Input[str] application_id: The application ID of the browser application (not to be confused with GUID).
         :param pulumi.Input[bool] cookies_enabled: Configures cookies. Defaults to `true`, if not specified.
         :param pulumi.Input[bool] distributed_tracing_enabled: Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
@@ -140,14 +140,14 @@ class _BrowserApplicationState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -240,7 +240,7 @@ class BrowserApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  cookies_enabled: Optional[pulumi.Input[bool]] = None,
                  distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  loader_type: Optional[pulumi.Input[str]] = None,
@@ -259,7 +259,7 @@ class BrowserApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
+        :param pulumi.Input[str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         :param pulumi.Input[bool] cookies_enabled: Configures cookies. Defaults to `true`, if not specified.
         :param pulumi.Input[bool] distributed_tracing_enabled: Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
         :param pulumi.Input[str] loader_type: Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
@@ -297,7 +297,7 @@ class BrowserApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  cookies_enabled: Optional[pulumi.Input[bool]] = None,
                  distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  loader_type: Optional[pulumi.Input[str]] = None,
@@ -329,7 +329,7 @@ class BrowserApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             application_id: Optional[pulumi.Input[str]] = None,
             cookies_enabled: Optional[pulumi.Input[bool]] = None,
             distributed_tracing_enabled: Optional[pulumi.Input[bool]] = None,
@@ -344,7 +344,7 @@ class BrowserApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
+        :param pulumi.Input[str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         :param pulumi.Input[str] application_id: The application ID of the browser application (not to be confused with GUID).
         :param pulumi.Input[bool] cookies_enabled: Configures cookies. Defaults to `true`, if not specified.
         :param pulumi.Input[bool] distributed_tracing_enabled: Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
@@ -369,7 +369,7 @@ class BrowserApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         """

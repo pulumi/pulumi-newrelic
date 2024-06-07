@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class WorkloadStatusConfigAutomaticRemainingEntitiesRule
     {
         /// <summary>
-        /// The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+        /// The input object used to represent a rollup strategy.
         /// </summary>
         public readonly Outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup RemainingEntitiesRuleRollup;
 

@@ -63,9 +63,9 @@ class WorkloadStatusConfigAutomatic(dict):
                  remaining_entities_rule: Optional['outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRule'] = None,
                  rules: Optional[Sequence['outputs.WorkloadStatusConfigAutomaticRule']] = None):
         """
-        :param bool enabled: Whether the static status configuration is enabled or not.
-        :param 'WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs' remaining_entities_rule: An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
-        :param Sequence['WorkloadStatusConfigAutomaticRuleArgs'] rules: The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+        :param bool enabled: Whether the automatic status configuration is enabled or not.
+        :param 'WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs' remaining_entities_rule: An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
+        :param Sequence['WorkloadStatusConfigAutomaticRuleArgs'] rules: A list of rules.
         """
         pulumi.set(__self__, "enabled", enabled)
         if remaining_entities_rule is not None:
@@ -77,7 +77,7 @@ class WorkloadStatusConfigAutomatic(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether the static status configuration is enabled or not.
+        Whether the automatic status configuration is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
@@ -85,7 +85,7 @@ class WorkloadStatusConfigAutomatic(dict):
     @pulumi.getter(name="remainingEntitiesRule")
     def remaining_entities_rule(self) -> Optional['outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRule']:
         """
-        An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
+        An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
         """
         return pulumi.get(self, "remaining_entities_rule")
 
@@ -93,7 +93,7 @@ class WorkloadStatusConfigAutomatic(dict):
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.WorkloadStatusConfigAutomaticRule']]:
         """
-        The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+        A list of rules.
         """
         return pulumi.get(self, "rules")
 
@@ -120,7 +120,7 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRule(dict):
     def __init__(__self__, *,
                  remaining_entities_rule_rollup: 'outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup'):
         """
-        :param 'WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs' remaining_entities_rule_rollup: The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+        :param 'WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs' remaining_entities_rule_rollup: The input object used to represent a rollup strategy.
         """
         pulumi.set(__self__, "remaining_entities_rule_rollup", remaining_entities_rule_rollup)
 
@@ -128,7 +128,7 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRule(dict):
     @pulumi.getter(name="remainingEntitiesRuleRollup")
     def remaining_entities_rule_rollup(self) -> 'outputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup':
         """
-        The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+        The input object used to represent a rollup strategy.
         """
         return pulumi.get(self, "remaining_entities_rule_rollup")
 

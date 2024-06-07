@@ -14,13 +14,11 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class AwsGovcloudIntegrationsAwsDirectConnect
     {
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
 

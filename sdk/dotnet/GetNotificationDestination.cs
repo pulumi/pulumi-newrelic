@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The id of the notification destination in New Relic.
@@ -41,6 +41,18 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("secureUrls")]
+        private List<Inputs.GetNotificationDestinationSecureUrlArgs>? _secureUrls;
+
+        /// <summary>
+        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// </summary>
+        public List<Inputs.GetNotificationDestinationSecureUrlArgs> SecureUrls
+        {
+            get => _secureUrls ?? (_secureUrls = new List<Inputs.GetNotificationDestinationSecureUrlArgs>());
+            set => _secureUrls = value;
+        }
+
         public GetNotificationDestinationArgs()
         {
         }
@@ -53,7 +65,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The id of the notification destination in New Relic.
@@ -69,6 +81,18 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("secureUrls")]
+        private InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs>? _secureUrls;
+
+        /// <summary>
+        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// </summary>
+        public InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs> SecureUrls
+        {
+            get => _secureUrls ?? (_secureUrls = new InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs>());
+            set => _secureUrls = value;
+        }
+
         public GetNotificationDestinationInvokeArgs()
         {
         }
@@ -79,7 +103,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetNotificationDestinationResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// An indication whether the notification destination is active or not.
         /// </summary>
@@ -98,6 +122,10 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> Properties;
         /// <summary>
+        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> SecureUrls;
+        /// <summary>
         /// The status of the notification destination.
         /// </summary>
         public readonly string Status;
@@ -108,7 +136,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetNotificationDestinationResult(
-            int accountId,
+            string accountId,
 
             bool active,
 
@@ -120,6 +148,8 @@ namespace Pulumi.NewRelic
 
             ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> properties,
 
+            ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> secureUrls,
+
             string status,
 
             string type)
@@ -130,6 +160,7 @@ namespace Pulumi.NewRelic
             Id = id;
             Name = name;
             Properties = properties;
+            SecureUrls = secureUrls;
             Status = status;
             Type = type;
         }

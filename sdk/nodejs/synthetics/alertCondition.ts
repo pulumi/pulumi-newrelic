@@ -11,31 +11,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.AlertCondition("foo", {
- *     policyId: newrelic_alert_policy.foo.id,
- *     monitorId: newrelic_synthetics_monitor.foo.id,
+ *     policyId: fooNewrelicAlertPolicy.id,
+ *     name: "foo",
+ *     monitorId: fooNewrelicSyntheticsMonitor.id,
  *     runbookUrl: "https://www.example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Tags
  *
  * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooMonitor = new newrelic.synthetics.Monitor("fooMonitor", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooMonitor = new newrelic.synthetics.Monitor("foo", {
  *     status: "ENABLED",
+ *     name: "foo monitor",
  *     period: "EVERY_MINUTE",
  *     uri: "https://www.one.newrelic.com",
  *     type: "SIMPLE",
@@ -53,12 +52,13 @@ import * as utilities from "../utilities";
  *         values: ["some_value"],
  *     }],
  * });
- * const fooAlertCondition = new newrelic.synthetics.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const fooAlertCondition = new newrelic.synthetics.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo synthetics condition",
  *     monitorId: fooMonitor.id,
  *     runbookUrl: "https://www.example.com",
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooAlertCondition.entityGuid,
  *     tags: [
  *         {
@@ -75,7 +75,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -116,11 +115,9 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -138,7 +135,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -190,11 +187,9 @@ export interface AlertConditionState {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -212,7 +207,7 @@ export interface AlertConditionState {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -226,11 +221,9 @@ export interface AlertConditionArgs {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -244,7 +237,7 @@ export interface AlertConditionArgs {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */

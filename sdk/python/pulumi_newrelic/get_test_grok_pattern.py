@@ -23,8 +23,8 @@ class GetTestGrokPatternResult:
     A collection of values returned by getTestGrokPattern.
     """
     def __init__(__self__, account_id=None, grok=None, id=None, log_lines=None, test_groks=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if grok and not isinstance(grok, str):
             raise TypeError("Expected argument 'grok' to be a str")
@@ -41,7 +41,7 @@ class GetTestGrokPatternResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
@@ -84,28 +84,27 @@ class AwaitableGetTestGrokPatternResult(GetTestGrokPatternResult):
             test_groks=self.test_groks)
 
 
-def get_test_grok_pattern(account_id: Optional[int] = None,
+def get_test_grok_pattern(account_id: Optional[str] = None,
                           grok: Optional[str] = None,
                           log_lines: Optional[Sequence[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestGrokPatternResult:
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo = newrelic.get_test_grok_pattern(grok="%%{IP:host_ip}",
+    # Data source
+    foo = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
         log_lines=[
             "host_ip: 43.3.120.2",
             "bytes_received: 2048",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    :param str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str grok: The Grok pattern to test.
     :param Sequence[str] log_lines: The log lines to test the Grok pattern against.
     """
@@ -125,28 +124,27 @@ def get_test_grok_pattern(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_test_grok_pattern)
-def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  grok: Optional[pulumi.Input[str]] = None,
                                  log_lines: Optional[pulumi.Input[Sequence[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestGrokPatternResult]:
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo = newrelic.get_test_grok_pattern(grok="%%{IP:host_ip}",
+    # Data source
+    foo = newrelic.get_test_grok_pattern(grok="%{IP:host_ip}",
         log_lines=[
             "host_ip: 43.3.120.2",
             "bytes_received: 2048",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+    :param str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str grok: The Grok pattern to test.
     :param Sequence[str] log_lines: The log lines to test the Grok pattern against.
     """

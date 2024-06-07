@@ -12,12 +12,12 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ##### Workflow
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.Workflow("foo", {
+ *     name: "workflow-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "filter-name",
@@ -29,25 +29,24 @@ import * as utilities from "./utilities";
  *         }],
  *     },
  *     destinations: [{
- *         channelId: newrelic_notification_channel.some_channel.id,
+ *         channelId: someChannel.id,
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Policy-Based Workflow Example
  *
  * This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * // Create a policy to track
- * const my_policy = new newrelic.AlertPolicy("my-policy", {});
+ * const my_policy = new newrelic.AlertPolicy("my-policy", {name: "my_policy"});
  * // Create a reusable notification destination
  * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
+ *     name: "destination-webhook",
  *     type: "WEBHOOK",
  *     properties: [{
  *         key: "url",
@@ -60,6 +59,7 @@ import * as utilities from "./utilities";
  * });
  * // Create a notification channel to use in the workflow
  * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
+ *     name: "channel-webhook",
  *     type: "WEBHOOK",
  *     destinationId: webhook_destination.id,
  *     product: "IINT",
@@ -71,6 +71,7 @@ import * as utilities from "./utilities";
  * });
  * // A workflow that matches issues that include incidents triggered by the policy
  * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     name: "workflow-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "Filter-name",
@@ -86,16 +87,15 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### An example of a workflow with enrichments
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     name: "workflow-enrichment-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "Filter-name",
@@ -115,20 +115,19 @@ import * as utilities from "./utilities";
  *         }],
  *     },
  *     destinations: [{
- *         channelId: newrelic_notification_channel["webhook-channel"].id,
+ *         channelId: webhook_channel.id,
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### An example of a workflow with notification triggers
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     name: "workflow-enrichment-example",
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "Filter-name",
@@ -140,12 +139,11 @@ import * as utilities from "./utilities";
  *         }],
  *     },
  *     destinations: [{
- *         channelId: newrelic_notification_channel["webhook-channel"].id,
+ *         channelId: webhook_channel.id,
  *         notificationTriggers: ["ACTIVATED"],
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Information
  *
@@ -203,7 +201,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
@@ -313,7 +311,7 @@ export interface WorkflowState {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
@@ -370,7 +368,7 @@ export interface WorkflowArgs {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */

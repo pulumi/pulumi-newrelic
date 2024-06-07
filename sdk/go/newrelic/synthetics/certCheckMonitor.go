@@ -12,11 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+//
 // Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +31,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewCertCheckMonitor(ctx, "foo", &synthetics.CertCheckMonitorArgs{
-//				CertificateExpiration: pulumi.Int(10),
-//				Domain:                pulumi.String("www.example.com"),
+//				Name:   pulumi.String("Sample Cert Check Monitor"),
+//				Domain: pulumi.String("www.example.com"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
-//				Period:             pulumi.String("EVERY_6_HOURS"),
-//				RuntimeType:        pulumi.String("NODE_API"),
-//				RuntimeTypeVersion: pulumi.String("16.10"),
-//				Status:             pulumi.String("ENABLED"),
+//				CertificateExpiration: pulumi.Int(10),
+//				Period:                pulumi.String("EVERY_6_HOURS"),
+//				Status:                pulumi.String("ENABLED"),
+//				RuntimeType:           pulumi.String("NODE_API"),
+//				RuntimeTypeVersion:    pulumi.String("16.10"),
 //				Tags: synthetics.CertCheckMonitorTagArray{
 //					&synthetics.CertCheckMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -56,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -67,7 +68,6 @@ import (
 //
 // > **NOTE:** It can take up to 10 minutes for a private location to become available.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,17 +80,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooPrivateLocation, err := synthetics.NewPrivateLocation(ctx, "fooPrivateLocation", &synthetics.PrivateLocationArgs{
+//			foo, err := synthetics.NewPrivateLocation(ctx, "foo", &synthetics.PrivateLocationArgs{
+//				Name:                    pulumi.String("Sample Private Location"),
 //				Description:             pulumi.String("Sample Private Location Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewCertCheckMonitor(ctx, "fooCertCheckMonitor", &synthetics.CertCheckMonitorArgs{
+//			_, err = synthetics.NewCertCheckMonitor(ctx, "foo", &synthetics.CertCheckMonitorArgs{
+//				Name:   pulumi.String("Sample Cert Check Monitor"),
 //				Domain: pulumi.String("www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					fooPrivateLocation.ID(),
+//					foo.ID(),
 //				},
 //				CertificateExpiration: pulumi.Int(10),
 //				Period:                pulumi.String("EVERY_6_HOURS"),
@@ -112,7 +114,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -127,7 +128,7 @@ type CertCheckMonitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration pulumi.IntOutput `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
@@ -147,6 +148,8 @@ type CertCheckMonitor struct {
 	// The specific version of the runtime type selected.
 	//
 	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	//
+	// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -197,7 +200,7 @@ func GetCertCheckMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CertCheckMonitor resources.
 type certCheckMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration *int `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
@@ -217,6 +220,8 @@ type certCheckMonitorState struct {
 	// The specific version of the runtime type selected.
 	//
 	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	//
+	// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
@@ -226,7 +231,7 @@ type certCheckMonitorState struct {
 
 type CertCheckMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration pulumi.IntPtrInput
 	// The domain of the host that will have its certificate checked.
@@ -246,6 +251,8 @@ type CertCheckMonitorState struct {
 	// The specific version of the runtime type selected.
 	//
 	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	//
+	// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
@@ -259,7 +266,7 @@ func (CertCheckMonitorState) ElementType() reflect.Type {
 
 type certCheckMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration int `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
@@ -277,6 +284,8 @@ type certCheckMonitorArgs struct {
 	// The specific version of the runtime type selected.
 	//
 	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	//
+	// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
@@ -287,7 +296,7 @@ type certCheckMonitorArgs struct {
 // The set of arguments for constructing a CertCheckMonitor resource.
 type CertCheckMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The desired number of remaining days until the certificate expires to trigger a monitor failure.
 	CertificateExpiration pulumi.IntInput
 	// The domain of the host that will have its certificate checked.
@@ -305,6 +314,8 @@ type CertCheckMonitorArgs struct {
 	// The specific version of the runtime type selected.
 	//
 	// > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+	//
+	// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
@@ -400,8 +411,8 @@ func (o CertCheckMonitorOutput) ToCertCheckMonitorOutputWithContext(ctx context.
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o CertCheckMonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *CertCheckMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o CertCheckMonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The desired number of remaining days until the certificate expires to trigger a monitor failure.
@@ -447,6 +458,8 @@ func (o CertCheckMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 // The specific version of the runtime type selected.
 //
 // > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+//
+// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
 func (o CertCheckMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }

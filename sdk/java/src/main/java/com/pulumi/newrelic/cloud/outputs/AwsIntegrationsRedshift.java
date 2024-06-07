@@ -15,15 +15,11 @@ import javax.annotation.Nullable;
 public final class AwsIntegrationsRedshift {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     private @Nullable List<String> awsRegions;
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -41,7 +37,6 @@ public final class AwsIntegrationsRedshift {
     private AwsIntegrationsRedshift() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public List<String> awsRegions() {
@@ -49,9 +44,6 @@ public final class AwsIntegrationsRedshift {
     }
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

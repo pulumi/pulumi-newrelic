@@ -19,7 +19,7 @@ class WorkflowArgs:
                  destinations: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]],
                  issues_filter: pulumi.Input['WorkflowIssuesFilterArgs'],
                  muting_rules_handling: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
@@ -30,7 +30,7 @@ class WorkflowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
@@ -95,14 +95,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -173,7 +173,7 @@ class WorkflowArgs:
 @pulumi.input_type
 class _WorkflowState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -187,7 +187,7 @@ class _WorkflowState:
                  workflow_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
@@ -231,14 +231,14 @@ class _WorkflowState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -383,7 +383,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -399,12 +399,12 @@ class Workflow(pulumi.CustomResource):
         ## Example Usage
 
         ##### Workflow
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.Workflow("foo",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="filter-name",
@@ -416,24 +416,23 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["some_channel"]["id"],
+                channel_id=some_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy-Based Workflow Example
 
         This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         # Create a policy to track
-        my_policy = newrelic.AlertPolicy("my-policy")
+        my_policy = newrelic.AlertPolicy("my-policy", name="my_policy")
         # Create a reusable notification destination
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            name="destination-webhook",
             type="WEBHOOK",
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
@@ -445,6 +444,7 @@ class Workflow(pulumi.CustomResource):
             ))
         # Create a notification channel to use in the workflow
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            name="channel-webhook",
             type="WEBHOOK",
             destination_id=webhook_destination.id,
             product="IINT",
@@ -455,6 +455,7 @@ class Workflow(pulumi.CustomResource):
             )])
         # A workflow that matches issues that include incidents triggered by the policy
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -469,16 +470,15 @@ class Workflow(pulumi.CustomResource):
                 channel_id=webhook_channel.id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with enrichments
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -498,19 +498,18 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with notification triggers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -522,11 +521,10 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
                 notification_triggers=["ACTIVATED"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -555,7 +553,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
@@ -578,12 +576,12 @@ class Workflow(pulumi.CustomResource):
         ## Example Usage
 
         ##### Workflow
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.Workflow("foo",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="filter-name",
@@ -595,24 +593,23 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["some_channel"]["id"],
+                channel_id=some_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Policy-Based Workflow Example
 
         This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         # Create a policy to track
-        my_policy = newrelic.AlertPolicy("my-policy")
+        my_policy = newrelic.AlertPolicy("my-policy", name="my_policy")
         # Create a reusable notification destination
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            name="destination-webhook",
             type="WEBHOOK",
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
@@ -624,6 +621,7 @@ class Workflow(pulumi.CustomResource):
             ))
         # Create a notification channel to use in the workflow
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            name="channel-webhook",
             type="WEBHOOK",
             destination_id=webhook_destination.id,
             product="IINT",
@@ -634,6 +632,7 @@ class Workflow(pulumi.CustomResource):
             )])
         # A workflow that matches issues that include incidents triggered by the policy
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -648,16 +647,15 @@ class Workflow(pulumi.CustomResource):
                 channel_id=webhook_channel.id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with enrichments
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -677,19 +675,18 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### An example of a workflow with notification triggers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         workflow_example = newrelic.Workflow("workflow-example",
+            name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
@@ -701,11 +698,10 @@ class Workflow(pulumi.CustomResource):
                 )],
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                channel_id=webhook_channel["id"],
                 notification_triggers=["ACTIVATED"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -747,7 +743,7 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -793,7 +789,7 @@ class Workflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
             destinations_enabled: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -812,7 +808,7 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
@@ -846,7 +842,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """

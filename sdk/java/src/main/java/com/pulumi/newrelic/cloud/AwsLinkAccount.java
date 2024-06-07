@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.AwsLinkAccountArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsLinkAccountState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,7 +30,8 @@ import javax.annotation.Nullable;
  * You can also use the full example, including the AWS set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,14 +52,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AwsLinkAccount(&#34;foo&#34;, AwsLinkAccountArgs.builder()        
- *             .arn(&#34;arn:aws:service:region:account-id:resource-id&#34;)
- *             .metricCollectionMode(&#34;PUSH&#34;)
+ *         var foo = new AwsLinkAccount("foo", AwsLinkAccountArgs.builder()
+ *             .arn("arn:aws:service:region:account-id:resource-id")
+ *             .metricCollectionMode("PUSH")
+ *             .name("account name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -79,14 +81,14 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

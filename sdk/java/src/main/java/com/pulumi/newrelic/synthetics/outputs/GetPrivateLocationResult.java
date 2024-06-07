@@ -5,7 +5,6 @@ package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +13,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrivateLocationResult {
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -28,7 +27,7 @@ public final class GetPrivateLocationResult {
     private String name;
 
     private GetPrivateLocationResult() {}
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
@@ -58,7 +57,7 @@ public final class GetPrivateLocationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer accountId;
+        private @Nullable String accountId;
         private String id;
         private List<String> keys;
         private String name;
@@ -72,7 +71,7 @@ public final class GetPrivateLocationResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
 
             this.accountId = accountId;
             return this;

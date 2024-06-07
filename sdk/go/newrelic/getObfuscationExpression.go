@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			expression, err := newrelic.LookupObfuscationExpression(ctx, &newrelic.LookupObfuscationExpressionArgs{
-//				AccountId: pulumi.IntRef(123456),
+//				AccountId: pulumi.StringRef("123456"),
 //				Name:      "The expression",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = newrelic.NewObfuscationRule(ctx, "rule", &newrelic.ObfuscationRuleArgs{
+//				Name:        pulumi.String("ruleName"),
 //				Description: pulumi.String("description of the rule"),
 //				Filter:      pulumi.String("hostStatus=running"),
 //				Enabled:     pulumi.Bool(true),
@@ -57,7 +57,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupObfuscationExpression(ctx *pulumi.Context, args *LookupObfuscationExpressionArgs, opts ...pulumi.InvokeOption) (*LookupObfuscationExpressionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupObfuscationExpressionResult
@@ -71,14 +70,14 @@ func LookupObfuscationExpression(ctx *pulumi.Context, args *LookupObfuscationExp
 // A collection of arguments for invoking getObfuscationExpression.
 type LookupObfuscationExpressionArgs struct {
 	// The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Name of expression.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getObfuscationExpression.
 type LookupObfuscationExpressionResult struct {
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -100,7 +99,7 @@ func LookupObfuscationExpressionOutput(ctx *pulumi.Context, args LookupObfuscati
 // A collection of arguments for invoking getObfuscationExpression.
 type LookupObfuscationExpressionOutputArgs struct {
 	// The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// Name of expression.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -124,8 +123,8 @@ func (o LookupObfuscationExpressionResultOutput) ToLookupObfuscationExpressionRe
 	return o
 }
 
-func (o LookupObfuscationExpressionResultOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupObfuscationExpressionResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o LookupObfuscationExpressionResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupObfuscationExpressionResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

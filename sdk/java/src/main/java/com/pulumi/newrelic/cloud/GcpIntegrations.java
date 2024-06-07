@@ -36,7 +36,7 @@ import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsSql;
 import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsStorage;
 import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsVirtualMachines;
 import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsVpcAccess;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -54,7 +54,8 @@ import javax.annotation.Nullable;
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,96 +103,98 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
- *             .projectId(&#34;&lt;Your GCP project ID&gt;&#34;)
+ *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()
+ *             .name("example")
+ *             .projectId("<Your GCP project ID>")
  *             .build());
  * 
- *         var foo1 = new GcpIntegrations(&#34;foo1&#34;, GcpIntegrationsArgs.builder()        
+ *         var foo1 = new GcpIntegrations("foo1", GcpIntegrationsArgs.builder()
  *             .linkedAccountId(foo.id())
  *             .appEngine(GcpIntegrationsAppEngineArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .bigQuery(GcpIntegrationsBigQueryArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .fetchTags(true)
  *                 .build())
  *             .bigTable(GcpIntegrationsBigTableArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .composer(GcpIntegrationsComposerArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .dataFlow(GcpIntegrationsDataFlowArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .dataProc(GcpIntegrationsDataProcArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .dataStore(GcpIntegrationsDataStoreArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .fireBaseDatabase(GcpIntegrationsFireBaseDatabaseArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .fireBaseHosting(GcpIntegrationsFireBaseHostingArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .fireBaseStorage(GcpIntegrationsFireBaseStorageArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .fireStore(GcpIntegrationsFireStoreArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .functions(GcpIntegrationsFunctionsArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .interconnect(GcpIntegrationsInterconnectArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .kubernetes(GcpIntegrationsKubernetesArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .loadBalancing(GcpIntegrationsLoadBalancingArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .memCache(GcpIntegrationsMemCacheArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .pubSub(GcpIntegrationsPubSubArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .fetchTags(true)
  *                 .build())
  *             .redis(GcpIntegrationsRedisArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .router(GcpIntegrationsRouterArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .run(GcpIntegrationsRunArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .spanner(GcpIntegrationsSpannerArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .fetchTags(true)
  *                 .build())
  *             .sql(GcpIntegrationsSqlArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .storage(GcpIntegrationsStorageArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .fetchTags(true)
  *                 .build())
  *             .virtualMachines(GcpIntegrationsVirtualMachinesArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .vpcAccess(GcpIntegrationsVpcAccessArgs.builder()
- *                 .metricsPollingInterval(400)
+ *                 .metricsPollingInterval(300)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -211,14 +214,14 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -434,15 +437,19 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the linked GCP account in New Relic.
      * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * 
      */
-    @Export(name="linkedAccountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> linkedAccountId;
+    @Export(name="linkedAccountId", refs={String.class}, tree="[0]")
+    private Output<String> linkedAccountId;
 
     /**
      * @return The ID of the linked GCP account in New Relic.
      * 
+     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * 
      */
-    public Output<Integer> linkedAccountId() {
+    public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
     /**

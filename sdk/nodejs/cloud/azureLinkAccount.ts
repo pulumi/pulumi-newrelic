@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * You can also use the full example, including the Azure set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -30,9 +29,9 @@ import * as utilities from "../utilities";
  *     clientSecret: "Secret value of client's Azure account",
  *     subscriptionId: "Subscription ID of Azure",
  *     tenantId: "Tenant ID of the Azure",
+ *     name: "Name of the linked account",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -75,7 +74,7 @@ export class AzureLinkAccount extends pulumi.CustomResource {
     /**
      * Account ID of the New Relic.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Application ID of the App.
      */
@@ -151,7 +150,7 @@ export interface AzureLinkAccountState {
     /**
      * Account ID of the New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Application ID of the App.
      */
@@ -181,7 +180,7 @@ export interface AzureLinkAccountArgs {
     /**
      * Account ID of the New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Application ID of the App.
      */

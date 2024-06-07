@@ -22,8 +22,8 @@ class GetCloudAccountResult:
     A collection of values returned by getCloudAccount.
     """
     def __init__(__self__, account_id=None, cloud_provider=None, id=None, name=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if cloud_provider and not isinstance(cloud_provider, str):
             raise TypeError("Expected argument 'cloud_provider' to be a str")
@@ -37,7 +37,7 @@ class GetCloudAccountResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
@@ -71,7 +71,7 @@ class AwaitableGetCloudAccountResult(GetCloudAccountResult):
             name=self.name)
 
 
-def get_cloud_account(account_id: Optional[int] = None,
+def get_cloud_account(account_id: Optional[str] = None,
                       cloud_provider: Optional[str] = None,
                       name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudAccountResult:
@@ -81,19 +81,17 @@ def get_cloud_account(account_id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    account = newrelic.get_cloud_account(account_id=12345,
+    account = newrelic.get_cloud_account(account_id="12345",
         cloud_provider="aws",
         name="my aws account")
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The account ID in New Relic.
+    :param str account_id: The account ID in New Relic.
     :param str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
     :param str name: The cloud account name in New Relic.
     """
@@ -112,7 +110,7 @@ def get_cloud_account(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_cloud_account)
-def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                              cloud_provider: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudAccountResult]:
@@ -122,19 +120,17 @@ def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[int]]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    account = newrelic.get_cloud_account(account_id=12345,
+    account = newrelic.get_cloud_account(account_id="12345",
         cloud_provider="aws",
         name="my aws account")
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The account ID in New Relic.
+    :param str account_id: The account ID in New Relic.
     :param str cloud_provider: The cloud provider of the account (aws, gcp, azure, etc)
     :param str name: The cloud account name in New Relic.
     """

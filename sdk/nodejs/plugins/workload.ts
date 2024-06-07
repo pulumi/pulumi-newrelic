@@ -16,59 +16,120 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * Include entities with a certain string on the name.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
+ *     name: "Example workload",
+ *     accountId: "12345678",
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
  *         query: "name like '%Example application%'",
  *     }],
- *     scopeAccountIds: [12345678],
+ *     scopeAccountIds: ["12345678"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include entities with a set of tags.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
+ *     name: "Example workload with tags",
+ *     accountId: "12345678",
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
  *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
  *     }],
- *     scopeAccountIds: [12345678],
+ *     scopeAccountIds: ["12345678"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include entities with a set of tags.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
+ *     name: "Example workload with tags",
+ *     accountId: "12345678",
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
  *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
  *     }],
- *     scopeAccountIds: [12345678],
+ *     scopeAccountIds: ["12345678"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Include automatic status
  *
  * > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload",
+ *     accountId: "12345678",
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: ["12345678"],
+ *     description: "Description",
+ *     statusConfigAutomatic: {
+ *         enabled: true,
+ *         remainingEntitiesRule: {
+ *             remainingEntitiesRuleRollup: {
+ *                 strategy: "BEST_STATUS_WINS",
+ *                 thresholdType: "FIXED",
+ *                 thresholdValue: 100,
+ *                 groupBy: "ENTITY_TYPE",
+ *             },
+ *         },
+ *         rules: [{
+ *             entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *             nrqlQueries: [{
+ *                 query: "name like '%Example application2%'",
+ *             }],
+ *             rollup: {
+ *                 strategy: "BEST_STATUS_WINS",
+ *                 thresholdType: "FIXED",
+ *                 thresholdValue: 100,
+ *             },
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * Include static status
+ *
+ * > You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     name: "Example workload",
+ *     accountId: "12345678",
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: ["12345678"],
+ *     description: "Description",
+ *     statusConfigStatic: {
+ *         description: "test",
+ *         enabled: true,
+ *         status: "OPERATIONAL",
+ *         summary: "summary of the status",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -113,7 +174,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The composite query used to compose a dynamic workload.
      */
@@ -145,7 +206,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    public readonly scopeAccountIds!: pulumi.Output<number[]>;
+    public readonly scopeAccountIds!: pulumi.Output<string[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
@@ -157,7 +218,7 @@ export class Workload extends pulumi.CustomResource {
     /**
      * The unique entity identifier of the workload.
      */
-    public /*out*/ readonly workloadId!: pulumi.Output<number>;
+    public /*out*/ readonly workloadId!: pulumi.Output<string>;
 
     /**
      * Create a Workload resource with the given unique name, arguments, and options.
@@ -211,7 +272,7 @@ export interface WorkloadState {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The composite query used to compose a dynamic workload.
      */
@@ -243,7 +304,7 @@ export interface WorkloadState {
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
@@ -255,7 +316,7 @@ export interface WorkloadState {
     /**
      * The unique entity identifier of the workload.
      */
-    workloadId?: pulumi.Input<number>;
+    workloadId?: pulumi.Input<string>;
 }
 
 /**
@@ -265,7 +326,7 @@ export interface WorkloadArgs {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Relevant information about the workload.
      */
@@ -285,7 +346,7 @@ export interface WorkloadArgs {
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */

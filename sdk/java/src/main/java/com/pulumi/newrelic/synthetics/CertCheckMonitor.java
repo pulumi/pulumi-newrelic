@@ -18,12 +18,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+ * 
  * Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new CertCheckMonitor(&#34;foo&#34;, CertCheckMonitorArgs.builder()        
- *             .certificateExpiration(&#34;10&#34;)
- *             .domain(&#34;www.example.com&#34;)
- *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
- *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .runtimeType(&#34;NODE_API&#34;)
- *             .runtimeTypeVersion(&#34;16.10&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *         var foo = new CertCheckMonitor("foo", CertCheckMonitorArgs.builder()
+ *             .name("Sample Cert Check Monitor")
+ *             .domain("www.example.com")
+ *             .locationsPublics("AP_SOUTH_1")
+ *             .certificateExpiration("10")
+ *             .period("EVERY_6_HOURS")
+ *             .status("ENABLED")
+ *             .runtimeType("NODE_API")
+ *             .runtimeTypeVersion("16.10")
  *             .tags(CertCheckMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
  * 
@@ -74,7 +79,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,26 +104,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooPrivateLocation = new PrivateLocation(&#34;fooPrivateLocation&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Sample Private Location Description&#34;)
+ *         var foo = new PrivateLocation("foo", PrivateLocationArgs.builder()
+ *             .name("Sample Private Location")
+ *             .description("Sample Private Location Description")
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var fooCertCheckMonitor = new CertCheckMonitor(&#34;fooCertCheckMonitor&#34;, CertCheckMonitorArgs.builder()        
- *             .domain(&#34;www.one.example.com&#34;)
- *             .locationsPrivates(fooPrivateLocation.id())
- *             .certificateExpiration(&#34;10&#34;)
- *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *         var fooCertCheckMonitor = new CertCheckMonitor("fooCertCheckMonitor", CertCheckMonitorArgs.builder()
+ *             .name("Sample Cert Check Monitor")
+ *             .domain("www.one.example.com")
+ *             .locationsPrivates(foo.id())
+ *             .certificateExpiration("10")
+ *             .period("EVERY_6_HOURS")
+ *             .status("ENABLED")
  *             .tags(CertCheckMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -137,14 +146,14 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * The account in which the Synthetics monitor will be created.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account in which the Synthetics monitor will be created.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -264,6 +273,8 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
      * 
+     * &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+     * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
@@ -272,6 +283,8 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * @return The specific version of the runtime type selected.
      * 
      * &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     * 
+     * &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {

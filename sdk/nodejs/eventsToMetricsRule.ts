@@ -9,18 +9,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.EventsToMetricsRule("foo", {
- *     accountId: 12345,
+ *     accountId: "12345",
+ *     name: "Example events to metrics rule",
  *     description: "Example description",
  *     nrql: "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -65,7 +64,7 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
     /**
      * Account with the event and where the metrics will be put.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Provides additional information about the rule.
      */
@@ -130,7 +129,7 @@ export interface EventsToMetricsRuleState {
     /**
      * Account with the event and where the metrics will be put.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Provides additional information about the rule.
      */
@@ -160,7 +159,7 @@ export interface EventsToMetricsRuleArgs {
     /**
      * Account with the event and where the metrics will be put.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Provides additional information about the rule.
      */

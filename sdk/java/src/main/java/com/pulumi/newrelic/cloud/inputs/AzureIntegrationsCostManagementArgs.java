@@ -18,14 +18,14 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
     public static final AzureIntegrationsCostManagementArgs Empty = new AzureIntegrationsCostManagementArgs();
 
     /**
-     * The data polling interval in seconds.
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -33,14 +33,14 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
     }
 
     /**
-     * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+     * Specify if additional cost data per tag should be collected. This field is case sensitive.
      * 
      */
     @Import(name="tagKeys")
     private @Nullable Output<List<String>> tagKeys;
 
     /**
-     * @return Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+     * @return Specify if additional cost data per tag should be collected. This field is case sensitive.
      * 
      */
     public Optional<Output<List<String>>> tagKeys() {
@@ -73,7 +73,7 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tagKeys Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * @param tagKeys Specify if additional cost data per tag should be collected. This field is case sensitive.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tagKeys Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * @param tagKeys Specify if additional cost data per tag should be collected. This field is case sensitive.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AzureIntegrationsCostManagementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tagKeys Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * @param tagKeys Specify if additional cost data per tag should be collected. This field is case sensitive.
          * 
          * @return builder
          * 

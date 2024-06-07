@@ -4,8 +4,9 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationSecureUrl;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,13 +21,13 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
      * 
      */
     @Import(name="accountId")
-    private @Nullable Integer accountId;
+    private @Nullable String accountId;
 
     /**
      * @return The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
-    public Optional<Integer> accountId() {
+    public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -64,12 +65,28 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    @Import(name="secureUrls")
+    private @Nullable List<GetNotificationDestinationSecureUrl> secureUrls;
+
+    /**
+     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * 
+     */
+    public Optional<List<GetNotificationDestinationSecureUrl>> secureUrls() {
+        return Optional.ofNullable(this.secureUrls);
+    }
+
     private GetNotificationDestinationPlainArgs() {}
 
     private GetNotificationDestinationPlainArgs(GetNotificationDestinationPlainArgs $) {
         this.accountId = $.accountId;
         this.id = $.id;
         this.name = $.name;
+        this.secureUrls = $.secureUrls;
     }
 
     public static Builder builder() {
@@ -96,7 +113,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Integer accountId) {
+        public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -123,6 +140,27 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(@Nullable List<GetNotificationDestinationSecureUrl> secureUrls) {
+            $.secureUrls = secureUrls;
+            return this;
+        }
+
+        /**
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secureUrls(GetNotificationDestinationSecureUrl... secureUrls) {
+            return secureUrls(List.of(secureUrls));
         }
 
         public GetNotificationDestinationPlainArgs build() {

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -35,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.NewrelicFunctions;
  * import com.pulumi.newrelic.inputs.GetEntityArgs;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.AlertCondition;
  * import com.pulumi.newrelic.AlertConditionArgs;
  * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -52,32 +54,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
- *             .name(&#34;my-app&#34;)
- *             .type(&#34;APPLICATION&#34;)
- *             .domain(&#34;APM&#34;)
+ *             .name("my-app")
+ *             .type("APPLICATION")
+ *             .domain("APM")
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+ *             .name("foo")
+ *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
- *             .type(&#34;apm_app_metric&#34;)
- *             .entities(app.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
- *             .metric(&#34;apdex&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
- *             .conditionScope(&#34;application&#34;)
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
+ *             .policyId(foo.id())
+ *             .name("foo")
+ *             .type("apm_app_metric")
+ *             .entities(app.applyValue(getEntityResult -> getEntityResult.applicationId()))
+ *             .metric("apdex")
+ *             .runbookUrl("https://www.example.com")
+ *             .conditionScope("application")
  *             .terms(AlertConditionTermArgs.builder()
  *                 .duration(5)
- *                 .operator(&#34;below&#34;)
- *                 .priority(&#34;critical&#34;)
- *                 .threshold(&#34;0.75&#34;)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .operator("below")
+ *                 .priority("critical")
+ *                 .threshold("0.75")
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Terms
@@ -95,7 +101,8 @@ import javax.annotation.Nullable;
  * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -104,6 +111,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.NewrelicFunctions;
  * import com.pulumi.newrelic.inputs.GetEntityArgs;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.AlertCondition;
  * import com.pulumi.newrelic.AlertConditionArgs;
  * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
@@ -123,46 +131,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var fooEntity = NewrelicFunctions.getEntity(GetEntityArgs.builder()
- *             .name(&#34;foo entitiy&#34;)
+ *         final var foo = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+ *             .name("foo entitiy")
  *             .build());
  * 
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
+ *             .name("foo policy")
+ *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
  *             .policyId(fooAlertPolicy.id())
- *             .type(&#34;apm_app_metric&#34;)
- *             .entities(fooEntity.applyValue(getEntityResult -&gt; getEntityResult.applicationId()))
- *             .metric(&#34;apdex&#34;)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
- *             .conditionScope(&#34;application&#34;)
+ *             .name("foo condition")
+ *             .type("apm_app_metric")
+ *             .entities(foo.applyValue(getEntityResult -> getEntityResult.applicationId()))
+ *             .metric("apdex")
+ *             .runbookUrl("https://www.example.com")
+ *             .conditionScope("application")
  *             .terms(AlertConditionTermArgs.builder()
  *                 .duration(5)
- *                 .operator(&#34;below&#34;)
- *                 .priority(&#34;critical&#34;)
- *                 .threshold(&#34;0.75&#34;)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .operator("below")
+ *                 .priority("critical")
+ *                 .threshold("0.75")
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -208,14 +220,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The instance IDs associated with this condition.
      * 
      */
-    @Export(name="entities", refs={List.class,Integer.class}, tree="[0,1]")
-    private Output<List<Integer>> entities;
+    @Export(name="entities", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> entities;
 
     /**
      * @return The instance IDs associated with this condition.
      * 
      */
-    public Output<List<Integer>> entities() {
+    public Output<List<String>> entities() {
         return this.entities;
     }
     /**
@@ -278,14 +290,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**
@@ -349,31 +361,6 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Export(name="userDefinedValueFunction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDefinedValueFunction;
@@ -382,31 +369,6 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<String>> userDefinedValueFunction() {

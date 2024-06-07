@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class WorkflowEnrichments {
     /**
-     * @return a wrapper block
+     * @return (Required) Nrql type Enrichments.
      * 
      */
     private List<WorkflowEnrichmentsNrql> nrqls;
 
     private WorkflowEnrichments() {}
     /**
-     * @return a wrapper block
+     * @return (Required) Nrql type Enrichments.
      * 
      */
     public List<WorkflowEnrichmentsNrql> nrqls() {

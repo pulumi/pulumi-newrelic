@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,14 +27,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     var account = NewRelic.GetCloudAccount.Invoke(new()
         ///     {
-        ///         AccountId = 12345,
+        ///         AccountId = "12345",
         ///         CloudProvider = "aws",
         ///         Name = "my aws account",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCloudAccountResult> InvokeAsync(GetCloudAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,14 +54,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     var account = NewRelic.GetCloudAccount.Invoke(new()
         ///     {
-        ///         AccountId = 12345,
+        ///         AccountId = "12345",
         ///         CloudProvider = "aws",
         ///         Name = "my aws account",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCloudAccountResult> Invoke(GetCloudAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountInvokeArgs(), options.WithDefaults());
@@ -77,7 +73,7 @@ namespace Pulumi.NewRelic
         /// The account ID in New Relic.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The cloud provider of the account (aws, gcp, azure, etc)
@@ -103,7 +99,7 @@ namespace Pulumi.NewRelic
         /// The account ID in New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The cloud provider of the account (aws, gcp, azure, etc)
@@ -127,7 +123,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetCloudAccountResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         public readonly string CloudProvider;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -137,7 +133,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetCloudAccountResult(
-            int? accountId,
+            string? accountId,
 
             string cloudProvider,
 

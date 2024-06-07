@@ -24,18 +24,20 @@ func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotification
 // A collection of arguments for invoking getNotificationDestination.
 type LookupNotificationDestinationArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The id of the notification destination in New Relic.
 	Id *string `pulumi:"id"`
 	// The name of the notification destination.
 	//
 	// Optional:
 	Name *string `pulumi:"name"`
+	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 }
 
 // A collection of values returned by getNotificationDestination.
 type LookupNotificationDestinationResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// An indication whether the notification destination is active or not.
 	Active bool `pulumi:"active"`
 	// The unique entity identifier of the destination in New Relic.
@@ -45,6 +47,8 @@ type LookupNotificationDestinationResult struct {
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property.
 	Properties []GetNotificationDestinationProperty `pulumi:"properties"`
+	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 	// The status of the notification destination.
 	Status string `pulumi:"status"`
 	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
@@ -67,13 +71,15 @@ func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotific
 // A collection of arguments for invoking getNotificationDestination.
 type LookupNotificationDestinationOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The id of the notification destination in New Relic.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the notification destination.
 	//
 	// Optional:
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+	SecureUrls GetNotificationDestinationSecureUrlArrayInput `pulumi:"secureUrls"`
 }
 
 func (LookupNotificationDestinationOutputArgs) ElementType() reflect.Type {
@@ -95,8 +101,8 @@ func (o LookupNotificationDestinationResultOutput) ToLookupNotificationDestinati
 	return o
 }
 
-func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // An indication whether the notification destination is active or not.
@@ -121,6 +127,11 @@ func (o LookupNotificationDestinationResultOutput) Name() pulumi.StringPtrOutput
 // A nested block that describes a notification destination property.
 func (o LookupNotificationDestinationResultOutput) Properties() GetNotificationDestinationPropertyArrayOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) []GetNotificationDestinationProperty { return v.Properties }).(GetNotificationDestinationPropertyArrayOutput)
+}
+
+// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+func (o LookupNotificationDestinationResultOutput) SecureUrls() GetNotificationDestinationSecureUrlArrayOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) []GetNotificationDestinationSecureUrl { return v.SecureUrls }).(GetNotificationDestinationSecureUrlArrayOutput)
 }
 
 // The status of the notification destination.

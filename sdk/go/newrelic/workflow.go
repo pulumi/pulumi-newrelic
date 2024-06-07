@@ -17,7 +17,6 @@ import (
 // ## Example Usage
 //
 // ##### Workflow
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewWorkflow(ctx, "foo", &newrelic.WorkflowArgs{
+//				Name:                pulumi.String("workflow-example"),
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
 //				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("filter-name"),
@@ -47,7 +47,7 @@ import (
 //				},
 //				Destinations: newrelic.WorkflowDestinationArray{
 //					&newrelic.WorkflowDestinationArgs{
-//						ChannelId: pulumi.Any(newrelic_notification_channel.Some_channel.Id),
+//						ChannelId: pulumi.Any(someChannel.Id),
 //					},
 //				},
 //			})
@@ -59,13 +59,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Policy-Based Workflow Example
 //
 // # This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,12 +77,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a policy to track
-//			_, err := newrelic.NewAlertPolicy(ctx, "my-policy", nil)
+//			_, err := newrelic.NewAlertPolicy(ctx, "my-policy", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("my_policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			// Create a reusable notification destination
 //			_, err = newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
+//				Name: pulumi.String("destination-webhook"),
 //				Type: pulumi.String("WEBHOOK"),
 //				Properties: newrelic.NotificationDestinationPropertyArray{
 //					&newrelic.NotificationDestinationPropertyArgs{
@@ -102,6 +103,7 @@ import (
 //			}
 //			// Create a notification channel to use in the workflow
 //			_, err = newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
+//				Name:          pulumi.String("channel-webhook"),
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: webhook_destination.ID(),
 //				Product:       pulumi.String("IINT"),
@@ -118,6 +120,7 @@ import (
 //			}
 //			// A workflow that matches issues that include incidents triggered by the policy
 //			_, err = newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
+//				Name:                pulumi.String("workflow-example"),
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
 //				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("Filter-name"),
@@ -146,11 +149,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### An example of a workflow with enrichments
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -164,6 +165,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
+//				Name:                pulumi.String("workflow-enrichment-example"),
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
 //				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("Filter-name"),
@@ -192,7 +194,7 @@ import (
 //				},
 //				Destinations: newrelic.WorkflowDestinationArray{
 //					&newrelic.WorkflowDestinationArgs{
-//						ChannelId: pulumi.Any(newrelic_notification_channel.WebhookChannel.Id),
+//						ChannelId: pulumi.Any(webhook_channel.Id),
 //					},
 //				},
 //			})
@@ -204,11 +206,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### An example of a workflow with notification triggers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,6 +222,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
+//				Name:                pulumi.String("workflow-enrichment-example"),
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
 //				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("Filter-name"),
@@ -238,7 +239,7 @@ import (
 //				},
 //				Destinations: newrelic.WorkflowDestinationArray{
 //					&newrelic.WorkflowDestinationArgs{
-//						ChannelId: pulumi.Any(newrelic_notification_channel.WebhookChannel.Id),
+//						ChannelId: pulumi.Any(webhook_channel.Id),
 //						NotificationTriggers: pulumi.StringArray{
 //							pulumi.String("ACTIVATED"),
 //						},
@@ -253,7 +254,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Information
 //
@@ -283,7 +283,7 @@ type Workflow struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayOutput `pulumi:"destinations"`
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -351,7 +351,7 @@ func GetWorkflow(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations []WorkflowDestination `pulumi:"destinations"`
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -381,7 +381,7 @@ type workflowState struct {
 
 type WorkflowState struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayInput
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -415,7 +415,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations []WorkflowDestination `pulumi:"destinations"`
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -440,7 +440,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayInput
 	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -550,8 +550,8 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 }
 
 // Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-func (o WorkflowOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o WorkflowOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Notification configuration. See Nested destination blocks below for details.

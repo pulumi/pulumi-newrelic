@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,10 +18,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderArgs Empty = new ProviderArgs();
 
-    @Import(name="accountId", json=true)
-    private @Nullable Output<Integer> accountId;
+    @Import(name="accountId")
+    private @Nullable Output<String> accountId;
 
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -202,12 +201,12 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -396,7 +395,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProviderArgs build() {
-            $.accountId = Codegen.integerProp("accountId").secret().arg($.accountId).env("NEW_RELIC_ACCOUNT_ID").getNullable();
+            $.accountId = Codegen.stringProp("accountId").secret().arg($.accountId).env("NEW_RELIC_ACCOUNT_ID").getNullable();
             if ($.apiKey == null) {
                 throw new MissingRequiredPropertyException("ProviderArgs", "apiKey");
             }

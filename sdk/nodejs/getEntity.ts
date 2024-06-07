@@ -6,83 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to get information about a specific entity in New Relic One that already exists.
- *
- * ### Example: Filter By Account ID
- *
- * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
- *
- * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     domain: "APM",
- *     name: "my-app",
- *     type: "APPLICATION",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     accountId: 654321,
- *     domain: "APM",
- *     name: "my-app",
- *     type: "APPLICATION",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- * The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
- *
- * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
- * ### Query for an OTEL entity
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     domain: "EXT",
- *     name: "my-otel-app",
- *     tags: [{
- *         key: "accountID",
- *         value: "12345",
- *     }],
- *     type: "SERVICE",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ### Query for an entity by type (AWS Lambda entity in this example)
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     name: "my_lambda_trace",
- *     type: "AWSLAMBDAFUNCTION",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getEntity:getEntity", {
         "accountId": args.accountId,
         "domain": args.domain,
+        "entityTags": args.entityTags,
         "ignoreCase": args.ignoreCase,
         "ignoreNotFound": args.ignoreNotFound,
         "name": args.name,
@@ -98,11 +28,16 @@ export interface GetEntityArgs {
     /**
      * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */
     domain?: string;
+    /**
+     * A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+     */
+    entityTags?: string;
     /**
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      */
@@ -131,12 +66,17 @@ export interface GetEntityArgs {
  * A collection of values returned by getEntity.
  */
 export interface GetEntityResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * The domain-specific application ID of the entity. Only returned for APM and Browser applications.
      */
-    readonly applicationId: number;
+    readonly applicationId: string;
     readonly domain: string;
+    /**
+     * A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+     */
+    readonly entityTags: string;
     /**
      * The unique GUID of the entity.
      */
@@ -151,81 +91,10 @@ export interface GetEntityResult {
     /**
      * The browser-specific ID of the backing APM entity. Only returned for Browser applications.
      */
-    readonly servingApmApplicationId: number;
+    readonly servingApmApplicationId: string;
     readonly tags?: outputs.GetEntityTag[];
     readonly type: string;
 }
-/**
- * Use this data source to get information about a specific entity in New Relic One that already exists.
- *
- * ### Example: Filter By Account ID
- *
- * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
- *
- * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     domain: "APM",
- *     name: "my-app",
- *     type: "APPLICATION",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     accountId: 654321,
- *     domain: "APM",
- *     name: "my-app",
- *     type: "APPLICATION",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- * The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
- *
- * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
- * ### Query for an OTEL entity
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     domain: "EXT",
- *     name: "my-otel-app",
- *     tags: [{
- *         key: "accountID",
- *         value: "12345",
- *     }],
- *     type: "SERVICE",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ### Query for an entity by type (AWS Lambda entity in this example)
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     name: "my_lambda_trace",
- *     type: "AWSLAMBDAFUNCTION",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
     return pulumi.output(args).apply((a: any) => getEntity(a, opts))
 }
@@ -237,11 +106,16 @@ export interface GetEntityOutputArgs {
     /**
      * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+     */
+    entityTags?: pulumi.Input<string>;
     /**
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      */

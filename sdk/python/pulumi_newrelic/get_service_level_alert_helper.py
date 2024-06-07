@@ -170,7 +170,6 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
 
     Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -179,9 +178,10 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
     foo_period = 28
     foo = newrelic.ServiceLevel("foo",
         guid="MXxBUE18QVBQTElDQVRJT058MQ",
+        name="Latency",
         description="Proportion of requests that are served faster than a threshold.",
         events=newrelic.ServiceLevelEventsArgs(
-            account_id=12345678,
+            account_id="12345678",
             valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                 from_="Transaction",
                 where="appName = 'Example application' AND (transactionType='Web')",
@@ -201,27 +201,26 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
             ),
         ))
     ```
-    <!--End PulumiCodeChooser -->
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
     If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
     Here is an example of a `slow_burn` alert.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     foo_slow_burn = newrelic.get_service_level_alert_helper(alert_type="slow_burn",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
-        account_id=12345678,
-        policy_id=67890,
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
+        account_id="12345678",
+        policy_id="67890",
         type="static",
+        name="Slow burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -239,26 +238,25 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         aggregation_delay="120",
         slide_by=900)
     ```
-    <!--End PulumiCodeChooser -->
 
     Here is an example of a custom alert:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     foo_custom = newrelic.get_service_level_alert_helper(alert_type="custom",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         custom_tolerated_budget_consumption=4,
         custom_evaluation_period=5400,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
-        account_id=12345678,
-        policy_id=67890,
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
+        account_id="12345678",
+        policy_id="67890",
         type="static",
+        name="Custom burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -276,7 +274,6 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         aggregation_delay="120",
         slide_by=60)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str alert_type: The type of alert we want to set. Valid values are:
@@ -329,7 +326,6 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
 
     Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
@@ -338,9 +334,10 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     foo_period = 28
     foo = newrelic.ServiceLevel("foo",
         guid="MXxBUE18QVBQTElDQVRJT058MQ",
+        name="Latency",
         description="Proportion of requests that are served faster than a threshold.",
         events=newrelic.ServiceLevelEventsArgs(
-            account_id=12345678,
+            account_id="12345678",
             valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                 from_="Transaction",
                 where="appName = 'Example application' AND (transactionType='Web')",
@@ -360,27 +357,26 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
             ),
         ))
     ```
-    <!--End PulumiCodeChooser -->
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
     If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
 
     Here is an example of a `slow_burn` alert.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     foo_slow_burn = newrelic.get_service_level_alert_helper(alert_type="slow_burn",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
-        account_id=12345678,
-        policy_id=67890,
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
+        account_id="12345678",
+        policy_id="67890",
         type="static",
+        name="Slow burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -398,26 +394,25 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         aggregation_delay="120",
         slide_by=900)
     ```
-    <!--End PulumiCodeChooser -->
 
     Here is an example of a custom alert:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     foo_custom = newrelic.get_service_level_alert_helper(alert_type="custom",
-        sli_guid=newrelic_service_level["foo"]["sli_guid"],
-        slo_target=local["foo_target"],
-        slo_period=local["foo_period"],
+        sli_guid=foo["sliGuid"],
+        slo_target=foo_target,
+        slo_period=foo_period,
         custom_tolerated_budget_consumption=4,
         custom_evaluation_period=5400,
         is_bad_events=True)
-    your_condition = newrelic.NrqlAlertCondition("yourCondition",
-        account_id=12345678,
-        policy_id=67890,
+    your_condition = newrelic.NrqlAlertCondition("your_condition",
+        account_id="12345678",
+        policy_id="67890",
         type="static",
+        name="Custom burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
@@ -435,7 +430,6 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         aggregation_delay="120",
         slide_by=60)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str alert_type: The type of alert we want to set. Valid values are:

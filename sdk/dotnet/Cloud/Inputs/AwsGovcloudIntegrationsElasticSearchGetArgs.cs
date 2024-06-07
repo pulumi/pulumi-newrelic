@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         private InputList<string>? _awsRegions;
 
         /// <summary>
-        /// Specify each AWS region that includes the resources that you want to monitor.
+        /// Specify each AWS region that includes the resources that you want to monitor
         /// </summary>
         public InputList<string> AwsRegions
         {
@@ -25,15 +25,13 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         }
 
         /// <summary>
-        /// Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+        /// Specify if IP addresses of ec2 instance should be collected
         /// </summary>
         [Input("fetchNodes")]
         public Input<bool>? FetchNodes { get; set; }
 
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Some integration types support an additional set of arguments:
+        /// The data polling interval in seconds
         /// </summary>
         [Input("metricsPollingInterval")]
         public Input<int>? MetricsPollingInterval { get; set; }

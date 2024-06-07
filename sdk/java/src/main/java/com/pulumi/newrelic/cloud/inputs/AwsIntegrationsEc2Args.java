@@ -20,7 +20,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     @Import(name="awsRegions")
@@ -28,7 +27,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * &lt;/details&gt;
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -36,14 +34,14 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+     * Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
      * 
      */
     @Import(name="duplicateEc2Tags")
     private @Nullable Output<Boolean> duplicateEc2Tags;
 
     /**
-     * @return Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+     * @return Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
      * 
      */
     public Optional<Output<Boolean>> duplicateEc2Tags() {
@@ -51,14 +49,14 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specify if IP addresses of ec2 instance should be collected.
+     * Specify if IP addresses of ec2 instance should be collected
      * 
      */
     @Import(name="fetchIpAddresses")
     private @Nullable Output<Boolean> fetchIpAddresses;
 
     /**
-     * @return Specify if IP addresses of ec2 instance should be collected.
+     * @return Specify if IP addresses of ec2 instance should be collected
      * 
      */
     public Optional<Output<Boolean>> fetchIpAddresses() {
@@ -68,18 +66,12 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
     /**
      * The data polling interval in seconds.
      * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-     * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
      * @return The data polling interval in seconds.
-     * 
-     * &lt;details&gt;
-     * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -147,7 +139,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -159,7 +150,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -170,7 +160,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * &lt;/details&gt;
          * 
          * @return builder
          * 
@@ -180,7 +169,7 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param duplicateEc2Tags Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+         * @param duplicateEc2Tags Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
          * 
          * @return builder
          * 
@@ -191,7 +180,7 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param duplicateEc2Tags Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size.
+         * @param duplicateEc2Tags Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
          * 
          * @return builder
          * 
@@ -201,7 +190,7 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param fetchIpAddresses Specify if IP addresses of ec2 instance should be collected.
+         * @param fetchIpAddresses Specify if IP addresses of ec2 instance should be collected
          * 
          * @return builder
          * 
@@ -212,7 +201,7 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param fetchIpAddresses Specify if IP addresses of ec2 instance should be collected.
+         * @param fetchIpAddresses Specify if IP addresses of ec2 instance should be collected
          * 
          * @return builder
          * 
@@ -224,9 +213,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
          * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
-         * 
          * @return builder
          * 
          */
@@ -237,9 +223,6 @@ public final class AwsIntegrationsEc2Args extends com.pulumi.resources.ResourceA
 
         /**
          * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * &lt;details&gt;
-         * &lt;summary&gt; Some integration types support an additional set of arguments. Expand this section to take a look at these supported arguments. &lt;/summary&gt;
          * 
          * @return builder
          * 

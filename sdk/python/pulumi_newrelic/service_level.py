@@ -250,25 +250,25 @@ class ServiceLevel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.ServiceLevel("foo",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            name="Latency",
             description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
-                ),
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Transaction",
                     where="appName = 'Example application' AND (transactionType='Web')",
                 ),
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                ),
             ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
             objective=newrelic.ServiceLevelObjectiveArgs(
                 target=99,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
@@ -279,22 +279,21 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Example
 
         Service level with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
+        my_synthetic_monitor_service_level = newrelic.ServiceLevel("my_synthetic_monitor_service_level",
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            name="My synthethic monitor - Success",
             description="Proportion of successful synthetic checks.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="SyntheticCheck",
                     where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -313,7 +312,7 @@ class ServiceLevel(pulumi.CustomResource):
                     ),
                 ),
             ))
-        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
+        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("my_synthetic_monitor_service_level_tags",
             guid=my_synthetic_monitor_service_level.sli_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -329,19 +328,27 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Using `select` for events
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
+        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("my_synthetic_monitor_duration_service_level",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            name="Duration distribution is under 7",
             description="Monitor created to test concurrent request from terraform",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
+                account_id="313870",
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_FIELD",
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
                 good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
                     from_="Metric",
                     select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
@@ -351,16 +358,7 @@ class ServiceLevel(pulumi.CustomResource):
                     ),
                     where="metricName = 'query.wallClockTime.negative.distribution'",
                 ),
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_FIELD",
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
             ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
             objective=newrelic.ServiceLevelObjectiveArgs(
                 target=49,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
@@ -371,7 +369,6 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         For up-to-date documentation about the tagging resource, please check EntityTags
 
@@ -418,25 +415,25 @@ class ServiceLevel(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.ServiceLevel("foo",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            name="Latency",
             description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
-                ),
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Transaction",
                     where="appName = 'Example application' AND (transactionType='Web')",
                 ),
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                ),
             ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
             objective=newrelic.ServiceLevelObjectiveArgs(
                 target=99,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
@@ -447,22 +444,21 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Example
 
         Service level with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
+        my_synthetic_monitor_service_level = newrelic.ServiceLevel("my_synthetic_monitor_service_level",
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            name="My synthethic monitor - Success",
             description="Proportion of successful synthetic checks.",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=12345678,
+                account_id="12345678",
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="SyntheticCheck",
                     where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
@@ -481,7 +477,7 @@ class ServiceLevel(pulumi.CustomResource):
                     ),
                 ),
             ))
-        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
+        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("my_synthetic_monitor_service_level_tags",
             guid=my_synthetic_monitor_service_level.sli_guid,
             tags=[
                 newrelic.EntityTagsTagArgs(
@@ -497,19 +493,27 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Using `select` for events
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("mySyntheticMonitorDurationServiceLevel",
+        my_synthetic_monitor_duration_service_level = newrelic.ServiceLevel("my_synthetic_monitor_duration_service_level",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            name="Duration distribution is under 7",
             description="Monitor created to test concurrent request from terraform",
             events=newrelic.ServiceLevelEventsArgs(
-                account_id=313870,
+                account_id="313870",
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="Metric",
+                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
+                        attribute="`query.wallClockTime.negative.distribution`",
+                        function="GET_FIELD",
+                    ),
+                    where="metricName = 'query.wallClockTime.negative.distribution'",
+                ),
                 good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
                     from_="Metric",
                     select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
@@ -519,16 +523,7 @@ class ServiceLevel(pulumi.CustomResource):
                     ),
                     where="metricName = 'query.wallClockTime.negative.distribution'",
                 ),
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_FIELD",
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
             ),
-            guid="MXxBUE18QVBQTElDQVRJT058MQ",
             objective=newrelic.ServiceLevelObjectiveArgs(
                 target=49,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
@@ -539,7 +534,6 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         For up-to-date documentation about the tagging resource, please check EntityTags
 

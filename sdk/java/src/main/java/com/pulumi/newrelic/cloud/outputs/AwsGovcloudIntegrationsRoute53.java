@@ -18,9 +18,7 @@ public final class AwsGovcloudIntegrationsRoute53 {
      */
     private @Nullable Boolean fetchExtendedInventory;
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
@@ -34,9 +32,7 @@ public final class AwsGovcloudIntegrationsRoute53 {
         return Optional.ofNullable(this.fetchExtendedInventory);
     }
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

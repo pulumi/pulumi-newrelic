@@ -10,11 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
+    /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+    /// 
     /// Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,7 +26,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
-    ///         BypassHeadRequest = true,
+    ///         Status = "ENABLED",
+    ///         Name = "monitor",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -34,12 +43,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 Value = "some_value",
     ///             },
     ///         },
-    ///         LocationsPublics = new[]
-    ///         {
-    ///             "AP_SOUTH_1",
-    ///         },
-    ///         Period = "EVERY_MINUTE",
-    ///         Status = "ENABLED",
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -51,19 +58,12 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         TreatRedirectAsFailure = true,
-    ///         Type = "SIMPLE",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `SIMPLE BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,6 +74,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
+    ///         Status = "ENABLED",
+    ///         Name = "monitor",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "BROWSER",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -83,12 +92,8 @@ namespace Pulumi.NewRelic.Synthetics
     ///             },
     ///         },
     ///         EnableScreenshotOnFailureAndScript = true,
-    ///         LocationsPublics = new[]
-    ///         {
-    ///             "AP_SOUTH_1",
-    ///         },
-    ///         Period = "EVERY_MINUTE",
-    ///         Status = "ENABLED",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -100,15 +105,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "BROWSER",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -121,7 +121,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SIMPLE`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -133,12 +132,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Example private location",
+    ///         Name = "private_location",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "monitor",
     ///         Period = "EVERY_MINUTE",
     ///         Uri = "https://www.one.newrelic.com",
     ///         Type = "SIMPLE",
@@ -173,10 +174,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -188,6 +187,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Example private location",
+    ///         Name = "private-location",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
@@ -196,6 +196,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         Status = "ENABLED",
     ///         Type = "BROWSER",
     ///         Uri = "https://www.one.newrelic.com",
+    ///         Name = "monitor",
     ///         Period = "EVERY_MINUTE",
     ///         LocationsPrivates = new[]
     ///         {
@@ -230,7 +231,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -249,7 +249,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
@@ -425,7 +425,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
@@ -581,7 +581,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.

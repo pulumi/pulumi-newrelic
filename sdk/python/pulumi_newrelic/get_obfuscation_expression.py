@@ -22,8 +22,8 @@ class GetObfuscationExpressionResult:
     A collection of values returned by getObfuscationExpression.
     """
     def __init__(__self__, account_id=None, id=None, name=None):
-        if account_id and not isinstance(account_id, int):
-            raise TypeError("Expected argument 'account_id' to be a int")
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -34,7 +34,7 @@ class GetObfuscationExpressionResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         return pulumi.get(self, "account_id")
 
     @property
@@ -62,7 +62,7 @@ class AwaitableGetObfuscationExpressionResult(GetObfuscationExpressionResult):
             name=self.name)
 
 
-def get_obfuscation_expression(account_id: Optional[int] = None,
+def get_obfuscation_expression(account_id: Optional[str] = None,
                                name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObfuscationExpressionResult:
     """
@@ -70,14 +70,14 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    expression = newrelic.get_obfuscation_expression(account_id=123456,
+    expression = newrelic.get_obfuscation_expression(account_id="123456",
         name="The expression")
     rule = newrelic.ObfuscationRule("rule",
+        name="ruleName",
         description="description of the rule",
         filter="hostStatus=running",
         enabled=True,
@@ -87,10 +87,9 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
             method="MASK",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
+    :param str account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
     :param str name: Name of expression.
     """
     __args__ = dict()
@@ -106,7 +105,7 @@ def get_obfuscation_expression(account_id: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_obfuscation_expression)
-def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                       name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObfuscationExpressionResult]:
     """
@@ -114,14 +113,14 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    expression = newrelic.get_obfuscation_expression(account_id=123456,
+    expression = newrelic.get_obfuscation_expression(account_id="123456",
         name="The expression")
     rule = newrelic.ObfuscationRule("rule",
+        name="ruleName",
         description="description of the rule",
         filter="hostStatus=running",
         enabled=True,
@@ -131,10 +130,9 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
             method="MASK",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param int account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
+    :param str account_id: The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
     :param str name: Name of expression.
     """
     ...

@@ -18,15 +18,15 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? ApiKey;
         /// <summary>
-        /// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+        /// Specifies an authentication password for use with a channel. Supported by the webhook channel type.
         /// </summary>
         public readonly string? AuthPassword;
         /// <summary>
-        /// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+        /// Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
-        /// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+        /// Specifies an authentication username for use with a channel. Supported by the webhook channel type.
         /// </summary>
         public readonly string? AuthUsername;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Headers;
         /// <summary>
-        /// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+        /// Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
         /// </summary>
         public readonly string? HeadersString;
         /// <summary>
-        /// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        /// true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
         /// </summary>
         public readonly string? IncludeJsonAttachment;
         /// <summary>
@@ -54,23 +54,23 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+        /// A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Payload;
         /// <summary>
-        /// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+        /// Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
         /// </summary>
         public readonly string? PayloadString;
         /// <summary>
-        /// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+        /// Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
         /// </summary>
         public readonly string? PayloadType;
         /// <summary>
-        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
+        /// A set of recipients for targeting notifications. Multiple values are comma separated.
         /// </summary>
         public readonly string? Recipients;
         /// <summary>
-        /// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+        /// The data center region to store your data. Valid values are US and EU. Default is US.
         /// </summary>
         public readonly string? Region;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Teams;
         /// <summary>
-        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        /// Your organization's Slack URL.
         /// </summary>
         public readonly string? Url;
         /// <summary>

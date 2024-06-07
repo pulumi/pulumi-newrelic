@@ -10,11 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
+    /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+    /// 
     /// Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +26,17 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.CertCheckMonitor("foo", new()
     ///     {
-    ///         CertificateExpiration = 10,
+    ///         Name = "Sample Cert Check Monitor",
     ///         Domain = "www.example.com",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///         },
+    ///         CertificateExpiration = 10,
     ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
     ///         RuntimeType = "NODE_API",
     ///         RuntimeTypeVersion = "16.10",
-    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.CertCheckMonitorTagArgs
@@ -50,7 +52,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -61,7 +62,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,18 +70,20 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooPrivateLocation = new NewRelic.Synthetics.PrivateLocation("fooPrivateLocation", new()
+    ///     var foo = new NewRelic.Synthetics.PrivateLocation("foo", new()
     ///     {
+    ///         Name = "Sample Private Location",
     ///         Description = "Sample Private Location Description",
     ///         VerifiedScriptExecution = false,
     ///     });
     /// 
-    ///     var fooCertCheckMonitor = new NewRelic.Synthetics.CertCheckMonitor("fooCertCheckMonitor", new()
+    ///     var fooCertCheckMonitor = new NewRelic.Synthetics.CertCheckMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Cert Check Monitor",
     ///         Domain = "www.one.example.com",
     ///         LocationsPrivates = new[]
     ///         {
-    ///             fooPrivateLocation.Id,
+    ///             foo.Id,
     ///         },
     ///         CertificateExpiration = 10,
     ///         Period = "EVERY_6_HOURS",
@@ -101,7 +103,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -120,7 +121,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The desired number of remaining days until the certificate expires to trigger a monitor failure.
@@ -174,6 +175,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// The specific version of the runtime type selected.
         /// 
         /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// 
+        /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         /// </summary>
         [Output("runtimeTypeVersion")]
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
@@ -240,7 +243,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The desired number of remaining days until the certificate expires to trigger a monitor failure.
@@ -300,6 +303,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// The specific version of the runtime type selected.
         /// 
         /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// 
+        /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
@@ -334,7 +339,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The desired number of remaining days until the certificate expires to trigger a monitor failure.
@@ -400,6 +405,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// The specific version of the runtime type selected.
         /// 
         /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// 
+        /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }

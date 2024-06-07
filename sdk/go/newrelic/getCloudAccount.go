@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.GetCloudAccount(ctx, &newrelic.GetCloudAccountArgs{
-//				AccountId:     pulumi.IntRef(12345),
+//				AccountId:     pulumi.StringRef("12345"),
 //				CloudProvider: "aws",
 //				Name:          "my aws account",
 //			}, nil)
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetCloudAccount(ctx *pulumi.Context, args *GetCloudAccountArgs, opts ...pulumi.InvokeOption) (*GetCloudAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudAccountResult
@@ -56,7 +54,7 @@ func GetCloudAccount(ctx *pulumi.Context, args *GetCloudAccountArgs, opts ...pul
 // A collection of arguments for invoking getCloudAccount.
 type GetCloudAccountArgs struct {
 	// The account ID in New Relic.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The cloud provider of the account (aws, gcp, azure, etc)
 	CloudProvider string `pulumi:"cloudProvider"`
 	// The cloud account name in New Relic.
@@ -65,8 +63,8 @@ type GetCloudAccountArgs struct {
 
 // A collection of values returned by getCloudAccount.
 type GetCloudAccountResult struct {
-	AccountId     *int   `pulumi:"accountId"`
-	CloudProvider string `pulumi:"cloudProvider"`
+	AccountId     *string `pulumi:"accountId"`
+	CloudProvider string  `pulumi:"cloudProvider"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -88,7 +86,7 @@ func GetCloudAccountOutput(ctx *pulumi.Context, args GetCloudAccountOutputArgs, 
 // A collection of arguments for invoking getCloudAccount.
 type GetCloudAccountOutputArgs struct {
 	// The account ID in New Relic.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The cloud provider of the account (aws, gcp, azure, etc)
 	CloudProvider pulumi.StringInput `pulumi:"cloudProvider"`
 	// The cloud account name in New Relic.
@@ -114,8 +112,8 @@ func (o GetCloudAccountResultOutput) ToGetCloudAccountResultOutputWithContext(ct
 	return o
 }
 
-func (o GetCloudAccountResultOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetCloudAccountResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o GetCloudAccountResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCloudAccountResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCloudAccountResultOutput) CloudProvider() pulumi.StringOutput {

@@ -12,7 +12,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.ObfuscationRuleState;
 import com.pulumi.newrelic.outputs.ObfuscationRuleAction;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,25 +48,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new ObfuscationExpression(&#34;bar&#34;, ObfuscationExpressionArgs.builder()        
- *             .description(&#34;description of the expression&#34;)
- *             .regex(&#34;(^http)&#34;)
+ *         var bar = new ObfuscationExpression("bar", ObfuscationExpressionArgs.builder()
+ *             .name("expressionName")
+ *             .description("description of the expression")
+ *             .regex("(^http)")
  *             .build());
  * 
- *         var foo = new ObfuscationRule(&#34;foo&#34;, ObfuscationRuleArgs.builder()        
- *             .description(&#34;description of the rule&#34;)
- *             .filter(&#34;hostStatus=running&#34;)
+ *         var foo = new ObfuscationRule("foo", ObfuscationRuleArgs.builder()
+ *             .name("ruleName")
+ *             .description("description of the rule")
+ *             .filter("hostStatus=running")
  *             .enabled(true)
  *             .actions(ObfuscationRuleActionArgs.builder()
- *                 .attributes(&#34;message&#34;)
+ *                 .attributes("message")
  *                 .expressionId(bar.id())
- *                 .method(&#34;MASK&#34;)
+ *                 .method("MASK")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -86,14 +89,14 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * The account id associated with the obfuscation rule.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account id associated with the obfuscation rule.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -24,7 +24,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,19 +37,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
+//				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Name:        pulumi.String("Latency"),
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(12345678),
-//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
-//						From:  pulumi.String("Transaction"),
-//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
-//					},
+//					AccountId: pulumi.String("12345678"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
 //					},
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
+//					},
 //				},
-//				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
 //				Objective: &newrelic.ServiceLevelObjectiveArgs{
 //					Target: pulumi.Float64(99),
 //					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
@@ -69,13 +69,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Example
 //
 // Service level with tags:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,11 +86,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorServiceLevel", &newrelic.ServiceLevelArgs{
+//			mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "my_synthetic_monitor_service_level", &newrelic.ServiceLevelArgs{
 //				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Name:        pulumi.String("My synthethic monitor - Success"),
 //				Description: pulumi.String("Proportion of successful synthetic checks."),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(12345678),
+//					AccountId: pulumi.String("12345678"),
 //					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("SyntheticCheck"),
 //						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
@@ -115,7 +114,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "mySyntheticMonitorServiceLevelTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_synthetic_monitor_service_level_tags", &newrelic.EntityTagsArgs{
 //				Guid: mySyntheticMonitorServiceLevel.SliGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
@@ -141,11 +140,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # Using `select` for events
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,10 +155,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorDurationServiceLevel", &newrelic.ServiceLevelArgs{
+//			_, err := newrelic.NewServiceLevel(ctx, "my_synthetic_monitor_duration_service_level", &newrelic.ServiceLevelArgs{
+//				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Name:        pulumi.String("Duration distribution is under 7"),
 //				Description: pulumi.String("Monitor created to test concurrent request from terraform"),
 //				Events: &newrelic.ServiceLevelEventsArgs{
-//					AccountId: pulumi.Int(313870),
+//					AccountId: pulumi.String("313870"),
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+//						From: pulumi.String("Metric"),
+//						Select: &newrelic.ServiceLevelEventsValidEventsSelectArgs{
+//							Attribute: pulumi.String("`query.wallClockTime.negative.distribution`"),
+//							Function:  pulumi.String("GET_FIELD"),
+//						},
+//						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
+//					},
 //					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
 //						From: pulumi.String("Metric"),
 //						Select: &newrelic.ServiceLevelEventsGoodEventsSelectArgs{
@@ -171,16 +178,7 @@ import (
 //						},
 //						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
 //					},
-//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
-//						From: pulumi.String("Metric"),
-//						Select: &newrelic.ServiceLevelEventsValidEventsSelectArgs{
-//							Attribute: pulumi.String("`query.wallClockTime.negative.distribution`"),
-//							Function:  pulumi.String("GET_FIELD"),
-//						},
-//						Where: pulumi.String("metricName = 'query.wallClockTime.negative.distribution'"),
-//					},
 //				},
-//				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
 //				Objective: &newrelic.ServiceLevelObjectiveArgs{
 //					Target: pulumi.Float64(49),
 //					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
@@ -199,7 +197,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # For up-to-date documentation about the tagging resource, please check EntityTags
 //

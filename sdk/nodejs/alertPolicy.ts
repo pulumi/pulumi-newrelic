@@ -11,14 +11,15 @@ import * as utilities from "./utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AlertPolicy("foo", {incidentPreference: "PER_POLICY"});
+ * const foo = new newrelic.AlertPolicy("foo", {
+ *     name: "example",
+ *     incidentPreference: "PER_POLICY",
+ * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Provision multiple notification channels and add those channels to a policy
  *
@@ -35,13 +36,13 @@ import * as utilities from "./utilities";
  * ## Additional Examples
  *
  * ##### Provision multiple notification channels and add those channels to a policy
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * // Provision a Slack notification channel.
- * const slackChannel = new newrelic.AlertChannel("slackChannel", {
+ * const slackChannel = new newrelic.AlertChannel("slack_channel", {
+ *     name: "slack-example",
  *     type: "slack",
  *     config: {
  *         url: "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
@@ -49,7 +50,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Provision an email notification channel.
- * const emailChannel = new newrelic.AlertChannel("emailChannel", {
+ * const emailChannel = new newrelic.AlertChannel("email_channel", {
+ *     name: "email-example",
  *     type: "email",
  *     config: {
  *         recipients: "example@testing.com",
@@ -57,7 +59,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * // Provision the alert policy.
- * const policyWithChannels = new newrelic.AlertPolicy("policyWithChannels", {
+ * const policyWithChannels = new newrelic.AlertPolicy("policy_with_channels", {
+ *     name: "example-with-channels",
  *     incidentPreference: "PER_CONDITION",
  *     channelIds: [
  *         slackChannel.id,
@@ -65,22 +68,23 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Reference existing notification channels and add those channel to a policy
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
+ * // Reference an existing Slack notification channel.
  * const slackChannel = newrelic.getAlertChannel({
  *     name: "slack-channel-notification",
  * });
+ * // Reference an existing email notification channel.
  * const emailChannel = newrelic.getAlertChannel({
  *     name: "test@example.com",
  * });
  * // Provision the alert policy.
- * const policyWithChannels = new newrelic.AlertPolicy("policyWithChannels", {
+ * const policyWithChannels = new newrelic.AlertPolicy("policy_with_channels", {
+ *     name: "example-with-channels",
  *     incidentPreference: "PER_CONDITION",
  *     channelIds: [
  *         slackChannel.then(slackChannel => slackChannel.id),
@@ -88,7 +92,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -132,13 +135,13 @@ export class AlertPolicy extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    public readonly channelIds!: pulumi.Output<number[] | undefined>;
+    public readonly channelIds!: pulumi.Output<string[] | undefined>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
@@ -184,13 +187,13 @@ export interface AlertPolicyState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
@@ -208,13 +211,13 @@ export interface AlertPolicyArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */

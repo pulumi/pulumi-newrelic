@@ -11,18 +11,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooEntity = newrelic.getEntity({
+ * const foo = newrelic.getEntity({
  *     name: "Example application",
  *     type: "APPLICATION",
  *     domain: "APM",
  * });
- * const fooEntityTags = new newrelic.EntityTags("fooEntityTags", {
- *     guid: fooEntity.then(fooEntity => fooEntity.guid),
+ * const fooEntityTags = new newrelic.EntityTags("foo", {
+ *     guid: foo.then(foo => foo.guid),
  *     tags: [
  *         {
  *             key: "my-key",
@@ -38,7 +37,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -11,137 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific entity in New Relic One that already exists.
-//
-// ### Example: Filter By Account ID
-//
-// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
-//
-// This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Domain: pulumi.StringRef("APM"),
-//				Name:   "my-app",
-//				Type:   pulumi.StringRef("APPLICATION"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-// However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				AccountId: pulumi.IntRef(654321),
-//				Domain:    pulumi.StringRef("APM"),
-//				Name:      "my-app",
-//				Type:      pulumi.StringRef("APPLICATION"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-// The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
-//
-// In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
-// ### Query for an OTEL entity
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Domain: pulumi.StringRef("EXT"),
-//				Name:   "my-otel-app",
-//				Tags: []newrelic.GetEntityTag{
-//					{
-//						Key:   "accountID",
-//						Value: "12345",
-//					},
-//				},
-//				Type: pulumi.StringRef("SERVICE"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
-// ### Query for an entity by type (AWS Lambda entity in this example)
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Name: "my_lambda_trace",
-//				Type: pulumi.StringRef("AWSLAMBDAFUNCTION"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEntityResult
@@ -155,9 +24,12 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getEntity.
 type GetEntityArgs struct {
 	// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain *string `pulumi:"domain"`
+	// A JSON-encoded string, comprising tags associated with the entity fetched.
+	// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+	EntityTags *string `pulumi:"entityTags"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
 	// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
@@ -174,10 +46,13 @@ type GetEntityArgs struct {
 
 // A collection of values returned by getEntity.
 type GetEntityResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The domain-specific application ID of the entity. Only returned for APM and Browser applications.
-	ApplicationId int    `pulumi:"applicationId"`
+	ApplicationId string `pulumi:"applicationId"`
 	Domain        string `pulumi:"domain"`
+	// A JSON-encoded string, comprising tags associated with the entity fetched.
+	// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+	EntityTags string `pulumi:"entityTags"`
 	// The unique GUID of the entity.
 	Guid string `pulumi:"guid"`
 	// The provider-assigned unique ID for this managed resource.
@@ -186,7 +61,7 @@ type GetEntityResult struct {
 	IgnoreNotFound *bool  `pulumi:"ignoreNotFound"`
 	Name           string `pulumi:"name"`
 	// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
-	ServingApmApplicationId int            `pulumi:"servingApmApplicationId"`
+	ServingApmApplicationId string         `pulumi:"servingApmApplicationId"`
 	Tags                    []GetEntityTag `pulumi:"tags"`
 	Type                    string         `pulumi:"type"`
 }
@@ -207,9 +82,12 @@ func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulu
 // A collection of arguments for invoking getEntity.
 type GetEntityOutputArgs struct {
 	// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// A JSON-encoded string, comprising tags associated with the entity fetched.
+	// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+	EntityTags pulumi.StringPtrInput `pulumi:"entityTags"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
 	// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
@@ -243,17 +121,23 @@ func (o GetEntityResultOutput) ToGetEntityResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GetEntityResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEntityResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o GetEntityResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The domain-specific application ID of the entity. Only returned for APM and Browser applications.
-func (o GetEntityResultOutput) ApplicationId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEntityResult) int { return v.ApplicationId }).(pulumi.IntOutput)
+func (o GetEntityResultOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
 func (o GetEntityResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityResult) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// A JSON-encoded string, comprising tags associated with the entity fetched.
+// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
+func (o GetEntityResultOutput) EntityTags() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.EntityTags }).(pulumi.StringOutput)
 }
 
 // The unique GUID of the entity.
@@ -279,8 +163,8 @@ func (o GetEntityResultOutput) Name() pulumi.StringOutput {
 }
 
 // The browser-specific ID of the backing APM entity. Only returned for Browser applications.
-func (o GetEntityResultOutput) ServingApmApplicationId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEntityResult) int { return v.ServingApmApplicationId }).(pulumi.IntOutput)
+func (o GetEntityResultOutput) ServingApmApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityResult) string { return v.ServingApmApplicationId }).(pulumi.StringOutput)
 }
 
 func (o GetEntityResultOutput) Tags() GetEntityTagArrayOutput {

@@ -17,7 +17,7 @@ namespace Pulumi.NewRelic.Outputs
         /// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
         /// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         /// </summary>
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private ServiceLevelEvents(
-            int accountId,
+            string accountId,
 
             Outputs.ServiceLevelEventsBadEvents? badEvents,
 

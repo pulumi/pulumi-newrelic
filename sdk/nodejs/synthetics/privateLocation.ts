@@ -9,14 +9,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const location = new newrelic.synthetics.PrivateLocation("location", {description: "The private location description"});
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "The private location description",
+ *     name: "The name of the private location",
+ * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -57,7 +58,7 @@ export class PrivateLocation extends pulumi.CustomResource {
     /**
      * The account in which the private location will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The private location description.
      */
@@ -134,7 +135,7 @@ export interface PrivateLocationState {
     /**
      * The account in which the private location will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The private location description.
      */
@@ -172,7 +173,7 @@ export interface PrivateLocationArgs {
     /**
      * The account in which the private location will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The private location description.
      */

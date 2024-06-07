@@ -11,7 +11,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.PrivateLocationArgs;
 import com.pulumi.newrelic.synthetics.inputs.PrivateLocationState;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,13 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;The private location description&#34;)
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
+ *             .description("The private location description")
+ *             .name("The name of the private location")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -67,14 +69,14 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * The account in which the private location will be created.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account in which the private location will be created.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

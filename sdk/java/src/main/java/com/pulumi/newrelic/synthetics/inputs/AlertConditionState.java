@@ -6,7 +6,6 @@ package com.pulumi.newrelic.synthetics.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,62 +19,12 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
      * @return Set whether to enable the alert condition. Defaults to `true`.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -132,13 +81,13 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="policyId")
-    private @Nullable Output<Integer> policyId;
+    private @Nullable Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Optional<Output<Integer>> policyId() {
+    public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
 
@@ -189,31 +138,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
         /**
          * @param enabled Set whether to enable the alert condition. Defaults to `true`.
          * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
-         * 
          * @return builder
          * 
          */
@@ -224,31 +148,6 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param enabled Set whether to enable the alert condition. Defaults to `true`.
-         * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -326,7 +225,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder policyId(@Nullable Output<Integer> policyId) {
+        public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -337,7 +236,7 @@ public final class AlertConditionState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

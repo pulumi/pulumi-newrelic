@@ -9,16 +9,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const expression = newrelic.getObfuscationExpression({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "The expression",
  * });
  * const rule = new newrelic.ObfuscationRule("rule", {
+ *     name: "ruleName",
  *     description: "description of the rule",
  *     filter: "hostStatus=running",
  *     enabled: true,
@@ -29,7 +29,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getObfuscationExpression(args: GetObfuscationExpressionArgs, opts?: pulumi.InvokeOptions): Promise<GetObfuscationExpressionResult> {
 
@@ -47,7 +46,7 @@ export interface GetObfuscationExpressionArgs {
     /**
      * The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * Name of expression.
      */
@@ -58,7 +57,7 @@ export interface GetObfuscationExpressionArgs {
  * A collection of values returned by getObfuscationExpression.
  */
 export interface GetObfuscationExpressionResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -70,16 +69,16 @@ export interface GetObfuscationExpressionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const expression = newrelic.getObfuscationExpression({
- *     accountId: 123456,
+ *     accountId: "123456",
  *     name: "The expression",
  * });
  * const rule = new newrelic.ObfuscationRule("rule", {
+ *     name: "ruleName",
  *     description: "description of the rule",
  *     filter: "hostStatus=running",
  *     enabled: true,
@@ -90,7 +89,6 @@ export interface GetObfuscationExpressionResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getObfuscationExpressionOutput(args: GetObfuscationExpressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObfuscationExpressionResult> {
     return pulumi.output(args).apply((a: any) => getObfuscationExpression(a, opts))
@@ -103,7 +101,7 @@ export interface GetObfuscationExpressionOutputArgs {
     /**
      * The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Name of expression.
      */

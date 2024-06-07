@@ -17,7 +17,7 @@ namespace Pulumi.NewRelic.Inputs
         /// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         /// </summary>
         [Input("accountId", required: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
         /// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			bar, err := newrelic.NewObfuscationExpression(ctx, "bar", &newrelic.ObfuscationExpressionArgs{
+//				Name:        pulumi.String("expressionName"),
 //				Description: pulumi.String("description of the expression"),
 //				Regex:       pulumi.String("(^http)"),
 //			})
@@ -37,6 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewObfuscationRule(ctx, "foo", &newrelic.ObfuscationRuleArgs{
+//				Name:        pulumi.String("ruleName"),
 //				Description: pulumi.String("description of the rule"),
 //				Filter:      pulumi.String("hostStatus=running"),
 //				Enabled:     pulumi.Bool(true),
@@ -58,7 +59,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -73,7 +73,7 @@ type ObfuscationRule struct {
 	pulumi.CustomResourceState
 
 	// The account id associated with the obfuscation rule.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Actions for the rule. The actions will be applied in the order specified by this list.
 	Actions ObfuscationRuleActionArrayOutput `pulumi:"actions"`
 	// Description of rule.
@@ -126,7 +126,7 @@ func GetObfuscationRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ObfuscationRule resources.
 type obfuscationRuleState struct {
 	// The account id associated with the obfuscation rule.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Actions for the rule. The actions will be applied in the order specified by this list.
 	Actions []ObfuscationRuleAction `pulumi:"actions"`
 	// Description of rule.
@@ -141,7 +141,7 @@ type obfuscationRuleState struct {
 
 type ObfuscationRuleState struct {
 	// The account id associated with the obfuscation rule.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Actions for the rule. The actions will be applied in the order specified by this list.
 	Actions ObfuscationRuleActionArrayInput
 	// Description of rule.
@@ -160,7 +160,7 @@ func (ObfuscationRuleState) ElementType() reflect.Type {
 
 type obfuscationRuleArgs struct {
 	// The account id associated with the obfuscation rule.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Actions for the rule. The actions will be applied in the order specified by this list.
 	Actions []ObfuscationRuleAction `pulumi:"actions"`
 	// Description of rule.
@@ -176,7 +176,7 @@ type obfuscationRuleArgs struct {
 // The set of arguments for constructing a ObfuscationRule resource.
 type ObfuscationRuleArgs struct {
 	// The account id associated with the obfuscation rule.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Actions for the rule. The actions will be applied in the order specified by this list.
 	Actions ObfuscationRuleActionArrayInput
 	// Description of rule.
@@ -277,8 +277,8 @@ func (o ObfuscationRuleOutput) ToObfuscationRuleOutputWithContext(ctx context.Co
 }
 
 // The account id associated with the obfuscation rule.
-func (o ObfuscationRuleOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ObfuscationRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o ObfuscationRuleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObfuscationRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Actions for the rule. The actions will be applied in the order specified by this list.

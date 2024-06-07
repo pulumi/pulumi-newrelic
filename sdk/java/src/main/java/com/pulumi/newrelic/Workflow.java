@@ -14,7 +14,6 @@ import com.pulumi.newrelic.outputs.WorkflowDestination;
 import com.pulumi.newrelic.outputs.WorkflowEnrichments;
 import com.pulumi.newrelic.outputs.WorkflowIssuesFilter;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +26,8 @@ import javax.annotation.Nullable;
  * 
  * ##### Workflow
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,25 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Workflow(&#34;foo&#34;, WorkflowArgs.builder()        
- *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *         var foo = new Workflow("foo", WorkflowArgs.builder()
+ *             .name("workflow-example")
+ *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
- *                 .name(&#34;filter-name&#34;)
- *                 .type(&#34;FILTER&#34;)
+ *                 .name("filter-name")
+ *                 .type("FILTER")
  *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
- *                     .attribute(&#34;accumulations.tag.team&#34;)
- *                     .operator(&#34;EXACTLY_MATCHES&#34;)
- *                     .values(&#34;growth&#34;)
+ *                     .attribute("accumulations.tag.team")
+ *                     .operator("EXACTLY_MATCHES")
+ *                     .values("growth")
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(newrelic_notification_channel.some_channel().id())
+ *                 .channelId(someChannel.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Policy-Based Workflow Example
@@ -76,13 +78,15 @@ import javax.annotation.Nullable;
  * This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.NotificationDestination;
  * import com.pulumi.newrelic.NotificationDestinationArgs;
  * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
@@ -108,42 +112,47 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a policy to track
- *         var my_policy = new AlertPolicy(&#34;my-policy&#34;);
+ *         var my_policy = new AlertPolicy("my-policy", AlertPolicyArgs.builder()
+ *             .name("my_policy")
+ *             .build());
  * 
  *         // Create a reusable notification destination
- *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
- *             .type(&#34;WEBHOOK&#34;)
+ *         var webhook_destination = new NotificationDestination("webhook-destination", NotificationDestinationArgs.builder()
+ *             .name("destination-webhook")
+ *             .type("WEBHOOK")
  *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;url&#34;)
- *                 .value(&#34;https://example.com&#34;)
+ *                 .key("url")
+ *                 .value("https://example.com")
  *                 .build())
  *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .user(&#34;username&#34;)
- *                 .password(&#34;password&#34;)
+ *                 .user("username")
+ *                 .password("password")
  *                 .build())
  *             .build());
  * 
  *         // Create a notification channel to use in the workflow
- *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
- *             .type(&#34;WEBHOOK&#34;)
+ *         var webhook_channel = new NotificationChannel("webhook-channel", NotificationChannelArgs.builder()
+ *             .name("channel-webhook")
+ *             .type("WEBHOOK")
  *             .destinationId(webhook_destination.id())
- *             .product(&#34;IINT&#34;)
+ *             .product("IINT")
  *             .properties(NotificationChannelPropertyArgs.builder()
- *                 .key(&#34;payload&#34;)
- *                 .value(&#34;{}&#34;)
- *                 .label(&#34;Payload Template&#34;)
+ *                 .key("payload")
+ *                 .value("{}")
+ *                 .label("Payload Template")
  *                 .build())
  *             .build());
  * 
  *         // A workflow that matches issues that include incidents triggered by the policy
- *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
- *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()
+ *             .name("workflow-example")
+ *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
- *                 .name(&#34;Filter-name&#34;)
- *                 .type(&#34;FILTER&#34;)
+ *                 .name("Filter-name")
+ *                 .type("FILTER")
  *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
- *                     .attribute(&#34;labels.policyIds&#34;)
- *                     .operator(&#34;EXACTLY_MATCHES&#34;)
+ *                     .attribute("labels.policyIds")
+ *                     .operator("EXACTLY_MATCHES")
  *                     .values(my_policy.id())
  *                     .build())
  *                 .build())
@@ -154,13 +163,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### An example of a workflow with enrichments
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -184,39 +195,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
- *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()
+ *             .name("workflow-enrichment-example")
+ *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
- *                 .name(&#34;Filter-name&#34;)
- *                 .type(&#34;FILTER&#34;)
+ *                 .name("Filter-name")
+ *                 .type("FILTER")
  *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
- *                     .attribute(&#34;accumulations.tag.team&#34;)
- *                     .operator(&#34;EXACTLY_MATCHES&#34;)
- *                     .values(&#34;my_team&#34;)
+ *                     .attribute("accumulations.tag.team")
+ *                     .operator("EXACTLY_MATCHES")
+ *                     .values("my_team")
  *                     .build())
  *                 .build())
  *             .enrichments(WorkflowEnrichmentsArgs.builder()
  *                 .nrqls(WorkflowEnrichmentsNrqlArgs.builder()
- *                     .name(&#34;Log Count&#34;)
+ *                     .name("Log Count")
  *                     .configurations(WorkflowEnrichmentsNrqlConfigurationArgs.builder()
- *                         .query(&#34;SELECT count(*) FROM Log WHERE message like &#39;%error%&#39; since 10 minutes ago&#34;)
+ *                         .query("SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(newrelic_notification_channel.webhook-channel().id())
+ *                 .channelId(webhook_channel.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### An example of a workflow with notification triggers
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -239,26 +253,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
- *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *         var workflow_example = new Workflow("workflow-example", WorkflowArgs.builder()
+ *             .name("workflow-enrichment-example")
+ *             .mutingRulesHandling("NOTIFY_ALL_ISSUES")
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
- *                 .name(&#34;Filter-name&#34;)
- *                 .type(&#34;FILTER&#34;)
+ *                 .name("Filter-name")
+ *                 .type("FILTER")
  *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
- *                     .attribute(&#34;accumulations.tag.team&#34;)
- *                     .operator(&#34;EXACTLY_MATCHES&#34;)
- *                     .values(&#34;my_team&#34;)
+ *                     .attribute("accumulations.tag.team")
+ *                     .operator("EXACTLY_MATCHES")
+ *                     .values("my_team")
  *                     .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
- *                 .channelId(newrelic_notification_channel.webhook-channel().id())
- *                 .notificationTriggers(&#34;ACTIVATED&#34;)
+ *                 .channelId(webhook_channel.id())
+ *                 .notificationTriggers("ACTIVATED")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Information
@@ -293,14 +309,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

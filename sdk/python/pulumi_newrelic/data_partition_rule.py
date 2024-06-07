@@ -18,7 +18,7 @@ class DataPartitionRuleArgs:
                  nrql: pulumi.Input[str],
                  retention_policy: pulumi.Input[str],
                  target_data_partition: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataPartitionRule resource.
@@ -26,7 +26,7 @@ class DataPartitionRuleArgs:
         :param pulumi.Input[str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
         :param pulumi.Input[str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
         :param pulumi.Input[str] target_data_partition: The name of the data partition where logs will be allocated once the rule is enabled.
-        :param pulumi.Input[int] account_id: The account id associated with the data partition rule.
+        :param pulumi.Input[str] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[str] description: The description of the data partition rule.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -88,14 +88,14 @@ class DataPartitionRuleArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the data partition rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -114,7 +114,7 @@ class DataPartitionRuleArgs:
 @pulumi.input_type
 class _DataPartitionRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  deleted: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -123,7 +123,7 @@ class _DataPartitionRuleState:
                  target_data_partition: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DataPartitionRule resources.
-        :param pulumi.Input[int] account_id: The account id associated with the data partition rule.
+        :param pulumi.Input[str] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[bool] deleted: Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
         :param pulumi.Input[str] description: The description of the data partition rule.
         :param pulumi.Input[bool] enabled: Whether or not this data partition rule is enabled.
@@ -148,14 +148,14 @@ class _DataPartitionRuleState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the data partition rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -236,7 +236,7 @@ class DataPartitionRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  nrql: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,6 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -260,7 +259,6 @@ class DataPartitionRule(pulumi.CustomResource):
             retention_policy="STANDARD",
             target_data_partition="Log_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -278,7 +276,7 @@ class DataPartitionRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the data partition rule.
+        :param pulumi.Input[str] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[str] description: The description of the data partition rule.
         :param pulumi.Input[bool] enabled: Whether or not this data partition rule is enabled.
         :param pulumi.Input[str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
@@ -296,7 +294,6 @@ class DataPartitionRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -308,7 +305,6 @@ class DataPartitionRule(pulumi.CustomResource):
             retention_policy="STANDARD",
             target_data_partition="Log_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Additional Information
 
@@ -339,7 +335,7 @@ class DataPartitionRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  nrql: Optional[pulumi.Input[str]] = None,
@@ -379,7 +375,7 @@ class DataPartitionRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             deleted: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -393,7 +389,7 @@ class DataPartitionRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the data partition rule.
+        :param pulumi.Input[str] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[bool] deleted: Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
         :param pulumi.Input[str] description: The description of the data partition rule.
         :param pulumi.Input[bool] enabled: Whether or not this data partition rule is enabled.
@@ -416,7 +412,7 @@ class DataPartitionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account id associated with the data partition rule.
         """

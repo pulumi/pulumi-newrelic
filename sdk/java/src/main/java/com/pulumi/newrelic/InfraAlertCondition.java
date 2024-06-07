@@ -26,13 +26,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.InfraAlertCondition;
  * import com.pulumi.newrelic.InfraAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.InfraAlertConditionCriticalArgs;
@@ -50,62 +52,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertPolicy(&#34;foo&#34;);
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+ *             .name("foo")
+ *             .build());
  * 
- *         var highDiskUsage = new InfraAlertCondition(&#34;highDiskUsage&#34;, InfraAlertConditionArgs.builder()        
+ *         var highDiskUsage = new InfraAlertCondition("highDiskUsage", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
- *             .description(&#34;Warning if disk usage goes above 80% and critical alert if goes above 90%&#34;)
- *             .type(&#34;infra_metric&#34;)
- *             .event(&#34;StorageSample&#34;)
- *             .select(&#34;diskUsedPercent&#34;)
- *             .comparison(&#34;above&#34;)
- *             .where(&#34;(hostname LIKE &#39;%frontend%&#39;)&#34;)
+ *             .name("High disk usage")
+ *             .description("Warning if disk usage goes above 80% and critical alert if goes above 90%")
+ *             .type("infra_metric")
+ *             .event("StorageSample")
+ *             .select("diskUsedPercent")
+ *             .comparison("above")
+ *             .where("(hostname LIKE '%frontend%')")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(25)
  *                 .value(90)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .timeFunction("all")
  *                 .build())
  *             .warning(InfraAlertConditionWarningArgs.builder()
  *                 .duration(10)
  *                 .value(80)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
- *         var highDbConnCount = new InfraAlertCondition(&#34;highDbConnCount&#34;, InfraAlertConditionArgs.builder()        
+ *         var highDbConnCount = new InfraAlertCondition("highDbConnCount", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
- *             .description(&#34;Critical alert when the number of database connections goes above 90&#34;)
- *             .type(&#34;infra_metric&#34;)
- *             .event(&#34;DatastoreSample&#34;)
- *             .select(&#34;provider.databaseConnections.Average&#34;)
- *             .comparison(&#34;above&#34;)
- *             .where(&#34;(hostname LIKE &#39;%db%&#39;)&#34;)
- *             .integrationProvider(&#34;RdsDbInstance&#34;)
+ *             .name("High database connection count")
+ *             .description("Critical alert when the number of database connections goes above 90")
+ *             .type("infra_metric")
+ *             .event("DatastoreSample")
+ *             .select("provider.databaseConnections.Average")
+ *             .comparison("above")
+ *             .where("(hostname LIKE '%db%')")
+ *             .integrationProvider("RdsDbInstance")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(25)
  *                 .value(90)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
- *         var processNotRunning = new InfraAlertCondition(&#34;processNotRunning&#34;, InfraAlertConditionArgs.builder()        
+ *         var processNotRunning = new InfraAlertCondition("processNotRunning", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
- *             .description(&#34;Critical alert when ruby isn&#39;t running&#34;)
- *             .type(&#34;infra_process_running&#34;)
- *             .comparison(&#34;equal&#34;)
- *             .where(&#34;hostname = &#39;web01&#39;&#34;)
- *             .processWhere(&#34;commandName = &#39;/usr/bin/ruby&#39;&#34;)
+ *             .name("Process not running (/usr/bin/ruby)")
+ *             .description("Critical alert when ruby isn't running")
+ *             .type("infra_process_running")
+ *             .comparison("equal")
+ *             .where("hostname = 'web01'")
+ *             .processWhere("commandName = '/usr/bin/ruby'")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(5)
  *                 .value(0)
  *                 .build())
  *             .build());
  * 
- *         var hostNotReporting = new InfraAlertCondition(&#34;hostNotReporting&#34;, InfraAlertConditionArgs.builder()        
+ *         var hostNotReporting = new InfraAlertCondition("hostNotReporting", InfraAlertConditionArgs.builder()
  *             .policyId(foo.id())
- *             .description(&#34;Critical alert when the host is not reporting&#34;)
- *             .type(&#34;infra_host_not_reporting&#34;)
- *             .where(&#34;(hostname LIKE &#39;%frontend%&#39;)&#34;)
+ *             .name("Host not reporting")
+ *             .description("Critical alert when the host is not reporting")
+ *             .type("infra_host_not_reporting")
+ *             .where("(hostname LIKE '%frontend%')")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(5)
  *                 .build())
@@ -113,7 +121,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Thresholds
@@ -129,13 +138,15 @@ import javax.annotation.Nullable;
  * Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.InfraAlertCondition;
  * import com.pulumi.newrelic.InfraAlertConditionArgs;
  * import com.pulumi.newrelic.inputs.InfraAlertConditionCriticalArgs;
@@ -156,46 +167,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+ *             .name("foo policy")
+ *             .build());
  * 
- *         var fooInfraAlertCondition = new InfraAlertCondition(&#34;fooInfraAlertCondition&#34;, InfraAlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
- *             .description(&#34;Warning if disk usage goes above 80% and critical alert if goes above 90%&#34;)
- *             .type(&#34;infra_metric&#34;)
- *             .event(&#34;StorageSample&#34;)
- *             .select(&#34;diskUsedPercent&#34;)
- *             .comparison(&#34;above&#34;)
- *             .where(&#34;(hostname LIKE &#39;%frontend%&#39;)&#34;)
+ *         var fooInfraAlertCondition = new InfraAlertCondition("fooInfraAlertCondition", InfraAlertConditionArgs.builder()
+ *             .policyId(foo.id())
+ *             .name("foo infra condition")
+ *             .description("Warning if disk usage goes above 80% and critical alert if goes above 90%")
+ *             .type("infra_metric")
+ *             .event("StorageSample")
+ *             .select("diskUsedPercent")
+ *             .comparison("above")
+ *             .where("(hostname LIKE '%frontend%')")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(25)
  *                 .value(90)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .timeFunction("all")
  *                 .build())
  *             .warning(InfraAlertConditionWarningArgs.builder()
  *                 .duration(10)
  *                 .value(80)
- *                 .timeFunction(&#34;all&#34;)
+ *                 .timeFunction("all")
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooInfraAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -339,14 +354,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the alert policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the alert policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**
@@ -422,62 +437,12 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
      * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {
@@ -498,14 +463,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.warning);
     }
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     @Export(name="where", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> where;
 
     /**
-     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%!c(MISSING)assandra%!&#39;(MISSING)`.
+     * @return If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE &#39;%cassandra%&#39;`.
      * 
      */
     public Output<Optional<String>> where() {

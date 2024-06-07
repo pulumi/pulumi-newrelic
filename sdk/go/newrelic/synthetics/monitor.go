@@ -12,11 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+//
 // Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,18 +31,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
-//				BypassHeadRequest: pulumi.Bool(true),
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("monitor"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
 //						Name:  pulumi.String("some_name"),
 //						Value: pulumi.String("some_value"),
 //					},
 //				},
-//				LocationsPublics: pulumi.StringArray{
-//					pulumi.String("AP_SOUTH_1"),
-//				},
-//				Period: pulumi.String("EVERY_MINUTE"),
-//				Status: pulumi.String("ENABLED"),
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -50,11 +57,6 @@ import (
 //						},
 //					},
 //				},
-//				TreatRedirectAsFailure: pulumi.Bool(true),
-//				Type:                   pulumi.String("SIMPLE"),
-//				Uri:                    pulumi.String("https://www.one.newrelic.com"),
-//				ValidationString:       pulumi.String("success"),
-//				VerifySsl:              pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -64,10 +66,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SIMPLE BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,6 +81,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("monitor"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("BROWSER"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
 //						Name:  pulumi.String("some_name"),
@@ -88,11 +96,8 @@ import (
 //					},
 //				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
-//				LocationsPublics: pulumi.StringArray{
-//					pulumi.String("AP_SOUTH_1"),
-//				},
-//				Period: pulumi.String("EVERY_MINUTE"),
-//				Status: pulumi.String("ENABLED"),
+//				ValidationString:                   pulumi.String("success"),
+//				VerifySsl:                          pulumi.Bool(true),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -101,10 +106,6 @@ import (
 //						},
 //					},
 //				},
-//				Type:             pulumi.String("BROWSER"),
-//				Uri:              pulumi.String("https://www.one.newrelic.com"),
-//				ValidationString: pulumi.String("success"),
-//				VerifySsl:        pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -114,7 +115,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -127,7 +127,6 @@ import (
 //
 // ##### Type: `SIMPLE`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,6 +141,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
+//				Name:                    pulumi.String("private_location"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -149,6 +149,7 @@ import (
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
 //				Type:   pulumi.String("SIMPLE"),
@@ -182,10 +183,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -200,6 +199,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
+//				Name:                    pulumi.String("private-location"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -209,6 +209,7 @@ import (
 //				Status: pulumi.String("ENABLED"),
 //				Type:   pulumi.String("BROWSER"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Name:   pulumi.String("monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				LocationsPrivates: pulumi.StringArray{
 //					location.ID(),
@@ -242,7 +243,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -257,7 +257,7 @@ type Monitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -341,7 +341,7 @@ func GetMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -390,7 +390,7 @@ type monitorState struct {
 
 type MonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -443,7 +443,7 @@ func (MonitorState) ElementType() reflect.Type {
 
 type monitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -491,7 +491,7 @@ type monitorArgs struct {
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
@@ -624,8 +624,8 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o MonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o MonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Monitor should skip default HEAD request and instead use GET verb in check.

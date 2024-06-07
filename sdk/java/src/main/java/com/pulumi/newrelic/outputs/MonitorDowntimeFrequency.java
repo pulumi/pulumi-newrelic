@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitorDowntimeFrequency {
     /**
-     * @return A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+     * @return A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
      * 
      */
     private @Nullable List<Integer> daysOfMonths;
     /**
-     * @return An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+     * @return A list of days of the week on which the Monitor Downtime is scheduled to run.
      * 
      */
     private @Nullable MonitorDowntimeFrequencyDaysOfWeek daysOfWeek;
 
     private MonitorDowntimeFrequency() {}
     /**
-     * @return A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+     * @return A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
      * 
      */
     public List<Integer> daysOfMonths() {
         return this.daysOfMonths == null ? List.of() : this.daysOfMonths;
     }
     /**
-     * @return An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+     * @return A list of days of the week on which the Monitor Downtime is scheduled to run.
      * 
      */
     public Optional<MonitorDowntimeFrequencyDaysOfWeek> daysOfWeek() {

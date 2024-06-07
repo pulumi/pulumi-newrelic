@@ -27,13 +27,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
  * import com.pulumi.newrelic.synthetics.MultiLocationAlertCondition;
@@ -53,19 +55,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new AlertPolicy(&#34;policy&#34;);
- * 
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .locationsPublics(&#34;US_WEST_1&#34;)
- *             .period(&#34;EVERY_10_MINUTES&#34;)
- *             .status(&#34;DISABLED&#34;)
- *             .type(&#34;SIMPLE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *         var policy = new AlertPolicy("policy", AlertPolicyArgs.builder()
+ *             .name("my-policy")
  *             .build());
  * 
- *         var example = new MultiLocationAlertCondition(&#34;example&#34;, MultiLocationAlertConditionArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
+ *             .locationsPublics("US_WEST_1")
+ *             .name("my-monitor")
+ *             .period("EVERY_10_MINUTES")
+ *             .status("DISABLED")
+ *             .type("SIMPLE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .build());
+ * 
+ *         var example = new MultiLocationAlertCondition("example", MultiLocationAlertConditionArgs.builder()
  *             .policyId(policy.id())
- *             .runbookUrl(&#34;https://example.com&#34;)
+ *             .name("Example condition")
+ *             .runbookUrl("https://example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
  *             .entities(monitor.id())
@@ -79,20 +85,23 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ## Tags
  * 
  * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
  * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
@@ -117,31 +126,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+ *             .name("foo policy")
+ *             .build());
  * 
- *         var fooMonitor = new Monitor(&#34;fooMonitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .type(&#34;SIMPLE&#34;)
- *             .locationsPublics(&#34;AP_EAST_1&#34;)
+ *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()
+ *             .status("ENABLED")
+ *             .name("foo monitor")
+ *             .period("EVERY_MINUTE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .type("SIMPLE")
+ *             .locationsPublics("AP_EAST_1")
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .treatRedirectAsFailure(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .bypassHeadRequest(true)
  *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
- *         var fooMultiLocationAlertCondition = new MultiLocationAlertCondition(&#34;fooMultiLocationAlertCondition&#34;, MultiLocationAlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
- *             .runbookUrl(&#34;https://example.com&#34;)
+ *         var fooMultiLocationAlertCondition = new MultiLocationAlertCondition("fooMultiLocationAlertCondition", MultiLocationAlertConditionArgs.builder()
+ *             .policyId(foo.id())
+ *             .name("foo condition")
+ *             .runbookUrl("https://example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
  *             .entities(fooMonitor.id())
@@ -153,24 +166,25 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooMultiLocationAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -262,14 +276,14 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * The ID of the policy where this condition will be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition will be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**

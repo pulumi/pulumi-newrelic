@@ -26,7 +26,6 @@ import (
 //
 // You can also use the full example, including the AWS set up, found in our guides.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +41,7 @@ import (
 //			_, err := cloud.NewAwsLinkAccount(ctx, "foo", &cloud.AwsLinkAccountArgs{
 //				Arn:                  pulumi.String("arn:aws:service:region:account-id:resource-id"),
 //				MetricCollectionMode: pulumi.String("PUSH"),
+//				Name:                 pulumi.String("account name"),
 //			})
 //			if err != nil {
 //				return err
@@ -51,7 +51,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -66,7 +65,7 @@ type AwsLinkAccount struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The Amazon Resource Name (ARN) of the IAM role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -109,7 +108,7 @@ func GetAwsLinkAccount(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AwsLinkAccount resources.
 type awsLinkAccountState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The Amazon Resource Name (ARN) of the IAM role.
 	Arn *string `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -120,7 +119,7 @@ type awsLinkAccountState struct {
 
 type AwsLinkAccountState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role.
 	Arn pulumi.StringPtrInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -135,7 +134,7 @@ func (AwsLinkAccountState) ElementType() reflect.Type {
 
 type awsLinkAccountArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The Amazon Resource Name (ARN) of the IAM role.
 	Arn string `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -147,7 +146,7 @@ type awsLinkAccountArgs struct {
 // The set of arguments for constructing a AwsLinkAccount resource.
 type AwsLinkAccountArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role.
 	Arn pulumi.StringInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
@@ -244,8 +243,8 @@ func (o AwsLinkAccountOutput) ToAwsLinkAccountOutputWithContext(ctx context.Cont
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AwsLinkAccountOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AwsLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AwsLinkAccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role.

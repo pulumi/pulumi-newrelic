@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,14 +24,13 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.SecureCredential("foo", new()
     ///     {
-    ///         Description = "My description",
     ///         Key = "MY_KEY",
     ///         Value = "My value",
+    ///         Description = "My description",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -49,7 +47,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The secure credential's description.
@@ -129,7 +127,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.
@@ -177,7 +175,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.

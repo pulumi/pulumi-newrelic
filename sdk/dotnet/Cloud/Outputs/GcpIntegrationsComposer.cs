@@ -14,9 +14,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class GcpIntegrationsComposer
     {
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Other integration supports an additional argument:
+        /// the data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
 

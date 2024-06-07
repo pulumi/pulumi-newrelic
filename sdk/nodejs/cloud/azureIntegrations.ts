@@ -21,39 +21,39 @@ import * as utilities from "../utilities";
  *
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAzureLinkAccount = new newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount", {
+ * const foo = new newrelic.cloud.AzureLinkAccount("foo", {
  *     accountId: "The New Relic account ID where you want to link the Azure account",
  *     applicationId: "ID of the application",
  *     clientSecret: "Secret value of client's Azure account",
  *     subscriptionId: "Subscription ID of Azure",
  *     tenantId: "Tenant ID of the Azure",
+ *     name: "Name of the linked account",
  * });
- * const fooAzureIntegrations = new newrelic.cloud.AzureIntegrations("fooAzureIntegrations", {
- *     linkedAccountId: fooAzureLinkAccount.id,
+ * const fooAzureIntegrations = new newrelic.cloud.AzureIntegrations("foo", {
+ *     linkedAccountId: foo.id,
  *     accountId: "The New Relic account ID",
  *     apiManagement: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     appGateway: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     appService: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     containers: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     cosmosDb: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     costManagement: {
@@ -61,51 +61,51 @@ import * as utilities from "../utilities";
  *         tagKeys: ["tag_keys"],
  *     },
  *     dataFactory: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     eventHub: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     expressRoute: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     firewalls: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     frontDoor: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     functions: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     keyVault: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     loadBalancer: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     logicApps: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     machineLearning: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     mariaDb: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 3600,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     monitor: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 60,
  *         resourceGroups: ["resource_groups"],
  *         includeTags: ["env:production"],
  *         excludeTags: [
@@ -116,64 +116,63 @@ import * as utilities from "../utilities";
  *         resourceTypes: ["microsoft.datashare/accounts"],
  *     },
  *     mysql: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 3600,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     mysqlFlexible: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 3600,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     postgresql: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 3600,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     postgresqlFlexible: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 3600,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     powerBiDedicated: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     redisCache: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     serviceBus: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     sql: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     sqlManaged: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     storage: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 1800,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     virtualMachine: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     virtualNetworks: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     vms: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  *     vpnGateway: {
- *         metricsPollingInterval: 1200,
+ *         metricsPollingInterval: 300,
  *         resourceGroups: ["resource_groups"],
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -216,7 +215,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -271,8 +270,11 @@ export class AzureIntegrations extends pulumi.CustomResource {
     public readonly keyVault!: pulumi.Output<outputs.cloud.AzureIntegrationsKeyVault | undefined>;
     /**
      * The ID of the linked Azure account in New Relic.
+     *
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -291,6 +293,8 @@ export class AzureIntegrations extends pulumi.CustomResource {
     public readonly mariaDb!: pulumi.Output<outputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
      * Azure Monitor. See Integration blocks below for details.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
     public readonly monitor!: pulumi.Output<outputs.cloud.AzureIntegrationsMonitor | undefined>;
     /**
@@ -331,6 +335,8 @@ export class AzureIntegrations extends pulumi.CustomResource {
     public readonly sqlManaged!: pulumi.Output<outputs.cloud.AzureIntegrationsSqlManaged | undefined>;
     /**
      * for Azure Storage. See Integration blocks below for details.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      */
     public readonly storage!: pulumi.Output<outputs.cloud.AzureIntegrationsStorage | undefined>;
     /**
@@ -339,8 +345,6 @@ export class AzureIntegrations extends pulumi.CustomResource {
     public readonly virtualMachine!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
-     *
-     * Below argument supports the minimum metric polling interval of 3600 seconds
      */
     public readonly virtualNetworks!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
     /**
@@ -350,7 +354,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      *
-     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      */
     public readonly vpnGateway!: pulumi.Output<outputs.cloud.AzureIntegrationsVpnGateway | undefined>;
 
@@ -453,7 +457,7 @@ export interface AzureIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -508,8 +512,11 @@ export interface AzureIntegrationsState {
     keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
     /**
      * The ID of the linked Azure account in New Relic.
+     *
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -528,6 +535,8 @@ export interface AzureIntegrationsState {
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
     /**
      * Azure Monitor. See Integration blocks below for details.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
     monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
     /**
@@ -568,6 +577,8 @@ export interface AzureIntegrationsState {
     sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged>;
     /**
      * for Azure Storage. See Integration blocks below for details.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      */
     storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage>;
     /**
@@ -576,8 +587,6 @@ export interface AzureIntegrationsState {
     virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
-     *
-     * Below argument supports the minimum metric polling interval of 3600 seconds
      */
     virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
     /**
@@ -587,7 +596,7 @@ export interface AzureIntegrationsState {
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      *
-     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      */
     vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway>;
 }
@@ -599,7 +608,7 @@ export interface AzureIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
@@ -654,8 +663,11 @@ export interface AzureIntegrationsArgs {
     keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
     /**
      * The ID of the linked Azure account in New Relic.
+     *
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
@@ -674,6 +686,8 @@ export interface AzureIntegrationsArgs {
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
     /**
      * Azure Monitor. See Integration blocks below for details.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
     monitor?: pulumi.Input<inputs.cloud.AzureIntegrationsMonitor>;
     /**
@@ -714,6 +728,8 @@ export interface AzureIntegrationsArgs {
     sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged>;
     /**
      * for Azure Storage. See Integration blocks below for details.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      */
     storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage>;
     /**
@@ -722,8 +738,6 @@ export interface AzureIntegrationsArgs {
     virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
-     *
-     * Below argument supports the minimum metric polling interval of 3600 seconds
      */
     virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
     /**
@@ -733,7 +747,7 @@ export interface AzureIntegrationsArgs {
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      *
-     * Below arguments supports the minimum metric polling interval of 900 seconds
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      */
     vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway>;
 }

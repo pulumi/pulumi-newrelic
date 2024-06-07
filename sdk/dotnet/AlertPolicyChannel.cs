@@ -18,7 +18,6 @@ namespace Pulumi.NewRelic
     /// 
     /// The example below will apply multiple alert channels to an existing New Relic alert policy.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,14 +26,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Fetches the data for this policy from your New Relic account
+    ///     // and is referenced in the newrelic_alert_policy_channel block below.
     ///     var examplePolicy = NewRelic.GetAlertPolicy.Invoke(new()
     ///     {
     ///         Name = "my-alert-policy",
     ///     });
     /// 
     ///     // Creates an email alert channel.
-    ///     var emailChannel = new NewRelic.AlertChannel("emailChannel", new()
+    ///     var emailChannel = new NewRelic.AlertChannel("email_channel", new()
     ///     {
+    ///         Name = "bar",
     ///         Type = "email",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -44,8 +46,9 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Creates a Slack alert channel.
-    ///     var slackChannel = new NewRelic.AlertChannel("slackChannel", new()
+    ///     var slackChannel = new NewRelic.AlertChannel("slack_channel", new()
     ///     {
+    ///         Name = "slack-channel-example",
     ///         Type = "slack",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -68,7 +71,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -86,19 +88,19 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         /// </summary>
         [Output("channelIds")]
-        public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ChannelIds { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the policy.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,17 +152,17 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("channelIds", required: true)]
-        private InputList<int>? _channelIds;
+        private InputList<string>? _channelIds;
 
         /// <summary>
         /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         /// </summary>
-        public InputList<int> ChannelIds
+        public InputList<string> ChannelIds
         {
-            get => _channelIds ?? (_channelIds = new InputList<int>());
+            get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
 
@@ -168,7 +170,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         public AlertPolicyChannelArgs()
         {
@@ -182,17 +184,17 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
-        private InputList<int>? _channelIds;
+        private InputList<string>? _channelIds;
 
         /// <summary>
         /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         /// </summary>
-        public InputList<int> ChannelIds
+        public InputList<string> ChannelIds
         {
-            get => _channelIds ?? (_channelIds = new InputList<int>());
+            get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
 
@@ -200,7 +202,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         public AlertPolicyChannelState()
         {

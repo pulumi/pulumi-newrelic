@@ -14,19 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsGovcloudIntegrationsApiGateway {
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     private @Nullable List<String> awsRegions;
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
     /**
-     * @return Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+     * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     private @Nullable List<String> stagePrefixes;
@@ -43,23 +41,21 @@ public final class AwsGovcloudIntegrationsApiGateway {
 
     private AwsGovcloudIntegrationsApiGateway() {}
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public List<String> awsRegions() {
         return this.awsRegions == null ? List.of() : this.awsRegions;
     }
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {
         return Optional.ofNullable(this.metricsPollingInterval);
     }
     /**
-     * @return Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+     * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
      * 
      */
     public List<String> stagePrefixes() {

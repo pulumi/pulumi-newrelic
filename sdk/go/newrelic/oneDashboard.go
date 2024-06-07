@@ -25,7 +25,7 @@ type OneDashboard struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Brief text describing the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
@@ -76,7 +76,7 @@ func GetOneDashboard(ctx *pulumi.Context,
 // Input properties used for looking up and filtering OneDashboard resources.
 type oneDashboardState struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Brief text describing the dashboard.
 	Description *string `pulumi:"description"`
 	// The unique entity identifier of the dashboard page in New Relic.
@@ -95,7 +95,7 @@ type oneDashboardState struct {
 
 type OneDashboardState struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Brief text describing the dashboard.
 	Description pulumi.StringPtrInput
 	// The unique entity identifier of the dashboard page in New Relic.
@@ -118,7 +118,7 @@ func (OneDashboardState) ElementType() reflect.Type {
 
 type oneDashboardArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Brief text describing the dashboard.
 	Description *string `pulumi:"description"`
 	// The title of the dashboard.
@@ -134,7 +134,7 @@ type oneDashboardArgs struct {
 // The set of arguments for constructing a OneDashboard resource.
 type OneDashboardArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Brief text describing the dashboard.
 	Description pulumi.StringPtrInput
 	// The title of the dashboard.
@@ -235,8 +235,8 @@ func (o OneDashboardOutput) ToOneDashboardOutputWithContext(ctx context.Context)
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *OneDashboard) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Brief text describing the dashboard.

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -19,9 +18,10 @@ import * as utilities from "./utilities";
  * const app = newrelic.getApplication({
  *     name: "my-app",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_app_metric",
  *     entities: [app.then(app => app.id)],
  *     metric: "apdex",
@@ -35,7 +35,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -62,7 +61,7 @@ export interface GetApplicationResult {
     /**
      * A list of host IDs associated with the application.
      */
-    readonly hostIds: number[];
+    readonly hostIds: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -70,7 +69,7 @@ export interface GetApplicationResult {
     /**
      * A list of instance IDs associated with the application.
      */
-    readonly instanceIds: number[];
+    readonly instanceIds: string[];
     readonly name: string;
 }
 /**
@@ -80,7 +79,6 @@ export interface GetApplicationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -88,9 +86,10 @@ export interface GetApplicationResult {
  * const app = newrelic.getApplication({
  *     name: "my-app",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_app_metric",
  *     entities: [app.then(app => app.id)],
  *     metric: "apdex",
@@ -104,7 +103,6 @@ export interface GetApplicationResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

@@ -10,26 +10,24 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * Use this example to create the log parse rule.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.LogParsingRule("foo", {
+ *     name: "log_parse_rule",
  *     attribute: "message",
  *     enabled: true,
- *     grok: "sampleattribute='%%{NUMBER:test:int}'",
+ *     grok: "sampleattribute='%{NUMBER:test:int}'",
  *     lucene: "logtype:linux_messages",
  *     nrql: "SELECT * FROM Log WHERE logtype = 'linux_messages'",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Example
  *
  * Use this example to validate a grok pattern and create the log parse rule.  More
  * information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -39,6 +37,7 @@ import * as utilities from "./utilities";
  *     logLines: ["host_ip: 43.3.120.2"],
  * });
  * const foo = new newrelic.LogParsingRule("foo", {
+ *     name: "log_parse_rule",
  *     attribute: "message",
  *     enabled: true,
  *     grok: grok.then(grok => grok.grok),
@@ -47,7 +46,6 @@ import * as utilities from "./utilities";
  *     matched: grok.then(grok => grok.testGroks?.[0]?.matched),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -90,7 +88,7 @@ export class LogParsingRule extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation rule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
@@ -182,7 +180,7 @@ export interface LogParsingRuleState {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
@@ -224,7 +222,7 @@ export interface LogParsingRuleArgs {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */

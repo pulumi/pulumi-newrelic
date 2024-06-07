@@ -11,215 +11,9 @@ namespace Pulumi.NewRelic
 {
     public static class GetEntity
     {
-        /// <summary>
-        /// Use this data source to get information about a specific entity in New Relic One that already exists.
-        /// 
-        /// ### Example: Filter By Account ID
-        /// 
-        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match. 
-        /// 
-        /// This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Domain = "APM",
-        ///         Name = "my-app",
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         AccountId = 654321,
-        ///         Domain = "APM",
-        ///         Name = "my-app",
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration. 
-        /// 
-        /// In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
-        /// ### Query for an OTEL entity
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Domain = "EXT",
-        ///         Name = "my-otel-app",
-        ///         Tags = new[]
-        ///         {
-        ///             new NewRelic.Inputs.GetEntityTagInputArgs
-        ///             {
-        ///                 Key = "accountID",
-        ///                 Value = "12345",
-        ///             },
-        ///         },
-        ///         Type = "SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
-        /// ### Query for an entity by type (AWS Lambda entity in this example)
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Name = "my_lambda_trace",
-        ///         Type = "AWSLAMBDAFUNCTION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a specific entity in New Relic One that already exists.
-        /// 
-        /// ### Example: Filter By Account ID
-        /// 
-        /// The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match. 
-        /// 
-        /// This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Domain = "APM",
-        ///         Name = "my-app",
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `account_id` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `account_id` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `account_id`.
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         AccountId = 654321,
-        ///         Domain = "APM",
-        ///         Name = "my-app",
-        ///         Type = "APPLICATION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// The following example explains a use case along the lines of the aforementioned; using the `account_id` argument in the data source to allow the filtering criteria to be the `account_id` specified (of the subaccount), and not the account ID in the provider configuration. 
-        /// 
-        /// In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `account_id` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `account_id`.
-        /// ### Query for an OTEL entity
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Domain = "EXT",
-        ///         Name = "my-otel-app",
-        ///         Tags = new[]
-        ///         {
-        ///             new NewRelic.Inputs.GetEntityTagInputArgs
-        ///             {
-        ///                 Key = "accountID",
-        ///                 Value = "12345",
-        ///             },
-        ///         },
-        ///         Type = "SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// 
-        /// ### Query for an entity by type (AWS Lambda entity in this example)
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var app = NewRelic.GetEntity.Invoke(new()
-        ///     {
-        ///         Name = "my_lambda_trace",
-        ///         Type = "AWSLAMBDAFUNCTION",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
@@ -231,13 +25,20 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
         /// </summary>
         [Input("domain")]
         public string? Domain { get; set; }
+
+        /// <summary>
+        /// A JSON-encoded string, comprising tags associated with the entity fetched.
+        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        /// </summary>
+        [Input("entityTags")]
+        public string? EntityTags { get; set; }
 
         /// <summary>
         /// Ignore case of the `name` when searching for the entity. Defaults to false.
@@ -289,13 +90,20 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// A JSON-encoded string, comprising tags associated with the entity fetched.
+        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        /// </summary>
+        [Input("entityTags")]
+        public Input<string>? EntityTags { get; set; }
 
         /// <summary>
         /// Ignore case of the `name` when searching for the entity. Defaults to false.
@@ -345,12 +153,17 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetEntityResult
     {
-        public readonly int AccountId;
+        public readonly string AccountId;
         /// <summary>
         /// The domain-specific application ID of the entity. Only returned for APM and Browser applications.
         /// </summary>
-        public readonly int ApplicationId;
+        public readonly string ApplicationId;
         public readonly string Domain;
+        /// <summary>
+        /// A JSON-encoded string, comprising tags associated with the entity fetched.
+        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        /// </summary>
+        public readonly string EntityTags;
         /// <summary>
         /// The unique GUID of the entity.
         /// </summary>
@@ -365,17 +178,19 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
         /// </summary>
-        public readonly int ServingApmApplicationId;
+        public readonly string ServingApmApplicationId;
         public readonly ImmutableArray<Outputs.GetEntityTagResult> Tags;
         public readonly string Type;
 
         [OutputConstructor]
         private GetEntityResult(
-            int accountId,
+            string accountId,
 
-            int applicationId,
+            string applicationId,
 
             string domain,
+
+            string entityTags,
 
             string guid,
 
@@ -387,7 +202,7 @@ namespace Pulumi.NewRelic
 
             string name,
 
-            int servingApmApplicationId,
+            string servingApmApplicationId,
 
             ImmutableArray<Outputs.GetEntityTagResult> tags,
 
@@ -396,6 +211,7 @@ namespace Pulumi.NewRelic
             AccountId = accountId;
             ApplicationId = applicationId;
             Domain = domain;
+            EntityTags = entityTags;
             Guid = guid;
             Id = id;
             IgnoreCase = ignoreCase;

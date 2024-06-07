@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.WorkflowEnrichmentsNrqlConfigurationArgs;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,25 +23,25 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
     /**
-     * Another wrapper block
+     * A set of key-value pairs to represent a enrichment configuration.
      * 
      */
     @Import(name="configurations", required=true)
     private Output<List<WorkflowEnrichmentsNrqlConfigurationArgs>> configurations;
 
     /**
-     * @return Another wrapper block
+     * @return A set of key-value pairs to represent a enrichment configuration.
      * 
      */
     public Output<List<WorkflowEnrichmentsNrqlConfigurationArgs>> configurations() {
@@ -80,14 +79,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * The type of the enrichment. One of: (NRQL).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+     * @return The type of the enrichment. One of: (NRQL).
      * 
      */
     public Optional<Output<String>> type() {
@@ -128,7 +127,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -139,12 +138,12 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
         /**
-         * @param configurations Another wrapper block
+         * @param configurations A set of key-value pairs to represent a enrichment configuration.
          * 
          * @return builder
          * 
@@ -155,7 +154,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations Another wrapper block
+         * @param configurations A set of key-value pairs to represent a enrichment configuration.
          * 
          * @return builder
          * 
@@ -165,7 +164,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations Another wrapper block
+         * @param configurations A set of key-value pairs to represent a enrichment configuration.
          * 
          * @return builder
          * 
@@ -217,7 +216,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+         * @param type The type of the enrichment. One of: (NRQL).
          * 
          * @return builder
          * 
@@ -228,7 +227,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+         * @param type The type of the enrichment. One of: (NRQL).
          * 
          * @return builder
          * 

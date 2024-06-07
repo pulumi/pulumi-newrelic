@@ -84,16 +84,33 @@ def get_group(authentication_domain_id: Optional[str] = None,
 
     The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-    foo_group = newrelic.get_group(authentication_domain_id=foo_authentication_domain.id,
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
         name="Test Group")
     ```
-    <!--End PulumiCodeChooser -->
+
+    ## Additional Examples
+
+    The following example demonstrates utilizing attributes exported by this data source.
+
+    In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+    import pulumi_std as std
+
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
+        name="Test Group")
+    id = foo_get_group.id
+    user_ids = std.join(separator=", ",
+        input=foo_get_group.user_ids).result if len(foo_get_group.user_ids) > 0 else ""
+    ```
 
 
     :param str authentication_domain_id: The ID of the authentication domain the group to be searched for belongs to.
@@ -125,16 +142,33 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = Non
 
     The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-    foo_group = newrelic.get_group(authentication_domain_id=foo_authentication_domain.id,
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
         name="Test Group")
     ```
-    <!--End PulumiCodeChooser -->
+
+    ## Additional Examples
+
+    The following example demonstrates utilizing attributes exported by this data source.
+
+    In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+    import pulumi_std as std
+
+    foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+    foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
+        name="Test Group")
+    id = foo_get_group.id
+    user_ids = std.join(separator=", ",
+        input=foo_get_group.user_ids).result if len(foo_get_group.user_ids) > 0 else ""
+    ```
 
 
     :param str authentication_domain_id: The ID of the authentication domain the group to be searched for belongs to.

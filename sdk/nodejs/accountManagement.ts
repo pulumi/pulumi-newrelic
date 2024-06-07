@@ -12,14 +12,15 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ##### Create Account
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AccountManagement("foo", {region: "us01"});
+ * const foo = new newrelic.AccountManagement("foo", {
+ *     name: "Test Account Name",
+ *     region: "us01",
+ * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

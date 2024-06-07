@@ -12,13 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+//
 // Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 //
 // ## Example Usage
 //
 // ##### Type: `SCRIPT_API`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,16 +33,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("script_monitor"),
+//				Type:   pulumi.String("SCRIPT_API"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //					pulumi.String("AP_EAST_1"),
 //				},
 //				Period:             pulumi.String("EVERY_6_HOURS"),
-//				RuntimeType:        pulumi.String("NODE_API"),
-//				RuntimeTypeVersion: pulumi.String("16.10"),
 //				Script:             pulumi.String("console.log('it works!')"),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				RuntimeType:        pulumi.String("NODE_API"),
+//				RuntimeTypeVersion: pulumi.String("16.10"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -50,7 +53,6 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("SCRIPT_API"),
 //			})
 //			if err != nil {
 //				return err
@@ -60,10 +62,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,17 +77,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
-//				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
+//				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("script_monitor"),
+//				Type:   pulumi.String("SCRIPT_BROWSER"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //					pulumi.String("AP_EAST_1"),
 //				},
-//				Period:             pulumi.String("EVERY_HOUR"),
-//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
-//				RuntimeTypeVersion: pulumi.String("100"),
-//				Script:             pulumi.String("$browser.get('https://one.newrelic.com')"),
-//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				Period:                             pulumi.String("EVERY_HOUR"),
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
+//				Script:                             pulumi.String("$browser.get('https://one.newrelic.com')"),
+//				RuntimeTypeVersion:                 pulumi.String("100"),
+//				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
+//				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -96,7 +98,6 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("SCRIPT_BROWSER"),
 //			})
 //			if err != nil {
 //				return err
@@ -106,7 +107,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // See additional examples.
 //
 // ## Additional Examples
@@ -119,7 +119,6 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,6 +133,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
+//				Name:                    pulumi.String("private_location"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -141,6 +141,7 @@ import (
 //			}
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("script_monitor"),
 //				Type:   pulumi.String("SCRIPT_API"),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
@@ -170,10 +171,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ##### Type: `SCRIPT_BROWSER`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -188,6 +187,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
+//				Name:                    pulumi.String("private_location"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -195,6 +195,7 @@ import (
 //			}
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
 //				Status:                             pulumi.String("ENABLED"),
+//				Name:                               pulumi.String("script_monitor"),
 //				Type:                               pulumi.String("SCRIPT_BROWSER"),
 //				Period:                             pulumi.String("EVERY_HOUR"),
 //				Script:                             pulumi.String("$browser.get('https://one.newrelic.com')"),
@@ -225,7 +226,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -240,14 +240,14 @@ type ScriptMonitor struct {
 	pulumi.CustomResourceState
 
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates ScriptMonitorLocationPrivateArrayOutput `pulumi:"locationPrivates"`
@@ -317,14 +317,14 @@ func GetScriptMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ScriptMonitor resources.
 type scriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType *string `pulumi:"deviceType"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid *string `pulumi:"guid"`
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates []ScriptMonitorLocationPrivate `pulumi:"locationPrivates"`
@@ -356,14 +356,14 @@ type scriptMonitorState struct {
 
 type ScriptMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrInput
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
 	DeviceType pulumi.StringPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
-	// The unique identifier for the Synthetics private location in New Relic.
+	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringPtrInput
 	// The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
 	LocationPrivates ScriptMonitorLocationPrivateArrayInput
@@ -399,7 +399,7 @@ func (ScriptMonitorState) ElementType() reflect.Type {
 
 type scriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -435,7 +435,7 @@ type scriptMonitorArgs struct {
 // The set of arguments for constructing a ScriptMonitor resource.
 type ScriptMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
 	DeviceOrientation pulumi.StringPtrInput
 	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
@@ -556,8 +556,8 @@ func (o ScriptMonitorOutput) ToScriptMonitorOutputWithContext(ctx context.Contex
 }
 
 // The account in which the Synthetics monitor will be created.
-func (o ScriptMonitorOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ScriptMonitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o ScriptMonitorOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
@@ -575,7 +575,7 @@ func (o ScriptMonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtr
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the Synthetics private location in New Relic.
+// The unique entity identifier of the monitor in New Relic.
 func (o ScriptMonitorOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }

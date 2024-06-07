@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigStaticArgs;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,13 +24,13 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return The New Relic account ID where you want to create the workload.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -100,13 +99,13 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="scopeAccountIds")
-    private @Nullable Output<List<Integer>> scopeAccountIds;
+    private @Nullable Output<List<String>> scopeAccountIds;
 
     /**
      * @return A list of account IDs that will be used to get entities from.
      * 
      */
-    public Optional<Output<List<Integer>>> scopeAccountIds() {
+    public Optional<Output<List<String>>> scopeAccountIds() {
         return Optional.ofNullable(this.scopeAccountIds);
     }
 
@@ -177,7 +176,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -188,7 +187,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -302,7 +301,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder scopeAccountIds(@Nullable Output<List<Integer>> scopeAccountIds) {
+        public Builder scopeAccountIds(@Nullable Output<List<String>> scopeAccountIds) {
             $.scopeAccountIds = scopeAccountIds;
             return this;
         }
@@ -313,7 +312,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder scopeAccountIds(List<Integer> scopeAccountIds) {
+        public Builder scopeAccountIds(List<String> scopeAccountIds) {
             return scopeAccountIds(Output.of(scopeAccountIds));
         }
 
@@ -323,7 +322,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder scopeAccountIds(Integer... scopeAccountIds) {
+        public Builder scopeAccountIds(String... scopeAccountIds) {
             return scopeAccountIds(List.of(scopeAccountIds));
         }
 

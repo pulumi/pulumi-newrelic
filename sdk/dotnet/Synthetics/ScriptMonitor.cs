@@ -10,13 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
+    /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+    /// 
     /// Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,17 +28,19 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
+    ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
+    ///         Type = "SCRIPT_API",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///             "AP_EAST_1",
     ///         },
     ///         Period = "EVERY_6_HOURS",
-    ///         RuntimeType = "NODE_API",
-    ///         RuntimeTypeVersion = "16.10",
     ///         Script = "console.log('it works!')",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "ENABLED",
+    ///         RuntimeType = "NODE_API",
+    ///         RuntimeTypeVersion = "16.10",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -49,15 +52,12 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "SCRIPT_API",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `SCRIPT_BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,18 +68,20 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
-    ///         EnableScreenshotOnFailureAndScript = false,
+    ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
+    ///         Type = "SCRIPT_BROWSER",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",
     ///             "AP_EAST_1",
     ///         },
     ///         Period = "EVERY_HOUR",
-    ///         RuntimeType = "CHROME_BROWSER",
-    ///         RuntimeTypeVersion = "100",
+    ///         EnableScreenshotOnFailureAndScript = false,
     ///         Script = "$browser.get('https://one.newrelic.com')",
+    ///         RuntimeTypeVersion = "100",
+    ///         RuntimeType = "CHROME_BROWSER",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -91,12 +93,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "SCRIPT_BROWSER",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -109,7 +109,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,12 +120,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Example private location",
+    ///         Name = "private_location",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
     ///         Type = "SCRIPT_API",
     ///         LocationPrivates = new[]
     ///         {
@@ -156,10 +157,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ##### Type: `SCRIPT_BROWSER`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -171,12 +170,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Test Description",
+    ///         Name = "private_location",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
     ///     var monitor = new NewRelic.Synthetics.ScriptMonitor("monitor", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "script_monitor",
     ///         Type = "SCRIPT_BROWSER",
     ///         Period = "EVERY_HOUR",
     ///         Script = "$browser.get('https://one.newrelic.com')",
@@ -207,7 +208,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -226,7 +226,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
@@ -247,7 +247,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
@@ -494,7 +494,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
@@ -515,7 +515,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }

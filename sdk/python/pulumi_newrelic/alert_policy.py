@@ -14,14 +14,14 @@ __all__ = ['AlertPolicyArgs', 'AlertPolicy']
 @pulumi.input_type
 class AlertPolicyArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
@@ -39,19 +39,19 @@ class AlertPolicyArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """
@@ -61,7 +61,7 @@ class AlertPolicyArgs:
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @property
@@ -92,14 +92,14 @@ class AlertPolicyArgs:
 @pulumi.input_type
 class _AlertPolicyState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
@@ -117,19 +117,19 @@ class _AlertPolicyState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """
@@ -139,7 +139,7 @@ class _AlertPolicyState:
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
-    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "channel_ids", value)
 
     @property
@@ -172,8 +172,8 @@ class AlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -184,14 +184,14 @@ class AlertPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        foo = newrelic.AlertPolicy("foo",
+            name="example",
+            incident_preference="PER_POLICY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Provision multiple notification channels and add those channels to a policy
 
@@ -208,52 +208,54 @@ class AlertPolicy(pulumi.CustomResource):
         ## Additional Examples
 
         ##### Provision multiple notification channels and add those channels to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         # Provision a Slack notification channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
+        slack_channel = newrelic.AlertChannel("slack_channel",
+            name="slack-example",
             type="slack",
             config=newrelic.AlertChannelConfigArgs(
                 url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
                 channel="example-alerts-channel",
             ))
         # Provision an email notification channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
+        email_channel = newrelic.AlertChannel("email_channel",
+            name="email-example",
             type="email",
             config=newrelic.AlertChannelConfigArgs(
                 recipients="example@testing.com",
                 include_json_attachment="1",
             ))
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Reference existing notification channels and add those channel to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
+        # Reference an existing Slack notification channel.
         slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        # Reference an existing email notification channel.
         email_channel = newrelic.get_alert_channel(name="test@example.com")
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -268,8 +270,8 @@ class AlertPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
@@ -286,14 +288,14 @@ class AlertPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        foo = newrelic.AlertPolicy("foo",
+            name="example",
+            incident_preference="PER_POLICY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Provision multiple notification channels and add those channels to a policy
 
@@ -310,52 +312,54 @@ class AlertPolicy(pulumi.CustomResource):
         ## Additional Examples
 
         ##### Provision multiple notification channels and add those channels to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         # Provision a Slack notification channel.
-        slack_channel = newrelic.AlertChannel("slackChannel",
+        slack_channel = newrelic.AlertChannel("slack_channel",
+            name="slack-example",
             type="slack",
             config=newrelic.AlertChannelConfigArgs(
                 url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
                 channel="example-alerts-channel",
             ))
         # Provision an email notification channel.
-        email_channel = newrelic.AlertChannel("emailChannel",
+        email_channel = newrelic.AlertChannel("email_channel",
+            name="email-example",
             type="email",
             config=newrelic.AlertChannelConfigArgs(
                 recipients="example@testing.com",
                 include_json_attachment="1",
             ))
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Reference existing notification channels and add those channel to a policy
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
+        # Reference an existing Slack notification channel.
         slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        # Reference an existing email notification channel.
         email_channel = newrelic.get_alert_channel(name="test@example.com")
         # Provision the alert policy.
-        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+        policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
+            name="example-with-channels",
             incident_preference="PER_CONDITION",
             channel_ids=[
                 slack_channel.id,
                 email_channel.id,
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -383,8 +387,8 @@ class AlertPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_preference: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -410,8 +414,8 @@ class AlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
-            channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
+            channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             incident_preference: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'AlertPolicy':
         """
@@ -421,8 +425,8 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
@@ -438,7 +442,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -446,7 +450,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
+    def channel_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """

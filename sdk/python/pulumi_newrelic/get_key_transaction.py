@@ -60,15 +60,15 @@ def get_key_transaction(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     txn = newrelic.get_key_transaction(name="txn")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
+    foo = newrelic.AlertPolicy("foo", name="foo")
+    foo_alert_condition = newrelic.AlertCondition("foo",
+        policy_id=foo.id,
+        name="foo",
         type="apm_kt_metric",
         entities=[txn.id],
         metric="error_percentage",
@@ -81,7 +81,6 @@ def get_key_transaction(name: Optional[str] = None,
             time_function="all",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the key transaction in New Relic.
@@ -104,15 +103,15 @@ def get_key_transaction_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     txn = newrelic.get_key_transaction(name="txn")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
+    foo = newrelic.AlertPolicy("foo", name="foo")
+    foo_alert_condition = newrelic.AlertCondition("foo",
+        policy_id=foo.id,
+        name="foo",
         type="apm_kt_metric",
         entities=[txn.id],
         metric="error_percentage",
@@ -125,7 +124,6 @@ def get_key_transaction_output(name: Optional[pulumi.Input[str]] = None,
             time_function="all",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the key transaction in New Relic.

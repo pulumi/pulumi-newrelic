@@ -7,25 +7,27 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+ *
  * Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.StepMonitor("foo", {
+ *     name: "Sample Step Monitor",
  *     enableScreenshotOnFailureAndScript: true,
  *     locationsPublics: [
  *         "US_EAST_1",
  *         "US_EAST_2",
  *     ],
  *     period: "EVERY_6_HOURS",
+ *     status: "ENABLED",
  *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
- *     status: "ENABLED",
  *     steps: [{
  *         ordinal: 0,
  *         type: "NAVIGATE",
@@ -37,7 +39,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * See additional examples.
  *
  * ## Additional Examples
@@ -48,20 +49,21 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** It can take up to 10 minutes for a private location to become available.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooPrivateLocation = new newrelic.synthetics.PrivateLocation("fooPrivateLocation", {
+ * const foo = new newrelic.synthetics.PrivateLocation("foo", {
+ *     name: "Sample Private Location",
  *     description: "Sample Private Location Description",
  *     verifiedScriptExecution: true,
  * });
- * const fooStepMonitor = new newrelic.synthetics.StepMonitor("fooStepMonitor", {
+ * const fooStepMonitor = new newrelic.synthetics.StepMonitor("foo", {
+ *     name: "Sample Step Monitor",
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
  *     locationPrivates: [{
- *         guid: fooPrivateLocation.id,
+ *         guid: foo.id,
  *         vsePassword: "secret",
  *     }],
  *     steps: [{
@@ -75,7 +77,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -118,13 +119,13 @@ export class StepMonitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Capture a screenshot during job execution.
      */
     public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
     /**
-     * The unique identifier for the Synthetics private location in New Relic.
+     * The unique entity identifier of the monitor in New Relic.
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
@@ -155,6 +156,8 @@ export class StepMonitor extends pulumi.CustomResource {
      * The specific version of the runtime type selected.
      *
      * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     *
+     * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -233,13 +236,13 @@ export interface StepMonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution.
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
-     * The unique identifier for the Synthetics private location in New Relic.
+     * The unique entity identifier of the monitor in New Relic.
      */
     guid?: pulumi.Input<string>;
     /**
@@ -270,6 +273,8 @@ export interface StepMonitorState {
      * The specific version of the runtime type selected.
      *
      * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     *
+     * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -293,7 +298,7 @@ export interface StepMonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -322,6 +327,8 @@ export interface StepMonitorArgs {
      * The specific version of the runtime type selected.
      *
      * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+     *
+     * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**

@@ -24,7 +24,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// You can also use the full example, including the Azure set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +39,11 @@ namespace Pulumi.NewRelic.Cloud
     ///         ClientSecret = "Secret value of client's Azure account",
     ///         SubscriptionId = "Subscription ID of Azure",
     ///         TenantId = "Tenant ID of the Azure",
+    ///         Name = "Name of the linked account",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -63,7 +62,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Application ID of the App.
@@ -149,7 +148,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Application ID of the App.
@@ -203,7 +202,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Application ID of the App.

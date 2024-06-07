@@ -11,12 +11,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.insights.Event("foo", {events: [{
+ *     type: "MyEvent",
+ *     timestamp: 1232471100,
  *     attributes: [
  *         {
  *             key: "a_string_attribute",
@@ -24,20 +25,17 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             key: "an_integer_attribute",
- *             type: "int",
  *             value: "42",
+ *             type: "int",
  *         },
  *         {
  *             key: "a_float_attribute",
- *             type: "float",
  *             value: "101.1",
+ *             type: "float",
  *         },
  *     ],
- *     timestamp: 1232471100,
- *     type: "MyEvent",
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Events
  *

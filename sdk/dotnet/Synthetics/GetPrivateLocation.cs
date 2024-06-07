@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,7 +26,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "My private location",
         ///     });
         /// 
@@ -41,9 +40,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +51,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "My private location",
         ///     });
         /// 
@@ -71,7 +68,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivateLocationResult> InvokeAsync(GetPrivateLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationArgs(), options.WithDefaults());
@@ -81,7 +77,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,7 +87,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "My private location",
         ///     });
         /// 
@@ -106,9 +101,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -119,7 +112,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {
         ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "My private location",
         ///     });
         /// 
@@ -136,7 +129,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivateLocationResult> Invoke(GetPrivateLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationInvokeArgs(), options.WithDefaults());
@@ -149,7 +141,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         [Input("keys")]
         private List<string>? _keys;
@@ -181,7 +173,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("keys")]
         private InputList<string>? _keys;
@@ -211,7 +203,7 @@ namespace Pulumi.NewRelic.Synthetics
     [OutputType]
     public sealed class GetPrivateLocationResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -224,7 +216,7 @@ namespace Pulumi.NewRelic.Synthetics
 
         [OutputConstructor]
         private GetPrivateLocationResult(
-            int? accountId,
+            string? accountId,
 
             string id,
 

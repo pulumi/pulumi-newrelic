@@ -19,14 +19,14 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
     public static final AwsGovcloudIntegrationsElasticSearchArgs Empty = new AwsGovcloudIntegrationsElasticSearchArgs();
 
     /**
-     * Specify each AWS region that includes the resources that you want to monitor.
+     * Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     @Import(name="awsRegions")
     private @Nullable Output<List<String>> awsRegions;
 
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -34,14 +34,14 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
     }
 
     /**
-     * Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+     * Specify if IP addresses of ec2 instance should be collected
      * 
      */
     @Import(name="fetchNodes")
     private @Nullable Output<Boolean> fetchNodes;
 
     /**
-     * @return Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+     * @return Specify if IP addresses of ec2 instance should be collected
      * 
      */
     public Optional<Output<Boolean>> fetchNodes() {
@@ -49,18 +49,14 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
     }
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * The data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -126,7 +122,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -137,7 +133,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -147,7 +143,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
+         * @param awsRegions Specify each AWS region that includes the resources that you want to monitor
          * 
          * @return builder
          * 
@@ -157,7 +153,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param fetchNodes Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+         * @param fetchNodes Specify if IP addresses of ec2 instance should be collected
          * 
          * @return builder
          * 
@@ -168,7 +164,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param fetchNodes Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+         * @param fetchNodes Specify if IP addresses of ec2 instance should be collected
          * 
          * @return builder
          * 
@@ -178,9 +174,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 
@@ -191,9 +185,7 @@ public final class AwsGovcloudIntegrationsElasticSearchArgs extends com.pulumi.r
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Some integration types support an additional set of arguments:
+         * @param metricsPollingInterval The data polling interval in seconds
          * 
          * @return builder
          * 

@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ### Type: `static` (default)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,13 +24,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
-    ///         AccountId = 12345678,
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo",
+    ///     });
+    /// 
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         PolicyId = foo.Id,
     ///         Type = "static",
+    ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
@@ -67,7 +70,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## NRQL
     /// 
@@ -107,7 +109,6 @@ namespace Pulumi.NewRelic
     /// 
     /// [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,13 +117,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
     /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
     ///     {
     ///         AccountId = "your_account_id",
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
     ///         Type = "static",
+    ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
@@ -158,13 +163,11 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Tags
     /// 
     /// Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -173,13 +176,17 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
-    ///         AccountId = 12345678,
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo",
+    ///     });
+    /// 
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         PolicyId = foo.Id,
     ///         Type = "static",
+    ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
@@ -213,7 +220,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooNrqlAlertCondition.EntityGuid,
     ///         Tags = new[]
@@ -240,7 +247,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
     /// 
@@ -252,7 +258,6 @@ namespace Pulumi.NewRelic
     /// 
     /// An example resource from 1.x might look like the following.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -261,9 +266,10 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
+    ///     var z = new NewRelic.NrqlAlertCondition("z", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Z.Id,
+    ///         PolicyId = zNewrelicAlertPolicy.Id,
+    ///         Name = "zleslie-test",
     ///         Type = "static",
     ///         RunbookUrl = "https://localhost",
     ///         Enabled = true,
@@ -283,12 +289,10 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// After making the appropriate adjustments mentioned in the deprecation warnings,
     /// the resource now looks like the following.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -297,9 +301,10 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
+    ///     var z = new NewRelic.NrqlAlertCondition("z", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Z.Id,
+    ///         PolicyId = zNewrelicAlertPolicy.Id,
+    ///         Name = "zleslie-test",
     ///         Type = "static",
     ///         RunbookUrl = "https://localhost",
     ///         Enabled = true,
@@ -323,7 +328,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -348,7 +352,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
@@ -456,7 +460,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -552,7 +556,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
@@ -654,7 +658,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -719,7 +723,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
@@ -827,7 +831,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Runbook URL to display in notifications.

@@ -20,6 +20,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+ * 
  * Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
  * 
  * ## Example Usage
@@ -27,7 +29,8 @@ import javax.annotation.Nullable;
  * ##### Type: `SCRIPT_API`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,31 +52,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
+ *             .status("ENABLED")
+ *             .name("script_monitor")
+ *             .type("SCRIPT_API")
  *             .locationsPublics(            
- *                 &#34;AP_SOUTH_1&#34;,
- *                 &#34;AP_EAST_1&#34;)
- *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .runtimeType(&#34;NODE_API&#34;)
- *             .runtimeTypeVersion(&#34;16.10&#34;)
- *             .script(&#34;console.log(&#39;it works!&#39;)&#34;)
- *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *                 "AP_SOUTH_1",
+ *                 "AP_EAST_1")
+ *             .period("EVERY_6_HOURS")
+ *             .script("console.log('it works!')")
+ *             .scriptLanguage("JAVASCRIPT")
+ *             .runtimeType("NODE_API")
+ *             .runtimeTypeVersion("16.10")
  *             .tags(ScriptMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
- *             .type(&#34;SCRIPT_API&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `SCRIPT_BROWSER`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,27 +101,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
- *             .enableScreenshotOnFailureAndScript(false)
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
+ *             .status("ENABLED")
+ *             .name("script_monitor")
+ *             .type("SCRIPT_BROWSER")
  *             .locationsPublics(            
- *                 &#34;AP_SOUTH_1&#34;,
- *                 &#34;AP_EAST_1&#34;)
- *             .period(&#34;EVERY_HOUR&#34;)
- *             .runtimeType(&#34;CHROME_BROWSER&#34;)
- *             .runtimeTypeVersion(&#34;100&#34;)
- *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)
- *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *                 "AP_SOUTH_1",
+ *                 "AP_EAST_1")
+ *             .period("EVERY_HOUR")
+ *             .enableScreenshotOnFailureAndScript(false)
+ *             .script("$browser.get('https://one.newrelic.com')")
+ *             .runtimeTypeVersion("100")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .scriptLanguage("JAVASCRIPT")
  *             .tags(ScriptMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
- *             .type(&#34;SCRIPT_BROWSER&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * See additional examples.
  * 
@@ -130,7 +138,8 @@ import javax.annotation.Nullable;
  * ##### Type: `SCRIPT_API`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -155,37 +164,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Example private location&#34;)
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
+ *             .description("Example private location")
+ *             .name("private_location")
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
- *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .type(&#34;SCRIPT_API&#34;)
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
+ *             .status("ENABLED")
+ *             .name("script_monitor")
+ *             .type("SCRIPT_API")
  *             .locationPrivates(ScriptMonitorLocationPrivateArgs.builder()
  *                 .guid(location.id())
- *                 .vsePassword(&#34;secret&#34;)
+ *                 .vsePassword("secret")
  *                 .build())
- *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .script(&#34;console.log(&#39;terraform integration test updated&#39;)&#34;)
- *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .runtimeType(&#34;NODE_API&#34;)
- *             .runtimeTypeVersion(&#34;16.10&#34;)
+ *             .period("EVERY_6_HOURS")
+ *             .script("console.log('terraform integration test updated')")
+ *             .scriptLanguage("JAVASCRIPT")
+ *             .runtimeType("NODE_API")
+ *             .runtimeTypeVersion("16.10")
  *             .tags(ScriptMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ##### Type: `SCRIPT_BROWSER`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -210,33 +223,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Test Description&#34;)
+ *         var location = new PrivateLocation("location", PrivateLocationArgs.builder()
+ *             .description("Test Description")
+ *             .name("private_location")
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
- *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .type(&#34;SCRIPT_BROWSER&#34;)
- *             .period(&#34;EVERY_HOUR&#34;)
- *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)
+ *         var monitor = new ScriptMonitor("monitor", ScriptMonitorArgs.builder()
+ *             .status("ENABLED")
+ *             .name("script_monitor")
+ *             .type("SCRIPT_BROWSER")
+ *             .period("EVERY_HOUR")
+ *             .script("$browser.get('https://one.newrelic.com')")
  *             .enableScreenshotOnFailureAndScript(false)
  *             .locationPrivates(ScriptMonitorLocationPrivateArgs.builder()
  *                 .guid(location.id())
- *                 .vsePassword(&#34;secret&#34;)
+ *                 .vsePassword("secret")
  *                 .build())
- *             .runtimeTypeVersion(&#34;100&#34;)
- *             .runtimeType(&#34;CHROME_BROWSER&#34;)
- *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
+ *             .runtimeTypeVersion("100")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .scriptLanguage("JAVASCRIPT")
  *             .tags(ScriptMonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -256,14 +272,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * The account in which the Synthetics monitor will be created.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account in which the Synthetics monitor will be created.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -309,14 +325,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableScreenshotOnFailureAndScript);
     }
     /**
-     * The unique identifier for the Synthetics private location in New Relic.
+     * The unique entity identifier of the monitor in New Relic.
      * 
      */
     @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
-     * @return The unique identifier for the Synthetics private location in New Relic.
+     * @return The unique entity identifier of the monitor in New Relic.
      * 
      */
     public Output<String> guid() {

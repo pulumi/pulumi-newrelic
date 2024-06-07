@@ -6,7 +6,7 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,13 +22,13 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
@@ -37,13 +37,13 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="channelIds", required=true)
-    private Output<List<Integer>> channelIds;
+    private Output<List<String>> channelIds;
 
     /**
      * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      * 
      */
-    public Output<List<Integer>> channelIds() {
+    public Output<List<String>> channelIds() {
         return this.channelIds;
     }
 
@@ -52,13 +52,13 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="policyId", required=true)
-    private Output<Integer> policyId;
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
 
@@ -94,7 +94,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
@@ -105,7 +105,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
@@ -115,7 +115,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder channelIds(Output<List<Integer>> channelIds) {
+        public Builder channelIds(Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
         }
@@ -126,7 +126,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder channelIds(List<Integer> channelIds) {
+        public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
 
@@ -136,7 +136,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder channelIds(Integer... channelIds) {
+        public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }
 
@@ -146,7 +146,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder policyId(Output<Integer> policyId) {
+        public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
@@ -157,7 +157,7 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder policyId(Integer policyId) {
+        public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 

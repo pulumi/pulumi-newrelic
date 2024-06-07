@@ -14,97 +14,92 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Email
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         includeJsonAttachment: "true",
- *         recipients: "foo@example.com",
- *     },
+ *     name: "foo",
  *     type: "email",
+ *     config: {
+ *         recipients: "foo@example.com",
+ *         includeJsonAttachment: "true",
+ *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Examples
  *
  * ##### Slack
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         channel: "example-alerts-channel",
- *         url: "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
- *     },
+ *     name: "slack-example",
  *     type: "slack",
+ *     config: {
+ *         url: "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+ *         channel: "example-alerts-channel",
+ *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
  *
  * ### OpsGenie
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "opsgenie-example",
+ *     type: "opsgenie",
  *     config: {
  *         apiKey: "abc123",
- *         recipients: "user1@domain.com, user2@domain.com",
- *         tags: "tag1, tag2",
  *         teams: "team1, team2",
+ *         tags: "tag1, tag2",
+ *         recipients: "user1@domain.com, user2@domain.com",
  *     },
- *     type: "opsgenie",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### PagerDuty
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "pagerduty-example",
+ *     type: "pagerduty",
  *     config: {
  *         serviceKey: "abc123",
  *     },
- *     type: "pagerduty",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### VictorOps
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "victorops-example",
+ *     type: "victorops",
  *     config: {
  *         key: "abc123",
  *         routeKey: "/example",
  *     },
- *     type: "victorops",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Webhook
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "webhook-example",
  *     type: "webhook",
  *     config: {
  *         baseUrl: "http://www.test.com",
@@ -120,31 +115,28 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Webhook with complex payload
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
+ *     name: "webhook-example",
+ *     type: "webhook",
  *     config: {
  *         baseUrl: "http://www.test.com",
+ *         payloadType: "application/json",
  *         payloadString: `{
  *   "my_custom_values": {
- *     "condition_name": "$CONDITION_NAME",
- *     "policy_name": "$POLICY_NAME"
+ *     "condition_name": "CONDITION_NAME",
+ *     "policy_name": "POLICY_NAME"
  *   }
  * }
- *
  * `,
- *         payloadType: "application/json",
  *     },
- *     type: "webhook",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -187,7 +179,7 @@ export class AlertChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
@@ -240,7 +232,7 @@ export interface AlertChannelState {
     /**
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
@@ -262,7 +254,7 @@ export interface AlertChannelArgs {
     /**
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */

@@ -19,7 +19,7 @@ class StepMonitorArgs:
                  period: pulumi.Input[str],
                  status: pulumi.Input[str],
                  steps: pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,7 +32,7 @@ class StepMonitorArgs:
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -41,6 +41,8 @@ class StepMonitorArgs:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
         pulumi.set(__self__, "period", period)
@@ -101,14 +103,14 @@ class StepMonitorArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -178,6 +180,8 @@ class StepMonitorArgs:
         The specific version of the runtime type selected.
 
         > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -201,7 +205,7 @@ class StepMonitorArgs:
 @pulumi.input_type
 class _StepMonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]]] = None,
@@ -216,9 +220,9 @@ class _StepMonitorState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering StepMonitor resources.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -228,6 +232,8 @@ class _StepMonitorState:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -261,14 +267,14 @@ class _StepMonitorState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -287,7 +293,7 @@ class _StepMonitorState:
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the Synthetics private location in New Relic.
+        The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 
@@ -374,6 +380,8 @@ class _StepMonitorState:
         The specific version of the runtime type selected.
 
         > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -423,7 +431,7 @@ class StepMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -436,25 +444,27 @@ class StepMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]]] = None,
                  __props__=None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             enable_screenshot_on_failure_and_script=True,
             locations_publics=[
                 "US_EAST_1",
                 "US_EAST_2",
             ],
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            status="ENABLED",
             steps=[newrelic.synthetics.StepMonitorStepArgs(
                 ordinal=0,
                 type="NAVIGATE",
@@ -465,7 +475,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -476,19 +485,20 @@ class StepMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=True)
-        foo_step_monitor = newrelic.synthetics.StepMonitor("fooStepMonitor",
+        foo_step_monitor = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             period="EVERY_6_HOURS",
             status="ENABLED",
             location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-                guid=foo_private_location.id,
+                guid=foo.id,
                 vse_password="secret",
             )],
             steps=[newrelic.synthetics.StepMonitorStepArgs(
@@ -501,7 +511,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -515,7 +524,7 @@ class StepMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -525,6 +534,8 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -536,25 +547,27 @@ class StepMonitor(pulumi.CustomResource):
                  args: StepMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             enable_screenshot_on_failure_and_script=True,
             locations_publics=[
                 "US_EAST_1",
                 "US_EAST_2",
             ],
             period="EVERY_6_HOURS",
+            status="ENABLED",
             runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            status="ENABLED",
             steps=[newrelic.synthetics.StepMonitorStepArgs(
                 ordinal=0,
                 type="NAVIGATE",
@@ -565,7 +578,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -576,19 +588,20 @@ class StepMonitor(pulumi.CustomResource):
 
         > **NOTE:** It can take up to 10 minutes for a private location to become available.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_private_location = newrelic.synthetics.PrivateLocation("fooPrivateLocation",
+        foo = newrelic.synthetics.PrivateLocation("foo",
+            name="Sample Private Location",
             description="Sample Private Location Description",
             verified_script_execution=True)
-        foo_step_monitor = newrelic.synthetics.StepMonitor("fooStepMonitor",
+        foo_step_monitor = newrelic.synthetics.StepMonitor("foo",
+            name="Sample Step Monitor",
             period="EVERY_6_HOURS",
             status="ENABLED",
             location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-                guid=foo_private_location.id,
+                guid=foo.id,
                 vse_password="secret",
             )],
             steps=[newrelic.synthetics.StepMonitorStepArgs(
@@ -601,7 +614,6 @@ class StepMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -628,7 +640,7 @@ class StepMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
                  location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -677,7 +689,7 @@ class StepMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]]] = None,
@@ -697,9 +709,9 @@ class StepMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -709,6 +721,8 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
                > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+               
+               > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -734,7 +748,7 @@ class StepMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the Synthetics monitor will be created.
         """
@@ -752,7 +766,7 @@ class StepMonitor(pulumi.CustomResource):
     @pulumi.getter
     def guid(self) -> pulumi.Output[str]:
         """
-        The unique identifier for the Synthetics private location in New Relic.
+        The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 
@@ -811,6 +825,8 @@ class StepMonitor(pulumi.CustomResource):
         The specific version of the runtime type selected.
 
         > **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         """
         return pulumi.get(self, "runtime_type_version")
 

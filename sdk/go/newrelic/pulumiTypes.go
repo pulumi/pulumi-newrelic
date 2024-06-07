@@ -16,11 +16,11 @@ var _ = internal.GetEnvOrDefault
 type AlertChannelConfig struct {
 	// The API key for integrating with OpsGenie.
 	ApiKey *string `pulumi:"apiKey"`
-	// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+	// Specifies an authentication password for use with a channel. Supported by the webhook channel type.
 	AuthPassword *string `pulumi:"authPassword"`
-	// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+	// Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
 	AuthType *string `pulumi:"authType"`
-	// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+	// Specifies an authentication username for use with a channel. Supported by the webhook channel type.
 	AuthUsername *string `pulumi:"authUsername"`
 	// The base URL of the webhook destination.
 	BaseUrl *string `pulumi:"baseUrl"`
@@ -28,21 +28,21 @@ type AlertChannelConfig struct {
 	Channel *string `pulumi:"channel"`
 	// A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 	Headers map[string]string `pulumi:"headers"`
-	// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+	// Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
 	HeadersString *string `pulumi:"headersString"`
-	// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+	// true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 	IncludeJsonAttachment *string `pulumi:"includeJsonAttachment"`
 	// The key for integrating with VictorOps.
 	Key *string `pulumi:"key"`
-	// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
+	// A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
 	Payload map[string]string `pulumi:"payload"`
-	// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+	// Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
 	PayloadString *string `pulumi:"payloadString"`
-	// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+	// Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
 	PayloadType *string `pulumi:"payloadType"`
-	// A set of recipients for targeting notifications.  Multiple values are comma separated.
+	// A set of recipients for targeting notifications. Multiple values are comma separated.
 	Recipients *string `pulumi:"recipients"`
-	// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+	// The data center region to store your data. Valid values are US and EU. Default is US.
 	Region *string `pulumi:"region"`
 	// The route key for integrating with VictorOps.
 	RouteKey *string `pulumi:"routeKey"`
@@ -52,7 +52,7 @@ type AlertChannelConfig struct {
 	Tags *string `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams *string `pulumi:"teams"`
-	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+	// Your organization's Slack URL.
 	Url *string `pulumi:"url"`
 	// The user ID for use with the user channel type.
 	UserId *string `pulumi:"userId"`
@@ -72,11 +72,11 @@ type AlertChannelConfigInput interface {
 type AlertChannelConfigArgs struct {
 	// The API key for integrating with OpsGenie.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
-	// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+	// Specifies an authentication password for use with a channel. Supported by the webhook channel type.
 	AuthPassword pulumi.StringPtrInput `pulumi:"authPassword"`
-	// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+	// Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
-	// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+	// Specifies an authentication username for use with a channel. Supported by the webhook channel type.
 	AuthUsername pulumi.StringPtrInput `pulumi:"authUsername"`
 	// The base URL of the webhook destination.
 	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
@@ -84,21 +84,21 @@ type AlertChannelConfigArgs struct {
 	Channel pulumi.StringPtrInput `pulumi:"channel"`
 	// A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 	Headers pulumi.StringMapInput `pulumi:"headers"`
-	// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+	// Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
 	HeadersString pulumi.StringPtrInput `pulumi:"headersString"`
-	// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+	// true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 	IncludeJsonAttachment pulumi.StringPtrInput `pulumi:"includeJsonAttachment"`
 	// The key for integrating with VictorOps.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
+	// A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
 	Payload pulumi.StringMapInput `pulumi:"payload"`
-	// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+	// Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
 	PayloadString pulumi.StringPtrInput `pulumi:"payloadString"`
-	// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+	// Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
 	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
-	// A set of recipients for targeting notifications.  Multiple values are comma separated.
+	// A set of recipients for targeting notifications. Multiple values are comma separated.
 	Recipients pulumi.StringPtrInput `pulumi:"recipients"`
-	// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+	// The data center region to store your data. Valid values are US and EU. Default is US.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The route key for integrating with VictorOps.
 	RouteKey pulumi.StringPtrInput `pulumi:"routeKey"`
@@ -108,7 +108,7 @@ type AlertChannelConfigArgs struct {
 	Tags pulumi.StringPtrInput `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams pulumi.StringPtrInput `pulumi:"teams"`
-	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+	// Your organization's Slack URL.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 	// The user ID for use with the user channel type.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
@@ -196,17 +196,17 @@ func (o AlertChannelConfigOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+// Specifies an authentication password for use with a channel. Supported by the webhook channel type.
 func (o AlertChannelConfigOutput) AuthPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+// Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
 func (o AlertChannelConfigOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+// Specifies an authentication username for use with a channel. Supported by the webhook channel type.
 func (o AlertChannelConfigOutput) AuthUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
 }
@@ -226,12 +226,12 @@ func (o AlertChannelConfigOutput) Headers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
-// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+// Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
 func (o AlertChannelConfigOutput) HeadersString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
 }
 
-// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+// true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 func (o AlertChannelConfigOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
 }
@@ -241,27 +241,27 @@ func (o AlertChannelConfigOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
+// A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
 func (o AlertChannelConfigOutput) Payload() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
 }
 
-// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+// Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
 func (o AlertChannelConfigOutput) PayloadString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
 }
 
-// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+// Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
 func (o AlertChannelConfigOutput) PayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
 }
 
-// A set of recipients for targeting notifications.  Multiple values are comma separated.
+// A set of recipients for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigOutput) Recipients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
 }
 
-// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+// The data center region to store your data. Valid values are US and EU. Default is US.
 func (o AlertChannelConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -286,7 +286,7 @@ func (o AlertChannelConfigOutput) Teams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
-// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+// Your organization's Slack URL.
 func (o AlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -330,7 +330,7 @@ func (o AlertChannelConfigPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+// Specifies an authentication password for use with a channel. Supported by the webhook channel type.
 func (o AlertChannelConfigPtrOutput) AuthPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -340,7 +340,7 @@ func (o AlertChannelConfigPtrOutput) AuthPassword() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+// Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
 func (o AlertChannelConfigPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -350,7 +350,7 @@ func (o AlertChannelConfigPtrOutput) AuthType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+// Specifies an authentication username for use with a channel. Supported by the webhook channel type.
 func (o AlertChannelConfigPtrOutput) AuthUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -390,7 +390,7 @@ func (o AlertChannelConfigPtrOutput) Headers() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+// Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
 func (o AlertChannelConfigPtrOutput) HeadersString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -400,7 +400,7 @@ func (o AlertChannelConfigPtrOutput) HeadersString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+// true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 func (o AlertChannelConfigPtrOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -420,7 +420,7 @@ func (o AlertChannelConfigPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
+// A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
 func (o AlertChannelConfigPtrOutput) Payload() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) map[string]string {
 		if v == nil {
@@ -430,7 +430,7 @@ func (o AlertChannelConfigPtrOutput) Payload() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+// Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
 func (o AlertChannelConfigPtrOutput) PayloadString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -440,7 +440,7 @@ func (o AlertChannelConfigPtrOutput) PayloadString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+// Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
 func (o AlertChannelConfigPtrOutput) PayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -450,7 +450,7 @@ func (o AlertChannelConfigPtrOutput) PayloadType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of recipients for targeting notifications.  Multiple values are comma separated.
+// A set of recipients for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Recipients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -460,7 +460,7 @@ func (o AlertChannelConfigPtrOutput) Recipients() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+// The data center region to store your data. Valid values are US and EU. Default is US.
 func (o AlertChannelConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -510,7 +510,7 @@ func (o AlertChannelConfigPtrOutput) Teams() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+// Your organization's Slack URL.
 func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {
@@ -820,9 +820,9 @@ func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 }
 
 type AlertMutingRuleConditionCondition struct {
-	// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+	// The attribute on an incident.
 	Attribute string `pulumi:"attribute"`
-	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+	// The operator used to compare the attribute's value with the supplied value(s).
 	Operator string `pulumi:"operator"`
 	// The value(s) to compare against the attribute's value.
 	Values []string `pulumi:"values"`
@@ -840,9 +840,9 @@ type AlertMutingRuleConditionConditionInput interface {
 }
 
 type AlertMutingRuleConditionConditionArgs struct {
-	// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+	// The attribute on an incident.
 	Attribute pulumi.StringInput `pulumi:"attribute"`
-	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+	// The operator used to compare the attribute's value with the supplied value(s).
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The value(s) to compare against the attribute's value.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -899,12 +899,12 @@ func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionCondi
 	return o
 }
 
-// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+// The attribute on an incident.
 func (o AlertMutingRuleConditionConditionOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+// The operator used to compare the attribute's value with the supplied value(s).
 func (o AlertMutingRuleConditionConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -938,6 +938,7 @@ type AlertMutingRuleSchedule struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat *string `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	EndTime *string `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat *string `pulumi:"repeat"`
@@ -966,6 +967,7 @@ type AlertMutingRuleScheduleArgs struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat pulumi.StringPtrInput `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat pulumi.StringPtrInput `pulumi:"repeat"`
@@ -1062,6 +1064,7 @@ func (o AlertMutingRuleScheduleOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 func (o AlertMutingRuleScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
@@ -1126,6 +1129,7 @@ func (o AlertMutingRuleSchedulePtrOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 func (o AlertMutingRuleSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
 		if v == nil {
@@ -1618,11 +1622,9 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type MonitorDowntimeEndRepeat struct {
-	// The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+	// A date, on which the Monitor Downtime's repeat cycle is expected to end.
 	OnDate *string `pulumi:"onDate"`
-	// An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-	//
-	// > **NOTE:** `endRepeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `onDate` or `onRepeat` **are required to be specified with** `endRepeat`, but not both, as `onDate` and `onRepeat` are mutually exclusive.
+	// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
 	OnRepeat *int `pulumi:"onRepeat"`
 }
 
@@ -1638,11 +1640,9 @@ type MonitorDowntimeEndRepeatInput interface {
 }
 
 type MonitorDowntimeEndRepeatArgs struct {
-	// The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+	// A date, on which the Monitor Downtime's repeat cycle is expected to end.
 	OnDate pulumi.StringPtrInput `pulumi:"onDate"`
-	// An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-	//
-	// > **NOTE:** `endRepeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `onDate` or `onRepeat` **are required to be specified with** `endRepeat`, but not both, as `onDate` and `onRepeat` are mutually exclusive.
+	// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
 	OnRepeat pulumi.IntPtrInput `pulumi:"onRepeat"`
 }
 
@@ -1723,14 +1723,12 @@ func (o MonitorDowntimeEndRepeatOutput) ToMonitorDowntimeEndRepeatPtrOutputWithC
 	}).(MonitorDowntimeEndRepeatPtrOutput)
 }
 
-// The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+// A date, on which the Monitor Downtime's repeat cycle is expected to end.
 func (o MonitorDowntimeEndRepeatOutput) OnDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorDowntimeEndRepeat) *string { return v.OnDate }).(pulumi.StringPtrOutput)
 }
 
-// An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-//
-// > **NOTE:** `endRepeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `onDate` or `onRepeat` **are required to be specified with** `endRepeat`, but not both, as `onDate` and `onRepeat` are mutually exclusive.
+// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
 func (o MonitorDowntimeEndRepeatOutput) OnRepeat() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorDowntimeEndRepeat) *int { return v.OnRepeat }).(pulumi.IntPtrOutput)
 }
@@ -1759,7 +1757,7 @@ func (o MonitorDowntimeEndRepeatPtrOutput) Elem() MonitorDowntimeEndRepeatOutput
 	}).(MonitorDowntimeEndRepeatOutput)
 }
 
-// The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+// A date, on which the Monitor Downtime's repeat cycle is expected to end.
 func (o MonitorDowntimeEndRepeatPtrOutput) OnDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntimeEndRepeat) *string {
 		if v == nil {
@@ -1769,9 +1767,7 @@ func (o MonitorDowntimeEndRepeatPtrOutput) OnDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-//
-// > **NOTE:** `endRepeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `onDate` or `onRepeat` **are required to be specified with** `endRepeat`, but not both, as `onDate` and `onRepeat` are mutually exclusive.
+// Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
 func (o MonitorDowntimeEndRepeatPtrOutput) OnRepeat() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntimeEndRepeat) *int {
 		if v == nil {
@@ -1782,9 +1778,9 @@ func (o MonitorDowntimeEndRepeatPtrOutput) OnRepeat() pulumi.IntPtrOutput {
 }
 
 type MonitorDowntimeFrequency struct {
-	// A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+	// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
 	DaysOfMonths []int `pulumi:"daysOfMonths"`
-	// An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+	// A list of days of the week on which the Monitor Downtime is scheduled to run.
 	DaysOfWeek *MonitorDowntimeFrequencyDaysOfWeek `pulumi:"daysOfWeek"`
 }
 
@@ -1800,9 +1796,9 @@ type MonitorDowntimeFrequencyInput interface {
 }
 
 type MonitorDowntimeFrequencyArgs struct {
-	// A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+	// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
 	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
-	// An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+	// A list of days of the week on which the Monitor Downtime is scheduled to run.
 	DaysOfWeek MonitorDowntimeFrequencyDaysOfWeekPtrInput `pulumi:"daysOfWeek"`
 }
 
@@ -1883,12 +1879,12 @@ func (o MonitorDowntimeFrequencyOutput) ToMonitorDowntimeFrequencyPtrOutputWithC
 	}).(MonitorDowntimeFrequencyPtrOutput)
 }
 
-// A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
 func (o MonitorDowntimeFrequencyOutput) DaysOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v MonitorDowntimeFrequency) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
 }
 
-// An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+// A list of days of the week on which the Monitor Downtime is scheduled to run.
 func (o MonitorDowntimeFrequencyOutput) DaysOfWeek() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
 	return o.ApplyT(func(v MonitorDowntimeFrequency) *MonitorDowntimeFrequencyDaysOfWeek { return v.DaysOfWeek }).(MonitorDowntimeFrequencyDaysOfWeekPtrOutput)
 }
@@ -1917,7 +1913,7 @@ func (o MonitorDowntimeFrequencyPtrOutput) Elem() MonitorDowntimeFrequencyOutput
 	}).(MonitorDowntimeFrequencyOutput)
 }
 
-// A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+// A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
 func (o MonitorDowntimeFrequencyPtrOutput) DaysOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *MonitorDowntimeFrequency) []int {
 		if v == nil {
@@ -1927,7 +1923,7 @@ func (o MonitorDowntimeFrequencyPtrOutput) DaysOfMonths() pulumi.IntArrayOutput 
 	}).(pulumi.IntArrayOutput)
 }
 
-// An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+// A list of days of the week on which the Monitor Downtime is scheduled to run.
 func (o MonitorDowntimeFrequencyPtrOutput) DaysOfWeek() MonitorDowntimeFrequencyDaysOfWeekPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntimeFrequency) *MonitorDowntimeFrequencyDaysOfWeek {
 		if v == nil {
@@ -1938,11 +1934,9 @@ func (o MonitorDowntimeFrequencyPtrOutput) DaysOfWeek() MonitorDowntimeFrequency
 }
 
 type MonitorDowntimeFrequencyDaysOfWeek struct {
-	// The occurrence of `weekDay` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-	//
-	// > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `daysOfMonth` or `daysOfWeek` **are required to be specified with** `frequency`, but not both, as `daysOfMonth` and `daysOfWeek` are mutually exclusive. If `daysOfWeek` is specified, values of **both** of its nested arguments, `weekDay` and `ordinalDayOfMonth` **would need to be specified** too.
+	// An occurrence of the day selected within the month.
 	OrdinalDayOfMonth string `pulumi:"ordinalDayOfMonth"`
-	// A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+	// The day of the week on which the Monitor Downtime would run.
 	WeekDay string `pulumi:"weekDay"`
 }
 
@@ -1958,11 +1952,9 @@ type MonitorDowntimeFrequencyDaysOfWeekInput interface {
 }
 
 type MonitorDowntimeFrequencyDaysOfWeekArgs struct {
-	// The occurrence of `weekDay` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-	//
-	// > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `daysOfMonth` or `daysOfWeek` **are required to be specified with** `frequency`, but not both, as `daysOfMonth` and `daysOfWeek` are mutually exclusive. If `daysOfWeek` is specified, values of **both** of its nested arguments, `weekDay` and `ordinalDayOfMonth` **would need to be specified** too.
+	// An occurrence of the day selected within the month.
 	OrdinalDayOfMonth pulumi.StringInput `pulumi:"ordinalDayOfMonth"`
-	// A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+	// The day of the week on which the Monitor Downtime would run.
 	WeekDay pulumi.StringInput `pulumi:"weekDay"`
 }
 
@@ -2043,14 +2035,12 @@ func (o MonitorDowntimeFrequencyDaysOfWeekOutput) ToMonitorDowntimeFrequencyDays
 	}).(MonitorDowntimeFrequencyDaysOfWeekPtrOutput)
 }
 
-// The occurrence of `weekDay` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-//
-// > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `daysOfMonth` or `daysOfWeek` **are required to be specified with** `frequency`, but not both, as `daysOfMonth` and `daysOfWeek` are mutually exclusive. If `daysOfWeek` is specified, values of **both** of its nested arguments, `weekDay` and `ordinalDayOfMonth` **would need to be specified** too.
+// An occurrence of the day selected within the month.
 func (o MonitorDowntimeFrequencyDaysOfWeekOutput) OrdinalDayOfMonth() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorDowntimeFrequencyDaysOfWeek) string { return v.OrdinalDayOfMonth }).(pulumi.StringOutput)
 }
 
-// A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+// The day of the week on which the Monitor Downtime would run.
 func (o MonitorDowntimeFrequencyDaysOfWeekOutput) WeekDay() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorDowntimeFrequencyDaysOfWeek) string { return v.WeekDay }).(pulumi.StringOutput)
 }
@@ -2079,9 +2069,7 @@ func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) Elem() MonitorDowntimeFrequ
 	}).(MonitorDowntimeFrequencyDaysOfWeekOutput)
 }
 
-// The occurrence of `weekDay` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-//
-// > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `daysOfMonth` or `daysOfWeek` **are required to be specified with** `frequency`, but not both, as `daysOfMonth` and `daysOfWeek` are mutually exclusive. If `daysOfWeek` is specified, values of **both** of its nested arguments, `weekDay` and `ordinalDayOfMonth` **would need to be specified** too.
+// An occurrence of the day selected within the month.
 func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) OrdinalDayOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntimeFrequencyDaysOfWeek) *string {
 		if v == nil {
@@ -2091,7 +2079,7 @@ func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) OrdinalDayOfMonth() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+// The day of the week on which the Monitor Downtime would run.
 func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) WeekDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntimeFrequencyDaysOfWeek) *string {
 		if v == nil {
@@ -2102,15 +2090,13 @@ func (o MonitorDowntimeFrequencyDaysOfWeekPtrOutput) WeekDay() pulumi.StringPtrO
 }
 
 type NotificationChannelProperty struct {
-	// The notification property display value.
-	//
-	// Each notification channel type supports a specific set of arguments for the `property` block:
+	// Notification property display key.
 	DisplayValue *string `pulumi:"displayValue"`
-	// The notification property key.
+	// Notification property key.
 	Key string `pulumi:"key"`
-	// The notification property label.
+	// Notification property label.
 	Label *string `pulumi:"label"`
-	// The notification property value.
+	// Notification property value.
 	Value string `pulumi:"value"`
 }
 
@@ -2126,15 +2112,13 @@ type NotificationChannelPropertyInput interface {
 }
 
 type NotificationChannelPropertyArgs struct {
-	// The notification property display value.
-	//
-	// Each notification channel type supports a specific set of arguments for the `property` block:
+	// Notification property display key.
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
-	// The notification property key.
+	// Notification property key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The notification property label.
+	// Notification property label.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The notification property value.
+	// Notification property value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2189,24 +2173,22 @@ func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutputWi
 	return o
 }
 
-// The notification property display value.
-//
-// Each notification channel type supports a specific set of arguments for the `property` block:
+// Notification property display key.
 func (o NotificationChannelPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
 
-// The notification property key.
+// Notification property key.
 func (o NotificationChannelPropertyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The notification property label.
+// Notification property label.
 func (o NotificationChannelPropertyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The notification property value.
+// Notification property value.
 func (o NotificationChannelPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2232,10 +2214,8 @@ func (o NotificationChannelPropertyArrayOutput) Index(i pulumi.IntInput) Notific
 }
 
 type NotificationDestinationAuthBasic struct {
-	// Specifies an authentication password for use with a destination.
 	Password string `pulumi:"password"`
-	// The username of the basic auth.
-	User string `pulumi:"user"`
+	User     string `pulumi:"user"`
 }
 
 // NotificationDestinationAuthBasicInput is an input type that accepts NotificationDestinationAuthBasicArgs and NotificationDestinationAuthBasicOutput values.
@@ -2250,10 +2230,8 @@ type NotificationDestinationAuthBasicInput interface {
 }
 
 type NotificationDestinationAuthBasicArgs struct {
-	// Specifies an authentication password for use with a destination.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username of the basic auth.
-	User pulumi.StringInput `pulumi:"user"`
+	User     pulumi.StringInput `pulumi:"user"`
 }
 
 func (NotificationDestinationAuthBasicArgs) ElementType() reflect.Type {
@@ -2333,12 +2311,10 @@ func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBas
 	}).(NotificationDestinationAuthBasicPtrOutput)
 }
 
-// Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username of the basic auth.
 func (o NotificationDestinationAuthBasicOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.User }).(pulumi.StringOutput)
 }
@@ -2367,7 +2343,6 @@ func (o NotificationDestinationAuthBasicPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthBasicOutput)
 }
 
-// Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
 		if v == nil {
@@ -2377,7 +2352,6 @@ func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username of the basic auth.
 func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
 		if v == nil {
@@ -2387,8 +2361,107 @@ func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type NotificationDestinationAuthCustomHeader struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// NotificationDestinationAuthCustomHeaderInput is an input type that accepts NotificationDestinationAuthCustomHeaderArgs and NotificationDestinationAuthCustomHeaderOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthCustomHeaderInput` via:
+//
+//	NotificationDestinationAuthCustomHeaderArgs{...}
+type NotificationDestinationAuthCustomHeaderInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthCustomHeaderOutput() NotificationDestinationAuthCustomHeaderOutput
+	ToNotificationDestinationAuthCustomHeaderOutputWithContext(context.Context) NotificationDestinationAuthCustomHeaderOutput
+}
+
+type NotificationDestinationAuthCustomHeaderArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NotificationDestinationAuthCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (i NotificationDestinationAuthCustomHeaderArgs) ToNotificationDestinationAuthCustomHeaderOutput() NotificationDestinationAuthCustomHeaderOutput {
+	return i.ToNotificationDestinationAuthCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthCustomHeaderArgs) ToNotificationDestinationAuthCustomHeaderOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthCustomHeaderOutput)
+}
+
+// NotificationDestinationAuthCustomHeaderArrayInput is an input type that accepts NotificationDestinationAuthCustomHeaderArray and NotificationDestinationAuthCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthCustomHeaderArrayInput` via:
+//
+//	NotificationDestinationAuthCustomHeaderArray{ NotificationDestinationAuthCustomHeaderArgs{...} }
+type NotificationDestinationAuthCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthCustomHeaderArrayOutput() NotificationDestinationAuthCustomHeaderArrayOutput
+	ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(context.Context) NotificationDestinationAuthCustomHeaderArrayOutput
+}
+
+type NotificationDestinationAuthCustomHeaderArray []NotificationDestinationAuthCustomHeaderInput
+
+func (NotificationDestinationAuthCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (i NotificationDestinationAuthCustomHeaderArray) ToNotificationDestinationAuthCustomHeaderArrayOutput() NotificationDestinationAuthCustomHeaderArrayOutput {
+	return i.ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthCustomHeaderArray) ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthCustomHeaderArrayOutput)
+}
+
+type NotificationDestinationAuthCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthCustomHeaderOutput) ToNotificationDestinationAuthCustomHeaderOutput() NotificationDestinationAuthCustomHeaderOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderOutput) ToNotificationDestinationAuthCustomHeaderOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NotificationDestinationAuthCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationAuthCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationDestinationAuthCustomHeader)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthCustomHeaderArrayOutput) ToNotificationDestinationAuthCustomHeaderArrayOutput() NotificationDestinationAuthCustomHeaderArrayOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderArrayOutput) ToNotificationDestinationAuthCustomHeaderArrayOutputWithContext(ctx context.Context) NotificationDestinationAuthCustomHeaderArrayOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthCustomHeaderArrayOutput) Index(i pulumi.IntInput) NotificationDestinationAuthCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationDestinationAuthCustomHeader {
+		return vs[0].([]NotificationDestinationAuthCustomHeader)[vs[1].(int)]
+	}).(NotificationDestinationAuthCustomHeaderOutput)
+}
+
 type NotificationDestinationAuthToken struct {
-	// The prefix of the token auth.
 	Prefix *string `pulumi:"prefix"`
 	Token  string  `pulumi:"token"`
 }
@@ -2405,7 +2478,6 @@ type NotificationDestinationAuthTokenInput interface {
 }
 
 type NotificationDestinationAuthTokenArgs struct {
-	// The prefix of the token auth.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	Token  pulumi.StringInput    `pulumi:"token"`
 }
@@ -2487,7 +2559,6 @@ func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTok
 	}).(NotificationDestinationAuthTokenPtrOutput)
 }
 
-// The prefix of the token auth.
 func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2520,7 +2591,6 @@ func (o NotificationDestinationAuthTokenPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthTokenOutput)
 }
 
-// The prefix of the token auth.
 func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2540,15 +2610,13 @@ func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutpu
 }
 
 type NotificationDestinationProperty struct {
-	// The notification property display value.
-	//
-	// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+	// Notification property display key.
 	DisplayValue *string `pulumi:"displayValue"`
-	// The notification property key.
+	// Notification property key.
 	Key string `pulumi:"key"`
-	// The notification property label.
+	// Notification property label.
 	Label *string `pulumi:"label"`
-	// The notification property value.
+	// Notification property value.
 	Value string `pulumi:"value"`
 }
 
@@ -2564,15 +2632,13 @@ type NotificationDestinationPropertyInput interface {
 }
 
 type NotificationDestinationPropertyArgs struct {
-	// The notification property display value.
-	//
-	// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+	// Notification property display key.
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
-	// The notification property key.
+	// Notification property key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The notification property label.
+	// Notification property label.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The notification property value.
+	// Notification property value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2627,24 +2693,22 @@ func (o NotificationDestinationPropertyOutput) ToNotificationDestinationProperty
 	return o
 }
 
-// The notification property display value.
-//
-// Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+// Notification property display key.
 func (o NotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
 
-// The notification property key.
+// Notification property key.
 func (o NotificationDestinationPropertyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The notification property label.
+// Notification property label.
 func (o NotificationDestinationPropertyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The notification property value.
+// Notification property value.
 func (o NotificationDestinationPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2667,6 +2731,154 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationDestinationProperty {
 		return vs[0].([]NotificationDestinationProperty)[vs[1].(int)]
 	}).(NotificationDestinationPropertyOutput)
+}
+
+type NotificationDestinationSecureUrl struct {
+	Prefix       string `pulumi:"prefix"`
+	SecureSuffix string `pulumi:"secureSuffix"`
+}
+
+// NotificationDestinationSecureUrlInput is an input type that accepts NotificationDestinationSecureUrlArgs and NotificationDestinationSecureUrlOutput values.
+// You can construct a concrete instance of `NotificationDestinationSecureUrlInput` via:
+//
+//	NotificationDestinationSecureUrlArgs{...}
+type NotificationDestinationSecureUrlInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationSecureUrlOutput() NotificationDestinationSecureUrlOutput
+	ToNotificationDestinationSecureUrlOutputWithContext(context.Context) NotificationDestinationSecureUrlOutput
+}
+
+type NotificationDestinationSecureUrlArgs struct {
+	Prefix       pulumi.StringInput `pulumi:"prefix"`
+	SecureSuffix pulumi.StringInput `pulumi:"secureSuffix"`
+}
+
+func (NotificationDestinationSecureUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlOutput() NotificationDestinationSecureUrlOutput {
+	return i.ToNotificationDestinationSecureUrlOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationSecureUrlOutput)
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return i.ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationSecureUrlArgs) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationSecureUrlOutput).ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx)
+}
+
+// NotificationDestinationSecureUrlPtrInput is an input type that accepts NotificationDestinationSecureUrlArgs, NotificationDestinationSecureUrlPtr and NotificationDestinationSecureUrlPtrOutput values.
+// You can construct a concrete instance of `NotificationDestinationSecureUrlPtrInput` via:
+//
+//	        NotificationDestinationSecureUrlArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationDestinationSecureUrlPtrInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput
+	ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Context) NotificationDestinationSecureUrlPtrOutput
+}
+
+type notificationDestinationSecureUrlPtrType NotificationDestinationSecureUrlArgs
+
+func NotificationDestinationSecureUrlPtr(v *NotificationDestinationSecureUrlArgs) NotificationDestinationSecureUrlPtrInput {
+	return (*notificationDestinationSecureUrlPtrType)(v)
+}
+
+func (*notificationDestinationSecureUrlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i *notificationDestinationSecureUrlPtrType) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return i.ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationDestinationSecureUrlPtrType) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationSecureUrlPtrOutput)
+}
+
+type NotificationDestinationSecureUrlOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationSecureUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlOutput() NotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return o.ToNotificationDestinationSecureUrlPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationDestinationSecureUrl) *NotificationDestinationSecureUrl {
+		return &v
+	}).(NotificationDestinationSecureUrlPtrOutput)
+}
+
+func (o NotificationDestinationSecureUrlOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o NotificationDestinationSecureUrlOutput) SecureSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.SecureSuffix }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationSecureUrlPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationSecureUrlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) ToNotificationDestinationSecureUrlPtrOutput() NotificationDestinationSecureUrlPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) ToNotificationDestinationSecureUrlPtrOutputWithContext(ctx context.Context) NotificationDestinationSecureUrlPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) Elem() NotificationDestinationSecureUrlOutput {
+	return o.ApplyT(func(v *NotificationDestinationSecureUrl) NotificationDestinationSecureUrl {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationDestinationSecureUrl
+		return ret
+	}).(NotificationDestinationSecureUrlOutput)
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationDestinationSecureUrlPtrOutput) SecureSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecureSuffix
+	}).(pulumi.StringPtrOutput)
 }
 
 type NrqlAlertConditionCritical struct {
@@ -4307,7 +4519,7 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi
 
 type OneDashboardPageWidgetAreaNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -4325,7 +4537,7 @@ type OneDashboardPageWidgetAreaNrqlQueryInput interface {
 
 type OneDashboardPageWidgetAreaNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -4382,8 +4594,8 @@ func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaN
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetAreaNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -5293,7 +5505,7 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.
 
 type OneDashboardPageWidgetBarNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -5311,7 +5523,7 @@ type OneDashboardPageWidgetBarNrqlQueryInput interface {
 
 type OneDashboardPageWidgetBarNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -5368,8 +5580,8 @@ func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrq
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetBarNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -6283,7 +6495,7 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i p
 
 type OneDashboardPageWidgetBillboardNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -6301,7 +6513,7 @@ type OneDashboardPageWidgetBillboardNrqlQueryInput interface {
 
 type OneDashboardPageWidgetBillboardNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -6358,8 +6570,8 @@ func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidget
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -7260,7 +7472,7 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulu
 
 type OneDashboardPageWidgetBulletNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -7278,7 +7490,7 @@ type OneDashboardPageWidgetBulletNrqlQueryInput interface {
 
 type OneDashboardPageWidgetBulletNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -7335,8 +7547,8 @@ func (o OneDashboardPageWidgetBulletNrqlQueryOutput) ToOneDashboardPageWidgetBul
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetBulletNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBulletNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetBulletNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -8228,7 +8440,7 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulu
 
 type OneDashboardPageWidgetFunnelNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -8246,7 +8458,7 @@ type OneDashboardPageWidgetFunnelNrqlQueryInput interface {
 
 type OneDashboardPageWidgetFunnelNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -8303,8 +8515,8 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) ToOneDashboardPageWidgetFun
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetFunnelNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -9214,7 +9426,7 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pul
 
 type OneDashboardPageWidgetHeatmapNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -9232,7 +9444,7 @@ type OneDashboardPageWidgetHeatmapNrqlQueryInput interface {
 
 type OneDashboardPageWidgetHeatmapNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -9289,8 +9501,8 @@ func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) ToOneDashboardPageWidgetHe
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetHeatmapNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -10186,7 +10398,7 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i p
 
 type OneDashboardPageWidgetHistogramNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -10204,7 +10416,7 @@ type OneDashboardPageWidgetHistogramNrqlQueryInput interface {
 
 type OneDashboardPageWidgetHistogramNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -10261,8 +10473,8 @@ func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) ToOneDashboardPageWidget
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetHistogramNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -11154,7 +11366,7 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi
 
 type OneDashboardPageWidgetJsonNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -11172,7 +11384,7 @@ type OneDashboardPageWidgetJsonNrqlQueryInput interface {
 
 type OneDashboardPageWidgetJsonNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -11229,8 +11441,8 @@ func (o OneDashboardPageWidgetJsonNrqlQueryOutput) ToOneDashboardPageWidgetJsonN
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetJsonNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetJsonNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetJsonNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -11699,6 +11911,8 @@ type OneDashboardPageWidgetLine struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+	IsLabelVisible *bool `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -11707,6 +11921,8 @@ type OneDashboardPageWidgetLine struct {
 	NullValues []OneDashboardPageWidgetLineNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds []OneDashboardPageWidgetLineThreshold `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -11718,6 +11934,8 @@ type OneDashboardPageWidgetLine struct {
 	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
 	YAxisLeftZero *bool `pulumi:"yAxisLeftZero"`
+	// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+	YAxisRight *OneDashboardPageWidgetLineYAxisRight `pulumi:"yAxisRight"`
 }
 
 // OneDashboardPageWidgetLineInput is an input type that accepts OneDashboardPageWidgetLineArgs and OneDashboardPageWidgetLineOutput values.
@@ -11744,6 +11962,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+	IsLabelVisible pulumi.BoolPtrInput `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -11752,6 +11972,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	NullValues OneDashboardPageWidgetLineNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds OneDashboardPageWidgetLineThresholdArrayInput `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -11763,6 +11985,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
 	YAxisLeftZero pulumi.BoolPtrInput `pulumi:"yAxisLeftZero"`
+	// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+	YAxisRight OneDashboardPageWidgetLineYAxisRightPtrInput `pulumi:"yAxisRight"`
 }
 
 func (OneDashboardPageWidgetLineArgs) ElementType() reflect.Type {
@@ -11846,6 +12070,11 @@ func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+func (o OneDashboardPageWidgetLineOutput) IsLabelVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IsLabelVisible }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetLineOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -11864,6 +12093,11 @@ func (o OneDashboardPageWidgetLineOutput) NullValues() OneDashboardPageWidgetLin
 // (Required) Row position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetLineOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetLineOutput) Thresholds() OneDashboardPageWidgetLineThresholdArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineThreshold { return v.Thresholds }).(OneDashboardPageWidgetLineThresholdArrayOutput)
 }
 
 // (Optional) A human-friendly display string for this value.
@@ -11893,6 +12127,11 @@ func (o OneDashboardPageWidgetLineOutput) YAxisLeftMin() pulumi.Float64PtrOutput
 // (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
 func (o OneDashboardPageWidgetLineOutput) YAxisLeftZero() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.YAxisLeftZero }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+func (o OneDashboardPageWidgetLineOutput) YAxisRight() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *OneDashboardPageWidgetLineYAxisRight { return v.YAxisRight }).(OneDashboardPageWidgetLineYAxisRightPtrOutput)
 }
 
 type OneDashboardPageWidgetLineArrayOutput struct{ *pulumi.OutputState }
@@ -12131,7 +12370,7 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi
 
 type OneDashboardPageWidgetLineNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -12149,7 +12388,7 @@ type OneDashboardPageWidgetLineNrqlQueryInput interface {
 
 type OneDashboardPageWidgetLineNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -12206,8 +12445,8 @@ func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineN
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetLineNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -12449,6 +12688,130 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pu
 	}).(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput)
 }
 
+type OneDashboardPageWidgetLineThreshold struct {
+	// The value 'from' which the threshold would need to be applied.
+	From *int `pulumi:"from"`
+	// The title of the dashboard.
+	Name *string `pulumi:"name"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity *string `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To *int `pulumi:"to"`
+}
+
+// OneDashboardPageWidgetLineThresholdInput is an input type that accepts OneDashboardPageWidgetLineThresholdArgs and OneDashboardPageWidgetLineThresholdOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineThresholdInput` via:
+//
+//	OneDashboardPageWidgetLineThresholdArgs{...}
+type OneDashboardPageWidgetLineThresholdInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineThresholdOutput() OneDashboardPageWidgetLineThresholdOutput
+	ToOneDashboardPageWidgetLineThresholdOutputWithContext(context.Context) OneDashboardPageWidgetLineThresholdOutput
+}
+
+type OneDashboardPageWidgetLineThresholdArgs struct {
+	// The value 'from' which the threshold would need to be applied.
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// The title of the dashboard.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (OneDashboardPageWidgetLineThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineThresholdArgs) ToOneDashboardPageWidgetLineThresholdOutput() OneDashboardPageWidgetLineThresholdOutput {
+	return i.ToOneDashboardPageWidgetLineThresholdOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineThresholdArgs) ToOneDashboardPageWidgetLineThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineThresholdOutput)
+}
+
+// OneDashboardPageWidgetLineThresholdArrayInput is an input type that accepts OneDashboardPageWidgetLineThresholdArray and OneDashboardPageWidgetLineThresholdArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineThresholdArrayInput` via:
+//
+//	OneDashboardPageWidgetLineThresholdArray{ OneDashboardPageWidgetLineThresholdArgs{...} }
+type OneDashboardPageWidgetLineThresholdArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineThresholdArrayOutput() OneDashboardPageWidgetLineThresholdArrayOutput
+	ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineThresholdArrayOutput
+}
+
+type OneDashboardPageWidgetLineThresholdArray []OneDashboardPageWidgetLineThresholdInput
+
+func (OneDashboardPageWidgetLineThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineThresholdArray) ToOneDashboardPageWidgetLineThresholdArrayOutput() OneDashboardPageWidgetLineThresholdArrayOutput {
+	return i.ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineThresholdArray) ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineThresholdArrayOutput)
+}
+
+type OneDashboardPageWidgetLineThresholdOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineThresholdOutput() OneDashboardPageWidgetLineThresholdOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdOutput {
+	return o
+}
+
+// The value 'from' which the threshold would need to be applied.
+func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLineThresholdOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+func (o OneDashboardPageWidgetLineThresholdOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The value until which the threshold would need to be applied.
+func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetLineThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineThresholdArrayOutput) ToOneDashboardPageWidgetLineThresholdArrayOutput() OneDashboardPageWidgetLineThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineThresholdArrayOutput) ToOneDashboardPageWidgetLineThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineThresholdArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineThreshold {
+		return vs[0].([]OneDashboardPageWidgetLineThreshold)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineThresholdOutput)
+}
+
 type OneDashboardPageWidgetLineUnit struct {
 	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
 	SeriesOverrides []OneDashboardPageWidgetLineUnitSeriesOverride `pulumi:"seriesOverrides"`
@@ -12661,6 +13024,200 @@ func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineUnitSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetLineUnitSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineUnitSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLineYAxisRight struct {
+	// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+	YAxisRightMax *float64 `pulumi:"yAxisRightMax"`
+	// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+	YAxisRightMin *float64 `pulumi:"yAxisRightMin"`
+	// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+	YAxisRightSeries []string `pulumi:"yAxisRightSeries"`
+	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+	YAxisRightZero *bool `pulumi:"yAxisRightZero"`
+}
+
+// OneDashboardPageWidgetLineYAxisRightInput is an input type that accepts OneDashboardPageWidgetLineYAxisRightArgs and OneDashboardPageWidgetLineYAxisRightOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineYAxisRightInput` via:
+//
+//	OneDashboardPageWidgetLineYAxisRightArgs{...}
+type OneDashboardPageWidgetLineYAxisRightInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineYAxisRightOutput() OneDashboardPageWidgetLineYAxisRightOutput
+	ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(context.Context) OneDashboardPageWidgetLineYAxisRightOutput
+}
+
+type OneDashboardPageWidgetLineYAxisRightArgs struct {
+	// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+	YAxisRightMax pulumi.Float64PtrInput `pulumi:"yAxisRightMax"`
+	// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+	YAxisRightMin pulumi.Float64PtrInput `pulumi:"yAxisRightMin"`
+	// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+	YAxisRightSeries pulumi.StringArrayInput `pulumi:"yAxisRightSeries"`
+	// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+	YAxisRightZero pulumi.BoolPtrInput `pulumi:"yAxisRightZero"`
+}
+
+func (OneDashboardPageWidgetLineYAxisRightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightOutput() OneDashboardPageWidgetLineYAxisRightOutput {
+	return i.ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineYAxisRightOutput)
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return i.ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineYAxisRightArgs) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineYAxisRightOutput).ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLineYAxisRightPtrInput is an input type that accepts OneDashboardPageWidgetLineYAxisRightArgs, OneDashboardPageWidgetLineYAxisRightPtr and OneDashboardPageWidgetLineYAxisRightPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineYAxisRightPtrInput` via:
+//
+//	        OneDashboardPageWidgetLineYAxisRightArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLineYAxisRightPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput
+	ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput
+}
+
+type oneDashboardPageWidgetLineYAxisRightPtrType OneDashboardPageWidgetLineYAxisRightArgs
+
+func OneDashboardPageWidgetLineYAxisRightPtr(v *OneDashboardPageWidgetLineYAxisRightArgs) OneDashboardPageWidgetLineYAxisRightPtrInput {
+	return (*oneDashboardPageWidgetLineYAxisRightPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLineYAxisRightPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLineYAxisRightPtrType) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return i.ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLineYAxisRightPtrType) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineYAxisRightPtrOutput)
+}
+
+type OneDashboardPageWidgetLineYAxisRightOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineYAxisRightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightOutput() OneDashboardPageWidgetLineYAxisRightOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o.ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLineYAxisRight) *OneDashboardPageWidgetLineYAxisRight {
+		return &v
+	}).(OneDashboardPageWidgetLineYAxisRightPtrOutput)
+}
+
+// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) *float64 { return v.YAxisRightMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) *float64 { return v.YAxisRightMin }).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightSeries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) []string { return v.YAxisRightSeries }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+func (o OneDashboardPageWidgetLineYAxisRightOutput) YAxisRightZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineYAxisRight) *bool { return v.YAxisRightZero }).(pulumi.BoolPtrOutput)
+}
+
+type OneDashboardPageWidgetLineYAxisRightPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineYAxisRightPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineYAxisRight)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutput() OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) ToOneDashboardPageWidgetLineYAxisRightPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineYAxisRightPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) Elem() OneDashboardPageWidgetLineYAxisRightOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) OneDashboardPageWidgetLineYAxisRight {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLineYAxisRight
+		return ret
+	}).(OneDashboardPageWidgetLineYAxisRightOutput)
+}
+
+// Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightMax
+	}).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightMin
+	}).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightSeries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) []string {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightSeries
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
+func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightZero() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineYAxisRight) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisRightZero
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetLogTable struct {
@@ -13099,7 +13656,7 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pu
 
 type OneDashboardPageWidgetLogTableNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -13117,7 +13674,7 @@ type OneDashboardPageWidgetLogTableNrqlQueryInput interface {
 
 type OneDashboardPageWidgetLogTableNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -13174,8 +13731,8 @@ func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetL
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -14947,7 +15504,7 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.I
 
 type OneDashboardPageWidgetPyNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -14965,7 +15522,7 @@ type OneDashboardPageWidgetPyNrqlQueryInput interface {
 
 type OneDashboardPageWidgetPyNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -15022,8 +15579,8 @@ func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQ
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetPyNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -15919,7 +16476,7 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i 
 
 type OneDashboardPageWidgetStackedBarNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -15937,7 +16494,7 @@ type OneDashboardPageWidgetStackedBarNrqlQueryInput interface {
 
 type OneDashboardPageWidgetStackedBarNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -15994,8 +16551,8 @@ func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidge
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -16476,6 +17033,8 @@ type OneDashboardPageWidgetTable struct {
 	NullValues []OneDashboardPageWidgetTableNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds []OneDashboardPageWidgetTableThreshold `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -16523,6 +17082,8 @@ type OneDashboardPageWidgetTableArgs struct {
 	NullValues OneDashboardPageWidgetTableNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
+	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+	Thresholds OneDashboardPageWidgetTableThresholdArrayInput `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -16643,6 +17204,11 @@ func (o OneDashboardPageWidgetTableOutput) NullValues() OneDashboardPageWidgetTa
 // (Required) Row position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetTableOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetTableOutput) Thresholds() OneDashboardPageWidgetTableThresholdArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableThreshold { return v.Thresholds }).(OneDashboardPageWidgetTableThresholdArrayOutput)
 }
 
 // (Optional) A human-friendly display string for this value.
@@ -16905,7 +17471,7 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulum
 
 type OneDashboardPageWidgetTableNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -16923,7 +17489,7 @@ type OneDashboardPageWidgetTableNrqlQueryInput interface {
 
 type OneDashboardPageWidgetTableNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -16980,8 +17546,8 @@ func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTabl
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetTableNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -17221,6 +17787,130 @@ func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableNullValueSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetTableNullValueSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetTableThreshold struct {
+	// The name of the column in the table, to which the threshold would need to be applied.
+	ColumnName *string `pulumi:"columnName"`
+	// The value 'from' which the threshold would need to be applied.
+	From *int `pulumi:"from"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity *string `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To *int `pulumi:"to"`
+}
+
+// OneDashboardPageWidgetTableThresholdInput is an input type that accepts OneDashboardPageWidgetTableThresholdArgs and OneDashboardPageWidgetTableThresholdOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableThresholdInput` via:
+//
+//	OneDashboardPageWidgetTableThresholdArgs{...}
+type OneDashboardPageWidgetTableThresholdInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableThresholdOutput() OneDashboardPageWidgetTableThresholdOutput
+	ToOneDashboardPageWidgetTableThresholdOutputWithContext(context.Context) OneDashboardPageWidgetTableThresholdOutput
+}
+
+type OneDashboardPageWidgetTableThresholdArgs struct {
+	// The name of the column in the table, to which the threshold would need to be applied.
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// The value 'from' which the threshold would need to be applied.
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The value until which the threshold would need to be applied.
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (OneDashboardPageWidgetTableThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableThresholdArgs) ToOneDashboardPageWidgetTableThresholdOutput() OneDashboardPageWidgetTableThresholdOutput {
+	return i.ToOneDashboardPageWidgetTableThresholdOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableThresholdArgs) ToOneDashboardPageWidgetTableThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableThresholdOutput)
+}
+
+// OneDashboardPageWidgetTableThresholdArrayInput is an input type that accepts OneDashboardPageWidgetTableThresholdArray and OneDashboardPageWidgetTableThresholdArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableThresholdArrayInput` via:
+//
+//	OneDashboardPageWidgetTableThresholdArray{ OneDashboardPageWidgetTableThresholdArgs{...} }
+type OneDashboardPageWidgetTableThresholdArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableThresholdArrayOutput() OneDashboardPageWidgetTableThresholdArrayOutput
+	ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableThresholdArrayOutput
+}
+
+type OneDashboardPageWidgetTableThresholdArray []OneDashboardPageWidgetTableThresholdInput
+
+func (OneDashboardPageWidgetTableThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableThresholdArray) ToOneDashboardPageWidgetTableThresholdArrayOutput() OneDashboardPageWidgetTableThresholdArrayOutput {
+	return i.ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableThresholdArray) ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableThresholdArrayOutput)
+}
+
+type OneDashboardPageWidgetTableThresholdOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableThresholdOutput) ToOneDashboardPageWidgetTableThresholdOutput() OneDashboardPageWidgetTableThresholdOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableThresholdOutput) ToOneDashboardPageWidgetTableThresholdOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdOutput {
+	return o
+}
+
+// The name of the column in the table, to which the threshold would need to be applied.
+func (o OneDashboardPageWidgetTableThresholdOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
+}
+
+// The value 'from' which the threshold would need to be applied.
+func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+func (o OneDashboardPageWidgetTableThresholdOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The value until which the threshold would need to be applied.
+func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetTableThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableThreshold)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableThresholdArrayOutput) ToOneDashboardPageWidgetTableThresholdArrayOutput() OneDashboardPageWidgetTableThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableThresholdArrayOutput) ToOneDashboardPageWidgetTableThresholdArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableThresholdArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableThresholdArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableThreshold {
+		return vs[0].([]OneDashboardPageWidgetTableThreshold)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableThresholdOutput)
 }
 
 type OneDashboardPageWidgetTableUnit struct {
@@ -18007,7 +18697,7 @@ func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboa
 
 type OneDashboardVariableNrqlQuery struct {
 	// New Relic account ID(s) to issue the query against.
-	AccountIds []int `pulumi:"accountIds"`
+	AccountIds []string `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
 }
@@ -18025,7 +18715,7 @@ type OneDashboardVariableNrqlQueryInput interface {
 
 type OneDashboardVariableNrqlQueryArgs struct {
 	// New Relic account ID(s) to issue the query against.
-	AccountIds pulumi.IntArrayInput `pulumi:"accountIds"`
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
 }
@@ -18108,8 +18798,8 @@ func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrO
 }
 
 // New Relic account ID(s) to issue the query against.
-func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []int { return v.AccountIds }).(pulumi.IntArrayOutput)
+func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -18142,13 +18832,13 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQ
 }
 
 // New Relic account ID(s) to issue the query against.
-func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []int {
+func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []string {
 		if v == nil {
 			return nil
 		}
 		return v.AccountIds
-	}).(pulumi.IntArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
@@ -18261,7 +18951,7 @@ func (o OneDashboardVariableOptionArrayOutput) Index(i pulumi.IntInput) OneDashb
 type ServiceLevelEvents struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 	BadEvents *ServiceLevelEventsBadEvents `pulumi:"badEvents"`
 	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
@@ -18284,7 +18974,7 @@ type ServiceLevelEventsInput interface {
 type ServiceLevelEventsArgs struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-	AccountId pulumi.IntInput `pulumi:"accountId"`
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 	BadEvents ServiceLevelEventsBadEventsPtrInput `pulumi:"badEvents"`
 	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
@@ -18372,8 +19062,8 @@ func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx c
 
 // The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 // and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-func (o ServiceLevelEventsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v ServiceLevelEvents) int { return v.AccountId }).(pulumi.IntOutput)
+func (o ServiceLevelEventsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
@@ -18417,13 +19107,13 @@ func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
 
 // The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 // and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
-func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceLevelEvents) *int {
+func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.AccountId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
@@ -18815,8 +19505,8 @@ type ServiceLevelEventsGoodEvents struct {
 	From string `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsGoodEventsSelect `pulumi:"select"`
-	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-	// a particular entity and returned an error).
+	// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+	// a particular entity and were successful).
 	Where *string `pulumi:"where"`
 }
 
@@ -18836,8 +19526,8 @@ type ServiceLevelEventsGoodEventsArgs struct {
 	From pulumi.StringInput `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsGoodEventsSelectPtrInput `pulumi:"select"`
-	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-	// a particular entity and returned an error).
+	// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+	// a particular entity and were successful).
 	Where pulumi.StringPtrInput `pulumi:"where"`
 }
 
@@ -18928,8 +19618,8 @@ func (o ServiceLevelEventsGoodEventsOutput) Select() ServiceLevelEventsGoodEvent
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEventsSelect { return v.Select }).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
-// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-// a particular entity and returned an error).
+// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+// a particular entity and were successful).
 func (o ServiceLevelEventsGoodEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
 }
@@ -18978,8 +19668,8 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Select() ServiceLevelEventsGoodEv
 	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
 }
 
-// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-// a particular entity and returned an error).
+// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+// a particular entity and were successful).
 func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *string {
 		if v == nil {
@@ -19169,8 +19859,7 @@ type ServiceLevelEventsValidEvents struct {
 	From string `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select *ServiceLevelEventsValidEventsSelect `pulumi:"select"`
-	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-	// a particular entity and returned an error).
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	Where *string `pulumi:"where"`
 }
 
@@ -19190,8 +19879,7 @@ type ServiceLevelEventsValidEventsArgs struct {
 	From pulumi.StringInput `pulumi:"from"`
 	// The NRQL SELECT clause to aggregate events.
 	Select ServiceLevelEventsValidEventsSelectPtrInput `pulumi:"select"`
-	// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-	// a particular entity and returned an error).
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	Where pulumi.StringPtrInput `pulumi:"where"`
 }
 
@@ -19282,8 +19970,7 @@ func (o ServiceLevelEventsValidEventsOutput) Select() ServiceLevelEventsValidEve
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEventsSelect { return v.Select }).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
-// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-// a particular entity and returned an error).
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 func (o ServiceLevelEventsValidEventsOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
 }
@@ -19332,8 +20019,7 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Select() ServiceLevelEventsValid
 	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
 }
 
-// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-// a particular entity and returned an error).
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *string {
 		if v == nil {
@@ -20006,14 +20692,13 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtr
 }
 
 type WorkflowDestination struct {
-	// Id of a notificationChannel to use for notifications. Please note that you have to use a
-	// **notification** channel, not an `alertChannel`.
+	// (Required) Destination's channel id.
 	ChannelId string `pulumi:"channelId"`
 	// The name of the workflow.
 	Name *string `pulumi:"name"`
-	// Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+	// List of triggers to notify about in this destination configuration.
 	NotificationTriggers []string `pulumi:"notificationTriggers"`
-	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 	Type *string `pulumi:"type"`
 }
 
@@ -20029,14 +20714,13 @@ type WorkflowDestinationInput interface {
 }
 
 type WorkflowDestinationArgs struct {
-	// Id of a notificationChannel to use for notifications. Please note that you have to use a
-	// **notification** channel, not an `alertChannel`.
+	// (Required) Destination's channel id.
 	ChannelId pulumi.StringInput `pulumi:"channelId"`
 	// The name of the workflow.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+	// List of triggers to notify about in this destination configuration.
 	NotificationTriggers pulumi.StringArrayInput `pulumi:"notificationTriggers"`
-	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -20091,8 +20775,7 @@ func (o WorkflowDestinationOutput) ToWorkflowDestinationOutputWithContext(ctx co
 	return o
 }
 
-// Id of a notificationChannel to use for notifications. Please note that you have to use a
-// **notification** channel, not an `alertChannel`.
+// (Required) Destination's channel id.
 func (o WorkflowDestinationOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowDestination) string { return v.ChannelId }).(pulumi.StringOutput)
 }
@@ -20102,12 +20785,12 @@ func (o WorkflowDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+// List of triggers to notify about in this destination configuration.
 func (o WorkflowDestinationOutput) NotificationTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowDestination) []string { return v.NotificationTriggers }).(pulumi.StringArrayOutput)
 }
 
-// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 func (o WorkflowDestinationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -20133,7 +20816,7 @@ func (o WorkflowDestinationArrayOutput) Index(i pulumi.IntInput) WorkflowDestina
 }
 
 type WorkflowEnrichments struct {
-	// a wrapper block
+	// (Required) Nrql type Enrichments.
 	Nrqls []WorkflowEnrichmentsNrql `pulumi:"nrqls"`
 }
 
@@ -20149,7 +20832,7 @@ type WorkflowEnrichmentsInput interface {
 }
 
 type WorkflowEnrichmentsArgs struct {
-	// a wrapper block
+	// (Required) Nrql type Enrichments.
 	Nrqls WorkflowEnrichmentsNrqlArrayInput `pulumi:"nrqls"`
 }
 
@@ -20230,7 +20913,7 @@ func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsPtrOutputWithContext(ctx
 	}).(WorkflowEnrichmentsPtrOutput)
 }
 
-// a wrapper block
+// (Required) Nrql type Enrichments.
 func (o WorkflowEnrichmentsOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
 	return o.ApplyT(func(v WorkflowEnrichments) []WorkflowEnrichmentsNrql { return v.Nrqls }).(WorkflowEnrichmentsNrqlArrayOutput)
 }
@@ -20259,7 +20942,7 @@ func (o WorkflowEnrichmentsPtrOutput) Elem() WorkflowEnrichmentsOutput {
 	}).(WorkflowEnrichmentsOutput)
 }
 
-// a wrapper block
+// (Required) Nrql type Enrichments.
 func (o WorkflowEnrichmentsPtrOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
 	return o.ApplyT(func(v *WorkflowEnrichments) []WorkflowEnrichmentsNrql {
 		if v == nil {
@@ -20271,14 +20954,14 @@ func (o WorkflowEnrichmentsPtrOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput
 
 type WorkflowEnrichmentsNrql struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId *int `pulumi:"accountId"`
-	// Another wrapper block
+	AccountId *string `pulumi:"accountId"`
+	// A set of key-value pairs to represent a enrichment configuration.
 	Configurations []WorkflowEnrichmentsNrqlConfiguration `pulumi:"configurations"`
 	// Enrichment's id.
 	EnrichmentId *string `pulumi:"enrichmentId"`
 	// The name of the workflow.
 	Name string `pulumi:"name"`
-	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+	// The type of the enrichment. One of: (NRQL).
 	Type *string `pulumi:"type"`
 }
 
@@ -20295,14 +20978,14 @@ type WorkflowEnrichmentsNrqlInput interface {
 
 type WorkflowEnrichmentsNrqlArgs struct {
 	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
-	// Another wrapper block
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// A set of key-value pairs to represent a enrichment configuration.
 	Configurations WorkflowEnrichmentsNrqlConfigurationArrayInput `pulumi:"configurations"`
 	// Enrichment's id.
 	EnrichmentId pulumi.StringPtrInput `pulumi:"enrichmentId"`
 	// The name of the workflow.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+	// The type of the enrichment. One of: (NRQL).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -20358,11 +21041,11 @@ func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutputWithContex
 }
 
 // Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-func (o WorkflowEnrichmentsNrqlOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+func (o WorkflowEnrichmentsNrqlOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// Another wrapper block
+// A set of key-value pairs to represent a enrichment configuration.
 func (o WorkflowEnrichmentsNrqlOutput) Configurations() WorkflowEnrichmentsNrqlConfigurationArrayOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) []WorkflowEnrichmentsNrqlConfiguration { return v.Configurations }).(WorkflowEnrichmentsNrqlConfigurationArrayOutput)
 }
@@ -20377,7 +21060,7 @@ func (o WorkflowEnrichmentsNrqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+// The type of the enrichment. One of: (NRQL).
 func (o WorkflowEnrichmentsNrqlOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -20403,7 +21086,7 @@ func (o WorkflowEnrichmentsNrqlArrayOutput) Index(i pulumi.IntInput) WorkflowEnr
 }
 
 type WorkflowEnrichmentsNrqlConfiguration struct {
-	// An NRQL query to run
+	// enrichment's NRQL query
 	Query string `pulumi:"query"`
 }
 
@@ -20419,7 +21102,7 @@ type WorkflowEnrichmentsNrqlConfigurationInput interface {
 }
 
 type WorkflowEnrichmentsNrqlConfigurationArgs struct {
-	// An NRQL query to run
+	// enrichment's NRQL query
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -20474,7 +21157,7 @@ func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToWorkflowEnrichmentsNrqlCon
 	return o
 }
 
-// An NRQL query to run
+// enrichment's NRQL query
 func (o WorkflowEnrichmentsNrqlConfigurationOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrqlConfiguration) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -21201,6 +21884,100 @@ func (o GetNotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetNotificationDestinationPropertyOutput)
 }
 
+type GetNotificationDestinationSecureUrl struct {
+	Prefix string `pulumi:"prefix"`
+}
+
+// GetNotificationDestinationSecureUrlInput is an input type that accepts GetNotificationDestinationSecureUrlArgs and GetNotificationDestinationSecureUrlOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationSecureUrlInput` via:
+//
+//	GetNotificationDestinationSecureUrlArgs{...}
+type GetNotificationDestinationSecureUrlInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationSecureUrlOutput() GetNotificationDestinationSecureUrlOutput
+	ToGetNotificationDestinationSecureUrlOutputWithContext(context.Context) GetNotificationDestinationSecureUrlOutput
+}
+
+type GetNotificationDestinationSecureUrlArgs struct {
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (GetNotificationDestinationSecureUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationSecureUrlArgs) ToGetNotificationDestinationSecureUrlOutput() GetNotificationDestinationSecureUrlOutput {
+	return i.ToGetNotificationDestinationSecureUrlOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationSecureUrlArgs) ToGetNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationSecureUrlOutput)
+}
+
+// GetNotificationDestinationSecureUrlArrayInput is an input type that accepts GetNotificationDestinationSecureUrlArray and GetNotificationDestinationSecureUrlArrayOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationSecureUrlArrayInput` via:
+//
+//	GetNotificationDestinationSecureUrlArray{ GetNotificationDestinationSecureUrlArgs{...} }
+type GetNotificationDestinationSecureUrlArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationSecureUrlArrayOutput() GetNotificationDestinationSecureUrlArrayOutput
+	ToGetNotificationDestinationSecureUrlArrayOutputWithContext(context.Context) GetNotificationDestinationSecureUrlArrayOutput
+}
+
+type GetNotificationDestinationSecureUrlArray []GetNotificationDestinationSecureUrlInput
+
+func (GetNotificationDestinationSecureUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationSecureUrlArray) ToGetNotificationDestinationSecureUrlArrayOutput() GetNotificationDestinationSecureUrlArrayOutput {
+	return i.ToGetNotificationDestinationSecureUrlArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationSecureUrlArray) ToGetNotificationDestinationSecureUrlArrayOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationSecureUrlArrayOutput)
+}
+
+type GetNotificationDestinationSecureUrlOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationSecureUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationSecureUrlOutput) ToGetNotificationDestinationSecureUrlOutput() GetNotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlOutput) ToGetNotificationDestinationSecureUrlOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationDestinationSecureUrl) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetNotificationDestinationSecureUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationSecureUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationDestinationSecureUrl)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationSecureUrlArrayOutput) ToGetNotificationDestinationSecureUrlArrayOutput() GetNotificationDestinationSecureUrlArrayOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlArrayOutput) ToGetNotificationDestinationSecureUrlArrayOutputWithContext(ctx context.Context) GetNotificationDestinationSecureUrlArrayOutput {
+	return o
+}
+
+func (o GetNotificationDestinationSecureUrlArrayOutput) Index(i pulumi.IntInput) GetNotificationDestinationSecureUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationDestinationSecureUrl {
+		return vs[0].([]GetNotificationDestinationSecureUrl)[vs[1].(int)]
+	}).(GetNotificationDestinationSecureUrlOutput)
+}
+
 type GetTestGrokPatternTestGrok struct {
 	// Nested list containing information about any attributes that were extracted.
 	Attributes []GetTestGrokPatternTestGrokAttribute `pulumi:"attributes"`
@@ -21449,10 +22226,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelPropertyArrayInput)(nil)).Elem(), NotificationChannelPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthBasicInput)(nil)).Elem(), NotificationDestinationAuthBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthBasicPtrInput)(nil)).Elem(), NotificationDestinationAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthCustomHeaderInput)(nil)).Elem(), NotificationDestinationAuthCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthCustomHeaderArrayInput)(nil)).Elem(), NotificationDestinationAuthCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenPtrInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyInput)(nil)).Elem(), NotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyArrayInput)(nil)).Elem(), NotificationDestinationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlPtrInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
@@ -21605,10 +22386,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineThresholdInput)(nil)).Elem(), OneDashboardPageWidgetLineThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineThresholdArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRightInput)(nil)).Elem(), OneDashboardPageWidgetLineYAxisRightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRightPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineYAxisRightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArgs{})
@@ -21683,6 +22468,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableThresholdInput)(nil)).Elem(), OneDashboardPageWidgetTableThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableThresholdArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitSeriesOverrideArgs{})
@@ -21736,6 +22523,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagArrayInput)(nil)).Elem(), GetEntityTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyInput)(nil)).Elem(), GetNotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyArrayInput)(nil)).Elem(), GetNotificationDestinationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlArrayInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokInput)(nil)).Elem(), GetTestGrokPatternTestGrokArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokArrayInput)(nil)).Elem(), GetTestGrokPatternTestGrokArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokAttributeInput)(nil)).Elem(), GetTestGrokPatternTestGrokAttributeArgs{})
@@ -21766,10 +22555,14 @@ func init() {
 	pulumi.RegisterOutputType(NotificationChannelPropertyArrayOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthBasicOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthBasicPtrOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthCustomHeaderOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthTokenOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationAuthTokenPtrOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationSecureUrlOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationSecureUrlPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlOutput{})
@@ -21922,10 +22715,14 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineThresholdOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineThresholdArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineYAxisRightOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineYAxisRightPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorOutput{})
@@ -22000,6 +22797,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableThresholdOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableThresholdArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitSeriesOverrideOutput{})
@@ -22053,6 +22852,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEntityTagArrayOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokAttributeOutput{})

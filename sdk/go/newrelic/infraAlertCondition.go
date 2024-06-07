@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "high_disk_usage", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:    foo.ID(),
+//				Name:        pulumi.String("High disk usage"),
 //				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),
 //				Event:       pulumi.String("StorageSample"),
@@ -57,8 +59,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "highDbConnCount", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "high_db_conn_count", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:            foo.ID(),
+//				Name:                pulumi.String("High database connection count"),
 //				Description:         pulumi.String("Critical alert when the number of database connections goes above 90"),
 //				Type:                pulumi.String("infra_metric"),
 //				Event:               pulumi.String("DatastoreSample"),
@@ -75,8 +78,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "processNotRunning", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "process_not_running", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:     foo.ID(),
+//				Name:         pulumi.String("Process not running (/usr/bin/ruby)"),
 //				Description:  pulumi.String("Critical alert when ruby isn't running"),
 //				Type:         pulumi.String("infra_process_running"),
 //				Comparison:   pulumi.String("equal"),
@@ -90,8 +94,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewInfraAlertCondition(ctx, "hostNotReporting", &newrelic.InfraAlertConditionArgs{
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "host_not_reporting", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:    foo.ID(),
+//				Name:        pulumi.String("Host not reporting"),
 //				Description: pulumi.String("Critical alert when the host is not reporting"),
 //				Type:        pulumi.String("infra_host_not_reporting"),
 //				Where:       pulumi.String("(hostname LIKE '%frontend%')"),
@@ -107,7 +112,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Thresholds
 //
@@ -121,7 +125,6 @@ import (
 //
 // Manage infra alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,12 +137,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooInfraAlertCondition, err := newrelic.NewInfraAlertCondition(ctx, "fooInfraAlertCondition", &newrelic.InfraAlertConditionArgs{
-//				PolicyId:    fooAlertPolicy.ID(),
+//			fooInfraAlertCondition, err := newrelic.NewInfraAlertCondition(ctx, "foo", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:    foo.ID(),
+//				Name:        pulumi.String("foo infra condition"),
 //				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),
 //				Event:       pulumi.String("StorageSample"),
@@ -160,7 +166,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooInfraAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
@@ -186,7 +192,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -217,7 +222,7 @@ type InfraAlertCondition struct {
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrOutput `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -229,26 +234,10 @@ type InfraAlertCondition struct {
 	// The timestamp the alert condition was last updated.
 	UpdatedAt pulumi.IntOutput `pulumi:"updatedAt"`
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrOutput `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrOutput `pulumi:"where"`
 }
 
@@ -307,7 +296,7 @@ type infraAlertConditionState struct {
 	// The Infrastructure alert condition's name.
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -319,26 +308,10 @@ type infraAlertConditionState struct {
 	// The timestamp the alert condition was last updated.
 	UpdatedAt *int `pulumi:"updatedAt"`
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where *string `pulumi:"where"`
 }
 
@@ -362,7 +335,7 @@ type InfraAlertConditionState struct {
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -374,26 +347,10 @@ type InfraAlertConditionState struct {
 	// The timestamp the alert condition was last updated.
 	UpdatedAt pulumi.IntPtrInput
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrInput
 }
 
@@ -417,7 +374,7 @@ type infraAlertConditionArgs struct {
 	// The Infrastructure alert condition's name.
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
@@ -427,26 +384,10 @@ type infraAlertConditionArgs struct {
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type string `pulumi:"type"`
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where *string `pulumi:"where"`
 }
 
@@ -467,7 +408,7 @@ type InfraAlertConditionArgs struct {
 	// The Infrastructure alert condition's name.
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -477,26 +418,10 @@ type InfraAlertConditionArgs struct {
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type pulumi.StringInput
 	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
-	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrInput
 }
 
@@ -633,8 +558,8 @@ func (o InfraAlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the alert policy where this condition should be used.
-func (o InfraAlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o InfraAlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
@@ -663,25 +588,6 @@ func (o InfraAlertConditionOutput) UpdatedAt() pulumi.IntOutput {
 }
 
 // Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o InfraAlertConditionOutput) ViolationCloseTimer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntPtrOutput { return v.ViolationCloseTimer }).(pulumi.IntPtrOutput)
 }
@@ -691,7 +597,7 @@ func (o InfraAlertConditionOutput) Warning() InfraAlertConditionWarningPtrOutput
 	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionWarningPtrOutput { return v.Warning }).(InfraAlertConditionWarningPtrOutput)
 }
 
-// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 func (o InfraAlertConditionOutput) Where() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Where }).(pulumi.StringPtrOutput)
 }

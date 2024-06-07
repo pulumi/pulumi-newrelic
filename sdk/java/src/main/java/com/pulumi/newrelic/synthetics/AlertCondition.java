@@ -11,7 +11,6 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.AlertConditionArgs;
 import com.pulumi.newrelic.synthetics.inputs.AlertConditionState;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -24,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertCondition(&#34;foo&#34;, AlertConditionArgs.builder()        
- *             .policyId(newrelic_alert_policy.foo().id())
- *             .monitorId(newrelic_synthetics_monitor.foo().id())
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *         var foo = new AlertCondition("foo", AlertConditionArgs.builder()
+ *             .policyId(fooNewrelicAlertPolicy.id())
+ *             .name("foo")
+ *             .monitorId(fooNewrelicSyntheticsMonitor.id())
+ *             .runbookUrl("https://www.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Tags
@@ -61,13 +63,15 @@ import javax.annotation.Nullable;
  * Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
  * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
@@ -90,52 +94,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
+ *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+ *             .name("foo policy")
+ *             .build());
  * 
- *         var fooMonitor = new Monitor(&#34;fooMonitor&#34;, MonitorArgs.builder()        
- *             .status(&#34;ENABLED&#34;)
- *             .period(&#34;EVERY_MINUTE&#34;)
- *             .uri(&#34;https://www.one.newrelic.com&#34;)
- *             .type(&#34;SIMPLE&#34;)
- *             .locationsPublics(&#34;AP_EAST_1&#34;)
+ *         var fooMonitor = new Monitor("fooMonitor", MonitorArgs.builder()
+ *             .status("ENABLED")
+ *             .name("foo monitor")
+ *             .period("EVERY_MINUTE")
+ *             .uri("https://www.one.newrelic.com")
+ *             .type("SIMPLE")
+ *             .locationsPublics("AP_EAST_1")
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;some_name&#34;)
- *                 .value(&#34;some_value&#34;)
+ *                 .name("some_name")
+ *                 .value("some_value")
  *                 .build())
  *             .treatRedirectAsFailure(true)
- *             .validationString(&#34;success&#34;)
+ *             .validationString("success")
  *             .bypassHeadRequest(true)
  *             .verifySsl(true)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;some_key&#34;)
- *                 .values(&#34;some_value&#34;)
+ *                 .key("some_key")
+ *                 .values("some_value")
  *                 .build())
  *             .build());
  * 
- *         var fooAlertCondition = new AlertCondition(&#34;fooAlertCondition&#34;, AlertConditionArgs.builder()        
- *             .policyId(fooAlertPolicy.id())
+ *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
+ *             .policyId(foo.id())
+ *             .name("foo synthetics condition")
  *             .monitorId(fooMonitor.id())
- *             .runbookUrl(&#34;https://www.example.com&#34;)
+ *             .runbookUrl("https://www.example.com")
  *             .build());
  * 
- *         var myConditionEntityTags = new EntityTags(&#34;myConditionEntityTags&#34;, EntityTagsArgs.builder()        
+ *         var myConditionEntityTags = new EntityTags("myConditionEntityTags", EntityTagsArgs.builder()
  *             .guid(fooAlertCondition.entityGuid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key&#34;)
+ *                     .key("my-key")
  *                     .values(                    
- *                         &#34;my-value&#34;,
- *                         &#34;my-other-value&#34;)
+ *                         "my-value",
+ *                         "my-other-value")
  *                     .build(),
  *                 EntityTagsTagArgs.builder()
- *                     .key(&#34;my-key-2&#34;)
- *                     .values(&#34;my-value-2&#34;)
+ *                     .key("my-key-2")
+ *                     .values("my-value-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -152,62 +161,12 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
      * @return Set whether to enable the alert condition. Defaults to `true`.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -259,14 +218,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
      * The ID of the policy where this condition should be used.
      * 
      */
-    @Export(name="policyId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> policyId;
+    @Export(name="policyId", refs={String.class}, tree="[0]")
+    private Output<String> policyId;
 
     /**
      * @return The ID of the policy where this condition should be used.
      * 
      */
-    public Output<Integer> policyId() {
+    public Output<String> policyId() {
         return this.policyId;
     }
     /**

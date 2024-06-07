@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewSecureCredential(ctx, "foo", &synthetics.SecureCredentialArgs{
-//				Description: pulumi.String("My description"),
 //				Key:         pulumi.String("MY_KEY"),
 //				Value:       pulumi.String("My value"),
+//				Description: pulumi.String("My description"),
 //			})
 //			if err != nil {
 //				return err
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -55,7 +53,7 @@ type SecureCredential struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The secure credential's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -110,7 +108,7 @@ func GetSecureCredential(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SecureCredential resources.
 type secureCredentialState struct {
 	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -123,7 +121,7 @@ type secureCredentialState struct {
 
 type SecureCredentialState struct {
 	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -140,7 +138,7 @@ func (SecureCredentialState) ElementType() reflect.Type {
 
 type secureCredentialArgs struct {
 	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -154,7 +152,7 @@ type secureCredentialArgs struct {
 // The set of arguments for constructing a SecureCredential resource.
 type SecureCredentialArgs struct {
 	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -253,8 +251,8 @@ func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.
 }
 
 // Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
-func (o SecureCredentialOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *SecureCredential) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o SecureCredentialOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The secure credential's description.

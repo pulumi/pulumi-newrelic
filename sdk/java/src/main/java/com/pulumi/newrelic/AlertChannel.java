@@ -11,7 +11,6 @@ import com.pulumi.newrelic.AlertChannelArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.AlertChannelState;
 import com.pulumi.newrelic.outputs.AlertChannelConfig;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +24,8 @@ import javax.annotation.Nullable;
  * 
  * ### Email
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("foo")
+ *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .includeJsonAttachment(&#34;true&#34;)
- *                 .recipients(&#34;foo@example.com&#34;)
+ *                 .recipients("foo{@literal @}example.com")
+ *                 .includeJsonAttachment("true")
  *                 .build())
- *             .type(&#34;email&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Examples
  * 
  * ##### Slack
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,24 +89,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("slack-example")
+ *             .type("slack")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .channel(&#34;example-alerts-channel&#34;)
- *                 .url(&#34;https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX&#34;)
+ *                 .url("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX")
+ *                 .channel("example-alerts-channel")
  *                 .build())
- *             .type(&#34;slack&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic&#39;s docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
  * 
  * ### OpsGenie
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,24 +131,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("opsgenie-example")
+ *             .type("opsgenie")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .apiKey(&#34;abc123&#34;)
- *                 .recipients(&#34;user1@domain.com, user2@domain.com&#34;)
- *                 .tags(&#34;tag1, tag2&#34;)
- *                 .teams(&#34;team1, team2&#34;)
+ *                 .apiKey("abc123")
+ *                 .teams("team1, team2")
+ *                 .tags("tag1, tag2")
+ *                 .recipients("user1{@literal @}domain.com, user2{@literal @}domain.com")
  *                 .build())
- *             .type(&#34;opsgenie&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### PagerDuty
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -164,21 +173,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("pagerduty-example")
+ *             .type("pagerduty")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .serviceKey(&#34;abc123&#34;)
+ *                 .serviceKey("abc123")
  *                 .build())
- *             .type(&#34;pagerduty&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### VictorOps
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -200,22 +212,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("victorops-example")
+ *             .type("victorops")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .key(&#34;abc123&#34;)
- *                 .routeKey(&#34;/example&#34;)
+ *                 .key("abc123")
+ *                 .routeKey("/example")
  *                 .build())
- *             .type(&#34;victorops&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Webhook
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -237,30 +252,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
- *             .type(&#34;webhook&#34;)
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("webhook-example")
+ *             .type("webhook")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .baseUrl(&#34;http://www.test.com&#34;)
- *                 .payloadType(&#34;application/json&#34;)
+ *                 .baseUrl("http://www.test.com")
+ *                 .payloadType("application/json")
  *                 .payload(Map.ofEntries(
- *                     Map.entry(&#34;condition_name&#34;, &#34;$CONDITION_NAME&#34;),
- *                     Map.entry(&#34;policy_name&#34;, &#34;$POLICY_NAME&#34;)
+ *                     Map.entry("condition_name", "$CONDITION_NAME"),
+ *                     Map.entry("policy_name", "$POLICY_NAME")
  *                 ))
  *                 .headers(Map.ofEntries(
- *                     Map.entry(&#34;header1&#34;, value1),
- *                     Map.entry(&#34;header2&#34;, value2)
+ *                     Map.entry("header1", value1),
+ *                     Map.entry("header2", value2)
  *                 ))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Webhook with complex payload
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -282,26 +300,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AlertChannel(&#34;foo&#34;, AlertChannelArgs.builder()        
+ *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
+ *             .name("webhook-example")
+ *             .type("webhook")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .baseUrl(&#34;http://www.test.com&#34;)
- *                 .payloadString(&#34;&#34;&#34;
+ *                 .baseUrl("http://www.test.com")
+ *                 .payloadType("application/json")
+ *                 .payloadString("""
  * {
- *   &#34;my_custom_values&#34;: {
- *     &#34;condition_name&#34;: &#34;$CONDITION_NAME&#34;,
- *     &#34;policy_name&#34;: &#34;$POLICY_NAME&#34;
+ *   "my_custom_values": {
+ *     "condition_name": "$CONDITION_NAME",
+ *     "policy_name": "$POLICY_NAME"
  *   }
  * }
- * 
- *                 &#34;&#34;&#34;)
- *                 .payloadType(&#34;application/json&#34;)
+ *                 """)
  *                 .build())
- *             .type(&#34;webhook&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -321,14 +340,14 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

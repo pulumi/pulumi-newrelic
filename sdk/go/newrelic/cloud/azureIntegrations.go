@@ -26,7 +26,6 @@ import (
 //
 // Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,45 +38,46 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAzureLinkAccount, err := cloud.NewAzureLinkAccount(ctx, "fooAzureLinkAccount", &cloud.AzureLinkAccountArgs{
-//				AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
+//			foo, err := cloud.NewAzureLinkAccount(ctx, "foo", &cloud.AzureLinkAccountArgs{
+//				AccountId:      pulumi.String("The New Relic account ID where you want to link the Azure account"),
 //				ApplicationId:  pulumi.String("ID of the application"),
 //				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
 //				SubscriptionId: pulumi.String("Subscription ID of Azure"),
 //				TenantId:       pulumi.String("Tenant ID of the Azure"),
+//				Name:           pulumi.String("Name of the linked account"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloud.NewAzureIntegrations(ctx, "fooAzureIntegrations", &cloud.AzureIntegrationsArgs{
-//				LinkedAccountId: fooAzureLinkAccount.ID(),
-//				AccountId:       pulumi.Int("The New Relic account ID"),
+//			_, err = cloud.NewAzureIntegrations(ctx, "foo", &cloud.AzureIntegrationsArgs{
+//				LinkedAccountId: foo.ID(),
+//				AccountId:       pulumi.String("The New Relic account ID"),
 //				ApiManagement: &cloud.AzureIntegrationsApiManagementArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				AppGateway: &cloud.AzureIntegrationsAppGatewayArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				AppService: &cloud.AzureIntegrationsAppServiceArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Containers: &cloud.AzureIntegrationsContainersArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				CosmosDb: &cloud.AzureIntegrationsCosmosDbArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
@@ -89,73 +89,73 @@ import (
 //					},
 //				},
 //				DataFactory: &cloud.AzureIntegrationsDataFactoryArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				EventHub: &cloud.AzureIntegrationsEventHubArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				ExpressRoute: &cloud.AzureIntegrationsExpressRouteArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Firewalls: &cloud.AzureIntegrationsFirewallsArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				FrontDoor: &cloud.AzureIntegrationsFrontDoorArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Functions: &cloud.AzureIntegrationsFunctionsArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				KeyVault: &cloud.AzureIntegrationsKeyVaultArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				LoadBalancer: &cloud.AzureIntegrationsLoadBalancerArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				LogicApps: &cloud.AzureIntegrationsLogicAppsArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				MachineLearning: &cloud.AzureIntegrationsMachineLearningArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				MariaDb: &cloud.AzureIntegrationsMariaDbArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Monitor: &cloud.AzureIntegrationsMonitorArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(60),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
@@ -172,85 +172,85 @@ import (
 //					},
 //				},
 //				Mysql: &cloud.AzureIntegrationsMysqlArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				MysqlFlexible: &cloud.AzureIntegrationsMysqlFlexibleArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Postgresql: &cloud.AzureIntegrationsPostgresqlArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				PostgresqlFlexible: &cloud.AzureIntegrationsPostgresqlFlexibleArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(3600),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				PowerBiDedicated: &cloud.AzureIntegrationsPowerBiDedicatedArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				RedisCache: &cloud.AzureIntegrationsRedisCacheArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				ServiceBus: &cloud.AzureIntegrationsServiceBusArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Sql: &cloud.AzureIntegrationsSqlArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				SqlManaged: &cloud.AzureIntegrationsSqlManagedArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Storage: &cloud.AzureIntegrationsStorageArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(1800),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				VirtualMachine: &cloud.AzureIntegrationsVirtualMachineArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				VirtualNetworks: &cloud.AzureIntegrationsVirtualNetworksArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				Vms: &cloud.AzureIntegrationsVmsArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
 //				},
 //				VpnGateway: &cloud.AzureIntegrationsVpnGatewayArgs{
-//					MetricsPollingInterval: pulumi.Int(1200),
+//					MetricsPollingInterval: pulumi.Int(300),
 //					ResourceGroups: pulumi.StringArray{
 //						pulumi.String("resource_groups"),
 //					},
@@ -264,7 +264,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -279,7 +278,7 @@ type AzureIntegrations struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement AzureIntegrationsApiManagementPtrOutput `pulumi:"apiManagement"`
 	// Azure App Gateway. See Integration blocks below for details.
@@ -307,7 +306,9 @@ type AzureIntegrations struct {
 	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault AzureIntegrationsKeyVaultPtrOutput `pulumi:"keyVault"`
 	// The ID of the linked Azure account in New Relic.
-	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
+	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrOutput `pulumi:"loadBalancer"`
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -317,6 +318,8 @@ type AzureIntegrations struct {
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrOutput `pulumi:"mariaDb"`
 	// Azure Monitor. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	Monitor AzureIntegrationsMonitorPtrOutput `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrOutput `pulumi:"mysql"`
@@ -337,18 +340,18 @@ type AzureIntegrations struct {
 	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged AzureIntegrationsSqlManagedPtrOutput `pulumi:"sqlManaged"`
 	// for Azure Storage. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Storage AzureIntegrationsStoragePtrOutput `pulumi:"storage"`
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrOutput `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
-	//
-	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrOutput `pulumi:"virtualNetworks"`
 	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrOutput `pulumi:"vms"`
 	// Azure VPN Gateway. See Integration blocks below for details.
 	//
-	// Below arguments supports the minimum metric polling interval of 900 seconds
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
 	VpnGateway AzureIntegrationsVpnGatewayPtrOutput `pulumi:"vpnGateway"`
 }
 
@@ -386,7 +389,7 @@ func GetAzureIntegrations(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AzureIntegrations resources.
 type azureIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement *AzureIntegrationsApiManagement `pulumi:"apiManagement"`
 	// Azure App Gateway. See Integration blocks below for details.
@@ -414,7 +417,9 @@ type azureIntegrationsState struct {
 	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault *AzureIntegrationsKeyVault `pulumi:"keyVault"`
 	// The ID of the linked Azure account in New Relic.
-	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
+	LinkedAccountId *string `pulumi:"linkedAccountId"`
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer *AzureIntegrationsLoadBalancer `pulumi:"loadBalancer"`
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -424,6 +429,8 @@ type azureIntegrationsState struct {
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
 	// Azure Monitor. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	Monitor *AzureIntegrationsMonitor `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
@@ -444,24 +451,24 @@ type azureIntegrationsState struct {
 	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged *AzureIntegrationsSqlManaged `pulumi:"sqlManaged"`
 	// for Azure Storage. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Storage *AzureIntegrationsStorage `pulumi:"storage"`
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
-	//
-	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
 	// Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
 	// Azure VPN Gateway. See Integration blocks below for details.
 	//
-	// Below arguments supports the minimum metric polling interval of 900 seconds
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
 	VpnGateway *AzureIntegrationsVpnGateway `pulumi:"vpnGateway"`
 }
 
 type AzureIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement AzureIntegrationsApiManagementPtrInput
 	// Azure App Gateway. See Integration blocks below for details.
@@ -489,7 +496,9 @@ type AzureIntegrationsState struct {
 	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault AzureIntegrationsKeyVaultPtrInput
 	// The ID of the linked Azure account in New Relic.
-	LinkedAccountId pulumi.IntPtrInput
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
+	LinkedAccountId pulumi.StringPtrInput
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrInput
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -499,6 +508,8 @@ type AzureIntegrationsState struct {
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
 	// Azure Monitor. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	Monitor AzureIntegrationsMonitorPtrInput
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
@@ -519,18 +530,18 @@ type AzureIntegrationsState struct {
 	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged AzureIntegrationsSqlManagedPtrInput
 	// for Azure Storage. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Storage AzureIntegrationsStoragePtrInput
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
 	// for Azure Virtual networks. See Integration blocks below for details.
-	//
-	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
 	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
 	// Azure VPN Gateway. See Integration blocks below for details.
 	//
-	// Below arguments supports the minimum metric polling interval of 900 seconds
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
 	VpnGateway AzureIntegrationsVpnGatewayPtrInput
 }
 
@@ -540,7 +551,7 @@ func (AzureIntegrationsState) ElementType() reflect.Type {
 
 type azureIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement *AzureIntegrationsApiManagement `pulumi:"apiManagement"`
 	// Azure App Gateway. See Integration blocks below for details.
@@ -568,7 +579,9 @@ type azureIntegrationsArgs struct {
 	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault *AzureIntegrationsKeyVault `pulumi:"keyVault"`
 	// The ID of the linked Azure account in New Relic.
-	LinkedAccountId int `pulumi:"linkedAccountId"`
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
+	LinkedAccountId string `pulumi:"linkedAccountId"`
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer *AzureIntegrationsLoadBalancer `pulumi:"loadBalancer"`
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -578,6 +591,8 @@ type azureIntegrationsArgs struct {
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
 	// Azure Monitor. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	Monitor *AzureIntegrationsMonitor `pulumi:"monitor"`
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
@@ -598,25 +613,25 @@ type azureIntegrationsArgs struct {
 	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged *AzureIntegrationsSqlManaged `pulumi:"sqlManaged"`
 	// for Azure Storage. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Storage *AzureIntegrationsStorage `pulumi:"storage"`
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
-	//
-	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
 	// Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
 	// Azure VPN Gateway. See Integration blocks below for details.
 	//
-	// Below arguments supports the minimum metric polling interval of 900 seconds
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
 	VpnGateway *AzureIntegrationsVpnGateway `pulumi:"vpnGateway"`
 }
 
 // The set of arguments for constructing a AzureIntegrations resource.
 type AzureIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Azure API Management. See Integration blocks below for details.
 	ApiManagement AzureIntegrationsApiManagementPtrInput
 	// Azure App Gateway. See Integration blocks below for details.
@@ -644,7 +659,9 @@ type AzureIntegrationsArgs struct {
 	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault AzureIntegrationsKeyVaultPtrInput
 	// The ID of the linked Azure account in New Relic.
-	LinkedAccountId pulumi.IntInput
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
+	LinkedAccountId pulumi.StringInput
 	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrInput
 	// Azure Logic Apps. See Integration blocks below for details.
@@ -654,6 +671,8 @@ type AzureIntegrationsArgs struct {
 	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
 	// Azure Monitor. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 	Monitor AzureIntegrationsMonitorPtrInput
 	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
@@ -674,18 +693,18 @@ type AzureIntegrationsArgs struct {
 	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged AzureIntegrationsSqlManagedPtrInput
 	// for Azure Storage. See Integration blocks below for details.
+	//
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 	Storage AzureIntegrationsStoragePtrInput
 	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
 	// for Azure Virtual networks. See Integration blocks below for details.
-	//
-	// Below argument supports the minimum metric polling interval of 3600 seconds
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
 	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
 	// Azure VPN Gateway. See Integration blocks below for details.
 	//
-	// Below arguments supports the minimum metric polling interval of 900 seconds
+	// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
 	VpnGateway AzureIntegrationsVpnGatewayPtrInput
 }
 
@@ -777,8 +796,8 @@ func (o AzureIntegrationsOutput) ToAzureIntegrationsOutputWithContext(ctx contex
 }
 
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o AzureIntegrationsOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AzureIntegrationsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Azure API Management. See Integration blocks below for details.
@@ -847,8 +866,10 @@ func (o AzureIntegrationsOutput) KeyVault() AzureIntegrationsKeyVaultPtrOutput {
 }
 
 // The ID of the linked Azure account in New Relic.
-func (o AzureIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+//
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
+func (o AzureIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
 }
 
 // Azure Load Balancer. See Integration blocks below for details.
@@ -872,6 +893,8 @@ func (o AzureIntegrationsOutput) MariaDb() AzureIntegrationsMariaDbPtrOutput {
 }
 
 // Azure Monitor. See Integration blocks below for details.
+//
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
 func (o AzureIntegrationsOutput) Monitor() AzureIntegrationsMonitorPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMonitorPtrOutput { return v.Monitor }).(AzureIntegrationsMonitorPtrOutput)
 }
@@ -922,6 +945,8 @@ func (o AzureIntegrationsOutput) SqlManaged() AzureIntegrationsSqlManagedPtrOutp
 }
 
 // for Azure Storage. See Integration blocks below for details.
+//
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
 func (o AzureIntegrationsOutput) Storage() AzureIntegrationsStoragePtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsStoragePtrOutput { return v.Storage }).(AzureIntegrationsStoragePtrOutput)
 }
@@ -932,8 +957,6 @@ func (o AzureIntegrationsOutput) VirtualMachine() AzureIntegrationsVirtualMachin
 }
 
 // for Azure Virtual networks. See Integration blocks below for details.
-//
-// Below argument supports the minimum metric polling interval of 3600 seconds
 func (o AzureIntegrationsOutput) VirtualNetworks() AzureIntegrationsVirtualNetworksPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualNetworksPtrOutput { return v.VirtualNetworks }).(AzureIntegrationsVirtualNetworksPtrOutput)
 }
@@ -945,7 +968,7 @@ func (o AzureIntegrationsOutput) Vms() AzureIntegrationsVmsPtrOutput {
 
 // Azure VPN Gateway. See Integration blocks below for details.
 //
-// Below arguments supports the minimum metric polling interval of 900 seconds
+// The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
 func (o AzureIntegrationsOutput) VpnGateway() AzureIntegrationsVpnGatewayPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVpnGatewayPtrOutput { return v.VpnGateway }).(AzureIntegrationsVpnGatewayPtrOutput)
 }

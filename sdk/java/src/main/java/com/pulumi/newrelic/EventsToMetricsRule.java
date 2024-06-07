@@ -11,7 +11,6 @@ import com.pulumi.newrelic.EventsToMetricsRuleArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.EventsToMetricsRuleState;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new EventsToMetricsRule(&#34;foo&#34;, EventsToMetricsRuleArgs.builder()        
+ *         var foo = new EventsToMetricsRule("foo", EventsToMetricsRuleArgs.builder()
  *             .accountId(12345)
- *             .description(&#34;Example description&#34;)
- *             .nrql(&#34;SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name&#34;)
+ *             .name("Example events to metrics rule")
+ *             .description("Example description")
+ *             .nrql("SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -73,14 +75,14 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * Account with the event and where the metrics will be put.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account with the event and where the metrics will be put.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

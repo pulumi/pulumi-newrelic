@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,11 +29,15 @@ namespace Pulumi.NewRelic
         ///         Name = "txn",
         ///     });
         /// 
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-        /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
         ///     {
-        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
         ///         Type = "apm_kt_metric",
         ///         Entities = new[]
         ///         {
@@ -57,7 +60,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionArgs(), options.WithDefaults());
@@ -67,7 +69,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,11 +82,15 @@ namespace Pulumi.NewRelic
         ///         Name = "txn",
         ///     });
         /// 
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-        /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
         ///     {
-        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
         ///         Type = "apm_kt_metric",
         ///         Entities = new[]
         ///         {
@@ -108,7 +113,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKeyTransactionResult> Invoke(GetKeyTransactionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionInvokeArgs(), options.WithDefaults());

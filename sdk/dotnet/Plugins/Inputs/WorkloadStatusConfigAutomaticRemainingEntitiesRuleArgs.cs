@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
     public sealed class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The input object used to represent a rollup strategy. See Nested remaining_entities_rule_rollup blocks below for details.
+        /// The input object used to represent a rollup strategy.
         /// </summary>
         [Input("remainingEntitiesRuleRollup", required: true)]
         public Input<Inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs> RemainingEntitiesRuleRollup { get; set; } = null!;

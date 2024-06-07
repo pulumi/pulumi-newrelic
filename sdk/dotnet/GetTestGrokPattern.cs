@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -23,9 +22,10 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Data source
         ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
         ///     {
-        ///         Grok = "%%{IP:host_ip}",
+        ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]
         ///         {
         ///             "host_ip: 43.3.120.2",
@@ -35,7 +35,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTestGrokPatternResult> InvokeAsync(GetTestGrokPatternArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternArgs(), options.WithDefaults());
@@ -43,7 +42,6 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,9 +50,10 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Data source
         ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
         ///     {
-        ///         Grok = "%%{IP:host_ip}",
+        ///         Grok = "%{IP:host_ip}",
         ///         LogLines = new[]
         ///         {
         ///             "host_ip: 43.3.120.2",
@@ -64,7 +63,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTestGrokPatternResult> Invoke(GetTestGrokPatternInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternInvokeArgs(), options.WithDefaults());
@@ -77,7 +75,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// The Grok pattern to test.
@@ -109,7 +107,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The Grok pattern to test.
@@ -139,7 +137,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetTestGrokPatternResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         public readonly string Grok;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -153,7 +151,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetTestGrokPatternResult(
-            int? accountId,
+            string? accountId,
 
             string grok,
 

@@ -18,7 +18,6 @@ namespace Pulumi.NewRelic
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
         ///     
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,20 +26,61 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooAuthenticationDomain = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
         ///     {
-        ///         AuthenticationDomainId = fooAuthenticationDomain.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// ## Additional Examples
+        /// 
+        /// The following example demonstrates utilizing attributes exported by this data source.
+        /// 
+        /// In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     {
+        ///         Name = "Test Authentication Domain",
+        ///     });
+        /// 
+        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     {
+        ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         Name = "Test Group",
+        ///     });
+        /// 
+        ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
+        /// 
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     {
+        ///         Separator = ", ",
+        ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
+        ///     })).Apply(values =&gt;
+        ///     {
+        ///         var length = values.Item1;
+        ///         var invoke = values.Item2;
+        ///         return length &gt; 0 ? invoke.Result : "";
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("newrelic:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
@@ -52,7 +92,6 @@ namespace Pulumi.NewRelic
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
         ///     
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,20 +100,61 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fooAuthenticationDomain = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
         ///     {
         ///         Name = "Test Authentication Domain",
         ///     });
         /// 
-        ///     var fooGroup = NewRelic.GetGroup.Invoke(new()
+        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
         ///     {
-        ///         AuthenticationDomainId = fooAuthenticationDomain.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
         ///         Name = "Test Group",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// ## Additional Examples
+        /// 
+        /// The following example demonstrates utilizing attributes exported by this data source.
+        /// 
+        /// In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     {
+        ///         Name = "Test Authentication Domain",
+        ///     });
+        /// 
+        ///     var fooGetGroup = NewRelic.GetGroup.Invoke(new()
+        ///     {
+        ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         Name = "Test Group",
+        ///     });
+        /// 
+        ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
+        /// 
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     {
+        ///         Separator = ", ",
+        ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
+        ///     })).Apply(values =&gt;
+        ///     {
+        ///         var length = values.Item1;
+        ///         var invoke = values.Item2;
+        ///         return length &gt; 0 ? invoke.Result : "";
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("newrelic:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

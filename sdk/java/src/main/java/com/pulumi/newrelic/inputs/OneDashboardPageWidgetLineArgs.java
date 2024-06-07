@@ -9,7 +9,9 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineNullValueArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineThresholdArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineUnitArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetLineYAxisRightArgs;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -115,6 +117,21 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
     }
 
     /**
+     * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * 
+     */
+    @Import(name="isLabelVisible")
+    private @Nullable Output<Boolean> isLabelVisible;
+
+    /**
+     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> isLabelVisible() {
+        return Optional.ofNullable(this.isLabelVisible);
+    }
+
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -172,6 +189,21 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
      */
     public Output<Integer> row() {
         return this.row;
+    }
+
+    /**
+     * (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    @Import(name="thresholds")
+    private @Nullable Output<List<OneDashboardPageWidgetLineThresholdArgs>> thresholds;
+
+    /**
+     * @return (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public Optional<Output<List<OneDashboardPageWidgetLineThresholdArgs>>> thresholds() {
+        return Optional.ofNullable(this.thresholds);
     }
 
     /**
@@ -256,6 +288,21 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.yAxisLeftZero);
     }
 
+    /**
+     * (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+     * 
+     */
+    @Import(name="yAxisRight")
+    private @Nullable Output<OneDashboardPageWidgetLineYAxisRightArgs> yAxisRight;
+
+    /**
+     * @return (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetLineYAxisRightArgs>> yAxisRight() {
+        return Optional.ofNullable(this.yAxisRight);
+    }
+
     private OneDashboardPageWidgetLineArgs() {}
 
     private OneDashboardPageWidgetLineArgs(OneDashboardPageWidgetLineArgs $) {
@@ -265,16 +312,19 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         this.height = $.height;
         this.id = $.id;
         this.ignoreTimeRange = $.ignoreTimeRange;
+        this.isLabelVisible = $.isLabelVisible;
         this.legendEnabled = $.legendEnabled;
         this.nrqlQueries = $.nrqlQueries;
         this.nullValues = $.nullValues;
         this.row = $.row;
+        this.thresholds = $.thresholds;
         this.title = $.title;
         this.units = $.units;
         this.width = $.width;
         this.yAxisLeftMax = $.yAxisLeftMax;
         this.yAxisLeftMin = $.yAxisLeftMin;
         this.yAxisLeftZero = $.yAxisLeftZero;
+        this.yAxisRight = $.yAxisRight;
     }
 
     public static Builder builder() {
@@ -432,6 +482,27 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param isLabelVisible (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isLabelVisible(@Nullable Output<Boolean> isLabelVisible) {
+            $.isLabelVisible = isLabelVisible;
+            return this;
+        }
+
+        /**
+         * @param isLabelVisible (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isLabelVisible(Boolean isLabelVisible) {
+            return isLabelVisible(Output.of(isLabelVisible));
+        }
+
+        /**
          * @param legendEnabled (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
          * 
          * @return builder
@@ -533,6 +604,37 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
          */
         public Builder row(Integer row) {
             return row(Output.of(row));
+        }
+
+        /**
+         * @param thresholds (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholds(@Nullable Output<List<OneDashboardPageWidgetLineThresholdArgs>> thresholds) {
+            $.thresholds = thresholds;
+            return this;
+        }
+
+        /**
+         * @param thresholds (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholds(List<OneDashboardPageWidgetLineThresholdArgs> thresholds) {
+            return thresholds(Output.of(thresholds));
+        }
+
+        /**
+         * @param thresholds (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholds(OneDashboardPageWidgetLineThresholdArgs... thresholds) {
+            return thresholds(List.of(thresholds));
         }
 
         /**
@@ -657,6 +759,27 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
          */
         public Builder yAxisLeftZero(Boolean yAxisLeftZero) {
             return yAxisLeftZero(Output.of(yAxisLeftZero));
+        }
+
+        /**
+         * @param yAxisRight (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yAxisRight(@Nullable Output<OneDashboardPageWidgetLineYAxisRightArgs> yAxisRight) {
+            $.yAxisRight = yAxisRight;
+            return this;
+        }
+
+        /**
+         * @param yAxisRight (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder yAxisRight(OneDashboardPageWidgetLineYAxisRightArgs yAxisRight) {
+            return yAxisRight(Output.of(yAxisRight));
         }
 
         public OneDashboardPageWidgetLineArgs build() {

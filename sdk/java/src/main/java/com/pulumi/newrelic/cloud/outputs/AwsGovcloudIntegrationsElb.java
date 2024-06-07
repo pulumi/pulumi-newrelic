@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AwsGovcloudIntegrationsElb {
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -30,16 +30,14 @@ public final class AwsGovcloudIntegrationsElb {
      */
     private @Nullable Boolean fetchTags;
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     private @Nullable Integer metricsPollingInterval;
 
     private AwsGovcloudIntegrationsElb() {}
     /**
-     * @return Specify each AWS region that includes the resources that you want to monitor.
+     * @return Specify each AWS region that includes the resources that you want to monitor
      * 
      */
     public List<String> awsRegions() {
@@ -60,9 +58,7 @@ public final class AwsGovcloudIntegrationsElb {
         return Optional.ofNullable(this.fetchTags);
     }
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Some integration types support an additional set of arguments:
+     * @return The data polling interval in seconds
      * 
      */
     public Optional<Integer> metricsPollingInterval() {

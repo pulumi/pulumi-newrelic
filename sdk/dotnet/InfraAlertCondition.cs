@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +24,15 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.AlertPolicy("foo");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///     });
     /// 
-    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new()
+    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("high_disk_usage", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "High disk usage",
     ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
     ///         Type = "infra_metric",
     ///         Event = "StorageSample",
@@ -50,9 +53,10 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new()
+    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("high_db_conn_count", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "High database connection count",
     ///         Description = "Critical alert when the number of database connections goes above 90",
     ///         Type = "infra_metric",
     ///         Event = "DatastoreSample",
@@ -68,9 +72,10 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new()
+    ///     var processNotRunning = new NewRelic.InfraAlertCondition("process_not_running", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "Process not running (/usr/bin/ruby)",
     ///         Description = "Critical alert when ruby isn't running",
     ///         Type = "infra_process_running",
     ///         Comparison = "equal",
@@ -83,9 +88,10 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new()
+    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("host_not_reporting", new()
     ///     {
     ///         PolicyId = foo.Id,
+    ///         Name = "Host not reporting",
     ///         Description = "Critical alert when the host is not reporting",
     ///         Type = "infra_host_not_reporting",
     ///         Where = "(hostname LIKE '%frontend%')",
@@ -97,7 +103,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Thresholds
     /// 
@@ -111,7 +116,6 @@ namespace Pulumi.NewRelic
     /// 
     /// Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,11 +124,15 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("fooInfraAlertCondition", new()
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo policy",
+    ///     });
+    /// 
+    ///     var fooInfraAlertCondition = new NewRelic.InfraAlertCondition("foo", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo infra condition",
     ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
     ///         Type = "infra_metric",
     ///         Event = "StorageSample",
@@ -145,7 +153,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooInfraAlertCondition.EntityGuid,
     ///         Tags = new[]
@@ -172,7 +180,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -243,7 +250,7 @@ namespace Pulumi.NewRelic
         /// The ID of the alert policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
@@ -278,17 +285,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
@@ -300,7 +299,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.InfraAlertConditionWarning?> Warning { get; private set; } = null!;
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Output("where")]
         public Output<string?> Where { get; private set; } = null!;
@@ -397,7 +396,7 @@ namespace Pulumi.NewRelic
         /// The ID of the alert policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
@@ -426,17 +425,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -448,7 +439,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionWarningArgs>? Warning { get; set; }
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }
@@ -519,7 +510,7 @@ namespace Pulumi.NewRelic
         /// The ID of the alert policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
@@ -554,17 +545,9 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -576,7 +559,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionWarningGetArgs>? Warning { get; set; }
 
         /// <summary>
-        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }

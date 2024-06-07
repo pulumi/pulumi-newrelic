@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// ## Import
     /// 
+    /// ~&gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
+    /// 
     /// Destination id can be found in the Destinations page -&gt; three dots at the right of the chosen destination -&gt; copy destination id to clipboard.
     /// 
     /// This example is especially useful for slack destinations which *must* be imported.
@@ -29,16 +31,16 @@ namespace Pulumi.NewRelic
     /// ```
     /// 
     /// 3. Run the following command after the import successfully done and copy the information to your resource:
+    ///    
+    ///    `terraform state show newrelic_notification_destination.foo`
     /// 
-    /// `terraform state show newrelic_notification_destination.foo`
-    /// 
-    /// 4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+    /// 4. Add `ignore_changes` attribute on `all` in your imported resource:
     /// 
     /// terraform
     /// 
     /// lifecycle {
     /// 
-    ///     ignore_changes = [auth_token]
+    ///     ignore_changes = all
     /// 
     ///   }
     /// 
@@ -50,7 +52,7 @@ namespace Pulumi.NewRelic
     /// 
     ///   lifecycle {
     /// 
-    ///     ignore_changes = [auth_token]
+    ///     ignore_changes = all
     /// 
     ///   }
     /// 
@@ -83,7 +85,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the destination is active.
@@ -96,6 +98,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("authBasic")]
         public Output<Outputs.NotificationDestinationAuthBasic?> AuthBasic { get; private set; } = null!;
+
+        /// <summary>
+        /// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// </summary>
+        [Output("authCustomHeaders")]
+        public Output<ImmutableArray<Outputs.NotificationDestinationAuthCustomHeader>> AuthCustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -126,6 +134,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("properties")]
         public Output<ImmutableArray<Outputs.NotificationDestinationProperty>> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        /// </summary>
+        [Output("secureUrl")]
+        public Output<Outputs.NotificationDestinationSecureUrl?> SecureUrl { get; private set; } = null!;
 
         /// <summary>
         /// The status of the destination.
@@ -190,7 +204,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the destination is active.
@@ -203,6 +217,18 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("authBasic")]
         public Input<Inputs.NotificationDestinationAuthBasicArgs>? AuthBasic { get; set; }
+
+        [Input("authCustomHeaders")]
+        private InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs>? _authCustomHeaders;
+
+        /// <summary>
+        /// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// </summary>
+        public InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs> AuthCustomHeaders
+        {
+            get => _authCustomHeaders ?? (_authCustomHeaders = new InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs>());
+            set => _authCustomHeaders = value;
+        }
 
         /// <summary>
         /// A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -229,6 +255,12 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
+        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        /// </summary>
+        [Input("secureUrl")]
+        public Input<Inputs.NotificationDestinationSecureUrlArgs>? SecureUrl { get; set; }
+
+        /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
         /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
@@ -247,7 +279,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the destination is active.
@@ -260,6 +292,18 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("authBasic")]
         public Input<Inputs.NotificationDestinationAuthBasicGetArgs>? AuthBasic { get; set; }
+
+        [Input("authCustomHeaders")]
+        private InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs>? _authCustomHeaders;
+
+        /// <summary>
+        /// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// </summary>
+        public InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs> AuthCustomHeaders
+        {
+            get => _authCustomHeaders ?? (_authCustomHeaders = new InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs>());
+            set => _authCustomHeaders = value;
+        }
 
         /// <summary>
         /// A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -296,6 +340,12 @@ namespace Pulumi.NewRelic
             get => _properties ?? (_properties = new InputList<Inputs.NotificationDestinationPropertyGetArgs>());
             set => _properties = value;
         }
+
+        /// <summary>
+        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        /// </summary>
+        [Input("secureUrl")]
+        public Input<Inputs.NotificationDestinationSecureUrlGetArgs>? SecureUrl { get; set; }
 
         /// <summary>
         /// The status of the destination.

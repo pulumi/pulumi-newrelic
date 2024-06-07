@@ -17,14 +17,14 @@ __all__ = ['OneDashboardRawArgs', 'OneDashboardRaw']
 class OneDashboardRawArgs:
     def __init__(__self__, *,
                  pages: pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OneDashboardRaw resource.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`. Defaults to `public_read_only`.
@@ -53,14 +53,14 @@ class OneDashboardRawArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -103,7 +103,7 @@ class OneDashboardRawArgs:
 @pulumi.input_type
 class _OneDashboardRawState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class _OneDashboardRawState:
                  permissions: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OneDashboardRaw resources.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
         :param pulumi.Input[str] name: The title of the dashboard.
@@ -137,14 +137,14 @@ class _OneDashboardRawState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -225,7 +225,7 @@ class OneDashboardRaw(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardRawPageArgs']]]]] = None,
@@ -238,23 +238,24 @@ class OneDashboardRaw(pulumi.CustomResource):
 
         ### Create A New Relic One Dashboard With RawConfiguration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_newrelic as newrelic
 
-        exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
-            name="Page Name",
-            widgets=[
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Custom widget",
-                    row=1,
-                    column=1,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.custom",
-                    configuration=\"\"\"      {
+        exampledash = newrelic.OneDashboardRaw("exampledash",
+            name="New Relic Terraform Example",
+            pages=[newrelic.OneDashboardRawPageArgs(
+                name="Page Name",
+                widgets=[
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Custom widget",
+                        row=1,
+                        column=1,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.custom",
+                        configuration=\"\"\"      {
                 "legend": {
                   "enabled": false
                 },
@@ -271,15 +272,15 @@ class OneDashboardRaw(pulumi.CustomResource):
                 }
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Server CPU",
-                    row=1,
-                    column=2,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.testing",
-                    configuration=\"\"\"      {
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Server CPU",
+                        row=1,
+                        column=2,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.testing",
+                        configuration=\"\"\"      {
                 "nrqlQueries": [
                   {
                     "accountId": ` + accountID + `,
@@ -288,33 +289,32 @@ class OneDashboardRaw(pulumi.CustomResource):
                 ]
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Docker Server CPU",
-                    row=1,
-                    column=3,
-                    height=1,
-                    width=1,
-                    visualization_id="viz.bar",
-                    configuration=json.dumps({
-                        "facet": {
-                            "showOtherSeries": False,
-                        },
-                        "nrqlQueries": [{
-                            "accountId": local["accountID"],
-                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
-                        }],
-                    }),
-                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
-                ),
-            ],
-        )])
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Docker Server CPU",
+                        row=1,
+                        column=3,
+                        height=1,
+                        width=1,
+                        visualization_id="viz.bar",
+                        configuration=json.dumps({
+                            "facet": {
+                                "showOtherSeries": False,
+                            },
+                            "nrqlQueries": [{
+                                "accountId": account_id,
+                                "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                            }],
+                        }),
+                        linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+                    ),
+                ],
+            )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardRawPageArgs']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
@@ -333,23 +333,24 @@ class OneDashboardRaw(pulumi.CustomResource):
 
         ### Create A New Relic One Dashboard With RawConfiguration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_newrelic as newrelic
 
-        exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
-            name="Page Name",
-            widgets=[
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Custom widget",
-                    row=1,
-                    column=1,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.custom",
-                    configuration=\"\"\"      {
+        exampledash = newrelic.OneDashboardRaw("exampledash",
+            name="New Relic Terraform Example",
+            pages=[newrelic.OneDashboardRawPageArgs(
+                name="Page Name",
+                widgets=[
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Custom widget",
+                        row=1,
+                        column=1,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.custom",
+                        configuration=\"\"\"      {
                 "legend": {
                   "enabled": false
                 },
@@ -366,15 +367,15 @@ class OneDashboardRaw(pulumi.CustomResource):
                 }
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Server CPU",
-                    row=1,
-                    column=2,
-                    width=1,
-                    height=1,
-                    visualization_id="viz.testing",
-                    configuration=\"\"\"      {
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Server CPU",
+                        row=1,
+                        column=2,
+                        width=1,
+                        height=1,
+                        visualization_id="viz.testing",
+                        configuration=\"\"\"      {
                 "nrqlQueries": [
                   {
                     "accountId": ` + accountID + `,
@@ -383,29 +384,28 @@ class OneDashboardRaw(pulumi.CustomResource):
                 ]
               }
         \"\"\",
-                ),
-                newrelic.OneDashboardRawPageWidgetArgs(
-                    title="Docker Server CPU",
-                    row=1,
-                    column=3,
-                    height=1,
-                    width=1,
-                    visualization_id="viz.bar",
-                    configuration=json.dumps({
-                        "facet": {
-                            "showOtherSeries": False,
-                        },
-                        "nrqlQueries": [{
-                            "accountId": local["accountID"],
-                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
-                        }],
-                    }),
-                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
-                ),
-            ],
-        )])
+                    ),
+                    newrelic.OneDashboardRawPageWidgetArgs(
+                        title="Docker Server CPU",
+                        row=1,
+                        column=3,
+                        height=1,
+                        width=1,
+                        visualization_id="viz.bar",
+                        configuration=json.dumps({
+                            "facet": {
+                                "showOtherSeries": False,
+                            },
+                            "nrqlQueries": [{
+                                "accountId": account_id,
+                                "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                            }],
+                        }),
+                        linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
+                    ),
+                ],
+            )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param OneDashboardRawArgs args: The arguments to use to populate this resource's properties.
@@ -422,7 +422,7 @@ class OneDashboardRaw(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardRawPageArgs']]]]] = None,
@@ -455,7 +455,7 @@ class OneDashboardRaw(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -469,7 +469,7 @@ class OneDashboardRaw(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
         :param pulumi.Input[str] name: The title of the dashboard.
@@ -492,7 +492,7 @@ class OneDashboardRaw(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """

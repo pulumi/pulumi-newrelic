@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -17,9 +16,10 @@ import * as utilities from "./utilities";
  * const txn = newrelic.getKeyTransaction({
  *     name: "txn",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_kt_metric",
  *     entities: [txn.then(txn => txn.id)],
  *     metric: "error_percentage",
@@ -33,7 +33,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
 
@@ -68,7 +67,6 @@ export interface GetKeyTransactionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -76,9 +74,10 @@ export interface GetKeyTransactionResult {
  * const txn = newrelic.getKeyTransaction({
  *     name: "txn",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_kt_metric",
  *     entities: [txn.then(txn => txn.id)],
  *     metric: "error_percentage",
@@ -92,7 +91,6 @@ export interface GetKeyTransactionResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyTransactionResult> {
     return pulumi.output(args).apply((a: any) => getKeyTransaction(a, opts))

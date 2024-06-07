@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +38,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
+//			_, err = newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
+//				PolicyId: foo.ID(),
+//				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
-//					pulumi.Int(app.ApplicationId),
+//				Entities: pulumi.StringArray{
+//					pulumi.String(app.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -70,7 +72,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Terms
 //
@@ -86,7 +87,6 @@ import (
 //
 // Manage alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,21 +99,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooEntity, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//			foo, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 //				Name: "foo entitiy",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+//			fooAlertCondition, err := newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
 //				PolicyId: fooAlertPolicy.ID(),
+//				Name:     pulumi.String("foo condition"),
 //				Type:     pulumi.String("apm_app_metric"),
-//				Entities: pulumi.IntArray{
-//					pulumi.Int(fooEntity.ApplicationId),
+//				Entities: pulumi.StringArray{
+//					pulumi.String(foo.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -131,7 +134,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
@@ -157,7 +160,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -174,7 +176,7 @@ type AlertCondition struct {
 	// Whether the condition is enabled or not. Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
-	Entities pulumi.IntArrayOutput `pulumi:"entities"`
+	Entities pulumi.StringArrayOutput `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
@@ -184,7 +186,7 @@ type AlertCondition struct {
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
@@ -196,22 +198,6 @@ type AlertCondition struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction pulumi.StringPtrOutput `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -269,7 +255,7 @@ type alertConditionState struct {
 	// Whether the condition is enabled or not. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
-	Entities []int `pulumi:"entities"`
+	Entities []string `pulumi:"entities"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
@@ -279,7 +265,7 @@ type alertConditionState struct {
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
@@ -291,22 +277,6 @@ type alertConditionState struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -320,7 +290,7 @@ type AlertConditionState struct {
 	// Whether the condition is enabled or not. Defaults to true.
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
-	Entities pulumi.IntArrayInput
+	Entities pulumi.StringArrayInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
@@ -330,7 +300,7 @@ type AlertConditionState struct {
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
@@ -342,22 +312,6 @@ type AlertConditionState struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -375,7 +329,7 @@ type alertConditionArgs struct {
 	// Whether the condition is enabled or not. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
-	Entities []int `pulumi:"entities"`
+	Entities []string `pulumi:"entities"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
@@ -383,7 +337,7 @@ type alertConditionArgs struct {
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
@@ -395,22 +349,6 @@ type alertConditionArgs struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction *string `pulumi:"userDefinedValueFunction"`
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -425,7 +363,7 @@ type AlertConditionArgs struct {
 	// Whether the condition is enabled or not. Defaults to true.
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
-	Entities pulumi.IntArrayInput
+	Entities pulumi.StringArrayInput
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
@@ -433,7 +371,7 @@ type AlertConditionArgs struct {
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
@@ -445,22 +383,6 @@ type AlertConditionArgs struct {
 	// One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 	//
 	// > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	UserDefinedValueFunction pulumi.StringPtrInput
 	// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
 	// * when `type` = `apmAppMetric` and `conditionScope` = `instance`
@@ -566,8 +488,8 @@ func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The instance IDs associated with this condition.
-func (o AlertConditionOutput) Entities() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *AlertCondition) pulumi.IntArrayOutput { return v.Entities }).(pulumi.IntArrayOutput)
+func (o AlertConditionOutput) Entities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringArrayOutput { return v.Entities }).(pulumi.StringArrayOutput)
 }
 
 // The unique entity identifier of the condition in New Relic.
@@ -591,8 +513,8 @@ func (o AlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the policy where this condition should be used.
-func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o AlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Runbook URL to display in notifications.
@@ -618,25 +540,6 @@ func (o AlertConditionOutput) UserDefinedMetric() pulumi.StringPtrOutput {
 // One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
 //
 // > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o AlertConditionOutput) UserDefinedValueFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedValueFunction }).(pulumi.StringPtrOutput)
 }

@@ -16,8 +16,8 @@ __all__ = ['AzureIntegrationsArgs', 'AzureIntegrations']
 @pulumi.input_type
 class AzureIntegrationsArgs:
     def __init__(__self__, *,
-                 linked_account_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
                  app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
                  app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
@@ -52,8 +52,11 @@ class AzureIntegrationsArgs:
                  vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None):
         """
         The set of arguments for constructing a AzureIntegrations resource.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
+               
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppGatewayArgs'] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
@@ -72,6 +75,8 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: Azure Monitor. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -82,14 +87,14 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsSqlArgs'] sql: Azure SQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsStorageArgs'] storage: for Azure Storage. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-               
-               Below argument supports the minimum metric polling interval of 3600 seconds
         :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: Azure VMs. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
                
-               Below arguments supports the minimum metric polling interval of 900 seconds
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
@@ -161,26 +166,29 @@ class AzureIntegrationsArgs:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Input[int]:
+    def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked Azure account in New Relic.
+
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: pulumi.Input[int]):
+    def linked_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -392,6 +400,8 @@ class AzureIntegrationsArgs:
     def monitor(self) -> Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]:
         """
         Azure Monitor. See Integration blocks below for details.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "monitor")
 
@@ -512,6 +522,8 @@ class AzureIntegrationsArgs:
     def storage(self) -> Optional[pulumi.Input['AzureIntegrationsStorageArgs']]:
         """
         for Azure Storage. See Integration blocks below for details.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         """
         return pulumi.get(self, "storage")
 
@@ -536,8 +548,6 @@ class AzureIntegrationsArgs:
     def virtual_networks(self) -> Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']]:
         """
         for Azure Virtual networks. See Integration blocks below for details.
-
-        Below argument supports the minimum metric polling interval of 3600 seconds
         """
         return pulumi.get(self, "virtual_networks")
 
@@ -563,7 +573,7 @@ class AzureIntegrationsArgs:
         """
         Azure VPN Gateway. See Integration blocks below for details.
 
-        Below arguments supports the minimum metric polling interval of 900 seconds
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         return pulumi.get(self, "vpn_gateway")
 
@@ -575,7 +585,7 @@ class AzureIntegrationsArgs:
 @pulumi.input_type
 class _AzureIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
                  app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
                  app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
@@ -589,7 +599,7 @@ class _AzureIntegrationsState:
                  front_door: Optional[pulumi.Input['AzureIntegrationsFrontDoorArgs']] = None,
                  functions: Optional[pulumi.Input['AzureIntegrationsFunctionsArgs']] = None,
                  key_vault: Optional[pulumi.Input['AzureIntegrationsKeyVaultArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancer: Optional[pulumi.Input['AzureIntegrationsLoadBalancerArgs']] = None,
                  logic_apps: Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']] = None,
                  machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
@@ -611,7 +621,7 @@ class _AzureIntegrationsState:
                  vpn_gateway: Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']] = None):
         """
         Input properties used for looking up and filtering AzureIntegrations resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppGatewayArgs'] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
@@ -625,12 +635,17 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsFrontDoorArgs'] front_door: Azure Front Door. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsFunctionsArgs'] functions: Azure Functions. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
+               
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMonitorArgs'] monitor: Azure Monitor. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -641,14 +656,14 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsSqlArgs'] sql: Azure SQL. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsStorageArgs'] storage: for Azure Storage. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-               
-               Below argument supports the minimum metric polling interval of 3600 seconds
         :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: Azure VMs. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
                
-               Below arguments supports the minimum metric polling interval of 900 seconds
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -721,14 +736,14 @@ class _AzureIntegrationsState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -889,14 +904,17 @@ class _AzureIntegrationsState:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[int]]:
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the linked Azure account in New Relic.
+
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[int]]):
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
@@ -952,6 +970,8 @@ class _AzureIntegrationsState:
     def monitor(self) -> Optional[pulumi.Input['AzureIntegrationsMonitorArgs']]:
         """
         Azure Monitor. See Integration blocks below for details.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "monitor")
 
@@ -1072,6 +1092,8 @@ class _AzureIntegrationsState:
     def storage(self) -> Optional[pulumi.Input['AzureIntegrationsStorageArgs']]:
         """
         for Azure Storage. See Integration blocks below for details.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         """
         return pulumi.get(self, "storage")
 
@@ -1096,8 +1118,6 @@ class _AzureIntegrationsState:
     def virtual_networks(self) -> Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']]:
         """
         for Azure Virtual networks. See Integration blocks below for details.
-
-        Below argument supports the minimum metric polling interval of 3600 seconds
         """
         return pulumi.get(self, "virtual_networks")
 
@@ -1123,7 +1143,7 @@ class _AzureIntegrationsState:
         """
         Azure VPN Gateway. See Integration blocks below for details.
 
-        Below arguments supports the minimum metric polling interval of 900 seconds
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         return pulumi.get(self, "vpn_gateway")
 
@@ -1137,7 +1157,7 @@ class AzureIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']]] = None,
                  app_gateway: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']]] = None,
                  app_service: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']]] = None,
@@ -1151,7 +1171,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  front_door: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']]] = None,
                  functions: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']]] = None,
                  key_vault: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancer: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']]] = None,
                  logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
@@ -1187,38 +1207,38 @@ class AzureIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
+        foo = newrelic.cloud.AzureLinkAccount("foo",
             account_id="The New Relic account ID where you want to link the Azure account",
             application_id="ID of the application",
             client_secret="Secret value of client's Azure account",
             subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
-            linked_account_id=foo_azure_link_account.id,
+            tenant_id="Tenant ID of the Azure",
+            name="Name of the linked account")
+        foo_azure_integrations = newrelic.cloud.AzureIntegrations("foo",
+            linked_account_id=foo.id,
             account_id="The New Relic account ID",
             api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             app_gateway=newrelic.cloud.AzureIntegrationsAppGatewayArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             app_service=newrelic.cloud.AzureIntegrationsAppServiceArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             containers=newrelic.cloud.AzureIntegrationsContainersArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             cosmos_db=newrelic.cloud.AzureIntegrationsCosmosDbArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             cost_management=newrelic.cloud.AzureIntegrationsCostManagementArgs(
@@ -1226,51 +1246,51 @@ class AzureIntegrations(pulumi.CustomResource):
                 tag_keys=["tag_keys"],
             ),
             data_factory=newrelic.cloud.AzureIntegrationsDataFactoryArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             firewalls=newrelic.cloud.AzureIntegrationsFirewallsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             front_door=newrelic.cloud.AzureIntegrationsFrontDoorArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             functions=newrelic.cloud.AzureIntegrationsFunctionsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             key_vault=newrelic.cloud.AzureIntegrationsKeyVaultArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             load_balancer=newrelic.cloud.AzureIntegrationsLoadBalancerArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             logic_apps=newrelic.cloud.AzureIntegrationsLogicAppsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             machine_learning=newrelic.cloud.AzureIntegrationsMachineLearningArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             maria_db=newrelic.cloud.AzureIntegrationsMariaDbArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             monitor=newrelic.cloud.AzureIntegrationsMonitorArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=60,
                 resource_groups=["resource_groups"],
                 include_tags=["env:production"],
                 exclude_tags=[
@@ -1281,63 +1301,62 @@ class AzureIntegrations(pulumi.CustomResource):
                 resource_types=["microsoft.datashare/accounts"],
             ),
             mysql=newrelic.cloud.AzureIntegrationsMysqlArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             mysql_flexible=newrelic.cloud.AzureIntegrationsMysqlFlexibleArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             postgresql=newrelic.cloud.AzureIntegrationsPostgresqlArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             postgresql_flexible=newrelic.cloud.AzureIntegrationsPostgresqlFlexibleArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             power_bi_dedicated=newrelic.cloud.AzureIntegrationsPowerBiDedicatedArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             redis_cache=newrelic.cloud.AzureIntegrationsRedisCacheArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             service_bus=newrelic.cloud.AzureIntegrationsServiceBusArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             sql=newrelic.cloud.AzureIntegrationsSqlArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             sql_managed=newrelic.cloud.AzureIntegrationsSqlManagedArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             storage=newrelic.cloud.AzureIntegrationsStorageArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=1800,
                 resource_groups=["resource_groups"],
             ),
             virtual_machine=newrelic.cloud.AzureIntegrationsVirtualMachineArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             virtual_networks=newrelic.cloud.AzureIntegrationsVirtualNetworksArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             vms=newrelic.cloud.AzureIntegrationsVmsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             vpn_gateway=newrelic.cloud.AzureIntegrationsVpnGatewayArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1351,7 +1370,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']] app_service: Azure App Service. See Integration blocks below for details.
@@ -1365,12 +1384,17 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: Azure Front Door. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: Azure Functions. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
+               
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: Azure Monitor. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -1381,14 +1405,14 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlArgs']] sql: Azure SQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsStorageArgs']] storage: for Azure Storage. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-               
-               Below argument supports the minimum metric polling interval of 3600 seconds
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: Azure VMs. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
                
-               Below arguments supports the minimum metric polling interval of 900 seconds
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         ...
     @overload
@@ -1411,38 +1435,38 @@ class AzureIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_azure_link_account = newrelic.cloud.AzureLinkAccount("fooAzureLinkAccount",
+        foo = newrelic.cloud.AzureLinkAccount("foo",
             account_id="The New Relic account ID where you want to link the Azure account",
             application_id="ID of the application",
             client_secret="Secret value of client's Azure account",
             subscription_id="Subscription ID of Azure",
-            tenant_id="Tenant ID of the Azure")
-        foo_azure_integrations = newrelic.cloud.AzureIntegrations("fooAzureIntegrations",
-            linked_account_id=foo_azure_link_account.id,
+            tenant_id="Tenant ID of the Azure",
+            name="Name of the linked account")
+        foo_azure_integrations = newrelic.cloud.AzureIntegrations("foo",
+            linked_account_id=foo.id,
             account_id="The New Relic account ID",
             api_management=newrelic.cloud.AzureIntegrationsApiManagementArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             app_gateway=newrelic.cloud.AzureIntegrationsAppGatewayArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             app_service=newrelic.cloud.AzureIntegrationsAppServiceArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             containers=newrelic.cloud.AzureIntegrationsContainersArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             cosmos_db=newrelic.cloud.AzureIntegrationsCosmosDbArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             cost_management=newrelic.cloud.AzureIntegrationsCostManagementArgs(
@@ -1450,51 +1474,51 @@ class AzureIntegrations(pulumi.CustomResource):
                 tag_keys=["tag_keys"],
             ),
             data_factory=newrelic.cloud.AzureIntegrationsDataFactoryArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             firewalls=newrelic.cloud.AzureIntegrationsFirewallsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             front_door=newrelic.cloud.AzureIntegrationsFrontDoorArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             functions=newrelic.cloud.AzureIntegrationsFunctionsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             key_vault=newrelic.cloud.AzureIntegrationsKeyVaultArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             load_balancer=newrelic.cloud.AzureIntegrationsLoadBalancerArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             logic_apps=newrelic.cloud.AzureIntegrationsLogicAppsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             machine_learning=newrelic.cloud.AzureIntegrationsMachineLearningArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             maria_db=newrelic.cloud.AzureIntegrationsMariaDbArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             monitor=newrelic.cloud.AzureIntegrationsMonitorArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=60,
                 resource_groups=["resource_groups"],
                 include_tags=["env:production"],
                 exclude_tags=[
@@ -1505,63 +1529,62 @@ class AzureIntegrations(pulumi.CustomResource):
                 resource_types=["microsoft.datashare/accounts"],
             ),
             mysql=newrelic.cloud.AzureIntegrationsMysqlArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             mysql_flexible=newrelic.cloud.AzureIntegrationsMysqlFlexibleArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             postgresql=newrelic.cloud.AzureIntegrationsPostgresqlArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             postgresql_flexible=newrelic.cloud.AzureIntegrationsPostgresqlFlexibleArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=3600,
                 resource_groups=["resource_groups"],
             ),
             power_bi_dedicated=newrelic.cloud.AzureIntegrationsPowerBiDedicatedArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             redis_cache=newrelic.cloud.AzureIntegrationsRedisCacheArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             service_bus=newrelic.cloud.AzureIntegrationsServiceBusArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             sql=newrelic.cloud.AzureIntegrationsSqlArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             sql_managed=newrelic.cloud.AzureIntegrationsSqlManagedArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             storage=newrelic.cloud.AzureIntegrationsStorageArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=1800,
                 resource_groups=["resource_groups"],
             ),
             virtual_machine=newrelic.cloud.AzureIntegrationsVirtualMachineArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             virtual_networks=newrelic.cloud.AzureIntegrationsVirtualNetworksArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             vms=newrelic.cloud.AzureIntegrationsVmsArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ),
             vpn_gateway=newrelic.cloud.AzureIntegrationsVpnGatewayArgs(
-                metrics_polling_interval=1200,
+                metrics_polling_interval=300,
                 resource_groups=["resource_groups"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1588,7 +1611,7 @@ class AzureIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  api_management: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']]] = None,
                  app_gateway: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']]] = None,
                  app_service: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']]] = None,
@@ -1602,7 +1625,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  front_door: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']]] = None,
                  functions: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']]] = None,
                  key_vault: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancer: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']]] = None,
                  logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
@@ -1677,7 +1700,7 @@ class AzureIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             api_management: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']]] = None,
             app_gateway: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']]] = None,
             app_service: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']]] = None,
@@ -1691,7 +1714,7 @@ class AzureIntegrations(pulumi.CustomResource):
             front_door: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']]] = None,
             functions: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']]] = None,
             key_vault: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']]] = None,
-            linked_account_id: Optional[pulumi.Input[int]] = None,
+            linked_account_id: Optional[pulumi.Input[str]] = None,
             load_balancer: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']]] = None,
             logic_apps: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']]] = None,
             machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
@@ -1718,7 +1741,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsApiManagementArgs']] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppGatewayArgs']] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsAppServiceArgs']] app_service: Azure App Service. See Integration blocks below for details.
@@ -1732,12 +1755,17 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: Azure Front Door. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: Azure Functions. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
+               
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMonitorArgs']] monitor: Azure Monitor. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
@@ -1748,14 +1776,14 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlArgs']] sql: Azure SQL. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsStorageArgs']] storage: for Azure Storage. See Integration blocks below for details.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-               
-               Below argument supports the minimum metric polling interval of 3600 seconds
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: Azure VMs. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
                
-               Below arguments supports the minimum metric polling interval of 900 seconds
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1799,7 +1827,7 @@ class AzureIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -1911,9 +1939,12 @@ class AzureIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Output[int]:
+    def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked Azure account in New Relic.
+
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
         return pulumi.get(self, "linked_account_id")
 
@@ -1954,6 +1985,8 @@ class AzureIntegrations(pulumi.CustomResource):
     def monitor(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMonitor']]:
         """
         Azure Monitor. See Integration blocks below for details.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "monitor")
 
@@ -2034,6 +2067,8 @@ class AzureIntegrations(pulumi.CustomResource):
     def storage(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsStorage']]:
         """
         for Azure Storage. See Integration blocks below for details.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         """
         return pulumi.get(self, "storage")
 
@@ -2050,8 +2085,6 @@ class AzureIntegrations(pulumi.CustomResource):
     def virtual_networks(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsVirtualNetworks']]:
         """
         for Azure Virtual networks. See Integration blocks below for details.
-
-        Below argument supports the minimum metric polling interval of 3600 seconds
         """
         return pulumi.get(self, "virtual_networks")
 
@@ -2069,7 +2102,7 @@ class AzureIntegrations(pulumi.CustomResource):
         """
         Azure VPN Gateway. See Integration blocks below for details.
 
-        Below arguments supports the minimum metric polling interval of 900 seconds
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         """
         return pulumi.get(self, "vpn_gateway")
 

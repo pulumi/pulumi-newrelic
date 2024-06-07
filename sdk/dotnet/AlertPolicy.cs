@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,12 +26,12 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
+    ///         Name = "example",
     ///         IncidentPreference = "PER_POLICY",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Provision multiple notification channels and add those channels to a policy
     /// 
@@ -49,7 +48,6 @@ namespace Pulumi.NewRelic
     /// ## Additional Examples
     /// 
     /// ##### Provision multiple notification channels and add those channels to a policy
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,8 +57,9 @@ namespace Pulumi.NewRelic
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Provision a Slack notification channel.
-    ///     var slackChannel = new NewRelic.AlertChannel("slackChannel", new()
+    ///     var slackChannel = new NewRelic.AlertChannel("slack_channel", new()
     ///     {
+    ///         Name = "slack-example",
     ///         Type = "slack",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -70,8 +69,9 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Provision an email notification channel.
-    ///     var emailChannel = new NewRelic.AlertChannel("emailChannel", new()
+    ///     var emailChannel = new NewRelic.AlertChannel("email_channel", new()
     ///     {
+    ///         Name = "email-example",
     ///         Type = "email",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -81,8 +81,9 @@ namespace Pulumi.NewRelic
     ///     });
     /// 
     ///     // Provision the alert policy.
-    ///     var policyWithChannels = new NewRelic.AlertPolicy("policyWithChannels", new()
+    ///     var policyWithChannels = new NewRelic.AlertPolicy("policy_with_channels", new()
     ///     {
+    ///         Name = "example-with-channels",
     ///         IncidentPreference = "PER_CONDITION",
     ///         ChannelIds = new[]
     ///         {
@@ -93,10 +94,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Reference existing notification channels and add those channel to a policy
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,19 +104,22 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Reference an existing Slack notification channel.
     ///     var slackChannel = NewRelic.GetAlertChannel.Invoke(new()
     ///     {
     ///         Name = "slack-channel-notification",
     ///     });
     /// 
+    ///     // Reference an existing email notification channel.
     ///     var emailChannel = NewRelic.GetAlertChannel.Invoke(new()
     ///     {
     ///         Name = "test@example.com",
     ///     });
     /// 
     ///     // Provision the alert policy.
-    ///     var policyWithChannels = new NewRelic.AlertPolicy("policyWithChannels", new()
+    ///     var policyWithChannels = new NewRelic.AlertPolicy("policy_with_channels", new()
     ///     {
+    ///         Name = "example-with-channels",
     ///         IncidentPreference = "PER_CONDITION",
     ///         ChannelIds = new[]
     ///         {
@@ -128,7 +130,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -148,13 +149,13 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         /// </summary>
         [Output("channelIds")]
-        public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ChannelIds { get; private set; } = null!;
 
         /// <summary>
         /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
@@ -218,18 +219,18 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
-        private InputList<int>? _channelIds;
+        private InputList<string>? _channelIds;
 
         /// <summary>
         /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         /// </summary>
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
-        public InputList<int> ChannelIds
+        public InputList<string> ChannelIds
         {
-            get => _channelIds ?? (_channelIds = new InputList<int>());
+            get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
 
@@ -257,18 +258,18 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         [Input("channelIds")]
-        private InputList<int>? _channelIds;
+        private InputList<string>? _channelIds;
 
         /// <summary>
         /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         /// </summary>
         [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
-        public InputList<int> ChannelIds
+        public InputList<string> ChannelIds
         {
-            get => _channelIds ?? (_channelIds = new InputList<int>());
+            get => _channelIds ?? (_channelIds = new InputList<string>());
             set => _channelIds = value;
         }
 

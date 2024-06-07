@@ -11,7 +11,6 @@ import com.pulumi.newrelic.DataPartitionRuleArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.DataPartitionRuleState;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +43,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DataPartitionRule(&#34;foo&#34;, DataPartitionRuleArgs.builder()        
- *             .description(&#34;description&#34;)
+ *         var foo = new DataPartitionRule("foo", DataPartitionRuleArgs.builder()
+ *             .description("description")
  *             .enabled(true)
- *             .nrql(&#34;logtype=&#39;node&#39;&#34;)
- *             .retentionPolicy(&#34;STANDARD&#34;)
- *             .targetDataPartition(&#34;Log_name&#34;)
+ *             .nrql("logtype='node'")
+ *             .retentionPolicy("STANDARD")
+ *             .targetDataPartition("Log_name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Additional Information
@@ -77,14 +78,14 @@ public class DataPartitionRule extends com.pulumi.resources.CustomResource {
      * The account id associated with the data partition rule.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return The account id associated with the data partition rule.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

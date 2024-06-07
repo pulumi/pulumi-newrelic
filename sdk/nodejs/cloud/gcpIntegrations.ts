@@ -19,96 +19,97 @@ import * as utilities from "../utilities";
  *
  * Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.cloud.GcpLinkAccount("foo", {projectId: "<Your GCP project ID>"});
+ * const foo = new newrelic.cloud.GcpLinkAccount("foo", {
+ *     name: "example",
+ *     projectId: "<Your GCP project ID>",
+ * });
  * const foo1 = new newrelic.cloud.GcpIntegrations("foo1", {
  *     linkedAccountId: foo.id,
  *     appEngine: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     bigQuery: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     bigTable: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     composer: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     dataFlow: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     dataProc: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     dataStore: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireBaseDatabase: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireBaseHosting: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireBaseStorage: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     fireStore: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     functions: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     interconnect: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     kubernetes: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     loadBalancing: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     memCache: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     pubSub: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     redis: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     router: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     run: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     spanner: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     sql: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     storage: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *         fetchTags: true,
  *     },
  *     virtualMachines: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  *     vpcAccess: {
- *         metricsPollingInterval: 400,
+ *         metricsPollingInterval: 300,
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -151,7 +152,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
@@ -214,8 +215,10 @@ export class GcpIntegrations extends pulumi.CustomResource {
     public readonly kubernetes!: pulumi.Output<outputs.cloud.GcpIntegrationsKubernetes | undefined>;
     /**
      * The ID of the linked GCP account in New Relic.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
@@ -348,7 +351,7 @@ export interface GcpIntegrationsState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
@@ -411,8 +414,10 @@ export interface GcpIntegrationsState {
     kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes>;
     /**
      * The ID of the linked GCP account in New Relic.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
@@ -466,7 +471,7 @@ export interface GcpIntegrationsArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
@@ -529,8 +534,10 @@ export interface GcpIntegrationsArgs {
     kubernetes?: pulumi.Input<inputs.cloud.GcpIntegrationsKubernetes>;
     /**
      * The ID of the linked GCP account in New Relic.
+     *
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */

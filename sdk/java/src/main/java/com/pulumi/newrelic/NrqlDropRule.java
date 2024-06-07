@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.NrqlDropRuleArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.NrqlDropRuleState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,30 +40,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new NrqlDropRule(&#34;foo&#34;, NrqlDropRuleArgs.builder()        
+ *         var foo = new NrqlDropRule("foo", NrqlDropRuleArgs.builder()
  *             .accountId(12345)
- *             .action(&#34;drop_data&#34;)
- *             .description(&#34;Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.&#34;)
- *             .nrql(&#34;SELECT * FROM MyCustomEvent WHERE appName=&#39;LoadGeneratingApp&#39; AND environment=&#39;development&#39;&#34;)
+ *             .description("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.")
+ *             .action("drop_data")
+ *             .nrql("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'")
  *             .build());
  * 
- *         var bar = new NrqlDropRule(&#34;bar&#34;, NrqlDropRuleArgs.builder()        
+ *         var bar = new NrqlDropRule("bar", NrqlDropRuleArgs.builder()
  *             .accountId(12345)
- *             .action(&#34;drop_attributes&#34;)
- *             .description(&#34;Removes the user name and email fields from MyCustomEvent&#34;)
- *             .nrql(&#34;SELECT userEmail, userName FROM MyCustomEvent&#34;)
+ *             .description("Removes the user name and email fields from MyCustomEvent")
+ *             .action("drop_attributes")
+ *             .nrql("SELECT userEmail, userName FROM MyCustomEvent")
  *             .build());
  * 
- *         var baz = new NrqlDropRule(&#34;baz&#34;, NrqlDropRuleArgs.builder()        
+ *         var baz = new NrqlDropRule("baz", NrqlDropRuleArgs.builder()
  *             .accountId(12345)
- *             .action(&#34;drop_attributes_from_metric_aggregates&#34;)
- *             .description(&#34;Removes containerId from metric aggregates to reduce metric cardinality.&#34;)
- *             .nrql(&#34;SELECT containerId FROM Metric&#34;)
+ *             .description("Removes containerId from metric aggregates to reduce metric cardinality.")
+ *             .action("drop_attributes_from_metric_aggregates")
+ *             .nrql("SELECT containerId FROM Metric")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Using `newrelic-cli` to List Out Drop Rules
@@ -96,14 +97,14 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account where the drop rule will be put. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -106,14 +106,14 @@ class AccountManagement(pulumi.CustomResource):
         ## Example Usage
 
         ##### Create Account
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AccountManagement("foo", region="us01")
+        foo = newrelic.AccountManagement("foo",
+            name="Test Account Name",
+            region="us01")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -144,14 +144,14 @@ class AccountManagement(pulumi.CustomResource):
         ## Example Usage
 
         ##### Create Account
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.AccountManagement("foo", region="us01")
+        foo = newrelic.AccountManagement("foo",
+            name="Test Account Name",
+            region="us01")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

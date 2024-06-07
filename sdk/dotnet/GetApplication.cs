@@ -18,7 +18,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,11 +31,15 @@ namespace Pulumi.NewRelic
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-        /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
         ///     {
-        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
         ///         Type = "apm_app_metric",
         ///         Entities = new[]
         ///         {
@@ -59,7 +62,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -71,7 +73,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,11 +86,15 @@ namespace Pulumi.NewRelic
         ///         Name = "my-app",
         ///     });
         /// 
-        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-        /// 
-        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
         ///     {
-        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
         ///         Type = "apm_app_metric",
         ///         Entities = new[]
         ///         {
@@ -112,7 +117,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -154,7 +158,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A list of host IDs associated with the application.
         /// </summary>
-        public readonly ImmutableArray<int> HostIds;
+        public readonly ImmutableArray<string> HostIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -162,16 +166,16 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A list of instance IDs associated with the application.
         /// </summary>
-        public readonly ImmutableArray<int> InstanceIds;
+        public readonly ImmutableArray<string> InstanceIds;
         public readonly string Name;
 
         [OutputConstructor]
         private GetApplicationResult(
-            ImmutableArray<int> hostIds,
+            ImmutableArray<string> hostIds,
 
             string id,
 
-            ImmutableArray<int> instanceIds,
+            ImmutableArray<string> instanceIds,
 
             string name)
         {

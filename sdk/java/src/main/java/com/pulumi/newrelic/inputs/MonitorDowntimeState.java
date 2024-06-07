@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.MonitorDowntimeEndRepeatArgs;
 import com.pulumi.newrelic.inputs.MonitorDowntimeFrequencyArgs;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,29 +19,31 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     public static final MonitorDowntimeState Empty = new MonitorDowntimeState();
 
     /**
-     * The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+     * provider{} configuration if not specified.
      * 
      */
     @Import(name="accountId")
-    private @Nullable Output<Integer> accountId;
+    private @Nullable Output<String> accountId;
 
     /**
-     * @return The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+     * provider{} configuration if not specified.
      * 
      */
-    public Optional<Output<Integer>> accountId() {
+    public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
     /**
-     * Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+     * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      * 
      */
     @Import(name="endRepeat")
     private @Nullable Output<MonitorDowntimeEndRepeatArgs> endRepeat;
 
     /**
-     * @return Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+     * @return A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      * 
      */
     public Optional<Output<MonitorDowntimeEndRepeatArgs>> endRepeat() {
@@ -50,14 +51,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+     * A datetime stamp signifying the end of the Monitor Downtime.
      * 
      */
     @Import(name="endTime")
     private @Nullable Output<String> endTime;
 
     /**
-     * @return The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+     * @return A datetime stamp signifying the end of the Monitor Downtime.
      * 
      */
     public Optional<Output<String>> endTime() {
@@ -65,14 +66,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+     * Configuration options for which days of the month a monitor downtime will occur
      * 
      */
     @Import(name="frequency")
     private @Nullable Output<MonitorDowntimeFrequencyArgs> frequency;
 
     /**
-     * @return Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+     * @return Configuration options for which days of the month a monitor downtime will occur
      * 
      */
     public Optional<Output<MonitorDowntimeFrequencyArgs>> frequency() {
@@ -80,18 +81,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` and/or `&#34;SATURDAY&#34;`.
-     * 
-     * &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+     * A list of maintenance days to be included with the created weekly Monitor Downtime.
      * 
      */
     @Import(name="maintenanceDays")
     private @Nullable Output<List<String>> maintenanceDays;
 
     /**
-     * @return A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` and/or `&#34;SATURDAY&#34;`.
-     * 
-     * &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+     * @return A list of maintenance days to be included with the created weekly Monitor Downtime.
      * 
      */
     public Optional<Output<List<String>>> maintenanceDays() {
@@ -99,14 +96,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+     * An identifier of the type of Monitor Downtime to be created.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+     * @return An identifier of the type of Monitor Downtime to be created.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -114,14 +111,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+     * A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
      * 
      */
     @Import(name="monitorGuids")
     private @Nullable Output<List<String>> monitorGuids;
 
     /**
-     * @return A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+     * @return A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
      * 
      */
     public Optional<Output<List<String>>> monitorGuids() {
@@ -129,14 +126,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the monitor downtime to be created.
+     * A name to identify the Monitor Downtime to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the monitor downtime to be created.
+     * @return A name to identify the Monitor Downtime to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -144,14 +141,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+     * A datetime stamp signifying the start of the Monitor Downtime.
      * 
      */
     @Import(name="startTime")
     private @Nullable Output<String> startTime;
 
     /**
-     * @return The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+     * @return A datetime stamp signifying the start of the Monitor Downtime.
      * 
      */
     public Optional<Output<String>> startTime() {
@@ -207,28 +204,30 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+         * provider{} configuration if not specified.
          * 
          * @return builder
          * 
          */
-        public Builder accountId(@Nullable Output<Integer> accountId) {
+        public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
         /**
-         * @param accountId The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `account_id` specified in the `provider{}`), if not specified.
+         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
+         * provider{} configuration if not specified.
          * 
          * @return builder
          * 
          */
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
         /**
-         * @param endRepeat Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+         * @param endRepeat A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
          * 
          * @return builder
          * 
@@ -239,7 +238,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endRepeat Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+         * @param endRepeat A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
          * 
          * @return builder
          * 
@@ -249,7 +248,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endTime The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+         * @param endTime A datetime stamp signifying the end of the Monitor Downtime.
          * 
          * @return builder
          * 
@@ -260,7 +259,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endTime The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+         * @param endTime A datetime stamp signifying the end of the Monitor Downtime.
          * 
          * @return builder
          * 
@@ -270,7 +269,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param frequency Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+         * @param frequency Configuration options for which days of the month a monitor downtime will occur
          * 
          * @return builder
          * 
@@ -281,7 +280,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param frequency Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+         * @param frequency Configuration options for which days of the month a monitor downtime will occur
          * 
          * @return builder
          * 
@@ -291,9 +290,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param maintenanceDays A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` and/or `&#34;SATURDAY&#34;`.
-         * 
-         * &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+         * @param maintenanceDays A list of maintenance days to be included with the created weekly Monitor Downtime.
          * 
          * @return builder
          * 
@@ -304,9 +301,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param maintenanceDays A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` and/or `&#34;SATURDAY&#34;`.
-         * 
-         * &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+         * @param maintenanceDays A list of maintenance days to be included with the created weekly Monitor Downtime.
          * 
          * @return builder
          * 
@@ -316,9 +311,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param maintenanceDays A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `&#34;SUNDAY&#34;`, `&#34;MONDAY&#34;`, `&#34;TUESDAY&#34;`, `&#34;WEDNESDAY&#34;`, `&#34;THURSDAY&#34;`, `&#34;FRIDAY&#34;` and/or `&#34;SATURDAY&#34;`.
-         * 
-         * &gt; **NOTE:** `maintenance_days` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+         * @param maintenanceDays A list of maintenance days to be included with the created weekly Monitor Downtime.
          * 
          * @return builder
          * 
@@ -328,7 +321,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param mode One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+         * @param mode An identifier of the type of Monitor Downtime to be created.
          * 
          * @return builder
          * 
@@ -339,7 +332,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param mode One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+         * @param mode An identifier of the type of Monitor Downtime to be created.
          * 
          * @return builder
          * 
@@ -349,7 +342,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param monitorGuids A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+         * @param monitorGuids A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
          * 
          * @return builder
          * 
@@ -360,7 +353,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param monitorGuids A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+         * @param monitorGuids A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
          * 
          * @return builder
          * 
@@ -370,7 +363,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param monitorGuids A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+         * @param monitorGuids A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
          * 
          * @return builder
          * 
@@ -380,7 +373,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the monitor downtime to be created.
+         * @param name A name to identify the Monitor Downtime to be created.
          * 
          * @return builder
          * 
@@ -391,7 +384,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the monitor downtime to be created.
+         * @param name A name to identify the Monitor Downtime to be created.
          * 
          * @return builder
          * 
@@ -401,7 +394,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param startTime The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+         * @param startTime A datetime stamp signifying the start of the Monitor Downtime.
          * 
          * @return builder
          * 
@@ -412,7 +405,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param startTime The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+         * @param startTime A datetime stamp signifying the start of the Monitor Downtime.
          * 
          * @return builder
          * 

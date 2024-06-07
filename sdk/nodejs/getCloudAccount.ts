@@ -10,18 +10,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const account = newrelic.getCloudAccount({
- *     accountId: 12345,
+ *     accountId: "12345",
  *     cloudProvider: "aws",
  *     name: "my aws account",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCloudAccount(args: GetCloudAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudAccountResult> {
 
@@ -40,7 +38,7 @@ export interface GetCloudAccountArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The cloud provider of the account (aws, gcp, azure, etc)
      */
@@ -55,7 +53,7 @@ export interface GetCloudAccountArgs {
  * A collection of values returned by getCloudAccount.
  */
 export interface GetCloudAccountResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     readonly cloudProvider: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -69,18 +67,16 @@ export interface GetCloudAccountResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const account = newrelic.getCloudAccount({
- *     accountId: 12345,
+ *     accountId: "12345",
  *     cloudProvider: "aws",
  *     name: "my aws account",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudAccountResult> {
     return pulumi.output(args).apply((a: any) => getCloudAccount(a, opts))
@@ -93,7 +89,7 @@ export interface GetCloudAccountOutputArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The cloud provider of the account (aws, gcp, azure, etc)
      */

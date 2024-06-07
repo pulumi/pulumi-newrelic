@@ -28,7 +28,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// You can also use the full example, including the GCP set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,11 +40,11 @@ namespace Pulumi.NewRelic.Cloud
     ///     {
     ///         AccountId = "account id of newrelic account",
     ///         ProjectId = "id of the Project",
+    ///         Name = "account name",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -64,7 +63,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic account.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// name of the linked account
@@ -128,7 +127,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic account.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// name of the linked account
@@ -154,7 +153,7 @@ namespace Pulumi.NewRelic.Cloud
         /// Account ID of the New Relic account.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// name of the linked account

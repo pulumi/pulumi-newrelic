@@ -25,8 +25,11 @@ func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ..
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The rollup strategy for the policy, which can have one of the following values:
+	// * `PER_POLICY` - Represents the incident grouping preference **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+	// * `PER_CONDITION` - Represents the incident grouping preference **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+	// * `PER_CONDITION_AND_TARGET` - Represents the incident grouping preference **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
 	Name string `pulumi:"name"`
@@ -34,12 +37,15 @@ type LookupAlertPolicyArgs struct {
 
 // A collection of values returned by getAlertPolicy.
 type LookupAlertPolicyResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The time the policy was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The rollup strategy for the policy, which can have one of the following values:
+	// * `PER_POLICY` - Represents the incident grouping preference **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+	// * `PER_CONDITION` - Represents the incident grouping preference **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+	// * `PER_CONDITION_AND_TARGET` - Represents the incident grouping preference **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	Name               string  `pulumi:"name"`
 	// The time the policy was last updated.
@@ -62,8 +68,11 @@ func LookupAlertPolicyOutput(ctx *pulumi.Context, args LookupAlertPolicyOutputAr
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The rollup strategy for the policy, which can have one of the following values:
+	// * `PER_POLICY` - Represents the incident grouping preference **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+	// * `PER_CONDITION` - Represents the incident grouping preference **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+	// * `PER_CONDITION_AND_TARGET` - Represents the incident grouping preference **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
 	IncidentPreference pulumi.StringPtrInput `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -88,8 +97,8 @@ func (o LookupAlertPolicyResultOutput) ToLookupAlertPolicyResultOutputWithContex
 	return o
 }
 
-func (o LookupAlertPolicyResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupAlertPolicyResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupAlertPolicyResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The time the policy was created.
@@ -103,6 +112,9 @@ func (o LookupAlertPolicyResultOutput) Id() pulumi.StringOutput {
 }
 
 // The rollup strategy for the policy, which can have one of the following values:
+// * `PER_POLICY` - Represents the incident grouping preference **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+// * `PER_CONDITION` - Represents the incident grouping preference **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+// * `PER_CONDITION_AND_TARGET` - Represents the incident grouping preference **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
 func (o LookupAlertPolicyResultOutput) IncidentPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlertPolicyResult) *string { return v.IncidentPreference }).(pulumi.StringPtrOutput)
 }

@@ -19,7 +19,6 @@ namespace Pulumi.NewRelic.Plugins
     /// ## Example Usage
     /// 
     /// Include entities with a certain string on the name.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +29,8 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         Name = "Example workload",
+    ///         AccountId = "12345678",
     ///         EntityGuids = new[]
     ///         {
     ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
@@ -44,16 +44,14 @@ namespace Pulumi.NewRelic.Plugins
     ///         },
     ///         ScopeAccountIds = new[]
     ///         {
-    ///             12345678,
+    ///             "12345678",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include entities with a set of tags.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +62,8 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         Name = "Example workload with tags",
+    ///         AccountId = "12345678",
     ///         EntityGuids = new[]
     ///         {
     ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
@@ -78,16 +77,14 @@ namespace Pulumi.NewRelic.Plugins
     ///         },
     ///         ScopeAccountIds = new[]
     ///         {
-    ///             12345678,
+    ///             "12345678",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include entities with a set of tags.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,7 +95,8 @@ namespace Pulumi.NewRelic.Plugins
     /// {
     ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         Name = "Example workload with tags",
+    ///         AccountId = "12345678",
     ///         EntityGuids = new[]
     ///         {
     ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
@@ -112,17 +110,130 @@ namespace Pulumi.NewRelic.Plugins
     ///         },
     ///         ScopeAccountIds = new[]
     ///         {
-    ///             12345678,
+    ///             "12345678",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Include automatic status
     /// 
     /// &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         Name = "Example workload",
+    ///         AccountId = "12345678",
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "name like '%Example application%'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             "12345678",
+    ///         },
+    ///         Description = "Description",
+    ///         StatusConfigAutomatic = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticArgs
+    ///         {
+    ///             Enabled = true,
+    ///             RemainingEntitiesRule = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs
+    ///             {
+    ///                 RemainingEntitiesRuleRollup = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs
+    ///                 {
+    ///                     Strategy = "BEST_STATUS_WINS",
+    ///                     ThresholdType = "FIXED",
+    ///                     ThresholdValue = 100,
+    ///                     GroupBy = "ENTITY_TYPE",
+    ///                 },
+    ///             },
+    ///             Rules = new[]
+    ///             {
+    ///                 new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRuleArgs
+    ///                 {
+    ///                     EntityGuids = new[]
+    ///                     {
+    ///                         "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///                     },
+    ///                     NrqlQueries = new[]
+    ///                     {
+    ///                         new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRuleNrqlQueryArgs
+    ///                         {
+    ///                             Query = "name like '%Example application2%'",
+    ///                         },
+    ///                     },
+    ///                     Rollup = new NewRelic.Plugins.Inputs.WorkloadStatusConfigAutomaticRuleRollupArgs
+    ///                     {
+    ///                         Strategy = "BEST_STATUS_WINS",
+    ///                         ThresholdType = "FIXED",
+    ///                         ThresholdValue = 100,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Include static status
+    /// 
+    /// &gt; You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
+    ///     {
+    ///         Name = "Example workload",
+    ///         AccountId = "12345678",
+    ///         EntityGuids = new[]
+    ///         {
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///             {
+    ///                 Query = "name like '%Example application%'",
+    ///             },
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             "12345678",
+    ///         },
+    ///         Description = "Description",
+    ///         StatusConfigStatic = new NewRelic.Plugins.Inputs.WorkloadStatusConfigStaticArgs
+    ///         {
+    ///             Description = "test",
+    ///             Enabled = true,
+    ///             Status = "OPERATIONAL",
+    ///             Summary = "summary of the status",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -143,7 +254,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The composite query used to compose a dynamic workload.
@@ -191,7 +302,7 @@ namespace Pulumi.NewRelic.Plugins
         /// A list of account IDs that will be used to get entities from.
         /// </summary>
         [Output("scopeAccountIds")]
-        public Output<ImmutableArray<int>> ScopeAccountIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ScopeAccountIds { get; private set; } = null!;
 
         /// <summary>
         /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
@@ -209,7 +320,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The unique entity identifier of the workload.
         /// </summary>
         [Output("workloadId")]
-        public Output<int> WorkloadId { get; private set; } = null!;
+        public Output<string> WorkloadId { get; private set; } = null!;
 
 
         /// <summary>
@@ -261,7 +372,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Relevant information about the workload.
@@ -300,14 +411,14 @@ namespace Pulumi.NewRelic.Plugins
         public Input<string>? Name { get; set; }
 
         [Input("scopeAccountIds")]
-        private InputList<int>? _scopeAccountIds;
+        private InputList<string>? _scopeAccountIds;
 
         /// <summary>
         /// A list of account IDs that will be used to get entities from.
         /// </summary>
-        public InputList<int> ScopeAccountIds
+        public InputList<string> ScopeAccountIds
         {
-            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<int>());
+            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<string>());
             set => _scopeAccountIds = value;
         }
 
@@ -335,7 +446,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The composite query used to compose a dynamic workload.
@@ -392,14 +503,14 @@ namespace Pulumi.NewRelic.Plugins
         public Input<string>? Permalink { get; set; }
 
         [Input("scopeAccountIds")]
-        private InputList<int>? _scopeAccountIds;
+        private InputList<string>? _scopeAccountIds;
 
         /// <summary>
         /// A list of account IDs that will be used to get entities from.
         /// </summary>
-        public InputList<int> ScopeAccountIds
+        public InputList<string> ScopeAccountIds
         {
-            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<int>());
+            get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<string>());
             set => _scopeAccountIds = value;
         }
 
@@ -419,7 +530,7 @@ namespace Pulumi.NewRelic.Plugins
         /// The unique entity identifier of the workload.
         /// </summary>
         [Input("workloadId")]
-        public Input<int>? WorkloadId { get; set; }
+        public Input<string>? WorkloadId { get; set; }
 
         public WorkloadState()
         {

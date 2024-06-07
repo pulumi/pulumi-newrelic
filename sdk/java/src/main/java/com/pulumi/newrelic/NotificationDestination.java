@@ -11,10 +11,11 @@ import com.pulumi.newrelic.NotificationDestinationArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.NotificationDestinationState;
 import com.pulumi.newrelic.outputs.NotificationDestinationAuthBasic;
+import com.pulumi.newrelic.outputs.NotificationDestinationAuthCustomHeader;
 import com.pulumi.newrelic.outputs.NotificationDestinationAuthToken;
 import com.pulumi.newrelic.outputs.NotificationDestinationProperty;
+import com.pulumi.newrelic.outputs.NotificationDestinationSecureUrl;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Import
+ * 
+ * ~&gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
  * 
  * Destination id can be found in the Destinations page -&gt; three dots at the right of the chosen destination -&gt; copy destination id to clipboard.
  * 
@@ -40,16 +43,16 @@ import javax.annotation.Nullable;
  * ```
  * 
  * 3. Run the following command after the import successfully done and copy the information to your resource:
+ *    
+ *    `terraform state show newrelic_notification_destination.foo`
  * 
- * `terraform state show newrelic_notification_destination.foo`
- * 
- * 4. Add `ignore_changes` attribute on `auth_token` in your imported resource:
+ * 4. Add `ignore_changes` attribute on `all` in your imported resource:
  * 
  * terraform
  * 
  * lifecycle {
  * 
- *     ignore_changes = [auth_token]
+ *     ignore_changes = all
  * 
  *   }
  * 
@@ -61,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *   lifecycle {
  * 
- *     ignore_changes = [auth_token]
+ *     ignore_changes = all
  * 
  *   }
  * 
@@ -94,14 +97,14 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**
@@ -131,6 +134,20 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<NotificationDestinationAuthBasic>> authBasic() {
         return Codegen.optional(this.authBasic);
+    }
+    /**
+     * A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * 
+     */
+    @Export(name="authCustomHeaders", refs={List.class,NotificationDestinationAuthCustomHeader.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<NotificationDestinationAuthCustomHeader>> authCustomHeaders;
+
+    /**
+     * @return A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * 
+     */
+    public Output<Optional<List<NotificationDestinationAuthCustomHeader>>> authCustomHeaders() {
+        return Codegen.optional(this.authCustomHeaders);
     }
     /**
      * A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
@@ -201,6 +218,20 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      */
     public Output<List<NotificationDestinationProperty>> properties() {
         return this.properties;
+    }
+    /**
+     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+     * 
+     */
+    @Export(name="secureUrl", refs={NotificationDestinationSecureUrl.class}, tree="[0]")
+    private Output</* @Nullable */ NotificationDestinationSecureUrl> secureUrl;
+
+    /**
+     * @return A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+     * 
+     */
+    public Output<Optional<NotificationDestinationSecureUrl>> secureUrl() {
+        return Codegen.optional(this.secureUrl);
     }
     /**
      * The status of the destination.

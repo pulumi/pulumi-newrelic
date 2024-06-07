@@ -13,30 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitorDowntimeEndRepeat {
     /**
-     * @return The date on which the monitor downtime&#39;s repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+     * @return A date, on which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     private @Nullable String onDate;
     /**
-     * @return An integer that specifies the number of occurrences, after which the monitor downtime&#39;s repeat cycle would need to come to an end.
-     * 
-     * &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+     * @return Number of repetitions after which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     private @Nullable Integer onRepeat;
 
     private MonitorDowntimeEndRepeat() {}
     /**
-     * @return The date on which the monitor downtime&#39;s repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+     * @return A date, on which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     public Optional<String> onDate() {
         return Optional.ofNullable(this.onDate);
     }
     /**
-     * @return An integer that specifies the number of occurrences, after which the monitor downtime&#39;s repeat cycle would need to come to an end.
-     * 
-     * &gt; **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+     * @return Number of repetitions after which the Monitor Downtime&#39;s repeat cycle is expected to end.
      * 
      */
     public Optional<Integer> onRepeat() {

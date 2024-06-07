@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ### Create A New Relic One Dashboard With RawConfiguration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,6 +27,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var exampledash = new NewRelic.OneDashboardRaw("exampledash", new()
     ///     {
+    ///         Name = "New Relic Terraform Example",
     ///         Pages = new[]
     ///         {
     ///             new NewRelic.Inputs.OneDashboardRawPageArgs
@@ -97,7 +97,7 @@ namespace Pulumi.NewRelic
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["accountId"] = local.AccountID,
+    ///                                     ["accountId"] = accountID,
     ///                                     ["query"] = "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
     ///                                 },
     ///                             },
@@ -114,7 +114,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardRaw:OneDashboardRaw")]
     public partial class OneDashboardRaw : global::Pulumi.CustomResource
@@ -123,7 +122,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Brief text describing the dashboard.
@@ -211,7 +210,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Brief text describing the dashboard.
@@ -255,7 +254,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Brief text describing the dashboard.

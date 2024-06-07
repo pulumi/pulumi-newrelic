@@ -24,7 +24,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// You can also use the full example, including the AWS set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,11 +36,11 @@ namespace Pulumi.NewRelic.Cloud
     ///     {
     ///         Arn = "arn:aws:service:region:account-id:resource-id",
     ///         MetricCollectionMode = "PUSH",
+    ///         Name = "account name",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -60,7 +59,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.
@@ -130,7 +129,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.
@@ -162,7 +161,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.

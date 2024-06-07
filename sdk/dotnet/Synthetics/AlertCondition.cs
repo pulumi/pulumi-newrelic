@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,20 +26,19 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.AlertCondition("foo", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Foo.Id,
-    ///         MonitorId = newrelic_synthetics_monitor.Foo.Id,
+    ///         PolicyId = fooNewrelicAlertPolicy.Id,
+    ///         Name = "foo",
+    ///         MonitorId = fooNewrelicSyntheticsMonitor.Id,
     ///         RunbookUrl = "https://www.example.com",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Tags
     /// 
     /// Manage synthetics alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,11 +47,15 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo policy",
+    ///     });
     /// 
-    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("fooMonitor", new()
+    ///     var fooMonitor = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
     ///         Status = "ENABLED",
+    ///         Name = "foo monitor",
     ///         Period = "EVERY_MINUTE",
     ///         Uri = "https://www.one.newrelic.com",
     ///         Type = "SIMPLE",
@@ -86,14 +88,15 @@ namespace Pulumi.NewRelic.Synthetics
     ///         },
     ///     });
     /// 
-    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
+    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo synthetics condition",
     ///         MonitorId = fooMonitor.Id,
     ///         RunbookUrl = "https://www.example.com",
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooAlertCondition.EntityGuid,
     ///         Tags = new[]
@@ -120,7 +123,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -136,17 +138,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -173,7 +167,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -230,17 +224,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -261,7 +247,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -280,17 +266,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -317,7 +295,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Runbook URL to display in notifications.

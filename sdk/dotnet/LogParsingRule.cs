@@ -15,7 +15,6 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// Use this example to create the log parse rule.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,22 +25,21 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.LogParsingRule("foo", new()
     ///     {
+    ///         Name = "log_parse_rule",
     ///         Attribute = "message",
     ///         Enabled = true,
-    ///         Grok = "sampleattribute='%%{NUMBER:test:int}'",
+    ///         Grok = "sampleattribute='%{NUMBER:test:int}'",
     ///         Lucene = "logtype:linux_messages",
     ///         Nrql = "SELECT * FROM Log WHERE logtype = 'linux_messages'",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Additional Example
     /// 
     /// Use this example to validate a grok pattern and create the log parse rule.  More
     /// information on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,6 +59,7 @@ namespace Pulumi.NewRelic
     /// 
     ///     var foo = new NewRelic.LogParsingRule("foo", new()
     ///     {
+    ///         Name = "log_parse_rule",
     ///         Attribute = "message",
     ///         Enabled = true,
     ///         Grok = grok.Apply(getTestGrokPatternResult =&gt; getTestGrokPatternResult.Grok),
@@ -71,7 +70,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -90,7 +88,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
@@ -190,7 +188,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
@@ -246,7 +244,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation rule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.

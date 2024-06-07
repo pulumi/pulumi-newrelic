@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.AzureLinkAccountArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureLinkAccountState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -31,7 +30,8 @@ import javax.annotation.Nullable;
  * You can also use the full example, including the Azure set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,17 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AzureLinkAccount(&#34;foo&#34;, AzureLinkAccountArgs.builder()        
- *             .accountId(&#34;The New Relic account ID where you want to link the Azure account&#34;)
- *             .applicationId(&#34;ID of the application&#34;)
- *             .clientSecret(&#34;Secret value of client&#39;s Azure account&#34;)
- *             .subscriptionId(&#34;Subscription ID of Azure&#34;)
- *             .tenantId(&#34;Tenant ID of the Azure&#34;)
+ *         var foo = new AzureLinkAccount("foo", AzureLinkAccountArgs.builder()
+ *             .accountId("The New Relic account ID where you want to link the Azure account")
+ *             .applicationId("ID of the application")
+ *             .clientSecret("Secret value of client's Azure account")
+ *             .subscriptionId("Subscription ID of Azure")
+ *             .tenantId("Tenant ID of the Azure")
+ *             .name("Name of the linked account")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -82,14 +84,14 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * Account ID of the New Relic.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account ID of the New Relic.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

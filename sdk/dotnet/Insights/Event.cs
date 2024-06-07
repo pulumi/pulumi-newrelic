@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,6 +28,8 @@ namespace Pulumi.NewRelic.Insights
     ///         {
     ///             new NewRelic.Insights.Inputs.EventEventArgs
     ///             {
+    ///                 Type = "MyEvent",
+    ///                 Timestamp = 1232471100,
     ///                 Attributes = new[]
     ///                 {
     ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
@@ -39,25 +40,22 @@ namespace Pulumi.NewRelic.Insights
     ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
     ///                     {
     ///                         Key = "an_integer_attribute",
-    ///                         Type = "int",
     ///                         Value = "42",
+    ///                         Type = "int",
     ///                     },
     ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
     ///                     {
     ///                         Key = "a_float_attribute",
-    ///                         Type = "float",
     ///                         Value = "101.1",
+    ///                         Type = "float",
     ///                     },
     ///                 },
-    ///                 Timestamp = 1232471100,
-    ///                 Type = "MyEvent",
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Events
     /// 

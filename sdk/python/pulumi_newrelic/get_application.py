@@ -37,7 +37,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="hostIds")
-    def host_ids(self) -> Sequence[int]:
+    def host_ids(self) -> Sequence[str]:
         """
         A list of host IDs associated with the application.
         """
@@ -53,7 +53,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="instanceIds")
-    def instance_ids(self) -> Sequence[int]:
+    def instance_ids(self) -> Sequence[str]:
         """
         A list of instance IDs associated with the application.
         """
@@ -86,15 +86,15 @@ def get_application(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     app = newrelic.get_application(name="my-app")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
+    foo = newrelic.AlertPolicy("foo", name="foo")
+    foo_alert_condition = newrelic.AlertCondition("foo",
+        policy_id=foo.id,
+        name="foo",
         type="apm_app_metric",
         entities=[app.id],
         metric="apdex",
@@ -107,7 +107,6 @@ def get_application(name: Optional[str] = None,
             time_function="all",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the application in New Relic.
@@ -134,15 +133,15 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
     app = newrelic.get_application(name="my-app")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
+    foo = newrelic.AlertPolicy("foo", name="foo")
+    foo_alert_condition = newrelic.AlertCondition("foo",
+        policy_id=foo.id,
+        name="foo",
         type="apm_app_metric",
         entities=[app.id],
         metric="apdex",
@@ -155,7 +154,6 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
             time_function="all",
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the application in New Relic.

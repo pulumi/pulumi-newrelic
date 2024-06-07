@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * You can also use the full example, including the AWS set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -27,9 +26,9 @@ import * as utilities from "../utilities";
  * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
  *     arn: "arn:aws:service:region:account-id:resource-id",
  *     metricCollectionMode: "PUSH",
+ *     name: "account name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -72,7 +71,7 @@ export class AwsLinkAccount extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
@@ -125,7 +124,7 @@ export interface AwsLinkAccountState {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
@@ -147,7 +146,7 @@ export interface AwsLinkAccountArgs {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */

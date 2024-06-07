@@ -14,7 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,21 +22,21 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAuthenticationDomain = NewRelic.GetAuthenticationDomain.Invoke(new()
+    ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
     ///     {
     ///         Name = "Test Authentication Domain",
     ///     });
     /// 
-    ///     var fooUser = new NewRelic.User("fooUser", new()
+    ///     var fooUser = new NewRelic.User("foo", new()
     ///     {
+    ///         Name = "Test New User",
     ///         EmailId = "test_user@test.com",
-    ///         AuthenticationDomainId = fooAuthenticationDomain.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+    ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
     ///         UserType = "CORE_USER_TIER",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

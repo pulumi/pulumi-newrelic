@@ -7,7 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.GetEntityTag;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,13 +15,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEntityResult {
-    private Integer accountId;
+    private String accountId;
     /**
      * @return The domain-specific application ID of the entity. Only returned for APM and Browser applications.
      * 
      */
-    private Integer applicationId;
+    private String applicationId;
     private String domain;
+    /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    private String entityTags;
     /**
      * @return The unique GUID of the entity.
      * 
@@ -40,23 +45,31 @@ public final class GetEntityResult {
      * @return The browser-specific ID of the backing APM entity. Only returned for Browser applications.
      * 
      */
-    private Integer servingApmApplicationId;
+    private String servingApmApplicationId;
     private @Nullable List<GetEntityTag> tags;
     private String type;
 
     private GetEntityResult() {}
-    public Integer accountId() {
+    public String accountId() {
         return this.accountId;
     }
     /**
      * @return The domain-specific application ID of the entity. Only returned for APM and Browser applications.
      * 
      */
-    public Integer applicationId() {
+    public String applicationId() {
         return this.applicationId;
     }
     public String domain() {
         return this.domain;
+    }
+    /**
+     * @return A JSON-encoded string, comprising tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * 
+     */
+    public String entityTags() {
+        return this.entityTags;
     }
     /**
      * @return The unique GUID of the entity.
@@ -85,7 +98,7 @@ public final class GetEntityResult {
      * @return The browser-specific ID of the backing APM entity. Only returned for Browser applications.
      * 
      */
-    public Integer servingApmApplicationId() {
+    public String servingApmApplicationId() {
         return this.servingApmApplicationId;
     }
     public List<GetEntityTag> tags() {
@@ -104,15 +117,16 @@ public final class GetEntityResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer accountId;
-        private Integer applicationId;
+        private String accountId;
+        private String applicationId;
         private String domain;
+        private String entityTags;
         private String guid;
         private String id;
         private @Nullable Boolean ignoreCase;
         private @Nullable Boolean ignoreNotFound;
         private String name;
-        private Integer servingApmApplicationId;
+        private String servingApmApplicationId;
         private @Nullable List<GetEntityTag> tags;
         private String type;
         public Builder() {}
@@ -121,6 +135,7 @@ public final class GetEntityResult {
     	      this.accountId = defaults.accountId;
     	      this.applicationId = defaults.applicationId;
     	      this.domain = defaults.domain;
+    	      this.entityTags = defaults.entityTags;
     	      this.guid = defaults.guid;
     	      this.id = defaults.id;
     	      this.ignoreCase = defaults.ignoreCase;
@@ -132,7 +147,7 @@ public final class GetEntityResult {
         }
 
         @CustomType.Setter
-        public Builder accountId(Integer accountId) {
+        public Builder accountId(String accountId) {
             if (accountId == null) {
               throw new MissingRequiredPropertyException("GetEntityResult", "accountId");
             }
@@ -140,7 +155,7 @@ public final class GetEntityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder applicationId(Integer applicationId) {
+        public Builder applicationId(String applicationId) {
             if (applicationId == null) {
               throw new MissingRequiredPropertyException("GetEntityResult", "applicationId");
             }
@@ -153,6 +168,14 @@ public final class GetEntityResult {
               throw new MissingRequiredPropertyException("GetEntityResult", "domain");
             }
             this.domain = domain;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder entityTags(String entityTags) {
+            if (entityTags == null) {
+              throw new MissingRequiredPropertyException("GetEntityResult", "entityTags");
+            }
+            this.entityTags = entityTags;
             return this;
         }
         @CustomType.Setter
@@ -192,7 +215,7 @@ public final class GetEntityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder servingApmApplicationId(Integer servingApmApplicationId) {
+        public Builder servingApmApplicationId(String servingApmApplicationId) {
             if (servingApmApplicationId == null) {
               throw new MissingRequiredPropertyException("GetEntityResult", "servingApmApplicationId");
             }
@@ -221,6 +244,7 @@ public final class GetEntityResult {
             _resultValue.accountId = accountId;
             _resultValue.applicationId = applicationId;
             _resultValue.domain = domain;
+            _resultValue.entityTags = entityTags;
             _resultValue.guid = guid;
             _resultValue.id = id;
             _resultValue.ignoreCase = ignoreCase;

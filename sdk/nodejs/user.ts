@@ -9,21 +9,20 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
+ * const foo = newrelic.getAuthenticationDomain({
  *     name: "Test Authentication Domain",
  * });
- * const fooUser = new newrelic.User("fooUser", {
+ * const fooUser = new newrelic.User("foo", {
+ *     name: "Test New User",
  *     emailId: "test_user@test.com",
- *     authenticationDomainId: fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id),
+ *     authenticationDomainId: foo.then(foo => foo.id),
  *     userType: "CORE_USER_TIER",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,7 +18,6 @@ import (
 //
 // ### Type: `static` (default)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,14 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                   pulumi.Int(12345678),
-//				PolicyId:                    fooAlertPolicy.ID(),
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                   pulumi.String("12345678"),
+//				PolicyId:                    foo.ID(),
 //				Type:                        pulumi.String("static"),
+//				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
@@ -76,7 +78,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## NRQL
 //
@@ -116,7 +117,6 @@ import (
 //
 // [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,14 +129,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                   pulumi.Int("your_account_id"),
-//				PolicyId:                    fooAlertPolicy.ID(),
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                   pulumi.String("your_account_id"),
+//				PolicyId:                    foo.ID(),
 //				Type:                        pulumi.String("static"),
+//				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
@@ -174,13 +177,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Tags
 //
 // Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -193,14 +194,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooNrqlAlertCondition, err := newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                   pulumi.Int(12345678),
-//				PolicyId:                    fooAlertPolicy.ID(),
+//			fooNrqlAlertCondition, err := newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                   pulumi.String("12345678"),
+//				PolicyId:                    foo.ID(),
 //				Type:                        pulumi.String("static"),
+//				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
@@ -233,7 +237,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooNrqlAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
@@ -259,7 +263,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
 //
@@ -271,7 +274,6 @@ import (
 //
 // An example resource from 1.x might look like the following.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -284,8 +286,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "z", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:           pulumi.Any(zNewrelicAlertPolicy.Id),
+//				Name:               pulumi.String("zleslie-test"),
 //				Type:               pulumi.String("static"),
 //				RunbookUrl:         pulumi.String("https://localhost"),
 //				Enabled:            pulumi.Bool(true),
@@ -308,12 +311,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // After making the appropriate adjustments mentioned in the deprecation warnings,
 // the resource now looks like the following.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -326,8 +327,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "z", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:                  pulumi.Any(zNewrelicAlertPolicy.Id),
+//				Name:                      pulumi.String("zleslie-test"),
 //				Type:                      pulumi.String("static"),
 //				RunbookUrl:                pulumi.String("https://localhost"),
 //				Enabled:                   pulumi.Bool(true),
@@ -353,7 +355,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -374,7 +375,7 @@ type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
 	AggregationDelay pulumi.StringPtrOutput `pulumi:"aggregationDelay"`
 	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
@@ -410,7 +411,7 @@ type NrqlAlertCondition struct {
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrOutput `pulumi:"openViolationOnExpiration"`
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
@@ -470,7 +471,7 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NrqlAlertCondition resources.
 type nrqlAlertConditionState struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
 	AggregationDelay *string `pulumi:"aggregationDelay"`
 	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
@@ -506,7 +507,7 @@ type nrqlAlertConditionState struct {
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
 	// The ID of the policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
@@ -531,7 +532,7 @@ type nrqlAlertConditionState struct {
 
 type NrqlAlertConditionState struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
 	AggregationDelay pulumi.StringPtrInput
 	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
@@ -567,7 +568,7 @@ type NrqlAlertConditionState struct {
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
@@ -596,7 +597,7 @@ func (NrqlAlertConditionState) ElementType() reflect.Type {
 
 type nrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
 	AggregationDelay *string `pulumi:"aggregationDelay"`
 	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
@@ -630,7 +631,7 @@ type nrqlAlertConditionArgs struct {
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
 	// The ID of the policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
@@ -656,7 +657,7 @@ type nrqlAlertConditionArgs struct {
 // The set of arguments for constructing a NrqlAlertCondition resource.
 type NrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
 	AggregationDelay pulumi.StringPtrInput
 	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
@@ -690,7 +691,7 @@ type NrqlAlertConditionArgs struct {
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
@@ -801,8 +802,8 @@ func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutputWithContext(ctx cont
 }
 
 // The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-func (o NrqlAlertConditionOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o NrqlAlertConditionOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
@@ -891,8 +892,8 @@ func (o NrqlAlertConditionOutput) OpenViolationOnExpiration() pulumi.BoolPtrOutp
 }
 
 // The ID of the policy where this condition should be used.
-func (o NrqlAlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o NrqlAlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Runbook URL to display in notifications.

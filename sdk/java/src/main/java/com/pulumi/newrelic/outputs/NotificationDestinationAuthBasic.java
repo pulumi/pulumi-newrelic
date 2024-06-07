@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class NotificationDestinationAuthBasic {
-    /**
-     * @return Specifies an authentication password for use with a destination.
-     * 
-     */
     private String password;
-    /**
-     * @return The username of the basic auth.
-     * 
-     */
     private String user;
 
     private NotificationDestinationAuthBasic() {}
-    /**
-     * @return Specifies an authentication password for use with a destination.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return The username of the basic auth.
-     * 
-     */
     public String user() {
         return this.user;
     }

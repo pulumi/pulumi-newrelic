@@ -17,18 +17,14 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
     public static final NotificationChannelPropertyArgs Empty = new NotificationChannelPropertyArgs();
 
     /**
-     * The notification property display value.
-     * 
-     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * Notification property display key.
      * 
      */
     @Import(name="displayValue")
     private @Nullable Output<String> displayValue;
 
     /**
-     * @return The notification property display value.
-     * 
-     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * @return Notification property display key.
      * 
      */
     public Optional<Output<String>> displayValue() {
@@ -36,14 +32,14 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The notification property key.
+     * Notification property key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The notification property key.
+     * @return Notification property key.
      * 
      */
     public Output<String> key() {
@@ -51,14 +47,14 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The notification property label.
+     * Notification property label.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The notification property label.
+     * @return Notification property label.
      * 
      */
     public Optional<Output<String>> label() {
@@ -66,14 +62,14 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The notification property value.
+     * Notification property value.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The notification property value.
+     * @return Notification property value.
      * 
      */
     public Output<String> value() {
@@ -108,9 +104,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param displayValue The notification property display value.
-         * 
-         * Each notification channel type supports a specific set of arguments for the `property` block:
+         * @param displayValue Notification property display key.
          * 
          * @return builder
          * 
@@ -121,9 +115,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param displayValue The notification property display value.
-         * 
-         * Each notification channel type supports a specific set of arguments for the `property` block:
+         * @param displayValue Notification property display key.
          * 
          * @return builder
          * 
@@ -133,7 +125,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param key The notification property key.
+         * @param key Notification property key.
          * 
          * @return builder
          * 
@@ -144,7 +136,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param key The notification property key.
+         * @param key Notification property key.
          * 
          * @return builder
          * 
@@ -154,7 +146,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param label The notification property label.
+         * @param label Notification property label.
          * 
          * @return builder
          * 
@@ -165,7 +157,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param label The notification property label.
+         * @param label Notification property label.
          * 
          * @return builder
          * 
@@ -175,7 +167,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param value The notification property value.
+         * @param value Notification property value.
          * 
          * @return builder
          * 
@@ -186,7 +178,7 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param value The notification property value.
+         * @param value Notification property value.
          * 
          * @return builder
          * 

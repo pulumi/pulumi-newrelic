@@ -13,14 +13,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AlertPolicy("foo", {});
- * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const highDiskUsage = new newrelic.InfraAlertCondition("high_disk_usage", {
  *     policyId: foo.id,
+ *     name: "High disk usage",
  *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
  *     type: "infra_metric",
  *     event: "StorageSample",
@@ -38,8 +38,9 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     },
  * });
- * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
+ * const highDbConnCount = new newrelic.InfraAlertCondition("high_db_conn_count", {
  *     policyId: foo.id,
+ *     name: "High database connection count",
  *     description: "Critical alert when the number of database connections goes above 90",
  *     type: "infra_metric",
  *     event: "DatastoreSample",
@@ -53,8 +54,9 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     },
  * });
- * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
+ * const processNotRunning = new newrelic.InfraAlertCondition("process_not_running", {
  *     policyId: foo.id,
+ *     name: "Process not running (/usr/bin/ruby)",
  *     description: "Critical alert when ruby isn't running",
  *     type: "infra_process_running",
  *     comparison: "equal",
@@ -65,8 +67,9 @@ import * as utilities from "./utilities";
  *         value: 0,
  *     },
  * });
- * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
+ * const hostNotReporting = new newrelic.InfraAlertCondition("host_not_reporting", {
  *     policyId: foo.id,
+ *     name: "Host not reporting",
  *     description: "Critical alert when the host is not reporting",
  *     type: "infra_host_not_reporting",
  *     where: "(hostname LIKE '%frontend%')",
@@ -75,7 +78,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Thresholds
  *
@@ -89,14 +91,14 @@ import * as utilities from "./utilities";
  *
  * Manage infra alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("fooInfraAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo infra condition",
  *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
  *     type: "infra_metric",
  *     event: "StorageSample",
@@ -114,7 +116,7 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     },
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooInfraAlertCondition.entityGuid,
  *     tags: [
  *         {
@@ -131,7 +133,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -208,7 +209,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
@@ -232,11 +233,9 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
@@ -244,7 +243,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     public readonly where!: pulumi.Output<string | undefined>;
 
@@ -354,7 +353,7 @@ export interface InfraAlertConditionState {
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
@@ -378,11 +377,9 @@ export interface InfraAlertConditionState {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -390,7 +387,7 @@ export interface InfraAlertConditionState {
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     where?: pulumi.Input<string>;
 }
@@ -430,7 +427,7 @@ export interface InfraAlertConditionArgs {
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
@@ -450,11 +447,9 @@ export interface InfraAlertConditionArgs {
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -462,7 +457,7 @@ export interface InfraAlertConditionArgs {
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%!c(MISSING)assandra%!'(MISSING)`.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     where?: pulumi.Input<string>;
 }

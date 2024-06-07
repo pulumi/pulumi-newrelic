@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -23,9 +22,10 @@ import * as utilities from "./utilities";
  *     type: "APPLICATION",
  *     domain: "APM",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
+ * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     policyId: foo.id,
+ *     name: "foo",
  *     type: "apm_app_metric",
  *     entities: [app.then(app => app.applicationId)],
  *     metric: "apdex",
@@ -40,7 +40,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Terms
  *
@@ -56,19 +55,19 @@ import * as utilities from "./utilities";
  *
  * Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooEntity = newrelic.getEntity({
+ * const foo = newrelic.getEntity({
  *     name: "foo entitiy",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {name: "foo policy"});
+ * const fooAlertCondition = new newrelic.AlertCondition("foo", {
  *     policyId: fooAlertPolicy.id,
+ *     name: "foo condition",
  *     type: "apm_app_metric",
- *     entities: [fooEntity.then(fooEntity => fooEntity.applicationId)],
+ *     entities: [foo.then(foo => foo.applicationId)],
  *     metric: "apdex",
  *     runbookUrl: "https://www.example.com",
  *     conditionScope: "application",
@@ -80,7 +79,7 @@ import * as utilities from "./utilities";
  *         timeFunction: "all",
  *     }],
  * });
- * const myConditionEntityTags = new newrelic.EntityTags("myConditionEntityTags", {
+ * const myConditionEntityTags = new newrelic.EntityTags("my_condition_entity_tags", {
  *     guid: fooAlertCondition.entityGuid,
  *     tags: [
  *         {
@@ -97,7 +96,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -146,7 +144,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * The instance IDs associated with this condition.
      */
-    public readonly entities!: pulumi.Output<number[]>;
+    public readonly entities!: pulumi.Output<string[]>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
@@ -166,7 +164,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -188,11 +186,9 @@ export class AlertCondition extends pulumi.CustomResource {
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
@@ -281,7 +277,7 @@ export interface AlertConditionState {
     /**
      * The instance IDs associated with this condition.
      */
-    entities?: pulumi.Input<pulumi.Input<number>[]>;
+    entities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
@@ -301,7 +297,7 @@ export interface AlertConditionState {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -323,11 +319,9 @@ export interface AlertConditionState {
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
@@ -353,7 +347,7 @@ export interface AlertConditionArgs {
     /**
      * The instance IDs associated with this condition.
      */
-    entities: pulumi.Input<pulumi.Input<number>[]>;
+    entities: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
@@ -369,7 +363,7 @@ export interface AlertConditionArgs {
     /**
      * The ID of the policy where this condition should be used.
      */
-    policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
@@ -391,11 +385,9 @@ export interface AlertConditionArgs {
      *
      * > **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
      * ```
-     * <!--End PulumiCodeChooser -->
+     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+     * ```
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**

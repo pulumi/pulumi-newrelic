@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.SecureCredentialArgs;
 import com.pulumi.newrelic.synthetics.inputs.SecureCredentialState;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new SecureCredential(&#34;foo&#34;, SecureCredentialArgs.builder()        
- *             .description(&#34;My description&#34;)
- *             .key(&#34;MY_KEY&#34;)
- *             .value(&#34;My value&#34;)
+ *         var foo = new SecureCredential("foo", SecureCredentialArgs.builder()
+ *             .key("MY_KEY")
+ *             .value("My value")
+ *             .description("My description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -69,14 +70,14 @@ public class SecureCredential extends com.pulumi.resources.CustomResource {
      * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

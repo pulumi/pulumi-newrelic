@@ -24,8 +24,10 @@ __all__ = [
     'MonitorDowntimeFrequencyDaysOfWeek',
     'NotificationChannelProperty',
     'NotificationDestinationAuthBasic',
+    'NotificationDestinationAuthCustomHeader',
     'NotificationDestinationAuthToken',
     'NotificationDestinationProperty',
+    'NotificationDestinationSecureUrl',
     'NrqlAlertConditionCritical',
     'NrqlAlertConditionNrql',
     'NrqlAlertConditionTerm',
@@ -102,8 +104,10 @@ __all__ = [
     'OneDashboardPageWidgetLineNrqlQuery',
     'OneDashboardPageWidgetLineNullValue',
     'OneDashboardPageWidgetLineNullValueSeriesOverride',
+    'OneDashboardPageWidgetLineThreshold',
     'OneDashboardPageWidgetLineUnit',
     'OneDashboardPageWidgetLineUnitSeriesOverride',
+    'OneDashboardPageWidgetLineYAxisRight',
     'OneDashboardPageWidgetLogTable',
     'OneDashboardPageWidgetLogTableColor',
     'OneDashboardPageWidgetLogTableColorSeriesOverride',
@@ -141,6 +145,7 @@ __all__ = [
     'OneDashboardPageWidgetTableNrqlQuery',
     'OneDashboardPageWidgetTableNullValue',
     'OneDashboardPageWidgetTableNullValueSeriesOverride',
+    'OneDashboardPageWidgetTableThreshold',
     'OneDashboardPageWidgetTableUnit',
     'OneDashboardPageWidgetTableUnitSeriesOverride',
     'OneDashboardRawPage',
@@ -168,6 +173,7 @@ __all__ = [
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
     'GetNotificationDestinationPropertyResult',
+    'GetNotificationDestinationSecureUrlResult',
     'GetTestGrokPatternTestGrokResult',
     'GetTestGrokPatternTestGrokAttributeResult',
 ]
@@ -237,25 +243,25 @@ class AlertChannelConfig(dict):
                  user_id: Optional[str] = None):
         """
         :param str api_key: The API key for integrating with OpsGenie.
-        :param str auth_password: Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
-        :param str auth_type: Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
-        :param str auth_username: Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+        :param str auth_password: Specifies an authentication password for use with a channel. Supported by the webhook channel type.
+        :param str auth_type: Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
+        :param str auth_username: Specifies an authentication username for use with a channel. Supported by the webhook channel type.
         :param str base_url: The base URL of the webhook destination.
         :param str channel: The Slack channel to send notifications to.
         :param Mapping[str, str] headers: A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
-        :param str headers_string: Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
-        :param str include_json_attachment: `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        :param str headers_string: Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
+        :param str include_json_attachment: true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
         :param str key: The key for integrating with VictorOps.
-        :param Mapping[str, str] payload: A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
-        :param str payload_string: Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
-        :param str payload_type: Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-        :param str recipients: A set of recipients for targeting notifications.  Multiple values are comma separated.
-        :param str region: The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+        :param Mapping[str, str] payload: A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+        :param str payload_string: Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
+        :param str payload_type: Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+        :param str recipients: A set of recipients for targeting notifications. Multiple values are comma separated.
+        :param str region: The data center region to store your data. Valid values are US and EU. Default is US.
         :param str route_key: The route key for integrating with VictorOps.
         :param str service_key: Specifies the service key for integrating with Pagerduty.
         :param str tags: A set of tags for targeting notifications. Multiple values are comma separated.
         :param str teams: A set of teams for targeting notifications. Multiple values are comma separated.
-        :param str url: [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        :param str url: Your organization's Slack URL.
         :param str user_id: The user ID for use with the user channel type.
         """
         if api_key is not None:
@@ -313,7 +319,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="authPassword")
     def auth_password(self) -> Optional[str]:
         """
-        Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+        Specifies an authentication password for use with a channel. Supported by the webhook channel type.
         """
         return pulumi.get(self, "auth_password")
 
@@ -321,7 +327,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[str]:
         """
-        Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+        Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
         """
         return pulumi.get(self, "auth_type")
 
@@ -329,7 +335,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="authUsername")
     def auth_username(self) -> Optional[str]:
         """
-        Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+        Specifies an authentication username for use with a channel. Supported by the webhook channel type.
         """
         return pulumi.get(self, "auth_username")
 
@@ -361,7 +367,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="headersString")
     def headers_string(self) -> Optional[str]:
         """
-        Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+        Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
         """
         return pulumi.get(self, "headers_string")
 
@@ -369,7 +375,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="includeJsonAttachment")
     def include_json_attachment(self) -> Optional[str]:
         """
-        `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
         """
         return pulumi.get(self, "include_json_attachment")
 
@@ -385,7 +391,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def payload(self) -> Optional[Mapping[str, str]]:
         """
-        A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+        A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
         """
         return pulumi.get(self, "payload")
 
@@ -393,7 +399,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="payloadString")
     def payload_string(self) -> Optional[str]:
         """
-        Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+        Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
         """
         return pulumi.get(self, "payload_string")
 
@@ -401,7 +407,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter(name="payloadType")
     def payload_type(self) -> Optional[str]:
         """
-        Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+        Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
         """
         return pulumi.get(self, "payload_type")
 
@@ -409,7 +415,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def recipients(self) -> Optional[str]:
         """
-        A set of recipients for targeting notifications.  Multiple values are comma separated.
+        A set of recipients for targeting notifications. Multiple values are comma separated.
         """
         return pulumi.get(self, "recipients")
 
@@ -417,7 +423,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+        The data center region to store your data. Valid values are US and EU. Default is US.
         """
         return pulumi.get(self, "region")
 
@@ -457,7 +463,7 @@ class AlertChannelConfig(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+        Your organization's Slack URL.
         """
         return pulumi.get(self, "url")
 
@@ -587,8 +593,8 @@ class AlertMutingRuleConditionCondition(dict):
                  operator: str,
                  values: Sequence[str]):
         """
-        :param str attribute: The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
-        :param str operator: The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+        :param str attribute: The attribute on an incident.
+        :param str operator: The operator used to compare the attribute's value with the supplied value(s).
         :param Sequence[str] values: The value(s) to compare against the attribute's value.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -599,7 +605,7 @@ class AlertMutingRuleConditionCondition(dict):
     @pulumi.getter
     def attribute(self) -> str:
         """
-        The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+        The attribute on an incident.
         """
         return pulumi.get(self, "attribute")
 
@@ -607,7 +613,7 @@ class AlertMutingRuleConditionCondition(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+        The operator used to compare the attribute's value with the supplied value(s).
         """
         return pulumi.get(self, "operator")
 
@@ -661,6 +667,7 @@ class AlertMutingRuleSchedule(dict):
         :param str time_zone: The time zone that applies to the MutingRule schedule.
         :param str end_repeat: The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
         :param str end_time: The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+               * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         :param str repeat: The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
         :param int repeat_count: The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
         :param str start_time: The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
@@ -701,6 +708,7 @@ class AlertMutingRuleSchedule(dict):
     def end_time(self) -> Optional[str]:
         """
         The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+        * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         """
         return pulumi.get(self, "end_time")
 
@@ -881,10 +889,8 @@ class MonitorDowntimeEndRepeat(dict):
                  on_date: Optional[str] = None,
                  on_repeat: Optional[int] = None):
         """
-        :param str on_date: The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
-        :param int on_repeat: An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-               
-               > **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+        :param str on_date: A date, on which the Monitor Downtime's repeat cycle is expected to end.
+        :param int on_repeat: Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
         """
         if on_date is not None:
             pulumi.set(__self__, "on_date", on_date)
@@ -895,7 +901,7 @@ class MonitorDowntimeEndRepeat(dict):
     @pulumi.getter(name="onDate")
     def on_date(self) -> Optional[str]:
         """
-        The date on which the monitor downtime's repeat cycle would need to come to an end, a string in `DDDD-MM-YY` format.
+        A date, on which the Monitor Downtime's repeat cycle is expected to end.
         """
         return pulumi.get(self, "on_date")
 
@@ -903,9 +909,7 @@ class MonitorDowntimeEndRepeat(dict):
     @pulumi.getter(name="onRepeat")
     def on_repeat(self) -> Optional[int]:
         """
-        An integer that specifies the number of occurrences, after which the monitor downtime's repeat cycle would need to come to an end.
-
-        > **NOTE:** `end_repeat` **can only be used with the modes** `DAILY`, `MONTHLY` and `WEEKLY` and **is an optional argument** when monitor downtimes of these modes are created. Additionally, **either** `on_date` or `on_repeat` **are required to be specified with** `end_repeat`, but not both, as `on_date` and `on_repeat` are mutually exclusive.
+        Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
         """
         return pulumi.get(self, "on_repeat")
 
@@ -935,8 +939,8 @@ class MonitorDowntimeFrequency(dict):
                  days_of_months: Optional[Sequence[int]] = None,
                  days_of_week: Optional['outputs.MonitorDowntimeFrequencyDaysOfWeek'] = None):
         """
-        :param Sequence[int] days_of_months: A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
-        :param 'MonitorDowntimeFrequencyDaysOfWeekArgs' days_of_week: An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+        :param Sequence[int] days_of_months: A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+        :param 'MonitorDowntimeFrequencyDaysOfWeekArgs' days_of_week: A list of days of the week on which the Monitor Downtime is scheduled to run.
         """
         if days_of_months is not None:
             pulumi.set(__self__, "days_of_months", days_of_months)
@@ -947,7 +951,7 @@ class MonitorDowntimeFrequency(dict):
     @pulumi.getter(name="daysOfMonths")
     def days_of_months(self) -> Optional[Sequence[int]]:
         """
-        A list of integers, specifying the days of a month on which the monthly monitor downtime would function, e.g. [3, 6, 14, 23].
+        A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
         """
         return pulumi.get(self, "days_of_months")
 
@@ -955,7 +959,7 @@ class MonitorDowntimeFrequency(dict):
     @pulumi.getter(name="daysOfWeek")
     def days_of_week(self) -> Optional['outputs.MonitorDowntimeFrequencyDaysOfWeek']:
         """
-        An argument that specifies a day of a week and its occurrence in a month, on which the monthly monitor downtime would function. This argument, further, comprises the following nested arguments -
+        A list of days of the week on which the Monitor Downtime is scheduled to run.
         """
         return pulumi.get(self, "days_of_week")
 
@@ -985,10 +989,8 @@ class MonitorDowntimeFrequencyDaysOfWeek(dict):
                  ordinal_day_of_month: str,
                  week_day: str):
         """
-        :param str ordinal_day_of_month: The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-               
-               > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
-        :param str week_day: A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+        :param str ordinal_day_of_month: An occurrence of the day selected within the month.
+        :param str week_day: The day of the week on which the Monitor Downtime would run.
         """
         pulumi.set(__self__, "ordinal_day_of_month", ordinal_day_of_month)
         pulumi.set(__self__, "week_day", week_day)
@@ -997,9 +999,7 @@ class MonitorDowntimeFrequencyDaysOfWeek(dict):
     @pulumi.getter(name="ordinalDayOfMonth")
     def ordinal_day_of_month(self) -> str:
         """
-        The occurrence of `week_day` in a month (one of `"FIRST"`, `"SECOND"`, `"THIRD"`, `"FOURTH"`, `"LAST"`).
-
-        > **NOTE:** `frequency` **can only be used with the mode** `MONTHLY`, and **is a required argument** with monthly monitor downtimes (if the `mode` is `MONTHLY`). Additionally, **either** `days_of_month` or `days_of_week` **are required to be specified with** `frequency`, but not both, as `days_of_month` and `days_of_week` are mutually exclusive. If `days_of_week` is specified, values of **both** of its nested arguments, `week_day` and `ordinal_day_of_month` **would need to be specified** too.
+        An occurrence of the day selected within the month.
         """
         return pulumi.get(self, "ordinal_day_of_month")
 
@@ -1007,7 +1007,7 @@ class MonitorDowntimeFrequencyDaysOfWeek(dict):
     @pulumi.getter(name="weekDay")
     def week_day(self) -> str:
         """
-        A day of the week (one of `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` or `"SATURDAY"`).
+        The day of the week on which the Monitor Downtime would run.
         """
         return pulumi.get(self, "week_day")
 
@@ -1037,12 +1037,10 @@ class NotificationChannelProperty(dict):
                  display_value: Optional[str] = None,
                  label: Optional[str] = None):
         """
-        :param str key: The notification property key.
-        :param str value: The notification property value.
-        :param str display_value: The notification property display value.
-               
-               Each notification channel type supports a specific set of arguments for the `property` block:
-        :param str label: The notification property label.
+        :param str key: Notification property key.
+        :param str value: Notification property value.
+        :param str display_value: Notification property display key.
+        :param str label: Notification property label.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1055,7 +1053,7 @@ class NotificationChannelProperty(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The notification property key.
+        Notification property key.
         """
         return pulumi.get(self, "key")
 
@@ -1063,7 +1061,7 @@ class NotificationChannelProperty(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The notification property value.
+        Notification property value.
         """
         return pulumi.get(self, "value")
 
@@ -1071,9 +1069,7 @@ class NotificationChannelProperty(dict):
     @pulumi.getter(name="displayValue")
     def display_value(self) -> Optional[str]:
         """
-        The notification property display value.
-
-        Each notification channel type supports a specific set of arguments for the `property` block:
+        Notification property display key.
         """
         return pulumi.get(self, "display_value")
 
@@ -1081,7 +1077,7 @@ class NotificationChannelProperty(dict):
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        The notification property label.
+        Notification property label.
         """
         return pulumi.get(self, "label")
 
@@ -1091,28 +1087,37 @@ class NotificationDestinationAuthBasic(dict):
     def __init__(__self__, *,
                  password: str,
                  user: str):
-        """
-        :param str password: Specifies an authentication password for use with a destination.
-        :param str user: The username of the basic auth.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
     def password(self) -> str:
-        """
-        Specifies an authentication password for use with a destination.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def user(self) -> str:
-        """
-        The username of the basic auth.
-        """
         return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class NotificationDestinationAuthCustomHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1120,9 +1125,6 @@ class NotificationDestinationAuthToken(dict):
     def __init__(__self__, *,
                  token: str,
                  prefix: Optional[str] = None):
-        """
-        :param str prefix: The prefix of the token auth.
-        """
         pulumi.set(__self__, "token", token)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -1135,9 +1137,6 @@ class NotificationDestinationAuthToken(dict):
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
-        """
-        The prefix of the token auth.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -1166,12 +1165,10 @@ class NotificationDestinationProperty(dict):
                  display_value: Optional[str] = None,
                  label: Optional[str] = None):
         """
-        :param str key: The notification property key.
-        :param str value: The notification property value.
-        :param str display_value: The notification property display value.
-               
-               Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
-        :param str label: The notification property label.
+        :param str key: Notification property key.
+        :param str value: Notification property value.
+        :param str display_value: Notification property display key.
+        :param str label: Notification property label.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1184,7 +1181,7 @@ class NotificationDestinationProperty(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The notification property key.
+        Notification property key.
         """
         return pulumi.get(self, "key")
 
@@ -1192,7 +1189,7 @@ class NotificationDestinationProperty(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The notification property value.
+        Notification property value.
         """
         return pulumi.get(self, "value")
 
@@ -1200,9 +1197,7 @@ class NotificationDestinationProperty(dict):
     @pulumi.getter(name="displayValue")
     def display_value(self) -> Optional[str]:
         """
-        The notification property display value.
-
-        Each notification destination type supports a specific set of arguments for the `property` block. See Additional Examples below for details:
+        Notification property display key.
         """
         return pulumi.get(self, "display_value")
 
@@ -1210,9 +1205,45 @@ class NotificationDestinationProperty(dict):
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        The notification property label.
+        Notification property label.
         """
         return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class NotificationDestinationSecureUrl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureSuffix":
+            suggest = "secure_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationDestinationSecureUrl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationDestinationSecureUrl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationDestinationSecureUrl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: str,
+                 secure_suffix: str):
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "secure_suffix", secure_suffix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="secureSuffix")
+    def secure_suffix(self) -> str:
+        return pulumi.get(self, "secure_suffix")
 
 
 @pulumi.output_type
@@ -2240,10 +2271,10 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -2259,7 +2290,7 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -2815,10 +2846,10 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -2834,7 +2865,7 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -3386,10 +3417,10 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -3405,7 +3436,7 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -3944,10 +3975,10 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -3963,7 +3994,7 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -4491,10 +4522,10 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -4510,7 +4541,7 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -5066,10 +5097,10 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -5085,7 +5116,7 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -5613,10 +5644,10 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -5632,7 +5663,7 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -6160,10 +6191,10 @@ class OneDashboardPageWidgetJsonNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -6179,7 +6210,7 @@ class OneDashboardPageWidgetJsonNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -6393,6 +6424,8 @@ class OneDashboardPageWidgetLine(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "isLabelVisible":
+            suggest = "is_label_visible"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
@@ -6403,6 +6436,8 @@ class OneDashboardPageWidgetLine(dict):
             suggest = "y_axis_left_min"
         elif key == "yAxisLeftZero":
             suggest = "y_axis_left_zero"
+        elif key == "yAxisRight":
+            suggest = "y_axis_right"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLine. Access the value via the '{suggest}' property getter instead.")
@@ -6425,13 +6460,16 @@ class OneDashboardPageWidgetLine(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 is_label_visible: Optional[bool] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValue']] = None,
+                 thresholds: Optional[Sequence['outputs.OneDashboardPageWidgetLineThreshold']] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetLineUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
                  y_axis_left_min: Optional[float] = None,
-                 y_axis_left_zero: Optional[bool] = None):
+                 y_axis_left_zero: Optional[bool] = None,
+                 y_axis_right: Optional['outputs.OneDashboardPageWidgetLineYAxisRight'] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetLineNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
@@ -6442,12 +6480,15 @@ class OneDashboardPageWidgetLine(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param bool is_label_visible: (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetLineNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetLineThresholdArgs'] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         :param Sequence['OneDashboardPageWidgetLineUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         :param bool y_axis_left_zero: (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+        :param 'OneDashboardPageWidgetLineYAxisRightArgs' y_axis_right: (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
@@ -6463,10 +6504,14 @@ class OneDashboardPageWidgetLine(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if is_label_visible is not None:
+            pulumi.set(__self__, "is_label_visible", is_label_visible)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if thresholds is not None:
+            pulumi.set(__self__, "thresholds", thresholds)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -6477,6 +6522,8 @@ class OneDashboardPageWidgetLine(dict):
             pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
         if y_axis_left_zero is not None:
             pulumi.set(__self__, "y_axis_left_zero", y_axis_left_zero)
+        if y_axis_right is not None:
+            pulumi.set(__self__, "y_axis_right", y_axis_right)
 
     @property
     @pulumi.getter
@@ -6551,6 +6598,14 @@ class OneDashboardPageWidgetLine(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="isLabelVisible")
+    def is_label_visible(self) -> Optional[bool]:
+        """
+        (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+        """
+        return pulumi.get(self, "is_label_visible")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -6565,6 +6620,14 @@ class OneDashboardPageWidgetLine(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineThreshold']]:
+        """
+        (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "thresholds")
 
     @property
     @pulumi.getter
@@ -6602,6 +6665,14 @@ class OneDashboardPageWidgetLine(dict):
         (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
         """
         return pulumi.get(self, "y_axis_left_zero")
+
+    @property
+    @pulumi.getter(name="yAxisRight")
+    def y_axis_right(self) -> Optional['outputs.OneDashboardPageWidgetLineYAxisRight']:
+        """
+        (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+        """
+        return pulumi.get(self, "y_axis_right")
 
 
 @pulumi.output_type
@@ -6721,10 +6792,10 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -6740,7 +6811,7 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -6848,6 +6919,78 @@ class OneDashboardPageWidgetLineNullValueSeriesOverride(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetLineThreshold(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineThreshold. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineThreshold.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineThreshold.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: Optional[int] = None,
+                 name: Optional[str] = None,
+                 severity: Optional[str] = None,
+                 to: Optional[int] = None):
+        """
+        :param int from_: The value 'from' which the threshold would need to be applied.
+        :param str name: The title of the dashboard.
+        :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        :param int to: The value until which the threshold would need to be applied.
+        """
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[int]:
+        """
+        The value 'from' which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[int]:
+        """
+        The value until which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetLineUnit(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6941,6 +7084,84 @@ class OneDashboardPageWidgetLineUnitSeriesOverride(dict):
         (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineYAxisRight(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "yAxisRightMax":
+            suggest = "y_axis_right_max"
+        elif key == "yAxisRightMin":
+            suggest = "y_axis_right_min"
+        elif key == "yAxisRightSeries":
+            suggest = "y_axis_right_series"
+        elif key == "yAxisRightZero":
+            suggest = "y_axis_right_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineYAxisRight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineYAxisRight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineYAxisRight.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 y_axis_right_max: Optional[float] = None,
+                 y_axis_right_min: Optional[float] = None,
+                 y_axis_right_series: Optional[Sequence[str]] = None,
+                 y_axis_right_zero: Optional[bool] = None):
+        """
+        :param float y_axis_right_max: Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+        :param float y_axis_right_min: , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+        :param Sequence[str] y_axis_right_series: (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+        :param bool y_axis_right_zero: (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+        """
+        if y_axis_right_max is not None:
+            pulumi.set(__self__, "y_axis_right_max", y_axis_right_max)
+        if y_axis_right_min is not None:
+            pulumi.set(__self__, "y_axis_right_min", y_axis_right_min)
+        if y_axis_right_series is not None:
+            pulumi.set(__self__, "y_axis_right_series", y_axis_right_series)
+        if y_axis_right_zero is not None:
+            pulumi.set(__self__, "y_axis_right_zero", y_axis_right_zero)
+
+    @property
+    @pulumi.getter(name="yAxisRightMax")
+    def y_axis_right_max(self) -> Optional[float]:
+        """
+        Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+        """
+        return pulumi.get(self, "y_axis_right_max")
+
+    @property
+    @pulumi.getter(name="yAxisRightMin")
+    def y_axis_right_min(self) -> Optional[float]:
+        """
+        , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+        """
+        return pulumi.get(self, "y_axis_right_min")
+
+    @property
+    @pulumi.getter(name="yAxisRightSeries")
+    def y_axis_right_series(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+        """
+        return pulumi.get(self, "y_axis_right_series")
+
+    @property
+    @pulumi.getter(name="yAxisRightZero")
+    def y_axis_right_zero(self) -> Optional[bool]:
+        """
+        (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+        """
+        return pulumi.get(self, "y_axis_right_zero")
 
 
 @pulumi.output_type
@@ -7268,10 +7489,10 @@ class OneDashboardPageWidgetLogTableNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -7287,7 +7508,7 @@ class OneDashboardPageWidgetLogTableNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -8341,10 +8562,10 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -8360,7 +8581,7 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -8888,10 +9109,10 @@ class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -8907,7 +9128,7 @@ class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -9159,6 +9380,7 @@ class OneDashboardPageWidgetTable(dict):
                  legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValue']] = None,
+                 thresholds: Optional[Sequence['outputs.OneDashboardPageWidgetTableThreshold']] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetTableUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -9177,6 +9399,7 @@ class OneDashboardPageWidgetTable(dict):
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetTableThresholdArgs'] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         :param Sequence['OneDashboardPageWidgetTableUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -9203,6 +9426,8 @@ class OneDashboardPageWidgetTable(dict):
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if thresholds is not None:
+            pulumi.set(__self__, "thresholds", thresholds)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -9315,6 +9540,14 @@ class OneDashboardPageWidgetTable(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableThreshold']]:
+        """
+        (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "thresholds")
 
     @property
     @pulumi.getter
@@ -9463,10 +9696,10 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_id: Optional[int] = None):
+                 account_id: Optional[str] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param str account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         pulumi.set(__self__, "query", query)
         if account_id is not None:
@@ -9482,7 +9715,7 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -9587,6 +9820,80 @@ class OneDashboardPageWidgetTableNullValueSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableThreshold(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableThreshold. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableThreshold.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableThreshold.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: Optional[str] = None,
+                 from_: Optional[int] = None,
+                 severity: Optional[str] = None,
+                 to: Optional[int] = None):
+        """
+        :param str column_name: The name of the column in the table, to which the threshold would need to be applied.
+        :param int from_: The value 'from' which the threshold would need to be applied.
+        :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        :param int to: The value until which the threshold would need to be applied.
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[str]:
+        """
+        The name of the column in the table, to which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[int]:
+        """
+        The value 'from' which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[int]:
+        """
+        The value until which the threshold would need to be applied.
+        """
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type
@@ -10053,10 +10360,10 @@ class OneDashboardVariableNrqlQuery(dict):
 
     def __init__(__self__, *,
                  query: str,
-                 account_ids: Optional[Sequence[int]] = None):
+                 account_ids: Optional[Sequence[str]] = None):
         """
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param Sequence[int] account_ids: New Relic account ID(s) to issue the query against.
+        :param Sequence[str] account_ids: New Relic account ID(s) to issue the query against.
         """
         pulumi.set(__self__, "query", query)
         if account_ids is not None:
@@ -10072,7 +10379,7 @@ class OneDashboardVariableNrqlQuery(dict):
 
     @property
     @pulumi.getter(name="accountIds")
-    def account_ids(self) -> Optional[Sequence[int]]:
+    def account_ids(self) -> Optional[Sequence[str]]:
         """
         New Relic account ID(s) to issue the query against.
         """
@@ -10141,12 +10448,12 @@ class ServiceLevelEvents(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_id: int,
+                 account_id: str,
                  valid_events: 'outputs.ServiceLevelEventsValidEvents',
                  bad_events: Optional['outputs.ServiceLevelEventsBadEvents'] = None,
                  good_events: Optional['outputs.ServiceLevelEventsGoodEvents'] = None):
         """
-        :param int account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+        :param str account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
                and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         :param 'ServiceLevelEventsValidEventsArgs' valid_events: The definition of valid requests.
         :param 'ServiceLevelEventsBadEventsArgs' bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
@@ -10161,7 +10468,7 @@ class ServiceLevelEvents(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
+    def account_id(self) -> str:
         """
         The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
         and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
@@ -10322,8 +10629,8 @@ class ServiceLevelEventsGoodEvents(dict):
         """
         :param str from_: The event type where NRDB data will be fetched from.
         :param 'ServiceLevelEventsGoodEventsSelectArgs' select: The NRQL SELECT clause to aggregate events.
-        :param str where: A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-               a particular entity and returned an error).
+        :param str where: A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+               a particular entity and were successful).
         """
         pulumi.set(__self__, "from_", from_)
         if select is not None:
@@ -10351,8 +10658,8 @@ class ServiceLevelEventsGoodEvents(dict):
     @pulumi.getter
     def where(self) -> Optional[str]:
         """
-        A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-        a particular entity and returned an error).
+        A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        a particular entity and were successful).
         """
         return pulumi.get(self, "where")
 
@@ -10425,8 +10732,7 @@ class ServiceLevelEventsValidEvents(dict):
         """
         :param str from_: The event type where NRDB data will be fetched from.
         :param 'ServiceLevelEventsValidEventsSelectArgs' select: The NRQL SELECT clause to aggregate events.
-        :param str where: A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-               a particular entity and returned an error).
+        :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
         """
         pulumi.set(__self__, "from_", from_)
         if select is not None:
@@ -10454,8 +10760,7 @@ class ServiceLevelEventsValidEvents(dict):
     @pulumi.getter
     def where(self) -> Optional[str]:
         """
-        A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-        a particular entity and returned an error).
+        A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
         """
         return pulumi.get(self, "where")
 
@@ -10646,11 +10951,10 @@ class WorkflowDestination(dict):
                  notification_triggers: Optional[Sequence[str]] = None,
                  type: Optional[str] = None):
         """
-        :param str channel_id: Id of a notification_channel to use for notifications. Please note that you have to use a 
-               **notification** channel, not an `alert_channel`.
+        :param str channel_id: (Required) Destination's channel id.
         :param str name: The name of the workflow.
-        :param Sequence[str] notification_triggers: Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
-        :param str type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        :param Sequence[str] notification_triggers: List of triggers to notify about in this destination configuration.
+        :param str type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
@@ -10664,8 +10968,7 @@ class WorkflowDestination(dict):
     @pulumi.getter(name="channelId")
     def channel_id(self) -> str:
         """
-        Id of a notification_channel to use for notifications. Please note that you have to use a 
-        **notification** channel, not an `alert_channel`.
+        (Required) Destination's channel id.
         """
         return pulumi.get(self, "channel_id")
 
@@ -10681,7 +10984,7 @@ class WorkflowDestination(dict):
     @pulumi.getter(name="notificationTriggers")
     def notification_triggers(self) -> Optional[Sequence[str]]:
         """
-        Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+        List of triggers to notify about in this destination configuration.
         """
         return pulumi.get(self, "notification_triggers")
 
@@ -10689,7 +10992,7 @@ class WorkflowDestination(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         """
         return pulumi.get(self, "type")
 
@@ -10699,7 +11002,7 @@ class WorkflowEnrichments(dict):
     def __init__(__self__, *,
                  nrqls: Sequence['outputs.WorkflowEnrichmentsNrql']):
         """
-        :param Sequence['WorkflowEnrichmentsNrqlArgs'] nrqls: a wrapper block
+        :param Sequence['WorkflowEnrichmentsNrqlArgs'] nrqls: (Required) Nrql type Enrichments.
         """
         pulumi.set(__self__, "nrqls", nrqls)
 
@@ -10707,7 +11010,7 @@ class WorkflowEnrichments(dict):
     @pulumi.getter
     def nrqls(self) -> Sequence['outputs.WorkflowEnrichmentsNrql']:
         """
-        a wrapper block
+        (Required) Nrql type Enrichments.
         """
         return pulumi.get(self, "nrqls")
 
@@ -10736,15 +11039,15 @@ class WorkflowEnrichmentsNrql(dict):
     def __init__(__self__, *,
                  configurations: Sequence['outputs.WorkflowEnrichmentsNrqlConfiguration'],
                  name: str,
-                 account_id: Optional[int] = None,
+                 account_id: Optional[str] = None,
                  enrichment_id: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param Sequence['WorkflowEnrichmentsNrqlConfigurationArgs'] configurations: Another wrapper block
+        :param Sequence['WorkflowEnrichmentsNrqlConfigurationArgs'] configurations: A set of key-value pairs to represent a enrichment configuration.
         :param str name: The name of the workflow.
-        :param int account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param str account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param str enrichment_id: Enrichment's id.
-        :param str type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        :param str type: The type of the enrichment. One of: (NRQL).
         """
         pulumi.set(__self__, "configurations", configurations)
         pulumi.set(__self__, "name", name)
@@ -10759,7 +11062,7 @@ class WorkflowEnrichmentsNrql(dict):
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.WorkflowEnrichmentsNrqlConfiguration']:
         """
-        Another wrapper block
+        A set of key-value pairs to represent a enrichment configuration.
         """
         return pulumi.get(self, "configurations")
 
@@ -10773,7 +11076,7 @@ class WorkflowEnrichmentsNrql(dict):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[int]:
+    def account_id(self) -> Optional[str]:
         """
         Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """
@@ -10791,7 +11094,7 @@ class WorkflowEnrichmentsNrql(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        The type of the enrichment. One of: (NRQL).
         """
         return pulumi.get(self, "type")
 
@@ -10801,7 +11104,7 @@ class WorkflowEnrichmentsNrqlConfiguration(dict):
     def __init__(__self__, *,
                  query: str):
         """
-        :param str query: An NRQL query to run
+        :param str query: enrichment's NRQL query
         """
         pulumi.set(__self__, "query", query)
 
@@ -10809,7 +11112,7 @@ class WorkflowEnrichmentsNrqlConfiguration(dict):
     @pulumi.getter
     def query(self) -> str:
         """
-        An NRQL query to run
+        enrichment's NRQL query
         """
         return pulumi.get(self, "query")
 
@@ -11169,6 +11472,18 @@ class GetNotificationDestinationPropertyResult(dict):
         Notification property label.
         """
         return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class GetNotificationDestinationSecureUrlResult(dict):
+    def __init__(__self__, *,
+                 prefix: str):
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

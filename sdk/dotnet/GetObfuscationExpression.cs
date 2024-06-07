@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,12 +26,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
         ///     var rule = new NewRelic.ObfuscationRule("rule", new()
         ///     {
+        ///         Name = "ruleName",
         ///         Description = "description of the rule",
         ///         Filter = "hostStatus=running",
         ///         Enabled = true,
@@ -52,7 +52,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetObfuscationExpressionResult> InvokeAsync(GetObfuscationExpressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObfuscationExpressionResult>("newrelic:index/getObfuscationExpression:getObfuscationExpression", args ?? new GetObfuscationExpressionArgs(), options.WithDefaults());
@@ -62,7 +61,6 @@ namespace Pulumi.NewRelic
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,12 +71,13 @@ namespace Pulumi.NewRelic
         /// {
         ///     var expression = NewRelic.GetObfuscationExpression.Invoke(new()
         ///     {
-        ///         AccountId = 123456,
+        ///         AccountId = "123456",
         ///         Name = "The expression",
         ///     });
         /// 
         ///     var rule = new NewRelic.ObfuscationRule("rule", new()
         ///     {
+        ///         Name = "ruleName",
         ///         Description = "description of the rule",
         ///         Filter = "hostStatus=running",
         ///         Enabled = true,
@@ -98,7 +97,6 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetObfuscationExpressionResult> Invoke(GetObfuscationExpressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObfuscationExpressionResult>("newrelic:index/getObfuscationExpression:getObfuscationExpression", args ?? new GetObfuscationExpressionInvokeArgs(), options.WithDefaults());
@@ -111,7 +109,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
         /// </summary>
         [Input("accountId")]
-        public int? AccountId { get; set; }
+        public string? AccountId { get; set; }
 
         /// <summary>
         /// Name of expression.
@@ -131,7 +129,7 @@ namespace Pulumi.NewRelic
         /// The account id associated with the obfuscation expression. If left empty will default to account ID specified in provider level configuration.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Name of expression.
@@ -149,7 +147,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetObfuscationExpressionResult
     {
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -158,7 +156,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetObfuscationExpressionResult(
-            int? accountId,
+            string? accountId,
 
             string id,
 

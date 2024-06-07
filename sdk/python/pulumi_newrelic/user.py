@@ -184,18 +184,17 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_user = newrelic.User("fooUser",
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_user = newrelic.User("foo",
+            name="Test New User",
             email_id="test_user@test.com",
-            authentication_domain_id=foo_authentication_domain.id,
+            authentication_domain_id=foo.id,
             user_type="CORE_USER_TIER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,18 +226,17 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo_authentication_domain = newrelic.get_authentication_domain(name="Test Authentication Domain")
-        foo_user = newrelic.User("fooUser",
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_user = newrelic.User("foo",
+            name="Test New User",
             email_id="test_user@test.com",
-            authentication_domain_id=foo_authentication_domain.id,
+            authentication_domain_id=foo.id,
             user_type="CORE_USER_TIER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

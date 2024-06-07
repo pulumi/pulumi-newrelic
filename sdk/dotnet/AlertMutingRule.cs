@@ -12,7 +12,6 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,6 +22,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertMutingRule("foo", new()
     ///     {
+    ///         Name = "Example Muting Rule",
+    ///         Enabled = true,
+    ///         Description = "muting rule test.",
     ///         Condition = new NewRelic.Inputs.AlertMutingRuleConditionArgs
     ///         {
     ///             Conditions = new[]
@@ -48,27 +50,24 @@ namespace Pulumi.NewRelic
     ///             },
     ///             Operator = "AND",
     ///         },
-    ///         Description = "muting rule test.",
-    ///         Enabled = true,
     ///         Schedule = new NewRelic.Inputs.AlertMutingRuleScheduleArgs
     ///         {
-    ///             EndTime = "2021-01-28T16:30:00",
-    ///             Repeat = "WEEKLY",
-    ///             RepeatCount = 42,
     ///             StartTime = "2021-01-28T15:30:00",
+    ///             EndTime = "2021-01-28T16:30:00",
     ///             TimeZone = "America/Los_Angeles",
+    ///             Repeat = "WEEKLY",
     ///             WeeklyRepeatDays = new[]
     ///             {
     ///                 "MONDAY",
     ///                 "WEDNESDAY",
     ///                 "FRIDAY",
     ///             },
+    ///             RepeatCount = 42,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -85,7 +84,7 @@ namespace Pulumi.NewRelic
         /// The account id of the MutingRule.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.
@@ -167,7 +166,7 @@ namespace Pulumi.NewRelic
         /// The account id of the MutingRule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.
@@ -211,7 +210,7 @@ namespace Pulumi.NewRelic
         /// The account id of the MutingRule.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.

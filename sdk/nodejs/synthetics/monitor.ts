@@ -7,63 +7,63 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+ *
  * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
- *     bypassHeadRequest: true,
+ *     status: "ENABLED",
+ *     name: "monitor",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "SIMPLE",
+ *     locationsPublics: ["AP_SOUTH_1"],
  *     customHeaders: [{
  *         name: "some_name",
  *         value: "some_value",
  *     }],
- *     locationsPublics: ["AP_SOUTH_1"],
- *     period: "EVERY_MINUTE",
- *     status: "ENABLED",
+ *     treatRedirectAsFailure: true,
+ *     validationString: "success",
+ *     bypassHeadRequest: true,
+ *     verifySsl: true,
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     treatRedirectAsFailure: true,
- *     type: "SIMPLE",
- *     uri: "https://www.one.newrelic.com",
- *     validationString: "success",
- *     verifySsl: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ##### Type: `SIMPLE BROWSER`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     status: "ENABLED",
+ *     name: "monitor",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "BROWSER",
+ *     locationsPublics: ["AP_SOUTH_1"],
  *     customHeaders: [{
  *         name: "some_name",
  *         value: "some_value",
  *     }],
  *     enableScreenshotOnFailureAndScript: true,
- *     locationsPublics: ["AP_SOUTH_1"],
- *     period: "EVERY_MINUTE",
- *     status: "ENABLED",
+ *     validationString: "success",
+ *     verifySsl: true,
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "BROWSER",
- *     uri: "https://www.one.newrelic.com",
- *     validationString: "success",
- *     verifySsl: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * See additional examples.
  *
  * ## Additional Examples
@@ -76,17 +76,18 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SIMPLE`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Example private location",
+ *     name: "private_location",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     status: "ENABLED",
+ *     name: "monitor",
  *     period: "EVERY_MINUTE",
  *     uri: "https://www.one.newrelic.com",
  *     type: "SIMPLE",
@@ -105,22 +106,22 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ##### Type: `BROWSER`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Example private location",
+ *     name: "private-location",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     status: "ENABLED",
  *     type: "BROWSER",
  *     uri: "https://www.one.newrelic.com",
+ *     name: "monitor",
  *     period: "EVERY_MINUTE",
  *     locationsPrivates: [location.id],
  *     customHeaders: [{
@@ -139,7 +140,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -182,7 +182,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *
@@ -344,7 +344,7 @@ export interface MonitorState {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *
@@ -438,7 +438,7 @@ export interface MonitorArgs {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *

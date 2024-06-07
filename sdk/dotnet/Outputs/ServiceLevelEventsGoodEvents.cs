@@ -22,8 +22,8 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly Outputs.ServiceLevelEventsGoodEventsSelect? Select;
         /// <summary>
-        /// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-        /// a particular entity and returned an error).
+        /// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        /// a particular entity and were successful).
         /// </summary>
         public readonly string? Where;
 

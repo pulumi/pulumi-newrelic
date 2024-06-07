@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,8 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
-//				PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
-//				MonitorId:  pulumi.Any(newrelic_synthetics_monitor.Foo.Id),
+//				PolicyId:   pulumi.Any(fooNewrelicAlertPolicy.Id),
+//				Name:       pulumi.String("foo"),
+//				MonitorId:  pulumi.Any(fooNewrelicSyntheticsMonitor.Id),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {
@@ -44,13 +44,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Tags
 //
 // Manage synthetics alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,12 +62,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo policy"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooMonitor, err := synthetics.NewMonitor(ctx, "fooMonitor", &synthetics.MonitorArgs{
+//			fooMonitor, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
 //				Status: pulumi.String("ENABLED"),
+//				Name:   pulumi.String("foo monitor"),
 //				Period: pulumi.String("EVERY_MINUTE"),
 //				Uri:    pulumi.String("https://www.one.newrelic.com"),
 //				Type:   pulumi.String("SIMPLE"),
@@ -98,15 +99,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
-//				PolicyId:   fooAlertPolicy.ID(),
+//			fooAlertCondition, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
+//				PolicyId:   foo.ID(),
+//				Name:       pulumi.String("foo synthetics condition"),
 //				MonitorId:  fooMonitor.ID(),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewEntityTags(ctx, "myConditionEntityTags", &newrelic.EntityTagsArgs{
+//			_, err = newrelic.NewEntityTags(ctx, "my_condition_entity_tags", &newrelic.EntityTagsArgs{
 //				Guid: fooAlertCondition.EntityGuid,
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
@@ -132,7 +134,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -145,22 +146,6 @@ type AlertCondition struct {
 	pulumi.CustomResourceState
 
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
@@ -169,7 +154,7 @@ type AlertCondition struct {
 	// The title of this condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 }
@@ -211,22 +196,6 @@ func GetAlertCondition(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertCondition resources.
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
@@ -235,29 +204,13 @@ type alertConditionState struct {
 	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId *int `pulumi:"policyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 }
 
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
@@ -266,7 +219,7 @@ type AlertConditionState struct {
 	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntPtrInput
+	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 }
@@ -277,29 +230,13 @@ func (AlertConditionState) ElementType() reflect.Type {
 
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled *bool `pulumi:"enabled"`
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId string `pulumi:"monitorId"`
 	// The title of this condition.
 	Name *string `pulumi:"name"`
 	// The ID of the policy where this condition should be used.
-	PolicyId int `pulumi:"policyId"`
+	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
 }
@@ -307,29 +244,13 @@ type alertConditionArgs struct {
 // The set of arguments for constructing a AlertCondition resource.
 type AlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Enabled pulumi.BoolPtrInput
 	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringInput
 	// The title of this condition.
 	Name pulumi.StringPtrInput
 	// The ID of the policy where this condition should be used.
-	PolicyId pulumi.IntInput
+	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
 }
@@ -422,25 +343,6 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 }
 
 // Set whether to enable the alert condition. Defaults to `true`.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -461,8 +363,8 @@ func (o AlertConditionOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the policy where this condition should be used.
-func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+func (o AlertConditionOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // Runbook URL to display in notifications.

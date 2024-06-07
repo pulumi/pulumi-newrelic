@@ -32,14 +32,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+     * Specifies an authentication password for use with a channel. Supported by the webhook channel type.
      * 
      */
     @Import(name="authPassword")
     private @Nullable Output<String> authPassword;
 
     /**
-     * @return Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+     * @return Specifies an authentication password for use with a channel. Supported by the webhook channel type.
      * 
      */
     public Optional<Output<String>> authPassword() {
@@ -47,14 +47,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+     * Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
      * 
      */
     @Import(name="authType")
     private @Nullable Output<String> authType;
 
     /**
-     * @return Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+     * @return Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
      * 
      */
     public Optional<Output<String>> authType() {
@@ -62,14 +62,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+     * Specifies an authentication username for use with a channel. Supported by the webhook channel type.
      * 
      */
     @Import(name="authUsername")
     private @Nullable Output<String> authUsername;
 
     /**
-     * @return Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+     * @return Specifies an authentication username for use with a channel. Supported by the webhook channel type.
      * 
      */
     public Optional<Output<String>> authUsername() {
@@ -122,14 +122,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+     * Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
      * 
      */
     @Import(name="headersString")
     private @Nullable Output<String> headersString;
 
     /**
-     * @return Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+     * @return Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
      * 
      */
     public Optional<Output<String>> headersString() {
@@ -137,14 +137,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+     * true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
      * 
      */
     @Import(name="includeJsonAttachment")
     private @Nullable Output<String> includeJsonAttachment;
 
     /**
-     * @return `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+     * @return true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
      * 
      */
     public Optional<Output<String>> includeJsonAttachment() {
@@ -167,14 +167,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+     * A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
      * 
      */
     @Import(name="payload")
     private @Nullable Output<Map<String,String>> payload;
 
     /**
-     * @return A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+     * @return A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
      * 
      */
     public Optional<Output<Map<String,String>>> payload() {
@@ -182,14 +182,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+     * Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
      * 
      */
     @Import(name="payloadString")
     private @Nullable Output<String> payloadString;
 
     /**
-     * @return Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+     * @return Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
      * 
      */
     public Optional<Output<String>> payloadString() {
@@ -197,14 +197,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+     * Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
      * 
      */
     @Import(name="payloadType")
     private @Nullable Output<String> payloadType;
 
     /**
-     * @return Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+     * @return Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
      * 
      */
     public Optional<Output<String>> payloadType() {
@@ -212,14 +212,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * A set of recipients for targeting notifications. Multiple values are comma separated.
      * 
      */
     @Import(name="recipients")
     private @Nullable Output<String> recipients;
 
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return A set of recipients for targeting notifications. Multiple values are comma separated.
      * 
      */
     public Optional<Output<String>> recipients() {
@@ -227,14 +227,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+     * The data center region to store your data. Valid values are US and EU. Default is US.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+     * @return The data center region to store your data. Valid values are US and EU. Default is US.
      * 
      */
     public Optional<Output<String>> region() {
@@ -302,14 +302,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * Your organization&#39;s Slack URL.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+     * @return Your organization&#39;s Slack URL.
      * 
      */
     public Optional<Output<String>> url() {
@@ -397,7 +397,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authPassword Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+         * @param authPassword Specifies an authentication password for use with a channel. Supported by the webhook channel type.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authPassword Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+         * @param authPassword Specifies an authentication password for use with a channel. Supported by the webhook channel type.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authType Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+         * @param authType Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authType Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+         * @param authType Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authUsername Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+         * @param authUsername Specifies an authentication username for use with a channel. Supported by the webhook channel type.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authUsername Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+         * @param authUsername Specifies an authentication username for use with a channel. Supported by the webhook channel type.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param headersString Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+         * @param headersString Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param headersString Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+         * @param headersString Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param includeJsonAttachment `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+         * @param includeJsonAttachment true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
          * 
          * @return builder
          * 
@@ -555,7 +555,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param includeJsonAttachment `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+         * @param includeJsonAttachment true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payload A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+         * @param payload A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payload A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
+         * @param payload A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payloadString Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+         * @param payloadString Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payloadString Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+         * @param payloadString Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payloadType Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+         * @param payloadType Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payloadType Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
+         * @param payloadType Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
+         * @param recipients A set of recipients for targeting notifications. Multiple values are comma separated.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
+         * @param recipients A set of recipients for targeting notifications. Multiple values are comma separated.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+         * @param region The data center region to store your data. Valid values are US and EU. Default is US.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+         * @param region The data center region to store your data. Valid values are US and EU. Default is US.
          * 
          * @return builder
          * 
@@ -775,7 +775,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+         * @param url Your organization&#39;s Slack URL.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param url [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
+         * @param url Your organization&#39;s Slack URL.
          * 
          * @return builder
          * 

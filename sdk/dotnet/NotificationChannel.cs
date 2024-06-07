@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +27,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "webhook-example",
+    ///         Type = "WEBHOOK",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -36,16 +37,14 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "payload",
-    ///                 Label = "Payload Template",
     ///                 Value = "name: {{ foo }}",
+    ///                 Label = "Payload Template",
     ///             },
     ///         },
-    ///         Type = "WEBHOOK",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -55,7 +54,6 @@ namespace Pulumi.NewRelic
     /// ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
     /// To see the properties’ keys for your account, check ServiceNow incidents table.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,7 +64,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "servicenow-incident-example",
+    ///         Type = "SERVICENOW_INCIDENTS",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -82,15 +82,12 @@ namespace Pulumi.NewRelic
     ///                 Value = "Short description",
     ///             },
     ///         },
-    ///         Type = "SERVICENOW_INCIDENTS",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,7 +98,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "email-example",
+    ///         Type = "EMAIL",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -117,15 +116,12 @@ namespace Pulumi.NewRelic
     ///                 Value = "issue id - {{issueId}}",
     ///             },
     ///         },
-    ///         Type = "EMAIL",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,7 +132,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "jira-example",
+    ///         Type = "JIRA_CLASSIC",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "ERROR_TRACKING",
     ///         Properties = new[]
@@ -162,15 +160,12 @@ namespace Pulumi.NewRelic
     ///                 Value = "{{ annotations.title.[0] }}",
     ///             },
     ///         },
-    ///         Type = "JIRA_CLASSIC",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -181,7 +176,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "pagerduty-account-example",
+    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -205,32 +202,28 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "customDetails",
-    ///                 Value = @"    {
-    ///     ""id"":{{json issueId}},
-    ///     ""IssueURL"":{{json issuePageUrl}},
-    ///     ""NewRelic priority"":{{json priority}},
-    ///     ""Total Incidents"":{{json totalIncidents}},
-    ///     ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""isCorrelated"":{{json isCorrelated}},
-    ///     ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Workflow Name"":{{json workflowName}}
-    ///     }
-    /// 
+    ///                 Value = @"{
+    /// ""id"":{{json issueId}},
+    /// ""IssueURL"":{{json issuePageUrl}},
+    /// ""NewRelic priority"":{{json priority}},
+    /// ""Total Incidents"":{{json totalIncidents}},
+    /// ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""isCorrelated"":{{json isCorrelated}},
+    /// ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Workflow Name"":{{json workflowName}}
+    /// }
     /// ",
     ///             },
     ///         },
-    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -241,7 +234,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "pagerduty-account-example",
+    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -254,32 +249,28 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "customDetails",
-    ///                 Value = @"    {
-    ///     ""id"":{{json issueId}},
-    ///     ""IssueURL"":{{json issuePageUrl}},
-    ///     ""NewRelic priority"":{{json priority}},
-    ///     ""Total Incidents"":{{json totalIncidents}},
-    ///     ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""isCorrelated"":{{json isCorrelated}},
-    ///     ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
-    ///     ""Workflow Name"":{{json workflowName}}
-    ///     }
-    /// 
+    ///                 Value = @"{
+    /// ""id"":{{json issueId}},
+    /// ""IssueURL"":{{json issuePageUrl}},
+    /// ""NewRelic priority"":{{json priority}},
+    /// ""Total Incidents"":{{json totalIncidents}},
+    /// ""Impacted Entities"":""{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Runbook"":""{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Description"":""{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""isCorrelated"":{{json isCorrelated}},
+    /// ""Alert Policy Names"":""{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Alert Condition Names"":""{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"",
+    /// ""Workflow Name"":{{json workflowName}}
+    /// }
     /// ",
     ///             },
     ///         },
-    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// #### Mobile Push
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -290,18 +281,17 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "mobile-push-example",
+    ///         Type = "MOBILE_PUSH",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
-    ///         Type = "MOBILE_PUSH",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -312,7 +302,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "event-bridge-example",
+    ///         Type = "EVENT_BRIDGE",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -328,15 +320,12 @@ namespace Pulumi.NewRelic
     ///                 Value = "{ id: {{ json issueId }} }",
     ///             },
     ///         },
-    ///         Type = "EVENT_BRIDGE",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -347,7 +336,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "slack-example",
+    ///         Type = "SLACK",
     ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
@@ -363,12 +354,10 @@ namespace Pulumi.NewRelic
     ///                 Value = "issue id - {{issueId}}",
     ///             },
     ///         },
-    ///         Type = "SLACK",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
     /// 
@@ -377,7 +366,6 @@ namespace Pulumi.NewRelic
     /// Create a destination resource and reference that destination to the channel resource:
     /// 
     /// ### Create a destination
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -388,12 +376,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var webhook_destination = new NewRelic.NotificationDestination("webhook-destination", new()
     ///     {
-    ///         AccountId = 12345678,
-    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
-    ///         {
-    ///             Password = "password",
-    ///             User = "username",
-    ///         },
+    ///         AccountId = "12345678",
+    ///         Name = "destination-webhook",
+    ///         Type = "WEBHOOK",
     ///         Properties = new[]
     ///         {
     ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
@@ -402,15 +387,17 @@ namespace Pulumi.NewRelic
     ///                 Value = "https://webhook.mywebhook.com",
     ///             },
     ///         },
-    ///         Type = "WEBHOOK",
+    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
+    ///         {
+    ///             User = "username",
+    ///             Password = "password",
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create a channel
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -421,9 +408,10 @@ namespace Pulumi.NewRelic
     /// {
     ///     var webhook_channel = new NewRelic.NotificationChannel("webhook-channel", new()
     ///     {
-    ///         AccountId = 12345678,
+    ///         AccountId = "12345678",
+    ///         Name = "channel-webhook",
     ///         Type = "WEBHOOK",
-    ///         DestinationId = newrelic_notification_destination.Webhook_destination.Id,
+    ///         DestinationId = webhook_destination.Id,
     ///         Product = "IINT",
     ///         Properties = new[]
     ///         {
@@ -438,7 +426,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Additional Information
     /// 
@@ -465,7 +452,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the channel is active.
@@ -559,7 +546,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the channel is active.
@@ -615,7 +602,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Indicates whether the channel is active.

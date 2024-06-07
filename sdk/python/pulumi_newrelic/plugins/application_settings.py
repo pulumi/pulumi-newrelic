@@ -23,11 +23,9 @@ class ApplicationSettingsArgs:
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -55,11 +53,9 @@ class ApplicationSettingsArgs:
         """
         Enable or disable real user monitoring for the New Relic application.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
         ```
-        <!--End PulumiCodeChooser -->
+        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        ```
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
@@ -104,11 +100,9 @@ class _ApplicationSettingsState:
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -139,11 +133,9 @@ class _ApplicationSettingsState:
         """
         Enable or disable real user monitoring for the New Relic application.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
         ```
-        <!--End PulumiCodeChooser -->
+        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        ```
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
@@ -195,17 +187,16 @@ class ApplicationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         app = newrelic.plugins.ApplicationSettings("app",
+            name="my-app",
             app_apdex_threshold=0.7,
-            enable_real_user_monitoring=False,
-            end_user_apdex_threshold=0.8)
+            end_user_apdex_threshold=0.8,
+            enable_real_user_monitoring=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 
@@ -225,11 +216,9 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -248,17 +237,16 @@ class ApplicationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         app = newrelic.plugins.ApplicationSettings("app",
+            name="my-app",
             app_apdex_threshold=0.7,
-            enable_real_user_monitoring=False,
-            end_user_apdex_threshold=0.8)
+            end_user_apdex_threshold=0.8,
+            enable_real_user_monitoring=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 
@@ -335,11 +323,9 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
                
-               <!--Start PulumiCodeChooser -->
-               ```python
-               import pulumi
                ```
-               <!--End PulumiCodeChooser -->
+               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+               ```
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
@@ -367,11 +353,9 @@ class ApplicationSettings(pulumi.CustomResource):
         """
         Enable or disable real user monitoring for the New Relic application.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
         ```
-        <!--End PulumiCodeChooser -->
+        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        ```
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 

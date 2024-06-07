@@ -16,7 +16,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,11 +31,15 @@ namespace Pulumi.NewRelic
     ///         Domain = "APM",
     ///     });
     /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
-    /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+    ///     var foo = new NewRelic.AlertPolicy("foo", new()
     ///     {
-    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo",
+    ///     });
+    /// 
+    ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Name = "foo",
     ///         Type = "apm_app_metric",
     ///         Entities = new[]
     ///         {
@@ -60,7 +63,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Terms
     /// 
@@ -76,7 +78,6 @@ namespace Pulumi.NewRelic
     /// 
     /// Manage alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,20 +86,24 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooEntity = NewRelic.GetEntity.Invoke(new()
+    ///     var foo = NewRelic.GetEntity.Invoke(new()
     ///     {
     ///         Name = "foo entitiy",
     ///     });
     /// 
-    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+    ///     {
+    ///         Name = "foo policy",
+    ///     });
     /// 
-    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+    ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
     ///     {
     ///         PolicyId = fooAlertPolicy.Id,
+    ///         Name = "foo condition",
     ///         Type = "apm_app_metric",
     ///         Entities = new[]
     ///         {
-    ///             fooEntity.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
+    ///             foo.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
     ///         },
     ///         Metric = "apdex",
     ///         RunbookUrl = "https://www.example.com",
@@ -116,7 +121,7 @@ namespace Pulumi.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var myConditionEntityTags = new NewRelic.EntityTags("myConditionEntityTags", new()
+    ///     var myConditionEntityTags = new NewRelic.EntityTags("my_condition_entity_tags", new()
     ///     {
     ///         Guid = fooAlertCondition.EntityGuid,
     ///         Tags = new[]
@@ -143,7 +148,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -172,7 +176,7 @@ namespace Pulumi.NewRelic
         /// The instance IDs associated with this condition.
         /// </summary>
         [Output("entities")]
-        public Output<ImmutableArray<int>> Entities { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Entities { get; private set; } = null!;
 
         /// <summary>
         /// The unique entity identifier of the condition in New Relic.
@@ -202,7 +206,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
-        public Output<int> PolicyId { get; private set; } = null!;
+        public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -233,17 +237,9 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Output("userDefinedValueFunction")]
         public Output<string?> UserDefinedValueFunction { get; private set; } = null!;
@@ -315,14 +311,14 @@ namespace Pulumi.NewRelic
         public Input<bool>? Enabled { get; set; }
 
         [Input("entities", required: true)]
-        private InputList<int>? _entities;
+        private InputList<string>? _entities;
 
         /// <summary>
         /// The instance IDs associated with this condition.
         /// </summary>
-        public InputList<int> Entities
+        public InputList<string> Entities
         {
-            get => _entities ?? (_entities = new InputList<int>());
+            get => _entities ?? (_entities = new InputList<string>());
             set => _entities = value;
         }
 
@@ -348,7 +344,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
-        public Input<int> PolicyId { get; set; } = null!;
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -385,17 +381,9 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }
@@ -429,14 +417,14 @@ namespace Pulumi.NewRelic
         public Input<bool>? Enabled { get; set; }
 
         [Input("entities")]
-        private InputList<int>? _entities;
+        private InputList<string>? _entities;
 
         /// <summary>
         /// The instance IDs associated with this condition.
         /// </summary>
-        public InputList<int> Entities
+        public InputList<string> Entities
         {
-            get => _entities ?? (_entities = new InputList<int>());
+            get => _entities ?? (_entities = new InputList<string>());
             set => _entities = value;
         }
 
@@ -468,7 +456,7 @@ namespace Pulumi.NewRelic
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
-        public Input<int>? PolicyId { get; set; }
+        public Input<string>? PolicyId { get; set; }
 
         /// <summary>
         /// Runbook URL to display in notifications.
@@ -505,17 +493,9 @@ namespace Pulumi.NewRelic
         /// 
         /// &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
+        /// ```
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }

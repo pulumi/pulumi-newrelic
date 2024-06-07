@@ -14,13 +14,11 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     public sealed class GcpIntegrationsBigQuery
     {
         /// <summary>
-        /// Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        /// to fetch tags of the resource
         /// </summary>
         public readonly bool? FetchTags;
         /// <summary>
-        /// The data polling interval in seconds.
-        /// 
-        /// Other integration supports an additional argument:
+        /// the data polling interval in seconds
         /// </summary>
         public readonly int? MetricsPollingInterval;
 

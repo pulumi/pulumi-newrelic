@@ -18,7 +18,7 @@ class MonitorArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -128,14 +128,14 @@ class MonitorArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -350,7 +350,7 @@ class MonitorArgs:
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class _MonitorState:
                  verify_ssl: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -444,14 +444,14 @@ class _MonitorState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -704,7 +704,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -726,61 +726,61 @@ class Monitor(pulumi.CustomResource):
                  verify_ssl: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SIMPLE BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="BROWSER",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            validation_string="success",
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -793,16 +793,17 @@ class Monitor(pulumi.CustomResource):
 
         ##### Type: `SIMPLE`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
+            name="monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -820,21 +821,21 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private-location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
             type="BROWSER",
             uri="https://www.one.newrelic.com",
+            name="monitor",
             period="EVERY_MINUTE",
             locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
@@ -852,7 +853,6 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -866,7 +866,7 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -898,61 +898,61 @@ class Monitor(pulumi.CustomResource):
                  args: MonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SIMPLE BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            name="monitor",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="BROWSER",
+            locations_publics=["AP_SOUTH_1"],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
-            locations_publics=["AP_SOUTH_1"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            validation_string="success",
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -965,16 +965,17 @@ class Monitor(pulumi.CustomResource):
 
         ##### Type: `SIMPLE`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
+            name="monitor",
             period="EVERY_MINUTE",
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
@@ -992,21 +993,21 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private-location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
             status="ENABLED",
             type="BROWSER",
             uri="https://www.one.newrelic.com",
+            name="monitor",
             period="EVERY_MINUTE",
             locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
@@ -1024,7 +1025,6 @@ class Monitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1051,7 +1051,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
@@ -1115,7 +1115,7 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             bypass_head_request: Optional[pulumi.Input[bool]] = None,
             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
             device_orientation: Optional[pulumi.Input[str]] = None,
@@ -1143,7 +1143,7 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
@@ -1198,7 +1198,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the Synthetics monitor will be created.
         """

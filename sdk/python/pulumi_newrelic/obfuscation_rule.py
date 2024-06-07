@@ -19,7 +19,7 @@ class ObfuscationRuleArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]],
                  enabled: pulumi.Input[bool],
                  filter: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -27,7 +27,7 @@ class ObfuscationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[str] name: Name of rule.
         """
@@ -79,14 +79,14 @@ class ObfuscationRuleArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the obfuscation rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -117,7 +117,7 @@ class ObfuscationRuleArgs:
 @pulumi.input_type
 class _ObfuscationRuleState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -125,7 +125,7 @@ class _ObfuscationRuleState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ObfuscationRule resources.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
@@ -147,14 +147,14 @@ class _ObfuscationRuleState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account id associated with the obfuscation rule.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -223,7 +223,7 @@ class ObfuscationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -235,15 +235,16 @@ class ObfuscationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         bar = newrelic.ObfuscationExpression("bar",
+            name="expressionName",
             description="description of the expression",
             regex="(^http)")
         foo = newrelic.ObfuscationRule("foo",
+            name="ruleName",
             description="description of the rule",
             filter="hostStatus=running",
             enabled=True,
@@ -253,7 +254,6 @@ class ObfuscationRule(pulumi.CustomResource):
                 method="MASK",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,7 +267,7 @@ class ObfuscationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
@@ -285,15 +285,16 @@ class ObfuscationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         bar = newrelic.ObfuscationExpression("bar",
+            name="expressionName",
             description="description of the expression",
             regex="(^http)")
         foo = newrelic.ObfuscationRule("foo",
+            name="ruleName",
             description="description of the rule",
             filter="hostStatus=running",
             enabled=True,
@@ -303,7 +304,6 @@ class ObfuscationRule(pulumi.CustomResource):
                 method="MASK",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -330,7 +330,7 @@ class ObfuscationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -367,7 +367,7 @@ class ObfuscationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -380,7 +380,7 @@ class ObfuscationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account id associated with the obfuscation rule.
+        :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
@@ -401,7 +401,7 @@ class ObfuscationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account id associated with the obfuscation rule.
         """

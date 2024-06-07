@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,14 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
+//				Name:                   pulumi.String("Test Group"),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
 //					pulumi.String("0001112222"),
 //					pulumi.String("2221110000"),
@@ -50,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Examples
 //
@@ -58,7 +57,6 @@ import (
 //
 // The following example illustrates the creation of a group using the `Group` resource, to which users created using the `User` resource are added.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,30 +69,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooUser, err := newrelic.NewUser(ctx, "fooUser", &newrelic.UserArgs{
+//			fooUser, err := newrelic.NewUser(ctx, "foo", &newrelic.UserArgs{
+//				Name:                   pulumi.String("Test User One"),
 //				EmailId:                pulumi.String("test_user_one@test.com"),
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserType:               pulumi.String("CORE_USER_TIER"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			bar, err := newrelic.NewUser(ctx, "bar", &newrelic.UserArgs{
+//				Name:                   pulumi.String("Test User Two"),
 //				EmailId:                pulumi.String("test_user_two@test.com"),
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserType:               pulumi.String("BASIC_USER_TIER"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
+//				Name:                   pulumi.String("Test Group"),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
 //					fooUser.ID(),
 //					bar.ID(),
@@ -108,13 +109,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Addition of Existing Users to a New Group
 //
 // The following example demonstrates the usage of the `Group` resource to create a group, wherein the `User` data source is employed to associate existing users with the newly formed group.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,30 +126,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooAuthenticationDomain, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
 //				Name: "Test Authentication Domain",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			fooUser, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
-//				AuthenticationDomainId: fooAuthenticationDomain.Id,
+//			fooGetUser, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
+//				AuthenticationDomainId: foo.Id,
 //				EmailId:                pulumi.StringRef("test_user_one@test.com"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			bar, err := newrelic.LookupUser(ctx, &newrelic.LookupUserArgs{
-//				AuthenticationDomainId: fooAuthenticationDomain.Id,
+//				AuthenticationDomainId: foo.Id,
 //				Name:                   pulumi.StringRef("Test User Two"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewGroup(ctx, "fooGroup", &newrelic.GroupArgs{
-//				AuthenticationDomainId: pulumi.String(fooAuthenticationDomain.Id),
+//			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
+//				Name:                   pulumi.String("Test Group"),
+//				AuthenticationDomainId: pulumi.String(foo.Id),
 //				UserIds: pulumi.StringArray{
-//					pulumi.String(fooUser.Id),
+//					pulumi.String(fooGetUser.Id),
 //					pulumi.String(bar.Id),
 //				},
 //			})
@@ -162,7 +162,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
 //

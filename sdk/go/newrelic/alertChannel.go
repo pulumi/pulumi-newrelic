@@ -19,7 +19,6 @@ import (
 // ## Example Usage
 //
 // ### Email
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,11 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &newrelic.AlertChannelConfigArgs{
-//					IncludeJsonAttachment: pulumi.String("true"),
-//					Recipients:            pulumi.String("foo@example.com"),
-//				},
+//				Name: pulumi.String("foo"),
 //				Type: pulumi.String("email"),
+//				Config: &newrelic.AlertChannelConfigArgs{
+//					Recipients:            pulumi.String("foo@example.com"),
+//					IncludeJsonAttachment: pulumi.String("true"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -47,12 +47,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Additional Examples
 //
 // ##### Slack
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,11 +64,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &newrelic.AlertChannelConfigArgs{
-//					Channel: pulumi.String("example-alerts-channel"),
-//					Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
-//				},
+//				Name: pulumi.String("slack-example"),
 //				Type: pulumi.String("slack"),
+//				Config: &newrelic.AlertChannelConfigArgs{
+//					Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
+//					Channel: pulumi.String("example-alerts-channel"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -80,12 +79,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 //
 // ### OpsGenie
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,13 +96,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("opsgenie-example"),
+//				Type: pulumi.String("opsgenie"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					ApiKey:     pulumi.String("abc123"),
-//					Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
-//					Tags:       pulumi.String("tag1, tag2"),
 //					Teams:      pulumi.String("team1, team2"),
+//					Tags:       pulumi.String("tag1, tag2"),
+//					Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
 //				},
-//				Type: pulumi.String("opsgenie"),
 //			})
 //			if err != nil {
 //				return err
@@ -115,10 +113,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### PagerDuty
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,10 +128,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("pagerduty-example"),
+//				Type: pulumi.String("pagerduty"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					ServiceKey: pulumi.String("abc123"),
 //				},
-//				Type: pulumi.String("pagerduty"),
 //			})
 //			if err != nil {
 //				return err
@@ -145,10 +142,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VictorOps
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -162,11 +157,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("victorops-example"),
+//				Type: pulumi.String("victorops"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					Key:      pulumi.String("abc123"),
 //					RouteKey: pulumi.String("/example"),
 //				},
-//				Type: pulumi.String("victorops"),
 //			})
 //			if err != nil {
 //				return err
@@ -176,10 +172,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Webhook
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -193,6 +187,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("webhook-example"),
 //				Type: pulumi.String("webhook"),
 //				Config: &newrelic.AlertChannelConfigArgs{
 //					BaseUrl:     pulumi.String("http://www.test.com"),
@@ -215,10 +210,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Webhook with complex payload
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -232,8 +225,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Name: pulumi.String("webhook-example"),
+//				Type: pulumi.String("webhook"),
 //				Config: &newrelic.AlertChannelConfigArgs{
-//					BaseUrl: pulumi.String("http://www.test.com"),
+//					BaseUrl:     pulumi.String("http://www.test.com"),
+//					PayloadType: pulumi.String("application/json"),
 //					PayloadString: pulumi.String(`{
 //	  "my_custom_values": {
 //	    "condition_name": "$CONDITION_NAME",
@@ -243,9 +239,7 @@ import (
 //
 // `),
 //
-//					PayloadType: pulumi.String("application/json"),
 //				},
-//				Type: pulumi.String("webhook"),
 //			})
 //			if err != nil {
 //				return err
@@ -255,7 +249,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -270,7 +263,7 @@ type AlertChannel struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
 	// The name of the channel.
@@ -313,7 +306,7 @@ func GetAlertChannel(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertChannel resources.
 type alertChannelState struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
@@ -324,7 +317,7 @@ type alertChannelState struct {
 
 type AlertChannelState struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
@@ -339,7 +332,7 @@ func (AlertChannelState) ElementType() reflect.Type {
 
 type alertChannelArgs struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
@@ -351,7 +344,7 @@ type alertChannelArgs struct {
 // The set of arguments for constructing a AlertChannel resource.
 type AlertChannelArgs struct {
 	// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
@@ -448,8 +441,8 @@ func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context)
 }
 
 // Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-func (o AlertChannelOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AlertChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AlertChannelOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,21 +29,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewMonitorDowntime(ctx, "foo", &newrelic.MonitorDowntimeArgs{
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
-//					OnDate: pulumi.String("2023-12-20"),
-//				},
-//				EndTime: pulumi.String("2023-12-10T02:45:30"),
-//				MaintenanceDays: pulumi.StringArray{
-//					pulumi.String("FRIDAY"),
-//					pulumi.String("SATURDAY"),
-//				},
-//				Mode: pulumi.String("WEEKLY"),
+//				Name: pulumi.String("Sample Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("WEEKLY"),
 //				StartTime: pulumi.String("2023-11-30T10:30:00"),
+//				EndTime:   pulumi.String("2023-12-10T02:45:30"),
 //				TimeZone:  pulumi.String("Asia/Kolkata"),
+//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//					OnDate: pulumi.String("2023-12-20"),
+//				},
+//				MaintenanceDays: pulumi.StringArray{
+//					pulumi.String("FRIDAY"),
+//					pulumi.String("SATURDAY"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -54,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // Monitor Downtimes are of four types; **one-time**, **daily**, **weekly** and **monthly**. For more details on each type and the right arguments that go with them, check out the argument reference and examples sections below.
 //
 // ## Examples
@@ -63,7 +62,6 @@ import (
 //
 // The below example illustrates creating a **one-time** monitor downtime.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,14 +74,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleOneTimeNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
-//				EndTime: pulumi.String("2024-01-04T16:24:30"),
-//				Mode:    pulumi.String("ONE_TIME"),
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_one_time_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample One Time Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("ONE_TIME"),
 //				StartTime: pulumi.String("2023-12-04T10:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T16:24:30"),
 //				TimeZone:  pulumi.String("America/Los_Angeles"),
 //			})
 //			if err != nil {
@@ -94,7 +93,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Daily Monitor Downtime
 //
@@ -102,7 +100,6 @@ import (
 //
 // Note that `endRepeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `endRepeat` specified in the argument reference section above. This example uses the `onDate` nested argument of `endRepeat`, however, the other nested argument, `onRepeat` may also be used _instead_, as you may see in some of the other examples below; though both `onDate` and `onRepeat` cannot be specified together, as they are mutually exclusive.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,18 +112,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleDailyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
-//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
-//					OnDate: pulumi.String("2023-12-25"),
-//				},
-//				EndTime: pulumi.String("2024-01-04T07:15:00"),
-//				Mode:    pulumi.String("DAILY"),
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_daily_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Daily Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("DAILY"),
 //				StartTime: pulumi.String("2023-12-04T18:15:00"),
-//				TimeZone:  pulumi.String("Asia/Kolkata"),
+//				EndTime:   pulumi.String("2024-01-04T07:15:00"),
+//				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
+//					OnDate: pulumi.String("2023-12-25"),
+//				},
+//				TimeZone: pulumi.String("Asia/Kolkata"),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +134,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Weekly Monitor Downtime
 //
@@ -144,7 +141,6 @@ import (
 //
 // Note that `maintenanceDays` has been specified in the configuration as it is required with weekly monitor downtimes; and `endRepeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -157,19 +153,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleWeeklyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
-//				EndTime: pulumi.String("2024-01-04T23:55:00"),
-//				MaintenanceDays: pulumi.StringArray{
-//					pulumi.String("SATURDAY"),
-//					pulumi.String("SUNDAY"),
-//				},
-//				Mode: pulumi.String("WEEKLY"),
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_weekly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Weekly Monitor Downtime"),
 //				MonitorGuids: pulumi.StringArray{
 //					pulumi.String("<GUID-1>"),
 //					pulumi.String("<GUID-2>"),
 //				},
+//				Mode:      pulumi.String("WEEKLY"),
 //				StartTime: pulumi.String("2023-12-04T14:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T23:55:00"),
 //				TimeZone:  pulumi.String("US/Hawaii"),
+//				MaintenanceDays: pulumi.StringArray{
+//					pulumi.String("SATURDAY"),
+//					pulumi.String("SUNDAY"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -179,7 +176,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Monthly Monitor Downtime
 //
@@ -187,7 +183,6 @@ import (
 //
 // Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `endRepeat` has been specified too, though it is optional. `frequency` has been specified with `daysOfWeek` comprising both of its nested arguments, `ordinalDayOfMonth` and `weekDay`; all in accordance with the rules of these arguments specified in the argument reference section above.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -200,24 +195,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleMonthlyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Monthly Monitor Downtime"),
+//				MonitorGuids: pulumi.StringArray{
+//					pulumi.String("<GUID-1>"),
+//					pulumi.String("<GUID-2>"),
+//				},
+//				Mode:      pulumi.String("MONTHLY"),
+//				StartTime: pulumi.String("2023-12-04T07:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T19:15:00"),
 //				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
 //					OnRepeat: pulumi.Int(6),
 //				},
-//				EndTime: pulumi.String("2024-01-04T19:15:00"),
+//				TimeZone: pulumi.String("Europe/Dublin"),
 //				Frequency: &newrelic.MonitorDowntimeFrequencyArgs{
 //					DaysOfWeek: &newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs{
 //						OrdinalDayOfMonth: pulumi.String("SECOND"),
 //						WeekDay:           pulumi.String("SATURDAY"),
 //					},
 //				},
-//				Mode: pulumi.String("MONTHLY"),
-//				MonitorGuids: pulumi.StringArray{
-//					pulumi.String("<GUID-1>"),
-//					pulumi.String("<GUID-2>"),
-//				},
-//				StartTime: pulumi.String("2023-12-04T07:15:00"),
-//				TimeZone:  pulumi.String("Europe/Dublin"),
 //			})
 //			if err != nil {
 //				return err
@@ -227,9 +223,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `daysOfMonth`, as shown in the example below - though both `daysOfMonth` and `daysOfWeek` cannot be specified together, as they are mutually exclusive.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -242,11 +236,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewMonitorDowntime(ctx, "sampleMonthlyNewrelicMonitorDowntime", &newrelic.MonitorDowntimeArgs{
+//			_, err := newrelic.NewMonitorDowntime(ctx, "sample_monthly_newrelic_monitor_downtime", &newrelic.MonitorDowntimeArgs{
+//				Name: pulumi.String("Sample Monthly Monitor Downtime"),
+//				MonitorGuids: pulumi.StringArray{
+//					pulumi.String("<GUID-1>"),
+//					pulumi.String("<GUID-2>"),
+//				},
+//				Mode:      pulumi.String("MONTHLY"),
+//				StartTime: pulumi.String("2023-12-04T07:15:00"),
+//				EndTime:   pulumi.String("2024-01-04T19:15:00"),
 //				EndRepeat: &newrelic.MonitorDowntimeEndRepeatArgs{
 //					OnRepeat: pulumi.Int(6),
 //				},
-//				EndTime: pulumi.String("2024-01-04T19:15:00"),
+//				TimeZone: pulumi.String("Europe/Dublin"),
 //				Frequency: &newrelic.MonitorDowntimeFrequencyArgs{
 //					DaysOfMonths: pulumi.IntArray{
 //						pulumi.Int(3),
@@ -255,13 +257,6 @@ import (
 //						pulumi.Int(23),
 //					},
 //				},
-//				Mode: pulumi.String("MONTHLY"),
-//				MonitorGuids: pulumi.StringArray{
-//					pulumi.String("<GUID-1>"),
-//					pulumi.String("<GUID-2>"),
-//				},
-//				StartTime: pulumi.String("2023-12-04T07:15:00"),
-//				TimeZone:  pulumi.String("Europe/Dublin"),
 //			})
 //			if err != nil {
 //				return err
@@ -271,7 +266,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -285,25 +279,24 @@ import (
 type MonitorDowntime struct {
 	pulumi.CustomResourceState
 
-	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
+	// provider{} configuration if not specified.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat MonitorDowntimeEndRepeatPtrOutput `pulumi:"endRepeat"`
-	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+	// A datetime stamp signifying the end of the Monitor Downtime.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
-	// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+	// Configuration options for which days of the month a monitor downtime will occur
 	Frequency MonitorDowntimeFrequencyPtrOutput `pulumi:"frequency"`
-	// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-	//
-	// > **NOTE:** `maintenanceDays` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+	// A list of maintenance days to be included with the created weekly Monitor Downtime.
 	MaintenanceDays pulumi.StringArrayOutput `pulumi:"maintenanceDays"`
-	// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+	// An identifier of the type of Monitor Downtime to be created.
 	Mode pulumi.StringOutput `pulumi:"mode"`
-	// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+	// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
 	MonitorGuids pulumi.StringArrayOutput `pulumi:"monitorGuids"`
-	// Name of the monitor downtime to be created.
+	// A name to identify the Monitor Downtime to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+	// A datetime stamp signifying the start of the Monitor Downtime.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// The timezone that applies to the Monitor Downtime schedule.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
@@ -351,50 +344,48 @@ func GetMonitorDowntime(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitorDowntime resources.
 type monitorDowntimeState struct {
-	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId *int `pulumi:"accountId"`
-	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
+	// provider{} configuration if not specified.
+	AccountId *string `pulumi:"accountId"`
+	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat *MonitorDowntimeEndRepeat `pulumi:"endRepeat"`
-	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+	// A datetime stamp signifying the end of the Monitor Downtime.
 	EndTime *string `pulumi:"endTime"`
-	// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+	// Configuration options for which days of the month a monitor downtime will occur
 	Frequency *MonitorDowntimeFrequency `pulumi:"frequency"`
-	// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-	//
-	// > **NOTE:** `maintenanceDays` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+	// A list of maintenance days to be included with the created weekly Monitor Downtime.
 	MaintenanceDays []string `pulumi:"maintenanceDays"`
-	// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+	// An identifier of the type of Monitor Downtime to be created.
 	Mode *string `pulumi:"mode"`
-	// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+	// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
 	MonitorGuids []string `pulumi:"monitorGuids"`
-	// Name of the monitor downtime to be created.
+	// A name to identify the Monitor Downtime to be created.
 	Name *string `pulumi:"name"`
-	// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+	// A datetime stamp signifying the start of the Monitor Downtime.
 	StartTime *string `pulumi:"startTime"`
 	// The timezone that applies to the Monitor Downtime schedule.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
 type MonitorDowntimeState struct {
-	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId pulumi.IntPtrInput
-	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
+	// provider{} configuration if not specified.
+	AccountId pulumi.StringPtrInput
+	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat MonitorDowntimeEndRepeatPtrInput
-	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+	// A datetime stamp signifying the end of the Monitor Downtime.
 	EndTime pulumi.StringPtrInput
-	// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+	// Configuration options for which days of the month a monitor downtime will occur
 	Frequency MonitorDowntimeFrequencyPtrInput
-	// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-	//
-	// > **NOTE:** `maintenanceDays` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+	// A list of maintenance days to be included with the created weekly Monitor Downtime.
 	MaintenanceDays pulumi.StringArrayInput
-	// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+	// An identifier of the type of Monitor Downtime to be created.
 	Mode pulumi.StringPtrInput
-	// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+	// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
 	MonitorGuids pulumi.StringArrayInput
-	// Name of the monitor downtime to be created.
+	// A name to identify the Monitor Downtime to be created.
 	Name pulumi.StringPtrInput
-	// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+	// A datetime stamp signifying the start of the Monitor Downtime.
 	StartTime pulumi.StringPtrInput
 	// The timezone that applies to the Monitor Downtime schedule.
 	TimeZone pulumi.StringPtrInput
@@ -405,25 +396,24 @@ func (MonitorDowntimeState) ElementType() reflect.Type {
 }
 
 type monitorDowntimeArgs struct {
-	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId *int `pulumi:"accountId"`
-	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
+	// provider{} configuration if not specified.
+	AccountId *string `pulumi:"accountId"`
+	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat *MonitorDowntimeEndRepeat `pulumi:"endRepeat"`
-	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+	// A datetime stamp signifying the end of the Monitor Downtime.
 	EndTime string `pulumi:"endTime"`
-	// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+	// Configuration options for which days of the month a monitor downtime will occur
 	Frequency *MonitorDowntimeFrequency `pulumi:"frequency"`
-	// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-	//
-	// > **NOTE:** `maintenanceDays` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+	// A list of maintenance days to be included with the created weekly Monitor Downtime.
 	MaintenanceDays []string `pulumi:"maintenanceDays"`
-	// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+	// An identifier of the type of Monitor Downtime to be created.
 	Mode string `pulumi:"mode"`
-	// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+	// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
 	MonitorGuids []string `pulumi:"monitorGuids"`
-	// Name of the monitor downtime to be created.
+	// A name to identify the Monitor Downtime to be created.
 	Name *string `pulumi:"name"`
-	// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+	// A datetime stamp signifying the start of the Monitor Downtime.
 	StartTime string `pulumi:"startTime"`
 	// The timezone that applies to the Monitor Downtime schedule.
 	TimeZone string `pulumi:"timeZone"`
@@ -431,25 +421,24 @@ type monitorDowntimeArgs struct {
 
 // The set of arguments for constructing a MonitorDowntime resource.
 type MonitorDowntimeArgs struct {
-	// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-	AccountId pulumi.IntPtrInput
-	// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+	// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
+	// provider{} configuration if not specified.
+	AccountId pulumi.StringPtrInput
+	// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 	EndRepeat MonitorDowntimeEndRepeatPtrInput
-	// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+	// A datetime stamp signifying the end of the Monitor Downtime.
 	EndTime pulumi.StringInput
-	// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+	// Configuration options for which days of the month a monitor downtime will occur
 	Frequency MonitorDowntimeFrequencyPtrInput
-	// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-	//
-	// > **NOTE:** `maintenanceDays` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+	// A list of maintenance days to be included with the created weekly Monitor Downtime.
 	MaintenanceDays pulumi.StringArrayInput
-	// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+	// An identifier of the type of Monitor Downtime to be created.
 	Mode pulumi.StringInput
-	// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+	// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
 	MonitorGuids pulumi.StringArrayInput
-	// Name of the monitor downtime to be created.
+	// A name to identify the Monitor Downtime to be created.
 	Name pulumi.StringPtrInput
-	// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+	// A datetime stamp signifying the start of the Monitor Downtime.
 	StartTime pulumi.StringInput
 	// The timezone that applies to the Monitor Downtime schedule.
 	TimeZone pulumi.StringInput
@@ -542,49 +531,48 @@ func (o MonitorDowntimeOutput) ToMonitorDowntimeOutputWithContext(ctx context.Co
 	return o
 }
 
-// The account in which the monitor downtime would be created. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` (or the `accountId` specified in the `provider{}`), if not specified.
-func (o MonitorDowntimeOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *MonitorDowntime) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
+// provider{} configuration if not specified.
+func (o MonitorDowntimeOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Options which may be used to specify when the repeat cycle of the monitor should end. This argument comprises the following nested arguments -
+// A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
 func (o MonitorDowntimeOutput) EndRepeat() MonitorDowntimeEndRepeatPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntime) MonitorDowntimeEndRepeatPtrOutput { return v.EndRepeat }).(MonitorDowntimeEndRepeatPtrOutput)
 }
 
-// The time at which the monitor downtime would end operating, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2024-01-05T14:27:07`.
+// A datetime stamp signifying the end of the Monitor Downtime.
 func (o MonitorDowntimeOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// Options which may be used to specify the configuration of a monthly monitor downtime. This argument comprises the following nested arguments -
+// Configuration options for which days of the month a monitor downtime will occur
 func (o MonitorDowntimeOutput) Frequency() MonitorDowntimeFrequencyPtrOutput {
 	return o.ApplyT(func(v *MonitorDowntime) MonitorDowntimeFrequencyPtrOutput { return v.Frequency }).(MonitorDowntimeFrequencyPtrOutput)
 }
 
-// A list of days on which weekly monitor downtimes would function. Valid values which go into this list would be `"SUNDAY"`, `"MONDAY"`, `"TUESDAY"`, `"WEDNESDAY"`, `"THURSDAY"`, `"FRIDAY"` and/or `"SATURDAY"`.
-//
-// > **NOTE:** `maintenanceDays` **can only be used with the mode** `WEEKLY`, and **is a required argument** with weekly monitor downtimes (i.e. if the `mode` is `WEEKLY`).
+// A list of maintenance days to be included with the created weekly Monitor Downtime.
 func (o MonitorDowntimeOutput) MaintenanceDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringArrayOutput { return v.MaintenanceDays }).(pulumi.StringArrayOutput)
 }
 
-// One of the four modes of operation of monitor downtimes - `ONE_TIME`, `DAILY`, `MONTHLY` or `WEEKLY`.
+// An identifier of the type of Monitor Downtime to be created.
 func (o MonitorDowntimeOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
-// A list of GUIDs of synthetic monitors the monitor downtime would need to be applied to.
+// A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
 func (o MonitorDowntimeOutput) MonitorGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringArrayOutput { return v.MonitorGuids }).(pulumi.StringArrayOutput)
 }
 
-// Name of the monitor downtime to be created.
+// A name to identify the Monitor Downtime to be created.
 func (o MonitorDowntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The time at which the monitor downtime would begin to operate, a timestamp specified in the ISO 8601 format without the offset/timezone - for instance, `2023-12-20T10:48:53`.
+// A datetime stamp signifying the start of the Monitor Downtime.
 func (o MonitorDowntimeOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorDowntime) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
 }

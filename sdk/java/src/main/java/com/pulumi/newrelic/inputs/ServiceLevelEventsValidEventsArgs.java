@@ -48,16 +48,14 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
     }
 
     /**
-     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * 
      */
     @Import(name="where")
     private @Nullable Output<String> where;
 
     /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * 
      */
     public Optional<Output<String>> where() {
@@ -133,8 +131,7 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param where A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-         * a particular entity and returned an error).
+         * @param where A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
          * 
          * @return builder
          * 
@@ -145,8 +142,7 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param where A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-         * a particular entity and returned an error).
+         * @param where A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
          * 
          * @return builder
          * 

@@ -60,7 +60,7 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
      */
@@ -120,7 +120,7 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
     /**
      * The access key of the AwsGovCloud.
      */
-    public readonly linkedAccountId!: pulumi.Output<number>;
+    public readonly linkedAccountId!: pulumi.Output<string>;
     /**
      * RDS AwsGovCloud integration.See Integration blocks below for details.
      */
@@ -221,7 +221,7 @@ export interface AwsGovcloudIntegrationsState {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
      */
@@ -281,7 +281,7 @@ export interface AwsGovcloudIntegrationsState {
     /**
      * The access key of the AwsGovCloud.
      */
-    linkedAccountId?: pulumi.Input<number>;
+    linkedAccountId?: pulumi.Input<string>;
     /**
      * RDS AwsGovCloud integration.See Integration blocks below for details.
      */
@@ -315,7 +315,7 @@ export interface AwsGovcloudIntegrationsArgs {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
      */
@@ -375,7 +375,7 @@ export interface AwsGovcloudIntegrationsArgs {
     /**
      * The access key of the AwsGovCloud.
      */
-    linkedAccountId: pulumi.Input<number>;
+    linkedAccountId: pulumi.Input<string>;
     /**
      * RDS AwsGovCloud integration.See Integration blocks below for details.
      */

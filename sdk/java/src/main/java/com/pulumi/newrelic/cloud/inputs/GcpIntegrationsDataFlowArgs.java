@@ -16,18 +16,14 @@ public final class GcpIntegrationsDataFlowArgs extends com.pulumi.resources.Reso
     public static final GcpIntegrationsDataFlowArgs Empty = new GcpIntegrationsDataFlowArgs();
 
     /**
-     * The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * the data polling interval in seconds
      * 
      */
     @Import(name="metricsPollingInterval")
     private @Nullable Output<Integer> metricsPollingInterval;
 
     /**
-     * @return The data polling interval in seconds.
-     * 
-     * Other integration supports an additional argument:
+     * @return the data polling interval in seconds
      * 
      */
     public Optional<Output<Integer>> metricsPollingInterval() {
@@ -59,9 +55,7 @@ public final class GcpIntegrationsDataFlowArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Other integration supports an additional argument:
+         * @param metricsPollingInterval the data polling interval in seconds
          * 
          * @return builder
          * 
@@ -72,9 +66,7 @@ public final class GcpIntegrationsDataFlowArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metricsPollingInterval The data polling interval in seconds.
-         * 
-         * Other integration supports an additional argument:
+         * @param metricsPollingInterval the data polling interval in seconds
          * 
          * @return builder
          * 

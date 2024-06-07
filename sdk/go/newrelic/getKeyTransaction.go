@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,14 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-//				PolicyId: fooAlertPolicy.ID(),
+//			_, err = newrelic.NewAlertCondition(ctx, "foo", &newrelic.AlertConditionArgs{
+//				PolicyId: foo.ID(),
+//				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_kt_metric"),
-//				Entities: pulumi.IntArray{
+//				Entities: pulumi.StringArray{
 //					pulumi.String(txn.Id),
 //				},
 //				Metric:     pulumi.String("error_percentage"),
@@ -64,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ...pulumi.InvokeOption) (*GetKeyTransactionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKeyTransactionResult

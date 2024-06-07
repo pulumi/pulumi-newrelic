@@ -9,18 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.synthetics.SecureCredential("foo", {
- *     description: "My description",
  *     key: "MY_KEY",
  *     value: "My value",
+ *     description: "My description",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -61,7 +59,7 @@ export class SecureCredential extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The secure credential's description.
      */
@@ -125,7 +123,7 @@ export interface SecureCredentialState {
     /**
      * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The secure credential's description.
      */
@@ -151,7 +149,7 @@ export interface SecureCredentialArgs {
     /**
      * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The secure credential's description.
      */

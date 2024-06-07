@@ -25,8 +25,8 @@ namespace Pulumi.NewRelic.Inputs
         public Input<Inputs.ServiceLevelEventsGoodEventsSelectGetArgs>? Select { get; set; }
 
         /// <summary>
-        /// A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-        /// a particular entity and returned an error).
+        /// A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        /// a particular entity and were successful).
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }

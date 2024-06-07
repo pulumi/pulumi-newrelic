@@ -16,8 +16,8 @@ __all__ = ['GcpIntegrationsArgs', 'GcpIntegrations']
 @pulumi.input_type
 class GcpIntegrationsArgs:
     def __init__(__self__, *,
-                 linked_account_id: pulumi.Input[int],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
                  app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
                  big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
@@ -46,8 +46,10 @@ class GcpIntegrationsArgs:
                  vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
         """
         The set of arguments for constructing a GcpIntegrations resource.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
@@ -133,26 +135,28 @@ class GcpIntegrationsArgs:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Input[int]:
+    def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked GCP account in New Relic.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: pulumi.Input[int]):
+    def linked_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -471,7 +475,7 @@ class GcpIntegrationsArgs:
 @pulumi.input_type
 class _GcpIntegrationsState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
                  app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
                  big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
@@ -487,7 +491,7 @@ class _GcpIntegrationsState:
                  functions: Optional[pulumi.Input['GcpIntegrationsFunctionsArgs']] = None,
                  interconnect: Optional[pulumi.Input['GcpIntegrationsInterconnectArgs']] = None,
                  kubernetes: Optional[pulumi.Input['GcpIntegrationsKubernetesArgs']] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input['GcpIntegrationsLoadBalancingArgs']] = None,
                  mem_cache: Optional[pulumi.Input['GcpIntegrationsMemCacheArgs']] = None,
                  pub_sub: Optional[pulumi.Input['GcpIntegrationsPubSubArgs']] = None,
@@ -501,7 +505,7 @@ class _GcpIntegrationsState:
                  vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
         """
         Input properties used for looking up and filtering GcpIntegrations resources.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
@@ -517,7 +521,9 @@ class _GcpIntegrationsState:
         :param pulumi.Input['GcpIntegrationsFunctionsArgs'] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsInterconnectArgs'] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsKubernetesArgs'] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input['GcpIntegrationsLoadBalancingArgs'] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsMemCacheArgs'] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsPubSubArgs'] pub_sub: Pub/Sub integration. See Integration blocks below for details.
@@ -589,14 +595,14 @@ class _GcpIntegrationsState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -781,14 +787,16 @@ class _GcpIntegrationsState:
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> Optional[pulumi.Input[int]]:
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the linked GCP account in New Relic.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
-    def linked_account_id(self, value: Optional[pulumi.Input[int]]):
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linked_account_id", value)
 
     @property
@@ -929,7 +937,7 @@ class GcpIntegrations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
                  app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
                  big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
@@ -945,7 +953,7 @@ class GcpIntegrations(pulumi.CustomResource):
                  functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
                  interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
                  kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
                  mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
                  pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
@@ -971,95 +979,95 @@ class GcpIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
+        foo = newrelic.cloud.GcpLinkAccount("foo",
+            name="example",
+            project_id="<Your GCP project ID>")
         foo1 = newrelic.cloud.GcpIntegrations("foo1",
             linked_account_id=foo.id,
             app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             composer=newrelic.cloud.GcpIntegrationsComposerArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             redis=newrelic.cloud.GcpIntegrationsRedisArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             router=newrelic.cloud.GcpIntegrationsRouterArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             run=newrelic.cloud.GcpIntegrationsRunArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             sql=newrelic.cloud.GcpIntegrationsSqlArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             storage=newrelic.cloud.GcpIntegrationsStorageArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1073,7 +1081,7 @@ class GcpIntegrations(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
@@ -1089,7 +1097,9 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
@@ -1121,95 +1131,95 @@ class GcpIntegrations(pulumi.CustomResource):
 
         Leave an integration block empty to use its default configuration. You can also use the full example, including the GCP set up, found in our guides.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.cloud.GcpLinkAccount("foo", project_id="<Your GCP project ID>")
+        foo = newrelic.cloud.GcpLinkAccount("foo",
+            name="example",
+            project_id="<Your GCP project ID>")
         foo1 = newrelic.cloud.GcpIntegrations("foo1",
             linked_account_id=foo.id,
             app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             composer=newrelic.cloud.GcpIntegrationsComposerArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             redis=newrelic.cloud.GcpIntegrationsRedisArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             router=newrelic.cloud.GcpIntegrationsRouterArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             run=newrelic.cloud.GcpIntegrationsRunArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             sql=newrelic.cloud.GcpIntegrationsSqlArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             storage=newrelic.cloud.GcpIntegrationsStorageArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
                 fetch_tags=True,
             ),
             virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ),
             vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
-                metrics_polling_interval=400,
+                metrics_polling_interval=300,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1236,7 +1246,7 @@ class GcpIntegrations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
                  app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
                  big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
@@ -1252,7 +1262,7 @@ class GcpIntegrations(pulumi.CustomResource):
                  functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
                  interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
                  kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
-                 linked_account_id: Optional[pulumi.Input[int]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
                  mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
                  pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
@@ -1313,7 +1323,7 @@ class GcpIntegrations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
             app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
             big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
@@ -1329,7 +1339,7 @@ class GcpIntegrations(pulumi.CustomResource):
             functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
             interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
             kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
-            linked_account_id: Optional[pulumi.Input[int]] = None,
+            linked_account_id: Optional[pulumi.Input[str]] = None,
             load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
             mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
             pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
@@ -1348,7 +1358,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
@@ -1364,7 +1374,9 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']] functions: Functions integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
-        :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
+        :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
+               
+               The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
@@ -1413,7 +1425,7 @@ class GcpIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -1541,9 +1553,11 @@ class GcpIntegrations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedAccountId")
-    def linked_account_id(self) -> pulumi.Output[int]:
+    def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked GCP account in New Relic.
+
+        The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "linked_account_id")
 

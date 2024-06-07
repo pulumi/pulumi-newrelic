@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,31 +43,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Event(&#34;foo&#34;, EventArgs.builder()        
+ *         var foo = new Event("foo", EventArgs.builder()
  *             .events(EventEventArgs.builder()
+ *                 .type("MyEvent")
+ *                 .timestamp(1232471100)
  *                 .attributes(                
  *                     EventEventAttributeArgs.builder()
- *                         .key(&#34;a_string_attribute&#34;)
- *                         .value(&#34;a string&#34;)
+ *                         .key("a_string_attribute")
+ *                         .value("a string")
  *                         .build(),
  *                     EventEventAttributeArgs.builder()
- *                         .key(&#34;an_integer_attribute&#34;)
- *                         .type(&#34;int&#34;)
+ *                         .key("an_integer_attribute")
  *                         .value(42)
+ *                         .type("int")
  *                         .build(),
  *                     EventEventAttributeArgs.builder()
- *                         .key(&#34;a_float_attribute&#34;)
- *                         .type(&#34;float&#34;)
+ *                         .key("a_float_attribute")
  *                         .value(101.1)
+ *                         .type("float")
  *                         .build())
- *                 .timestamp(1232471100)
- *                 .type(&#34;MyEvent&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Events

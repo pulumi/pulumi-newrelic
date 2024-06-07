@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArgs, opts ...pulumi.InvokeOption) (*LookupSecureCredentialResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecureCredentialResult
@@ -55,14 +53,14 @@ func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArg
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialArgs struct {
 	// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key string `pulumi:"key"`
 }
 
 // A collection of values returned by getSecureCredential.
 type LookupSecureCredentialResult struct {
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// The secure credential's description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -88,7 +86,7 @@ func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredenti
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialOutputArgs struct {
 	// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringInput `pulumi:"key"`
 }
@@ -112,8 +110,8 @@ func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutput
 	return o
 }
 
-func (o LookupSecureCredentialResultOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupSecureCredentialResult) int { return v.AccountId }).(pulumi.IntOutput)
+func (o LookupSecureCredentialResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The secure credential's description.

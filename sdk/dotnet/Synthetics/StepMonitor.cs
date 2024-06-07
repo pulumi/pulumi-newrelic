@@ -10,11 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
+    /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+    /// 
     /// Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +26,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// {
     ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Step Monitor",
     ///         EnableScreenshotOnFailureAndScript = true,
     ///         LocationsPublics = new[]
     ///         {
@@ -32,9 +34,9 @@ namespace Pulumi.NewRelic.Synthetics
     ///             "US_EAST_2",
     ///         },
     ///         Period = "EVERY_6_HOURS",
+    ///         Status = "ENABLED",
     ///         RuntimeType = "CHROME_BROWSER",
     ///         RuntimeTypeVersion = "100",
-    ///         Status = "ENABLED",
     ///         Steps = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.StepMonitorStepArgs
@@ -62,7 +64,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// See additional examples.
     /// 
     /// ## Additional Examples
@@ -73,7 +74,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,21 +82,23 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooPrivateLocation = new NewRelic.Synthetics.PrivateLocation("fooPrivateLocation", new()
+    ///     var foo = new NewRelic.Synthetics.PrivateLocation("foo", new()
     ///     {
+    ///         Name = "Sample Private Location",
     ///         Description = "Sample Private Location Description",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
-    ///     var fooStepMonitor = new NewRelic.Synthetics.StepMonitor("fooStepMonitor", new()
+    ///     var fooStepMonitor = new NewRelic.Synthetics.StepMonitor("foo", new()
     ///     {
+    ///         Name = "Sample Step Monitor",
     ///         Period = "EVERY_6_HOURS",
     ///         Status = "ENABLED",
     ///         LocationPrivates = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
     ///             {
-    ///                 Guid = fooPrivateLocation.Id,
+    ///                 Guid = foo.Id,
     ///                 VsePassword = "secret",
     ///             },
     ///         },
@@ -127,7 +129,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -146,7 +147,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Capture a screenshot during job execution.
@@ -155,7 +156,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -200,6 +201,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// The specific version of the runtime type selected.
         /// 
         /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// 
+        /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         /// </summary>
         [Output("runtimeTypeVersion")]
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
@@ -272,7 +275,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Capture a screenshot during job execution.
@@ -326,6 +329,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// The specific version of the runtime type selected.
         /// 
         /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// 
+        /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
@@ -372,7 +377,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// The account in which the Synthetics monitor will be created.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Capture a screenshot during job execution.
@@ -381,7 +386,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
 
         /// <summary>
-        /// The unique identifier for the Synthetics private location in New Relic.
+        /// The unique entity identifier of the monitor in New Relic.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
@@ -438,6 +443,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// The specific version of the runtime type selected.
         /// 
         /// &gt; **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `CHROME_BROWSER` and `100` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
+        /// 
+        /// &gt; **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }

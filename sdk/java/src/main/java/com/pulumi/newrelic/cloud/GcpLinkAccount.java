@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.GcpLinkAccountArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpLinkAccountState;
-import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -34,7 +33,8 @@ import javax.annotation.Nullable;
  * You can also use the full example, including the GCP set up, found in our guides.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,14 +55,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new GcpLinkAccount(&#34;foo&#34;, GcpLinkAccountArgs.builder()        
- *             .accountId(&#34;account id of newrelic account&#34;)
- *             .projectId(&#34;id of the Project&#34;)
+ *         var foo = new GcpLinkAccount("foo", GcpLinkAccountArgs.builder()
+ *             .accountId("account id of newrelic account")
+ *             .projectId("id of the Project")
+ *             .name("account name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -82,14 +84,14 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * Account ID of the New Relic account.
      * 
      */
-    @Export(name="accountId", refs={Integer.class}, tree="[0]")
-    private Output<Integer> accountId;
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
 
     /**
      * @return Account ID of the New Relic account.
      * 
      */
-    public Output<Integer> accountId() {
+    public Output<String> accountId() {
         return this.accountId;
     }
     /**

@@ -19,7 +19,7 @@ class ScriptMonitorArgs:
                  period: pulumi.Input[str],
                  status: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -36,7 +36,7 @@ class ScriptMonitorArgs:
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -117,14 +117,14 @@ class ScriptMonitorArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -265,7 +265,7 @@ class ScriptMonitorArgs:
 @pulumi.input_type
 class _ScriptMonitorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -284,11 +284,11 @@ class _ScriptMonitorState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ScriptMonitor resources.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -341,14 +341,14 @@ class _ScriptMonitorState:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The account in which the Synthetics monitor will be created.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
     @property
@@ -391,7 +391,7 @@ class _ScriptMonitorState:
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the Synthetics private location in New Relic.
+        The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 
@@ -551,7 +551,7 @@ class ScriptMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -568,61 +568,61 @@ class ScriptMonitor(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 
         ## Example Usage
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_API",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
             script="console.log('it works!')",
             script_language="JAVASCRIPT",
-            status="ENABLED",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_API")
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            enable_screenshot_on_failure_and_script=False,
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_BROWSER",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
+            enable_screenshot_on_failure_and_script=False,
             script="$browser.get('https://one.newrelic.com')",
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -635,16 +635,17 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_API",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
                 guid=location.id,
@@ -660,19 +661,19 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_BROWSER",
             period="EVERY_HOUR",
             script="$browser.get('https://one.newrelic.com')",
@@ -689,7 +690,6 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -703,7 +703,7 @@ class ScriptMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -728,61 +728,61 @@ class ScriptMonitor(pulumi.CustomResource):
                  args: ScriptMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after June 30, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+
         Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
 
         ## Example Usage
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_API",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
             script="console.log('it works!')",
             script_language="JAVASCRIPT",
-            status="ENABLED",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_API")
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
-            enable_screenshot_on_failure_and_script=False,
+            status="ENABLED",
+            name="script_monitor",
+            type="SCRIPT_BROWSER",
             locations_publics=[
                 "AP_SOUTH_1",
                 "AP_EAST_1",
             ],
             period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
+            enable_screenshot_on_failure_and_script=False,
             script="$browser.get('https://one.newrelic.com')",
+            runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
+            )])
         ```
-        <!--End PulumiCodeChooser -->
         See additional examples.
 
         ## Additional Examples
@@ -795,16 +795,17 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Example private location",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_API",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
                 guid=location.id,
@@ -820,19 +821,19 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         ##### Type: `SCRIPT_BROWSER`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
+            name="private_location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             status="ENABLED",
+            name="script_monitor",
             type="SCRIPT_BROWSER",
             period="EVERY_HOUR",
             script="$browser.get('https://one.newrelic.com')",
@@ -849,7 +850,6 @@ class ScriptMonitor(pulumi.CustomResource):
                 values=["some_value"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -876,7 +876,7 @@ class ScriptMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[int]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -933,7 +933,7 @@ class ScriptMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[int]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             device_orientation: Optional[pulumi.Input[str]] = None,
             device_type: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -957,11 +957,11 @@ class ScriptMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
+        :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[str] guid: The unique identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
@@ -1002,7 +1002,7 @@ class ScriptMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[int]:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The account in which the Synthetics monitor will be created.
         """
@@ -1036,7 +1036,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter
     def guid(self) -> pulumi.Output[str]:
         """
-        The unique identifier for the Synthetics private location in New Relic.
+        The unique entity identifier of the monitor in New Relic.
         """
         return pulumi.get(self, "guid")
 

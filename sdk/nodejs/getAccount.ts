@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     scope: "global",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     args = args || {};
@@ -40,7 +38,7 @@ export interface GetAccountArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The account name in New Relic.
      */
@@ -55,7 +53,7 @@ export interface GetAccountArgs {
  * A collection of values returned by getAccount.
  */
 export interface GetAccountResult {
-    readonly accountId?: number;
+    readonly accountId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -70,7 +68,6 @@ export interface GetAccountResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -79,7 +76,6 @@ export interface GetAccountResult {
  *     scope: "global",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
@@ -92,7 +88,7 @@ export interface GetAccountOutputArgs {
     /**
      * The account ID in New Relic.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The account name in New Relic.
      */

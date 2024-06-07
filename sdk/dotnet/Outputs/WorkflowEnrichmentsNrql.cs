@@ -16,9 +16,9 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
-        public readonly int? AccountId;
+        public readonly string? AccountId;
         /// <summary>
-        /// Another wrapper block
+        /// A set of key-value pairs to represent a enrichment configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowEnrichmentsNrqlConfiguration> Configurations;
         /// <summary>
@@ -30,13 +30,13 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        /// The type of the enrichment. One of: (NRQL).
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
         private WorkflowEnrichmentsNrql(
-            int? accountId,
+            string? accountId,
 
             ImmutableArray<Outputs.WorkflowEnrichmentsNrqlConfiguration> configurations,
 

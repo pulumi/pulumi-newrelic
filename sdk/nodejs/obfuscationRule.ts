@@ -11,16 +11,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const bar = new newrelic.ObfuscationExpression("bar", {
+ *     name: "expressionName",
  *     description: "description of the expression",
  *     regex: "(^http)",
  * });
  * const foo = new newrelic.ObfuscationRule("foo", {
+ *     name: "ruleName",
  *     description: "description of the rule",
  *     filter: "hostStatus=running",
  *     enabled: true,
@@ -31,7 +32,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -74,7 +74,7 @@ export class ObfuscationRule extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation rule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */
@@ -145,7 +145,7 @@ export interface ObfuscationRuleState {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */
@@ -175,7 +175,7 @@ export interface ObfuscationRuleArgs {
     /**
      * The account id associated with the obfuscation rule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Actions for the rule. The actions will be applied in the order specified by this list.
      */

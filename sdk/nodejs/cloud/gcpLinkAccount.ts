@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *
  * You can also use the full example, including the GCP set up, found in our guides.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -31,9 +30,9 @@ import * as utilities from "../utilities";
  * const foo = new newrelic.cloud.GcpLinkAccount("foo", {
  *     accountId: "account id of newrelic account",
  *     projectId: "id of the Project",
+ *     name: "account name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -76,7 +75,7 @@ export class GcpLinkAccount extends pulumi.CustomResource {
     /**
      * Account ID of the New Relic account.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * name of the linked account
      */
@@ -123,7 +122,7 @@ export interface GcpLinkAccountState {
     /**
      * Account ID of the New Relic account.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * name of the linked account
      */
@@ -141,7 +140,7 @@ export interface GcpLinkAccountArgs {
     /**
      * Account ID of the New Relic account.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * name of the linked account
      */

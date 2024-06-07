@@ -14,24 +14,23 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [{
  *         key: "payload",
- *         label: "Payload Template",
  *         value: "name: {{ foo }}",
+ *         label: "Payload Template",
  *     }],
- *     type: "WEBHOOK",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * See additional examples.
  *
  * ## Additional Examples
@@ -41,13 +40,14 @@ import * as utilities from "./utilities";
  * ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
  * To see the properties’ keys for your account, check ServiceNow incidents table.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "servicenow-incident-example",
+ *     type: "SERVICENOW_INCIDENTS",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -60,19 +60,18 @@ import * as utilities from "./utilities";
  *             value: "Short description",
  *         },
  *     ],
- *     type: "SERVICENOW_INCIDENTS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "email-example",
+ *     type: "EMAIL",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -85,19 +84,18 @@ import * as utilities from "./utilities";
  *             value: "issue id - {{issueId}}",
  *         },
  *     ],
- *     type: "EMAIL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "jira-example",
+ *     type: "JIRA_CLASSIC",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "ERROR_TRACKING",
  *     properties: [
@@ -118,19 +116,18 @@ import * as utilities from "./utilities";
  *             value: "{{ annotations.title.[0] }}",
  *         },
  *     ],
- *     type: "JIRA_CLASSIC",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "pagerduty-account-example",
+ *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -149,36 +146,34 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             key: "customDetails",
- *             value: `    {
- *     "id":{{json issueId}},
- *     "IssueURL":{{json issuePageUrl}},
- *     "NewRelic priority":{{json priority}},
- *     "Total Incidents":{{json totalIncidents}},
- *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "isCorrelated":{{json isCorrelated}},
- *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Workflow Name":{{json workflowName}}
- *     }
- *
+ *             value: `{
+ * "id":{{json issueId}},
+ * "IssueURL":{{json issuePageUrl}},
+ * "NewRelic priority":{{json priority}},
+ * "Total Incidents":{{json totalIncidents}},
+ * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "isCorrelated":{{json isCorrelated}},
+ * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Workflow Name":{{json workflowName}}
+ * }
  * `,
  *         },
  *     ],
- *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "pagerduty-account-example",
+ *     type: "PAGERDUTY_SERVICE_INTEGRATION",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -188,51 +183,48 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             key: "customDetails",
- *             value: `    {
- *     "id":{{json issueId}},
- *     "IssueURL":{{json issuePageUrl}},
- *     "NewRelic priority":{{json priority}},
- *     "Total Incidents":{{json totalIncidents}},
- *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "isCorrelated":{{json isCorrelated}},
- *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
- *     "Workflow Name":{{json workflowName}}
- *     }
- *
+ *             value: `{
+ * "id":{{json issueId}},
+ * "IssueURL":{{json issuePageUrl}},
+ * "NewRelic priority":{{json priority}},
+ * "Total Incidents":{{json totalIncidents}},
+ * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "isCorrelated":{{json isCorrelated}},
+ * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ * "Workflow Name":{{json workflowName}}
+ * }
  * `,
  *         },
  *     ],
- *     type: "PAGERDUTY_SERVICE_INTEGRATION",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * #### Mobile Push
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "mobile-push-example",
+ *     type: "MOBILE_PUSH",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
- *     type: "MOBILE_PUSH",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "event-bridge-example",
+ *     type: "EVENT_BRIDGE",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -245,19 +237,18 @@ import * as utilities from "./utilities";
  *             value: "{ id: {{ json issueId }} }",
  *         },
  *     ],
- *     type: "EVENT_BRIDGE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.NotificationChannel("foo", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "slack-example",
+ *     type: "SLACK",
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
  *     properties: [
@@ -270,10 +261,8 @@ import * as utilities from "./utilities";
  *             value: "issue id - {{issueId}}",
  *         },
  *     ],
- *     type: "SLACK",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
  *
@@ -282,36 +271,35 @@ import * as utilities from "./utilities";
  * Create a destination resource and reference that destination to the channel resource:
  *
  * ### Create a destination
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
- *     accountId: 12345678,
- *     authBasic: {
- *         password: "password",
- *         user: "username",
- *     },
+ *     accountId: "12345678",
+ *     name: "destination-webhook",
+ *     type: "WEBHOOK",
  *     properties: [{
  *         key: "url",
  *         value: "https://webhook.mywebhook.com",
  *     }],
- *     type: "WEBHOOK",
+ *     authBasic: {
+ *         user: "username",
+ *         password: "password",
+ *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create a channel
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
- *     accountId: 12345678,
+ *     accountId: "12345678",
+ *     name: "channel-webhook",
  *     type: "WEBHOOK",
- *     destinationId: newrelic_notification_destination["webhook-destination"].id,
+ *     destinationId: webhook_destination.id,
  *     product: "IINT",
  *     properties: [{
  *         key: "payload",
@@ -320,7 +308,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Additional Information
  *
@@ -371,7 +358,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Indicates whether the channel is active.
      */
@@ -457,7 +444,7 @@ export interface NotificationChannelState {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Indicates whether the channel is active.
      */
@@ -495,7 +482,7 @@ export interface NotificationChannelArgs {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * Indicates whether the channel is active.
      */

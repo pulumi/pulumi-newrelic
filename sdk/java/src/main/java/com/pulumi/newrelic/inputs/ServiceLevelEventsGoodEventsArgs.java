@@ -48,16 +48,16 @@ public final class ServiceLevelEventsGoodEventsArgs extends com.pulumi.resources
     }
 
     /**
-     * A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+     * a particular entity and were successful).
      * 
      */
     @Import(name="where")
     private @Nullable Output<String> where;
 
     /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * @return A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+     * a particular entity and were successful).
      * 
      */
     public Optional<Output<String>> where() {
@@ -133,8 +133,8 @@ public final class ServiceLevelEventsGoodEventsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param where A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-         * a particular entity and returned an error).
+         * @param where A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+         * a particular entity and were successful).
          * 
          * @return builder
          * 
@@ -145,8 +145,8 @@ public final class ServiceLevelEventsGoodEventsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param where A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-         * a particular entity and returned an error).
+         * @param where A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+         * a particular entity and were successful).
          * 
          * @return builder
          * 

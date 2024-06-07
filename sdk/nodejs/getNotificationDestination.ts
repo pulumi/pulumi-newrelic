@@ -14,6 +14,7 @@ export function getNotificationDestination(args?: GetNotificationDestinationArgs
         "accountId": args.accountId,
         "id": args.id,
         "name": args.name,
+        "secureUrls": args.secureUrls,
     }, opts);
 }
 
@@ -24,7 +25,7 @@ export interface GetNotificationDestinationArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: number;
+    accountId?: string;
     /**
      * The id of the notification destination in New Relic.
      */
@@ -35,13 +36,17 @@ export interface GetNotificationDestinationArgs {
      * Optional:
      */
     name?: string;
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+     */
+    secureUrls?: inputs.GetNotificationDestinationSecureUrl[];
 }
 
 /**
  * A collection of values returned by getNotificationDestination.
  */
 export interface GetNotificationDestinationResult {
-    readonly accountId: number;
+    readonly accountId: string;
     /**
      * An indication whether the notification destination is active or not.
      */
@@ -59,6 +64,10 @@ export interface GetNotificationDestinationResult {
      * A nested block that describes a notification destination property.
      */
     readonly properties: outputs.GetNotificationDestinationProperty[];
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+     */
+    readonly secureUrls: outputs.GetNotificationDestinationSecureUrl[];
     /**
      * The status of the notification destination.
      */
@@ -79,7 +88,7 @@ export interface GetNotificationDestinationOutputArgs {
     /**
      * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The id of the notification destination in New Relic.
      */
@@ -90,4 +99,8 @@ export interface GetNotificationDestinationOutputArgs {
      * Optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
+     */
+    secureUrls?: pulumi.Input<pulumi.Input<inputs.GetNotificationDestinationSecureUrlArgs>[]>;
 }

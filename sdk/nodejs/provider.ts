@@ -25,6 +25,7 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
+    public readonly accountId!: pulumi.Output<string | undefined>;
     public readonly adminApiKey!: pulumi.Output<string | undefined>;
     public readonly apiKey!: pulumi.Output<string>;
     /**
@@ -66,7 +67,7 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.apiKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            resourceInputs["accountId"] = pulumi.output((args?.accountId ? pulumi.secret(args.accountId) : undefined) ?? utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
+            resourceInputs["accountId"] = (args?.accountId ? pulumi.secret(args.accountId) : undefined) ?? utilities.getEnv("NEW_RELIC_ACCOUNT_ID");
             resourceInputs["adminApiKey"] = args?.adminApiKey ? pulumi.secret(args.adminApiKey) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
@@ -81,7 +82,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["adminApiKey", "apiKey", "insightsInsertKey"] };
+        const secretOpts = { additionalSecretOutputs: ["accountId", "adminApiKey", "apiKey", "insightsInsertKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -91,7 +92,7 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     adminApiKey?: pulumi.Input<string>;
     apiKey: pulumi.Input<string>;
     /**

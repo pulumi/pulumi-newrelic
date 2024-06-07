@@ -16,17 +16,9 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
 
     public static final NotificationDestinationAuthTokenArgs Empty = new NotificationDestinationAuthTokenArgs();
 
-    /**
-     * The prefix of the token auth.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The prefix of the token auth.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -63,23 +55,11 @@ public final class NotificationDestinationAuthTokenArgs extends com.pulumi.resou
             $ = new NotificationDestinationAuthTokenArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefix The prefix of the token auth.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The prefix of the token auth.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

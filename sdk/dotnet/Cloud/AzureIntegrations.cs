@@ -24,7 +24,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// Leave an integration block empty to use its default configuration. You can also use the full example, including the Azure set up, found in our guides.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,22 +32,23 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooAzureLinkAccount = new NewRelic.Cloud.AzureLinkAccount("fooAzureLinkAccount", new()
+    ///     var foo = new NewRelic.Cloud.AzureLinkAccount("foo", new()
     ///     {
     ///         AccountId = "The New Relic account ID where you want to link the Azure account",
     ///         ApplicationId = "ID of the application",
     ///         ClientSecret = "Secret value of client's Azure account",
     ///         SubscriptionId = "Subscription ID of Azure",
     ///         TenantId = "Tenant ID of the Azure",
+    ///         Name = "Name of the linked account",
     ///     });
     /// 
-    ///     var fooAzureIntegrations = new NewRelic.Cloud.AzureIntegrations("fooAzureIntegrations", new()
+    ///     var fooAzureIntegrations = new NewRelic.Cloud.AzureIntegrations("foo", new()
     ///     {
-    ///         LinkedAccountId = fooAzureLinkAccount.Id,
+    ///         LinkedAccountId = foo.Id,
     ///         AccountId = "The New Relic account ID",
     ///         ApiManagement = new NewRelic.Cloud.Inputs.AzureIntegrationsApiManagementArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -56,7 +56,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         AppGateway = new NewRelic.Cloud.Inputs.AzureIntegrationsAppGatewayArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         AppService = new NewRelic.Cloud.Inputs.AzureIntegrationsAppServiceArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -72,7 +72,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Containers = new NewRelic.Cloud.Inputs.AzureIntegrationsContainersArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -80,7 +80,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         CosmosDb = new NewRelic.Cloud.Inputs.AzureIntegrationsCosmosDbArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -96,7 +96,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         DataFactory = new NewRelic.Cloud.Inputs.AzureIntegrationsDataFactoryArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -104,7 +104,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         EventHub = new NewRelic.Cloud.Inputs.AzureIntegrationsEventHubArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -112,7 +112,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         ExpressRoute = new NewRelic.Cloud.Inputs.AzureIntegrationsExpressRouteArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -120,7 +120,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Firewalls = new NewRelic.Cloud.Inputs.AzureIntegrationsFirewallsArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -128,7 +128,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         FrontDoor = new NewRelic.Cloud.Inputs.AzureIntegrationsFrontDoorArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -136,7 +136,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Functions = new NewRelic.Cloud.Inputs.AzureIntegrationsFunctionsArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -144,7 +144,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         KeyVault = new NewRelic.Cloud.Inputs.AzureIntegrationsKeyVaultArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -152,7 +152,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         LoadBalancer = new NewRelic.Cloud.Inputs.AzureIntegrationsLoadBalancerArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -160,7 +160,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         LogicApps = new NewRelic.Cloud.Inputs.AzureIntegrationsLogicAppsArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -168,7 +168,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         MachineLearning = new NewRelic.Cloud.Inputs.AzureIntegrationsMachineLearningArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -176,7 +176,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         MariaDb = new NewRelic.Cloud.Inputs.AzureIntegrationsMariaDbArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 3600,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -184,7 +184,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Monitor = new NewRelic.Cloud.Inputs.AzureIntegrationsMonitorArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 60,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -206,7 +206,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Mysql = new NewRelic.Cloud.Inputs.AzureIntegrationsMysqlArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 3600,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -214,7 +214,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         MysqlFlexible = new NewRelic.Cloud.Inputs.AzureIntegrationsMysqlFlexibleArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 3600,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -222,7 +222,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Postgresql = new NewRelic.Cloud.Inputs.AzureIntegrationsPostgresqlArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 3600,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -230,7 +230,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         PostgresqlFlexible = new NewRelic.Cloud.Inputs.AzureIntegrationsPostgresqlFlexibleArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 3600,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -238,7 +238,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         PowerBiDedicated = new NewRelic.Cloud.Inputs.AzureIntegrationsPowerBiDedicatedArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -246,7 +246,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         RedisCache = new NewRelic.Cloud.Inputs.AzureIntegrationsRedisCacheArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -254,7 +254,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         ServiceBus = new NewRelic.Cloud.Inputs.AzureIntegrationsServiceBusArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -262,7 +262,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Sql = new NewRelic.Cloud.Inputs.AzureIntegrationsSqlArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -270,7 +270,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         SqlManaged = new NewRelic.Cloud.Inputs.AzureIntegrationsSqlManagedArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -278,7 +278,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Storage = new NewRelic.Cloud.Inputs.AzureIntegrationsStorageArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 1800,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -286,7 +286,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         VirtualMachine = new NewRelic.Cloud.Inputs.AzureIntegrationsVirtualMachineArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -294,7 +294,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         VirtualNetworks = new NewRelic.Cloud.Inputs.AzureIntegrationsVirtualNetworksArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -302,7 +302,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         Vms = new NewRelic.Cloud.Inputs.AzureIntegrationsVmsArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -310,7 +310,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         },
     ///         VpnGateway = new NewRelic.Cloud.Inputs.AzureIntegrationsVpnGatewayArgs
     ///         {
-    ///             MetricsPollingInterval = 1200,
+    ///             MetricsPollingInterval = 300,
     ///             ResourceGroups = new[]
     ///             {
     ///                 "resource_groups",
@@ -320,7 +320,6 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -339,7 +338,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Azure API Management. See Integration blocks below for details.
@@ -421,9 +420,12 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
+        /// 
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         /// </summary>
         [Output("linkedAccountId")]
-        public Output<int> LinkedAccountId { get; private set; } = null!;
+        public Output<string> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Azure Load Balancer. See Integration blocks below for details.
@@ -451,6 +453,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// Azure Monitor. See Integration blocks below for details.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.AzureIntegrationsMonitor?> Monitor { get; private set; } = null!;
@@ -511,6 +515,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// for Azure Storage. See Integration blocks below for details.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.AzureIntegrationsStorage?> Storage { get; private set; } = null!;
@@ -523,8 +529,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// for Azure Virtual networks. See Integration blocks below for details.
-        /// 
-        /// Below argument supports the minimum metric polling interval of 3600 seconds
         /// </summary>
         [Output("virtualNetworks")]
         public Output<Outputs.AzureIntegrationsVirtualNetworks?> VirtualNetworks { get; private set; } = null!;
@@ -538,7 +542,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure VPN Gateway. See Integration blocks below for details.
         /// 
-        /// Below arguments supports the minimum metric polling interval of 900 seconds
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         /// </summary>
         [Output("vpnGateway")]
         public Output<Outputs.AzureIntegrationsVpnGateway?> VpnGateway { get; private set; } = null!;
@@ -593,7 +597,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Azure API Management. See Integration blocks below for details.
@@ -675,9 +679,12 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
+        /// 
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
-        public Input<int> LinkedAccountId { get; set; } = null!;
+        public Input<string> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
         /// Azure Load Balancer. See Integration blocks below for details.
@@ -705,6 +712,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// Azure Monitor. See Integration blocks below for details.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.AzureIntegrationsMonitorArgs>? Monitor { get; set; }
@@ -765,6 +774,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// for Azure Storage. See Integration blocks below for details.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.AzureIntegrationsStorageArgs>? Storage { get; set; }
@@ -777,8 +788,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// for Azure Virtual networks. See Integration blocks below for details.
-        /// 
-        /// Below argument supports the minimum metric polling interval of 3600 seconds
         /// </summary>
         [Input("virtualNetworks")]
         public Input<Inputs.AzureIntegrationsVirtualNetworksArgs>? VirtualNetworks { get; set; }
@@ -792,7 +801,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure VPN Gateway. See Integration blocks below for details.
         /// 
-        /// Below arguments supports the minimum metric polling interval of 900 seconds
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         /// </summary>
         [Input("vpnGateway")]
         public Input<Inputs.AzureIntegrationsVpnGatewayArgs>? VpnGateway { get; set; }
@@ -809,7 +818,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// Azure API Management. See Integration blocks below for details.
@@ -891,9 +900,12 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
+        /// 
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         /// </summary>
         [Input("linkedAccountId")]
-        public Input<int>? LinkedAccountId { get; set; }
+        public Input<string>? LinkedAccountId { get; set; }
 
         /// <summary>
         /// Azure Load Balancer. See Integration blocks below for details.
@@ -921,6 +933,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// Azure Monitor. See Integration blocks below for details.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.AzureIntegrationsMonitorGetArgs>? Monitor { get; set; }
@@ -981,6 +995,8 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// for Azure Storage. See Integration blocks below for details.
+        /// 
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.AzureIntegrationsStorageGetArgs>? Storage { get; set; }
@@ -993,8 +1009,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// for Azure Virtual networks. See Integration blocks below for details.
-        /// 
-        /// Below argument supports the minimum metric polling interval of 3600 seconds
         /// </summary>
         [Input("virtualNetworks")]
         public Input<Inputs.AzureIntegrationsVirtualNetworksGetArgs>? VirtualNetworks { get; set; }
@@ -1008,7 +1022,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure VPN Gateway. See Integration blocks below for details.
         /// 
-        /// Below arguments supports the minimum metric polling interval of 900 seconds
+        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
         /// </summary>
         [Input("vpnGateway")]
         public Input<Inputs.AzureIntegrationsVpnGatewayGetArgs>? VpnGateway { get; set; }

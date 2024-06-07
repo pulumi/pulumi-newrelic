@@ -24,8 +24,8 @@ public final class ServiceLevelEventsGoodEvents {
      */
     private @Nullable ServiceLevelEventsGoodEventsSelect select;
     /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * @return A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+     * a particular entity and were successful).
      * 
      */
     private @Nullable String where;
@@ -46,8 +46,8 @@ public final class ServiceLevelEventsGoodEvents {
         return Optional.ofNullable(this.select);
     }
     /**
-     * @return A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
-     * a particular entity and returned an error).
+     * @return A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+     * a particular entity and were successful).
      * 
      */
     public Optional<String> where() {

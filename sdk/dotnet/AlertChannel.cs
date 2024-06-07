@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ### Email
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,22 +27,21 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "foo",
+    ///         Type = "email",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
-    ///             IncludeJsonAttachment = "true",
     ///             Recipients = "foo@example.com",
+    ///             IncludeJsonAttachment = "true",
     ///         },
-    ///         Type = "email",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Additional Examples
     /// 
     /// ##### Slack
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,22 +52,21 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "slack-example",
+    ///         Type = "slack",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
-    ///             Channel = "example-alerts-channel",
     ///             Url = "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+    ///             Channel = "example-alerts-channel",
     ///         },
-    ///         Type = "slack",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
     /// 
     /// ### OpsGenie
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,22 +77,21 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "opsgenie-example",
+    ///         Type = "opsgenie",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             ApiKey = "abc123",
-    ///             Recipients = "user1@domain.com, user2@domain.com",
-    ///             Tags = "tag1, tag2",
     ///             Teams = "team1, team2",
+    ///             Tags = "tag1, tag2",
+    ///             Recipients = "user1@domain.com, user2@domain.com",
     ///         },
-    ///         Type = "opsgenie",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### PagerDuty
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -106,19 +102,18 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "pagerduty-example",
+    ///         Type = "pagerduty",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             ServiceKey = "abc123",
     ///         },
-    ///         Type = "pagerduty",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### VictorOps
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,20 +124,19 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "victorops-example",
+    ///         Type = "victorops",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             Key = "abc123",
     ///             RouteKey = "/example",
     ///         },
-    ///         Type = "victorops",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Webhook
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -153,6 +147,7 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "webhook-example",
     ///         Type = "webhook",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
@@ -173,10 +168,8 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Webhook with complex payload
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -187,25 +180,24 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.AlertChannel("foo", new()
     ///     {
+    ///         Name = "webhook-example",
+    ///         Type = "webhook",
     ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///         {
     ///             BaseUrl = "http://www.test.com",
+    ///             PayloadType = "application/json",
     ///             PayloadString = @"{
     ///   ""my_custom_values"": {
     ///     ""condition_name"": ""$CONDITION_NAME"",
     ///     ""policy_name"": ""$POLICY_NAME""
     ///   }
     /// }
-    /// 
     /// ",
-    ///             PayloadType = "application/json",
     ///         },
-    ///         Type = "webhook",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -224,7 +216,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
-        public Output<int> AccountId { get; private set; } = null!;
+        public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
@@ -294,7 +286,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
@@ -326,7 +318,7 @@ namespace Pulumi.NewRelic
         /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
-        public Input<int>? AccountId { get; set; }
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
         /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.

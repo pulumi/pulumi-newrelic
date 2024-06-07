@@ -9,17 +9,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
- *     name: "Test Authentication Domain",
- * });
- * export const foo = fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id);
+ * export = async () => {
+ *     const foo = await newrelic.getAuthenticationDomain({
+ *         name: "Test Authentication Domain",
+ *     });
+ *     return {
+ *         foo: foo.id,
+ *     };
+ * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthenticationDomain(args: GetAuthenticationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticationDomainResult> {
 
@@ -54,17 +56,19 @@ export interface GetAuthenticationDomainResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const fooAuthenticationDomain = newrelic.getAuthenticationDomain({
- *     name: "Test Authentication Domain",
- * });
- * export const foo = fooAuthenticationDomain.then(fooAuthenticationDomain => fooAuthenticationDomain.id);
+ * export = async () => {
+ *     const foo = await newrelic.getAuthenticationDomain({
+ *         name: "Test Authentication Domain",
+ *     });
+ *     return {
+ *         foo: foo.id,
+ *     };
+ * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthenticationDomainOutput(args: GetAuthenticationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticationDomainResult> {
     return pulumi.output(args).apply((a: any) => getAuthenticationDomain(a, opts))

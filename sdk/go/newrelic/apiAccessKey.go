@@ -44,7 +44,7 @@ type ApiAccessKey struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID of the account you wish to create the API access key.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
 	IngestType pulumi.StringOutput `pulumi:"ingestType"`
 	// The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
@@ -56,7 +56,7 @@ type ApiAccessKey struct {
 	// Any notes about this ingest key.
 	Notes pulumi.StringOutput `pulumi:"notes"`
 	// Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
-	UserId pulumi.IntOutput `pulumi:"userId"`
+	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewApiAccessKey registers a new resource with the given unique name, arguments, and options.
@@ -100,7 +100,7 @@ func GetApiAccessKey(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ApiAccessKey resources.
 type apiAccessKeyState struct {
 	// The New Relic account ID of the account you wish to create the API access key.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
 	IngestType *string `pulumi:"ingestType"`
 	// The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
@@ -112,12 +112,12 @@ type apiAccessKeyState struct {
 	// Any notes about this ingest key.
 	Notes *string `pulumi:"notes"`
 	// Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
-	UserId *int `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 }
 
 type ApiAccessKeyState struct {
 	// The New Relic account ID of the account you wish to create the API access key.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
 	IngestType pulumi.StringPtrInput
 	// The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
@@ -129,7 +129,7 @@ type ApiAccessKeyState struct {
 	// Any notes about this ingest key.
 	Notes pulumi.StringPtrInput
 	// Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
-	UserId pulumi.IntPtrInput
+	UserId pulumi.StringPtrInput
 }
 
 func (ApiAccessKeyState) ElementType() reflect.Type {
@@ -138,7 +138,7 @@ func (ApiAccessKeyState) ElementType() reflect.Type {
 
 type apiAccessKeyArgs struct {
 	// The New Relic account ID of the account you wish to create the API access key.
-	AccountId int `pulumi:"accountId"`
+	AccountId string `pulumi:"accountId"`
 	// Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
 	IngestType *string `pulumi:"ingestType"`
 	// What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
@@ -148,13 +148,13 @@ type apiAccessKeyArgs struct {
 	// Any notes about this ingest key.
 	Notes *string `pulumi:"notes"`
 	// Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
-	UserId *int `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a ApiAccessKey resource.
 type ApiAccessKeyArgs struct {
 	// The New Relic account ID of the account you wish to create the API access key.
-	AccountId pulumi.IntInput
+	AccountId pulumi.StringInput
 	// Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
 	IngestType pulumi.StringPtrInput
 	// What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
@@ -164,7 +164,7 @@ type ApiAccessKeyArgs struct {
 	// Any notes about this ingest key.
 	Notes pulumi.StringPtrInput
 	// Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
-	UserId pulumi.IntPtrInput
+	UserId pulumi.StringPtrInput
 }
 
 func (ApiAccessKeyArgs) ElementType() reflect.Type {
@@ -255,8 +255,8 @@ func (o ApiAccessKeyOutput) ToApiAccessKeyOutputWithContext(ctx context.Context)
 }
 
 // The New Relic account ID of the account you wish to create the API access key.
-func (o ApiAccessKeyOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ApiAccessKey) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o ApiAccessKeyOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
@@ -285,8 +285,8 @@ func (o ApiAccessKeyOutput) Notes() pulumi.StringOutput {
 }
 
 // Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
-func (o ApiAccessKeyOutput) UserId() pulumi.IntOutput {
-	return o.ApplyT(func(v *ApiAccessKey) pulumi.IntOutput { return v.UserId }).(pulumi.IntOutput)
+func (o ApiAccessKeyOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
 type ApiAccessKeyArrayOutput struct{ *pulumi.OutputState }

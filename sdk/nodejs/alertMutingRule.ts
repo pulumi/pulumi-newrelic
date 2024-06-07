@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertMutingRule("foo", {
+ *     name: "Example Muting Rule",
+ *     enabled: true,
+ *     description: "muting rule test.",
  *     condition: {
  *         conditions: [
  *             {
@@ -30,23 +32,20 @@ import * as utilities from "./utilities";
  *         ],
  *         operator: "AND",
  *     },
- *     description: "muting rule test.",
- *     enabled: true,
  *     schedule: {
- *         endTime: "2021-01-28T16:30:00",
- *         repeat: "WEEKLY",
- *         repeatCount: 42,
  *         startTime: "2021-01-28T15:30:00",
+ *         endTime: "2021-01-28T16:30:00",
  *         timeZone: "America/Los_Angeles",
+ *         repeat: "WEEKLY",
  *         weeklyRepeatDays: [
  *             "MONDAY",
  *             "WEDNESDAY",
  *             "FRIDAY",
  *         ],
+ *         repeatCount: 42,
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -87,7 +86,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
     /**
      * The account id of the MutingRule.
      */
-    public readonly accountId!: pulumi.Output<number>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
@@ -155,7 +154,7 @@ export interface AlertMutingRuleState {
     /**
      * The account id of the MutingRule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
@@ -185,7 +184,7 @@ export interface AlertMutingRuleArgs {
     /**
      * The account id of the MutingRule.
      */
-    accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */

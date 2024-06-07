@@ -26,7 +26,6 @@ import (
 //
 // You can also use the full example, including the Azure set up, found in our guides.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,11 +39,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloud.NewAzureLinkAccount(ctx, "foo", &cloud.AzureLinkAccountArgs{
-//				AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
+//				AccountId:      pulumi.String("The New Relic account ID where you want to link the Azure account"),
 //				ApplicationId:  pulumi.String("ID of the application"),
 //				ClientSecret:   pulumi.String("Secret value of client's Azure account"),
 //				SubscriptionId: pulumi.String("Subscription ID of Azure"),
 //				TenantId:       pulumi.String("Tenant ID of the Azure"),
+//				Name:           pulumi.String("Name of the linked account"),
 //			})
 //			if err != nil {
 //				return err
@@ -54,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -69,7 +68,7 @@ type AzureLinkAccount struct {
 	pulumi.CustomResourceState
 
 	// Account ID of the New Relic.
-	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Application ID of the App.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Secret Value of the client.
@@ -132,7 +131,7 @@ func GetAzureLinkAccount(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AzureLinkAccount resources.
 type azureLinkAccountState struct {
 	// Account ID of the New Relic.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Application ID of the App.
 	ApplicationId *string `pulumi:"applicationId"`
 	// Secret Value of the client.
@@ -147,7 +146,7 @@ type azureLinkAccountState struct {
 
 type AzureLinkAccountState struct {
 	// Account ID of the New Relic.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Application ID of the App.
 	ApplicationId pulumi.StringPtrInput
 	// Secret Value of the client.
@@ -166,7 +165,7 @@ func (AzureLinkAccountState) ElementType() reflect.Type {
 
 type azureLinkAccountArgs struct {
 	// Account ID of the New Relic.
-	AccountId *int `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Application ID of the App.
 	ApplicationId string `pulumi:"applicationId"`
 	// Secret Value of the client.
@@ -182,7 +181,7 @@ type azureLinkAccountArgs struct {
 // The set of arguments for constructing a AzureLinkAccount resource.
 type AzureLinkAccountArgs struct {
 	// Account ID of the New Relic.
-	AccountId pulumi.IntPtrInput
+	AccountId pulumi.StringPtrInput
 	// Application ID of the App.
 	ApplicationId pulumi.StringInput
 	// Secret Value of the client.
@@ -283,8 +282,8 @@ func (o AzureLinkAccountOutput) ToAzureLinkAccountOutputWithContext(ctx context.
 }
 
 // Account ID of the New Relic.
-func (o AzureLinkAccountOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v *AzureLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+func (o AzureLinkAccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Application ID of the App.
