@@ -107,14 +107,12 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="destinationsEnabled")
+    @_utilities.deprecated("""Please use 'enabled' instead""")
     def destinations_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
         these two are different flags, but they are functionally identical. Defaults to true.
         """
-        warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
-        pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
-
         return pulumi.get(self, "destinations_enabled")
 
     @destinations_enabled.setter
@@ -255,14 +253,12 @@ class _WorkflowState:
 
     @property
     @pulumi.getter(name="destinationsEnabled")
+    @_utilities.deprecated("""Please use 'enabled' instead""")
     def destinations_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
         these two are different flags, but they are functionally identical. Defaults to true.
         """
-        warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
-        pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
-
         return pulumi.get(self, "destinations_enabled")
 
     @destinations_enabled.setter
@@ -858,14 +854,12 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationsEnabled")
+    @_utilities.deprecated("""Please use 'enabled' instead""")
     def destinations_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
         these two are different flags, but they are functionally identical. Defaults to true.
         """
-        warnings.warn("""Please use 'enabled' instead""", DeprecationWarning)
-        pulumi.log.warn("""destinations_enabled is deprecated: Please use 'enabled' instead""")
-
         return pulumi.get(self, "destinations_enabled")
 
     @property

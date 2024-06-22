@@ -368,13 +368,11 @@ class NrqlAlertConditionArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
         """
         **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
-        warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
-        pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
-
         return pulumi.get(self, "terms")
 
     @terms.setter
@@ -395,14 +393,12 @@ class NrqlAlertConditionArgs:
 
     @property
     @pulumi.getter(name="violationTimeLimit")
+    @_utilities.deprecated("""use `violation_time_limit_seconds` attribute instead""")
     def violation_time_limit(self) -> Optional[pulumi.Input[str]]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         """
-        warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
-
         return pulumi.get(self, "violation_time_limit")
 
     @violation_time_limit.setter
@@ -808,13 +804,11 @@ class _NrqlAlertConditionState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
         """
         **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
-        warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
-        pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
-
         return pulumi.get(self, "terms")
 
     @terms.setter
@@ -835,14 +829,12 @@ class _NrqlAlertConditionState:
 
     @property
     @pulumi.getter(name="violationTimeLimit")
+    @_utilities.deprecated("""use `violation_time_limit_seconds` attribute instead""")
     def violation_time_limit(self) -> Optional[pulumi.Input[str]]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         """
-        warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
-
         return pulumi.get(self, "violation_time_limit")
 
     @violation_time_limit.setter
@@ -1811,13 +1803,11 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
     def terms(self) -> pulumi.Output[Optional[Sequence['outputs.NrqlAlertConditionTerm']]]:
         """
         **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
-        warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
-        pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
-
         return pulumi.get(self, "terms")
 
     @property
@@ -1830,14 +1820,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationTimeLimit")
+    @_utilities.deprecated("""use `violation_time_limit_seconds` attribute instead""")
     def violation_time_limit(self) -> pulumi.Output[str]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
         <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         """
-        warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
-
         return pulumi.get(self, "violation_time_limit")
 
     @property
