@@ -312,8 +312,12 @@ import * as utilities from "./utilities";
  * ## Additional Information
  *
  * More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+ * ### Moving from Legacy Alert Channels to Notification Channels
+ * As described in the documentation of this resource, channels can be created and managed using `newrelic.NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
  *
- * > **NOTE:** `newrelic.AlertChannel` are legacy resources.
+ * If you're currently using `newrelic.AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
+ *
+ * Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
  *
  * ## Import
  *
