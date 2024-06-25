@@ -149,6 +149,15 @@ import * as utilities from "./utilities";
  *
  * More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
  *
+ * ### Moving from Legacy Alert Policy Channels to Workflows
+ * As described in the documentation of this resource, mapping alert channels (created using `newrelic.NotificationDestination`).
+ *
+ * Both of the legacy resources mentioned above, `newrelic.AlertChannel` and `newrelic.AlertPolicyChannel` are **deprecated** and will be **removed in a future major release**, as stated in the documentation of both of these resources.
+ *
+ * If you're currently using `newrelic.AlertChannel` and `newrelic.AlertPolicyChannel` to manage alert channels linked to policies, we **strongly recommend** migrating to these workflows and notifications-based resources at the earliest.
+ *
+ * Please refer to the examples in this page, or this example for illustrations on setting up channels and workflows with these resources.
+ *
  * ## v3.3 changes
  *
  * In version v3.3 we renamed the following arguments:

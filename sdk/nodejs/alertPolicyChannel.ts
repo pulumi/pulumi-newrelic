@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to map alert policies to alert channels in New Relic.
  *
- * > **WARNING:** The `newrelic.AlertPolicyChannel` resource is deprecated and will be removed in the next major release. For managing channel resources in Workflows, use `newrelic.NotificationChannel`.
+ * > **WARNING:** The `newrelic.AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `newrelic.Workflow` for a detailed illustration on setting up channels and workflows with these resources.
  *
  * ## Example Usage
  *
