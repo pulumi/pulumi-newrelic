@@ -18,6 +18,21 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     public static final NrqlAlertConditionNrqlArgs Empty = new NrqlAlertConditionNrqlArgs();
 
     /**
+     * BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * 
+     */
+    @Import(name="dataAccountId")
+    private @Nullable Output<String> dataAccountId;
+
+    /**
+     * @return BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * 
+     */
+    public Optional<Output<String>> dataAccountId() {
+        return Optional.ofNullable(this.dataAccountId);
+    }
+
+    /**
      * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
      * 
      * @deprecated
@@ -73,6 +88,7 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     private NrqlAlertConditionNrqlArgs() {}
 
     private NrqlAlertConditionNrqlArgs(NrqlAlertConditionNrqlArgs $) {
+        this.dataAccountId = $.dataAccountId;
         this.evaluationOffset = $.evaluationOffset;
         this.query = $.query;
         this.sinceValue = $.sinceValue;
@@ -94,6 +110,27 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
 
         public Builder(NrqlAlertConditionNrqlArgs defaults) {
             $ = new NrqlAlertConditionNrqlArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataAccountId BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataAccountId(@Nullable Output<String> dataAccountId) {
+            $.dataAccountId = dataAccountId;
+            return this;
+        }
+
+        /**
+         * @param dataAccountId BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataAccountId(String dataAccountId) {
+            return dataAccountId(Output.of(dataAccountId));
         }
 
         /**
