@@ -1402,13 +1402,17 @@ class NrqlAlertConditionCriticalArgs:
 class NrqlAlertConditionNrqlArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str],
+                 data_account_id: Optional[pulumi.Input[str]] = None,
                  evaluation_offset: Optional[pulumi.Input[int]] = None,
                  since_value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] data_account_id: BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
         :param pulumi.Input[int] evaluation_offset: NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
         :param pulumi.Input[str] since_value: NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
         """
         pulumi.set(__self__, "query", query)
+        if data_account_id is not None:
+            pulumi.set(__self__, "data_account_id", data_account_id)
         if evaluation_offset is not None:
             warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""evaluation_offset is deprecated: use `aggregation_method` attribute instead""")
@@ -1428,6 +1432,18 @@ class NrqlAlertConditionNrqlArgs:
     @query.setter
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="dataAccountId")
+    def data_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        """
+        return pulumi.get(self, "data_account_id")
+
+    @data_account_id.setter
+    def data_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_account_id", value)
 
     @property
     @pulumi.getter(name="evaluationOffset")

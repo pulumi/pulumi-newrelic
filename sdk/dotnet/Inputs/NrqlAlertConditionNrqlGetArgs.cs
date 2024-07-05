@@ -13,6 +13,12 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class NrqlAlertConditionNrqlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        /// </summary>
+        [Input("dataAccountId")]
+        public Input<string>? DataAccountId { get; set; }
+
+        /// <summary>
         /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
         /// </summary>
         [Input("evaluationOffset")]
