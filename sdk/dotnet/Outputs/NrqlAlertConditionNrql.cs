@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class NrqlAlertConditionNrql
     {
         /// <summary>
+        /// BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        /// </summary>
+        public readonly string? DataAccountId;
+        /// <summary>
         /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
         /// </summary>
         public readonly int? EvaluationOffset;
@@ -25,12 +29,15 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private NrqlAlertConditionNrql(
+            string? dataAccountId,
+
             int? evaluationOffset,
 
             string query,
 
             string? sinceValue)
         {
+            DataAccountId = dataAccountId;
             EvaluationOffset = evaluationOffset;
             Query = query;
             SinceValue = sinceValue;

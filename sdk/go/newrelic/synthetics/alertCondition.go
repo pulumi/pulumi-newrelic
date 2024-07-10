@@ -14,7 +14,7 @@ import (
 
 // Use this resource to create and manage synthetics alert conditions in New Relic.
 //
-// > **WARNING:** The `synthetics.AlertCondition` resource is deprecated and will be removed in the next major release. The resource NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query.
+// > **WARNING:** The `synthetics.AlertCondition` resource is deprecated and will be removed in the next major release. The resource NrqlAlertCondition example.
 //
 // ## Example Usage
 //

@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionNrql {
     /**
+     * @return BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * 
+     */
+    private @Nullable String dataAccountId;
+    /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
      * 
      * @deprecated
@@ -34,6 +39,13 @@ public final class NrqlAlertConditionNrql {
     private @Nullable String sinceValue;
 
     private NrqlAlertConditionNrql() {}
+    /**
+     * @return BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * 
+     */
+    public Optional<String> dataAccountId() {
+        return Optional.ofNullable(this.dataAccountId);
+    }
     /**
      * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
      * 
@@ -69,17 +81,25 @@ public final class NrqlAlertConditionNrql {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String dataAccountId;
         private @Nullable Integer evaluationOffset;
         private String query;
         private @Nullable String sinceValue;
         public Builder() {}
         public Builder(NrqlAlertConditionNrql defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataAccountId = defaults.dataAccountId;
     	      this.evaluationOffset = defaults.evaluationOffset;
     	      this.query = defaults.query;
     	      this.sinceValue = defaults.sinceValue;
         }
 
+        @CustomType.Setter
+        public Builder dataAccountId(@Nullable String dataAccountId) {
+
+            this.dataAccountId = dataAccountId;
+            return this;
+        }
         @CustomType.Setter
         public Builder evaluationOffset(@Nullable Integer evaluationOffset) {
 
@@ -102,6 +122,7 @@ public final class NrqlAlertConditionNrql {
         }
         public NrqlAlertConditionNrql build() {
             final var _resultValue = new NrqlAlertConditionNrql();
+            _resultValue.dataAccountId = dataAccountId;
             _resultValue.evaluationOffset = evaluationOffset;
             _resultValue.query = query;
             _resultValue.sinceValue = sinceValue;

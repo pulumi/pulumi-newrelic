@@ -4299,6 +4299,7 @@
             ],
             "newrelic_nrql_alert_condition": [
                 "account_id",
+                "nrql.$.data_account_id",
                 "policy_id"
             ],
             "newrelic_nrql_drop_rule": [

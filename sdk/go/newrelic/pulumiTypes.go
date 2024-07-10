@@ -3130,6 +3130,8 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 }
 
 type NrqlAlertConditionNrql struct {
+	// BETA PREVIEW: the `dataAccountId` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `accountId` if unspecified.
+	DataAccountId *string `pulumi:"dataAccountId"`
 	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 	//
 	// Deprecated: use `aggregationMethod` attribute instead
@@ -3153,6 +3155,8 @@ type NrqlAlertConditionNrqlInput interface {
 }
 
 type NrqlAlertConditionNrqlArgs struct {
+	// BETA PREVIEW: the `dataAccountId` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `accountId` if unspecified.
+	DataAccountId pulumi.StringPtrInput `pulumi:"dataAccountId"`
 	// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 	//
 	// Deprecated: use `aggregationMethod` attribute instead
@@ -3241,6 +3245,11 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
 
+// BETA PREVIEW: the `dataAccountId` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `accountId` if unspecified.
+func (o NrqlAlertConditionNrqlOutput) DataAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.DataAccountId }).(pulumi.StringPtrOutput)
+}
+
 // NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
 //
 // Deprecated: use `aggregationMethod` attribute instead
@@ -3281,6 +3290,16 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 		var ret NrqlAlertConditionNrql
 		return ret
 	}).(NrqlAlertConditionNrqlOutput)
+}
+
+// BETA PREVIEW: the `dataAccountId` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `accountId` if unspecified.
+func (o NrqlAlertConditionNrqlPtrOutput) DataAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluationOffset`.
