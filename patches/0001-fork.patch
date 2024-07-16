@@ -5,10 +5,10 @@ Subject: [PATCH] fork
 
 
 diff --git a/newrelic/resource_newrelic_nrql_alert_condition.go b/newrelic/resource_newrelic_nrql_alert_condition.go
-index ca782a65..c683a515 100644
+index ffc802ed..8ac68392 100644
 --- a/newrelic/resource_newrelic_nrql_alert_condition.go
 +++ b/newrelic/resource_newrelic_nrql_alert_condition.go
-@@ -173,14 +173,13 @@ func resourceNewRelicNrqlAlertCondition() *schema.Resource {
+@@ -179,14 +179,13 @@ func resourceNewRelicNrqlAlertCondition() *schema.Resource {
  				},
  			},
  			"term": {
@@ -122,7 +122,7 @@ index 1bff5b00..d85af74d 100644
 \ No newline at end of file
 +```
 diff --git a/website/docs/d/entity.html.markdown b/website/docs/d/entity.html.markdown
-index 64b9a44f..6d587652 100644
+index 84b92c8b..b3f64a99 100644
 --- a/website/docs/d/entity.html.markdown
 +++ b/website/docs/d/entity.html.markdown
 @@ -8,11 +8,7 @@ description: |-
@@ -159,7 +159,7 @@ index cba2f31a..78721d06 100644
 \ No newline at end of file
 +```
 diff --git a/website/docs/r/alert_channel.html.markdown b/website/docs/r/alert_channel.html.markdown
-index a99ddef0..593e23d3 100644
+index f74765b2..8c4423ca 100644
 --- a/website/docs/r/alert_channel.html.markdown
 +++ b/website/docs/r/alert_channel.html.markdown
 @@ -14,7 +14,7 @@ Use this resource to create and manage New Relic alert channels.
@@ -343,7 +343,7 @@ index dc642798..eb10c510 100644
  
  Alert policies can be imported using a composite ID of `<id>:<account_id>`, where `account_id` is the account number scoped to the alert policy resource.
 diff --git a/website/docs/r/alert_policy_channel.html.markdown b/website/docs/r/alert_policy_channel.html.markdown
-index f368c92f..946f0d02 100644
+index 4c9ce52d..95a722a0 100644
 --- a/website/docs/r/alert_policy_channel.html.markdown
 +++ b/website/docs/r/alert_policy_channel.html.markdown
 @@ -62,7 +62,7 @@ The following arguments are supported:
@@ -399,7 +399,7 @@ index d19049a5..d6522327 100644
  ## Example Usage
  
 diff --git a/website/docs/r/nrql_alert_condition.html.markdown b/website/docs/r/nrql_alert_condition.html.markdown
-index 9dd9b091..962cb8eb 100644
+index ab84530b..0a945649 100644
 --- a/website/docs/r/nrql_alert_condition.html.markdown
 +++ b/website/docs/r/nrql_alert_condition.html.markdown
 @@ -10,13 +10,10 @@ description: |-
@@ -426,7 +426,7 @@ index 9dd9b091..962cb8eb 100644
  
  ## Argument Reference
  
-@@ -135,10 +131,8 @@ In addition to all arguments above, the following attributes are exported:
+@@ -136,10 +132,8 @@ In addition to all arguments above, the following attributes are exported:
  - `id` - The ID of the NRQL alert condition. This is a composite ID with the format `<policy_id>:<condition_id>` - e.g. `538291:6789035`.
  - `entity_guid` - The unique entity identifier of the NRQL Condition in New Relic.
  
@@ -437,7 +437,7 @@ index 9dd9b091..962cb8eb 100644
  ##### Type: `baseline`
  
  [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-@@ -149,43 +143,44 @@ resource "newrelic_alert_policy" "foo" {
+@@ -150,43 +144,44 @@ resource "newrelic_alert_policy" "foo" {
  }
  
  resource "newrelic_nrql_alert_condition" "foo" {
@@ -501,7 +501,7 @@ index 9dd9b091..962cb8eb 100644
  ## Import
  
  NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
-@@ -198,14 +193,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
+@@ -199,14 +194,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
  $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:static
  ```
  
@@ -517,7 +517,7 @@ index 9dd9b091..962cb8eb 100644
  
  ```hcl
  resource "newrelic_alert_policy" "foo" {
-@@ -265,6 +255,7 @@ resource "newrelic_entity_tags" "my_condition_entity_tags" {
+@@ -266,6 +256,7 @@ resource "newrelic_entity_tags" "my_condition_entity_tags" {
  }
  ```
  
