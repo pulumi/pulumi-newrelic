@@ -129,6 +129,8 @@ import * as utilities from "../utilities";
  *     runtimeTypeVersion: "100",
  *     runtimeType: "CHROME_BROWSER",
  *     scriptLanguage: "JAVASCRIPT",
+ *     deviceType: "MOBILE",
+ *     deviceOrientation: "LANDSCAPE",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
@@ -207,7 +209,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
     public readonly period!: pulumi.Output<string>;
     /**
@@ -215,11 +217,11 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
-     * The specific version of the runtime type selected.
+     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -346,7 +348,7 @@ export interface ScriptMonitorState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
     period?: pulumi.Input<string>;
     /**
@@ -354,11 +356,11 @@ export interface ScriptMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific version of the runtime type selected.
+     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -418,15 +420,15 @@ export interface ScriptMonitorArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
     period: pulumi.Input<string>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific version of the runtime type selected.
+     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**

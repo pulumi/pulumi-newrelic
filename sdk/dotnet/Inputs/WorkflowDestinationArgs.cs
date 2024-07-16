@@ -42,6 +42,12 @@ namespace Pulumi.NewRelic.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Update original notification message (Slack channels only)
+        /// </summary>
+        [Input("updateOriginalMessage")]
+        public Input<bool>? UpdateOriginalMessage { get; set; }
+
         public WorkflowDestinationArgs()
         {
         }

@@ -126,14 +126,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      * 
      */
     @Import(name="period", required=true)
     private Output<String> period;
 
     /**
-     * @return The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * @return The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      * 
      */
     public Output<String> period() {
@@ -141,14 +141,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      * 
      */
     @Import(name="runtimeType")
     private @Nullable Output<String> runtimeType;
 
     /**
-     * @return The runtime that the monitor will use to run jobs.
+     * @return The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      * 
      */
     public Optional<Output<String>> runtimeType() {
@@ -156,14 +156,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The specific version of the runtime type selected.
+     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      * 
      */
     @Import(name="runtimeTypeVersion")
     private @Nullable Output<String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected.
+     * @return The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      * 
      */
     public Optional<Output<String>> runtimeTypeVersion() {
@@ -455,7 +455,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+         * @param period The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+         * @param period The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * @param runtimeType The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * @param runtimeType The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific version of the runtime type selected.
+         * @param runtimeTypeVersion The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific version of the runtime type selected.
+         * @param runtimeTypeVersion The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
          * 
          * @return builder
          * 

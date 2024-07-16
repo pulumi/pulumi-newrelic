@@ -31,11 +31,11 @@ class CertCheckMonitorArgs:
         The set of arguments for constructing a CertCheckMonitor resource.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
@@ -92,7 +92,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter
     def period(self) -> pulumi.Input[str]:
         """
-        The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 
@@ -140,7 +140,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -222,9 +222,9 @@ class _CertCheckMonitorState:
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
@@ -312,7 +312,7 @@ class _CertCheckMonitorState:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -336,7 +336,7 @@ class _CertCheckMonitorState:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[str]]:
         """
-        The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 
@@ -498,9 +498,9 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
                
@@ -670,9 +670,9 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
         :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
@@ -737,7 +737,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -753,7 +753,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter
     def period(self) -> pulumi.Output[str]:
         """
-        The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 

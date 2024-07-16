@@ -243,6 +243,8 @@ import javax.annotation.Nullable;
  *             .runtimeTypeVersion("100")
  *             .runtimeType("CHROME_BROWSER")
  *             .scriptLanguage("JAVASCRIPT")
+ *             .deviceType("MOBILE")
+ *             .deviceOrientation("LANDSCAPE")
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key("some_key")
  *                 .values("some_value")
@@ -381,14 +383,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      * 
      */
     @Export(name="period", refs={String.class}, tree="[0]")
     private Output<String> period;
 
     /**
-     * @return The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * @return The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      * 
      */
     public Output<String> period() {
@@ -409,28 +411,28 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return this.periodInMinutes;
     }
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      * 
      */
     @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
-     * @return The runtime that the monitor will use to run jobs.
+     * @return The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
      * 
      */
     public Output<Optional<String>> runtimeType() {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The specific version of the runtime type selected.
+     * The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected.
+     * @return The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {
