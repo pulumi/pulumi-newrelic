@@ -14,16 +14,32 @@ public final class NotificationDestinationSecureUrlArgs extends com.pulumi.resou
 
     public static final NotificationDestinationSecureUrlArgs Empty = new NotificationDestinationSecureUrlArgs();
 
+    /**
+     * The prefix of the URL.
+     * 
+     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
+    /**
+     * @return The prefix of the URL.
+     * 
+     */
     public Output<String> prefix() {
         return this.prefix;
     }
 
+    /**
+     * The suffix of the URL, which contains sensitive data.
+     * 
+     */
     @Import(name="secureSuffix", required=true)
     private Output<String> secureSuffix;
 
+    /**
+     * @return The suffix of the URL, which contains sensitive data.
+     * 
+     */
     public Output<String> secureSuffix() {
         return this.secureSuffix;
     }
@@ -53,20 +69,44 @@ public final class NotificationDestinationSecureUrlArgs extends com.pulumi.resou
             $ = new NotificationDestinationSecureUrlArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param prefix The prefix of the URL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix The prefix of the URL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param secureSuffix The suffix of the URL, which contains sensitive data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secureSuffix(Output<String> secureSuffix) {
             $.secureSuffix = secureSuffix;
             return this;
         }
 
+        /**
+         * @param secureSuffix The suffix of the URL, which contains sensitive data.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secureSuffix(String secureSuffix) {
             return secureSuffix(Output.of(secureSuffix));
         }

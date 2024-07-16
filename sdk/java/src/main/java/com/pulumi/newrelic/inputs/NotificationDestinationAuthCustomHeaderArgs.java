@@ -14,16 +14,32 @@ public final class NotificationDestinationAuthCustomHeaderArgs extends com.pulum
 
     public static final NotificationDestinationAuthCustomHeaderArgs Empty = new NotificationDestinationAuthCustomHeaderArgs();
 
+    /**
+     * The notification property key.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The notification property key.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The notification property value.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The notification property value.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,20 +69,44 @@ public final class NotificationDestinationAuthCustomHeaderArgs extends com.pulum
             $ = new NotificationDestinationAuthCustomHeaderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The notification property key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The notification property key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value The notification property value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The notification property value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

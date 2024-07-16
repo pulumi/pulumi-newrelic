@@ -2214,8 +2214,10 @@ func (o NotificationChannelPropertyArrayOutput) Index(i pulumi.IntInput) Notific
 }
 
 type NotificationDestinationAuthBasic struct {
+	// Specifies an authentication password for use with a destination.
 	Password string `pulumi:"password"`
-	User     string `pulumi:"user"`
+	// The username of the basic auth.
+	User string `pulumi:"user"`
 }
 
 // NotificationDestinationAuthBasicInput is an input type that accepts NotificationDestinationAuthBasicArgs and NotificationDestinationAuthBasicOutput values.
@@ -2230,8 +2232,10 @@ type NotificationDestinationAuthBasicInput interface {
 }
 
 type NotificationDestinationAuthBasicArgs struct {
+	// Specifies an authentication password for use with a destination.
 	Password pulumi.StringInput `pulumi:"password"`
-	User     pulumi.StringInput `pulumi:"user"`
+	// The username of the basic auth.
+	User pulumi.StringInput `pulumi:"user"`
 }
 
 func (NotificationDestinationAuthBasicArgs) ElementType() reflect.Type {
@@ -2311,10 +2315,12 @@ func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBas
 	}).(NotificationDestinationAuthBasicPtrOutput)
 }
 
+// Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The username of the basic auth.
 func (o NotificationDestinationAuthBasicOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.User }).(pulumi.StringOutput)
 }
@@ -2343,6 +2349,7 @@ func (o NotificationDestinationAuthBasicPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthBasicOutput)
 }
 
+// Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
 		if v == nil {
@@ -2352,6 +2359,7 @@ func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The username of the basic auth.
 func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
 		if v == nil {
@@ -2362,7 +2370,9 @@ func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput
 }
 
 type NotificationDestinationAuthCustomHeader struct {
-	Key   string `pulumi:"key"`
+	// The notification property key.
+	Key string `pulumi:"key"`
+	// The notification property value.
 	Value string `pulumi:"value"`
 }
 
@@ -2378,7 +2388,9 @@ type NotificationDestinationAuthCustomHeaderInput interface {
 }
 
 type NotificationDestinationAuthCustomHeaderArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The notification property key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The notification property value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2433,10 +2445,12 @@ func (o NotificationDestinationAuthCustomHeaderOutput) ToNotificationDestination
 	return o
 }
 
+// The notification property key.
 func (o NotificationDestinationAuthCustomHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The notification property value.
 func (o NotificationDestinationAuthCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2462,8 +2476,10 @@ func (o NotificationDestinationAuthCustomHeaderArrayOutput) Index(i pulumi.IntIn
 }
 
 type NotificationDestinationAuthToken struct {
+	// The prefix of the URL.
 	Prefix *string `pulumi:"prefix"`
-	Token  string  `pulumi:"token"`
+	// Specifies the token for integrating.
+	Token string `pulumi:"token"`
 }
 
 // NotificationDestinationAuthTokenInput is an input type that accepts NotificationDestinationAuthTokenArgs and NotificationDestinationAuthTokenOutput values.
@@ -2478,8 +2494,10 @@ type NotificationDestinationAuthTokenInput interface {
 }
 
 type NotificationDestinationAuthTokenArgs struct {
+	// The prefix of the URL.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	Token  pulumi.StringInput    `pulumi:"token"`
+	// Specifies the token for integrating.
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (NotificationDestinationAuthTokenArgs) ElementType() reflect.Type {
@@ -2559,10 +2577,12 @@ func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTok
 	}).(NotificationDestinationAuthTokenPtrOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -2591,6 +2611,7 @@ func (o NotificationDestinationAuthTokenPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthTokenOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2600,6 +2621,7 @@ func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2734,7 +2756,9 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 }
 
 type NotificationDestinationSecureUrl struct {
-	Prefix       string `pulumi:"prefix"`
+	// The prefix of the URL.
+	Prefix string `pulumi:"prefix"`
+	// The suffix of the URL, which contains sensitive data.
 	SecureSuffix string `pulumi:"secureSuffix"`
 }
 
@@ -2750,7 +2774,9 @@ type NotificationDestinationSecureUrlInput interface {
 }
 
 type NotificationDestinationSecureUrlArgs struct {
-	Prefix       pulumi.StringInput `pulumi:"prefix"`
+	// The prefix of the URL.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The suffix of the URL, which contains sensitive data.
 	SecureSuffix pulumi.StringInput `pulumi:"secureSuffix"`
 }
 
@@ -2831,10 +2857,12 @@ func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureU
 	}).(NotificationDestinationSecureUrlPtrOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationSecureUrlOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+// The suffix of the URL, which contains sensitive data.
 func (o NotificationDestinationSecureUrlOutput) SecureSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.SecureSuffix }).(pulumi.StringOutput)
 }
@@ -2863,6 +2891,7 @@ func (o NotificationDestinationSecureUrlPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationSecureUrlOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationSecureUrlPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
 		if v == nil {
@@ -2872,6 +2901,7 @@ func (o NotificationDestinationSecureUrlPtrOutput) Prefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The suffix of the URL, which contains sensitive data.
 func (o NotificationDestinationSecureUrlPtrOutput) SecureSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
 		if v == nil {
