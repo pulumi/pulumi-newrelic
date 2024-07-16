@@ -2840,6 +2840,10 @@ export interface WorkflowDestination {
      * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
      */
     type?: pulumi.Input<string>;
+    /**
+     * Update original notification message (Slack channels only)
+     */
+    updateOriginalMessage?: pulumi.Input<boolean>;
 }
 
 export interface WorkflowEnrichments {
@@ -4948,7 +4952,7 @@ export namespace synthetics {
          */
         ordinal: pulumi.Input<number>;
         /**
-         * Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+         * Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
          */
         type: pulumi.Input<string>;
         /**

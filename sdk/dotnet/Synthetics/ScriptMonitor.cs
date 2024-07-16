@@ -193,6 +193,8 @@ namespace Pulumi.NewRelic.Synthetics
     ///         RuntimeTypeVersion = "100",
     ///         RuntimeType = "CHROME_BROWSER",
     ///         ScriptLanguage = "JAVASCRIPT",
+    ///         DeviceType = "MOBILE",
+    ///         DeviceOrientation = "LANDSCAPE",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -271,7 +273,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        /// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         /// </summary>
         [Output("period")]
         public Output<string> Period { get; private set; } = null!;
@@ -283,13 +285,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<int> PeriodInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
         /// </summary>
         [Output("runtimeType")]
         public Output<string?> RuntimeType { get; private set; } = null!;
 
         /// <summary>
-        /// The specific version of the runtime type selected.
+        /// The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         /// </summary>
         [Output("runtimeTypeVersion")]
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
@@ -427,19 +429,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        /// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         /// </summary>
         [Input("period", required: true)]
         public Input<string> Period { get; set; } = null!;
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The specific version of the runtime type selected.
+        /// The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
@@ -551,7 +553,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        /// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
@@ -563,13 +565,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? PeriodInMinutes { get; set; }
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs. For the `SCRIPT_API` monitor type, a valid value is `NODE_API`. For the `SCRIPT_BROWSER` monitor type, a valid value is `CHROME_BROWSER`.
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The specific version of the runtime type selected.
+        /// The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }

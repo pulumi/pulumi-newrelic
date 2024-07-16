@@ -49,11 +49,11 @@ class MonitorArgs:
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
+        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
@@ -216,7 +216,7 @@ class MonitorArgs:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -240,7 +240,7 @@ class MonitorArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[str]]:
         """
-        The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 
@@ -252,7 +252,7 @@ class MonitorArgs:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run.
+        The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
         """
         return pulumi.get(self, "runtime_type")
 
@@ -264,7 +264,7 @@ class MonitorArgs:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run.
+        The runtime type that the monitor will run. Valid value is `100`.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -382,12 +382,12 @@ class _MonitorState:
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
+        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -532,7 +532,7 @@ class _MonitorState:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -556,7 +556,7 @@ class _MonitorState:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[str]]:
         """
-        The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 
@@ -580,7 +580,7 @@ class _MonitorState:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run.
+        The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
         """
         return pulumi.get(self, "runtime_type")
 
@@ -592,7 +592,7 @@ class _MonitorState:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run.
+        The runtime type that the monitor will run. Valid value is `100`.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -776,6 +776,11 @@ class Monitor(pulumi.CustomResource):
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
+            runtime_type="CHROME_BROWSER",
+            runtime_type_version="100",
+            script_language="JAVASCRIPT",
+            device_type="MOBILE",
+            device_orientation="LANDSCAPE",
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
@@ -875,11 +880,11 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
+        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -948,6 +953,11 @@ class Monitor(pulumi.CustomResource):
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
+            runtime_type="CHROME_BROWSER",
+            runtime_type_version="100",
+            script_language="JAVASCRIPT",
+            device_type="MOBILE",
+            device_orientation="LANDSCAPE",
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
@@ -1152,12 +1162,12 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
-        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run.
+        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
@@ -1258,7 +1268,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -1274,7 +1284,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def period(self) -> pulumi.Output[str]:
         """
-        The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+        The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         """
         return pulumi.get(self, "period")
 
@@ -1290,7 +1300,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime type that the monitor will run.
+        The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
         """
         return pulumi.get(self, "runtime_type")
 
@@ -1298,7 +1308,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime type that the monitor will run.
+        The runtime type that the monitor will run. Valid value is `100`.
         """
         return pulumi.get(self, "runtime_type_version")
 

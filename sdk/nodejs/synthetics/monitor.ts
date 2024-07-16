@@ -58,6 +58,11 @@ import * as utilities from "../utilities";
  *     enableScreenshotOnFailureAndScript: true,
  *     validationString: "success",
  *     verifySsl: true,
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     deviceType: "MOBILE",
+ *     deviceOrientation: "LANDSCAPE",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
@@ -210,7 +215,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly locationsPrivates!: pulumi.Output<string[] | undefined>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
     /**
@@ -218,7 +223,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
     public readonly period!: pulumi.Output<string>;
     /**
@@ -226,11 +231,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `100`.
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -372,7 +377,7 @@ export interface MonitorState {
      */
     locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -380,7 +385,7 @@ export interface MonitorState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
     period?: pulumi.Input<string>;
     /**
@@ -388,11 +393,11 @@ export interface MonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `100`.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -466,7 +471,7 @@ export interface MonitorArgs {
      */
     locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -474,15 +479,15 @@ export interface MonitorArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
     period?: pulumi.Input<string>;
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `100`.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**

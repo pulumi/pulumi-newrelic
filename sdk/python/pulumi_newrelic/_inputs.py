@@ -10617,12 +10617,14 @@ class WorkflowDestinationArgs:
                  channel_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 update_original_message: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] channel_id: (Required) Destination's channel id.
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_triggers: List of triggers to notify about in this destination configuration.
         :param pulumi.Input[str] type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        :param pulumi.Input[bool] update_original_message: Update original notification message (Slack channels only)
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
@@ -10631,6 +10633,8 @@ class WorkflowDestinationArgs:
             pulumi.set(__self__, "notification_triggers", notification_triggers)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if update_original_message is not None:
+            pulumi.set(__self__, "update_original_message", update_original_message)
 
     @property
     @pulumi.getter(name="channelId")
@@ -10679,6 +10683,18 @@ class WorkflowDestinationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="updateOriginalMessage")
+    def update_original_message(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Update original notification message (Slack channels only)
+        """
+        return pulumi.get(self, "update_original_message")
+
+    @update_original_message.setter
+    def update_original_message(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "update_original_message", value)
 
 
 @pulumi.input_type

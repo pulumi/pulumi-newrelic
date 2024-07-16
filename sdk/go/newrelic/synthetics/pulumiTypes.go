@@ -1032,7 +1032,7 @@ func (o StepMonitorLocationPrivateArrayOutput) Index(i pulumi.IntInput) StepMoni
 type StepMonitorStep struct {
 	// The position of the step within the script ranging from 0-100.
 	Ordinal int `pulumi:"ordinal"`
-	// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+	// Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
 	Type string `pulumi:"type"`
 	// The metadata values related to the step.
 	Values []string `pulumi:"values"`
@@ -1052,7 +1052,7 @@ type StepMonitorStepInput interface {
 type StepMonitorStepArgs struct {
 	// The position of the step within the script ranging from 0-100.
 	Ordinal pulumi.IntInput `pulumi:"ordinal"`
-	// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+	// Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The metadata values related to the step.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1114,7 +1114,7 @@ func (o StepMonitorStepOutput) Ordinal() pulumi.IntOutput {
 	return o.ApplyT(func(v StepMonitorStep) int { return v.Ordinal }).(pulumi.IntOutput)
 }
 
-// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+// Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
 func (o StepMonitorStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StepMonitorStep) string { return v.Type }).(pulumi.StringOutput)
 }

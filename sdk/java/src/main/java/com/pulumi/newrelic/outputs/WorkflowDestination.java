@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +34,11 @@ public final class WorkflowDestination {
      * 
      */
     private @Nullable String type;
+    /**
+     * @return Update original notification message (Slack channels only)
+     * 
+     */
+    private @Nullable Boolean updateOriginalMessage;
 
     private WorkflowDestination() {}
     /**
@@ -63,6 +69,13 @@ public final class WorkflowDestination {
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
+    /**
+     * @return Update original notification message (Slack channels only)
+     * 
+     */
+    public Optional<Boolean> updateOriginalMessage() {
+        return Optional.ofNullable(this.updateOriginalMessage);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +90,7 @@ public final class WorkflowDestination {
         private @Nullable String name;
         private @Nullable List<String> notificationTriggers;
         private @Nullable String type;
+        private @Nullable Boolean updateOriginalMessage;
         public Builder() {}
         public Builder(WorkflowDestination defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +98,7 @@ public final class WorkflowDestination {
     	      this.name = defaults.name;
     	      this.notificationTriggers = defaults.notificationTriggers;
     	      this.type = defaults.type;
+    	      this.updateOriginalMessage = defaults.updateOriginalMessage;
         }
 
         @CustomType.Setter
@@ -115,12 +130,19 @@ public final class WorkflowDestination {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
+        public Builder updateOriginalMessage(@Nullable Boolean updateOriginalMessage) {
+
+            this.updateOriginalMessage = updateOriginalMessage;
+            return this;
+        }
         public WorkflowDestination build() {
             final var _resultValue = new WorkflowDestination();
             _resultValue.channelId = channelId;
             _resultValue.name = name;
             _resultValue.notificationTriggers = notificationTriggers;
             _resultValue.type = type;
+            _resultValue.updateOriginalMessage = updateOriginalMessage;
             return _resultValue;
         }
     }

@@ -20719,6 +20719,8 @@ type WorkflowDestination struct {
 	NotificationTriggers []string `pulumi:"notificationTriggers"`
 	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 	Type *string `pulumi:"type"`
+	// Update original notification message (Slack channels only)
+	UpdateOriginalMessage *bool `pulumi:"updateOriginalMessage"`
 }
 
 // WorkflowDestinationInput is an input type that accepts WorkflowDestinationArgs and WorkflowDestinationOutput values.
@@ -20741,6 +20743,8 @@ type WorkflowDestinationArgs struct {
 	NotificationTriggers pulumi.StringArrayInput `pulumi:"notificationTriggers"`
 	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Update original notification message (Slack channels only)
+	UpdateOriginalMessage pulumi.BoolPtrInput `pulumi:"updateOriginalMessage"`
 }
 
 func (WorkflowDestinationArgs) ElementType() reflect.Type {
@@ -20812,6 +20816,11 @@ func (o WorkflowDestinationOutput) NotificationTriggers() pulumi.StringArrayOutp
 // (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 func (o WorkflowDestinationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Update original notification message (Slack channels only)
+func (o WorkflowDestinationOutput) UpdateOriginalMessage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkflowDestination) *bool { return v.UpdateOriginalMessage }).(pulumi.BoolPtrOutput)
 }
 
 type WorkflowDestinationArrayOutput struct{ *pulumi.OutputState }

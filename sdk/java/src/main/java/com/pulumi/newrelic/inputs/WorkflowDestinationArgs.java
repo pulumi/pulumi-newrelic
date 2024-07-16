@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,6 +78,21 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * Update original notification message (Slack channels only)
+     * 
+     */
+    @Import(name="updateOriginalMessage")
+    private @Nullable Output<Boolean> updateOriginalMessage;
+
+    /**
+     * @return Update original notification message (Slack channels only)
+     * 
+     */
+    public Optional<Output<Boolean>> updateOriginalMessage() {
+        return Optional.ofNullable(this.updateOriginalMessage);
+    }
+
     private WorkflowDestinationArgs() {}
 
     private WorkflowDestinationArgs(WorkflowDestinationArgs $) {
@@ -84,6 +100,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         this.name = $.name;
         this.notificationTriggers = $.notificationTriggers;
         this.type = $.type;
+        this.updateOriginalMessage = $.updateOriginalMessage;
     }
 
     public static Builder builder() {
@@ -196,6 +213,27 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param updateOriginalMessage Update original notification message (Slack channels only)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updateOriginalMessage(@Nullable Output<Boolean> updateOriginalMessage) {
+            $.updateOriginalMessage = updateOriginalMessage;
+            return this;
+        }
+
+        /**
+         * @param updateOriginalMessage Update original notification message (Slack channels only)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updateOriginalMessage(Boolean updateOriginalMessage) {
+            return updateOriginalMessage(Output.of(updateOriginalMessage));
         }
 
         public WorkflowDestinationArgs build() {

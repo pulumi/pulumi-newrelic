@@ -10931,6 +10931,8 @@ class WorkflowDestination(dict):
             suggest = "channel_id"
         elif key == "notificationTriggers":
             suggest = "notification_triggers"
+        elif key == "updateOriginalMessage":
+            suggest = "update_original_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkflowDestination. Access the value via the '{suggest}' property getter instead.")
@@ -10947,12 +10949,14 @@ class WorkflowDestination(dict):
                  channel_id: str,
                  name: Optional[str] = None,
                  notification_triggers: Optional[Sequence[str]] = None,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 update_original_message: Optional[bool] = None):
         """
         :param str channel_id: (Required) Destination's channel id.
         :param str name: The name of the workflow.
         :param Sequence[str] notification_triggers: List of triggers to notify about in this destination configuration.
         :param str type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        :param bool update_original_message: Update original notification message (Slack channels only)
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
@@ -10961,6 +10965,8 @@ class WorkflowDestination(dict):
             pulumi.set(__self__, "notification_triggers", notification_triggers)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if update_original_message is not None:
+            pulumi.set(__self__, "update_original_message", update_original_message)
 
     @property
     @pulumi.getter(name="channelId")
@@ -10993,6 +10999,14 @@ class WorkflowDestination(dict):
         (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updateOriginalMessage")
+    def update_original_message(self) -> Optional[bool]:
+        """
+        Update original notification message (Slack channels only)
+        """
+        return pulumi.get(self, "update_original_message")
 
 
 @pulumi.output_type

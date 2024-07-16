@@ -29,6 +29,10 @@ namespace Pulumi.NewRelic.Outputs
         /// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Update original notification message (Slack channels only)
+        /// </summary>
+        public readonly bool? UpdateOriginalMessage;
 
         [OutputConstructor]
         private WorkflowDestination(
@@ -38,12 +42,15 @@ namespace Pulumi.NewRelic.Outputs
 
             ImmutableArray<string> notificationTriggers,
 
-            string? type)
+            string? type,
+
+            bool? updateOriginalMessage)
         {
             ChannelId = channelId;
             Name = name;
             NotificationTriggers = notificationTriggers;
             Type = type;
+            UpdateOriginalMessage = updateOriginalMessage;
         }
     }
 }

@@ -118,6 +118,11 @@ import javax.annotation.Nullable;
  *             .enableScreenshotOnFailureAndScript(true)
  *             .validationString("success")
  *             .verifySsl(true)
+ *             .runtimeType("CHROME_BROWSER")
+ *             .runtimeTypeVersion("100")
+ *             .scriptLanguage("JAVASCRIPT")
+ *             .deviceType("MOBILE")
+ *             .deviceOrientation("LANDSCAPE")
  *             .tags(MonitorTagArgs.builder()
  *                 .key("some_key")
  *                 .values("some_value")
@@ -380,14 +385,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locationsPrivates);
     }
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {
@@ -408,14 +413,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      * 
      */
     @Export(name="period", refs={String.class}, tree="[0]")
     private Output<String> period;
 
     /**
-     * @return The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+     * @return The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      * 
      */
     public Output<String> period() {
@@ -436,28 +441,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.periodInMinutes;
     }
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
      * 
      */
     @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
-     * @return The runtime type that the monitor will run.
+     * @return The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
      * 
      */
     public Output<Optional<String>> runtimeType() {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The runtime type that the monitor will run.
+     * The runtime type that the monitor will run. Valid value is `100`.
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The runtime type that the monitor will run.
+     * @return The runtime type that the monitor will run. Valid value is `100`.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {
