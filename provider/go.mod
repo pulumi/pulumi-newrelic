@@ -1,12 +1,12 @@
 module github.com/pulumi/pulumi-newrelic/provider/v5
 
-go 1.21
+go 1.21.12
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
 	github.com/pulumi/providertest v0.0.11
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.86.0
-	github.com/pulumi/pulumi/sdk/v3 v3.121.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.86.1-0.20240716225253-c975862f43cf
+	github.com/pulumi/pulumi/sdk/v3 v3.124.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -182,8 +182,8 @@ require (
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.11.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi-yaml v1.8.0 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.121.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.9.1 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.124.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
