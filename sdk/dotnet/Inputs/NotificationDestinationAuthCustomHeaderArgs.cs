@@ -12,11 +12,18 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class NotificationDestinationAuthCustomHeaderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The notification property key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("value", required: true)]
         private Input<string>? _value;
+
+        /// <summary>
+        /// The notification property value.
+        /// </summary>
         public Input<string>? Value
         {
             get => _value;

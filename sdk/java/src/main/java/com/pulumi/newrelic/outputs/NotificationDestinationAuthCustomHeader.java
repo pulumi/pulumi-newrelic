@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class NotificationDestinationAuthCustomHeader {
+    /**
+     * @return The notification property key.
+     * 
+     */
     private String key;
+    /**
+     * @return The notification property value.
+     * 
+     */
     private String value;
 
     private NotificationDestinationAuthCustomHeader() {}
+    /**
+     * @return The notification property key.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The notification property value.
+     * 
+     */
     public String value() {
         return this.value;
     }

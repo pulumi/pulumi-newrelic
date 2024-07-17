@@ -12,11 +12,18 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class NotificationDestinationSecureUrlGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The prefix of the URL.
+        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 
         [Input("secureSuffix", required: true)]
         private Input<string>? _secureSuffix;
+
+        /// <summary>
+        /// The suffix of the URL, which contains sensitive data.
+        /// </summary>
         public Input<string>? SecureSuffix
         {
             get => _secureSuffix;
