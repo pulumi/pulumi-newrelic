@@ -1115,12 +1115,19 @@ class NotificationDestinationAuthBasicArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  user: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: Specifies an authentication password for use with a destination.
+        :param pulumi.Input[str] user: The username of the basic auth.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
+        """
+        Specifies an authentication password for use with a destination.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -1130,6 +1137,9 @@ class NotificationDestinationAuthBasicArgs:
     @property
     @pulumi.getter
     def user(self) -> pulumi.Input[str]:
+        """
+        The username of the basic auth.
+        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -1142,12 +1152,19 @@ class NotificationDestinationAuthCustomHeaderArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The notification property key.
+        :param pulumi.Input[str] value: The notification property value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The notification property key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1157,6 +1174,9 @@ class NotificationDestinationAuthCustomHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The notification property value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1169,6 +1189,10 @@ class NotificationDestinationAuthTokenArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] token: Specifies the token for integrating.
+        :param pulumi.Input[str] prefix: The prefix of the URL.
+        """
         pulumi.set(__self__, "token", token)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -1176,6 +1200,9 @@ class NotificationDestinationAuthTokenArgs:
     @property
     @pulumi.getter
     def token(self) -> pulumi.Input[str]:
+        """
+        Specifies the token for integrating.
+        """
         return pulumi.get(self, "token")
 
     @token.setter
@@ -1185,6 +1212,9 @@ class NotificationDestinationAuthTokenArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix of the URL.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -1266,12 +1296,19 @@ class NotificationDestinationSecureUrlArgs:
     def __init__(__self__, *,
                  prefix: pulumi.Input[str],
                  secure_suffix: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] prefix: The prefix of the URL.
+        :param pulumi.Input[str] secure_suffix: The suffix of the URL, which contains sensitive data.
+        """
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "secure_suffix", secure_suffix)
 
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
+        """
+        The prefix of the URL.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -1281,6 +1318,9 @@ class NotificationDestinationSecureUrlArgs:
     @property
     @pulumi.getter(name="secureSuffix")
     def secure_suffix(self) -> pulumi.Input[str]:
+        """
+        The suffix of the URL, which contains sensitive data.
+        """
         return pulumi.get(self, "secure_suffix")
 
     @secure_suffix.setter

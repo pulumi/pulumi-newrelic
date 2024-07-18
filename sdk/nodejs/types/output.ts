@@ -332,17 +332,35 @@ export interface NotificationChannelProperty {
 }
 
 export interface NotificationDestinationAuthBasic {
+    /**
+     * Specifies an authentication password for use with a destination.
+     */
     password: string;
+    /**
+     * The username of the basic auth.
+     */
     user: string;
 }
 
 export interface NotificationDestinationAuthCustomHeader {
+    /**
+     * The notification property key.
+     */
     key: string;
+    /**
+     * The notification property value.
+     */
     value: string;
 }
 
 export interface NotificationDestinationAuthToken {
+    /**
+     * The prefix of the URL.
+     */
     prefix?: string;
+    /**
+     * Specifies the token for integrating.
+     */
     token: string;
 }
 
@@ -366,7 +384,13 @@ export interface NotificationDestinationProperty {
 }
 
 export interface NotificationDestinationSecureUrl {
+    /**
+     * The prefix of the URL.
+     */
     prefix: string;
+    /**
+     * The suffix of the URL, which contains sensitive data.
+     */
     secureSuffix: string;
 }
 

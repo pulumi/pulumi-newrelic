@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Inputs
     {
         [Input("password", required: true)]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Specifies an authentication password for use with a destination.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -24,6 +28,9 @@ namespace Pulumi.NewRelic.Inputs
             }
         }
 
+        /// <summary>
+        /// The username of the basic auth.
+        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 

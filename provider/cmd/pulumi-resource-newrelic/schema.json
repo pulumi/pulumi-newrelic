@@ -2863,10 +2863,12 @@
             "properties": {
                 "password": {
                     "type": "string",
+                    "description": "Specifies an authentication password for use with a destination.\n",
                     "secret": true
                 },
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The username of the basic auth.\n"
                 }
             },
             "type": "object",
@@ -2878,10 +2880,12 @@
         "newrelic:index/NotificationDestinationAuthCustomHeader:NotificationDestinationAuthCustomHeader": {
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The notification property key.\n"
                 },
                 "value": {
                     "type": "string",
+                    "description": "The notification property value.\n",
                     "secret": true
                 }
             },
@@ -2894,10 +2898,12 @@
         "newrelic:index/NotificationDestinationAuthToken:NotificationDestinationAuthToken": {
             "properties": {
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The prefix of the URL.\n"
                 },
                 "token": {
                     "type": "string",
+                    "description": "Specifies the token for integrating.\n",
                     "secret": true
                 }
             },
@@ -2934,10 +2940,12 @@
         "newrelic:index/NotificationDestinationSecureUrl:NotificationDestinationSecureUrl": {
             "properties": {
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The prefix of the URL.\n"
                 },
                 "secureSuffix": {
                     "type": "string",
+                    "description": "The suffix of the URL, which contains sensitive data.\n",
                     "secret": true
                 }
             },

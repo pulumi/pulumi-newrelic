@@ -13,7 +13,13 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NotificationDestinationAuthCustomHeader
     {
+        /// <summary>
+        /// The notification property key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The notification property value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
