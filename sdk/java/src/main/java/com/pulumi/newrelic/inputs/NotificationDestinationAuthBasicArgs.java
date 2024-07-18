@@ -14,16 +14,32 @@ public final class NotificationDestinationAuthBasicArgs extends com.pulumi.resou
 
     public static final NotificationDestinationAuthBasicArgs Empty = new NotificationDestinationAuthBasicArgs();
 
+    /**
+     * Specifies an authentication password for use with a destination.
+     * 
+     */
     @Import(name="password", required=true)
     private Output<String> password;
 
+    /**
+     * @return Specifies an authentication password for use with a destination.
+     * 
+     */
     public Output<String> password() {
         return this.password;
     }
 
+    /**
+     * The username of the basic auth.
+     * 
+     */
     @Import(name="user", required=true)
     private Output<String> user;
 
+    /**
+     * @return The username of the basic auth.
+     * 
+     */
     public Output<String> user() {
         return this.user;
     }
@@ -53,20 +69,44 @@ public final class NotificationDestinationAuthBasicArgs extends com.pulumi.resou
             $ = new NotificationDestinationAuthBasicArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param password Specifies an authentication password for use with a destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password Specifies an authentication password for use with a destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param user The username of the basic auth.
+         * 
+         * @return builder
+         * 
+         */
         public Builder user(Output<String> user) {
             $.user = user;
             return this;
         }
 
+        /**
+         * @param user The username of the basic auth.
+         * 
+         * @return builder
+         * 
+         */
         public Builder user(String user) {
             return user(Output.of(user));
         }

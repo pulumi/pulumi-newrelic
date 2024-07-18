@@ -1190,7 +1190,9 @@ func (o AlertMutingRuleSchedulePtrOutput) WeeklyRepeatDays() pulumi.StringArrayO
 }
 
 type EntityTagsTag struct {
-	// The tag key.
+	// The key of the tag.
+	//
+	// > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
 	Key string `pulumi:"key"`
 	// The tag values.
 	Values []string `pulumi:"values"`
@@ -1208,7 +1210,9 @@ type EntityTagsTagInput interface {
 }
 
 type EntityTagsTagArgs struct {
-	// The tag key.
+	// The key of the tag.
+	//
+	// > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The tag values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1265,7 +1269,9 @@ func (o EntityTagsTagOutput) ToEntityTagsTagOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The tag key.
+// The key of the tag.
+//
+// > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
 func (o EntityTagsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityTagsTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -2214,8 +2220,10 @@ func (o NotificationChannelPropertyArrayOutput) Index(i pulumi.IntInput) Notific
 }
 
 type NotificationDestinationAuthBasic struct {
+	// Specifies an authentication password for use with a destination.
 	Password string `pulumi:"password"`
-	User     string `pulumi:"user"`
+	// The username of the basic auth.
+	User string `pulumi:"user"`
 }
 
 // NotificationDestinationAuthBasicInput is an input type that accepts NotificationDestinationAuthBasicArgs and NotificationDestinationAuthBasicOutput values.
@@ -2230,8 +2238,10 @@ type NotificationDestinationAuthBasicInput interface {
 }
 
 type NotificationDestinationAuthBasicArgs struct {
+	// Specifies an authentication password for use with a destination.
 	Password pulumi.StringInput `pulumi:"password"`
-	User     pulumi.StringInput `pulumi:"user"`
+	// The username of the basic auth.
+	User pulumi.StringInput `pulumi:"user"`
 }
 
 func (NotificationDestinationAuthBasicArgs) ElementType() reflect.Type {
@@ -2311,10 +2321,12 @@ func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBas
 	}).(NotificationDestinationAuthBasicPtrOutput)
 }
 
+// Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The username of the basic auth.
 func (o NotificationDestinationAuthBasicOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.User }).(pulumi.StringOutput)
 }
@@ -2343,6 +2355,7 @@ func (o NotificationDestinationAuthBasicPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthBasicOutput)
 }
 
+// Specifies an authentication password for use with a destination.
 func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
 		if v == nil {
@@ -2352,6 +2365,7 @@ func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The username of the basic auth.
 func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
 		if v == nil {
@@ -2362,7 +2376,9 @@ func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput
 }
 
 type NotificationDestinationAuthCustomHeader struct {
-	Key   string `pulumi:"key"`
+	// The notification property key.
+	Key string `pulumi:"key"`
+	// The notification property value.
 	Value string `pulumi:"value"`
 }
 
@@ -2378,7 +2394,9 @@ type NotificationDestinationAuthCustomHeaderInput interface {
 }
 
 type NotificationDestinationAuthCustomHeaderArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The notification property key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The notification property value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2433,10 +2451,12 @@ func (o NotificationDestinationAuthCustomHeaderOutput) ToNotificationDestination
 	return o
 }
 
+// The notification property key.
 func (o NotificationDestinationAuthCustomHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The notification property value.
 func (o NotificationDestinationAuthCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2462,8 +2482,10 @@ func (o NotificationDestinationAuthCustomHeaderArrayOutput) Index(i pulumi.IntIn
 }
 
 type NotificationDestinationAuthToken struct {
+	// The prefix of the URL.
 	Prefix *string `pulumi:"prefix"`
-	Token  string  `pulumi:"token"`
+	// Specifies the token for integrating.
+	Token string `pulumi:"token"`
 }
 
 // NotificationDestinationAuthTokenInput is an input type that accepts NotificationDestinationAuthTokenArgs and NotificationDestinationAuthTokenOutput values.
@@ -2478,8 +2500,10 @@ type NotificationDestinationAuthTokenInput interface {
 }
 
 type NotificationDestinationAuthTokenArgs struct {
+	// The prefix of the URL.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	Token  pulumi.StringInput    `pulumi:"token"`
+	// Specifies the token for integrating.
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (NotificationDestinationAuthTokenArgs) ElementType() reflect.Type {
@@ -2559,10 +2583,12 @@ func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTok
 	}).(NotificationDestinationAuthTokenPtrOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationAuthToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -2591,6 +2617,7 @@ func (o NotificationDestinationAuthTokenPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationAuthTokenOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2600,6 +2627,7 @@ func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the token for integrating.
 func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
 		if v == nil {
@@ -2734,7 +2762,9 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 }
 
 type NotificationDestinationSecureUrl struct {
-	Prefix       string `pulumi:"prefix"`
+	// The prefix of the URL.
+	Prefix string `pulumi:"prefix"`
+	// The suffix of the URL, which contains sensitive data.
 	SecureSuffix string `pulumi:"secureSuffix"`
 }
 
@@ -2750,7 +2780,9 @@ type NotificationDestinationSecureUrlInput interface {
 }
 
 type NotificationDestinationSecureUrlArgs struct {
-	Prefix       pulumi.StringInput `pulumi:"prefix"`
+	// The prefix of the URL.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The suffix of the URL, which contains sensitive data.
 	SecureSuffix pulumi.StringInput `pulumi:"secureSuffix"`
 }
 
@@ -2831,10 +2863,12 @@ func (o NotificationDestinationSecureUrlOutput) ToNotificationDestinationSecureU
 	}).(NotificationDestinationSecureUrlPtrOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationSecureUrlOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+// The suffix of the URL, which contains sensitive data.
 func (o NotificationDestinationSecureUrlOutput) SecureSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationSecureUrl) string { return v.SecureSuffix }).(pulumi.StringOutput)
 }
@@ -2863,6 +2897,7 @@ func (o NotificationDestinationSecureUrlPtrOutput) Elem() NotificationDestinatio
 	}).(NotificationDestinationSecureUrlOutput)
 }
 
+// The prefix of the URL.
 func (o NotificationDestinationSecureUrlPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
 		if v == nil {
@@ -2872,6 +2907,7 @@ func (o NotificationDestinationSecureUrlPtrOutput) Prefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The suffix of the URL, which contains sensitive data.
 func (o NotificationDestinationSecureUrlPtrOutput) SecureSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationDestinationSecureUrl) *string {
 		if v == nil {
@@ -12709,13 +12745,13 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pu
 
 type OneDashboardPageWidgetLineThreshold struct {
 	// The value 'from' which the threshold would need to be applied.
-	From *int `pulumi:"from"`
+	From *float64 `pulumi:"from"`
 	// The title of the dashboard.
 	Name *string `pulumi:"name"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To *int `pulumi:"to"`
+	To *float64 `pulumi:"to"`
 }
 
 // OneDashboardPageWidgetLineThresholdInput is an input type that accepts OneDashboardPageWidgetLineThresholdArgs and OneDashboardPageWidgetLineThresholdOutput values.
@@ -12731,13 +12767,13 @@ type OneDashboardPageWidgetLineThresholdInput interface {
 
 type OneDashboardPageWidgetLineThresholdArgs struct {
 	// The value 'from' which the threshold would need to be applied.
-	From pulumi.IntPtrInput `pulumi:"from"`
+	From pulumi.Float64PtrInput `pulumi:"from"`
 	// The title of the dashboard.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To pulumi.IntPtrInput `pulumi:"to"`
+	To pulumi.Float64PtrInput `pulumi:"to"`
 }
 
 func (OneDashboardPageWidgetLineThresholdArgs) ElementType() reflect.Type {
@@ -12792,8 +12828,8 @@ func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineT
 }
 
 // The value 'from' which the threshold would need to be applied.
-func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *float64 { return v.From }).(pulumi.Float64PtrOutput)
 }
 
 // The title of the dashboard.
@@ -12807,8 +12843,8 @@ func (o OneDashboardPageWidgetLineThresholdOutput) Severity() pulumi.StringPtrOu
 }
 
 // The value until which the threshold would need to be applied.
-func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *float64 { return v.To }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetLineThresholdArrayOutput struct{ *pulumi.OutputState }
@@ -17812,11 +17848,11 @@ type OneDashboardPageWidgetTableThreshold struct {
 	// The name of the column in the table, to which the threshold would need to be applied.
 	ColumnName *string `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
-	From *int `pulumi:"from"`
+	From *float64 `pulumi:"from"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To *int `pulumi:"to"`
+	To *float64 `pulumi:"to"`
 }
 
 // OneDashboardPageWidgetTableThresholdInput is an input type that accepts OneDashboardPageWidgetTableThresholdArgs and OneDashboardPageWidgetTableThresholdOutput values.
@@ -17834,11 +17870,11 @@ type OneDashboardPageWidgetTableThresholdArgs struct {
 	// The name of the column in the table, to which the threshold would need to be applied.
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
-	From pulumi.IntPtrInput `pulumi:"from"`
+	From pulumi.Float64PtrInput `pulumi:"from"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To pulumi.IntPtrInput `pulumi:"to"`
+	To pulumi.Float64PtrInput `pulumi:"to"`
 }
 
 func (OneDashboardPageWidgetTableThresholdArgs) ElementType() reflect.Type {
@@ -17898,8 +17934,8 @@ func (o OneDashboardPageWidgetTableThresholdOutput) ColumnName() pulumi.StringPt
 }
 
 // The value 'from' which the threshold would need to be applied.
-func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *float64 { return v.From }).(pulumi.Float64PtrOutput)
 }
 
 // The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
@@ -17908,8 +17944,8 @@ func (o OneDashboardPageWidgetTableThresholdOutput) Severity() pulumi.StringPtrO
 }
 
 // The value until which the threshold would need to be applied.
-func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *float64 { return v.To }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetTableThresholdArrayOutput struct{ *pulumi.OutputState }

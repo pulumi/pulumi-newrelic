@@ -12,7 +12,9 @@ import java.util.Objects;
 @CustomType
 public final class EntityTagsTag {
     /**
-     * @return The tag key.
+     * @return The key of the tag.
+     * 
+     * &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      * 
      */
     private String key;
@@ -24,7 +26,9 @@ public final class EntityTagsTag {
 
     private EntityTagsTag() {}
     /**
-     * @return The tag key.
+     * @return The key of the tag.
+     * 
+     * &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      * 
      */
     public String key() {

@@ -175,7 +175,9 @@ export interface AlertMutingRuleSchedule {
 
 export interface EntityTagsTag {
     /**
-     * The tag key.
+     * The key of the tag.
+     *
+     * > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      */
     key: string;
     /**
@@ -332,17 +334,35 @@ export interface NotificationChannelProperty {
 }
 
 export interface NotificationDestinationAuthBasic {
+    /**
+     * Specifies an authentication password for use with a destination.
+     */
     password: string;
+    /**
+     * The username of the basic auth.
+     */
     user: string;
 }
 
 export interface NotificationDestinationAuthCustomHeader {
+    /**
+     * The notification property key.
+     */
     key: string;
+    /**
+     * The notification property value.
+     */
     value: string;
 }
 
 export interface NotificationDestinationAuthToken {
+    /**
+     * The prefix of the URL.
+     */
     prefix?: string;
+    /**
+     * Specifies the token for integrating.
+     */
     token: string;
 }
 
@@ -366,7 +386,13 @@ export interface NotificationDestinationProperty {
 }
 
 export interface NotificationDestinationSecureUrl {
+    /**
+     * The prefix of the URL.
+     */
     prefix: string;
+    /**
+     * The suffix of the URL, which contains sensitive data.
+     */
     secureSuffix: string;
 }
 

@@ -175,7 +175,9 @@ export interface AlertMutingRuleSchedule {
 
 export interface EntityTagsTag {
     /**
-     * The tag key.
+     * The key of the tag.
+     *
+     * > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      */
     key: pulumi.Input<string>;
     /**
@@ -279,17 +281,35 @@ export interface NotificationChannelProperty {
 }
 
 export interface NotificationDestinationAuthBasic {
+    /**
+     * Specifies an authentication password for use with a destination.
+     */
     password: pulumi.Input<string>;
+    /**
+     * The username of the basic auth.
+     */
     user: pulumi.Input<string>;
 }
 
 export interface NotificationDestinationAuthCustomHeader {
+    /**
+     * The notification property key.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The notification property value.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface NotificationDestinationAuthToken {
+    /**
+     * The prefix of the URL.
+     */
     prefix?: pulumi.Input<string>;
+    /**
+     * Specifies the token for integrating.
+     */
     token: pulumi.Input<string>;
 }
 
@@ -313,7 +333,13 @@ export interface NotificationDestinationProperty {
 }
 
 export interface NotificationDestinationSecureUrl {
+    /**
+     * The prefix of the URL.
+     */
     prefix: pulumi.Input<string>;
+    /**
+     * The suffix of the URL, which contains sensitive data.
+     */
     secureSuffix: pulumi.Input<string>;
 }
 

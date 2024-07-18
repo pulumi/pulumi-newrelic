@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class NotificationDestinationSecureUrl {
+    /**
+     * @return The prefix of the URL.
+     * 
+     */
     private String prefix;
+    /**
+     * @return The suffix of the URL, which contains sensitive data.
+     * 
+     */
     private String secureSuffix;
 
     private NotificationDestinationSecureUrl() {}
+    /**
+     * @return The prefix of the URL.
+     * 
+     */
     public String prefix() {
         return this.prefix;
     }
+    /**
+     * @return The suffix of the URL, which contains sensitive data.
+     * 
+     */
     public String secureSuffix() {
         return this.secureSuffix;
     }

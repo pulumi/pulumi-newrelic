@@ -14,7 +14,9 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class EntityTagsTag
     {
         /// <summary>
-        /// The tag key.
+        /// The key of the tag.
+        /// 
+        /// &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
         /// </summary>
         public readonly string Key;
         /// <summary>

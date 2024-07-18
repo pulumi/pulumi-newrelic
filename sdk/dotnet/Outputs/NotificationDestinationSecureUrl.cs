@@ -13,7 +13,13 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NotificationDestinationSecureUrl
     {
+        /// <summary>
+        /// The prefix of the URL.
+        /// </summary>
         public readonly string Prefix;
+        /// <summary>
+        /// The suffix of the URL, which contains sensitive data.
+        /// </summary>
         public readonly string SecureSuffix;
 
         [OutputConstructor]

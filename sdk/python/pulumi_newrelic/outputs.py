@@ -751,7 +751,9 @@ class EntityTagsTag(dict):
                  key: str,
                  values: Sequence[str]):
         """
-        :param str key: The tag key.
+        :param str key: The key of the tag.
+               
+               > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
         :param Sequence[str] values: The tag values.
         """
         pulumi.set(__self__, "key", key)
@@ -761,7 +763,9 @@ class EntityTagsTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The tag key.
+        The key of the tag.
+
+        > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
         """
         return pulumi.get(self, "key")
 
@@ -1087,17 +1091,27 @@ class NotificationDestinationAuthBasic(dict):
     def __init__(__self__, *,
                  password: str,
                  user: str):
+        """
+        :param str password: Specifies an authentication password for use with a destination.
+        :param str user: The username of the basic auth.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        Specifies an authentication password for use with a destination.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def user(self) -> str:
+        """
+        The username of the basic auth.
+        """
         return pulumi.get(self, "user")
 
 
@@ -1106,17 +1120,27 @@ class NotificationDestinationAuthCustomHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The notification property key.
+        :param str value: The notification property value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The notification property key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The notification property value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1125,6 +1149,10 @@ class NotificationDestinationAuthToken(dict):
     def __init__(__self__, *,
                  token: str,
                  prefix: Optional[str] = None):
+        """
+        :param str token: Specifies the token for integrating.
+        :param str prefix: The prefix of the URL.
+        """
         pulumi.set(__self__, "token", token)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -1132,11 +1160,17 @@ class NotificationDestinationAuthToken(dict):
     @property
     @pulumi.getter
     def token(self) -> str:
+        """
+        Specifies the token for integrating.
+        """
         return pulumi.get(self, "token")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        The prefix of the URL.
+        """
         return pulumi.get(self, "prefix")
 
 
@@ -1232,17 +1266,27 @@ class NotificationDestinationSecureUrl(dict):
     def __init__(__self__, *,
                  prefix: str,
                  secure_suffix: str):
+        """
+        :param str prefix: The prefix of the URL.
+        :param str secure_suffix: The suffix of the URL, which contains sensitive data.
+        """
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "secure_suffix", secure_suffix)
 
     @property
     @pulumi.getter
     def prefix(self) -> str:
+        """
+        The prefix of the URL.
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="secureSuffix")
     def secure_suffix(self) -> str:
+        """
+        The suffix of the URL, which contains sensitive data.
+        """
         return pulumi.get(self, "secure_suffix")
 
 
@@ -6936,15 +6980,15 @@ class OneDashboardPageWidgetLineThreshold(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 from_: Optional[int] = None,
+                 from_: Optional[float] = None,
                  name: Optional[str] = None,
                  severity: Optional[str] = None,
-                 to: Optional[int] = None):
+                 to: Optional[float] = None):
         """
-        :param int from_: The value 'from' which the threshold would need to be applied.
+        :param float from_: The value 'from' which the threshold would need to be applied.
         :param str name: The title of the dashboard.
         :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param int to: The value until which the threshold would need to be applied.
+        :param float to: The value until which the threshold would need to be applied.
         """
         if from_ is not None:
             pulumi.set(__self__, "from_", from_)
@@ -6957,7 +7001,7 @@ class OneDashboardPageWidgetLineThreshold(dict):
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[int]:
+    def from_(self) -> Optional[float]:
         """
         The value 'from' which the threshold would need to be applied.
         """
@@ -6981,7 +7025,7 @@ class OneDashboardPageWidgetLineThreshold(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[int]:
+    def to(self) -> Optional[float]:
         """
         The value until which the threshold would need to be applied.
         """
@@ -9843,14 +9887,14 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     def __init__(__self__, *,
                  column_name: Optional[str] = None,
-                 from_: Optional[int] = None,
+                 from_: Optional[float] = None,
                  severity: Optional[str] = None,
-                 to: Optional[int] = None):
+                 to: Optional[float] = None):
         """
         :param str column_name: The name of the column in the table, to which the threshold would need to be applied.
-        :param int from_: The value 'from' which the threshold would need to be applied.
+        :param float from_: The value 'from' which the threshold would need to be applied.
         :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param int to: The value until which the threshold would need to be applied.
+        :param float to: The value until which the threshold would need to be applied.
         """
         if column_name is not None:
             pulumi.set(__self__, "column_name", column_name)
@@ -9871,7 +9915,7 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[int]:
+    def from_(self) -> Optional[float]:
         """
         The value 'from' which the threshold would need to be applied.
         """
@@ -9887,7 +9931,7 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[int]:
+    def to(self) -> Optional[float]:
         """
         The value until which the threshold would need to be applied.
         """
