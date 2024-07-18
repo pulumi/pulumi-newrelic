@@ -13,7 +13,9 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class EntityTagsTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tag key.
+        /// The key of the tag.
+        /// 
+        /// &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

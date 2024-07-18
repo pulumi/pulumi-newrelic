@@ -1190,7 +1190,9 @@ func (o AlertMutingRuleSchedulePtrOutput) WeeklyRepeatDays() pulumi.StringArrayO
 }
 
 type EntityTagsTag struct {
-	// The tag key.
+	// The key of the tag.
+	//
+	// > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
 	Key string `pulumi:"key"`
 	// The tag values.
 	Values []string `pulumi:"values"`
@@ -1208,7 +1210,9 @@ type EntityTagsTagInput interface {
 }
 
 type EntityTagsTagArgs struct {
-	// The tag key.
+	// The key of the tag.
+	//
+	// > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The tag values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1265,7 +1269,9 @@ func (o EntityTagsTagOutput) ToEntityTagsTagOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The tag key.
+// The key of the tag.
+//
+// > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
 func (o EntityTagsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityTagsTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -12739,13 +12745,13 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pu
 
 type OneDashboardPageWidgetLineThreshold struct {
 	// The value 'from' which the threshold would need to be applied.
-	From *int `pulumi:"from"`
+	From *float64 `pulumi:"from"`
 	// The title of the dashboard.
 	Name *string `pulumi:"name"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To *int `pulumi:"to"`
+	To *float64 `pulumi:"to"`
 }
 
 // OneDashboardPageWidgetLineThresholdInput is an input type that accepts OneDashboardPageWidgetLineThresholdArgs and OneDashboardPageWidgetLineThresholdOutput values.
@@ -12761,13 +12767,13 @@ type OneDashboardPageWidgetLineThresholdInput interface {
 
 type OneDashboardPageWidgetLineThresholdArgs struct {
 	// The value 'from' which the threshold would need to be applied.
-	From pulumi.IntPtrInput `pulumi:"from"`
+	From pulumi.Float64PtrInput `pulumi:"from"`
 	// The title of the dashboard.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To pulumi.IntPtrInput `pulumi:"to"`
+	To pulumi.Float64PtrInput `pulumi:"to"`
 }
 
 func (OneDashboardPageWidgetLineThresholdArgs) ElementType() reflect.Type {
@@ -12822,8 +12828,8 @@ func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineT
 }
 
 // The value 'from' which the threshold would need to be applied.
-func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *float64 { return v.From }).(pulumi.Float64PtrOutput)
 }
 
 // The title of the dashboard.
@@ -12837,8 +12843,8 @@ func (o OneDashboardPageWidgetLineThresholdOutput) Severity() pulumi.StringPtrOu
 }
 
 // The value until which the threshold would need to be applied.
-func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *float64 { return v.To }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetLineThresholdArrayOutput struct{ *pulumi.OutputState }
@@ -17842,11 +17848,11 @@ type OneDashboardPageWidgetTableThreshold struct {
 	// The name of the column in the table, to which the threshold would need to be applied.
 	ColumnName *string `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
-	From *int `pulumi:"from"`
+	From *float64 `pulumi:"from"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To *int `pulumi:"to"`
+	To *float64 `pulumi:"to"`
 }
 
 // OneDashboardPageWidgetTableThresholdInput is an input type that accepts OneDashboardPageWidgetTableThresholdArgs and OneDashboardPageWidgetTableThresholdOutput values.
@@ -17864,11 +17870,11 @@ type OneDashboardPageWidgetTableThresholdArgs struct {
 	// The name of the column in the table, to which the threshold would need to be applied.
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
-	From pulumi.IntPtrInput `pulumi:"from"`
+	From pulumi.Float64PtrInput `pulumi:"from"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To pulumi.IntPtrInput `pulumi:"to"`
+	To pulumi.Float64PtrInput `pulumi:"to"`
 }
 
 func (OneDashboardPageWidgetTableThresholdArgs) ElementType() reflect.Type {
@@ -17928,8 +17934,8 @@ func (o OneDashboardPageWidgetTableThresholdOutput) ColumnName() pulumi.StringPt
 }
 
 // The value 'from' which the threshold would need to be applied.
-func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.From }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *float64 { return v.From }).(pulumi.Float64PtrOutput)
 }
 
 // The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
@@ -17938,8 +17944,8 @@ func (o OneDashboardPageWidgetTableThresholdOutput) Severity() pulumi.StringPtrO
 }
 
 // The value until which the threshold would need to be applied.
-func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *int { return v.To }).(pulumi.IntPtrOutput)
+func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *float64 { return v.To }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetTableThresholdArrayOutput struct{ *pulumi.OutputState }
