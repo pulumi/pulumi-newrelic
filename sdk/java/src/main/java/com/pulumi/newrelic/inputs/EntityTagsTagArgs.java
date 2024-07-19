@@ -16,14 +16,18 @@ public final class EntityTagsTagArgs extends com.pulumi.resources.ResourceArgs {
     public static final EntityTagsTagArgs Empty = new EntityTagsTagArgs();
 
     /**
-     * The tag key.
+     * The key of the tag.
+     * 
+     * &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The tag key.
+     * @return The key of the tag.
+     * 
+     * &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      * 
      */
     public Output<String> key() {
@@ -71,7 +75,9 @@ public final class EntityTagsTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The tag key.
+         * @param key The key of the tag.
+         * 
+         * &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
          * 
          * @return builder
          * 
@@ -82,7 +88,9 @@ public final class EntityTagsTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The tag key.
+         * @param key The key of the tag.
+         * 
+         * &gt; **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
          * 
          * @return builder
          * 

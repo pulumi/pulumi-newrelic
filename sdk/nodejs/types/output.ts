@@ -175,7 +175,9 @@ export interface AlertMutingRuleSchedule {
 
 export interface EntityTagsTag {
     /**
-     * The tag key.
+     * The key of the tag.
+     *
+     * > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
      */
     key: string;
     /**

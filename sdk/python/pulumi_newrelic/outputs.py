@@ -751,7 +751,9 @@ class EntityTagsTag(dict):
                  key: str,
                  values: Sequence[str]):
         """
-        :param str key: The tag key.
+        :param str key: The key of the tag.
+               
+               > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
         :param Sequence[str] values: The tag values.
         """
         pulumi.set(__self__, "key", key)
@@ -761,7 +763,9 @@ class EntityTagsTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The tag key.
+        The key of the tag.
+
+        > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
         """
         return pulumi.get(self, "key")
 
@@ -6976,15 +6980,15 @@ class OneDashboardPageWidgetLineThreshold(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 from_: Optional[int] = None,
+                 from_: Optional[float] = None,
                  name: Optional[str] = None,
                  severity: Optional[str] = None,
-                 to: Optional[int] = None):
+                 to: Optional[float] = None):
         """
-        :param int from_: The value 'from' which the threshold would need to be applied.
+        :param float from_: The value 'from' which the threshold would need to be applied.
         :param str name: The title of the dashboard.
         :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param int to: The value until which the threshold would need to be applied.
+        :param float to: The value until which the threshold would need to be applied.
         """
         if from_ is not None:
             pulumi.set(__self__, "from_", from_)
@@ -6997,7 +7001,7 @@ class OneDashboardPageWidgetLineThreshold(dict):
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[int]:
+    def from_(self) -> Optional[float]:
         """
         The value 'from' which the threshold would need to be applied.
         """
@@ -7021,7 +7025,7 @@ class OneDashboardPageWidgetLineThreshold(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[int]:
+    def to(self) -> Optional[float]:
         """
         The value until which the threshold would need to be applied.
         """
@@ -9883,14 +9887,14 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     def __init__(__self__, *,
                  column_name: Optional[str] = None,
-                 from_: Optional[int] = None,
+                 from_: Optional[float] = None,
                  severity: Optional[str] = None,
-                 to: Optional[int] = None):
+                 to: Optional[float] = None):
         """
         :param str column_name: The name of the column in the table, to which the threshold would need to be applied.
-        :param int from_: The value 'from' which the threshold would need to be applied.
+        :param float from_: The value 'from' which the threshold would need to be applied.
         :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param int to: The value until which the threshold would need to be applied.
+        :param float to: The value until which the threshold would need to be applied.
         """
         if column_name is not None:
             pulumi.set(__self__, "column_name", column_name)
@@ -9911,7 +9915,7 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[int]:
+    def from_(self) -> Optional[float]:
         """
         The value 'from' which the threshold would need to be applied.
         """
@@ -9927,7 +9931,7 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[int]:
+    def to(self) -> Optional[float]:
         """
         The value until which the threshold would need to be applied.
         """

@@ -356,7 +356,7 @@ index 4c9ce52d..95a722a0 100644
  ## Import
  
 diff --git a/website/docs/r/entity_tags.html.markdown b/website/docs/r/entity_tags.html.markdown
-index 33191725..158876ae 100644
+index 1cab38da..cfa416e2 100644
 --- a/website/docs/r/entity_tags.html.markdown
 +++ b/website/docs/r/entity_tags.html.markdown
 @@ -10,10 +10,6 @@ description: |-

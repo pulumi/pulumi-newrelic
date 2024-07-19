@@ -2738,7 +2738,7 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The tag key.\n"
+                    "description": "The key of the tag.\n\n\u003e **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.\n"
                 },
                 "values": {
                     "type": "array",
@@ -5112,7 +5112,7 @@
         "newrelic:index/OneDashboardPageWidgetLineThreshold:OneDashboardPageWidgetLineThreshold": {
             "properties": {
                 "from": {
-                    "type": "integer",
+                    "type": "number",
                     "description": "The value 'from' which the threshold would need to be applied.\n"
                 },
                 "name": {
@@ -5124,7 +5124,7 @@
                     "description": "The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.\n"
                 },
                 "to": {
-                    "type": "integer",
+                    "type": "number",
                     "description": "The value until which the threshold would need to be applied.\n"
                 }
             },
@@ -6185,7 +6185,7 @@
                     "description": "The name of the column in the table, to which the threshold would need to be applied.\n"
                 },
                 "from": {
-                    "type": "integer",
+                    "type": "number",
                     "description": "The value 'from' which the threshold would need to be applied.\n"
                 },
                 "severity": {
@@ -6193,7 +6193,7 @@
                     "description": "The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.\n"
                 },
                 "to": {
-                    "type": "integer",
+                    "type": "number",
                     "description": "The value until which the threshold would need to be applied.\n"
                 }
             },
