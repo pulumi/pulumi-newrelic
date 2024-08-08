@@ -478,11 +478,18 @@ public class Workload extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Workload(String name, @Nullable WorkloadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:plugins/workload:Workload", name, args == null ? WorkloadArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:plugins/workload:Workload", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Workload(String name, Output<String> id, @Nullable WorkloadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:plugins/workload:Workload", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkloadArgs makeArgs(@Nullable WorkloadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkloadArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

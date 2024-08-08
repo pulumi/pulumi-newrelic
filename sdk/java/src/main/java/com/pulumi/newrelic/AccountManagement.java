@@ -119,11 +119,18 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountManagement(String name, AccountManagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/accountManagement:AccountManagement", name, args == null ? AccountManagementArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/accountManagement:AccountManagement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountManagement(String name, Output<String> id, @Nullable AccountManagementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/accountManagement:AccountManagement", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountManagementArgs makeArgs(AccountManagementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountManagementArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

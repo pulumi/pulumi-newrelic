@@ -6781,15 +6781,15 @@ class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
 @pulumi.input_type
 class OneDashboardPageWidgetLineThresholdArgs:
     def __init__(__self__, *,
-                 from_: Optional[pulumi.Input[float]] = None,
+                 from_: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
-                 to: Optional[pulumi.Input[float]] = None):
+                 to: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] from_: The value 'from' which the threshold would need to be applied.
+        :param pulumi.Input[str] from_: The value 'from' which the threshold would need to be applied.
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[str] severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param pulumi.Input[float] to: The value until which the threshold would need to be applied.
+        :param pulumi.Input[str] to: The value until which the threshold would need to be applied.
         """
         if from_ is not None:
             pulumi.set(__self__, "from_", from_)
@@ -6802,14 +6802,14 @@ class OneDashboardPageWidgetLineThresholdArgs:
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[float]]:
+    def from_(self) -> Optional[pulumi.Input[str]]:
         """
         The value 'from' which the threshold would need to be applied.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[float]]):
+    def from_(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "from_", value)
 
     @property
@@ -6838,14 +6838,14 @@ class OneDashboardPageWidgetLineThresholdArgs:
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[float]]:
+    def to(self) -> Optional[pulumi.Input[str]]:
         """
         The value until which the threshold would need to be applied.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[float]]):
+    def to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "to", value)
 
 
@@ -9521,14 +9521,14 @@ class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
 class OneDashboardPageWidgetTableThresholdArgs:
     def __init__(__self__, *,
                  column_name: Optional[pulumi.Input[str]] = None,
-                 from_: Optional[pulumi.Input[float]] = None,
+                 from_: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
-                 to: Optional[pulumi.Input[float]] = None):
+                 to: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] column_name: The name of the column in the table, to which the threshold would need to be applied.
-        :param pulumi.Input[float] from_: The value 'from' which the threshold would need to be applied.
+        :param pulumi.Input[str] from_: The value 'from' which the threshold would need to be applied.
         :param pulumi.Input[str] severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param pulumi.Input[float] to: The value until which the threshold would need to be applied.
+        :param pulumi.Input[str] to: The value until which the threshold would need to be applied.
         """
         if column_name is not None:
             pulumi.set(__self__, "column_name", column_name)
@@ -9553,14 +9553,14 @@ class OneDashboardPageWidgetTableThresholdArgs:
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[float]]:
+    def from_(self) -> Optional[pulumi.Input[str]]:
         """
         The value 'from' which the threshold would need to be applied.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[float]]):
+    def from_(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "from_", value)
 
     @property
@@ -9577,14 +9577,14 @@ class OneDashboardPageWidgetTableThresholdArgs:
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[float]]:
+    def to(self) -> Optional[pulumi.Input[str]]:
         """
         The value until which the threshold would need to be applied.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[float]]):
+    def to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "to", value)
 
 
@@ -10667,7 +10667,7 @@ class WorkflowDestinationArgs:
         :param pulumi.Input[str] channel_id: (Required) Destination's channel id.
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_triggers: List of triggers to notify about in this destination configuration.
-        :param pulumi.Input[str] type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        :param pulumi.Input[str] type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         :param pulumi.Input[bool] update_original_message: Update original notification message (Slack channels only)
         """
         pulumi.set(__self__, "channel_id", channel_id)
@@ -10720,7 +10720,7 @@ class WorkflowDestinationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         """
         return pulumi.get(self, "type")
 

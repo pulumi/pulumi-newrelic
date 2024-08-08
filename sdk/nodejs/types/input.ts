@@ -1805,7 +1805,7 @@ export interface OneDashboardPageWidgetLineThreshold {
     /**
      * The value 'from' which the threshold would need to be applied.
      */
-    from?: pulumi.Input<number>;
+    from?: pulumi.Input<string>;
     /**
      * The title of the dashboard.
      */
@@ -1817,7 +1817,7 @@ export interface OneDashboardPageWidgetLineThreshold {
     /**
      * The value until which the threshold would need to be applied.
      */
-    to?: pulumi.Input<number>;
+    to?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLineUnit {
@@ -2541,7 +2541,7 @@ export interface OneDashboardPageWidgetTableThreshold {
     /**
      * The value 'from' which the threshold would need to be applied.
      */
-    from?: pulumi.Input<number>;
+    from?: pulumi.Input<string>;
     /**
      * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
      */
@@ -2549,7 +2549,7 @@ export interface OneDashboardPageWidgetTableThreshold {
     /**
      * The value until which the threshold would need to be applied.
      */
-    to?: pulumi.Input<number>;
+    to?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetTableUnit {
@@ -2863,7 +2863,7 @@ export interface WorkflowDestination {
      */
     notificationTriggers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+     * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
      */
     type?: pulumi.Input<string>;
     /**

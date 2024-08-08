@@ -4,7 +4,6 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public final class OneDashboardPageWidgetTableThreshold {
      * @return The value &#39;from&#39; which the threshold would need to be applied.
      * 
      */
-    private @Nullable Double from;
+    private @Nullable String from;
     /**
      * @return The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
      * 
@@ -31,7 +30,7 @@ public final class OneDashboardPageWidgetTableThreshold {
      * @return The value until which the threshold would need to be applied.
      * 
      */
-    private @Nullable Double to;
+    private @Nullable String to;
 
     private OneDashboardPageWidgetTableThreshold() {}
     /**
@@ -45,7 +44,7 @@ public final class OneDashboardPageWidgetTableThreshold {
      * @return The value &#39;from&#39; which the threshold would need to be applied.
      * 
      */
-    public Optional<Double> from() {
+    public Optional<String> from() {
         return Optional.ofNullable(this.from);
     }
     /**
@@ -59,7 +58,7 @@ public final class OneDashboardPageWidgetTableThreshold {
      * @return The value until which the threshold would need to be applied.
      * 
      */
-    public Optional<Double> to() {
+    public Optional<String> to() {
         return Optional.ofNullable(this.to);
     }
 
@@ -73,9 +72,9 @@ public final class OneDashboardPageWidgetTableThreshold {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String columnName;
-        private @Nullable Double from;
+        private @Nullable String from;
         private @Nullable String severity;
-        private @Nullable Double to;
+        private @Nullable String to;
         public Builder() {}
         public Builder(OneDashboardPageWidgetTableThreshold defaults) {
     	      Objects.requireNonNull(defaults);
@@ -92,7 +91,7 @@ public final class OneDashboardPageWidgetTableThreshold {
             return this;
         }
         @CustomType.Setter
-        public Builder from(@Nullable Double from) {
+        public Builder from(@Nullable String from) {
 
             this.from = from;
             return this;
@@ -104,7 +103,7 @@ public final class OneDashboardPageWidgetTableThreshold {
             return this;
         }
         @CustomType.Setter
-        public Builder to(@Nullable Double to) {
+        public Builder to(@Nullable String to) {
 
             this.to = to;
             return this;

@@ -6980,15 +6980,15 @@ class OneDashboardPageWidgetLineThreshold(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 from_: Optional[float] = None,
+                 from_: Optional[str] = None,
                  name: Optional[str] = None,
                  severity: Optional[str] = None,
-                 to: Optional[float] = None):
+                 to: Optional[str] = None):
         """
-        :param float from_: The value 'from' which the threshold would need to be applied.
+        :param str from_: The value 'from' which the threshold would need to be applied.
         :param str name: The title of the dashboard.
         :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param float to: The value until which the threshold would need to be applied.
+        :param str to: The value until which the threshold would need to be applied.
         """
         if from_ is not None:
             pulumi.set(__self__, "from_", from_)
@@ -7001,7 +7001,7 @@ class OneDashboardPageWidgetLineThreshold(dict):
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[float]:
+    def from_(self) -> Optional[str]:
         """
         The value 'from' which the threshold would need to be applied.
         """
@@ -7025,7 +7025,7 @@ class OneDashboardPageWidgetLineThreshold(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[float]:
+    def to(self) -> Optional[str]:
         """
         The value until which the threshold would need to be applied.
         """
@@ -9887,14 +9887,14 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     def __init__(__self__, *,
                  column_name: Optional[str] = None,
-                 from_: Optional[float] = None,
+                 from_: Optional[str] = None,
                  severity: Optional[str] = None,
-                 to: Optional[float] = None):
+                 to: Optional[str] = None):
         """
         :param str column_name: The name of the column in the table, to which the threshold would need to be applied.
-        :param float from_: The value 'from' which the threshold would need to be applied.
+        :param str from_: The value 'from' which the threshold would need to be applied.
         :param str severity: The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
-        :param float to: The value until which the threshold would need to be applied.
+        :param str to: The value until which the threshold would need to be applied.
         """
         if column_name is not None:
             pulumi.set(__self__, "column_name", column_name)
@@ -9915,7 +9915,7 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[float]:
+    def from_(self) -> Optional[str]:
         """
         The value 'from' which the threshold would need to be applied.
         """
@@ -9931,7 +9931,7 @@ class OneDashboardPageWidgetTableThreshold(dict):
 
     @property
     @pulumi.getter
-    def to(self) -> Optional[float]:
+    def to(self) -> Optional[str]:
         """
         The value until which the threshold would need to be applied.
         """
@@ -10999,7 +10999,7 @@ class WorkflowDestination(dict):
         :param str channel_id: (Required) Destination's channel id.
         :param str name: The name of the workflow.
         :param Sequence[str] notification_triggers: List of triggers to notify about in this destination configuration.
-        :param str type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        :param str type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         :param bool update_original_message: Update original notification message (Slack channels only)
         """
         pulumi.set(__self__, "channel_id", channel_id)
@@ -11040,7 +11040,7 @@ class WorkflowDestination(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
         """
         return pulumi.get(self, "type")
 

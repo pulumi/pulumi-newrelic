@@ -391,11 +391,18 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceLevel(String name, ServiceLevelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/serviceLevel:ServiceLevel", name, args == null ? ServiceLevelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/serviceLevel:ServiceLevel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceLevel(String name, Output<String> id, @Nullable ServiceLevelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/serviceLevel:ServiceLevel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceLevelArgs makeArgs(ServiceLevelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceLevelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

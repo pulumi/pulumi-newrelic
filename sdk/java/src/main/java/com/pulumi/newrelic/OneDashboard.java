@@ -166,11 +166,18 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OneDashboard(String name, OneDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/oneDashboard:OneDashboard", name, args == null ? OneDashboardArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/oneDashboard:OneDashboard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OneDashboard(String name, Output<String> id, @Nullable OneDashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/oneDashboard:OneDashboard", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OneDashboardArgs makeArgs(OneDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OneDashboardArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

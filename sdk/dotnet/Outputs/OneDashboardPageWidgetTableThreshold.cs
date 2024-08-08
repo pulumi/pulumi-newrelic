@@ -20,7 +20,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// The value 'from' which the threshold would need to be applied.
         /// </summary>
-        public readonly double? From;
+        public readonly string? From;
         /// <summary>
         /// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// The value until which the threshold would need to be applied.
         /// </summary>
-        public readonly double? To;
+        public readonly string? To;
 
         [OutputConstructor]
         private OneDashboardPageWidgetTableThreshold(
             string? columnName,
 
-            double? from,
+            string? from,
 
             string? severity,
 
-            double? to)
+            string? to)
         {
             ColumnName = columnName;
             From = from;

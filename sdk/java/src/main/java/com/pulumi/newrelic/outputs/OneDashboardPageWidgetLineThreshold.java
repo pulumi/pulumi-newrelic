@@ -4,7 +4,6 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,7 +15,7 @@ public final class OneDashboardPageWidgetLineThreshold {
      * @return The value &#39;from&#39; which the threshold would need to be applied.
      * 
      */
-    private @Nullable Double from;
+    private @Nullable String from;
     /**
      * @return The title of the dashboard.
      * 
@@ -31,14 +30,14 @@ public final class OneDashboardPageWidgetLineThreshold {
      * @return The value until which the threshold would need to be applied.
      * 
      */
-    private @Nullable Double to;
+    private @Nullable String to;
 
     private OneDashboardPageWidgetLineThreshold() {}
     /**
      * @return The value &#39;from&#39; which the threshold would need to be applied.
      * 
      */
-    public Optional<Double> from() {
+    public Optional<String> from() {
         return Optional.ofNullable(this.from);
     }
     /**
@@ -59,7 +58,7 @@ public final class OneDashboardPageWidgetLineThreshold {
      * @return The value until which the threshold would need to be applied.
      * 
      */
-    public Optional<Double> to() {
+    public Optional<String> to() {
         return Optional.ofNullable(this.to);
     }
 
@@ -72,10 +71,10 @@ public final class OneDashboardPageWidgetLineThreshold {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Double from;
+        private @Nullable String from;
         private @Nullable String name;
         private @Nullable String severity;
-        private @Nullable Double to;
+        private @Nullable String to;
         public Builder() {}
         public Builder(OneDashboardPageWidgetLineThreshold defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,7 +85,7 @@ public final class OneDashboardPageWidgetLineThreshold {
         }
 
         @CustomType.Setter
-        public Builder from(@Nullable Double from) {
+        public Builder from(@Nullable String from) {
 
             this.from = from;
             return this;
@@ -104,7 +103,7 @@ public final class OneDashboardPageWidgetLineThreshold {
             return this;
         }
         @CustomType.Setter
-        public Builder to(@Nullable Double to) {
+        public Builder to(@Nullable String to) {
 
             this.to = to;
             return this;

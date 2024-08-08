@@ -51,7 +51,7 @@ type LookupNotificationDestinationResult struct {
 	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 	// The status of the notification destination.
 	Status string `pulumi:"status"`
-	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
+	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
 	Type string `pulumi:"type"`
 }
 
@@ -139,7 +139,7 @@ func (o LookupNotificationDestinationResultOutput) Status() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
+// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
 func (o LookupNotificationDestinationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Type }).(pulumi.StringOutput)
 }

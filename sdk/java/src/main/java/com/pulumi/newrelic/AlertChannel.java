@@ -415,11 +415,18 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertChannel(String name, AlertChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertChannel:AlertChannel", name, args == null ? AlertChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/alertChannel:AlertChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertChannel(String name, Output<String> id, @Nullable AlertChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/alertChannel:AlertChannel", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertChannelArgs makeArgs(AlertChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertChannelArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

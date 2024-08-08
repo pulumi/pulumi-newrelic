@@ -800,11 +800,18 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AzureIntegrations(String name, AzureIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/azureIntegrations:AzureIntegrations", name, args == null ? AzureIntegrationsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:cloud/azureIntegrations:AzureIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AzureIntegrations(String name, Output<String> id, @Nullable AzureIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:cloud/azureIntegrations:AzureIntegrations", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AzureIntegrationsArgs makeArgs(AzureIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AzureIntegrationsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

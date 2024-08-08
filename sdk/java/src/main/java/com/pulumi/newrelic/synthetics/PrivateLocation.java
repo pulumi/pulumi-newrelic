@@ -200,11 +200,18 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PrivateLocation(String name, PrivateLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/privateLocation:PrivateLocation", name, args == null ? PrivateLocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:synthetics/privateLocation:PrivateLocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PrivateLocation(String name, Output<String> id, @Nullable PrivateLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:synthetics/privateLocation:PrivateLocation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrivateLocationArgs makeArgs(PrivateLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrivateLocationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
