@@ -341,11 +341,18 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CertCheckMonitor(String name, CertCheckMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/certCheckMonitor:CertCheckMonitor", name, args == null ? CertCheckMonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:synthetics/certCheckMonitor:CertCheckMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CertCheckMonitor(String name, Output<String> id, @Nullable CertCheckMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:synthetics/certCheckMonitor:CertCheckMonitor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CertCheckMonitorArgs makeArgs(CertCheckMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertCheckMonitorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

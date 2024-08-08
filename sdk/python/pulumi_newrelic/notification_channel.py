@@ -28,7 +28,7 @@ class NotificationChannelArgs:
         :param pulumi.Input[str] destination_id: The id of the destination.
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         :param pulumi.Input[str] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] name: The name of the channel.
@@ -84,7 +84,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 
@@ -149,7 +149,7 @@ class _NotificationChannelState:
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[str] status: The status of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -256,7 +256,7 @@ class _NotificationChannelState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 
@@ -331,6 +331,18 @@ class NotificationChannel(pulumi.CustomResource):
                     value="Short description",
                 ),
             ])
+        ```
+        ##### [ServiceNowApp](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenowapp)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id="12345678",
+            name="servicenow-app-example",
+            type="SERVICE_NOW_APP",
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT")
         ```
 
         ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
@@ -600,7 +612,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         ...
     @overload
@@ -661,6 +673,18 @@ class NotificationChannel(pulumi.CustomResource):
                     value="Short description",
                 ),
             ])
+        ```
+        ##### [ServiceNowApp](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenowapp)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id="12345678",
+            name="servicenow-app-example",
+            type="SERVICE_NOW_APP",
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT")
         ```
 
         ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
@@ -1001,7 +1025,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[str] status: The status of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1077,7 +1101,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 

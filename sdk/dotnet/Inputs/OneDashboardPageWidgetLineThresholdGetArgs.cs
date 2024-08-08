@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         /// The value 'from' which the threshold would need to be applied.
         /// </summary>
         [Input("from")]
-        public Input<double>? From { get; set; }
+        public Input<string>? From { get; set; }
 
         /// <summary>
         /// The title of the dashboard.
@@ -34,7 +34,7 @@ namespace Pulumi.NewRelic.Inputs
         /// The value until which the threshold would need to be applied.
         /// </summary>
         [Input("to")]
-        public Input<double>? To { get; set; }
+        public Input<string>? To { get; set; }
 
         public OneDashboardPageWidgetLineThresholdGetArgs()
         {

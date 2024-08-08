@@ -581,11 +581,18 @@ public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public AwsGovcloudIntegrations(String name, AwsGovcloudIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations", name, args == null ? AwsGovcloudIntegrationsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AwsGovcloudIntegrations(String name, Output<String> id, @Nullable AwsGovcloudIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AwsGovcloudIntegrationsArgs makeArgs(AwsGovcloudIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AwsGovcloudIntegrationsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

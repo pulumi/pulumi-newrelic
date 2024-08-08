@@ -12745,13 +12745,13 @@ func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pu
 
 type OneDashboardPageWidgetLineThreshold struct {
 	// The value 'from' which the threshold would need to be applied.
-	From *float64 `pulumi:"from"`
+	From *string `pulumi:"from"`
 	// The title of the dashboard.
 	Name *string `pulumi:"name"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To *float64 `pulumi:"to"`
+	To *string `pulumi:"to"`
 }
 
 // OneDashboardPageWidgetLineThresholdInput is an input type that accepts OneDashboardPageWidgetLineThresholdArgs and OneDashboardPageWidgetLineThresholdOutput values.
@@ -12767,13 +12767,13 @@ type OneDashboardPageWidgetLineThresholdInput interface {
 
 type OneDashboardPageWidgetLineThresholdArgs struct {
 	// The value 'from' which the threshold would need to be applied.
-	From pulumi.Float64PtrInput `pulumi:"from"`
+	From pulumi.StringPtrInput `pulumi:"from"`
 	// The title of the dashboard.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To pulumi.Float64PtrInput `pulumi:"to"`
+	To pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (OneDashboardPageWidgetLineThresholdArgs) ElementType() reflect.Type {
@@ -12828,8 +12828,8 @@ func (o OneDashboardPageWidgetLineThresholdOutput) ToOneDashboardPageWidgetLineT
 }
 
 // The value 'from' which the threshold would need to be applied.
-func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *float64 { return v.From }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetLineThresholdOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.From }).(pulumi.StringPtrOutput)
 }
 
 // The title of the dashboard.
@@ -12843,8 +12843,8 @@ func (o OneDashboardPageWidgetLineThresholdOutput) Severity() pulumi.StringPtrOu
 }
 
 // The value until which the threshold would need to be applied.
-func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *float64 { return v.To }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetLineThresholdOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.To }).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetLineThresholdArrayOutput struct{ *pulumi.OutputState }
@@ -17848,11 +17848,11 @@ type OneDashboardPageWidgetTableThreshold struct {
 	// The name of the column in the table, to which the threshold would need to be applied.
 	ColumnName *string `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
-	From *float64 `pulumi:"from"`
+	From *string `pulumi:"from"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To *float64 `pulumi:"to"`
+	To *string `pulumi:"to"`
 }
 
 // OneDashboardPageWidgetTableThresholdInput is an input type that accepts OneDashboardPageWidgetTableThresholdArgs and OneDashboardPageWidgetTableThresholdOutput values.
@@ -17870,11 +17870,11 @@ type OneDashboardPageWidgetTableThresholdArgs struct {
 	// The name of the column in the table, to which the threshold would need to be applied.
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
-	From pulumi.Float64PtrInput `pulumi:"from"`
+	From pulumi.StringPtrInput `pulumi:"from"`
 	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
-	To pulumi.Float64PtrInput `pulumi:"to"`
+	To pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (OneDashboardPageWidgetTableThresholdArgs) ElementType() reflect.Type {
@@ -17934,8 +17934,8 @@ func (o OneDashboardPageWidgetTableThresholdOutput) ColumnName() pulumi.StringPt
 }
 
 // The value 'from' which the threshold would need to be applied.
-func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *float64 { return v.From }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.From }).(pulumi.StringPtrOutput)
 }
 
 // The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
@@ -17944,8 +17944,8 @@ func (o OneDashboardPageWidgetTableThresholdOutput) Severity() pulumi.StringPtrO
 }
 
 // The value until which the threshold would need to be applied.
-func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *float64 { return v.To }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetTableThresholdOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.To }).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetTableThresholdArrayOutput struct{ *pulumi.OutputState }
@@ -20753,7 +20753,7 @@ type WorkflowDestination struct {
 	Name *string `pulumi:"name"`
 	// List of triggers to notify about in this destination configuration.
 	NotificationTriggers []string `pulumi:"notificationTriggers"`
-	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 	Type *string `pulumi:"type"`
 	// Update original notification message (Slack channels only)
 	UpdateOriginalMessage *bool `pulumi:"updateOriginalMessage"`
@@ -20777,7 +20777,7 @@ type WorkflowDestinationArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of triggers to notify about in this destination configuration.
 	NotificationTriggers pulumi.StringArrayInput `pulumi:"notificationTriggers"`
-	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Update original notification message (Slack channels only)
 	UpdateOriginalMessage pulumi.BoolPtrInput `pulumi:"updateOriginalMessage"`
@@ -20849,7 +20849,7 @@ func (o WorkflowDestinationOutput) NotificationTriggers() pulumi.StringArrayOutp
 	return o.ApplyT(func(v WorkflowDestination) []string { return v.NotificationTriggers }).(pulumi.StringArrayOutput)
 }
 
-// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
 func (o WorkflowDestinationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

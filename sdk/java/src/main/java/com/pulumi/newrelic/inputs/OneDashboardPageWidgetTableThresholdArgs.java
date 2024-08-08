@@ -5,7 +5,6 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -36,13 +35,13 @@ public final class OneDashboardPageWidgetTableThresholdArgs extends com.pulumi.r
      * 
      */
     @Import(name="from")
-    private @Nullable Output<Double> from;
+    private @Nullable Output<String> from;
 
     /**
      * @return The value &#39;from&#39; which the threshold would need to be applied.
      * 
      */
-    public Optional<Output<Double>> from() {
+    public Optional<Output<String>> from() {
         return Optional.ofNullable(this.from);
     }
 
@@ -66,13 +65,13 @@ public final class OneDashboardPageWidgetTableThresholdArgs extends com.pulumi.r
      * 
      */
     @Import(name="to")
-    private @Nullable Output<Double> to;
+    private @Nullable Output<String> to;
 
     /**
      * @return The value until which the threshold would need to be applied.
      * 
      */
-    public Optional<Output<Double>> to() {
+    public Optional<Output<String>> to() {
         return Optional.ofNullable(this.to);
     }
 
@@ -130,7 +129,7 @@ public final class OneDashboardPageWidgetTableThresholdArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder from(@Nullable Output<Double> from) {
+        public Builder from(@Nullable Output<String> from) {
             $.from = from;
             return this;
         }
@@ -141,7 +140,7 @@ public final class OneDashboardPageWidgetTableThresholdArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder from(Double from) {
+        public Builder from(String from) {
             return from(Output.of(from));
         }
 
@@ -172,7 +171,7 @@ public final class OneDashboardPageWidgetTableThresholdArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder to(@Nullable Output<Double> to) {
+        public Builder to(@Nullable Output<String> to) {
             $.to = to;
             return this;
         }
@@ -183,7 +182,7 @@ public final class OneDashboardPageWidgetTableThresholdArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder to(Double to) {
+        public Builder to(String to) {
             return to(Output.of(to));
         }
 

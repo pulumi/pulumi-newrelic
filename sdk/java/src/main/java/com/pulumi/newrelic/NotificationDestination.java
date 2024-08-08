@@ -248,16 +248,18 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return this.status;
     }
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+     * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+     * MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+     * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+     * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+     * MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
     public Output<String> type() {
@@ -286,11 +288,18 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public NotificationDestination(String name, NotificationDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/notificationDestination:NotificationDestination", name, args == null ? NotificationDestinationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/notificationDestination:NotificationDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotificationDestination(String name, Output<String> id, @Nullable NotificationDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/notificationDestination:NotificationDestination", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotificationDestinationArgs makeArgs(NotificationDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationDestinationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

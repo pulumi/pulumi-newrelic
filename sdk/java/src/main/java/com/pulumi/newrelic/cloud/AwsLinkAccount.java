@@ -156,11 +156,18 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AwsLinkAccount(String name, AwsLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, args == null ? AwsLinkAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AwsLinkAccount(String name, Output<String> id, @Nullable AwsLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AwsLinkAccountArgs makeArgs(AwsLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AwsLinkAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

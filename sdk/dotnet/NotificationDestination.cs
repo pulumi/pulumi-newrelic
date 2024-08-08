@@ -148,8 +148,9 @@ namespace Pulumi.NewRelic
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+        /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+        /// MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -261,8 +262,9 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NotificationDestinationSecureUrlArgs>? SecureUrl { get; set; }
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+        /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+        /// MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -354,8 +356,9 @@ namespace Pulumi.NewRelic
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+        /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+        /// MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

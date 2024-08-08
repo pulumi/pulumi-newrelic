@@ -155,11 +155,18 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApplicationSettings(String name, ApplicationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:plugins/applicationSettings:ApplicationSettings", name, args == null ? ApplicationSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:plugins/applicationSettings:ApplicationSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApplicationSettings(String name, Output<String> id, @Nullable ApplicationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:plugins/applicationSettings:ApplicationSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApplicationSettingsArgs makeArgs(ApplicationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

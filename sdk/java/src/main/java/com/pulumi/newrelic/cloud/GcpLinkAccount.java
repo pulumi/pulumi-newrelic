@@ -145,11 +145,18 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GcpLinkAccount(String name, GcpLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, args == null ? GcpLinkAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GcpLinkAccount(String name, Output<String> id, @Nullable GcpLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GcpLinkAccountArgs makeArgs(GcpLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GcpLinkAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

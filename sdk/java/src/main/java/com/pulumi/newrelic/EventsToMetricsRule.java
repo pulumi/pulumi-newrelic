@@ -178,11 +178,18 @@ public class EventsToMetricsRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventsToMetricsRule(String name, EventsToMetricsRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/eventsToMetricsRule:EventsToMetricsRule", name, args == null ? EventsToMetricsRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/eventsToMetricsRule:EventsToMetricsRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventsToMetricsRule(String name, Output<String> id, @Nullable EventsToMetricsRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/eventsToMetricsRule:EventsToMetricsRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventsToMetricsRuleArgs makeArgs(EventsToMetricsRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventsToMetricsRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

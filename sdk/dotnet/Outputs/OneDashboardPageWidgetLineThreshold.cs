@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// The value 'from' which the threshold would need to be applied.
         /// </summary>
-        public readonly double? From;
+        public readonly string? From;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// The value until which the threshold would need to be applied.
         /// </summary>
-        public readonly double? To;
+        public readonly string? To;
 
         [OutputConstructor]
         private OneDashboardPageWidgetLineThreshold(
-            double? from,
+            string? from,
 
             string? name,
 
             string? severity,
 
-            double? to)
+            string? to)
         {
             From = from;
             Name = name;

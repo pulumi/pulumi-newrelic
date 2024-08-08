@@ -280,11 +280,18 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertPolicy(String name, @Nullable AlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertPolicy:AlertPolicy", name, args == null ? AlertPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:index/alertPolicy:AlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertPolicy(String name, Output<String> id, @Nullable AlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:index/alertPolicy:AlertPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertPolicyArgs makeArgs(@Nullable AlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

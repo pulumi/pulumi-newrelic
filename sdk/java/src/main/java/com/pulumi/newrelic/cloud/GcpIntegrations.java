@@ -629,11 +629,18 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GcpIntegrations(String name, GcpIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, args == null ? GcpIntegrationsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GcpIntegrations(String name, Output<String> id, @Nullable GcpIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GcpIntegrationsArgs makeArgs(GcpIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GcpIntegrationsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

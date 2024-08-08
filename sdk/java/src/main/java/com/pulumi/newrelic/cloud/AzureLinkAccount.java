@@ -187,11 +187,18 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AzureLinkAccount(String name, AzureLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/azureLinkAccount:AzureLinkAccount", name, args == null ? AzureLinkAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("newrelic:cloud/azureLinkAccount:AzureLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AzureLinkAccount(String name, Output<String> id, @Nullable AzureLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:cloud/azureLinkAccount:AzureLinkAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AzureLinkAccountArgs makeArgs(AzureLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AzureLinkAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

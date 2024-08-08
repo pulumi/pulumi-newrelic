@@ -104,8 +104,9 @@ type NotificationDestination struct {
 	SecureUrl NotificationDestinationSecureUrlPtrOutput `pulumi:"secureUrl"`
 	// The status of the destination.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+	// MOBILE_PUSH, EVENT_BRIDGE).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -167,8 +168,9 @@ type notificationDestinationState struct {
 	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// The status of the destination.
 	Status *string `pulumi:"status"`
-	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+	// MOBILE_PUSH, EVENT_BRIDGE).
 	Type *string `pulumi:"type"`
 }
 
@@ -195,8 +197,9 @@ type NotificationDestinationState struct {
 	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// The status of the destination.
 	Status pulumi.StringPtrInput
-	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+	// MOBILE_PUSH, EVENT_BRIDGE).
 	Type pulumi.StringPtrInput
 }
 
@@ -221,8 +224,9 @@ type notificationDestinationArgs struct {
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
-	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+	// MOBILE_PUSH, EVENT_BRIDGE).
 	Type string `pulumi:"type"`
 }
 
@@ -244,8 +248,9 @@ type NotificationDestinationArgs struct {
 	Properties NotificationDestinationPropertyArrayInput
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl NotificationDestinationSecureUrlPtrInput
-	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-	// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+	// MOBILE_PUSH, EVENT_BRIDGE).
 	Type pulumi.StringInput
 }
 
@@ -393,8 +398,9 @@ func (o NotificationDestinationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationDestination) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
+// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
+// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
+// MOBILE_PUSH, EVENT_BRIDGE).
 func (o NotificationDestinationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationDestination) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
