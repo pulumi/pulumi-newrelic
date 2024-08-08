@@ -309,7 +309,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**{@literal /}policies/**\&lt;policy_id\&gt;**{@literal /}conditions/**\&lt;condition_id\&gt;**{@literal /}edit&lt;/small&gt;
+ * &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**&#47;policies/**\&lt;policy_id\&gt;**&#47;conditions/**\&lt;condition_id\&gt;**&#47;edit&lt;/small&gt;
  * 
  * ## Upgrade from 1.x to 2.x
  * 
@@ -821,7 +821,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NrqlAlertCondition(String name) {
+    public NrqlAlertCondition(java.lang.String name) {
         this(name, NrqlAlertConditionArgs.Empty);
     }
     /**
@@ -829,7 +829,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NrqlAlertCondition(String name, NrqlAlertConditionArgs args) {
+    public NrqlAlertCondition(java.lang.String name, NrqlAlertConditionArgs args) {
         this(name, args, null);
     }
     /**
@@ -838,12 +838,12 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NrqlAlertCondition(String name, NrqlAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NrqlAlertCondition(java.lang.String name, NrqlAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NrqlAlertCondition(String name, Output<String> id, @Nullable NrqlAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, state, makeResourceOptions(options, id));
+    private NrqlAlertCondition(java.lang.String name, Output<java.lang.String> id, @Nullable NrqlAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NrqlAlertConditionArgs makeArgs(NrqlAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -853,7 +853,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return args == null ? NrqlAlertConditionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -869,7 +869,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NrqlAlertCondition get(String name, Output<String> id, @Nullable NrqlAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NrqlAlertCondition get(java.lang.String name, Output<java.lang.String> id, @Nullable NrqlAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NrqlAlertCondition(name, id, state, options);
     }
 }

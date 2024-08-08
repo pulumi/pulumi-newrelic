@@ -577,7 +577,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comparison: Optional[pulumi.Input[str]] = None,
-                 critical: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']]] = None,
+                 critical: Optional[pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event: Optional[pulumi.Input[str]] = None,
@@ -589,7 +589,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  select: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_close_timer: Optional[pulumi.Input[int]] = None,
-                 warning: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']]] = None,
+                 warning: Optional[pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']]] = None,
                  where: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -613,16 +613,16 @@ class InfraAlertCondition(pulumi.CustomResource):
             select="diskUsedPercent",
             comparison="above",
             where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ),
-            warning=newrelic.InfraAlertConditionWarningArgs(
-                duration=10,
-                value=80,
-                time_function="all",
-            ))
+            critical={
+                "duration": 25,
+                "value": 90,
+                "time_function": "all",
+            },
+            warning={
+                "duration": 10,
+                "value": 80,
+                "time_function": "all",
+            })
         high_db_conn_count = newrelic.InfraAlertCondition("high_db_conn_count",
             policy_id=foo.id,
             name="High database connection count",
@@ -633,11 +633,11 @@ class InfraAlertCondition(pulumi.CustomResource):
             comparison="above",
             where="(hostname LIKE '%db%')",
             integration_provider="RdsDbInstance",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ))
+            critical={
+                "duration": 25,
+                "value": 90,
+                "time_function": "all",
+            })
         process_not_running = newrelic.InfraAlertCondition("process_not_running",
             policy_id=foo.id,
             name="Process not running (/usr/bin/ruby)",
@@ -646,19 +646,19 @@ class InfraAlertCondition(pulumi.CustomResource):
             comparison="equal",
             where="hostname = 'web01'",
             process_where="commandName = '/usr/bin/ruby'",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=5,
-                value=0,
-            ))
+            critical={
+                "duration": 5,
+                "value": 0,
+            })
         host_not_reporting = newrelic.InfraAlertCondition("host_not_reporting",
             policy_id=foo.id,
             name="Host not reporting",
             description="Critical alert when the host is not reporting",
             type="infra_host_not_reporting",
             where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=5,
-            ))
+            critical={
+                "duration": 5,
+            })
         ```
 
         ## Thresholds
@@ -687,30 +687,30 @@ class InfraAlertCondition(pulumi.CustomResource):
             select="diskUsedPercent",
             comparison="above",
             where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ),
-            warning=newrelic.InfraAlertConditionWarningArgs(
-                duration=10,
-                value=80,
-                time_function="all",
-            ))
+            critical={
+                "duration": 25,
+                "value": 90,
+                "time_function": "all",
+            },
+            warning={
+                "duration": 10,
+                "value": 80,
+                "time_function": "all",
+            })
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_infra_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -725,7 +725,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
-        :param pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
         :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
@@ -741,7 +741,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                ```
                Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
                ```
-        :param pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         ...
@@ -771,16 +771,16 @@ class InfraAlertCondition(pulumi.CustomResource):
             select="diskUsedPercent",
             comparison="above",
             where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ),
-            warning=newrelic.InfraAlertConditionWarningArgs(
-                duration=10,
-                value=80,
-                time_function="all",
-            ))
+            critical={
+                "duration": 25,
+                "value": 90,
+                "time_function": "all",
+            },
+            warning={
+                "duration": 10,
+                "value": 80,
+                "time_function": "all",
+            })
         high_db_conn_count = newrelic.InfraAlertCondition("high_db_conn_count",
             policy_id=foo.id,
             name="High database connection count",
@@ -791,11 +791,11 @@ class InfraAlertCondition(pulumi.CustomResource):
             comparison="above",
             where="(hostname LIKE '%db%')",
             integration_provider="RdsDbInstance",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ))
+            critical={
+                "duration": 25,
+                "value": 90,
+                "time_function": "all",
+            })
         process_not_running = newrelic.InfraAlertCondition("process_not_running",
             policy_id=foo.id,
             name="Process not running (/usr/bin/ruby)",
@@ -804,19 +804,19 @@ class InfraAlertCondition(pulumi.CustomResource):
             comparison="equal",
             where="hostname = 'web01'",
             process_where="commandName = '/usr/bin/ruby'",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=5,
-                value=0,
-            ))
+            critical={
+                "duration": 5,
+                "value": 0,
+            })
         host_not_reporting = newrelic.InfraAlertCondition("host_not_reporting",
             policy_id=foo.id,
             name="Host not reporting",
             description="Critical alert when the host is not reporting",
             type="infra_host_not_reporting",
             where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=5,
-            ))
+            critical={
+                "duration": 5,
+            })
         ```
 
         ## Thresholds
@@ -845,30 +845,30 @@ class InfraAlertCondition(pulumi.CustomResource):
             select="diskUsedPercent",
             comparison="above",
             where="(hostname LIKE '%frontend%')",
-            critical=newrelic.InfraAlertConditionCriticalArgs(
-                duration=25,
-                value=90,
-                time_function="all",
-            ),
-            warning=newrelic.InfraAlertConditionWarningArgs(
-                duration=10,
-                value=80,
-                time_function="all",
-            ))
+            critical={
+                "duration": 25,
+                "value": 90,
+                "time_function": "all",
+            },
+            warning={
+                "duration": 10,
+                "value": 80,
+                "time_function": "all",
+            })
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_infra_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -896,7 +896,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comparison: Optional[pulumi.Input[str]] = None,
-                 critical: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']]] = None,
+                 critical: Optional[pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event: Optional[pulumi.Input[str]] = None,
@@ -908,7 +908,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                  select: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_close_timer: Optional[pulumi.Input[int]] = None,
-                 warning: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']]] = None,
+                 warning: Optional[pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']]] = None,
                  where: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -953,7 +953,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comparison: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[int]] = None,
-            critical: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']]] = None,
+            critical: Optional[pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             entity_guid: Optional[pulumi.Input[str]] = None,
@@ -967,7 +967,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             type: Optional[pulumi.Input[str]] = None,
             updated_at: Optional[pulumi.Input[int]] = None,
             violation_close_timer: Optional[pulumi.Input[int]] = None,
-            warning: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']]] = None,
+            warning: Optional[pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']]] = None,
             where: Optional[pulumi.Input[str]] = None) -> 'InfraAlertCondition':
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
@@ -978,7 +978,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
         :param pulumi.Input[int] created_at: The timestamp the alert condition was created.
-        :param pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionCriticalArgs', 'InfraAlertConditionCriticalArgsDict']] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
         :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the condition in New Relic.
@@ -996,7 +996,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                ```
                Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
                ```
-        :param pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
+        :param pulumi.Input[Union['InfraAlertConditionWarningArgs', 'InfraAlertConditionWarningArgsDict']] warning: Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -224,7 +224,7 @@ class ObfuscationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filter: Optional[pulumi.Input[str]] = None,
@@ -248,11 +248,11 @@ class ObfuscationRule(pulumi.CustomResource):
             description="description of the rule",
             filter="hostStatus=running",
             enabled=True,
-            actions=[newrelic.ObfuscationRuleActionArgs(
-                attributes=["message"],
-                expression_id=bar.id,
-                method="MASK",
-            )])
+            actions=[{
+                "attributes": ["message"],
+                "expression_id": bar.id,
+                "method": "MASK",
+            }])
         ```
 
         ## Import
@@ -268,7 +268,7 @@ class ObfuscationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.
@@ -298,11 +298,11 @@ class ObfuscationRule(pulumi.CustomResource):
             description="description of the rule",
             filter="hostStatus=running",
             enabled=True,
-            actions=[newrelic.ObfuscationRuleActionArgs(
-                attributes=["message"],
-                expression_id=bar.id,
-                method="MASK",
-            )])
+            actions=[{
+                "attributes": ["message"],
+                "expression_id": bar.id,
+                "method": "MASK",
+            }])
         ```
 
         ## Import
@@ -331,7 +331,7 @@ class ObfuscationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filter: Optional[pulumi.Input[str]] = None,
@@ -368,7 +368,7 @@ class ObfuscationRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             filter: Optional[pulumi.Input[str]] = None,
@@ -381,7 +381,7 @@ class ObfuscationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account id associated with the obfuscation rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObfuscationRuleActionArgs']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObfuscationRuleActionArgs', 'ObfuscationRuleActionArgsDict']]]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[str] description: Description of rule.
         :param pulumi.Input[bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.

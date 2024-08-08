@@ -283,12 +283,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("pagerduty-account-example")
@@ -307,30 +307,30 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key("email")
- *                     .value("example{@literal @}email.com")
+ *                     .value("example}{@literal @}{@code email.com")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key("customDetails")
  *                     .value("""
- * {
- * "id":{{json issueId}},
- * "IssueURL":{{json issuePageUrl}},
- * "NewRelic priority":{{json priority}},
- * "Total Incidents":{{json totalIncidents}},
- * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Description":"{{#each annotations.description}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "isCorrelated":{{json isCorrelated}},
- * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Workflow Name":{{json workflowName}}
- * }
+ * }{{@code
+ * "id":}{{{@code json issueId}}}{@code ,
+ * "IssueURL":}{{{@code json issuePageUrl}}}{@code ,
+ * "NewRelic priority":}{{{@code json priority}}}{@code ,
+ * "Total Incidents":}{{{@code json totalIncidents}}}{@code ,
+ * "Impacted Entities":"}{{{@code #each entitiesData.names}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Runbook":"}{{{@code #each accumulations.runbookUrl}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Description":"}{{{@code #each annotations.description}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "isCorrelated":}{{{@code json isCorrelated}}}{@code ,
+ * "Alert Policy Names":"}{{{@code #each accumulations.policyName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Alert Condition Names":"}{{{@code #each accumulations.conditionName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Workflow Name":}{{{@code json workflowName}}}{@code
+ * }}{@code
  *                     """)
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -354,12 +354,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
  *             .accountId(12345678)
  *             .name("pagerduty-account-example")
@@ -374,25 +374,25 @@ import javax.annotation.Nullable;
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key("customDetails")
  *                     .value("""
- * {
- * "id":{{json issueId}},
- * "IssueURL":{{json issuePageUrl}},
- * "NewRelic priority":{{json priority}},
- * "Total Incidents":{{json totalIncidents}},
- * "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Description":"{{#each annotations.description}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "isCorrelated":{{json isCorrelated}},
- * "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless{@literal @}last}}, {{/unless}}{{/each}}",
- * "Workflow Name":{{json workflowName}}
- * }
+ * }{{@code
+ * "id":}{{{@code json issueId}}}{@code ,
+ * "IssueURL":}{{{@code json issuePageUrl}}}{@code ,
+ * "NewRelic priority":}{{{@code json priority}}}{@code ,
+ * "Total Incidents":}{{{@code json totalIncidents}}}{@code ,
+ * "Impacted Entities":"}{{{@code #each entitiesData.names}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Runbook":"}{{{@code #each accumulations.runbookUrl}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Description":"}{{{@code #each annotations.description}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "isCorrelated":}{{{@code json isCorrelated}}}{@code ,
+ * "Alert Policy Names":"}{{{@code #each accumulations.policyName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Alert Condition Names":"}{{{@code #each accumulations.conditionName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
+ * "Workflow Name":}{{{@code json workflowName}}}{@code
+ * }}{@code
  *                     """)
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -769,7 +769,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotificationChannel(String name) {
+    public NotificationChannel(java.lang.String name) {
         this(name, NotificationChannelArgs.Empty);
     }
     /**
@@ -777,7 +777,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationChannel(String name, NotificationChannelArgs args) {
+    public NotificationChannel(java.lang.String name, NotificationChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -786,12 +786,12 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationChannel(String name, NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/notificationChannel:NotificationChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NotificationChannel(java.lang.String name, NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/notificationChannel:NotificationChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotificationChannel(String name, Output<String> id, @Nullable NotificationChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/notificationChannel:NotificationChannel", name, state, makeResourceOptions(options, id));
+    private NotificationChannel(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/notificationChannel:NotificationChannel", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NotificationChannelArgs makeArgs(NotificationChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -801,7 +801,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
         return args == null ? NotificationChannelArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -817,7 +817,7 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotificationChannel get(String name, Output<String> id, @Nullable NotificationChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotificationChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotificationChannel(name, id, state, options);
     }
 }

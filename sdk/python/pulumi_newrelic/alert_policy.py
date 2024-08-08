@@ -212,18 +212,18 @@ class AlertPolicy(pulumi.CustomResource):
         slack_channel = newrelic.AlertChannel("slack_channel",
             name="slack-example",
             type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
-                channel="example-alerts-channel",
-            ))
+            config={
+                "url": "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                "channel": "example-alerts-channel",
+            })
         # Provision an email notification channel.
         email_channel = newrelic.AlertChannel("email_channel",
             name="email-example",
             type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="example@testing.com",
-                include_json_attachment="1",
-            ))
+            config={
+                "recipients": "example@testing.com",
+                "include_json_attachment": "1",
+            })
         # Provision the alert policy.
         policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
             name="example-with-channels",
@@ -316,18 +316,18 @@ class AlertPolicy(pulumi.CustomResource):
         slack_channel = newrelic.AlertChannel("slack_channel",
             name="slack-example",
             type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
-                channel="example-alerts-channel",
-            ))
+            config={
+                "url": "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                "channel": "example-alerts-channel",
+            })
         # Provision an email notification channel.
         email_channel = newrelic.AlertChannel("email_channel",
             name="email-example",
             type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="example@testing.com",
-                include_json_attachment="1",
-            ))
+            config={
+                "recipients": "example@testing.com",
+                "include_json_attachment": "1",
+            })
         # Provision the alert policy.
         policy_with_channels = newrelic.AlertPolicy("policy_with_channels",
             name="example-with-channels",

@@ -91,12 +91,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Provision a Slack notification channel.
  *         var slackChannel = new AlertChannel("slackChannel", AlertChannelArgs.builder()
  *             .name("slack-example")
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .name("email-example")
  *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .recipients("example{@literal @}testing.com")
+ *                 .recipients("example}{@literal @}{@code testing.com")
  *                 .includeJsonAttachment("1")
  *                 .build())
  *             .build());
@@ -126,8 +126,8 @@ import javax.annotation.Nullable;
  *                 emailChannel.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -152,12 +152,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Reference an existing Slack notification channel.
  *         final var slackChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
  *             .name("slack-channel-notification")
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  * 
  *         // Reference an existing email notification channel.
  *         final var emailChannel = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
- *             .name("test{@literal @}example.com")
+ *             .name("test}{@literal @}{@code example.com")
  *             .build());
  * 
  *         // Provision the alert policy.
@@ -177,8 +177,8 @@ import javax.annotation.Nullable;
  *                 emailChannel.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -262,7 +262,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertPolicy(String name) {
+    public AlertPolicy(java.lang.String name) {
         this(name, AlertPolicyArgs.Empty);
     }
     /**
@@ -270,7 +270,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertPolicy(String name, @Nullable AlertPolicyArgs args) {
+    public AlertPolicy(java.lang.String name, @Nullable AlertPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -279,12 +279,12 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertPolicy(String name, @Nullable AlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertPolicy:AlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertPolicy(java.lang.String name, @Nullable AlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/alertPolicy:AlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertPolicy(String name, Output<String> id, @Nullable AlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertPolicy:AlertPolicy", name, state, makeResourceOptions(options, id));
+    private AlertPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable AlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/alertPolicy:AlertPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertPolicyArgs makeArgs(@Nullable AlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -294,7 +294,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? AlertPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -310,7 +310,7 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertPolicy get(String name, Output<String> id, @Nullable AlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertPolicy(name, id, state, options);
     }
 }

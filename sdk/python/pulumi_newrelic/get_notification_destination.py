@@ -139,7 +139,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
 def get_notification_destination(account_id: Optional[str] = None,
                                  id: Optional[str] = None,
                                  name: Optional[str] = None,
-                                 secure_urls: Optional[Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']]] = None,
+                                 secure_urls: Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
     Use this data source to access information about an existing resource.
@@ -149,7 +149,7 @@ def get_notification_destination(account_id: Optional[str] = None,
     :param str name: The name of the notification destination.
            
            Optional:
-    :param Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+    :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -175,7 +175,7 @@ def get_notification_destination(account_id: Optional[str] = None,
 def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                         id: Optional[pulumi.Input[Optional[str]]] = None,
                                         name: Optional[pulumi.Input[Optional[str]]] = None,
-                                        secure_urls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']]]]] = None,
+                                        secure_urls: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
     Use this data source to access information about an existing resource.
@@ -185,6 +185,6 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
     :param str name: The name of the notification destination.
            
            Optional:
-    :param Sequence[pulumi.InputType['GetNotificationDestinationSecureUrlArgs']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+    :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     ...
