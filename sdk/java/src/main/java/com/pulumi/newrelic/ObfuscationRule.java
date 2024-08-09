@@ -174,7 +174,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ObfuscationRule(String name) {
+    public ObfuscationRule(java.lang.String name) {
         this(name, ObfuscationRuleArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ObfuscationRule(String name, ObfuscationRuleArgs args) {
+    public ObfuscationRule(java.lang.String name, ObfuscationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,12 +191,12 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ObfuscationRule(String name, ObfuscationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/obfuscationRule:ObfuscationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ObfuscationRule(java.lang.String name, ObfuscationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/obfuscationRule:ObfuscationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ObfuscationRule(String name, Output<String> id, @Nullable ObfuscationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/obfuscationRule:ObfuscationRule", name, state, makeResourceOptions(options, id));
+    private ObfuscationRule(java.lang.String name, Output<java.lang.String> id, @Nullable ObfuscationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/obfuscationRule:ObfuscationRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ObfuscationRuleArgs makeArgs(ObfuscationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -206,7 +206,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
         return args == null ? ObfuscationRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -222,7 +222,7 @@ public class ObfuscationRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ObfuscationRule get(String name, Output<String> id, @Nullable ObfuscationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ObfuscationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable ObfuscationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ObfuscationRule(name, id, state, options);
     }
 }

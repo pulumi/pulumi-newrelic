@@ -232,10 +232,10 @@ class ServiceLevel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']]] = None,
+                 events: Optional[pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
+                 objective: Optional[pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
@@ -258,26 +258,26 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             name="Latency",
             description="Proportion of requests that are served faster than a threshold.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id="12345678",
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType='Web')",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
+            events={
+                "account_id": "12345678",
+                "valid_events": {
+                    "from_": "Transaction",
+                    "where": "appName = 'Example application' AND (transactionType='Web')",
+                },
+                "good_events": {
+                    "from_": "Transaction",
+                    "where": "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                },
+            },
+            objective={
+                "target": 99,
+                "time_window": {
+                    "rolling": {
+                        "count": 7,
+                        "unit": "DAY",
+                    },
+                },
+            })
         ```
 
         ## Additional Example
@@ -292,40 +292,40 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             name="My synthethic monitor - Success",
             description="Proportion of successful synthetic checks.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id="12345678",
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
+            events={
+                "account_id": "12345678",
+                "valid_events": {
+                    "from_": "SyntheticCheck",
+                    "where": "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+                },
+                "good_events": {
+                    "from_": "SyntheticCheck",
+                    "where": "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+                },
+            },
+            objective={
+                "target": 99,
+                "time_window": {
+                    "rolling": {
+                        "count": 7,
+                        "unit": "DAY",
+                    },
+                },
+            })
         my_synthetic_monitor_service_level_tags = newrelic.EntityTags("my_synthetic_monitor_service_level_tags",
             guid=my_synthetic_monitor_service_level.sli_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="user_journey",
-                    values=[
+                {
+                    "key": "user_journey",
+                    "values": [
                         "authentication",
                         "sso",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="owner",
-                    values=["identityTeam"],
-                ),
+                },
+                {
+                    "key": "owner",
+                    "values": ["identityTeam"],
+                },
             ])
         ```
 
@@ -339,35 +339,35 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             name="Duration distribution is under 7",
             description="Monitor created to test concurrent request from terraform",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id="313870",
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_FIELD",
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_CDF_COUNT",
-                        threshold=7,
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=49,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
+            events={
+                "account_id": "313870",
+                "valid_events": {
+                    "from_": "Metric",
+                    "select": {
+                        "attribute": "`query.wallClockTime.negative.distribution`",
+                        "function": "GET_FIELD",
+                    },
+                    "where": "metricName = 'query.wallClockTime.negative.distribution'",
+                },
+                "good_events": {
+                    "from_": "Metric",
+                    "select": {
+                        "attribute": "`query.wallClockTime.negative.distribution`",
+                        "function": "GET_CDF_COUNT",
+                        "threshold": 7,
+                    },
+                    "where": "metricName = 'query.wallClockTime.negative.distribution'",
+                },
+            },
+            objective={
+                "target": 49,
+                "time_window": {
+                    "rolling": {
+                        "count": 7,
+                        "unit": "DAY",
+                    },
+                },
+            })
         ```
 
         For up-to-date documentation about the tagging resource, please check EntityTags
@@ -389,11 +389,11 @@ class ServiceLevel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the SLI.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']] events: The events that define the NRDB data for the SLI/SLO calculations.
+        :param pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
         :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
+        :param pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']] objective: The objective of the SLI, only one can be defined.
                See Objective below for details.
         """
         ...
@@ -423,26 +423,26 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             name="Latency",
             description="Proportion of requests that are served faster than a threshold.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id="12345678",
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType='Web')",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Transaction",
-                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
+            events={
+                "account_id": "12345678",
+                "valid_events": {
+                    "from_": "Transaction",
+                    "where": "appName = 'Example application' AND (transactionType='Web')",
+                },
+                "good_events": {
+                    "from_": "Transaction",
+                    "where": "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
+                },
+            },
+            objective={
+                "target": 99,
+                "time_window": {
+                    "rolling": {
+                        "count": 7,
+                        "unit": "DAY",
+                    },
+                },
+            })
         ```
 
         ## Additional Example
@@ -457,40 +457,40 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             name="My synthethic monitor - Success",
             description="Proportion of successful synthetic checks.",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id="12345678",
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="SyntheticCheck",
-                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=99,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
+            events={
+                "account_id": "12345678",
+                "valid_events": {
+                    "from_": "SyntheticCheck",
+                    "where": "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+                },
+                "good_events": {
+                    "from_": "SyntheticCheck",
+                    "where": "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+                },
+            },
+            objective={
+                "target": 99,
+                "time_window": {
+                    "rolling": {
+                        "count": 7,
+                        "unit": "DAY",
+                    },
+                },
+            })
         my_synthetic_monitor_service_level_tags = newrelic.EntityTags("my_synthetic_monitor_service_level_tags",
             guid=my_synthetic_monitor_service_level.sli_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="user_journey",
-                    values=[
+                {
+                    "key": "user_journey",
+                    "values": [
                         "authentication",
                         "sso",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="owner",
-                    values=["identityTeam"],
-                ),
+                },
+                {
+                    "key": "owner",
+                    "values": ["identityTeam"],
+                },
             ])
         ```
 
@@ -504,35 +504,35 @@ class ServiceLevel(pulumi.CustomResource):
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             name="Duration distribution is under 7",
             description="Monitor created to test concurrent request from terraform",
-            events=newrelic.ServiceLevelEventsArgs(
-                account_id="313870",
-                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsValidEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_FIELD",
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
-                    from_="Metric",
-                    select=newrelic.ServiceLevelEventsGoodEventsSelectArgs(
-                        attribute="`query.wallClockTime.negative.distribution`",
-                        function="GET_CDF_COUNT",
-                        threshold=7,
-                    ),
-                    where="metricName = 'query.wallClockTime.negative.distribution'",
-                ),
-            ),
-            objective=newrelic.ServiceLevelObjectiveArgs(
-                target=49,
-                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                        count=7,
-                        unit="DAY",
-                    ),
-                ),
-            ))
+            events={
+                "account_id": "313870",
+                "valid_events": {
+                    "from_": "Metric",
+                    "select": {
+                        "attribute": "`query.wallClockTime.negative.distribution`",
+                        "function": "GET_FIELD",
+                    },
+                    "where": "metricName = 'query.wallClockTime.negative.distribution'",
+                },
+                "good_events": {
+                    "from_": "Metric",
+                    "select": {
+                        "attribute": "`query.wallClockTime.negative.distribution`",
+                        "function": "GET_CDF_COUNT",
+                        "threshold": 7,
+                    },
+                    "where": "metricName = 'query.wallClockTime.negative.distribution'",
+                },
+            },
+            objective={
+                "target": 49,
+                "time_window": {
+                    "rolling": {
+                        "count": 7,
+                        "unit": "DAY",
+                    },
+                },
+            })
         ```
 
         For up-to-date documentation about the tagging resource, please check EntityTags
@@ -567,10 +567,10 @@ class ServiceLevel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 events: Optional[pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']]] = None,
+                 events: Optional[pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
+                 objective: Optional[pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -604,10 +604,10 @@ class ServiceLevel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            events: Optional[pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']]] = None,
+            events: Optional[pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
+            objective: Optional[pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']]] = None,
             sli_guid: Optional[pulumi.Input[str]] = None,
             sli_id: Optional[pulumi.Input[str]] = None) -> 'ServiceLevel':
         """
@@ -618,11 +618,11 @@ class ServiceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the SLI.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']] events: The events that define the NRDB data for the SLI/SLO calculations.
+        :param pulumi.Input[Union['ServiceLevelEventsArgs', 'ServiceLevelEventsArgsDict']] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
         :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
+        :param pulumi.Input[Union['ServiceLevelObjectiveArgs', 'ServiceLevelObjectiveArgsDict']] objective: The objective of the SLI, only one can be defined.
                See Objective below for details.
         :param pulumi.Input[str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.

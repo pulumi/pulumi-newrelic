@@ -501,7 +501,7 @@ class AlertCondition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_defined_metric: Optional[pulumi.Input[str]] = None,
                  user_defined_value_function: Optional[pulumi.Input[str]] = None,
@@ -530,13 +530,13 @@ class AlertCondition(pulumi.CustomResource):
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
-            terms=[newrelic.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
+            terms=[{
+                "duration": 5,
+                "operator": "below",
+                "priority": "critical",
+                "threshold": 0.75,
+                "time_function": "all",
+            }])
         ```
 
         ## Terms
@@ -567,27 +567,27 @@ class AlertCondition(pulumi.CustomResource):
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
-            terms=[newrelic.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
+            terms=[{
+                "duration": 5,
+                "operator": "below",
+                "priority": "critical",
+                "threshold": 0.75,
+                "time_function": "all",
+            }])
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -609,7 +609,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
@@ -652,13 +652,13 @@ class AlertCondition(pulumi.CustomResource):
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
-            terms=[newrelic.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
+            terms=[{
+                "duration": 5,
+                "operator": "below",
+                "priority": "critical",
+                "threshold": 0.75,
+                "time_function": "all",
+            }])
         ```
 
         ## Terms
@@ -689,27 +689,27 @@ class AlertCondition(pulumi.CustomResource):
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
-            terms=[newrelic.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
+            terms=[{
+                "duration": 5,
+                "operator": "below",
+                "priority": "critical",
+                "threshold": 0.75,
+                "time_function": "all",
+            }])
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -744,7 +744,7 @@ class AlertCondition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_defined_metric: Optional[pulumi.Input[str]] = None,
                  user_defined_value_function: Optional[pulumi.Input[str]] = None,
@@ -801,7 +801,7 @@ class AlertCondition(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
-            terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+            terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
             user_defined_metric: Optional[pulumi.Input[str]] = None,
             user_defined_value_function: Optional[pulumi.Input[str]] = None,
@@ -822,7 +822,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertConditionTermArgs', 'AlertConditionTermArgsDict']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.

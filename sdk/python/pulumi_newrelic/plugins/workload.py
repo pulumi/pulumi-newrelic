@@ -357,11 +357,11 @@ class Workload(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]]] = None,
+                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 status_config_automatic: Optional[pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']]] = None,
-                 status_config_static: Optional[pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']]] = None,
+                 status_config_automatic: Optional[pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
+                 status_config_static: Optional[pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create, update, and delete a New Relic One workload.
@@ -381,9 +381,9 @@ class Workload(pulumi.CustomResource):
             name="Example workload",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like '%Example application%'",
-            )],
+            entity_search_queries=[{
+                "query": "name like '%Example application%'",
+            }],
             scope_account_ids=["12345678"])
         ```
 
@@ -396,9 +396,9 @@ class Workload(pulumi.CustomResource):
             name="Example workload with tags",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
-            )],
+            entity_search_queries=[{
+                "query": "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            }],
             scope_account_ids=["12345678"])
         ```
 
@@ -411,9 +411,9 @@ class Workload(pulumi.CustomResource):
             name="Example workload with tags",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
-            )],
+            entity_search_queries=[{
+                "query": "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            }],
             scope_account_ids=["12345678"])
         ```
 
@@ -429,33 +429,33 @@ class Workload(pulumi.CustomResource):
             name="Example workload",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like '%Example application%'",
-            )],
+            entity_search_queries=[{
+                "query": "name like '%Example application%'",
+            }],
             scope_account_ids=["12345678"],
             description="Description",
-            status_config_automatic=newrelic.plugins.WorkloadStatusConfigAutomaticArgs(
-                enabled=True,
-                remaining_entities_rule=newrelic.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs(
-                    remaining_entities_rule_rollup=newrelic.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs(
-                        strategy="BEST_STATUS_WINS",
-                        threshold_type="FIXED",
-                        threshold_value=100,
-                        group_by="ENTITY_TYPE",
-                    ),
-                ),
-                rules=[newrelic.plugins.WorkloadStatusConfigAutomaticRuleArgs(
-                    entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-                    nrql_queries=[newrelic.plugins.WorkloadStatusConfigAutomaticRuleNrqlQueryArgs(
-                        query="name like '%Example application2%'",
-                    )],
-                    rollup=newrelic.plugins.WorkloadStatusConfigAutomaticRuleRollupArgs(
-                        strategy="BEST_STATUS_WINS",
-                        threshold_type="FIXED",
-                        threshold_value=100,
-                    ),
-                )],
-            ))
+            status_config_automatic={
+                "enabled": True,
+                "remaining_entities_rule": {
+                    "remaining_entities_rule_rollup": {
+                        "strategy": "BEST_STATUS_WINS",
+                        "threshold_type": "FIXED",
+                        "threshold_value": 100,
+                        "group_by": "ENTITY_TYPE",
+                    },
+                },
+                "rules": [{
+                    "entity_guids": ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+                    "nrql_queries": [{
+                        "query": "name like '%Example application2%'",
+                    }],
+                    "rollup": {
+                        "strategy": "BEST_STATUS_WINS",
+                        "threshold_type": "FIXED",
+                        "threshold_value": 100,
+                    },
+                }],
+            })
         ```
 
         Include static status
@@ -470,17 +470,17 @@ class Workload(pulumi.CustomResource):
             name="Example workload",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like '%Example application%'",
-            )],
+            entity_search_queries=[{
+                "query": "name like '%Example application%'",
+            }],
             scope_account_ids=["12345678"],
             description="Description",
-            status_config_static=newrelic.plugins.WorkloadStatusConfigStaticArgs(
-                description="test",
-                enabled=True,
-                status="OPERATIONAL",
-                summary="summary of the status",
-            ))
+            status_config_static={
+                "description": "test",
+                "enabled": True,
+                "status": "OPERATIONAL",
+                "summary": "summary of the status",
+            })
         ```
 
         ## Import
@@ -500,11 +500,11 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         """
         ...
     @overload
@@ -530,9 +530,9 @@ class Workload(pulumi.CustomResource):
             name="Example workload",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like '%Example application%'",
-            )],
+            entity_search_queries=[{
+                "query": "name like '%Example application%'",
+            }],
             scope_account_ids=["12345678"])
         ```
 
@@ -545,9 +545,9 @@ class Workload(pulumi.CustomResource):
             name="Example workload with tags",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
-            )],
+            entity_search_queries=[{
+                "query": "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            }],
             scope_account_ids=["12345678"])
         ```
 
@@ -560,9 +560,9 @@ class Workload(pulumi.CustomResource):
             name="Example workload with tags",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
-            )],
+            entity_search_queries=[{
+                "query": "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+            }],
             scope_account_ids=["12345678"])
         ```
 
@@ -578,33 +578,33 @@ class Workload(pulumi.CustomResource):
             name="Example workload",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like '%Example application%'",
-            )],
+            entity_search_queries=[{
+                "query": "name like '%Example application%'",
+            }],
             scope_account_ids=["12345678"],
             description="Description",
-            status_config_automatic=newrelic.plugins.WorkloadStatusConfigAutomaticArgs(
-                enabled=True,
-                remaining_entities_rule=newrelic.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs(
-                    remaining_entities_rule_rollup=newrelic.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs(
-                        strategy="BEST_STATUS_WINS",
-                        threshold_type="FIXED",
-                        threshold_value=100,
-                        group_by="ENTITY_TYPE",
-                    ),
-                ),
-                rules=[newrelic.plugins.WorkloadStatusConfigAutomaticRuleArgs(
-                    entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-                    nrql_queries=[newrelic.plugins.WorkloadStatusConfigAutomaticRuleNrqlQueryArgs(
-                        query="name like '%Example application2%'",
-                    )],
-                    rollup=newrelic.plugins.WorkloadStatusConfigAutomaticRuleRollupArgs(
-                        strategy="BEST_STATUS_WINS",
-                        threshold_type="FIXED",
-                        threshold_value=100,
-                    ),
-                )],
-            ))
+            status_config_automatic={
+                "enabled": True,
+                "remaining_entities_rule": {
+                    "remaining_entities_rule_rollup": {
+                        "strategy": "BEST_STATUS_WINS",
+                        "threshold_type": "FIXED",
+                        "threshold_value": 100,
+                        "group_by": "ENTITY_TYPE",
+                    },
+                },
+                "rules": [{
+                    "entity_guids": ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+                    "nrql_queries": [{
+                        "query": "name like '%Example application2%'",
+                    }],
+                    "rollup": {
+                        "strategy": "BEST_STATUS_WINS",
+                        "threshold_type": "FIXED",
+                        "threshold_value": 100,
+                    },
+                }],
+            })
         ```
 
         Include static status
@@ -619,17 +619,17 @@ class Workload(pulumi.CustomResource):
             name="Example workload",
             account_id="12345678",
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
-            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like '%Example application%'",
-            )],
+            entity_search_queries=[{
+                "query": "name like '%Example application%'",
+            }],
             scope_account_ids=["12345678"],
             description="Description",
-            status_config_static=newrelic.plugins.WorkloadStatusConfigStaticArgs(
-                description="test",
-                enabled=True,
-                status="OPERATIONAL",
-                summary="summary of the status",
-            ))
+            status_config_static={
+                "description": "test",
+                "enabled": True,
+                "status": "OPERATIONAL",
+                "summary": "summary of the status",
+            })
         ```
 
         ## Import
@@ -662,11 +662,11 @@ class Workload(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]]] = None,
+                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 status_config_automatic: Optional[pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']]] = None,
-                 status_config_static: Optional[pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']]] = None,
+                 status_config_automatic: Optional[pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
+                 status_config_static: Optional[pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -702,13 +702,13 @@ class Workload(pulumi.CustomResource):
             composite_entity_search_query: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]]] = None,
+            entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             permalink: Optional[pulumi.Input[str]] = None,
             scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            status_config_automatic: Optional[pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']]] = None,
-            status_config_static: Optional[pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']]] = None,
+            status_config_automatic: Optional[pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']]] = None,
+            status_config_static: Optional[pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']]] = None,
             workload_id: Optional[pulumi.Input[str]] = None) -> 'Workload':
         """
         Get an existing Workload resource's state with the given name, id, and optional extra
@@ -721,13 +721,13 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[str] description: Relevant information about the workload.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadEntitySearchQueryArgs', 'WorkloadEntitySearchQueryArgsDict']]]] entity_search_queries: A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         :param pulumi.Input[str] guid: The unique entity identifier of the workload in New Relic.
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[str] permalink: The URL of the workload.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_account_ids: A list of account IDs that will be used to get entities from.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigAutomaticArgs']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
-        :param pulumi.Input[pulumi.InputType['WorkloadStatusConfigStaticArgs']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigAutomaticArgs', 'WorkloadStatusConfigAutomaticArgsDict']] status_config_automatic: An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        :param pulumi.Input[Union['WorkloadStatusConfigStaticArgs', 'WorkloadStatusConfigStaticArgsDict']] status_config_static: A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
         :param pulumi.Input[str] workload_id: The unique entity identifier of the workload.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

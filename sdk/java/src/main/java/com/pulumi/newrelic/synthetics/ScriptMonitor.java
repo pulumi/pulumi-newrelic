@@ -517,7 +517,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ScriptMonitor(String name) {
+    public ScriptMonitor(java.lang.String name) {
         this(name, ScriptMonitorArgs.Empty);
     }
     /**
@@ -525,7 +525,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ScriptMonitor(String name, ScriptMonitorArgs args) {
+    public ScriptMonitor(java.lang.String name, ScriptMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -534,12 +534,12 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ScriptMonitor(String name, ScriptMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/scriptMonitor:ScriptMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ScriptMonitor(java.lang.String name, ScriptMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/scriptMonitor:ScriptMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ScriptMonitor(String name, Output<String> id, @Nullable ScriptMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/scriptMonitor:ScriptMonitor", name, state, makeResourceOptions(options, id));
+    private ScriptMonitor(java.lang.String name, Output<java.lang.String> id, @Nullable ScriptMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/scriptMonitor:ScriptMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ScriptMonitorArgs makeArgs(ScriptMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -549,7 +549,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return args == null ? ScriptMonitorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -565,7 +565,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ScriptMonitor get(String name, Output<String> id, @Nullable ScriptMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ScriptMonitor get(java.lang.String name, Output<java.lang.String> id, @Nullable ScriptMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ScriptMonitor(name, id, state, options);
     }
 }

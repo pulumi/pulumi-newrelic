@@ -73,13 +73,13 @@ def get_key_transaction(name: Optional[str] = None,
         entities=[txn.id],
         metric="error_percentage",
         runbook_url="https://www.example.com",
-        terms=[newrelic.AlertConditionTermArgs(
-            duration=5,
-            operator="below",
-            priority="critical",
-            threshold=0.75,
-            time_function="all",
-        )])
+        terms=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": 0.75,
+            "time_function": "all",
+        }])
     ```
 
 
@@ -116,13 +116,13 @@ def get_key_transaction_output(name: Optional[pulumi.Input[str]] = None,
         entities=[txn.id],
         metric="error_percentage",
         runbook_url="https://www.example.com",
-        terms=[newrelic.AlertConditionTermArgs(
-            duration=5,
-            operator="below",
-            priority="critical",
-            threshold=0.75,
-            time_function="all",
-        )])
+        terms=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": 0.75,
+            "time_function": "all",
+        }])
     ```
 
 

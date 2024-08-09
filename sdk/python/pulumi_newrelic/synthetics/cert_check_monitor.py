@@ -424,7 +424,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None,
                  __props__=None):
         """
         > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
@@ -446,10 +446,10 @@ class CertCheckMonitor(pulumi.CustomResource):
             status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -476,10 +476,10 @@ class CertCheckMonitor(pulumi.CustomResource):
             certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -508,7 +508,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                
                > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         ...
     @overload
@@ -536,10 +536,10 @@ class CertCheckMonitor(pulumi.CustomResource):
             status="ENABLED",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -566,10 +566,10 @@ class CertCheckMonitor(pulumi.CustomResource):
             certificate_expiration=10,
             period="EVERY_6_HOURS",
             status="ENABLED",
-            tags=[newrelic.synthetics.CertCheckMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -607,7 +607,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -658,7 +658,7 @@ class CertCheckMonitor(pulumi.CustomResource):
             runtime_type: Optional[pulumi.Input[str]] = None,
             runtime_type_version: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None) -> 'CertCheckMonitor':
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None) -> 'CertCheckMonitor':
         """
         Get an existing CertCheckMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -681,7 +681,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                
                > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

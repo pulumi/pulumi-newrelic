@@ -3039,12 +3039,12 @@ public final class NewrelicFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name("Test Authentication Domain")
      *             .build());
@@ -3056,11 +3056,11 @@ public final class NewrelicFunctions {
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
      *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
-     *             .emailId("test_user{@literal @}random.com")
+     *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3093,12 +3093,12 @@ public final class NewrelicFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name("Test Authentication Domain")
      *             .build());
@@ -3110,11 +3110,11 @@ public final class NewrelicFunctions {
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
      *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
-     *             .emailId("test_user{@literal @}random.com")
+     *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3147,12 +3147,12 @@ public final class NewrelicFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name("Test Authentication Domain")
      *             .build());
@@ -3164,11 +3164,11 @@ public final class NewrelicFunctions {
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
      *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
-     *             .emailId("test_user{@literal @}random.com")
+     *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3201,12 +3201,12 @@ public final class NewrelicFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
      *             .name("Test Authentication Domain")
      *             .build());
@@ -3218,11 +3218,11 @@ public final class NewrelicFunctions {
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
      *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
-     *             .emailId("test_user{@literal @}random.com")
+     *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;

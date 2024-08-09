@@ -41,23 +41,23 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("foo")
  *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .recipients("foo{@literal @}example.com")
+ *                 .recipients("foo}{@literal @}{@code example.com")
  *                 .includeJsonAttachment("true")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -125,12 +125,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var foo = new AlertChannel("foo", AlertChannelArgs.builder()
  *             .name("opsgenie-example")
  *             .type("opsgenie")
@@ -138,12 +138,12 @@ import javax.annotation.Nullable;
  *                 .apiKey("abc123")
  *                 .teams("team1, team2")
  *                 .tags("tag1, tag2")
- *                 .recipients("user1{@literal @}domain.com, user2{@literal @}domain.com")
+ *                 .recipients("user1}{@literal @}{@code domain.com, user2}{@literal @}{@code domain.com")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -397,7 +397,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertChannel(String name) {
+    public AlertChannel(java.lang.String name) {
         this(name, AlertChannelArgs.Empty);
     }
     /**
@@ -405,7 +405,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertChannel(String name, AlertChannelArgs args) {
+    public AlertChannel(java.lang.String name, AlertChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -414,12 +414,12 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertChannel(String name, AlertChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertChannel:AlertChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertChannel(java.lang.String name, AlertChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/alertChannel:AlertChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertChannel(String name, Output<String> id, @Nullable AlertChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertChannel:AlertChannel", name, state, makeResourceOptions(options, id));
+    private AlertChannel(java.lang.String name, Output<java.lang.String> id, @Nullable AlertChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/alertChannel:AlertChannel", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertChannelArgs makeArgs(AlertChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -429,7 +429,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
         return args == null ? AlertChannelArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -445,7 +445,7 @@ public class AlertChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertChannel get(String name, Output<String> id, @Nullable AlertChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertChannel(name, id, state, options);
     }
 }

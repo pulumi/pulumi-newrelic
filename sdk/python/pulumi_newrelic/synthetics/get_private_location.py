@@ -98,9 +98,9 @@ def get_private_location(account_id: Optional[str] = None,
 
     example = newrelic.synthetics.get_private_location(account_id="123456",
         name="My private location")
-    foo = newrelic.synthetics.StepMonitor("foo", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-        guid=example.id,
-    )])
+    foo = newrelic.synthetics.StepMonitor("foo", location_privates=[{
+        "guid": example.id,
+    }])
     ```
 
 
@@ -147,9 +147,9 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[str]]
 
     example = newrelic.synthetics.get_private_location(account_id="123456",
         name="My private location")
-    foo = newrelic.synthetics.StepMonitor("foo", location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-        guid=example.id,
-    )])
+    foo = newrelic.synthetics.StepMonitor("foo", location_privates=[{
+        "guid": example.id,
+    }])
     ```
 
 

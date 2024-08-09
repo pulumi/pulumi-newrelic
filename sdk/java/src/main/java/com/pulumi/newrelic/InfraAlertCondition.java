@@ -481,7 +481,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InfraAlertCondition(String name) {
+    public InfraAlertCondition(java.lang.String name) {
         this(name, InfraAlertConditionArgs.Empty);
     }
     /**
@@ -489,7 +489,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InfraAlertCondition(String name, InfraAlertConditionArgs args) {
+    public InfraAlertCondition(java.lang.String name, InfraAlertConditionArgs args) {
         this(name, args, null);
     }
     /**
@@ -498,12 +498,12 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InfraAlertCondition(String name, InfraAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/infraAlertCondition:InfraAlertCondition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public InfraAlertCondition(java.lang.String name, InfraAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/infraAlertCondition:InfraAlertCondition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InfraAlertCondition(String name, Output<String> id, @Nullable InfraAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/infraAlertCondition:InfraAlertCondition", name, state, makeResourceOptions(options, id));
+    private InfraAlertCondition(java.lang.String name, Output<java.lang.String> id, @Nullable InfraAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/infraAlertCondition:InfraAlertCondition", name, state, makeResourceOptions(options, id), false);
     }
 
     private static InfraAlertConditionArgs makeArgs(InfraAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -513,7 +513,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return args == null ? InfraAlertConditionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -529,7 +529,7 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InfraAlertCondition get(String name, Output<String> id, @Nullable InfraAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InfraAlertCondition get(java.lang.String name, Output<java.lang.String> id, @Nullable InfraAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InfraAlertCondition(name, id, state, options);
     }
 }

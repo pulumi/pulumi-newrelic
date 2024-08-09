@@ -150,7 +150,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiAccessKey(String name) {
+    public ApiAccessKey(java.lang.String name) {
         this(name, ApiAccessKeyArgs.Empty);
     }
     /**
@@ -158,7 +158,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiAccessKey(String name, ApiAccessKeyArgs args) {
+    public ApiAccessKey(java.lang.String name, ApiAccessKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -167,12 +167,12 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiAccessKey(String name, ApiAccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/apiAccessKey:ApiAccessKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiAccessKey(java.lang.String name, ApiAccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/apiAccessKey:ApiAccessKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiAccessKey(String name, Output<String> id, @Nullable ApiAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/apiAccessKey:ApiAccessKey", name, state, makeResourceOptions(options, id));
+    private ApiAccessKey(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/apiAccessKey:ApiAccessKey", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiAccessKeyArgs makeArgs(ApiAccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -182,7 +182,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
         return args == null ? ApiAccessKeyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -201,7 +201,7 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiAccessKey get(String name, Output<String> id, @Nullable ApiAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiAccessKey get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiAccessKey(name, id, state, options);
     }
 }

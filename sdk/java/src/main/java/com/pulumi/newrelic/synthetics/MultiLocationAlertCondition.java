@@ -337,7 +337,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MultiLocationAlertCondition(String name) {
+    public MultiLocationAlertCondition(java.lang.String name) {
         this(name, MultiLocationAlertConditionArgs.Empty);
     }
     /**
@@ -345,7 +345,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MultiLocationAlertCondition(String name, MultiLocationAlertConditionArgs args) {
+    public MultiLocationAlertCondition(java.lang.String name, MultiLocationAlertConditionArgs args) {
         this(name, args, null);
     }
     /**
@@ -354,12 +354,12 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MultiLocationAlertCondition(String name, MultiLocationAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public MultiLocationAlertCondition(java.lang.String name, MultiLocationAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MultiLocationAlertCondition(String name, Output<String> id, @Nullable MultiLocationAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", name, state, makeResourceOptions(options, id));
+    private MultiLocationAlertCondition(java.lang.String name, Output<java.lang.String> id, @Nullable MultiLocationAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MultiLocationAlertConditionArgs makeArgs(MultiLocationAlertConditionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -369,7 +369,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
         return args == null ? MultiLocationAlertConditionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -385,7 +385,7 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MultiLocationAlertCondition get(String name, Output<String> id, @Nullable MultiLocationAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MultiLocationAlertCondition get(java.lang.String name, Output<java.lang.String> id, @Nullable MultiLocationAlertConditionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MultiLocationAlertCondition(name, id, state, options);
     }
 }

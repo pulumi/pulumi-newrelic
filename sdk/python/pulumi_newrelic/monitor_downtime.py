@@ -355,9 +355,9 @@ class MonitorDowntime(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 end_repeat: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']]] = None,
+                 end_repeat: Optional[pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']]] = None,
+                 frequency: Optional[pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
                  maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -384,9 +384,9 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-11-30T10:30:00",
             end_time="2023-12-10T02:45:30",
             time_zone="Asia/Kolkata",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-20",
-            ),
+            end_repeat={
+                "on_date": "2023-12-20",
+            },
             maintenance_days=[
                 "FRIDAY",
                 "SATURDAY",
@@ -435,9 +435,9 @@ class MonitorDowntime(pulumi.CustomResource):
             mode="DAILY",
             start_time="2023-12-04T18:15:00",
             end_time="2024-01-04T07:15:00",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-25",
-            ),
+            end_repeat={
+                "on_date": "2023-12-25",
+            },
             time_zone="Asia/Kolkata")
         ```
 
@@ -486,16 +486,16 @@ class MonitorDowntime(pulumi.CustomResource):
             mode="MONTHLY",
             start_time="2023-12-04T07:15:00",
             end_time="2024-01-04T19:15:00",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_repeat=6,
-            ),
+            end_repeat={
+                "on_repeat": 6,
+            },
             time_zone="Europe/Dublin",
-            frequency=newrelic.MonitorDowntimeFrequencyArgs(
-                days_of_week=newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs(
-                    ordinal_day_of_month="SECOND",
-                    week_day="SATURDAY",
-                ),
-            ))
+            frequency={
+                "days_of_week": {
+                    "ordinal_day_of_month": "SECOND",
+                    "week_day": "SATURDAY",
+                },
+            })
         ```
         However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
         ```python
@@ -511,18 +511,18 @@ class MonitorDowntime(pulumi.CustomResource):
             mode="MONTHLY",
             start_time="2023-12-04T07:15:00",
             end_time="2024-01-04T19:15:00",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_repeat=6,
-            ),
+            end_repeat={
+                "on_repeat": 6,
+            },
             time_zone="Europe/Dublin",
-            frequency=newrelic.MonitorDowntimeFrequencyArgs(
-                days_of_months=[
+            frequency={
+                "days_of_months": [
                     3,
                     6,
                     14,
                     23,
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -539,9 +539,9 @@ class MonitorDowntime(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
                provider{} configuration if not specified.
-        :param pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
+        :param pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         :param pulumi.Input[str] end_time: A datetime stamp signifying the end of the Monitor Downtime.
-        :param pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']] frequency: Configuration options for which days of the month a monitor downtime will occur
+        :param pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']] frequency: Configuration options for which days of the month a monitor downtime will occur
         :param pulumi.Input[Sequence[pulumi.Input[str]]] maintenance_days: A list of maintenance days to be included with the created weekly Monitor Downtime.
         :param pulumi.Input[str] mode: An identifier of the type of Monitor Downtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_guids: A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
@@ -574,9 +574,9 @@ class MonitorDowntime(pulumi.CustomResource):
             start_time="2023-11-30T10:30:00",
             end_time="2023-12-10T02:45:30",
             time_zone="Asia/Kolkata",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-20",
-            ),
+            end_repeat={
+                "on_date": "2023-12-20",
+            },
             maintenance_days=[
                 "FRIDAY",
                 "SATURDAY",
@@ -625,9 +625,9 @@ class MonitorDowntime(pulumi.CustomResource):
             mode="DAILY",
             start_time="2023-12-04T18:15:00",
             end_time="2024-01-04T07:15:00",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_date="2023-12-25",
-            ),
+            end_repeat={
+                "on_date": "2023-12-25",
+            },
             time_zone="Asia/Kolkata")
         ```
 
@@ -676,16 +676,16 @@ class MonitorDowntime(pulumi.CustomResource):
             mode="MONTHLY",
             start_time="2023-12-04T07:15:00",
             end_time="2024-01-04T19:15:00",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_repeat=6,
-            ),
+            end_repeat={
+                "on_repeat": 6,
+            },
             time_zone="Europe/Dublin",
-            frequency=newrelic.MonitorDowntimeFrequencyArgs(
-                days_of_week=newrelic.MonitorDowntimeFrequencyDaysOfWeekArgs(
-                    ordinal_day_of_month="SECOND",
-                    week_day="SATURDAY",
-                ),
-            ))
+            frequency={
+                "days_of_week": {
+                    "ordinal_day_of_month": "SECOND",
+                    "week_day": "SATURDAY",
+                },
+            })
         ```
         However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
         ```python
@@ -701,18 +701,18 @@ class MonitorDowntime(pulumi.CustomResource):
             mode="MONTHLY",
             start_time="2023-12-04T07:15:00",
             end_time="2024-01-04T19:15:00",
-            end_repeat=newrelic.MonitorDowntimeEndRepeatArgs(
-                on_repeat=6,
-            ),
+            end_repeat={
+                "on_repeat": 6,
+            },
             time_zone="Europe/Dublin",
-            frequency=newrelic.MonitorDowntimeFrequencyArgs(
-                days_of_months=[
+            frequency={
+                "days_of_months": [
                     3,
                     6,
                     14,
                     23,
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -741,9 +741,9 @@ class MonitorDowntime(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 end_repeat: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']]] = None,
+                 end_repeat: Optional[pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']]] = None,
+                 frequency: Optional[pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
                  maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -788,9 +788,9 @@ class MonitorDowntime(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            end_repeat: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']]] = None,
+            end_repeat: Optional[pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']]] = None,
             end_time: Optional[pulumi.Input[str]] = None,
-            frequency: Optional[pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']]] = None,
+            frequency: Optional[pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']]] = None,
             maintenance_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             monitor_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -806,9 +806,9 @@ class MonitorDowntime(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
                provider{} configuration if not specified.
-        :param pulumi.Input[pulumi.InputType['MonitorDowntimeEndRepeatArgs']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
+        :param pulumi.Input[Union['MonitorDowntimeEndRepeatArgs', 'MonitorDowntimeEndRepeatArgsDict']] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         :param pulumi.Input[str] end_time: A datetime stamp signifying the end of the Monitor Downtime.
-        :param pulumi.Input[pulumi.InputType['MonitorDowntimeFrequencyArgs']] frequency: Configuration options for which days of the month a monitor downtime will occur
+        :param pulumi.Input[Union['MonitorDowntimeFrequencyArgs', 'MonitorDowntimeFrequencyArgsDict']] frequency: Configuration options for which days of the month a monitor downtime will occur
         :param pulumi.Input[Sequence[pulumi.Input[str]]] maintenance_days: A list of maintenance days to be included with the created weekly Monitor Downtime.
         :param pulumi.Input[str] mode: An identifier of the type of Monitor Downtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_guids: A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.

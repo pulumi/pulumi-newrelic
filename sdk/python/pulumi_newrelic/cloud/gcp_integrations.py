@@ -938,33 +938,33 @@ class GcpIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
-                 app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
-                 big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
-                 big_table: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']]] = None,
-                 composer: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']]] = None,
-                 data_flow: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']]] = None,
-                 data_proc: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataProcArgs']]] = None,
-                 data_store: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataStoreArgs']]] = None,
-                 fire_base_database: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseDatabaseArgs']]] = None,
-                 fire_base_hosting: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseHostingArgs']]] = None,
-                 fire_base_storage: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseStorageArgs']]] = None,
-                 fire_store: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireStoreArgs']]] = None,
-                 functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
-                 interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
-                 kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
+                 alloy_db: Optional[pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
+                 app_engine: Optional[pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
+                 big_query: Optional[pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
+                 big_table: Optional[pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
+                 composer: Optional[pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
+                 data_flow: Optional[pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
+                 data_proc: Optional[pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
+                 data_store: Optional[pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
+                 fire_base_database: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
+                 fire_base_hosting: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
+                 fire_base_storage: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
+                 fire_store: Optional[pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
+                 functions: Optional[pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
+                 interconnect: Optional[pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
+                 kubernetes: Optional[pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
                  linked_account_id: Optional[pulumi.Input[str]] = None,
-                 load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
-                 mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
-                 pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
-                 redis: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']]] = None,
-                 router: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']]] = None,
-                 run: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']]] = None,
-                 spanner: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']]] = None,
-                 sql: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']]] = None,
-                 virtual_machines: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']]] = None,
-                 vpc_access: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']]] = None,
+                 load_balancing: Optional[pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
+                 mem_cache: Optional[pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
+                 pub_sub: Optional[pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
+                 redis: Optional[pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
+                 router: Optional[pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
+                 run: Optional[pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
+                 spanner: Optional[pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
+                 sql: Optional[pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
+                 storage: Optional[pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
+                 virtual_machines: Optional[pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
+                 vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to integrate GCP services with New Relic.
@@ -988,85 +988,85 @@ class GcpIntegrations(pulumi.CustomResource):
             project_id="<Your GCP project ID>")
         foo1 = newrelic.cloud.GcpIntegrations("foo1",
             linked_account_id=foo.id,
-            app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
-                metrics_polling_interval=300,
-            ),
-            big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
-                metrics_polling_interval=300,
-            ),
-            composer=newrelic.cloud.GcpIntegrationsComposerArgs(
-                metrics_polling_interval=300,
-            ),
-            data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
-                metrics_polling_interval=300,
-            ),
-            data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
-                metrics_polling_interval=300,
-            ),
-            data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
-                metrics_polling_interval=300,
-            ),
-            functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
-                metrics_polling_interval=300,
-            ),
-            interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
-                metrics_polling_interval=300,
-            ),
-            kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
-                metrics_polling_interval=300,
-            ),
-            load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
-                metrics_polling_interval=300,
-            ),
-            mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
-                metrics_polling_interval=300,
-            ),
-            pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            redis=newrelic.cloud.GcpIntegrationsRedisArgs(
-                metrics_polling_interval=300,
-            ),
-            router=newrelic.cloud.GcpIntegrationsRouterArgs(
-                metrics_polling_interval=300,
-            ),
-            run=newrelic.cloud.GcpIntegrationsRunArgs(
-                metrics_polling_interval=300,
-            ),
-            spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            sql=newrelic.cloud.GcpIntegrationsSqlArgs(
-                metrics_polling_interval=300,
-            ),
-            storage=newrelic.cloud.GcpIntegrationsStorageArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
-                metrics_polling_interval=300,
-            ),
-            vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
-                metrics_polling_interval=300,
-            ))
+            app_engine={
+                "metrics_polling_interval": 300,
+            },
+            big_query={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            big_table={
+                "metrics_polling_interval": 300,
+            },
+            composer={
+                "metrics_polling_interval": 300,
+            },
+            data_flow={
+                "metrics_polling_interval": 300,
+            },
+            data_proc={
+                "metrics_polling_interval": 300,
+            },
+            data_store={
+                "metrics_polling_interval": 300,
+            },
+            fire_base_database={
+                "metrics_polling_interval": 300,
+            },
+            fire_base_hosting={
+                "metrics_polling_interval": 300,
+            },
+            fire_base_storage={
+                "metrics_polling_interval": 300,
+            },
+            fire_store={
+                "metrics_polling_interval": 300,
+            },
+            functions={
+                "metrics_polling_interval": 300,
+            },
+            interconnect={
+                "metrics_polling_interval": 300,
+            },
+            kubernetes={
+                "metrics_polling_interval": 300,
+            },
+            load_balancing={
+                "metrics_polling_interval": 300,
+            },
+            mem_cache={
+                "metrics_polling_interval": 300,
+            },
+            pub_sub={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            redis={
+                "metrics_polling_interval": 300,
+            },
+            router={
+                "metrics_polling_interval": 300,
+            },
+            run={
+                "metrics_polling_interval": 300,
+            },
+            spanner={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            sql={
+                "metrics_polling_interval": 300,
+            },
+            storage={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            virtual_machines={
+                "metrics_polling_interval": 300,
+            },
+            vpc_access={
+                "metrics_polling_interval": 300,
+            })
         ```
 
         ## Import
@@ -1082,35 +1082,35 @@ class GcpIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']] big_table: Big Table. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']] composer: Composer integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']] data_flow: Data Flow integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataProcArgs']] data_proc: Data Proc integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataStoreArgs']] data_store: Data Store integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseDatabaseArgs']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseHostingArgs']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseStorageArgs']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireStoreArgs']] fire_store: Fire Store integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']] functions: Functions integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']] alloy_db: Alloy DB integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']] app_engine: App Engine integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']] big_table: Big Table. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']] composer: Composer integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']] data_flow: Data Flow integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']] data_proc: Data Proc integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']] data_store: Data Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']] fire_store: Fire Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']] functions: Functions integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']] interconnect: Interconnect integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']] redis: Redis integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']] router: Router integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']] spanner: Spanner integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']] storage: Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']] vpc_access: VPC Access integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']] load_balancing: Load Balancing integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']] mem_cache: Mem cache integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']] redis: Redis integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']] router: Router integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']] run: Run integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']] sql: SQL integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
         ...
     @overload
@@ -1140,85 +1140,85 @@ class GcpIntegrations(pulumi.CustomResource):
             project_id="<Your GCP project ID>")
         foo1 = newrelic.cloud.GcpIntegrations("foo1",
             linked_account_id=foo.id,
-            app_engine=newrelic.cloud.GcpIntegrationsAppEngineArgs(
-                metrics_polling_interval=300,
-            ),
-            big_query=newrelic.cloud.GcpIntegrationsBigQueryArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            big_table=newrelic.cloud.GcpIntegrationsBigTableArgs(
-                metrics_polling_interval=300,
-            ),
-            composer=newrelic.cloud.GcpIntegrationsComposerArgs(
-                metrics_polling_interval=300,
-            ),
-            data_flow=newrelic.cloud.GcpIntegrationsDataFlowArgs(
-                metrics_polling_interval=300,
-            ),
-            data_proc=newrelic.cloud.GcpIntegrationsDataProcArgs(
-                metrics_polling_interval=300,
-            ),
-            data_store=newrelic.cloud.GcpIntegrationsDataStoreArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_base_database=newrelic.cloud.GcpIntegrationsFireBaseDatabaseArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_base_hosting=newrelic.cloud.GcpIntegrationsFireBaseHostingArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_base_storage=newrelic.cloud.GcpIntegrationsFireBaseStorageArgs(
-                metrics_polling_interval=300,
-            ),
-            fire_store=newrelic.cloud.GcpIntegrationsFireStoreArgs(
-                metrics_polling_interval=300,
-            ),
-            functions=newrelic.cloud.GcpIntegrationsFunctionsArgs(
-                metrics_polling_interval=300,
-            ),
-            interconnect=newrelic.cloud.GcpIntegrationsInterconnectArgs(
-                metrics_polling_interval=300,
-            ),
-            kubernetes=newrelic.cloud.GcpIntegrationsKubernetesArgs(
-                metrics_polling_interval=300,
-            ),
-            load_balancing=newrelic.cloud.GcpIntegrationsLoadBalancingArgs(
-                metrics_polling_interval=300,
-            ),
-            mem_cache=newrelic.cloud.GcpIntegrationsMemCacheArgs(
-                metrics_polling_interval=300,
-            ),
-            pub_sub=newrelic.cloud.GcpIntegrationsPubSubArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            redis=newrelic.cloud.GcpIntegrationsRedisArgs(
-                metrics_polling_interval=300,
-            ),
-            router=newrelic.cloud.GcpIntegrationsRouterArgs(
-                metrics_polling_interval=300,
-            ),
-            run=newrelic.cloud.GcpIntegrationsRunArgs(
-                metrics_polling_interval=300,
-            ),
-            spanner=newrelic.cloud.GcpIntegrationsSpannerArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            sql=newrelic.cloud.GcpIntegrationsSqlArgs(
-                metrics_polling_interval=300,
-            ),
-            storage=newrelic.cloud.GcpIntegrationsStorageArgs(
-                metrics_polling_interval=300,
-                fetch_tags=True,
-            ),
-            virtual_machines=newrelic.cloud.GcpIntegrationsVirtualMachinesArgs(
-                metrics_polling_interval=300,
-            ),
-            vpc_access=newrelic.cloud.GcpIntegrationsVpcAccessArgs(
-                metrics_polling_interval=300,
-            ))
+            app_engine={
+                "metrics_polling_interval": 300,
+            },
+            big_query={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            big_table={
+                "metrics_polling_interval": 300,
+            },
+            composer={
+                "metrics_polling_interval": 300,
+            },
+            data_flow={
+                "metrics_polling_interval": 300,
+            },
+            data_proc={
+                "metrics_polling_interval": 300,
+            },
+            data_store={
+                "metrics_polling_interval": 300,
+            },
+            fire_base_database={
+                "metrics_polling_interval": 300,
+            },
+            fire_base_hosting={
+                "metrics_polling_interval": 300,
+            },
+            fire_base_storage={
+                "metrics_polling_interval": 300,
+            },
+            fire_store={
+                "metrics_polling_interval": 300,
+            },
+            functions={
+                "metrics_polling_interval": 300,
+            },
+            interconnect={
+                "metrics_polling_interval": 300,
+            },
+            kubernetes={
+                "metrics_polling_interval": 300,
+            },
+            load_balancing={
+                "metrics_polling_interval": 300,
+            },
+            mem_cache={
+                "metrics_polling_interval": 300,
+            },
+            pub_sub={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            redis={
+                "metrics_polling_interval": 300,
+            },
+            router={
+                "metrics_polling_interval": 300,
+            },
+            run={
+                "metrics_polling_interval": 300,
+            },
+            spanner={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            sql={
+                "metrics_polling_interval": 300,
+            },
+            storage={
+                "metrics_polling_interval": 300,
+                "fetch_tags": True,
+            },
+            virtual_machines={
+                "metrics_polling_interval": 300,
+            },
+            vpc_access={
+                "metrics_polling_interval": 300,
+            })
         ```
 
         ## Import
@@ -1247,33 +1247,33 @@ class GcpIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
-                 app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
-                 big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
-                 big_table: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']]] = None,
-                 composer: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']]] = None,
-                 data_flow: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']]] = None,
-                 data_proc: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataProcArgs']]] = None,
-                 data_store: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataStoreArgs']]] = None,
-                 fire_base_database: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseDatabaseArgs']]] = None,
-                 fire_base_hosting: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseHostingArgs']]] = None,
-                 fire_base_storage: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseStorageArgs']]] = None,
-                 fire_store: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireStoreArgs']]] = None,
-                 functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
-                 interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
-                 kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
+                 alloy_db: Optional[pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
+                 app_engine: Optional[pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
+                 big_query: Optional[pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
+                 big_table: Optional[pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
+                 composer: Optional[pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
+                 data_flow: Optional[pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
+                 data_proc: Optional[pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
+                 data_store: Optional[pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
+                 fire_base_database: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
+                 fire_base_hosting: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
+                 fire_base_storage: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
+                 fire_store: Optional[pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
+                 functions: Optional[pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
+                 interconnect: Optional[pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
+                 kubernetes: Optional[pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
                  linked_account_id: Optional[pulumi.Input[str]] = None,
-                 load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
-                 mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
-                 pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
-                 redis: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']]] = None,
-                 router: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']]] = None,
-                 run: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']]] = None,
-                 spanner: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']]] = None,
-                 sql: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']]] = None,
-                 virtual_machines: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']]] = None,
-                 vpc_access: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']]] = None,
+                 load_balancing: Optional[pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
+                 mem_cache: Optional[pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
+                 pub_sub: Optional[pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
+                 redis: Optional[pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
+                 router: Optional[pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
+                 run: Optional[pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
+                 spanner: Optional[pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
+                 sql: Optional[pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
+                 storage: Optional[pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
+                 virtual_machines: Optional[pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
+                 vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1324,33 +1324,33 @@ class GcpIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
-            app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
-            big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
-            big_table: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']]] = None,
-            composer: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']]] = None,
-            data_flow: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']]] = None,
-            data_proc: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataProcArgs']]] = None,
-            data_store: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsDataStoreArgs']]] = None,
-            fire_base_database: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseDatabaseArgs']]] = None,
-            fire_base_hosting: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseHostingArgs']]] = None,
-            fire_base_storage: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseStorageArgs']]] = None,
-            fire_store: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFireStoreArgs']]] = None,
-            functions: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']]] = None,
-            interconnect: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']]] = None,
-            kubernetes: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']]] = None,
+            alloy_db: Optional[pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']]] = None,
+            app_engine: Optional[pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']]] = None,
+            big_query: Optional[pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']]] = None,
+            big_table: Optional[pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']]] = None,
+            composer: Optional[pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']]] = None,
+            data_flow: Optional[pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']]] = None,
+            data_proc: Optional[pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']]] = None,
+            data_store: Optional[pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']]] = None,
+            fire_base_database: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']]] = None,
+            fire_base_hosting: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']]] = None,
+            fire_base_storage: Optional[pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']]] = None,
+            fire_store: Optional[pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']]] = None,
+            functions: Optional[pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']]] = None,
+            interconnect: Optional[pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']]] = None,
+            kubernetes: Optional[pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']]] = None,
             linked_account_id: Optional[pulumi.Input[str]] = None,
-            load_balancing: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']]] = None,
-            mem_cache: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']]] = None,
-            pub_sub: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']]] = None,
-            redis: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']]] = None,
-            router: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']]] = None,
-            run: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']]] = None,
-            spanner: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']]] = None,
-            sql: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']]] = None,
-            storage: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']]] = None,
-            virtual_machines: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']]] = None,
-            vpc_access: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']]] = None) -> 'GcpIntegrations':
+            load_balancing: Optional[pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']]] = None,
+            mem_cache: Optional[pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']]] = None,
+            pub_sub: Optional[pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']]] = None,
+            redis: Optional[pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']]] = None,
+            router: Optional[pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']]] = None,
+            run: Optional[pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']]] = None,
+            spanner: Optional[pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']]] = None,
+            sql: Optional[pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']]] = None,
+            storage: Optional[pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']]] = None,
+            virtual_machines: Optional[pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']]] = None,
+            vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None) -> 'GcpIntegrations':
         """
         Get an existing GcpIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1359,35 +1359,35 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']] big_table: Big Table. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsComposerArgs']] composer: Composer integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataFlowArgs']] data_flow: Data Flow integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataProcArgs']] data_proc: Data Proc integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsDataStoreArgs']] data_store: Data Store integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseDatabaseArgs']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseHostingArgs']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireBaseStorageArgs']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFireStoreArgs']] fire_store: Fire Store integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsFunctionsArgs']] functions: Functions integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsInterconnectArgs']] interconnect: Interconnect integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsKubernetesArgs']] kubernetes: Kubernetes integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAlloyDbArgs', 'GcpIntegrationsAlloyDbArgsDict']] alloy_db: Alloy DB integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsAppEngineArgs', 'GcpIntegrationsAppEngineArgsDict']] app_engine: App Engine integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigQueryArgs', 'GcpIntegrationsBigQueryArgsDict']] big_query: Biq Query integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsBigTableArgs', 'GcpIntegrationsBigTableArgsDict']] big_table: Big Table. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsComposerArgs', 'GcpIntegrationsComposerArgsDict']] composer: Composer integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataFlowArgs', 'GcpIntegrationsDataFlowArgsDict']] data_flow: Data Flow integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataProcArgs', 'GcpIntegrationsDataProcArgsDict']] data_proc: Data Proc integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsDataStoreArgs', 'GcpIntegrationsDataStoreArgsDict']] data_store: Data Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseDatabaseArgs', 'GcpIntegrationsFireBaseDatabaseArgsDict']] fire_base_database: Fire Base Database integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseHostingArgs', 'GcpIntegrationsFireBaseHostingArgsDict']] fire_base_hosting: Fire Base Hosting integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireBaseStorageArgs', 'GcpIntegrationsFireBaseStorageArgsDict']] fire_base_storage: Fire Base Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFireStoreArgs', 'GcpIntegrationsFireStoreArgsDict']] fire_store: Fire Store integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsFunctionsArgs', 'GcpIntegrationsFunctionsArgsDict']] functions: Functions integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsInterconnectArgs', 'GcpIntegrationsInterconnectArgsDict']] interconnect: Interconnect integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsKubernetesArgs', 'GcpIntegrationsKubernetesArgsDict']] kubernetes: Kubernetes integration. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked GCP account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsLoadBalancingArgs']] load_balancing: Load Balancing integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsMemCacheArgs']] mem_cache: Mem cache integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsPubSubArgs']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsRedisArgs']] redis: Redis integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsRouterArgs']] router: Router integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsRunArgs']] run: Run integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSpannerArgs']] spanner: Spanner integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsSqlArgs']] sql: SQL integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsStorageArgs']] storage: Storage integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsVirtualMachinesArgs']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['GcpIntegrationsVpcAccessArgs']] vpc_access: VPC Access integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsLoadBalancingArgs', 'GcpIntegrationsLoadBalancingArgsDict']] load_balancing: Load Balancing integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsMemCacheArgs', 'GcpIntegrationsMemCacheArgsDict']] mem_cache: Mem cache integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsPubSubArgs', 'GcpIntegrationsPubSubArgsDict']] pub_sub: Pub/Sub integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRedisArgs', 'GcpIntegrationsRedisArgsDict']] redis: Redis integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRouterArgs', 'GcpIntegrationsRouterArgsDict']] router: Router integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsRunArgs', 'GcpIntegrationsRunArgsDict']] run: Run integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSpannerArgs', 'GcpIntegrationsSpannerArgsDict']] spanner: Spanner integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsSqlArgs', 'GcpIntegrationsSqlArgsDict']] sql: SQL integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsStorageArgs', 'GcpIntegrationsStorageArgsDict']] storage: Storage integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVirtualMachinesArgs', 'GcpIntegrationsVirtualMachinesArgsDict']] virtual_machines: Virtual machines integration. See Integration blocks below for details.
+        :param pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']] vpc_access: VPC Access integration. See Integration blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

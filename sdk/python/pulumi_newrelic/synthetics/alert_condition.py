@@ -262,18 +262,18 @@ class AlertCondition(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
             locations_publics=["AP_EAST_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             treat_redirect_as_failure=True,
             validation_string="success",
             bypass_head_request=True,
             verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         foo_alert_condition = newrelic.synthetics.AlertCondition("foo",
             policy_id=foo.id,
             name="foo synthetics condition",
@@ -282,17 +282,17 @@ class AlertCondition(pulumi.CustomResource):
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -356,18 +356,18 @@ class AlertCondition(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
             locations_publics=["AP_EAST_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             treat_redirect_as_failure=True,
             validation_string="success",
             bypass_head_request=True,
             verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         foo_alert_condition = newrelic.synthetics.AlertCondition("foo",
             policy_id=foo.id,
             name="foo synthetics condition",
@@ -376,17 +376,17 @@ class AlertCondition(pulumi.CustomResource):
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 

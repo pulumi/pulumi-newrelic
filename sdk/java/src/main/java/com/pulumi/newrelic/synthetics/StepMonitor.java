@@ -355,7 +355,7 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StepMonitor(String name) {
+    public StepMonitor(java.lang.String name) {
         this(name, StepMonitorArgs.Empty);
     }
     /**
@@ -363,7 +363,7 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StepMonitor(String name, StepMonitorArgs args) {
+    public StepMonitor(java.lang.String name, StepMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -372,12 +372,12 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StepMonitor(String name, StepMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/stepMonitor:StepMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public StepMonitor(java.lang.String name, StepMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/stepMonitor:StepMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StepMonitor(String name, Output<String> id, @Nullable StepMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/stepMonitor:StepMonitor", name, state, makeResourceOptions(options, id));
+    private StepMonitor(java.lang.String name, Output<java.lang.String> id, @Nullable StepMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/stepMonitor:StepMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
     private static StepMonitorArgs makeArgs(StepMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -387,7 +387,7 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
         return args == null ? StepMonitorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -403,7 +403,7 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StepMonitor get(String name, Output<String> id, @Nullable StepMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StepMonitor get(java.lang.String name, Output<java.lang.String> id, @Nullable StepMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StepMonitor(name, id, state, options);
     }
 }

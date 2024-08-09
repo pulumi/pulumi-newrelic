@@ -433,15 +433,15 @@ class StepMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]]] = None,
+                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]]] = None,
                  __props__=None):
         """
         > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
@@ -465,15 +465,15 @@ class StepMonitor(pulumi.CustomResource):
             status="ENABLED",
             runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            steps=[newrelic.synthetics.StepMonitorStepArgs(
-                ordinal=0,
-                type="NAVIGATE",
-                values=["https://www.newrelic.com"],
-            )],
-            tags=[newrelic.synthetics.StepMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            steps=[{
+                "ordinal": 0,
+                "type": "NAVIGATE",
+                "values": ["https://www.newrelic.com"],
+            }],
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -497,19 +497,19 @@ class StepMonitor(pulumi.CustomResource):
             name="Sample Step Monitor",
             period="EVERY_6_HOURS",
             status="ENABLED",
-            location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-                guid=foo.id,
-                vse_password="secret",
-            )],
-            steps=[newrelic.synthetics.StepMonitorStepArgs(
-                ordinal=0,
-                type="NAVIGATE",
-                values=["https://google.com"],
-            )],
-            tags=[newrelic.synthetics.StepMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            location_privates=[{
+                "guid": foo.id,
+                "vse_password": "secret",
+            }],
+            steps=[{
+                "ordinal": 0,
+                "type": "NAVIGATE",
+                "values": ["https://google.com"],
+            }],
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -526,7 +526,7 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -537,8 +537,8 @@ class StepMonitor(pulumi.CustomResource):
                
                > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
         ...
     @overload
@@ -568,15 +568,15 @@ class StepMonitor(pulumi.CustomResource):
             status="ENABLED",
             runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            steps=[newrelic.synthetics.StepMonitorStepArgs(
-                ordinal=0,
-                type="NAVIGATE",
-                values=["https://www.newrelic.com"],
-            )],
-            tags=[newrelic.synthetics.StepMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            steps=[{
+                "ordinal": 0,
+                "type": "NAVIGATE",
+                "values": ["https://www.newrelic.com"],
+            }],
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -600,19 +600,19 @@ class StepMonitor(pulumi.CustomResource):
             name="Sample Step Monitor",
             period="EVERY_6_HOURS",
             status="ENABLED",
-            location_privates=[newrelic.synthetics.StepMonitorLocationPrivateArgs(
-                guid=foo.id,
-                vse_password="secret",
-            )],
-            steps=[newrelic.synthetics.StepMonitorStepArgs(
-                ordinal=0,
-                type="NAVIGATE",
-                values=["https://google.com"],
-            )],
-            tags=[newrelic.synthetics.StepMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            location_privates=[{
+                "guid": foo.id,
+                "vse_password": "secret",
+            }],
+            steps=[{
+                "ordinal": 0,
+                "type": "NAVIGATE",
+                "values": ["https://google.com"],
+            }],
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -642,15 +642,15 @@ class StepMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]]] = None,
+                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -692,7 +692,7 @@ class StepMonitor(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
             guid: Optional[pulumi.Input[str]] = None,
-            location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]]] = None,
+            location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]]] = None,
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             period: Optional[pulumi.Input[str]] = None,
@@ -700,8 +700,8 @@ class StepMonitor(pulumi.CustomResource):
             runtime_type: Optional[pulumi.Input[str]] = None,
             runtime_type_version: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]]] = None) -> 'StepMonitor':
+            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]]] = None) -> 'StepMonitor':
         """
         Get an existing StepMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -712,7 +712,7 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -724,8 +724,8 @@ class StepMonitor(pulumi.CustomResource):
                
                > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorStepArgs']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

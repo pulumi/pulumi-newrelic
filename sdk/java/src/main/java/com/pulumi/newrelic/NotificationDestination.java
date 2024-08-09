@@ -270,7 +270,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotificationDestination(String name) {
+    public NotificationDestination(java.lang.String name) {
         this(name, NotificationDestinationArgs.Empty);
     }
     /**
@@ -278,7 +278,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationDestination(String name, NotificationDestinationArgs args) {
+    public NotificationDestination(java.lang.String name, NotificationDestinationArgs args) {
         this(name, args, null);
     }
     /**
@@ -287,12 +287,12 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationDestination(String name, NotificationDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/notificationDestination:NotificationDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NotificationDestination(java.lang.String name, NotificationDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/notificationDestination:NotificationDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotificationDestination(String name, Output<String> id, @Nullable NotificationDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/notificationDestination:NotificationDestination", name, state, makeResourceOptions(options, id));
+    private NotificationDestination(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/notificationDestination:NotificationDestination", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NotificationDestinationArgs makeArgs(NotificationDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -302,7 +302,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return args == null ? NotificationDestinationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -318,7 +318,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotificationDestination get(String name, Output<String> id, @Nullable NotificationDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotificationDestination get(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotificationDestination(name, id, state, options);
     }
 }

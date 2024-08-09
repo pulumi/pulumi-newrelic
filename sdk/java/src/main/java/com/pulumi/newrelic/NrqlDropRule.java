@@ -168,7 +168,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NrqlDropRule(String name) {
+    public NrqlDropRule(java.lang.String name) {
         this(name, NrqlDropRuleArgs.Empty);
     }
     /**
@@ -176,7 +176,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NrqlDropRule(String name, NrqlDropRuleArgs args) {
+    public NrqlDropRule(java.lang.String name, NrqlDropRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -185,12 +185,12 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NrqlDropRule(String name, NrqlDropRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/nrqlDropRule:NrqlDropRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NrqlDropRule(java.lang.String name, NrqlDropRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/nrqlDropRule:NrqlDropRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NrqlDropRule(String name, Output<String> id, @Nullable NrqlDropRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/nrqlDropRule:NrqlDropRule", name, state, makeResourceOptions(options, id));
+    private NrqlDropRule(java.lang.String name, Output<java.lang.String> id, @Nullable NrqlDropRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/nrqlDropRule:NrqlDropRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NrqlDropRuleArgs makeArgs(NrqlDropRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -200,7 +200,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
         return args == null ? NrqlDropRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -216,7 +216,7 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NrqlDropRule get(String name, Output<String> id, @Nullable NrqlDropRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NrqlDropRule get(java.lang.String name, Output<java.lang.String> id, @Nullable NrqlDropRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NrqlDropRule(name, id, state, options);
     }
 }

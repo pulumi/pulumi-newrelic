@@ -127,7 +127,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GcpLinkAccount(String name) {
+    public GcpLinkAccount(java.lang.String name) {
         this(name, GcpLinkAccountArgs.Empty);
     }
     /**
@@ -135,7 +135,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GcpLinkAccount(String name, GcpLinkAccountArgs args) {
+    public GcpLinkAccount(java.lang.String name, GcpLinkAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -144,12 +144,12 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GcpLinkAccount(String name, GcpLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GcpLinkAccount(java.lang.String name, GcpLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GcpLinkAccount(String name, Output<String> id, @Nullable GcpLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, state, makeResourceOptions(options, id));
+    private GcpLinkAccount(java.lang.String name, Output<java.lang.String> id, @Nullable GcpLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/gcpLinkAccount:GcpLinkAccount", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GcpLinkAccountArgs makeArgs(GcpLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -159,7 +159,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
         return args == null ? GcpLinkAccountArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -175,7 +175,7 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GcpLinkAccount get(String name, Output<String> id, @Nullable GcpLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GcpLinkAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable GcpLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GcpLinkAccount(name, id, state, options);
     }
 }

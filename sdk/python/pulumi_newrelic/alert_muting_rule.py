@@ -225,11 +225,11 @@ class AlertMutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -242,33 +242,33 @@ class AlertMutingRule(pulumi.CustomResource):
             name="Example Muting Rule",
             enabled=True,
             description="muting rule test.",
-            condition=newrelic.AlertMutingRuleConditionArgs(
-                conditions=[
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="product",
-                        operator="EQUALS",
-                        values=["APM"],
-                    ),
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="targetId",
-                        operator="EQUALS",
-                        values=["Muted"],
-                    ),
+            condition={
+                "conditions": [
+                    {
+                        "attribute": "product",
+                        "operator": "EQUALS",
+                        "values": ["APM"],
+                    },
+                    {
+                        "attribute": "targetId",
+                        "operator": "EQUALS",
+                        "values": ["Muted"],
+                    },
                 ],
-                operator="AND",
-            ),
-            schedule=newrelic.AlertMutingRuleScheduleArgs(
-                start_time="2021-01-28T15:30:00",
-                end_time="2021-01-28T16:30:00",
-                time_zone="America/Los_Angeles",
-                repeat="WEEKLY",
-                weekly_repeat_days=[
+                "operator": "AND",
+            },
+            schedule={
+                "start_time": "2021-01-28T15:30:00",
+                "end_time": "2021-01-28T16:30:00",
+                "time_zone": "America/Los_Angeles",
+                "repeat": "WEEKLY",
+                "weekly_repeat_days": [
                     "MONDAY",
                     "WEDNESDAY",
                     "FRIDAY",
                 ],
-                repeat_count=42,
-            ))
+                "repeat_count": 42,
+            })
         ```
 
         ## Import
@@ -282,11 +282,11 @@ class AlertMutingRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account id of the MutingRule.
-        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
+        :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
-        :param pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
+        :param pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
         ...
     @overload
@@ -305,33 +305,33 @@ class AlertMutingRule(pulumi.CustomResource):
             name="Example Muting Rule",
             enabled=True,
             description="muting rule test.",
-            condition=newrelic.AlertMutingRuleConditionArgs(
-                conditions=[
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="product",
-                        operator="EQUALS",
-                        values=["APM"],
-                    ),
-                    newrelic.AlertMutingRuleConditionConditionArgs(
-                        attribute="targetId",
-                        operator="EQUALS",
-                        values=["Muted"],
-                    ),
+            condition={
+                "conditions": [
+                    {
+                        "attribute": "product",
+                        "operator": "EQUALS",
+                        "values": ["APM"],
+                    },
+                    {
+                        "attribute": "targetId",
+                        "operator": "EQUALS",
+                        "values": ["Muted"],
+                    },
                 ],
-                operator="AND",
-            ),
-            schedule=newrelic.AlertMutingRuleScheduleArgs(
-                start_time="2021-01-28T15:30:00",
-                end_time="2021-01-28T16:30:00",
-                time_zone="America/Los_Angeles",
-                repeat="WEEKLY",
-                weekly_repeat_days=[
+                "operator": "AND",
+            },
+            schedule={
+                "start_time": "2021-01-28T15:30:00",
+                "end_time": "2021-01-28T16:30:00",
+                "time_zone": "America/Los_Angeles",
+                "repeat": "WEEKLY",
+                "weekly_repeat_days": [
                     "MONDAY",
                     "WEDNESDAY",
                     "FRIDAY",
                 ],
-                repeat_count=42,
-            ))
+                "repeat_count": 42,
+            })
         ```
 
         ## Import
@@ -358,11 +358,11 @@ class AlertMutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,11 +393,11 @@ class AlertMutingRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None) -> 'AlertMutingRule':
+            schedule: Optional[pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']]] = None) -> 'AlertMutingRule':
         """
         Get an existing AlertMutingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -406,11 +406,11 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account id of the MutingRule.
-        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
+        :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
-        :param pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
+        :param pulumi.Input[Union['AlertMutingRuleScheduleArgs', 'AlertMutingRuleScheduleArgsDict']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
