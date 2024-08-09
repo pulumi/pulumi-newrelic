@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Fetches the data for this policy from your New Relic account
  *         // and is referenced in the newrelic_alert_policy_channel block below.
  *         final var examplePolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .name("bar")
  *             .type("email")
  *             .config(AlertChannelConfigArgs.builder()
- *                 .recipients("foo{@literal @}example.com")
+ *                 .recipients("foo}{@literal @}{@code example.com")
  *                 .includeJsonAttachment("1")
  *                 .build())
  *             .build());
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  *                 slackChannel.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -151,7 +151,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertPolicyChannel(String name) {
+    public AlertPolicyChannel(java.lang.String name) {
         this(name, AlertPolicyChannelArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertPolicyChannel(String name, AlertPolicyChannelArgs args) {
+    public AlertPolicyChannel(java.lang.String name, AlertPolicyChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,12 +168,12 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertPolicyChannel(String name, AlertPolicyChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertPolicyChannel(java.lang.String name, AlertPolicyChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertPolicyChannel(String name, Output<String> id, @Nullable AlertPolicyChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, state, makeResourceOptions(options, id));
+    private AlertPolicyChannel(java.lang.String name, Output<java.lang.String> id, @Nullable AlertPolicyChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertPolicyChannelArgs makeArgs(AlertPolicyChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -183,7 +183,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
         return args == null ? AlertPolicyChannelArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +199,7 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertPolicyChannel get(String name, Output<String> id, @Nullable AlertPolicyChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertPolicyChannel get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertPolicyChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertPolicyChannel(name, id, state, options);
     }
 }

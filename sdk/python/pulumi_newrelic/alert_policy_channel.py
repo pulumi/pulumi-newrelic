@@ -150,18 +150,18 @@ class AlertPolicyChannel(pulumi.CustomResource):
         email_channel = newrelic.AlertChannel("email_channel",
             name="bar",
             type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="foo@example.com",
-                include_json_attachment="1",
-            ))
+            config={
+                "recipients": "foo@example.com",
+                "include_json_attachment": "1",
+            })
         # Creates a Slack alert channel.
         slack_channel = newrelic.AlertChannel("slack_channel",
             name="slack-channel-example",
             type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                channel="#example-channel",
-                url="http://example-org.slack.com",
-            ))
+            config={
+                "channel": "#example-channel",
+                "url": "http://example-org.slack.com",
+            })
         # Applies the created channels above to the alert policy
         # referenced at the top of the config.
         foo = newrelic.AlertPolicyChannel("foo",
@@ -213,18 +213,18 @@ class AlertPolicyChannel(pulumi.CustomResource):
         email_channel = newrelic.AlertChannel("email_channel",
             name="bar",
             type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="foo@example.com",
-                include_json_attachment="1",
-            ))
+            config={
+                "recipients": "foo@example.com",
+                "include_json_attachment": "1",
+            })
         # Creates a Slack alert channel.
         slack_channel = newrelic.AlertChannel("slack_channel",
             name="slack-channel-example",
             type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                channel="#example-channel",
-                url="http://example-org.slack.com",
-            ))
+            config={
+                "channel": "#example-channel",
+                "url": "http://example-org.slack.com",
+            })
         # Applies the created channels above to the alert policy
         # referenced at the top of the config.
         foo = newrelic.AlertPolicyChannel("foo",

@@ -879,7 +879,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  aggregation_window: Optional[pulumi.Input[int]] = None,
                  baseline_direction: Optional[pulumi.Input[str]] = None,
                  close_violations_on_expiration: Optional[pulumi.Input[bool]] = None,
-                 critical: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']]] = None,
+                 critical: Optional[pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
@@ -887,16 +887,16 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nrql: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']]] = None,
+                 nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
-                 warning: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']]] = None,
+                 warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to create and manage NRQL alert conditions in New Relic.
@@ -928,21 +928,21 @@ class NrqlAlertCondition(pulumi.CustomResource):
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
             slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
+            },
+            warning={
+                "operator": "above",
+                "threshold": 3.5,
+                "threshold_duration": 600,
+                "threshold_occurrences": "ALL",
+            })
         ```
 
         ## NRQL
@@ -1007,21 +1007,21 @@ class NrqlAlertCondition(pulumi.CustomResource):
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
             slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
+            },
+            warning={
+                "operator": "above",
+                "threshold": 3.5,
+                "threshold_duration": 600,
+                "threshold_occurrences": "ALL",
+            })
         ```
 
         ## Tags
@@ -1051,35 +1051,35 @@ class NrqlAlertCondition(pulumi.CustomResource):
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
             slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
+            },
+            warning={
+                "operator": "above",
+                "threshold": 3.5,
+                "threshold_duration": 600,
+                "threshold_occurrences": "ALL",
+            })
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_nrql_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -1104,15 +1104,15 @@ class NrqlAlertCondition(pulumi.CustomResource):
             runbook_url="https://localhost",
             enabled=True,
             violation_time_limit="TWENTY_FOUR_HOURS",
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold_duration=120,
-                threshold=3,
-                threshold_occurrences="AT_LEAST_ONCE",
-            ),
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
+            critical={
+                "operator": "above",
+                "threshold_duration": 120,
+                "threshold": 3,
+                "threshold_occurrences": "AT_LEAST_ONCE",
+            },
+            nrql={
+                "query": "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            })
         ```
 
         After making the appropriate adjustments mentioned in the deprecation warnings,
@@ -1129,16 +1129,16 @@ class NrqlAlertCondition(pulumi.CustomResource):
             runbook_url="https://localhost",
             enabled=True,
             violation_time_limit_seconds=86400,
-            terms=[newrelic.NrqlAlertConditionTermArgs(
-                priority="critical",
-                operator="above",
-                threshold=3,
-                duration=5,
-                time_function="any",
-            )],
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
+            terms=[{
+                "priority": "critical",
+                "operator": "above",
+                "threshold": 3,
+                "duration": 5,
+                "time_function": "any",
+            }],
+            nrql={
+                "query": "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            })
         ```
 
         ## Import
@@ -1166,7 +1166,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        :param pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
@@ -1174,18 +1174,18 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
         :param pulumi.Input[str] name: The title of the condition.
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']] nrql: A NRQL query. See NRQL below for details.
+        :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        :param pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         ...
     @overload
@@ -1223,21 +1223,21 @@ class NrqlAlertCondition(pulumi.CustomResource):
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
             slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
+            },
+            warning={
+                "operator": "above",
+                "threshold": 3.5,
+                "threshold_duration": 600,
+                "threshold_occurrences": "ALL",
+            })
         ```
 
         ## NRQL
@@ -1302,21 +1302,21 @@ class NrqlAlertCondition(pulumi.CustomResource):
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
             slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
+            },
+            warning={
+                "operator": "above",
+                "threshold": 3.5,
+                "threshold_duration": 600,
+                "threshold_occurrences": "ALL",
+            })
         ```
 
         ## Tags
@@ -1346,35 +1346,35 @@ class NrqlAlertCondition(pulumi.CustomResource):
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
             slide_by=30,
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT average(duration) FROM Transaction where appName = 'Your App'",
-            ),
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold=5.5,
-                threshold_duration=300,
-                threshold_occurrences="ALL",
-            ),
-            warning=newrelic.NrqlAlertConditionWarningArgs(
-                operator="above",
-                threshold=3.5,
-                threshold_duration=600,
-                threshold_occurrences="ALL",
-            ))
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+            },
+            critical={
+                "operator": "above",
+                "threshold": 5.5,
+                "threshold_duration": 300,
+                "threshold_occurrences": "ALL",
+            },
+            warning={
+                "operator": "above",
+                "threshold": 3.5,
+                "threshold_duration": 600,
+                "threshold_occurrences": "ALL",
+            })
         my_condition_entity_tags = newrelic.EntityTags("my_condition_entity_tags",
             guid=foo_nrql_alert_condition.entity_guid,
             tags=[
-                newrelic.EntityTagsTagArgs(
-                    key="my-key",
-                    values=[
+                {
+                    "key": "my-key",
+                    "values": [
                         "my-value",
                         "my-other-value",
                     ],
-                ),
-                newrelic.EntityTagsTagArgs(
-                    key="my-key-2",
-                    values=["my-value-2"],
-                ),
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
             ])
         ```
 
@@ -1399,15 +1399,15 @@ class NrqlAlertCondition(pulumi.CustomResource):
             runbook_url="https://localhost",
             enabled=True,
             violation_time_limit="TWENTY_FOUR_HOURS",
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold_duration=120,
-                threshold=3,
-                threshold_occurrences="AT_LEAST_ONCE",
-            ),
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
+            critical={
+                "operator": "above",
+                "threshold_duration": 120,
+                "threshold": 3,
+                "threshold_occurrences": "AT_LEAST_ONCE",
+            },
+            nrql={
+                "query": "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            })
         ```
 
         After making the appropriate adjustments mentioned in the deprecation warnings,
@@ -1424,16 +1424,16 @@ class NrqlAlertCondition(pulumi.CustomResource):
             runbook_url="https://localhost",
             enabled=True,
             violation_time_limit_seconds=86400,
-            terms=[newrelic.NrqlAlertConditionTermArgs(
-                priority="critical",
-                operator="above",
-                threshold=3,
-                duration=5,
-                time_function="any",
-            )],
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
+            terms=[{
+                "priority": "critical",
+                "operator": "above",
+                "threshold": 3,
+                "duration": 5,
+                "time_function": "any",
+            }],
+            nrql={
+                "query": "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            })
         ```
 
         ## Import
@@ -1474,7 +1474,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  aggregation_window: Optional[pulumi.Input[int]] = None,
                  baseline_direction: Optional[pulumi.Input[str]] = None,
                  close_violations_on_expiration: Optional[pulumi.Input[bool]] = None,
-                 critical: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']]] = None,
+                 critical: Optional[pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_delay: Optional[pulumi.Input[int]] = None,
@@ -1482,16 +1482,16 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nrql: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']]] = None,
+                 nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
-                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
-                 warning: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']]] = None,
+                 warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1548,7 +1548,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             aggregation_window: Optional[pulumi.Input[int]] = None,
             baseline_direction: Optional[pulumi.Input[str]] = None,
             close_violations_on_expiration: Optional[pulumi.Input[bool]] = None,
-            critical: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']]] = None,
+            critical: Optional[pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             entity_guid: Optional[pulumi.Input[str]] = None,
@@ -1557,16 +1557,16 @@ class NrqlAlertCondition(pulumi.CustomResource):
             fill_option: Optional[pulumi.Input[str]] = None,
             fill_value: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            nrql: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']]] = None,
+            nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
             open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
             slide_by: Optional[pulumi.Input[int]] = None,
-            terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
+            terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
             violation_time_limit: Optional[pulumi.Input[str]] = None,
             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
-            warning: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']]] = None) -> 'NrqlAlertCondition':
+            warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None) -> 'NrqlAlertCondition':
         """
         Get an existing NrqlAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1581,7 +1581,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        :param pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
@@ -1590,18 +1590,18 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
         :param pulumi.Input[str] name: The title of the condition.
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionNrqlArgs']] nrql: A NRQL query. See NRQL below for details.
+        :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        :param pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

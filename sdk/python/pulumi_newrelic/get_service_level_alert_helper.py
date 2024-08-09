@@ -180,26 +180,26 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         guid="MXxBUE18QVBQTElDQVRJT058MQ",
         name="Latency",
         description="Proportion of requests that are served faster than a threshold.",
-        events=newrelic.ServiceLevelEventsArgs(
-            account_id="12345678",
-            valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                from_="Transaction",
-                where="appName = 'Example application' AND (transactionType='Web')",
-            ),
-            bad_events=newrelic.ServiceLevelEventsBadEventsArgs(
-                from_="Transaction",
-                where="appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
-            ),
-        ),
-        objective=newrelic.ServiceLevelObjectiveArgs(
-            target=foo_target,
-            time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                    count=foo_period,
-                    unit="DAY",
-                ),
-            ),
-        ))
+        events={
+            "account_id": "12345678",
+            "valid_events": {
+                "from_": "Transaction",
+                "where": "appName = 'Example application' AND (transactionType='Web')",
+            },
+            "bad_events": {
+                "from_": "Transaction",
+                "where": "appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
+            },
+        },
+        objective={
+            "target": foo_target,
+            "time_window": {
+                "rolling": {
+                    "count": foo_period,
+                    "unit": "DAY",
+                },
+            },
+        })
     ```
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
@@ -223,15 +223,15 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         name="Slow burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
-        nrql=newrelic.NrqlAlertConditionNrqlArgs(
-            query=foo_slow_burn.nrql,
-        ),
-        critical=newrelic.NrqlAlertConditionCriticalArgs(
-            operator="above_or_equals",
-            threshold=foo_slow_burn.threshold,
-            threshold_duration=900,
-            threshold_occurrences="at_least_once",
-        ),
+        nrql={
+            "query": foo_slow_burn.nrql,
+        },
+        critical={
+            "operator": "above_or_equals",
+            "threshold": foo_slow_burn.threshold,
+            "threshold_duration": 900,
+            "threshold_occurrences": "at_least_once",
+        },
         fill_option="none",
         aggregation_window=foo_slow_burn.evaluation_period,
         aggregation_method="event_flow",
@@ -259,15 +259,15 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         name="Custom burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
-        nrql=newrelic.NrqlAlertConditionNrqlArgs(
-            query=foo_custom.nrql,
-        ),
-        critical=newrelic.NrqlAlertConditionCriticalArgs(
-            operator="above_or_equals",
-            threshold=foo_custom.threshold,
-            threshold_duration=900,
-            threshold_occurrences="at_least_once",
-        ),
+        nrql={
+            "query": foo_custom.nrql,
+        },
+        critical={
+            "operator": "above_or_equals",
+            "threshold": foo_custom.threshold,
+            "threshold_duration": 900,
+            "threshold_occurrences": "at_least_once",
+        },
         fill_option="none",
         aggregation_window=foo_custom.evaluation_period,
         aggregation_method="event_flow",
@@ -336,26 +336,26 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         guid="MXxBUE18QVBQTElDQVRJT058MQ",
         name="Latency",
         description="Proportion of requests that are served faster than a threshold.",
-        events=newrelic.ServiceLevelEventsArgs(
-            account_id="12345678",
-            valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
-                from_="Transaction",
-                where="appName = 'Example application' AND (transactionType='Web')",
-            ),
-            bad_events=newrelic.ServiceLevelEventsBadEventsArgs(
-                from_="Transaction",
-                where="appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
-            ),
-        ),
-        objective=newrelic.ServiceLevelObjectiveArgs(
-            target=foo_target,
-            time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
-                rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
-                    count=foo_period,
-                    unit="DAY",
-                ),
-            ),
-        ))
+        events={
+            "account_id": "12345678",
+            "valid_events": {
+                "from_": "Transaction",
+                "where": "appName = 'Example application' AND (transactionType='Web')",
+            },
+            "bad_events": {
+                "from_": "Transaction",
+                "where": "appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1",
+            },
+        },
+        objective={
+            "target": foo_target,
+            "time_window": {
+                "rolling": {
+                    "count": foo_period,
+                    "unit": "DAY",
+                },
+            },
+        })
     ```
     Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
     Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
@@ -379,15 +379,15 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         name="Slow burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
-        nrql=newrelic.NrqlAlertConditionNrqlArgs(
-            query=foo_slow_burn.nrql,
-        ),
-        critical=newrelic.NrqlAlertConditionCriticalArgs(
-            operator="above_or_equals",
-            threshold=foo_slow_burn.threshold,
-            threshold_duration=900,
-            threshold_occurrences="at_least_once",
-        ),
+        nrql={
+            "query": foo_slow_burn.nrql,
+        },
+        critical={
+            "operator": "above_or_equals",
+            "threshold": foo_slow_burn.threshold,
+            "threshold_duration": 900,
+            "threshold_occurrences": "at_least_once",
+        },
         fill_option="none",
         aggregation_window=foo_slow_burn.evaluation_period,
         aggregation_method="event_flow",
@@ -415,15 +415,15 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
         name="Custom burn alert",
         enabled=True,
         violation_time_limit_seconds=259200,
-        nrql=newrelic.NrqlAlertConditionNrqlArgs(
-            query=foo_custom.nrql,
-        ),
-        critical=newrelic.NrqlAlertConditionCriticalArgs(
-            operator="above_or_equals",
-            threshold=foo_custom.threshold,
-            threshold_duration=900,
-            threshold_occurrences="at_least_once",
-        ),
+        nrql={
+            "query": foo_custom.nrql,
+        },
+        critical={
+            "operator": "above_or_equals",
+            "threshold": foo_custom.threshold,
+            "threshold_duration": 900,
+            "threshold_occurrences": "at_least_once",
+        },
         fill_option="none",
         aggregation_window=foo_custom.evaluation_period,
         aggregation_method="event_flow",

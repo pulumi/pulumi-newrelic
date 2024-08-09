@@ -321,7 +321,7 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BrokenLinksMonitor(String name) {
+    public BrokenLinksMonitor(java.lang.String name) {
         this(name, BrokenLinksMonitorArgs.Empty);
     }
     /**
@@ -329,7 +329,7 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BrokenLinksMonitor(String name, BrokenLinksMonitorArgs args) {
+    public BrokenLinksMonitor(java.lang.String name, BrokenLinksMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -338,12 +338,12 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BrokenLinksMonitor(String name, BrokenLinksMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BrokenLinksMonitor(java.lang.String name, BrokenLinksMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BrokenLinksMonitor(String name, Output<String> id, @Nullable BrokenLinksMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor", name, state, makeResourceOptions(options, id));
+    private BrokenLinksMonitor(java.lang.String name, Output<java.lang.String> id, @Nullable BrokenLinksMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BrokenLinksMonitorArgs makeArgs(BrokenLinksMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -353,7 +353,7 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
         return args == null ? BrokenLinksMonitorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -369,7 +369,7 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BrokenLinksMonitor get(String name, Output<String> id, @Nullable BrokenLinksMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BrokenLinksMonitor get(java.lang.String name, Output<java.lang.String> id, @Nullable BrokenLinksMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BrokenLinksMonitor(name, id, state, options);
     }
 }

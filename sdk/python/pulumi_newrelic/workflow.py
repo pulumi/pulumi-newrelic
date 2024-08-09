@@ -380,12 +380,12 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
+                 enrichments: Optional[pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']]] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
-                 issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
+                 issues_filter: Optional[pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']]] = None,
                  muting_rules_handling: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -402,18 +402,18 @@ class Workflow(pulumi.CustomResource):
         foo = newrelic.Workflow("foo",
             name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["growth"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=some_channel["id"],
-            )])
+            issues_filter={
+                "name": "filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "accumulations.tag.team",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": ["growth"],
+                }],
+            },
+            destinations=[{
+                "channel_id": some_channel["id"],
+            }])
         ```
 
         ## Policy-Based Workflow Example
@@ -430,41 +430,41 @@ class Workflow(pulumi.CustomResource):
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
             name="destination-webhook",
             type="WEBHOOK",
-            properties=[newrelic.NotificationDestinationPropertyArgs(
-                key="url",
-                value="https://example.com",
-            )],
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                user="username",
-                password="password",
-            ))
+            properties=[{
+                "key": "url",
+                "value": "https://example.com",
+            }],
+            auth_basic={
+                "user": "username",
+                "password": "password",
+            })
         # Create a notification channel to use in the workflow
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
             name="channel-webhook",
             type="WEBHOOK",
             destination_id=webhook_destination.id,
             product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                value="{}",
-                label="Payload Template",
-            )])
+            properties=[{
+                "key": "payload",
+                "value": "{}",
+                "label": "Payload Template",
+            }])
         # A workflow that matches issues that include incidents triggered by the policy
         workflow_example = newrelic.Workflow("workflow-example",
             name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="labels.policyIds",
-                    operator="EXACTLY_MATCHES",
-                    values=[my_policy.id],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel.id,
-            )])
+            issues_filter={
+                "name": "Filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "labels.policyIds",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": [my_policy.id],
+                }],
+            },
+            destinations=[{
+                "channel_id": webhook_channel.id,
+            }])
         ```
 
         ### An example of a workflow with enrichments
@@ -476,26 +476,26 @@ class Workflow(pulumi.CustomResource):
         workflow_example = newrelic.Workflow("workflow-example",
             name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            enrichments=newrelic.WorkflowEnrichmentsArgs(
-                nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
-                    name="Log Count",
-                    configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
-                    )],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel["id"],
-            )])
+            issues_filter={
+                "name": "Filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "accumulations.tag.team",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": ["my_team"],
+                }],
+            },
+            enrichments={
+                "nrqls": [{
+                    "name": "Log Count",
+                    "configurations": [{
+                        "query": "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
+                    }],
+                }],
+            },
+            destinations=[{
+                "channel_id": webhook_channel["id"],
+            }])
         ```
 
         ### An example of a workflow with notification triggers
@@ -507,19 +507,19 @@ class Workflow(pulumi.CustomResource):
         workflow_example = newrelic.Workflow("workflow-example",
             name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel["id"],
-                notification_triggers=["ACTIVATED"],
-            )])
+            issues_filter={
+                "name": "Filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "accumulations.tag.team",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": ["my_team"],
+                }],
+            },
+            destinations=[{
+                "channel_id": webhook_channel["id"],
+                "notification_triggers": ["ACTIVATED"],
+            }])
         ```
 
         ## Additional Information
@@ -559,13 +559,13 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: Notification configuration. See Nested destination blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
-        :param pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
+        :param pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
-        :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        :param pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
         :param pulumi.Input[str] name: The name of the workflow.
         """
@@ -588,18 +588,18 @@ class Workflow(pulumi.CustomResource):
         foo = newrelic.Workflow("foo",
             name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["growth"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=some_channel["id"],
-            )])
+            issues_filter={
+                "name": "filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "accumulations.tag.team",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": ["growth"],
+                }],
+            },
+            destinations=[{
+                "channel_id": some_channel["id"],
+            }])
         ```
 
         ## Policy-Based Workflow Example
@@ -616,41 +616,41 @@ class Workflow(pulumi.CustomResource):
         webhook_destination = newrelic.NotificationDestination("webhook-destination",
             name="destination-webhook",
             type="WEBHOOK",
-            properties=[newrelic.NotificationDestinationPropertyArgs(
-                key="url",
-                value="https://example.com",
-            )],
-            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
-                user="username",
-                password="password",
-            ))
+            properties=[{
+                "key": "url",
+                "value": "https://example.com",
+            }],
+            auth_basic={
+                "user": "username",
+                "password": "password",
+            })
         # Create a notification channel to use in the workflow
         webhook_channel = newrelic.NotificationChannel("webhook-channel",
             name="channel-webhook",
             type="WEBHOOK",
             destination_id=webhook_destination.id,
             product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="payload",
-                value="{}",
-                label="Payload Template",
-            )])
+            properties=[{
+                "key": "payload",
+                "value": "{}",
+                "label": "Payload Template",
+            }])
         # A workflow that matches issues that include incidents triggered by the policy
         workflow_example = newrelic.Workflow("workflow-example",
             name="workflow-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="labels.policyIds",
-                    operator="EXACTLY_MATCHES",
-                    values=[my_policy.id],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel.id,
-            )])
+            issues_filter={
+                "name": "Filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "labels.policyIds",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": [my_policy.id],
+                }],
+            },
+            destinations=[{
+                "channel_id": webhook_channel.id,
+            }])
         ```
 
         ### An example of a workflow with enrichments
@@ -662,26 +662,26 @@ class Workflow(pulumi.CustomResource):
         workflow_example = newrelic.Workflow("workflow-example",
             name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            enrichments=newrelic.WorkflowEnrichmentsArgs(
-                nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
-                    name="Log Count",
-                    configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
-                    )],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel["id"],
-            )])
+            issues_filter={
+                "name": "Filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "accumulations.tag.team",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": ["my_team"],
+                }],
+            },
+            enrichments={
+                "nrqls": [{
+                    "name": "Log Count",
+                    "configurations": [{
+                        "query": "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
+                    }],
+                }],
+            },
+            destinations=[{
+                "channel_id": webhook_channel["id"],
+            }])
         ```
 
         ### An example of a workflow with notification triggers
@@ -693,19 +693,19 @@ class Workflow(pulumi.CustomResource):
         workflow_example = newrelic.Workflow("workflow-example",
             name="workflow-enrichment-example",
             muting_rules_handling="NOTIFY_ALL_ISSUES",
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="Filter-name",
-                type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.tag.team",
-                    operator="EXACTLY_MATCHES",
-                    values=["my_team"],
-                )],
-            ),
-            destinations=[newrelic.WorkflowDestinationArgs(
-                channel_id=webhook_channel["id"],
-                notification_triggers=["ACTIVATED"],
-            )])
+            issues_filter={
+                "name": "Filter-name",
+                "type": "FILTER",
+                "predicates": [{
+                    "attribute": "accumulations.tag.team",
+                    "operator": "EXACTLY_MATCHES",
+                    "values": ["my_team"],
+                }],
+            },
+            destinations=[{
+                "channel_id": webhook_channel["id"],
+                "notification_triggers": ["ACTIVATED"],
+            }])
         ```
 
         ## Additional Information
@@ -758,12 +758,12 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
+                 enrichments: Optional[pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']]] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
-                 issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
+                 issues_filter: Optional[pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']]] = None,
                  muting_rules_handling: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -804,13 +804,13 @@ class Workflow(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
+            destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]]] = None,
             destinations_enabled: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
+            enrichments: Optional[pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']]] = None,
             enrichments_enabled: Optional[pulumi.Input[bool]] = None,
             guid: Optional[pulumi.Input[str]] = None,
-            issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
+            issues_filter: Optional[pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']]] = None,
             last_run: Optional[pulumi.Input[str]] = None,
             muting_rules_handling: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -823,14 +823,14 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: Notification configuration. See Nested destination blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowDestinationArgs', 'WorkflowDestinationArgsDict']]]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
                these two are different flags, but they are functionally identical. Defaults to true.
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
-        :param pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
+        :param pulumi.Input[Union['WorkflowEnrichmentsArgs', 'WorkflowEnrichmentsArgsDict']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
         :param pulumi.Input[str] guid: Workflow entity GUID
-        :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        :param pulumi.Input[Union['WorkflowIssuesFilterArgs', 'WorkflowIssuesFilterArgsDict']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
         :param pulumi.Input[str] name: The name of the workflow.

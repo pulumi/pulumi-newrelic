@@ -138,7 +138,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AwsLinkAccount(String name) {
+    public AwsLinkAccount(java.lang.String name) {
         this(name, AwsLinkAccountArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AwsLinkAccount(String name, AwsLinkAccountArgs args) {
+    public AwsLinkAccount(java.lang.String name, AwsLinkAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,12 +155,12 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AwsLinkAccount(String name, AwsLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AwsLinkAccount(java.lang.String name, AwsLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AwsLinkAccount(String name, Output<String> id, @Nullable AwsLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, state, makeResourceOptions(options, id));
+    private AwsLinkAccount(java.lang.String name, Output<java.lang.String> id, @Nullable AwsLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/awsLinkAccount:AwsLinkAccount", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AwsLinkAccountArgs makeArgs(AwsLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -170,7 +170,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
         return args == null ? AwsLinkAccountArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +186,7 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AwsLinkAccount get(String name, Output<String> id, @Nullable AwsLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AwsLinkAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable AwsLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AwsLinkAccount(name, id, state, options);
     }
 }
