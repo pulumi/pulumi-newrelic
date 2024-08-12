@@ -162,7 +162,7 @@ class AlertChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -181,10 +181,10 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="foo",
             type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="foo@example.com",
-                include_json_attachment="true",
-            ))
+            config={
+                "recipients": "foo@example.com",
+                "include_json_attachment": "true",
+            })
         ```
 
         ## Additional Examples
@@ -197,10 +197,10 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="slack-example",
             type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
-                channel="example-alerts-channel",
-            ))
+            config={
+                "url": "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+                "channel": "example-alerts-channel",
+            })
         ```
 
         > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
@@ -213,12 +213,12 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="opsgenie-example",
             type="opsgenie",
-            config=newrelic.AlertChannelConfigArgs(
-                api_key="abc123",
-                teams="team1, team2",
-                tags="tag1, tag2",
-                recipients="user1@domain.com, user2@domain.com",
-            ))
+            config={
+                "api_key": "abc123",
+                "teams": "team1, team2",
+                "tags": "tag1, tag2",
+                "recipients": "user1@domain.com, user2@domain.com",
+            })
         ```
 
         ### PagerDuty
@@ -229,9 +229,9 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="pagerduty-example",
             type="pagerduty",
-            config=newrelic.AlertChannelConfigArgs(
-                service_key="abc123",
-            ))
+            config={
+                "service_key": "abc123",
+            })
         ```
 
         ### VictorOps
@@ -242,10 +242,10 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="victorops-example",
             type="victorops",
-            config=newrelic.AlertChannelConfigArgs(
-                key="abc123",
-                route_key="/example",
-            ))
+            config={
+                "key": "abc123",
+                "route_key": "/example",
+            })
         ```
 
         ### Webhook
@@ -256,18 +256,18 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="webhook-example",
             type="webhook",
-            config=newrelic.AlertChannelConfigArgs(
-                base_url="http://www.test.com",
-                payload_type="application/json",
-                payload={
+            config={
+                "base_url": "http://www.test.com",
+                "payload_type": "application/json",
+                "payload": {
                     "condition_name": "$CONDITION_NAME",
                     "policy_name": "$POLICY_NAME",
                 },
-                headers={
+                "headers": {
                     "header1": value1,
                     "header2": value2,
                 },
-            ))
+            })
         ```
 
         ### Webhook with complex payload
@@ -278,17 +278,17 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="webhook-example",
             type="webhook",
-            config=newrelic.AlertChannelConfigArgs(
-                base_url="http://www.test.com",
-                payload_type="application/json",
-                payload_string=\"\"\"{
+            config={
+                "base_url": "http://www.test.com",
+                "payload_type": "application/json",
+                "payload_string": \"\"\"{
           "my_custom_values": {
             "condition_name": "$CONDITION_NAME",
             "policy_name": "$POLICY_NAME"
           }
         }
         \"\"\",
-            ))
+            })
         ```
 
         ## Import
@@ -304,7 +304,7 @@ class AlertChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
@@ -329,10 +329,10 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="foo",
             type="email",
-            config=newrelic.AlertChannelConfigArgs(
-                recipients="foo@example.com",
-                include_json_attachment="true",
-            ))
+            config={
+                "recipients": "foo@example.com",
+                "include_json_attachment": "true",
+            })
         ```
 
         ## Additional Examples
@@ -345,10 +345,10 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="slack-example",
             type="slack",
-            config=newrelic.AlertChannelConfigArgs(
-                url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
-                channel="example-alerts-channel",
-            ))
+            config={
+                "url": "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
+                "channel": "example-alerts-channel",
+            })
         ```
 
         > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
@@ -361,12 +361,12 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="opsgenie-example",
             type="opsgenie",
-            config=newrelic.AlertChannelConfigArgs(
-                api_key="abc123",
-                teams="team1, team2",
-                tags="tag1, tag2",
-                recipients="user1@domain.com, user2@domain.com",
-            ))
+            config={
+                "api_key": "abc123",
+                "teams": "team1, team2",
+                "tags": "tag1, tag2",
+                "recipients": "user1@domain.com, user2@domain.com",
+            })
         ```
 
         ### PagerDuty
@@ -377,9 +377,9 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="pagerduty-example",
             type="pagerduty",
-            config=newrelic.AlertChannelConfigArgs(
-                service_key="abc123",
-            ))
+            config={
+                "service_key": "abc123",
+            })
         ```
 
         ### VictorOps
@@ -390,10 +390,10 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="victorops-example",
             type="victorops",
-            config=newrelic.AlertChannelConfigArgs(
-                key="abc123",
-                route_key="/example",
-            ))
+            config={
+                "key": "abc123",
+                "route_key": "/example",
+            })
         ```
 
         ### Webhook
@@ -404,18 +404,18 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="webhook-example",
             type="webhook",
-            config=newrelic.AlertChannelConfigArgs(
-                base_url="http://www.test.com",
-                payload_type="application/json",
-                payload={
+            config={
+                "base_url": "http://www.test.com",
+                "payload_type": "application/json",
+                "payload": {
                     "condition_name": "$CONDITION_NAME",
                     "policy_name": "$POLICY_NAME",
                 },
-                headers={
+                "headers": {
                     "header1": value1,
                     "header2": value2,
                 },
-            ))
+            })
         ```
 
         ### Webhook with complex payload
@@ -426,17 +426,17 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             name="webhook-example",
             type="webhook",
-            config=newrelic.AlertChannelConfigArgs(
-                base_url="http://www.test.com",
-                payload_type="application/json",
-                payload_string=\"\"\"{
+            config={
+                "base_url": "http://www.test.com",
+                "payload_type": "application/json",
+                "payload_string": \"\"\"{
           "my_custom_values": {
             "condition_name": "$CONDITION_NAME",
             "policy_name": "$POLICY_NAME"
           }
         }
         \"\"\",
-            ))
+            })
         ```
 
         ## Import
@@ -465,7 +465,7 @@ class AlertChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -494,7 +494,7 @@ class AlertChannel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']]] = None,
+            config: Optional[pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'AlertChannel':
         """
@@ -505,7 +505,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[Union['AlertChannelConfigArgs', 'AlertChannelConfigArgsDict']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """

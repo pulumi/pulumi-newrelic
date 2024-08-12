@@ -706,7 +706,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -718,7 +718,7 @@ class Monitor(pulumi.CustomResource):
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  script_language: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]]] = None,
                  treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -743,18 +743,18 @@ class Monitor(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
             locations_publics=["AP_SOUTH_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             treat_redirect_as_failure=True,
             validation_string="success",
             bypass_head_request=True,
             verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `SIMPLE BROWSER`
 
@@ -769,10 +769,10 @@ class Monitor(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="BROWSER",
             locations_publics=["AP_SOUTH_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
@@ -781,10 +781,10 @@ class Monitor(pulumi.CustomResource):
             script_language="JAVASCRIPT",
             device_type="MOBILE",
             device_orientation="LANDSCAPE",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -813,18 +813,18 @@ class Monitor(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
             locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             treat_redirect_as_failure=True,
             validation_string="success",
             bypass_head_request=True,
             verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `BROWSER`
 
@@ -843,20 +843,20 @@ class Monitor(pulumi.CustomResource):
             name="monitor",
             period="EVERY_MINUTE",
             locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
             runtime_type_version="100",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -875,7 +875,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -887,7 +887,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
@@ -920,18 +920,18 @@ class Monitor(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
             locations_publics=["AP_SOUTH_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             treat_redirect_as_failure=True,
             validation_string="success",
             bypass_head_request=True,
             verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `SIMPLE BROWSER`
 
@@ -946,10 +946,10 @@ class Monitor(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="BROWSER",
             locations_publics=["AP_SOUTH_1"],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
@@ -958,10 +958,10 @@ class Monitor(pulumi.CustomResource):
             script_language="JAVASCRIPT",
             device_type="MOBILE",
             device_orientation="LANDSCAPE",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -990,18 +990,18 @@ class Monitor(pulumi.CustomResource):
             uri="https://www.one.newrelic.com",
             type="SIMPLE",
             locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             treat_redirect_as_failure=True,
             validation_string="success",
             bypass_head_request=True,
             verify_ssl=True,
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `BROWSER`
 
@@ -1020,20 +1020,20 @@ class Monitor(pulumi.CustomResource):
             name="monitor",
             period="EVERY_MINUTE",
             locations_privates=[location.id],
-            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="some_name",
-                value="some_value",
-            )],
+            custom_headers=[{
+                "name": "some_name",
+                "value": "some_value",
+            }],
             enable_screenshot_on_failure_and_script=True,
             validation_string="success",
             verify_ssl=True,
             runtime_type_version="100",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.MonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -1063,7 +1063,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]]] = None,
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -1075,7 +1075,7 @@ class Monitor(pulumi.CustomResource):
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  script_language: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]]] = None,
                  treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -1127,7 +1127,7 @@ class Monitor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
             bypass_head_request: Optional[pulumi.Input[bool]] = None,
-            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]]] = None,
+            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]]] = None,
             device_orientation: Optional[pulumi.Input[str]] = None,
             device_type: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
@@ -1140,7 +1140,7 @@ class Monitor(pulumi.CustomResource):
             runtime_type_version: Optional[pulumi.Input[str]] = None,
             script_language: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]]] = None,
             treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
             type: Optional[pulumi.Input[str]] = None,
             uri: Optional[pulumi.Input[str]] = None,
@@ -1157,7 +1157,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
                
                The `BROWSER` monitor type supports the following additional arguments:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
@@ -1170,7 +1170,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.

@@ -81,11 +81,11 @@ def get_obfuscation_expression(account_id: Optional[str] = None,
         description="description of the rule",
         filter="hostStatus=running",
         enabled=True,
-        actions=[newrelic.ObfuscationRuleActionArgs(
-            attributes=["message"],
-            expression_id=expression.id,
-            method="MASK",
-        )])
+        actions=[{
+            "attributes": ["message"],
+            "expression_id": expression.id,
+            "method": "MASK",
+        }])
     ```
 
 
@@ -124,11 +124,11 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
         description="description of the rule",
         filter="hostStatus=running",
         enabled=True,
-        actions=[newrelic.ObfuscationRuleActionArgs(
-            attributes=["message"],
-            expression_id=expression.id,
-            method="MASK",
-        )])
+        actions=[{
+            "attributes": ["message"],
+            "expression_id": expression.id,
+            "method": "MASK",
+        }])
     ```
 
 

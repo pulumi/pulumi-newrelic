@@ -99,13 +99,13 @@ def get_application(name: Optional[str] = None,
         entities=[app.id],
         metric="apdex",
         runbook_url="https://www.example.com",
-        terms=[newrelic.AlertConditionTermArgs(
-            duration=5,
-            operator="below",
-            priority="critical",
-            threshold=0.75,
-            time_function="all",
-        )])
+        terms=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": 0.75,
+            "time_function": "all",
+        }])
     ```
 
 
@@ -146,13 +146,13 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
         entities=[app.id],
         metric="apdex",
         runbook_url="https://www.example.com",
-        terms=[newrelic.AlertConditionTermArgs(
-            duration=5,
-            operator="below",
-            priority="critical",
-            threshold=0.75,
-            time_function="all",
-        )])
+        terms=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": 0.75,
+            "time_function": "all",
+        }])
     ```
 
 

@@ -90,26 +90,26 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
  *             .name("Test Authentication Domain")
  *             .build());
  * 
  *         var fooUser = new User("fooUser", UserArgs.builder()
  *             .name("Test User One")
- *             .emailId("test_user_one{@literal @}test.com")
+ *             .emailId("test_user_one}{@literal @}{@code test.com")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userType("CORE_USER_TIER")
  *             .build());
  * 
  *         var bar = new User("bar", UserArgs.builder()
  *             .name("Test User Two")
- *             .emailId("test_user_two{@literal @}test.com")
+ *             .emailId("test_user_two}{@literal @}{@code test.com")
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
  *             .userType("BASIC_USER_TIER")
  *             .build());
@@ -122,8 +122,8 @@ import javax.annotation.Nullable;
  *                 bar.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -152,19 +152,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
  *             .name("Test Authentication Domain")
  *             .build());
  * 
  *         final var fooGetUser = NewrelicFunctions.getUser(GetUserArgs.builder()
  *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
- *             .emailId("test_user_one{@literal @}test.com")
+ *             .emailId("test_user_one}{@literal @}{@code test.com")
  *             .build());
  * 
  *         final var bar = NewrelicFunctions.getUser(GetUserArgs.builder()
@@ -180,8 +180,8 @@ import javax.annotation.Nullable;
  *                 bar.applyValue(getUserResult -> getUserResult.id()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -254,7 +254,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Group(String name) {
+    public Group(java.lang.String name) {
         this(name, GroupArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Group(String name, GroupArgs args) {
+    public Group(java.lang.String name, GroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,12 +271,12 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Group(String name, GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/group:Group", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Group(java.lang.String name, GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/group:Group", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Group(String name, Output<String> id, @Nullable GroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/group:Group", name, state, makeResourceOptions(options, id));
+    private Group(java.lang.String name, Output<java.lang.String> id, @Nullable GroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/group:Group", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GroupArgs makeArgs(GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -286,7 +286,7 @@ public class Group extends com.pulumi.resources.CustomResource {
         return args == null ? GroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -302,7 +302,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Group get(String name, Output<String> id, @Nullable GroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Group get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Group(name, id, state, options);
     }
 }

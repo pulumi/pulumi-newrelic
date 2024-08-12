@@ -555,7 +555,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]]] = None,
+                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
@@ -564,7 +564,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  script: Optional[pulumi.Input[str]] = None,
                  script_language: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -593,10 +593,10 @@ class ScriptMonitor(pulumi.CustomResource):
             script_language="JAVASCRIPT",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `SCRIPT_BROWSER`
 
@@ -618,10 +618,10 @@ class ScriptMonitor(pulumi.CustomResource):
             runtime_type_version="100",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -647,19 +647,19 @@ class ScriptMonitor(pulumi.CustomResource):
             status="ENABLED",
             name="script_monitor",
             type="SCRIPT_API",
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
+            location_privates=[{
+                "guid": location.id,
+                "vse_password": "secret",
+            }],
             period="EVERY_6_HOURS",
             script="console.log('terraform integration test updated')",
             script_language="JAVASCRIPT",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `SCRIPT_BROWSER`
 
@@ -678,19 +678,19 @@ class ScriptMonitor(pulumi.CustomResource):
             period="EVERY_HOUR",
             script="$browser.get('https://one.newrelic.com')",
             enable_screenshot_on_failure_and_script=False,
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
+            location_privates=[{
+                "guid": location.id,
+                "vse_password": "secret",
+            }],
             runtime_type_version="100",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
             device_type="MOBILE",
             device_orientation="LANDSCAPE",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -709,7 +709,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -718,7 +718,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
@@ -755,10 +755,10 @@ class ScriptMonitor(pulumi.CustomResource):
             script_language="JAVASCRIPT",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `SCRIPT_BROWSER`
 
@@ -780,10 +780,10 @@ class ScriptMonitor(pulumi.CustomResource):
             runtime_type_version="100",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         See additional examples.
 
@@ -809,19 +809,19 @@ class ScriptMonitor(pulumi.CustomResource):
             status="ENABLED",
             name="script_monitor",
             type="SCRIPT_API",
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
+            location_privates=[{
+                "guid": location.id,
+                "vse_password": "secret",
+            }],
             period="EVERY_6_HOURS",
             script="console.log('terraform integration test updated')",
             script_language="JAVASCRIPT",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
         ##### Type: `SCRIPT_BROWSER`
 
@@ -840,19 +840,19 @@ class ScriptMonitor(pulumi.CustomResource):
             period="EVERY_HOUR",
             script="$browser.get('https://one.newrelic.com')",
             enable_screenshot_on_failure_and_script=False,
-            location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid=location.id,
-                vse_password="secret",
-            )],
+            location_privates=[{
+                "guid": location.id,
+                "vse_password": "secret",
+            }],
             runtime_type_version="100",
             runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
             device_type="MOBILE",
             device_orientation="LANDSCAPE",
-            tags=[newrelic.synthetics.ScriptMonitorTagArgs(
-                key="some_key",
-                values=["some_value"],
-            )])
+            tags=[{
+                "key": "some_key",
+                "values": ["some_value"],
+            }])
         ```
 
         ## Import
@@ -884,7 +884,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  device_orientation: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
-                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]]] = None,
+                 location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[str]] = None,
@@ -893,7 +893,7 @@ class ScriptMonitor(pulumi.CustomResource):
                  script: Optional[pulumi.Input[str]] = None,
                  script_language: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -942,7 +942,7 @@ class ScriptMonitor(pulumi.CustomResource):
             device_type: Optional[pulumi.Input[str]] = None,
             enable_screenshot_on_failure_and_script: Optional[pulumi.Input[bool]] = None,
             guid: Optional[pulumi.Input[str]] = None,
-            location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]]] = None,
+            location_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]]] = None,
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             period: Optional[pulumi.Input[str]] = None,
@@ -952,7 +952,7 @@ class ScriptMonitor(pulumi.CustomResource):
             script: Optional[pulumi.Input[str]] = None,
             script_language: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ScriptMonitor':
         """
         Get an existing ScriptMonitor resource's state with the given name, id, and optional extra
@@ -966,7 +966,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorLocationPrivateArgs']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorLocationPrivateArgs', 'ScriptMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -976,7 +976,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API

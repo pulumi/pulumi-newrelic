@@ -148,7 +148,7 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OneDashboard(String name) {
+    public OneDashboard(java.lang.String name) {
         this(name, OneDashboardArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OneDashboard(String name, OneDashboardArgs args) {
+    public OneDashboard(java.lang.String name, OneDashboardArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,12 +165,12 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OneDashboard(String name, OneDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/oneDashboard:OneDashboard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OneDashboard(java.lang.String name, OneDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/oneDashboard:OneDashboard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OneDashboard(String name, Output<String> id, @Nullable OneDashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/oneDashboard:OneDashboard", name, state, makeResourceOptions(options, id));
+    private OneDashboard(java.lang.String name, Output<java.lang.String> id, @Nullable OneDashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/oneDashboard:OneDashboard", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OneDashboardArgs makeArgs(OneDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -180,7 +180,7 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
         return args == null ? OneDashboardArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -196,7 +196,7 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OneDashboard get(String name, Output<String> id, @Nullable OneDashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OneDashboard get(java.lang.String name, Output<java.lang.String> id, @Nullable OneDashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OneDashboard(name, id, state, options);
     }
 }

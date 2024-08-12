@@ -611,7 +611,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GcpIntegrations(String name) {
+    public GcpIntegrations(java.lang.String name) {
         this(name, GcpIntegrationsArgs.Empty);
     }
     /**
@@ -619,7 +619,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GcpIntegrations(String name, GcpIntegrationsArgs args) {
+    public GcpIntegrations(java.lang.String name, GcpIntegrationsArgs args) {
         this(name, args, null);
     }
     /**
@@ -628,12 +628,12 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GcpIntegrations(String name, GcpIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GcpIntegrations(java.lang.String name, GcpIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GcpIntegrations(String name, Output<String> id, @Nullable GcpIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, state, makeResourceOptions(options, id));
+    private GcpIntegrations(java.lang.String name, Output<java.lang.String> id, @Nullable GcpIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/gcpIntegrations:GcpIntegrations", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GcpIntegrationsArgs makeArgs(GcpIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -643,7 +643,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
         return args == null ? GcpIntegrationsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -659,7 +659,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GcpIntegrations get(String name, Output<String> id, @Nullable GcpIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GcpIntegrations get(java.lang.String name, Output<java.lang.String> id, @Nullable GcpIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GcpIntegrations(name, id, state, options);
     }
 }
