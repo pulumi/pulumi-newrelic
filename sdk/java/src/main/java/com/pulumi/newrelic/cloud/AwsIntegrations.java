@@ -1303,7 +1303,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AwsIntegrations(String name) {
+    public AwsIntegrations(java.lang.String name) {
         this(name, AwsIntegrationsArgs.Empty);
     }
     /**
@@ -1311,7 +1311,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AwsIntegrations(String name, AwsIntegrationsArgs args) {
+    public AwsIntegrations(java.lang.String name, AwsIntegrationsArgs args) {
         this(name, args, null);
     }
     /**
@@ -1320,12 +1320,12 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AwsIntegrations(String name, AwsIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsIntegrations:AwsIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AwsIntegrations(java.lang.String name, AwsIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/awsIntegrations:AwsIntegrations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AwsIntegrations(String name, Output<String> id, @Nullable AwsIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsIntegrations:AwsIntegrations", name, state, makeResourceOptions(options, id));
+    private AwsIntegrations(java.lang.String name, Output<java.lang.String> id, @Nullable AwsIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/awsIntegrations:AwsIntegrations", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AwsIntegrationsArgs makeArgs(AwsIntegrationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -1335,7 +1335,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
         return args == null ? AwsIntegrationsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -1351,7 +1351,7 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AwsIntegrations get(String name, Output<String> id, @Nullable AwsIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AwsIntegrations get(java.lang.String name, Output<java.lang.String> id, @Nullable AwsIntegrationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AwsIntegrations(name, id, state, options);
     }
 }

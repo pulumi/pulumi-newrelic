@@ -373,7 +373,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceLevel(String name) {
+    public ServiceLevel(java.lang.String name) {
         this(name, ServiceLevelArgs.Empty);
     }
     /**
@@ -381,7 +381,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceLevel(String name, ServiceLevelArgs args) {
+    public ServiceLevel(java.lang.String name, ServiceLevelArgs args) {
         this(name, args, null);
     }
     /**
@@ -390,12 +390,12 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceLevel(String name, ServiceLevelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/serviceLevel:ServiceLevel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServiceLevel(java.lang.String name, ServiceLevelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/serviceLevel:ServiceLevel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceLevel(String name, Output<String> id, @Nullable ServiceLevelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:index/serviceLevel:ServiceLevel", name, state, makeResourceOptions(options, id));
+    private ServiceLevel(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceLevelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:index/serviceLevel:ServiceLevel", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceLevelArgs makeArgs(ServiceLevelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -405,7 +405,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
         return args == null ? ServiceLevelArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -421,7 +421,7 @@ public class ServiceLevel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceLevel get(String name, Output<String> id, @Nullable ServiceLevelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceLevel get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceLevelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceLevel(name, id, state, options);
     }
 }

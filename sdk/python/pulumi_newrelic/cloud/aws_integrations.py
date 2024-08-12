@@ -1802,59 +1802,59 @@ class AwsIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
-                 api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
-                 auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
-                 aws_app_sync: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']]] = None,
-                 aws_athena: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']]] = None,
-                 aws_cognito: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']]] = None,
-                 aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
-                 aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
-                 aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
-                 aws_glue: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']]] = None,
-                 aws_kinesis_analytics: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']]] = None,
-                 aws_media_convert: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']]] = None,
-                 aws_media_package_vod: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']]] = None,
-                 aws_mq: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']]] = None,
-                 aws_msk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']]] = None,
-                 aws_neptune: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']]] = None,
-                 aws_qldb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']]] = None,
-                 aws_route53resolver: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']]] = None,
-                 aws_states: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']]] = None,
-                 aws_transit_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']]] = None,
-                 aws_waf: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']]] = None,
-                 aws_wafv2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']]] = None,
-                 billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
-                 cloudfront: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']]] = None,
-                 cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
-                 doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
-                 dynamodb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']]] = None,
-                 ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
-                 ec2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']]] = None,
-                 ecs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']]] = None,
-                 efs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']]] = None,
-                 elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
-                 elasticbeanstalk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']]] = None,
-                 elasticsearch: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']]] = None,
-                 elb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']]] = None,
-                 emr: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']]] = None,
-                 health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
-                 iam: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']]] = None,
-                 iot: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']]] = None,
-                 kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
-                 kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
-                 lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
+                 alb: Optional[pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']]] = None,
+                 api_gateway: Optional[pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']]] = None,
+                 auto_scaling: Optional[pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
+                 aws_app_sync: Optional[pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
+                 aws_athena: Optional[pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
+                 aws_cognito: Optional[pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
+                 aws_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
+                 aws_direct_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
+                 aws_fsx: Optional[pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']]] = None,
+                 aws_glue: Optional[pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']]] = None,
+                 aws_kinesis_analytics: Optional[pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']]] = None,
+                 aws_media_convert: Optional[pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']]] = None,
+                 aws_media_package_vod: Optional[pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']]] = None,
+                 aws_mq: Optional[pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']]] = None,
+                 aws_msk: Optional[pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']]] = None,
+                 aws_neptune: Optional[pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']]] = None,
+                 aws_qldb: Optional[pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']]] = None,
+                 aws_route53resolver: Optional[pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']]] = None,
+                 aws_states: Optional[pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']]] = None,
+                 aws_transit_gateway: Optional[pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']]] = None,
+                 aws_waf: Optional[pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']]] = None,
+                 aws_wafv2: Optional[pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']]] = None,
+                 billing: Optional[pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']]] = None,
+                 cloudfront: Optional[pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']]] = None,
+                 cloudtrail: Optional[pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']]] = None,
+                 doc_db: Optional[pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']]] = None,
+                 dynamodb: Optional[pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']]] = None,
+                 ebs: Optional[pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']]] = None,
+                 ec2: Optional[pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']]] = None,
+                 ecs: Optional[pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']]] = None,
+                 efs: Optional[pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']]] = None,
+                 elasticache: Optional[pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']]] = None,
+                 elasticbeanstalk: Optional[pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']]] = None,
+                 elasticsearch: Optional[pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']]] = None,
+                 elb: Optional[pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']]] = None,
+                 emr: Optional[pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']]] = None,
+                 health: Optional[pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']]] = None,
+                 iam: Optional[pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']]] = None,
+                 iot: Optional[pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']]] = None,
+                 kinesis: Optional[pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']]] = None,
+                 kinesis_firehose: Optional[pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']]] = None,
+                 lambda_: Optional[pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']]] = None,
                  linked_account_id: Optional[pulumi.Input[str]] = None,
-                 rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
-                 redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
-                 route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
-                 s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
-                 ses: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']]] = None,
-                 sns: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']]] = None,
-                 sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
-                 trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
-                 vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
-                 x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
+                 rds: Optional[pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']]] = None,
+                 redshift: Optional[pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
+                 route53: Optional[pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
+                 s3: Optional[pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
+                 ses: Optional[pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
+                 sns: Optional[pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
+                 sqs: Optional[pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
+                 trusted_advisor: Optional[pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']]] = None,
+                 vpc: Optional[pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']]] = None,
+                 x_ray: Optional[pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         """
         Use this resource to integrate AWS services with New Relic.
@@ -1881,284 +1881,284 @@ class AwsIntegrations(pulumi.CustomResource):
             name="foo")
         bar = newrelic.cloud.AwsIntegrations("bar",
             linked_account_id=foo.id,
-            billing=newrelic.cloud.AwsIntegrationsBillingArgs(
-                metrics_polling_interval=3600,
-            ),
-            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
-                metrics_polling_interval=300,
-                aws_regions=[
+            billing={
+                "metrics_polling_interval": 3600,
+            },
+            cloudtrail={
+                "metrics_polling_interval": 300,
+                "aws_regions": [
                     "us-east-1",
                     "us-east-2",
                 ],
-            ),
-            health=newrelic.cloud.AwsIntegrationsHealthArgs(
-                metrics_polling_interval=300,
-            ),
-            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
-                metrics_polling_interval=3600,
-            ),
-            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
-                metrics_polling_interval=900,
-                aws_regions=[
+            },
+            health={
+                "metrics_polling_interval": 300,
+            },
+            trusted_advisor={
+                "metrics_polling_interval": 3600,
+            },
+            vpc={
+                "metrics_polling_interval": 900,
+                "aws_regions": [
                     "us-east-1",
                     "us-east-2",
                 ],
-                fetch_nat_gateway=True,
-                fetch_vpn=False,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
-                metrics_polling_interval=300,
-                aws_regions=[
+                "fetch_nat_gateway": True,
+                "fetch_vpn": False,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            x_ray={
+                "metrics_polling_interval": 300,
+                "aws_regions": [
                     "us-east-1",
                     "us-east-2",
                 ],
-            ),
-            s3=newrelic.cloud.AwsIntegrationsS3Args(
-                metrics_polling_interval=3600,
-            ),
-            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
-                metrics_polling_interval=300,
-            ),
-            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                queue_prefixes=["queue prefix"],
-                metrics_polling_interval=300,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
-                metrics_polling_interval=900,
-                fetch_extended_inventory=True,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                load_balancer_prefixes=["load balancer prefix"],
-                metrics_polling_interval=300,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
-                metrics_polling_interval=300,
-                aws_regions=["us-east-1"],
-                stage_prefixes=["stage prefix"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
-                fetch_lambdas_at_edge=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
-                aws_regions=["us-east-1"],
-                duplicate_ec2_tags=True,
-                fetch_ip_addresses=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
-                aws_regions=["us-east-1"],
-                fetch_nodes=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elb=newrelic.cloud.AwsIntegrationsElbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-            ),
-            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iam=newrelic.cloud.AwsIntegrationsIamArgs(
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iot=newrelic.cloud.AwsIntegrationsIotArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
-                aws_regions=["us-east-1"],
-                fetch_shards=True,
-                fetch_tags=True,
-                metrics_polling_interval=900,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
-                fetch_extended_inventory=True,
-                metrics_polling_interval=300,
-            ),
-            ses=newrelic.cloud.AwsIntegrationsSesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                metrics_polling_interval=300,
-            ))
+            },
+            s3={
+                "metrics_polling_interval": 3600,
+            },
+            doc_db={
+                "metrics_polling_interval": 300,
+            },
+            sqs={
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "queue_prefixes": ["queue prefix"],
+                "metrics_polling_interval": 300,
+                "aws_regions": ["us-east-1"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            ebs={
+                "metrics_polling_interval": 900,
+                "fetch_extended_inventory": True,
+                "aws_regions": ["us-east-1"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            alb={
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "load_balancer_prefixes": ["load balancer prefix"],
+                "metrics_polling_interval": 300,
+                "aws_regions": ["us-east-1"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elasticache={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            api_gateway={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["us-east-1"],
+                "stage_prefixes": ["stage prefix"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            auto_scaling={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_app_sync={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_athena={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_cognito={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_connect={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_direct_connect={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_fsx={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_glue={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_kinesis_analytics={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_media_convert={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_media_package_vod={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_mq={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_msk={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_neptune={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_qldb={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_route53resolver={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_states={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_transit_gateway={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_waf={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_wafv2={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            cloudfront={
+                "fetch_lambdas_at_edge": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            dynamodb={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            ec2={
+                "aws_regions": ["us-east-1"],
+                "duplicate_ec2_tags": True,
+                "fetch_ip_addresses": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            ecs={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            efs={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elasticbeanstalk={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elasticsearch={
+                "aws_regions": ["us-east-1"],
+                "fetch_nodes": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elb={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+            },
+            emr={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            iam={
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            iot={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            kinesis={
+                "aws_regions": ["us-east-1"],
+                "fetch_shards": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 900,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            kinesis_firehose={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            lambda_={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            rds={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            redshift={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            route53={
+                "fetch_extended_inventory": True,
+                "metrics_polling_interval": 300,
+            },
+            ses={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            sns={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "metrics_polling_interval": 300,
+            })
         ```
 
         ## Supported AWS Integrations
@@ -2236,66 +2236,66 @@ class AwsIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: AWS ALB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: AWS API Gateway. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: AWS Auto Scaling. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']] aws_app_sync: AWS AppSync. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']] aws_athena: AWS Athena. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']] aws_cognito: AWS Cognito. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']] aws_connect: AWS Connect. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']] aws_direct_connect: AWS Direct Connect. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']] aws_fsx: AWS FSx. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']] aws_glue: AWS Glue. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']] aws_kinesis_analytics: AWS Kinesis Data Analytics. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']] aws_media_convert: AWS Media Convert. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']] aws_media_package_vod: AWS MediaPackage VOD. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']] aws_mq: AWS MQ. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']] aws_msk: Amazon Managed Kafka (MSK). See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']] aws_neptune: AWS Neptune. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']] aws_qldb: Amazon QLDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']] aws_route53resolver: AWS Route53 Resolver. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']] aws_states: Aws states integration
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']] aws_transit_gateway: Amazon Transit Gateway. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']] aws_waf: AWS WAF. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']] aws_wafv2: AWS WAF V2. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: AWS Billing. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']] cloudfront: AWS CloudFront. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: AWS CloudTrail. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: AWS DocumentDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']] dynamodb: Amazon DynamoDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']] ebs: Amazon EBS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']] ec2: Amazon EC2. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']] ecs: Amazon ECS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']] efs: Amazon EFS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']] elasticache: AWS ElastiCache. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']] elasticbeanstalk: AWS Elastic Beanstalk. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']] elasticsearch: AWS ElasticSearch. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']] elb: AWS ELB (Classic). See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']] emr: AWS EMR. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: AWS Health. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']] iam: AWS IAM. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']] iot: AWS IoT. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']] kinesis: AWS Kinesis. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']] alb: AWS ALB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']] api_gateway: AWS API Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']] auto_scaling: AWS Auto Scaling. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']] aws_app_sync: AWS AppSync. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']] aws_athena: AWS Athena. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']] aws_cognito: AWS Cognito. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']] aws_connect: AWS Connect. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: AWS Direct Connect. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']] aws_fsx: AWS FSx. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']] aws_glue: AWS Glue. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']] aws_kinesis_analytics: AWS Kinesis Data Analytics. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']] aws_media_convert: AWS Media Convert. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']] aws_media_package_vod: AWS MediaPackage VOD. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']] aws_mq: AWS MQ. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']] aws_msk: Amazon Managed Kafka (MSK). See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']] aws_neptune: AWS Neptune. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']] aws_qldb: Amazon QLDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']] aws_route53resolver: AWS Route53 Resolver. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']] aws_states: Aws states integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']] aws_transit_gateway: Amazon Transit Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']] aws_waf: AWS WAF. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']] aws_wafv2: AWS WAF V2. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']] billing: AWS Billing. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']] cloudfront: AWS CloudFront. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']] cloudtrail: AWS CloudTrail. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']] doc_db: AWS DocumentDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']] dynamodb: Amazon DynamoDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']] ebs: Amazon EBS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']] ec2: Amazon EC2. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']] ecs: Amazon ECS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']] efs: Amazon EFS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']] elasticache: AWS ElastiCache. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']] elasticbeanstalk: AWS Elastic Beanstalk. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']] elasticsearch: AWS ElasticSearch. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']] elb: AWS ELB (Classic). See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']] emr: AWS EMR. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']] health: AWS Health. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']] iam: AWS IAM. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']] iot: AWS IoT. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']] kinesis: AWS Kinesis. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']] kinesis_firehose: Amazon Kinesis Data Firehose. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']] lambda_: AWS Lambda. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']] kinesis_firehose: Amazon Kinesis Data Firehose. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']] lambda_: AWS Lambda. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']] rds: Amazon RDS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']] redshift: Amazon Redshift. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']] route53: Amazon Route 53. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: Amazon S3. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']] ses: Amazon SES. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']] sns: AWS SNS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']] sqs: AWS SQS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: AWS Trusted Advisor. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']] rds: Amazon RDS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']] redshift: Amazon Redshift. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']] route53: Amazon Route 53. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']] s3: Amazon S3. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']] ses: Amazon SES. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']] sns: AWS SNS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']] sqs: AWS SQS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']] trusted_advisor: AWS Trusted Advisor. See Integration blocks below for details.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']] x_ray: AWS X-Ray. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']] vpc: VPC integration
+        :param pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']] x_ray: AWS X-Ray. See Integration blocks below for details.
                x
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
@@ -2331,284 +2331,284 @@ class AwsIntegrations(pulumi.CustomResource):
             name="foo")
         bar = newrelic.cloud.AwsIntegrations("bar",
             linked_account_id=foo.id,
-            billing=newrelic.cloud.AwsIntegrationsBillingArgs(
-                metrics_polling_interval=3600,
-            ),
-            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
-                metrics_polling_interval=300,
-                aws_regions=[
+            billing={
+                "metrics_polling_interval": 3600,
+            },
+            cloudtrail={
+                "metrics_polling_interval": 300,
+                "aws_regions": [
                     "us-east-1",
                     "us-east-2",
                 ],
-            ),
-            health=newrelic.cloud.AwsIntegrationsHealthArgs(
-                metrics_polling_interval=300,
-            ),
-            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
-                metrics_polling_interval=3600,
-            ),
-            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
-                metrics_polling_interval=900,
-                aws_regions=[
+            },
+            health={
+                "metrics_polling_interval": 300,
+            },
+            trusted_advisor={
+                "metrics_polling_interval": 3600,
+            },
+            vpc={
+                "metrics_polling_interval": 900,
+                "aws_regions": [
                     "us-east-1",
                     "us-east-2",
                 ],
-                fetch_nat_gateway=True,
-                fetch_vpn=False,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
-                metrics_polling_interval=300,
-                aws_regions=[
+                "fetch_nat_gateway": True,
+                "fetch_vpn": False,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            x_ray={
+                "metrics_polling_interval": 300,
+                "aws_regions": [
                     "us-east-1",
                     "us-east-2",
                 ],
-            ),
-            s3=newrelic.cloud.AwsIntegrationsS3Args(
-                metrics_polling_interval=3600,
-            ),
-            doc_db=newrelic.cloud.AwsIntegrationsDocDbArgs(
-                metrics_polling_interval=300,
-            ),
-            sqs=newrelic.cloud.AwsIntegrationsSqsArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                queue_prefixes=["queue prefix"],
-                metrics_polling_interval=300,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ebs=newrelic.cloud.AwsIntegrationsEbsArgs(
-                metrics_polling_interval=900,
-                fetch_extended_inventory=True,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            alb=newrelic.cloud.AwsIntegrationsAlbArgs(
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                load_balancer_prefixes=["load balancer prefix"],
-                metrics_polling_interval=300,
-                aws_regions=["us-east-1"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticache=newrelic.cloud.AwsIntegrationsElasticacheArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            api_gateway=newrelic.cloud.AwsIntegrationsApiGatewayArgs(
-                metrics_polling_interval=300,
-                aws_regions=["us-east-1"],
-                stage_prefixes=["stage prefix"],
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            auto_scaling=newrelic.cloud.AwsIntegrationsAutoScalingArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_app_sync=newrelic.cloud.AwsIntegrationsAwsAppSyncArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_athena=newrelic.cloud.AwsIntegrationsAwsAthenaArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_cognito=newrelic.cloud.AwsIntegrationsAwsCognitoArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_connect=newrelic.cloud.AwsIntegrationsAwsConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_direct_connect=newrelic.cloud.AwsIntegrationsAwsDirectConnectArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_fsx=newrelic.cloud.AwsIntegrationsAwsFsxArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_glue=newrelic.cloud.AwsIntegrationsAwsGlueArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_kinesis_analytics=newrelic.cloud.AwsIntegrationsAwsKinesisAnalyticsArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_media_convert=newrelic.cloud.AwsIntegrationsAwsMediaConvertArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_media_package_vod=newrelic.cloud.AwsIntegrationsAwsMediaPackageVodArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_mq=newrelic.cloud.AwsIntegrationsAwsMqArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_msk=newrelic.cloud.AwsIntegrationsAwsMskArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_neptune=newrelic.cloud.AwsIntegrationsAwsNeptuneArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_qldb=newrelic.cloud.AwsIntegrationsAwsQldbArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_route53resolver=newrelic.cloud.AwsIntegrationsAwsRoute53resolverArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_states=newrelic.cloud.AwsIntegrationsAwsStatesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_transit_gateway=newrelic.cloud.AwsIntegrationsAwsTransitGatewayArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_waf=newrelic.cloud.AwsIntegrationsAwsWafArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            aws_wafv2=newrelic.cloud.AwsIntegrationsAwsWafv2Args(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            cloudfront=newrelic.cloud.AwsIntegrationsCloudfrontArgs(
-                fetch_lambdas_at_edge=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            dynamodb=newrelic.cloud.AwsIntegrationsDynamodbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ec2=newrelic.cloud.AwsIntegrationsEc2Args(
-                aws_regions=["us-east-1"],
-                duplicate_ec2_tags=True,
-                fetch_ip_addresses=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            ecs=newrelic.cloud.AwsIntegrationsEcsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            efs=newrelic.cloud.AwsIntegrationsEfsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticbeanstalk=newrelic.cloud.AwsIntegrationsElasticbeanstalkArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elasticsearch=newrelic.cloud.AwsIntegrationsElasticsearchArgs(
-                aws_regions=["us-east-1"],
-                fetch_nodes=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            elb=newrelic.cloud.AwsIntegrationsElbArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                fetch_tags=True,
-                metrics_polling_interval=300,
-            ),
-            emr=newrelic.cloud.AwsIntegrationsEmrArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iam=newrelic.cloud.AwsIntegrationsIamArgs(
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            iot=newrelic.cloud.AwsIntegrationsIotArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            kinesis=newrelic.cloud.AwsIntegrationsKinesisArgs(
-                aws_regions=["us-east-1"],
-                fetch_shards=True,
-                fetch_tags=True,
-                metrics_polling_interval=900,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            kinesis_firehose=newrelic.cloud.AwsIntegrationsKinesisFirehoseArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            lambda_=newrelic.cloud.AwsIntegrationsLambdaArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            rds=newrelic.cloud.AwsIntegrationsRdsArgs(
-                aws_regions=["us-east-1"],
-                fetch_tags=True,
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            redshift=newrelic.cloud.AwsIntegrationsRedshiftArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            route53=newrelic.cloud.AwsIntegrationsRoute53Args(
-                fetch_extended_inventory=True,
-                metrics_polling_interval=300,
-            ),
-            ses=newrelic.cloud.AwsIntegrationsSesArgs(
-                aws_regions=["us-east-1"],
-                metrics_polling_interval=300,
-            ),
-            sns=newrelic.cloud.AwsIntegrationsSnsArgs(
-                aws_regions=["us-east-1"],
-                fetch_extended_inventory=True,
-                metrics_polling_interval=300,
-            ))
+            },
+            s3={
+                "metrics_polling_interval": 3600,
+            },
+            doc_db={
+                "metrics_polling_interval": 300,
+            },
+            sqs={
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "queue_prefixes": ["queue prefix"],
+                "metrics_polling_interval": 300,
+                "aws_regions": ["us-east-1"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            ebs={
+                "metrics_polling_interval": 900,
+                "fetch_extended_inventory": True,
+                "aws_regions": ["us-east-1"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            alb={
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "load_balancer_prefixes": ["load balancer prefix"],
+                "metrics_polling_interval": 300,
+                "aws_regions": ["us-east-1"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elasticache={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            api_gateway={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["us-east-1"],
+                "stage_prefixes": ["stage prefix"],
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            auto_scaling={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_app_sync={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_athena={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_cognito={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_connect={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_direct_connect={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_fsx={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_glue={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_kinesis_analytics={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_media_convert={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_media_package_vod={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_mq={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_msk={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_neptune={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_qldb={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_route53resolver={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_states={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_transit_gateway={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_waf={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            aws_wafv2={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            cloudfront={
+                "fetch_lambdas_at_edge": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            dynamodb={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            ec2={
+                "aws_regions": ["us-east-1"],
+                "duplicate_ec2_tags": True,
+                "fetch_ip_addresses": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            ecs={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            efs={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elasticbeanstalk={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elasticsearch={
+                "aws_regions": ["us-east-1"],
+                "fetch_nodes": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            elb={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+            },
+            emr={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            iam={
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            iot={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            kinesis={
+                "aws_regions": ["us-east-1"],
+                "fetch_shards": True,
+                "fetch_tags": True,
+                "metrics_polling_interval": 900,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            kinesis_firehose={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            lambda_={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            rds={
+                "aws_regions": ["us-east-1"],
+                "fetch_tags": True,
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            redshift={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+                "tag_key": "tag key",
+                "tag_value": "tag value",
+            },
+            route53={
+                "fetch_extended_inventory": True,
+                "metrics_polling_interval": 300,
+            },
+            ses={
+                "aws_regions": ["us-east-1"],
+                "metrics_polling_interval": 300,
+            },
+            sns={
+                "aws_regions": ["us-east-1"],
+                "fetch_extended_inventory": True,
+                "metrics_polling_interval": 300,
+            })
         ```
 
         ## Supported AWS Integrations
@@ -2699,59 +2699,59 @@ class AwsIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
-                 api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
-                 auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
-                 aws_app_sync: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']]] = None,
-                 aws_athena: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']]] = None,
-                 aws_cognito: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']]] = None,
-                 aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
-                 aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
-                 aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
-                 aws_glue: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']]] = None,
-                 aws_kinesis_analytics: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']]] = None,
-                 aws_media_convert: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']]] = None,
-                 aws_media_package_vod: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']]] = None,
-                 aws_mq: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']]] = None,
-                 aws_msk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']]] = None,
-                 aws_neptune: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']]] = None,
-                 aws_qldb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']]] = None,
-                 aws_route53resolver: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']]] = None,
-                 aws_states: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']]] = None,
-                 aws_transit_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']]] = None,
-                 aws_waf: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']]] = None,
-                 aws_wafv2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']]] = None,
-                 billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
-                 cloudfront: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']]] = None,
-                 cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
-                 doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
-                 dynamodb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']]] = None,
-                 ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
-                 ec2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']]] = None,
-                 ecs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']]] = None,
-                 efs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']]] = None,
-                 elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
-                 elasticbeanstalk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']]] = None,
-                 elasticsearch: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']]] = None,
-                 elb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']]] = None,
-                 emr: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']]] = None,
-                 health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
-                 iam: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']]] = None,
-                 iot: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']]] = None,
-                 kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
-                 kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
-                 lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
+                 alb: Optional[pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']]] = None,
+                 api_gateway: Optional[pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']]] = None,
+                 auto_scaling: Optional[pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
+                 aws_app_sync: Optional[pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
+                 aws_athena: Optional[pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
+                 aws_cognito: Optional[pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
+                 aws_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
+                 aws_direct_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
+                 aws_fsx: Optional[pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']]] = None,
+                 aws_glue: Optional[pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']]] = None,
+                 aws_kinesis_analytics: Optional[pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']]] = None,
+                 aws_media_convert: Optional[pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']]] = None,
+                 aws_media_package_vod: Optional[pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']]] = None,
+                 aws_mq: Optional[pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']]] = None,
+                 aws_msk: Optional[pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']]] = None,
+                 aws_neptune: Optional[pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']]] = None,
+                 aws_qldb: Optional[pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']]] = None,
+                 aws_route53resolver: Optional[pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']]] = None,
+                 aws_states: Optional[pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']]] = None,
+                 aws_transit_gateway: Optional[pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']]] = None,
+                 aws_waf: Optional[pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']]] = None,
+                 aws_wafv2: Optional[pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']]] = None,
+                 billing: Optional[pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']]] = None,
+                 cloudfront: Optional[pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']]] = None,
+                 cloudtrail: Optional[pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']]] = None,
+                 doc_db: Optional[pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']]] = None,
+                 dynamodb: Optional[pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']]] = None,
+                 ebs: Optional[pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']]] = None,
+                 ec2: Optional[pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']]] = None,
+                 ecs: Optional[pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']]] = None,
+                 efs: Optional[pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']]] = None,
+                 elasticache: Optional[pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']]] = None,
+                 elasticbeanstalk: Optional[pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']]] = None,
+                 elasticsearch: Optional[pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']]] = None,
+                 elb: Optional[pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']]] = None,
+                 emr: Optional[pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']]] = None,
+                 health: Optional[pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']]] = None,
+                 iam: Optional[pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']]] = None,
+                 iot: Optional[pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']]] = None,
+                 kinesis: Optional[pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']]] = None,
+                 kinesis_firehose: Optional[pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']]] = None,
+                 lambda_: Optional[pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']]] = None,
                  linked_account_id: Optional[pulumi.Input[str]] = None,
-                 rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
-                 redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
-                 route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
-                 s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
-                 ses: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']]] = None,
-                 sns: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']]] = None,
-                 sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
-                 trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
-                 vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
-                 x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
+                 rds: Optional[pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']]] = None,
+                 redshift: Optional[pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
+                 route53: Optional[pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
+                 s3: Optional[pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
+                 ses: Optional[pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
+                 sns: Optional[pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
+                 sqs: Optional[pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
+                 trusted_advisor: Optional[pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']]] = None,
+                 vpc: Optional[pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']]] = None,
+                 x_ray: Optional[pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2828,59 +2828,59 @@ class AwsIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            alb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']]] = None,
-            api_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']]] = None,
-            auto_scaling: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']]] = None,
-            aws_app_sync: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']]] = None,
-            aws_athena: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']]] = None,
-            aws_cognito: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']]] = None,
-            aws_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']]] = None,
-            aws_direct_connect: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']]] = None,
-            aws_fsx: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']]] = None,
-            aws_glue: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']]] = None,
-            aws_kinesis_analytics: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']]] = None,
-            aws_media_convert: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']]] = None,
-            aws_media_package_vod: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']]] = None,
-            aws_mq: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']]] = None,
-            aws_msk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']]] = None,
-            aws_neptune: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']]] = None,
-            aws_qldb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']]] = None,
-            aws_route53resolver: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']]] = None,
-            aws_states: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']]] = None,
-            aws_transit_gateway: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']]] = None,
-            aws_waf: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']]] = None,
-            aws_wafv2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']]] = None,
-            billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
-            cloudfront: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']]] = None,
-            cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
-            doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
-            dynamodb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']]] = None,
-            ebs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']]] = None,
-            ec2: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']]] = None,
-            ecs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']]] = None,
-            efs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']]] = None,
-            elasticache: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']]] = None,
-            elasticbeanstalk: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']]] = None,
-            elasticsearch: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']]] = None,
-            elb: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']]] = None,
-            emr: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']]] = None,
-            health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
-            iam: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']]] = None,
-            iot: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']]] = None,
-            kinesis: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']]] = None,
-            kinesis_firehose: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']]] = None,
-            lambda_: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']]] = None,
+            alb: Optional[pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']]] = None,
+            api_gateway: Optional[pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']]] = None,
+            auto_scaling: Optional[pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
+            aws_app_sync: Optional[pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
+            aws_athena: Optional[pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
+            aws_cognito: Optional[pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
+            aws_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
+            aws_direct_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
+            aws_fsx: Optional[pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']]] = None,
+            aws_glue: Optional[pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']]] = None,
+            aws_kinesis_analytics: Optional[pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']]] = None,
+            aws_media_convert: Optional[pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']]] = None,
+            aws_media_package_vod: Optional[pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']]] = None,
+            aws_mq: Optional[pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']]] = None,
+            aws_msk: Optional[pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']]] = None,
+            aws_neptune: Optional[pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']]] = None,
+            aws_qldb: Optional[pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']]] = None,
+            aws_route53resolver: Optional[pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']]] = None,
+            aws_states: Optional[pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']]] = None,
+            aws_transit_gateway: Optional[pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']]] = None,
+            aws_waf: Optional[pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']]] = None,
+            aws_wafv2: Optional[pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']]] = None,
+            billing: Optional[pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']]] = None,
+            cloudfront: Optional[pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']]] = None,
+            cloudtrail: Optional[pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']]] = None,
+            doc_db: Optional[pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']]] = None,
+            dynamodb: Optional[pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']]] = None,
+            ebs: Optional[pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']]] = None,
+            ec2: Optional[pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']]] = None,
+            ecs: Optional[pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']]] = None,
+            efs: Optional[pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']]] = None,
+            elasticache: Optional[pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']]] = None,
+            elasticbeanstalk: Optional[pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']]] = None,
+            elasticsearch: Optional[pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']]] = None,
+            elb: Optional[pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']]] = None,
+            emr: Optional[pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']]] = None,
+            health: Optional[pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']]] = None,
+            iam: Optional[pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']]] = None,
+            iot: Optional[pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']]] = None,
+            kinesis: Optional[pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']]] = None,
+            kinesis_firehose: Optional[pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']]] = None,
+            lambda_: Optional[pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']]] = None,
             linked_account_id: Optional[pulumi.Input[str]] = None,
-            rds: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']]] = None,
-            redshift: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']]] = None,
-            route53: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']]] = None,
-            s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
-            ses: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']]] = None,
-            sns: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']]] = None,
-            sqs: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']]] = None,
-            trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
-            vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
-            x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None) -> 'AwsIntegrations':
+            rds: Optional[pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']]] = None,
+            redshift: Optional[pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
+            route53: Optional[pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
+            s3: Optional[pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
+            ses: Optional[pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
+            sns: Optional[pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
+            sqs: Optional[pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
+            trusted_advisor: Optional[pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']]] = None,
+            vpc: Optional[pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']]] = None,
+            x_ray: Optional[pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']]] = None) -> 'AwsIntegrations':
         """
         Get an existing AwsIntegrations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -2889,66 +2889,66 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAlbArgs']] alb: AWS ALB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsApiGatewayArgs']] api_gateway: AWS API Gateway. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAutoScalingArgs']] auto_scaling: AWS Auto Scaling. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAppSyncArgs']] aws_app_sync: AWS AppSync. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsAthenaArgs']] aws_athena: AWS Athena. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsCognitoArgs']] aws_cognito: AWS Cognito. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsConnectArgs']] aws_connect: AWS Connect. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsDirectConnectArgs']] aws_direct_connect: AWS Direct Connect. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsFsxArgs']] aws_fsx: AWS FSx. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsGlueArgs']] aws_glue: AWS Glue. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsKinesisAnalyticsArgs']] aws_kinesis_analytics: AWS Kinesis Data Analytics. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaConvertArgs']] aws_media_convert: AWS Media Convert. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMediaPackageVodArgs']] aws_media_package_vod: AWS MediaPackage VOD. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMqArgs']] aws_mq: AWS MQ. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsMskArgs']] aws_msk: Amazon Managed Kafka (MSK). See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsNeptuneArgs']] aws_neptune: AWS Neptune. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsQldbArgs']] aws_qldb: Amazon QLDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsRoute53resolverArgs']] aws_route53resolver: AWS Route53 Resolver. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsStatesArgs']] aws_states: Aws states integration
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsTransitGatewayArgs']] aws_transit_gateway: Amazon Transit Gateway. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafArgs']] aws_waf: AWS WAF. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsAwsWafv2Args']] aws_wafv2: AWS WAF V2. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: AWS Billing. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudfrontArgs']] cloudfront: AWS CloudFront. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: AWS CloudTrail. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: AWS DocumentDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDynamodbArgs']] dynamodb: Amazon DynamoDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEbsArgs']] ebs: Amazon EBS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEc2Args']] ec2: Amazon EC2. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEcsArgs']] ecs: Amazon ECS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEfsArgs']] efs: Amazon EFS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticacheArgs']] elasticache: AWS ElastiCache. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticbeanstalkArgs']] elasticbeanstalk: AWS Elastic Beanstalk. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElasticsearchArgs']] elasticsearch: AWS ElasticSearch. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsElbArgs']] elb: AWS ELB (Classic). See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsEmrArgs']] emr: AWS EMR. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: AWS Health. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIamArgs']] iam: AWS IAM. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsIotArgs']] iot: AWS IoT. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisArgs']] kinesis: AWS Kinesis. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAlbArgs', 'AwsIntegrationsAlbArgsDict']] alb: AWS ALB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsApiGatewayArgs', 'AwsIntegrationsApiGatewayArgsDict']] api_gateway: AWS API Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']] auto_scaling: AWS Auto Scaling. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']] aws_app_sync: AWS AppSync. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']] aws_athena: AWS Athena. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']] aws_cognito: AWS Cognito. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']] aws_connect: AWS Connect. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: AWS Direct Connect. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsFsxArgs', 'AwsIntegrationsAwsFsxArgsDict']] aws_fsx: AWS FSx. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsGlueArgs', 'AwsIntegrationsAwsGlueArgsDict']] aws_glue: AWS Glue. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsKinesisAnalyticsArgs', 'AwsIntegrationsAwsKinesisAnalyticsArgsDict']] aws_kinesis_analytics: AWS Kinesis Data Analytics. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaConvertArgs', 'AwsIntegrationsAwsMediaConvertArgsDict']] aws_media_convert: AWS Media Convert. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMediaPackageVodArgs', 'AwsIntegrationsAwsMediaPackageVodArgsDict']] aws_media_package_vod: AWS MediaPackage VOD. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMqArgs', 'AwsIntegrationsAwsMqArgsDict']] aws_mq: AWS MQ. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsMskArgs', 'AwsIntegrationsAwsMskArgsDict']] aws_msk: Amazon Managed Kafka (MSK). See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsNeptuneArgs', 'AwsIntegrationsAwsNeptuneArgsDict']] aws_neptune: AWS Neptune. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsQldbArgs', 'AwsIntegrationsAwsQldbArgsDict']] aws_qldb: Amazon QLDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsRoute53resolverArgs', 'AwsIntegrationsAwsRoute53resolverArgsDict']] aws_route53resolver: AWS Route53 Resolver. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsStatesArgs', 'AwsIntegrationsAwsStatesArgsDict']] aws_states: Aws states integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsTransitGatewayArgs', 'AwsIntegrationsAwsTransitGatewayArgsDict']] aws_transit_gateway: Amazon Transit Gateway. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafArgs', 'AwsIntegrationsAwsWafArgsDict']] aws_waf: AWS WAF. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsAwsWafv2Args', 'AwsIntegrationsAwsWafv2ArgsDict']] aws_wafv2: AWS WAF V2. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsBillingArgs', 'AwsIntegrationsBillingArgsDict']] billing: AWS Billing. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsCloudfrontArgs', 'AwsIntegrationsCloudfrontArgsDict']] cloudfront: AWS CloudFront. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsCloudtrailArgs', 'AwsIntegrationsCloudtrailArgsDict']] cloudtrail: AWS CloudTrail. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsDocDbArgs', 'AwsIntegrationsDocDbArgsDict']] doc_db: AWS DocumentDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsDynamodbArgs', 'AwsIntegrationsDynamodbArgsDict']] dynamodb: Amazon DynamoDB. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEbsArgs', 'AwsIntegrationsEbsArgsDict']] ebs: Amazon EBS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEc2Args', 'AwsIntegrationsEc2ArgsDict']] ec2: Amazon EC2. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEcsArgs', 'AwsIntegrationsEcsArgsDict']] ecs: Amazon ECS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEfsArgs', 'AwsIntegrationsEfsArgsDict']] efs: Amazon EFS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElasticacheArgs', 'AwsIntegrationsElasticacheArgsDict']] elasticache: AWS ElastiCache. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElasticbeanstalkArgs', 'AwsIntegrationsElasticbeanstalkArgsDict']] elasticbeanstalk: AWS Elastic Beanstalk. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElasticsearchArgs', 'AwsIntegrationsElasticsearchArgsDict']] elasticsearch: AWS ElasticSearch. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsElbArgs', 'AwsIntegrationsElbArgsDict']] elb: AWS ELB (Classic). See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsEmrArgs', 'AwsIntegrationsEmrArgsDict']] emr: AWS EMR. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsHealthArgs', 'AwsIntegrationsHealthArgsDict']] health: AWS Health. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsIamArgs', 'AwsIntegrationsIamArgsDict']] iam: AWS IAM. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsIotArgs', 'AwsIntegrationsIotArgsDict']] iot: AWS IoT. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsKinesisArgs', 'AwsIntegrationsKinesisArgsDict']] kinesis: AWS Kinesis. See Integration blocks below for details.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsKinesisFirehoseArgs']] kinesis_firehose: Amazon Kinesis Data Firehose. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsLambdaArgs']] lambda_: AWS Lambda. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']] kinesis_firehose: Amazon Kinesis Data Firehose. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']] lambda_: AWS Lambda. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRdsArgs']] rds: Amazon RDS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRedshiftArgs']] redshift: Amazon Redshift. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsRoute53Args']] route53: Amazon Route 53. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: Amazon S3. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSesArgs']] ses: Amazon SES. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSnsArgs']] sns: AWS SNS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsSqsArgs']] sqs: AWS SQS. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: AWS Trusted Advisor. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']] rds: Amazon RDS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']] redshift: Amazon Redshift. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']] route53: Amazon Route 53. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']] s3: Amazon S3. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']] ses: Amazon SES. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']] sns: AWS SNS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']] sqs: AWS SQS. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsTrustedAdvisorArgs', 'AwsIntegrationsTrustedAdvisorArgsDict']] trusted_advisor: AWS Trusted Advisor. See Integration blocks below for details.
                
                All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration
-        :param pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']] x_ray: AWS X-Ray. See Integration blocks below for details.
+        :param pulumi.Input[Union['AwsIntegrationsVpcArgs', 'AwsIntegrationsVpcArgsDict']] vpc: VPC integration
+        :param pulumi.Input[Union['AwsIntegrationsXRayArgs', 'AwsIntegrationsXRayArgsDict']] x_ray: AWS X-Ray. See Integration blocks below for details.
                x
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.

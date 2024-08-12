@@ -170,7 +170,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AwsGovcloudLinkAccount(String name) {
+    public AwsGovcloudLinkAccount(java.lang.String name) {
         this(name, AwsGovcloudLinkAccountArgs.Empty);
     }
     /**
@@ -178,7 +178,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AwsGovcloudLinkAccount(String name, AwsGovcloudLinkAccountArgs args) {
+    public AwsGovcloudLinkAccount(java.lang.String name, AwsGovcloudLinkAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,12 +187,12 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AwsGovcloudLinkAccount(String name, AwsGovcloudLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AwsGovcloudLinkAccount(java.lang.String name, AwsGovcloudLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AwsGovcloudLinkAccount(String name, Output<String> id, @Nullable AwsGovcloudLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, state, makeResourceOptions(options, id));
+    private AwsGovcloudLinkAccount(java.lang.String name, Output<java.lang.String> id, @Nullable AwsGovcloudLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AwsGovcloudLinkAccountArgs makeArgs(AwsGovcloudLinkAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -202,7 +202,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
         return args == null ? AwsGovcloudLinkAccountArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -222,7 +222,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AwsGovcloudLinkAccount get(String name, Output<String> id, @Nullable AwsGovcloudLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AwsGovcloudLinkAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable AwsGovcloudLinkAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AwsGovcloudLinkAccount(name, id, state, options);
     }
 }
