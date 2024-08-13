@@ -36,6 +36,7 @@ namespace Pulumi.NewRelic
     ///         Type = "static",
     ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
+    ///         TitleTemplate = "Issue in environment: {{ json accumulations.tag.environment }}",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
@@ -47,6 +48,7 @@ namespace Pulumi.NewRelic
     ///         ExpirationDuration = 120,
     ///         OpenViolationOnExpiration = true,
     ///         CloseViolationsOnExpiration = true,
+    ///         IgnoreOnExpectedTermination = true,
     ///         SlideBy = 30,
     ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
     ///         {
@@ -440,6 +442,12 @@ namespace Pulumi.NewRelic
         public Output<double?> FillValue { get; private set; } = null!;
 
         /// <summary>
+        /// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+        /// </summary>
+        [Output("ignoreOnExpectedTermination")]
+        public Output<bool?> IgnoreOnExpectedTermination { get; private set; } = null!;
+
+        /// <summary>
         /// The title of the condition.
         /// </summary>
         [Output("name")]
@@ -480,6 +488,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerm>> Terms { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+        /// </summary>
+        [Output("titleTemplate")]
+        public Output<string?> TitleTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
@@ -638,6 +652,12 @@ namespace Pulumi.NewRelic
         public Input<double>? FillValue { get; set; }
 
         /// <summary>
+        /// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+        /// </summary>
+        [Input("ignoreOnExpectedTermination")]
+        public Input<bool>? IgnoreOnExpectedTermination { get; set; }
+
+        /// <summary>
         /// The title of the condition.
         /// </summary>
         [Input("name")]
@@ -685,6 +705,12 @@ namespace Pulumi.NewRelic
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermArgs>());
             set => _terms = value;
         }
+
+        /// <summary>
+        /// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+        /// </summary>
+        [Input("titleTemplate")]
+        public Input<string>? TitleTemplate { get; set; }
 
         /// <summary>
         /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
@@ -811,6 +837,12 @@ namespace Pulumi.NewRelic
         public Input<double>? FillValue { get; set; }
 
         /// <summary>
+        /// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+        /// </summary>
+        [Input("ignoreOnExpectedTermination")]
+        public Input<bool>? IgnoreOnExpectedTermination { get; set; }
+
+        /// <summary>
         /// The title of the condition.
         /// </summary>
         [Input("name")]
@@ -858,6 +890,12 @@ namespace Pulumi.NewRelic
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermGetArgs>());
             set => _terms = value;
         }
+
+        /// <summary>
+        /// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+        /// </summary>
+        [Input("titleTemplate")]
+        public Input<string>? TitleTemplate { get; set; }
 
         /// <summary>
         /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
