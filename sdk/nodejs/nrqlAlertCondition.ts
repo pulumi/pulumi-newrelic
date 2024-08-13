@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *     type: "static",
  *     name: "foo",
  *     description: "Alert when transactions are taking too long",
+ *     titleTemplate: "Issue in environment: {{ json accumulations.tag.environment }}",
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
  *     violationTimeLimitSeconds: 3600,
@@ -35,6 +36,7 @@ import * as utilities from "./utilities";
  *     expirationDuration: 120,
  *     openViolationOnExpiration: true,
  *     closeViolationsOnExpiration: true,
+ *     ignoreOnExpectedTermination: true,
  *     slideBy: 30,
  *     nrql: {
  *         query: "SELECT average(duration) FROM Transaction where appName = 'Your App'",
@@ -360,6 +362,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly fillValue!: pulumi.Output<number | undefined>;
     /**
+     * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     */
+    public readonly ignoreOnExpectedTermination!: pulumi.Output<boolean | undefined>;
+    /**
      * The title of the condition.
      */
     public readonly name!: pulumi.Output<string>;
@@ -389,6 +395,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      * @deprecated use `critical` and `warning` attributes instead
      */
     public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[] | undefined>;
+    /**
+     * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     */
+    public readonly titleTemplate!: pulumi.Output<string | undefined>;
     /**
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */
@@ -438,6 +448,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["expirationDuration"] = state ? state.expirationDuration : undefined;
             resourceInputs["fillOption"] = state ? state.fillOption : undefined;
             resourceInputs["fillValue"] = state ? state.fillValue : undefined;
+            resourceInputs["ignoreOnExpectedTermination"] = state ? state.ignoreOnExpectedTermination : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nrql"] = state ? state.nrql : undefined;
             resourceInputs["openViolationOnExpiration"] = state ? state.openViolationOnExpiration : undefined;
@@ -445,6 +456,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
             resourceInputs["slideBy"] = state ? state.slideBy : undefined;
             resourceInputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["titleTemplate"] = state ? state.titleTemplate : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["violationTimeLimit"] = state ? state.violationTimeLimit : undefined;
             resourceInputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
@@ -471,6 +483,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["expirationDuration"] = args ? args.expirationDuration : undefined;
             resourceInputs["fillOption"] = args ? args.fillOption : undefined;
             resourceInputs["fillValue"] = args ? args.fillValue : undefined;
+            resourceInputs["ignoreOnExpectedTermination"] = args ? args.ignoreOnExpectedTermination : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nrql"] = args ? args.nrql : undefined;
             resourceInputs["openViolationOnExpiration"] = args ? args.openViolationOnExpiration : undefined;
@@ -478,6 +491,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             resourceInputs["slideBy"] = args ? args.slideBy : undefined;
             resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["titleTemplate"] = args ? args.titleTemplate : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["violationTimeLimit"] = args ? args.violationTimeLimit : undefined;
             resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
@@ -554,6 +568,10 @@ export interface NrqlAlertConditionState {
      */
     fillValue?: pulumi.Input<number>;
     /**
+     * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     */
+    ignoreOnExpectedTermination?: pulumi.Input<boolean>;
+    /**
      * The title of the condition.
      */
     name?: pulumi.Input<string>;
@@ -583,6 +601,10 @@ export interface NrqlAlertConditionState {
      * @deprecated use `critical` and `warning` attributes instead
      */
     terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    /**
+     * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     */
+    titleTemplate?: pulumi.Input<string>;
     /**
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */
@@ -666,6 +688,10 @@ export interface NrqlAlertConditionArgs {
      */
     fillValue?: pulumi.Input<number>;
     /**
+     * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     */
+    ignoreOnExpectedTermination?: pulumi.Input<boolean>;
+    /**
      * The title of the condition.
      */
     name?: pulumi.Input<string>;
@@ -695,6 +721,10 @@ export interface NrqlAlertConditionArgs {
      * @deprecated use `critical` and `warning` attributes instead
      */
     terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    /**
+     * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     */
+    titleTemplate?: pulumi.Input<string>;
     /**
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */

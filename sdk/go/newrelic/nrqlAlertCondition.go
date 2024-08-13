@@ -42,6 +42,7 @@ import (
 //				Type:                        pulumi.String("static"),
 //				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
+//				TitleTemplate:               pulumi.String("Issue in environment: {{ json accumulations.tag.environment }}"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
 //				ViolationTimeLimitSeconds:   pulumi.Int(3600),
@@ -53,6 +54,7 @@ import (
 //				ExpirationDuration:          pulumi.Int(120),
 //				OpenViolationOnExpiration:   pulumi.Bool(true),
 //				CloseViolationsOnExpiration: pulumi.Bool(true),
+//				IgnoreOnExpectedTermination: pulumi.Bool(true),
 //				SlideBy:                     pulumi.Int(30),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
 //					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
@@ -405,6 +407,8 @@ type NrqlAlertCondition struct {
 	FillOption pulumi.StringPtrOutput `pulumi:"fillOption"`
 	// This value will be used for filling gaps in the signal.
 	FillValue pulumi.Float64PtrOutput `pulumi:"fillValue"`
+	// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+	IgnoreOnExpectedTermination pulumi.BoolPtrOutput `pulumi:"ignoreOnExpectedTermination"`
 	// The title of the condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
@@ -421,6 +425,8 @@ type NrqlAlertCondition struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
+	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+	TitleTemplate pulumi.StringPtrOutput `pulumi:"titleTemplate"`
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
@@ -501,6 +507,8 @@ type nrqlAlertConditionState struct {
 	FillOption *string `pulumi:"fillOption"`
 	// This value will be used for filling gaps in the signal.
 	FillValue *float64 `pulumi:"fillValue"`
+	// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+	IgnoreOnExpectedTermination *bool `pulumi:"ignoreOnExpectedTermination"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
@@ -517,6 +525,8 @@ type nrqlAlertConditionState struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
+	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+	TitleTemplate *string `pulumi:"titleTemplate"`
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type *string `pulumi:"type"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
@@ -562,6 +572,8 @@ type NrqlAlertConditionState struct {
 	FillOption pulumi.StringPtrInput
 	// This value will be used for filling gaps in the signal.
 	FillValue pulumi.Float64PtrInput
+	// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+	IgnoreOnExpectedTermination pulumi.BoolPtrInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
 	// A NRQL query. See NRQL below for details.
@@ -578,6 +590,8 @@ type NrqlAlertConditionState struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
+	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+	TitleTemplate pulumi.StringPtrInput
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
@@ -625,6 +639,8 @@ type nrqlAlertConditionArgs struct {
 	FillOption *string `pulumi:"fillOption"`
 	// This value will be used for filling gaps in the signal.
 	FillValue *float64 `pulumi:"fillValue"`
+	// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+	IgnoreOnExpectedTermination *bool `pulumi:"ignoreOnExpectedTermination"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
@@ -641,6 +657,8 @@ type nrqlAlertConditionArgs struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
+	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+	TitleTemplate *string `pulumi:"titleTemplate"`
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type *string `pulumi:"type"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
@@ -685,6 +703,8 @@ type NrqlAlertConditionArgs struct {
 	FillOption pulumi.StringPtrInput
 	// This value will be used for filling gaps in the signal.
 	FillValue pulumi.Float64PtrInput
+	// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+	IgnoreOnExpectedTermination pulumi.BoolPtrInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
 	// A NRQL query. See NRQL below for details.
@@ -701,6 +721,8 @@ type NrqlAlertConditionArgs struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
+	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+	TitleTemplate pulumi.StringPtrInput
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
@@ -877,6 +899,11 @@ func (o NrqlAlertConditionOutput) FillValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.Float64PtrOutput { return v.FillValue }).(pulumi.Float64PtrOutput)
 }
 
+// Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+func (o NrqlAlertConditionOutput) IgnoreOnExpectedTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.IgnoreOnExpectedTermination }).(pulumi.BoolPtrOutput)
+}
+
 // The title of the condition.
 func (o NrqlAlertConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -912,6 +939,11 @@ func (o NrqlAlertConditionOutput) SlideBy() pulumi.IntPtrOutput {
 // Deprecated: use `critical` and `warning` attributes instead
 func (o NrqlAlertConditionOutput) Terms() NrqlAlertConditionTermArrayOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionTermArrayOutput { return v.Terms }).(NrqlAlertConditionTermArrayOutput)
+}
+
+// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+func (o NrqlAlertConditionOutput) TitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.TitleTemplate }).(pulumi.StringPtrOutput)
 }
 
 // The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.

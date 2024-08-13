@@ -235,6 +235,21 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     * 
+     */
+    @Import(name="ignoreOnExpectedTermination")
+    private @Nullable Output<Boolean> ignoreOnExpectedTermination;
+
+    /**
+     * @return Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreOnExpectedTermination() {
+        return Optional.ofNullable(this.ignoreOnExpectedTermination);
+    }
+
+    /**
      * The title of the condition.
      * 
      */
@@ -348,6 +363,21 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     * 
+     */
+    @Import(name="titleTemplate")
+    private @Nullable Output<String> titleTemplate;
+
+    /**
+     * @return The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     * 
+     */
+    public Optional<Output<String>> titleTemplate() {
+        return Optional.ofNullable(this.titleTemplate);
+    }
+
+    /**
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      * 
      */
@@ -436,6 +466,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         this.expirationDuration = $.expirationDuration;
         this.fillOption = $.fillOption;
         this.fillValue = $.fillValue;
+        this.ignoreOnExpectedTermination = $.ignoreOnExpectedTermination;
         this.name = $.name;
         this.nrql = $.nrql;
         this.openViolationOnExpiration = $.openViolationOnExpiration;
@@ -443,6 +474,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         this.runbookUrl = $.runbookUrl;
         this.slideBy = $.slideBy;
         this.terms = $.terms;
+        this.titleTemplate = $.titleTemplate;
         this.type = $.type;
         this.violationTimeLimit = $.violationTimeLimit;
         this.violationTimeLimitSeconds = $.violationTimeLimitSeconds;
@@ -762,6 +794,27 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param ignoreOnExpectedTermination Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreOnExpectedTermination(@Nullable Output<Boolean> ignoreOnExpectedTermination) {
+            $.ignoreOnExpectedTermination = ignoreOnExpectedTermination;
+            return this;
+        }
+
+        /**
+         * @param ignoreOnExpectedTermination Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreOnExpectedTermination(Boolean ignoreOnExpectedTermination) {
+            return ignoreOnExpectedTermination(Output.of(ignoreOnExpectedTermination));
+        }
+
+        /**
          * @param name The title of the condition.
          * 
          * @return builder
@@ -928,6 +981,27 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         @Deprecated /* use `critical` and `warning` attributes instead */
         public Builder terms(NrqlAlertConditionTermArgs... terms) {
             return terms(List.of(terms));
+        }
+
+        /**
+         * @param titleTemplate The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleTemplate(@Nullable Output<String> titleTemplate) {
+            $.titleTemplate = titleTemplate;
+            return this;
+        }
+
+        /**
+         * @param titleTemplate The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleTemplate(String titleTemplate) {
+            return titleTemplate(Output.of(titleTemplate));
         }
 
         /**

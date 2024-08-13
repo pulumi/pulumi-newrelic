@@ -32,11 +32,13 @@ class NrqlAlertConditionArgs:
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
+                 ignore_on_expected_termination: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
+                 title_template: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
@@ -59,11 +61,13 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
+        :param pulumi.Input[bool] ignore_on_expected_termination: Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -101,6 +105,8 @@ class NrqlAlertConditionArgs:
             pulumi.set(__self__, "fill_option", fill_option)
         if fill_value is not None:
             pulumi.set(__self__, "fill_value", fill_value)
+        if ignore_on_expected_termination is not None:
+            pulumi.set(__self__, "ignore_on_expected_termination", ignore_on_expected_termination)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if open_violation_on_expiration is not None:
@@ -114,6 +120,8 @@ class NrqlAlertConditionArgs:
             pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
         if terms is not None:
             pulumi.set(__self__, "terms", terms)
+        if title_template is not None:
+            pulumi.set(__self__, "title_template", title_template)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if violation_time_limit is not None:
@@ -319,6 +327,18 @@ class NrqlAlertConditionArgs:
         pulumi.set(self, "fill_value", value)
 
     @property
+    @pulumi.getter(name="ignoreOnExpectedTermination")
+    def ignore_on_expected_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+        """
+        return pulumi.get(self, "ignore_on_expected_termination")
+
+    @ignore_on_expected_termination.setter
+    def ignore_on_expected_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_on_expected_termination", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -378,6 +398,18 @@ class NrqlAlertConditionArgs:
     @terms.setter
     def terms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]):
         pulumi.set(self, "terms", value)
+
+    @property
+    @pulumi.getter(name="titleTemplate")
+    def title_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+        """
+        return pulumi.get(self, "title_template")
+
+    @title_template.setter
+    def title_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_template", value)
 
     @property
     @pulumi.getter
@@ -449,6 +481,7 @@ class _NrqlAlertConditionState:
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
+                 ignore_on_expected_termination: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
@@ -456,6 +489,7 @@ class _NrqlAlertConditionState:
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
+                 title_template: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
@@ -477,6 +511,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
+        :param pulumi.Input[bool] ignore_on_expected_termination: Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
@@ -484,6 +519,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -521,6 +557,8 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "fill_option", fill_option)
         if fill_value is not None:
             pulumi.set(__self__, "fill_value", fill_value)
+        if ignore_on_expected_termination is not None:
+            pulumi.set(__self__, "ignore_on_expected_termination", ignore_on_expected_termination)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nrql is not None:
@@ -538,6 +576,8 @@ class _NrqlAlertConditionState:
             pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
         if terms is not None:
             pulumi.set(__self__, "terms", terms)
+        if title_template is not None:
+            pulumi.set(__self__, "title_template", title_template)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if violation_time_limit is not None:
@@ -731,6 +771,18 @@ class _NrqlAlertConditionState:
         pulumi.set(self, "fill_value", value)
 
     @property
+    @pulumi.getter(name="ignoreOnExpectedTermination")
+    def ignore_on_expected_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+        """
+        return pulumi.get(self, "ignore_on_expected_termination")
+
+    @ignore_on_expected_termination.setter
+    def ignore_on_expected_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_on_expected_termination", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -816,6 +868,18 @@ class _NrqlAlertConditionState:
         pulumi.set(self, "terms", value)
 
     @property
+    @pulumi.getter(name="titleTemplate")
+    def title_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+        """
+        return pulumi.get(self, "title_template")
+
+    @title_template.setter
+    def title_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title_template", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -886,6 +950,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
+                 ignore_on_expected_termination: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
@@ -893,6 +958,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
+                 title_template: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
@@ -916,6 +982,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             type="static",
             name="foo",
             description="Alert when transactions are taking too long",
+            title_template="Issue in environment: {{ json accumulations.tag.environment }}",
             runbook_url="https://www.example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -927,6 +994,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             expiration_duration=120,
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
+            ignore_on_expected_termination=True,
             slide_by=30,
             nrql={
                 "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
@@ -1173,6 +1241,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
+        :param pulumi.Input[bool] ignore_on_expected_termination: Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
@@ -1180,6 +1249,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -1211,6 +1281,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             type="static",
             name="foo",
             description="Alert when transactions are taking too long",
+            title_template="Issue in environment: {{ json accumulations.tag.environment }}",
             runbook_url="https://www.example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -1222,6 +1293,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             expiration_duration=120,
             open_violation_on_expiration=True,
             close_violations_on_expiration=True,
+            ignore_on_expected_termination=True,
             slide_by=30,
             nrql={
                 "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
@@ -1481,6 +1553,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
+                 ignore_on_expected_termination: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
@@ -1488,6 +1561,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
+                 title_template: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
@@ -1515,6 +1589,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["expiration_duration"] = expiration_duration
             __props__.__dict__["fill_option"] = fill_option
             __props__.__dict__["fill_value"] = fill_value
+            __props__.__dict__["ignore_on_expected_termination"] = ignore_on_expected_termination
             __props__.__dict__["name"] = name
             if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
@@ -1526,6 +1601,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["runbook_url"] = runbook_url
             __props__.__dict__["slide_by"] = slide_by
             __props__.__dict__["terms"] = terms
+            __props__.__dict__["title_template"] = title_template
             __props__.__dict__["type"] = type
             __props__.__dict__["violation_time_limit"] = violation_time_limit
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
@@ -1556,6 +1632,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             expiration_duration: Optional[pulumi.Input[int]] = None,
             fill_option: Optional[pulumi.Input[str]] = None,
             fill_value: Optional[pulumi.Input[float]] = None,
+            ignore_on_expected_termination: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
             open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
@@ -1563,6 +1640,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             runbook_url: Optional[pulumi.Input[str]] = None,
             slide_by: Optional[pulumi.Input[int]] = None,
             terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
+            title_template: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             violation_time_limit: Optional[pulumi.Input[str]] = None,
             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
@@ -1589,6 +1667,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
+        :param pulumi.Input[bool] ignore_on_expected_termination: Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
@@ -1596,6 +1675,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
@@ -1622,6 +1702,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["expiration_duration"] = expiration_duration
         __props__.__dict__["fill_option"] = fill_option
         __props__.__dict__["fill_value"] = fill_value
+        __props__.__dict__["ignore_on_expected_termination"] = ignore_on_expected_termination
         __props__.__dict__["name"] = name
         __props__.__dict__["nrql"] = nrql
         __props__.__dict__["open_violation_on_expiration"] = open_violation_on_expiration
@@ -1629,6 +1710,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["runbook_url"] = runbook_url
         __props__.__dict__["slide_by"] = slide_by
         __props__.__dict__["terms"] = terms
+        __props__.__dict__["title_template"] = title_template
         __props__.__dict__["type"] = type
         __props__.__dict__["violation_time_limit"] = violation_time_limit
         __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
@@ -1756,6 +1838,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         return pulumi.get(self, "fill_value")
 
     @property
+    @pulumi.getter(name="ignoreOnExpectedTermination")
+    def ignore_on_expected_termination(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+        """
+        return pulumi.get(self, "ignore_on_expected_termination")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -1811,6 +1901,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         """
         return pulumi.get(self, "terms")
+
+    @property
+    @pulumi.getter(name="titleTemplate")
+    def title_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+        """
+        return pulumi.get(self, "title_template")
 
     @property
     @pulumi.getter

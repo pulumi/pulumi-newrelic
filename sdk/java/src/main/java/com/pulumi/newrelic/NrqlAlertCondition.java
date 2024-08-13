@@ -67,6 +67,7 @@ import javax.annotation.Nullable;
  *             .type("static")
  *             .name("foo")
  *             .description("Alert when transactions are taking too long")
+ *             .titleTemplate("Issue in environment: {{ json accumulations.tag.environment }}")
  *             .runbookUrl("https://www.example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
@@ -78,6 +79,7 @@ import javax.annotation.Nullable;
  *             .expirationDuration(120)
  *             .openViolationOnExpiration(true)
  *             .closeViolationsOnExpiration(true)
+ *             .ignoreOnExpectedTermination(true)
  *             .slideBy(30)
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
  *                 .query("SELECT average(duration) FROM Transaction where appName = 'Your App'")
@@ -651,6 +653,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fillValue);
     }
     /**
+     * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     * 
+     */
+    @Export(name="ignoreOnExpectedTermination", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ignoreOnExpectedTermination;
+
+    /**
+     * @return Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
+     * 
+     */
+    public Output<Optional<Boolean>> ignoreOnExpectedTermination() {
+        return Codegen.optional(this.ignoreOnExpectedTermination);
+    }
+    /**
      * The title of the condition.
      * 
      */
@@ -751,6 +767,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<NrqlAlertConditionTerm>>> terms() {
         return Codegen.optional(this.terms);
+    }
+    /**
+     * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     * 
+     */
+    @Export(name="titleTemplate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> titleTemplate;
+
+    /**
+     * @return The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
+     * 
+     */
+    public Output<Optional<String>> titleTemplate() {
+        return Codegen.optional(this.titleTemplate);
     }
     /**
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
