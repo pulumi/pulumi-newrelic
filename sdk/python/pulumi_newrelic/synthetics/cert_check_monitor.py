@@ -427,10 +427,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
-
-        Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
-
         ## Example Usage
 
         ```python
@@ -517,10 +513,6 @@ class CertCheckMonitor(pulumi.CustomResource):
                  args: CertCheckMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
-
-        Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
-
         ## Example Usage
 
         ```python
