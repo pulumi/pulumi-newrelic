@@ -13337,6 +13337,9 @@
                 "uri": {
                     "type": "string",
                     "description": "The URI the monitor runs against.\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -13398,6 +13401,9 @@
                 "uri": {
                     "type": "string",
                     "description": "The URI the monitor runs against.\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "requiredInputs": [
@@ -13465,6 +13471,9 @@
                     "uri": {
                         "type": "string",
                         "description": "The URI the monitor runs against.\n"
+                    },
+                    "useUnsupportedLegacyRuntime": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -13517,7 +13526,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific version of the runtime type selected.\n\n\u003e **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.\n\n\u003e **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.\n"
+                    "description": "The specific semver version of the runtime type.\n"
                 },
                 "status": {
                     "type": "string",
@@ -13529,6 +13538,9 @@
                         "$ref": "#/types/newrelic:synthetics/CertCheckMonitorTag:CertCheckMonitorTag"
                     },
                     "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -13581,7 +13593,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific version of the runtime type selected.\n\n\u003e **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.\n\n\u003e **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.\n"
+                    "description": "The specific semver version of the runtime type.\n"
                 },
                 "status": {
                     "type": "string",
@@ -13593,6 +13605,9 @@
                         "$ref": "#/types/newrelic:synthetics/CertCheckMonitorTag:CertCheckMonitorTag"
                     },
                     "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "requiredInputs": [
@@ -13648,7 +13663,7 @@
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
-                        "description": "The specific version of the runtime type selected.\n\n\u003e **NOTE:** Currently, the values of `runtime_type` and `runtime_type_version` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtime_type` and `runtime_type_version` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.\n\n\u003e **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.\n"
+                        "description": "The specific semver version of the runtime type.\n"
                     },
                     "status": {
                         "type": "string",
@@ -13660,6 +13675,9 @@
                             "$ref": "#/types/newrelic:synthetics/CertCheckMonitorTag:CertCheckMonitorTag"
                         },
                         "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details\n"
+                    },
+                    "useUnsupportedLegacyRuntime": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -13755,6 +13773,9 @@
                 "uri": {
                     "type": "string",
                     "description": "The URI the monitor runs against.\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 },
                 "validationString": {
                     "type": "string",
@@ -13858,6 +13879,9 @@
                 "uri": {
                     "type": "string",
                     "description": "The URI the monitor runs against.\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 },
                 "validationString": {
                     "type": "string",
@@ -13963,6 +13987,9 @@
                     "uri": {
                         "type": "string",
                         "description": "The URI the monitor runs against.\n"
+                    },
+                    "useUnsupportedLegacyRuntime": {
+                        "type": "boolean"
                     },
                     "validationString": {
                         "type": "string",
@@ -14304,6 +14331,9 @@
                 "type": {
                     "type": "string",
                     "description": "The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -14386,6 +14416,9 @@
                     "type": "string",
                     "description": "The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API\n",
                     "willReplaceOnChanges": true
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "requiredInputs": [
@@ -14474,6 +14507,9 @@
                         "type": "string",
                         "description": "The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API\n",
                         "willReplaceOnChanges": true
+                    },
+                    "useUnsupportedLegacyRuntime": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
@@ -14635,6 +14671,9 @@
                         "$ref": "#/types/newrelic:synthetics/StepMonitorTag:StepMonitorTag"
                     },
                     "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -14703,6 +14742,9 @@
                         "$ref": "#/types/newrelic:synthetics/StepMonitorTag:StepMonitorTag"
                     },
                     "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n"
+                },
+                "useUnsupportedLegacyRuntime": {
+                    "type": "boolean"
                 }
             },
             "requiredInputs": [
@@ -14777,6 +14819,9 @@
                             "$ref": "#/types/newrelic:synthetics/StepMonitorTag:StepMonitorTag"
                         },
                         "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n"
+                    },
+                    "useUnsupportedLegacyRuntime": {
+                        "type": "boolean"
                     }
                 },
                 "type": "object"
