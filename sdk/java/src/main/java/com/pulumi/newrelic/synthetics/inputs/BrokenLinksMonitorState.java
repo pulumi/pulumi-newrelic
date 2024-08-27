@@ -6,6 +6,7 @@ package com.pulumi.newrelic.synthetics.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.synthetics.inputs.BrokenLinksMonitorTagArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -198,6 +199,13 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.uri);
     }
 
+    @Import(name="useUnsupportedLegacyRuntime")
+    private @Nullable Output<Boolean> useUnsupportedLegacyRuntime;
+
+    public Optional<Output<Boolean>> useUnsupportedLegacyRuntime() {
+        return Optional.ofNullable(this.useUnsupportedLegacyRuntime);
+    }
+
     private BrokenLinksMonitorState() {}
 
     private BrokenLinksMonitorState(BrokenLinksMonitorState $) {
@@ -213,6 +221,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         this.status = $.status;
         this.tags = $.tags;
         this.uri = $.uri;
+        this.useUnsupportedLegacyRuntime = $.useUnsupportedLegacyRuntime;
     }
 
     public static Builder builder() {
@@ -513,6 +522,15 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
          */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
+        }
+
+        public Builder useUnsupportedLegacyRuntime(@Nullable Output<Boolean> useUnsupportedLegacyRuntime) {
+            $.useUnsupportedLegacyRuntime = useUnsupportedLegacyRuntime;
+            return this;
+        }
+
+        public Builder useUnsupportedLegacyRuntime(Boolean useUnsupportedLegacyRuntime) {
+            return useUnsupportedLegacyRuntime(Output.of(useUnsupportedLegacyRuntime));
         }
 
         public BrokenLinksMonitorState build() {

@@ -136,11 +136,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
-     * The specific version of the runtime type selected.
-     *
-     * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
-     *
-     * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+     * The specific semver version of the runtime type.
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -151,6 +147,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      */
     public readonly tags!: pulumi.Output<outputs.synthetics.CertCheckMonitorTag[] | undefined>;
+    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a CertCheckMonitor resource with the given unique name, arguments, and options.
@@ -177,6 +174,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
             resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
         } else {
             const args = argsOrState as CertCheckMonitorArgs | undefined;
             if ((!args || args.certificateExpiration === undefined) && !opts.urn) {
@@ -202,6 +200,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
             resourceInputs["runtimeTypeVersion"] = args ? args.runtimeTypeVersion : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -250,11 +249,7 @@ export interface CertCheckMonitorState {
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific version of the runtime type selected.
-     *
-     * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
-     *
-     * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+     * The specific semver version of the runtime type.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -265,6 +260,7 @@ export interface CertCheckMonitorState {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CertCheckMonitorTag>[]>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }
 
 /**
@@ -304,11 +300,7 @@ export interface CertCheckMonitorArgs {
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific version of the runtime type selected.
-     *
-     * > **NOTE:** Currently, the values of `runtimeType` and `runtimeTypeVersion` supported by this resource are `NODE_API` and `16.10` respectively. In order to run the monitor in the new runtime, both `runtimeType` and `runtimeTypeVersion` need to be specified; however, specifying neither of these attributes would set this monitor to use the legacy runtime. It may also be noted that the runtime opted for would only be effective with private locations. For public locations, all traffic has been shifted to the new runtime, irrespective of the selection made.
-     *
-     * > **WARNING** Support for legacy Synthetics runtimes **will reach its end-of-life (EOL) on October 22, 2024**. In addition, creating **_new_** monitors using the legacy runtime **will no longer be supported after August 26, 2024**. In light of the above, kindly **upgrade your Synthetic Monitors to the new runtime** at the earliest, if they are still using the legacy runtime. Please check out [this page](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, action needed (specific to monitors using public and private locations), relevant resources, and more.
+     * The specific semver version of the runtime type.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -319,4 +311,5 @@ export interface CertCheckMonitorArgs {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CertCheckMonitorTag>[]>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }

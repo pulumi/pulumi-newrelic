@@ -324,6 +324,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        [Output("useUnsupportedLegacyRuntime")]
+        public Output<bool?> UseUnsupportedLegacyRuntime { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ScriptMonitor resource with the given unique name, arguments, and options.
@@ -480,6 +483,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
+
         public ScriptMonitorArgs()
         {
         }
@@ -609,6 +615,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
 
         public ScriptMonitorState()
         {

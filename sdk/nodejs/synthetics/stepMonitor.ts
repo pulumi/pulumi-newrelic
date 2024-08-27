@@ -164,6 +164,7 @@ export class StepMonitor extends pulumi.CustomResource {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      */
     public readonly tags!: pulumi.Output<outputs.synthetics.StepMonitorTag[] | undefined>;
+    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a StepMonitor resource with the given unique name, arguments, and options.
@@ -191,6 +192,7 @@ export class StepMonitor extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["steps"] = state ? state.steps : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
         } else {
             const args = argsOrState as StepMonitorArgs | undefined;
             if ((!args || args.period === undefined) && !opts.urn) {
@@ -213,6 +215,7 @@ export class StepMonitor extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
@@ -277,6 +280,7 @@ export interface StepMonitorState {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorTag>[]>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }
 
 /**
@@ -327,4 +331,5 @@ export interface StepMonitorArgs {
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.StepMonitorTag>[]>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }

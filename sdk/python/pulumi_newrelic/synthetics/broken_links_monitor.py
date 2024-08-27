@@ -25,7 +25,8 @@ class BrokenLinksMonitorArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  runtime_type: Optional[pulumi.Input[str]] = None,
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BrokenLinksMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -56,6 +57,8 @@ class BrokenLinksMonitorArgs:
             pulumi.set(__self__, "runtime_type_version", runtime_type_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_unsupported_legacy_runtime is not None:
+            pulumi.set(__self__, "use_unsupported_legacy_runtime", use_unsupported_legacy_runtime)
 
     @property
     @pulumi.getter
@@ -177,6 +180,15 @@ class BrokenLinksMonitorArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="useUnsupportedLegacyRuntime")
+    def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_unsupported_legacy_runtime")
+
+    @use_unsupported_legacy_runtime.setter
+    def use_unsupported_legacy_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_unsupported_legacy_runtime", value)
+
 
 @pulumi.input_type
 class _BrokenLinksMonitorState:
@@ -192,7 +204,8 @@ class _BrokenLinksMonitorState:
                  runtime_type_version: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]] = None,
-                 uri: Optional[pulumi.Input[str]] = None):
+                 uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering BrokenLinksMonitor resources.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
@@ -232,6 +245,8 @@ class _BrokenLinksMonitorState:
             pulumi.set(__self__, "tags", tags)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+        if use_unsupported_legacy_runtime is not None:
+            pulumi.set(__self__, "use_unsupported_legacy_runtime", use_unsupported_legacy_runtime)
 
     @property
     @pulumi.getter(name="accountId")
@@ -377,6 +392,15 @@ class _BrokenLinksMonitorState:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+    @property
+    @pulumi.getter(name="useUnsupportedLegacyRuntime")
+    def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_unsupported_legacy_runtime")
+
+    @use_unsupported_legacy_runtime.setter
+    def use_unsupported_legacy_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_unsupported_legacy_runtime", value)
+
 
 class BrokenLinksMonitor(pulumi.CustomResource):
     @overload
@@ -393,6 +417,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -558,6 +583,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -583,6 +609,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             if uri is None and not opts.urn:
                 raise TypeError("Missing required property 'uri'")
             __props__.__dict__["uri"] = uri
+            __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
             __props__.__dict__["guid"] = None
             __props__.__dict__["period_in_minutes"] = None
         super(BrokenLinksMonitor, __self__).__init__(
@@ -606,7 +633,8 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             runtime_type_version: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokenLinksMonitorTagArgs', 'BrokenLinksMonitorTagArgsDict']]]]] = None,
-            uri: Optional[pulumi.Input[str]] = None) -> 'BrokenLinksMonitor':
+            uri: Optional[pulumi.Input[str]] = None,
+            use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None) -> 'BrokenLinksMonitor':
         """
         Get an existing BrokenLinksMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -643,6 +671,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["uri"] = uri
+        __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
         return BrokenLinksMonitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -740,4 +769,9 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="useUnsupportedLegacyRuntime")
+    def use_unsupported_legacy_runtime(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "use_unsupported_legacy_runtime")
 

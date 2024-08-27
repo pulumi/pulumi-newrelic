@@ -298,6 +298,13 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.uri);
     }
 
+    @Import(name="useUnsupportedLegacyRuntime")
+    private @Nullable Output<Boolean> useUnsupportedLegacyRuntime;
+
+    public Optional<Output<Boolean>> useUnsupportedLegacyRuntime() {
+        return Optional.ofNullable(this.useUnsupportedLegacyRuntime);
+    }
+
     /**
      * Validation text for monitor to search for at given URI.
      * 
@@ -349,6 +356,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         this.treatRedirectAsFailure = $.treatRedirectAsFailure;
         this.type = $.type;
         this.uri = $.uri;
+        this.useUnsupportedLegacyRuntime = $.useUnsupportedLegacyRuntime;
         this.validationString = $.validationString;
         this.verifySsl = $.verifySsl;
     }
@@ -797,6 +805,15 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
+        }
+
+        public Builder useUnsupportedLegacyRuntime(@Nullable Output<Boolean> useUnsupportedLegacyRuntime) {
+            $.useUnsupportedLegacyRuntime = useUnsupportedLegacyRuntime;
+            return this;
+        }
+
+        public Builder useUnsupportedLegacyRuntime(Boolean useUnsupportedLegacyRuntime) {
+            return useUnsupportedLegacyRuntime(Output.of(useUnsupportedLegacyRuntime));
         }
 
         /**

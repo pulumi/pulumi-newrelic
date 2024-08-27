@@ -11,6 +11,7 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.BrokenLinksMonitorArgs;
 import com.pulumi.newrelic.synthetics.inputs.BrokenLinksMonitorState;
 import com.pulumi.newrelic.synthetics.outputs.BrokenLinksMonitorTag;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -303,6 +304,12 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> uri() {
         return this.uri;
+    }
+    @Export(name="useUnsupportedLegacyRuntime", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useUnsupportedLegacyRuntime;
+
+    public Output<Optional<Boolean>> useUnsupportedLegacyRuntime() {
+        return Codegen.optional(this.useUnsupportedLegacyRuntime);
     }
 
     /**

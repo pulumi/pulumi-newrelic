@@ -242,6 +242,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
      * The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
      */
     public readonly type!: pulumi.Output<string>;
+    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ScriptMonitor resource with the given unique name, arguments, and options.
@@ -273,6 +274,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
         } else {
             const args = argsOrState as ScriptMonitorArgs | undefined;
             if ((!args || args.period === undefined) && !opts.urn) {
@@ -299,6 +301,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
@@ -381,6 +384,7 @@ export interface ScriptMonitorState {
      * The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
      */
     type?: pulumi.Input<string>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }
 
 /**
@@ -449,4 +453,5 @@ export interface ScriptMonitorArgs {
      * The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
      */
     type: pulumi.Input<string>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }

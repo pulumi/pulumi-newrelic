@@ -186,6 +186,13 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="useUnsupportedLegacyRuntime")
+    private @Nullable Output<Boolean> useUnsupportedLegacyRuntime;
+
+    public Optional<Output<Boolean>> useUnsupportedLegacyRuntime() {
+        return Optional.ofNullable(this.useUnsupportedLegacyRuntime);
+    }
+
     private StepMonitorArgs() {}
 
     private StepMonitorArgs(StepMonitorArgs $) {
@@ -200,6 +207,7 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         this.status = $.status;
         this.steps = $.steps;
         this.tags = $.tags;
+        this.useUnsupportedLegacyRuntime = $.useUnsupportedLegacyRuntime;
     }
 
     public static Builder builder() {
@@ -489,6 +497,15 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(StepMonitorTagArgs... tags) {
             return tags(List.of(tags));
+        }
+
+        public Builder useUnsupportedLegacyRuntime(@Nullable Output<Boolean> useUnsupportedLegacyRuntime) {
+            $.useUnsupportedLegacyRuntime = useUnsupportedLegacyRuntime;
+            return this;
+        }
+
+        public Builder useUnsupportedLegacyRuntime(Boolean useUnsupportedLegacyRuntime) {
+            return useUnsupportedLegacyRuntime(Output.of(useUnsupportedLegacyRuntime));
         }
 
         public StepMonitorArgs build() {

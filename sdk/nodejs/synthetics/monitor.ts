@@ -260,6 +260,7 @@ export class Monitor extends pulumi.CustomResource {
      * The URI the monitor runs against.
      */
     public readonly uri!: pulumi.Output<string | undefined>;
+    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
     /**
      * Validation text for monitor to search for at given URI.
      */
@@ -301,6 +302,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["treatRedirectAsFailure"] = state ? state.treatRedirectAsFailure : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["validationString"] = state ? state.validationString : undefined;
             resourceInputs["verifySsl"] = state ? state.verifySsl : undefined;
         } else {
@@ -329,6 +331,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["treatRedirectAsFailure"] = args ? args.treatRedirectAsFailure : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["validationString"] = args ? args.validationString : undefined;
             resourceInputs["verifySsl"] = args ? args.verifySsl : undefined;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
@@ -422,6 +425,7 @@ export interface MonitorState {
      * The URI the monitor runs against.
      */
     uri?: pulumi.Input<string>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
     /**
      * Validation text for monitor to search for at given URI.
      */
@@ -512,6 +516,7 @@ export interface MonitorArgs {
      * The URI the monitor runs against.
      */
     uri?: pulumi.Input<string>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
     /**
      * Validation text for monitor to search for at given URI.
      */

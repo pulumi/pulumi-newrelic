@@ -167,7 +167,8 @@ type StepMonitor struct {
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayOutput `pulumi:"steps"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags StepMonitorTagArrayOutput `pulumi:"tags"`
+	Tags                        StepMonitorTagArrayOutput `pulumi:"tags"`
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput      `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // NewStepMonitor registers a new resource with the given unique name, arguments, and options.
@@ -234,7 +235,8 @@ type stepMonitorState struct {
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags []StepMonitorTag `pulumi:"tags"`
+	Tags                        []StepMonitorTag `pulumi:"tags"`
+	UseUnsupportedLegacyRuntime *bool            `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 type StepMonitorState struct {
@@ -263,7 +265,8 @@ type StepMonitorState struct {
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags StepMonitorTagArrayInput
+	Tags                        StepMonitorTagArrayInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
 func (StepMonitorState) ElementType() reflect.Type {
@@ -292,7 +295,8 @@ type stepMonitorArgs struct {
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags []StepMonitorTag `pulumi:"tags"`
+	Tags                        []StepMonitorTag `pulumi:"tags"`
+	UseUnsupportedLegacyRuntime *bool            `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // The set of arguments for constructing a StepMonitor resource.
@@ -318,7 +322,8 @@ type StepMonitorArgs struct {
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags StepMonitorTagArrayInput
+	Tags                        StepMonitorTagArrayInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
 func (StepMonitorArgs) ElementType() reflect.Type {
@@ -471,6 +476,10 @@ func (o StepMonitorOutput) Steps() StepMonitorStepArrayOutput {
 // The tags that will be associated with the monitor. See Nested tag blocks below for details.
 func (o StepMonitorOutput) Tags() StepMonitorTagArrayOutput {
 	return o.ApplyT(func(v *StepMonitor) StepMonitorTagArrayOutput { return v.Tags }).(StepMonitorTagArrayOutput)
+}
+
+func (o StepMonitorOutput) UseUnsupportedLegacyRuntime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StepMonitor) pulumi.BoolPtrOutput { return v.UseUnsupportedLegacyRuntime }).(pulumi.BoolPtrOutput)
 }
 
 type StepMonitorArrayOutput struct{ *pulumi.OutputState }

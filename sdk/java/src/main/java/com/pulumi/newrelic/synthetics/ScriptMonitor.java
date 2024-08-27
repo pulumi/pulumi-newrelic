@@ -508,6 +508,12 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
     public Output<String> type() {
         return this.type;
     }
+    @Export(name="useUnsupportedLegacyRuntime", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useUnsupportedLegacyRuntime;
+
+    public Output<Optional<Boolean>> useUnsupportedLegacyRuntime() {
+        return Codegen.optional(this.useUnsupportedLegacyRuntime);
+    }
 
     /**
      *

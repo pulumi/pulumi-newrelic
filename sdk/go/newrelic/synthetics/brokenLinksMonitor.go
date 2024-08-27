@@ -144,7 +144,8 @@ type BrokenLinksMonitor struct {
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayOutput `pulumi:"tags"`
 	// The URI the monitor runs against.
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Uri                         pulumi.StringOutput  `pulumi:"uri"`
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // NewBrokenLinksMonitor registers a new resource with the given unique name, arguments, and options.
@@ -209,7 +210,8 @@ type brokenLinksMonitorState struct {
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
 	// The URI the monitor runs against.
-	Uri *string `pulumi:"uri"`
+	Uri                         *string `pulumi:"uri"`
+	UseUnsupportedLegacyRuntime *bool   `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 type BrokenLinksMonitorState struct {
@@ -236,7 +238,8 @@ type BrokenLinksMonitorState struct {
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
 	// The URI the monitor runs against.
-	Uri pulumi.StringPtrInput
+	Uri                         pulumi.StringPtrInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
 func (BrokenLinksMonitorState) ElementType() reflect.Type {
@@ -263,7 +266,8 @@ type brokenLinksMonitorArgs struct {
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
 	// The URI the monitor runs against.
-	Uri string `pulumi:"uri"`
+	Uri                         string `pulumi:"uri"`
+	UseUnsupportedLegacyRuntime *bool  `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // The set of arguments for constructing a BrokenLinksMonitor resource.
@@ -287,7 +291,8 @@ type BrokenLinksMonitorArgs struct {
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
 	// The URI the monitor runs against.
-	Uri pulumi.StringInput
+	Uri                         pulumi.StringInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
 func (BrokenLinksMonitorArgs) ElementType() reflect.Type {
@@ -435,6 +440,10 @@ func (o BrokenLinksMonitorOutput) Tags() BrokenLinksMonitorTagArrayOutput {
 // The URI the monitor runs against.
 func (o BrokenLinksMonitorOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+}
+
+func (o BrokenLinksMonitorOutput) UseUnsupportedLegacyRuntime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.BoolPtrOutput { return v.UseUnsupportedLegacyRuntime }).(pulumi.BoolPtrOutput)
 }
 
 type BrokenLinksMonitorArrayOutput struct{ *pulumi.OutputState }
