@@ -279,6 +279,13 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.type);
     }
 
+    @Import(name="useUnsupportedLegacyRuntime")
+    private @Nullable Output<Boolean> useUnsupportedLegacyRuntime;
+
+    public Optional<Output<Boolean>> useUnsupportedLegacyRuntime() {
+        return Optional.ofNullable(this.useUnsupportedLegacyRuntime);
+    }
+
     private ScriptMonitorState() {}
 
     private ScriptMonitorState(ScriptMonitorState $) {
@@ -299,6 +306,7 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
         this.status = $.status;
         this.tags = $.tags;
         this.type = $.type;
+        this.useUnsupportedLegacyRuntime = $.useUnsupportedLegacyRuntime;
     }
 
     public static Builder builder() {
@@ -710,6 +718,15 @@ public final class ScriptMonitorState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        public Builder useUnsupportedLegacyRuntime(@Nullable Output<Boolean> useUnsupportedLegacyRuntime) {
+            $.useUnsupportedLegacyRuntime = useUnsupportedLegacyRuntime;
+            return this;
+        }
+
+        public Builder useUnsupportedLegacyRuntime(Boolean useUnsupportedLegacyRuntime) {
+            return useUnsupportedLegacyRuntime(Output.of(useUnsupportedLegacyRuntime));
         }
 
         public ScriptMonitorState build() {

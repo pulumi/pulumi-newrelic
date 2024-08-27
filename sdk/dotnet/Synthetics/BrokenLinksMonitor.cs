@@ -183,6 +183,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
 
+        [Output("useUnsupportedLegacyRuntime")]
+        public Output<bool?> UseUnsupportedLegacyRuntime { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BrokenLinksMonitor resource with the given unique name, arguments, and options.
@@ -307,6 +310,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
+
         public BrokenLinksMonitorArgs()
         {
         }
@@ -404,6 +410,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
+
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
 
         public BrokenLinksMonitorState()
         {

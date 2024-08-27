@@ -298,7 +298,8 @@ type Monitor struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The URI the monitor runs against.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
+	Uri                         pulumi.StringPtrOutput `pulumi:"uri"`
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput   `pulumi:"useUnsupportedLegacyRuntime"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrOutput `pulumi:"validationString"`
 	// Monitor should validate SSL certificate chain.
@@ -382,7 +383,8 @@ type monitorState struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type *string `pulumi:"type"`
 	// The URI the monitor runs against.
-	Uri *string `pulumi:"uri"`
+	Uri                         *string `pulumi:"uri"`
+	UseUnsupportedLegacyRuntime *bool   `pulumi:"useUnsupportedLegacyRuntime"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
 	// Monitor should validate SSL certificate chain.
@@ -431,7 +433,8 @@ type MonitorState struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringPtrInput
 	// The URI the monitor runs against.
-	Uri pulumi.StringPtrInput
+	Uri                         pulumi.StringPtrInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
 	// Monitor should validate SSL certificate chain.
@@ -482,7 +485,8 @@ type monitorArgs struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type string `pulumi:"type"`
 	// The URI the monitor runs against.
-	Uri *string `pulumi:"uri"`
+	Uri                         *string `pulumi:"uri"`
+	UseUnsupportedLegacyRuntime *bool   `pulumi:"useUnsupportedLegacyRuntime"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
 	// Monitor should validate SSL certificate chain.
@@ -530,7 +534,8 @@ type MonitorArgs struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringInput
 	// The URI the monitor runs against.
-	Uri pulumi.StringPtrInput
+	Uri                         pulumi.StringPtrInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
 	// Monitor should validate SSL certificate chain.
@@ -721,6 +726,10 @@ func (o MonitorOutput) Type() pulumi.StringOutput {
 // The URI the monitor runs against.
 func (o MonitorOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+func (o MonitorOutput) UseUnsupportedLegacyRuntime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.UseUnsupportedLegacyRuntime }).(pulumi.BoolPtrOutput)
 }
 
 // Validation text for monitor to search for at given URI.

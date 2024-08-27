@@ -145,6 +145,7 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
      * The URI the monitor runs against.
      */
     public readonly uri!: pulumi.Output<string>;
+    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a BrokenLinksMonitor resource with the given unique name, arguments, and options.
@@ -171,6 +172,7 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
         } else {
             const args = argsOrState as BrokenLinksMonitorArgs | undefined;
             if ((!args || args.period === undefined) && !opts.urn) {
@@ -192,6 +194,7 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
@@ -252,6 +255,7 @@ export interface BrokenLinksMonitorState {
      * The URI the monitor runs against.
      */
     uri?: pulumi.Input<string>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }
 
 /**
@@ -298,4 +302,5 @@ export interface BrokenLinksMonitorArgs {
      * The URI the monitor runs against.
      */
     uri: pulumi.Input<string>;
+    useUnsupportedLegacyRuntime?: pulumi.Input<boolean>;
 }

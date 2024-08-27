@@ -34,6 +34,7 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None,
                  treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
                  validation_string: Optional[pulumi.Input[str]] = None,
                  verify_ssl: Optional[pulumi.Input[bool]] = None):
         """
@@ -97,6 +98,8 @@ class MonitorArgs:
             pulumi.set(__self__, "treat_redirect_as_failure", treat_redirect_as_failure)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+        if use_unsupported_legacy_runtime is not None:
+            pulumi.set(__self__, "use_unsupported_legacy_runtime", use_unsupported_legacy_runtime)
         if validation_string is not None:
             pulumi.set(__self__, "validation_string", validation_string)
         if verify_ssl is not None:
@@ -323,6 +326,15 @@ class MonitorArgs:
         pulumi.set(self, "uri", value)
 
     @property
+    @pulumi.getter(name="useUnsupportedLegacyRuntime")
+    def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_unsupported_legacy_runtime")
+
+    @use_unsupported_legacy_runtime.setter
+    def use_unsupported_legacy_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_unsupported_legacy_runtime", value)
+
+    @property
     @pulumi.getter(name="validationString")
     def validation_string(self) -> Optional[pulumi.Input[str]]:
         """
@@ -369,6 +381,7 @@ class _MonitorState:
                  treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
                  validation_string: Optional[pulumi.Input[str]] = None,
                  verify_ssl: Optional[pulumi.Input[bool]] = None):
         """
@@ -437,6 +450,8 @@ class _MonitorState:
             pulumi.set(__self__, "type", type)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+        if use_unsupported_legacy_runtime is not None:
+            pulumi.set(__self__, "use_unsupported_legacy_runtime", use_unsupported_legacy_runtime)
         if validation_string is not None:
             pulumi.set(__self__, "validation_string", validation_string)
         if verify_ssl is not None:
@@ -675,6 +690,15 @@ class _MonitorState:
         pulumi.set(self, "uri", value)
 
     @property
+    @pulumi.getter(name="useUnsupportedLegacyRuntime")
+    def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_unsupported_legacy_runtime")
+
+    @use_unsupported_legacy_runtime.setter
+    def use_unsupported_legacy_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_unsupported_legacy_runtime", value)
+
+    @property
     @pulumi.getter(name="validationString")
     def validation_string(self) -> Optional[pulumi.Input[str]]:
         """
@@ -722,6 +746,7 @@ class Monitor(pulumi.CustomResource):
                  treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
                  validation_string: Optional[pulumi.Input[str]] = None,
                  verify_ssl: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1071,6 +1096,7 @@ class Monitor(pulumi.CustomResource):
                  treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
+                 use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
                  validation_string: Optional[pulumi.Input[str]] = None,
                  verify_ssl: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1104,6 +1130,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["uri"] = uri
+            __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
             __props__.__dict__["validation_string"] = validation_string
             __props__.__dict__["verify_ssl"] = verify_ssl
             __props__.__dict__["period_in_minutes"] = None
@@ -1136,6 +1163,7 @@ class Monitor(pulumi.CustomResource):
             treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
             type: Optional[pulumi.Input[str]] = None,
             uri: Optional[pulumi.Input[str]] = None,
+            use_unsupported_legacy_runtime: Optional[pulumi.Input[bool]] = None,
             validation_string: Optional[pulumi.Input[str]] = None,
             verify_ssl: Optional[pulumi.Input[bool]] = None) -> 'Monitor':
         """
@@ -1194,6 +1222,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["treat_redirect_as_failure"] = treat_redirect_as_failure
         __props__.__dict__["type"] = type
         __props__.__dict__["uri"] = uri
+        __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
         __props__.__dict__["validation_string"] = validation_string
         __props__.__dict__["verify_ssl"] = verify_ssl
         return Monitor(resource_name, opts=opts, __props__=__props__)
@@ -1353,6 +1382,11 @@ class Monitor(pulumi.CustomResource):
         The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="useUnsupportedLegacyRuntime")
+    def use_unsupported_legacy_runtime(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "use_unsupported_legacy_runtime")
 
     @property
     @pulumi.getter(name="validationString")

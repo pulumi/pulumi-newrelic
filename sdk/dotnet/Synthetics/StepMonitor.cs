@@ -217,6 +217,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StepMonitorTag>> Tags { get; private set; } = null!;
 
+        [Output("useUnsupportedLegacyRuntime")]
+        public Output<bool?> UseUnsupportedLegacyRuntime { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a StepMonitor resource with the given unique name, arguments, and options.
@@ -353,6 +356,9 @@ namespace Pulumi.NewRelic.Synthetics
             set => _tags = value;
         }
 
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
+
         public StepMonitorArgs()
         {
         }
@@ -462,6 +468,9 @@ namespace Pulumi.NewRelic.Synthetics
             get => _tags ?? (_tags = new InputList<Inputs.StepMonitorTagGetArgs>());
             set => _tags = value;
         }
+
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
 
         public StepMonitorState()
         {

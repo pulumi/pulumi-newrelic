@@ -338,6 +338,12 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<StepMonitorTag>>> tags() {
         return Codegen.optional(this.tags);
     }
+    @Export(name="useUnsupportedLegacyRuntime", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useUnsupportedLegacyRuntime;
+
+    public Output<Optional<Boolean>> useUnsupportedLegacyRuntime() {
+        return Codegen.optional(this.useUnsupportedLegacyRuntime);
+    }
 
     /**
      *

@@ -552,6 +552,12 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> uri() {
         return Codegen.optional(this.uri);
     }
+    @Export(name="useUnsupportedLegacyRuntime", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useUnsupportedLegacyRuntime;
+
+    public Output<Optional<Boolean>> useUnsupportedLegacyRuntime() {
+        return Codegen.optional(this.useUnsupportedLegacyRuntime);
+    }
     /**
      * Validation text for monitor to search for at given URI.
      * 

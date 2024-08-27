@@ -364,6 +364,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
 
+        [Output("useUnsupportedLegacyRuntime")]
+        public Output<bool?> UseUnsupportedLegacyRuntime { get; private set; } = null!;
+
         /// <summary>
         /// Validation text for monitor to search for at given URI.
         /// </summary>
@@ -558,6 +561,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
+
         /// <summary>
         /// Validation text for monitor to search for at given URI.
         /// </summary>
@@ -719,6 +725,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
+
+        [Input("useUnsupportedLegacyRuntime")]
+        public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
 
         /// <summary>
         /// Validation text for monitor to search for at given URI.

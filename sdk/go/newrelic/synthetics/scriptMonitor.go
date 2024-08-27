@@ -272,7 +272,8 @@ type ScriptMonitor struct {
 	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
 	Tags ScriptMonitorTagArrayOutput `pulumi:"tags"`
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                        pulumi.StringOutput  `pulumi:"type"`
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // NewScriptMonitor registers a new resource with the given unique name, arguments, and options.
@@ -349,7 +350,8 @@ type scriptMonitorState struct {
 	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
 	Tags []ScriptMonitorTag `pulumi:"tags"`
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
-	Type *string `pulumi:"type"`
+	Type                        *string `pulumi:"type"`
+	UseUnsupportedLegacyRuntime *bool   `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 type ScriptMonitorState struct {
@@ -388,7 +390,8 @@ type ScriptMonitorState struct {
 	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
 	Tags ScriptMonitorTagArrayInput
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
-	Type pulumi.StringPtrInput
+	Type                        pulumi.StringPtrInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
 func (ScriptMonitorState) ElementType() reflect.Type {
@@ -427,7 +430,8 @@ type scriptMonitorArgs struct {
 	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
 	Tags []ScriptMonitorTag `pulumi:"tags"`
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
-	Type string `pulumi:"type"`
+	Type                        string `pulumi:"type"`
+	UseUnsupportedLegacyRuntime *bool  `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // The set of arguments for constructing a ScriptMonitor resource.
@@ -463,7 +467,8 @@ type ScriptMonitorArgs struct {
 	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
 	Tags ScriptMonitorTagArrayInput
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
-	Type pulumi.StringInput
+	Type                        pulumi.StringInput
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
 func (ScriptMonitorArgs) ElementType() reflect.Type {
@@ -638,6 +643,10 @@ func (o ScriptMonitorOutput) Tags() ScriptMonitorTagArrayOutput {
 // The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
 func (o ScriptMonitorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ScriptMonitorOutput) UseUnsupportedLegacyRuntime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScriptMonitor) pulumi.BoolPtrOutput { return v.UseUnsupportedLegacyRuntime }).(pulumi.BoolPtrOutput)
 }
 
 type ScriptMonitorArrayOutput struct{ *pulumi.OutputState }
