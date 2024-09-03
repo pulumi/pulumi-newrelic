@@ -777,6 +777,7 @@ class Monitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `SIMPLE BROWSER`
 
         ```python
@@ -847,6 +848,7 @@ class Monitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `BROWSER`
 
         ```python
@@ -950,6 +952,7 @@ class Monitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `SIMPLE BROWSER`
 
         ```python
@@ -1020,6 +1023,7 @@ class Monitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `BROWSER`
 
         ```python

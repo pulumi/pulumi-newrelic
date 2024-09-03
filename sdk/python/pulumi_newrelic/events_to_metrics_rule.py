@@ -233,7 +233,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
 
-         `<account_id>:<rule_id>`, e.g.
+        `<account_id>:<rule_id>`, e.g.
 
         bash
 
@@ -275,7 +275,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
 
-         `<account_id>:<rule_id>`, e.g.
+        `<account_id>:<rule_id>`, e.g.
 
         bash
 

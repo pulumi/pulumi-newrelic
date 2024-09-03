@@ -32,7 +32,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs *cannot* be imported.
      * 
      * @deprecated
      * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
@@ -43,7 +43,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> channelIds;
 
     /**
-     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs *cannot* be imported.
      * 
      * @deprecated
      * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
@@ -133,7 +133,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelIds An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+         * @param channelIds An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs *cannot* be imported.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelIds An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+         * @param channelIds An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs *cannot* be imported.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelIds An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+         * @param channelIds An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs *cannot* be imported.
          * 
          * @return builder
          * 

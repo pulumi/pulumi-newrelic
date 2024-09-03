@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: cloud.AzureIntegrations"
+// sidebar_current: "docs-newrelic-resource-cloud-azure-integrations"
+// description: |-
+// Integrate Azure services with New Relic.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Resource: newrelic\_cloud\_azure\_integrations
+//
 // Use this resource to integrate Azure services with New Relic.
 //
 // ## Prerequisite

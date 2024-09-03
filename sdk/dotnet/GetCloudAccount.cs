@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// Use this data source to get information about a specific cloud account linked to New Relic.
-        /// Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used. 
+        /// Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// Use this data source to get information about a specific cloud account linked to New Relic.
-        /// Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used. 
+        /// Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
         /// 
         /// ## Example Usage
         /// 

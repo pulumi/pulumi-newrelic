@@ -253,7 +253,7 @@ import javax.annotation.Nullable;
  * 
  * New Relic Service Levels can be imported using a concatenated string of the format
  * 
- *  `&lt;account_id&gt;:&lt;sli_id&gt;:&lt;guid&gt;`, where the `guid` is the entity the SLI relates to.
+ * `&lt;account_id&gt;:&lt;sli_id&gt;:&lt;guid&gt;`, where the `guid` is the entity the SLI relates to.
  * 
  * Example:
  * 

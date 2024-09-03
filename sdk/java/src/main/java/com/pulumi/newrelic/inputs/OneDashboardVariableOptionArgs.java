@@ -16,14 +16,14 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
     public static final OneDashboardVariableOptionArgs Empty = new OneDashboardVariableOptionArgs();
 
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     @Import(name="ignoreTimeRange")
     private @Nullable Output<Boolean> ignoreTimeRange;
 
     /**
-     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     public Optional<Output<Boolean>> ignoreTimeRange() {
@@ -55,7 +55,7 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
          * 
          * @return builder
          * 

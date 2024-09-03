@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
+    /// layout: "newrelic"
+    /// page_title: "New Relic: newrelic.cloud.GcpLinkAccount"
+    /// sidebar_current: "docs-new relic-resource-cloud-gcp-link-account"
+    /// description: |-
+    /// Link a GCP account to New Relic.
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # Resource: newrelic.cloud.GcpLinkAccount
+    /// 
     /// Use this resource to link a GCP account to New Relic.
     /// 
     /// ## Prerequisite

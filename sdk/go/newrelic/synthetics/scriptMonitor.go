@@ -58,6 +58,7 @@ import (
 //	}
 //
 // ```
+//
 // ##### Type: `SCRIPT_BROWSER`
 //
 // ```go
@@ -167,6 +168,7 @@ import (
 //	}
 //
 // ```
+//
 // ##### Type: `SCRIPT_BROWSER`
 //
 // ```go

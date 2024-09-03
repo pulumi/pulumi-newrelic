@@ -45,11 +45,11 @@ import * as utilities from "./utilities";
  *
  * The `term` mapping supports the following arguments:
  *
- *   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
- *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
- *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
- *   * `threshold` - (Required) Must be 0 or greater.
- *   * `timeFunction` - (Required) `all` or `any`.
+ * * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
+ * * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
+ * * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
+ * * `threshold` - (Required) Must be 0 or greater.
+ * * `timeFunction` - (Required) `all` or `any`.
  *
  * ## Tags
  *

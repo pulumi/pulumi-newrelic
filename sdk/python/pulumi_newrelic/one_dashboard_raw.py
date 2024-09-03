@@ -236,7 +236,7 @@ class OneDashboardRaw(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Create A New Relic One Dashboard With RawConfiguration
+        ### Create a New Relic One Dashboard with RawConfiguration
 
         ```python
         import pulumi
@@ -331,7 +331,7 @@ class OneDashboardRaw(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Create A New Relic One Dashboard With RawConfiguration
+        ### Create a New Relic One Dashboard with RawConfiguration
 
         ```python
         import pulumi

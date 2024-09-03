@@ -967,6 +967,15 @@ class GcpIntegrations(pulumi.CustomResource):
                  vpc_access: Optional[pulumi.Input[Union['GcpIntegrationsVpcAccessArgs', 'GcpIntegrationsVpcAccessArgsDict']]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: cloud.GcpIntegrations"
+        sidebar_current: "docs-newrelic-resource-cloud-gcp-integrations"
+        description: |-
+        Integrate GCP services with New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_cloud\\_gcp\\_integrations
+
         Use this resource to integrate GCP services with New Relic.
 
         ## Prerequisite
@@ -1119,6 +1128,15 @@ class GcpIntegrations(pulumi.CustomResource):
                  args: GcpIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: cloud.GcpIntegrations"
+        sidebar_current: "docs-newrelic-resource-cloud-gcp-integrations"
+        description: |-
+        Integrate GCP services with New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_cloud\\_gcp\\_integrations
+
         Use this resource to integrate GCP services with New Relic.
 
         ## Prerequisite

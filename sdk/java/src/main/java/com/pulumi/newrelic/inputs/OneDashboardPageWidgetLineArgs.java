@@ -102,14 +102,14 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     @Import(name="ignoreTimeRange")
     private @Nullable Output<Boolean> ignoreTimeRange;
 
     /**
-     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     public Optional<Output<Boolean>> ignoreTimeRange() {
@@ -117,14 +117,14 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
      * 
      */
     @Import(name="isLabelVisible")
     private @Nullable Output<Boolean> isLabelVisible;
 
     /**
-     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
      * 
      */
     public Optional<Output<Boolean>> isLabelVisible() {
@@ -461,7 +461,7 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+         * @param ignoreTimeRange (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param isLabelVisible (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+         * @param isLabelVisible (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class OneDashboardPageWidgetLineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param isLabelVisible (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+         * @param isLabelVisible (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
          * 
          * @return builder
          * 

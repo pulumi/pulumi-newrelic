@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: cloud.GcpLinkAccount"
+// sidebar_current: "docs-new relic-resource-cloud-gcp-link-account"
+// description: |-
+// Link a GCP account to New Relic.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Resource: cloud.GcpLinkAccount
+//
 // Use this resource to link a GCP account to New Relic.
 //
 // ## Prerequisite

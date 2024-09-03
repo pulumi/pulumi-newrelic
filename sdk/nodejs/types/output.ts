@@ -148,7 +148,7 @@ export interface AlertMutingRuleSchedule {
     endRepeat?: string;
     /**
      * The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
-     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
      */
     endTime?: string;
     /**
@@ -621,7 +621,7 @@ export interface OneDashboardPageWidgetArea {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -762,7 +762,7 @@ export interface OneDashboardPageWidgetBar {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -907,7 +907,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1048,7 +1048,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1189,7 +1189,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1330,7 +1330,7 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1471,7 +1471,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1608,7 +1608,7 @@ export interface OneDashboardPageWidgetJson {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1745,11 +1745,11 @@ export interface OneDashboardPageWidgetLine {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
      */
     isLabelVisible?: boolean;
     /**
@@ -1864,7 +1864,7 @@ export interface OneDashboardPageWidgetLineThreshold {
      */
     name?: string;
     /**
-     * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+     * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
      */
     severity?: string;
     /**
@@ -1936,7 +1936,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -2073,7 +2073,7 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -2203,7 +2203,7 @@ export interface OneDashboardPageWidgetPy {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -2344,7 +2344,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -2485,7 +2485,7 @@ export interface OneDashboardPageWidgetTable {
      */
     id: string;
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -2596,7 +2596,7 @@ export interface OneDashboardPageWidgetTableThreshold {
      */
     from?: string;
     /**
-     * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+     * The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
      */
     severity?: string;
     /**
@@ -2748,7 +2748,7 @@ export interface OneDashboardVariableNrqlQuery {
 
 export interface OneDashboardVariableOption {
     /**
-     * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: boolean;
 }

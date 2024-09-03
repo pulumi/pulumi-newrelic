@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: ObfuscationExpression"
+// sidebar_current: "docs-newrelic-resource-obfuscation-expression"
+// description: |-
+// Create and manage Obfuscation Expression.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Resource: newrelic\_obfuscation\_expression
+//
 // Use this resource to create, update and delete New Relic Obfuscation Expressions.
 //
 // ## Example Usage

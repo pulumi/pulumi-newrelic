@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardVariableOption {
     /**
-     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
 
     private OneDashboardVariableOption() {}
     /**
-     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     public Optional<Boolean> ignoreTimeRange() {

@@ -58,6 +58,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// 
     /// ##### Type: `SIMPLE BROWSER`
     /// 
     /// ```csharp
@@ -175,6 +176,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// 
     /// ##### Type: `BROWSER`
     /// 
     /// ```csharp

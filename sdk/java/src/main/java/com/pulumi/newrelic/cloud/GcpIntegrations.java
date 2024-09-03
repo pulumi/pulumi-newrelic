@@ -41,6 +41,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.cloud.GcpIntegrations&#34;
+ * sidebar_current: &#34;docs-newrelic-resource-cloud-gcp-integrations&#34;
+ * description: |-
+ * Integrate GCP services with New Relic.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic\_cloud\_gcp\_integrations
+ * 
  * Use this resource to integrate GCP services with New Relic.
  * 
  * ## Prerequisite

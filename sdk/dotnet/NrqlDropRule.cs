@@ -62,7 +62,7 @@ namespace Pulumi.NewRelic
     /// 
     /// New Relic NRQL drop rules can be imported using a concatenated string of the format
     /// 
-    ///  `&lt;account_id&gt;:&lt;rule_id&gt;`, e.g.
+    /// `&lt;account_id&gt;:&lt;rule_id&gt;`, e.g.
     /// 
     /// bash
     /// 

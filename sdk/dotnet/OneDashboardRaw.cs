@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// ### Create A New Relic One Dashboard With RawConfiguration
+    /// ### Create a New Relic One Dashboard with RawConfiguration
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

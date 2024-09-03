@@ -165,6 +165,15 @@ class ObfuscationExpression(pulumi.CustomResource):
                  regex: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: ObfuscationExpression"
+        sidebar_current: "docs-newrelic-resource-obfuscation-expression"
+        description: |-
+        Create and manage Obfuscation Expression.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_obfuscation\\_expression
+
         Use this resource to create, update and delete New Relic Obfuscation Expressions.
 
         ## Example Usage
@@ -204,6 +213,15 @@ class ObfuscationExpression(pulumi.CustomResource):
                  args: ObfuscationExpressionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: ObfuscationExpression"
+        sidebar_current: "docs-newrelic-resource-obfuscation-expression"
+        description: |-
+        Create and manage Obfuscation Expression.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_obfuscation\\_expression
+
         Use this resource to create, update and delete New Relic Obfuscation Expressions.
 
         ## Example Usage

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Create A New Relic One Dashboard With RawConfiguration
+ * ### Create a New Relic One Dashboard with RawConfiguration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

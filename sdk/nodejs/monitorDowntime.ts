@@ -63,7 +63,7 @@ import * as utilities from "./utilities";
  *
  * The below example illustrates creating a **daily** monitor downtime.
  *
- * Note that `endRepeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `endRepeat` specified in the argument reference section above. This example uses the `onDate` nested argument of `endRepeat`, however, the other nested argument, `onRepeat` may also be used _instead_, as you may see in some of the other examples below; though both `onDate` and `onRepeat` cannot be specified together, as they are mutually exclusive.
+ * Note that `endRepeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `endRepeat` specified in the argument reference section above. This example uses the `onDate` nested argument of `endRepeat`, however, the other nested argument, `onRepeat` may also be used *instead*, as you may see in some of the other examples below; though both `onDate` and `onRepeat` cannot be specified together, as they are mutually exclusive.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -14,7 +14,7 @@ import (
 
 // Use this resource to create and manage Infrastructure alert conditions in New Relic.
 //
-// > **WARNING:** The `InfraAlertCondition` resource is deprecated and will be removed in the next major release. The resource NrqlAlertCondition examples.
+// > **WARNING:** The `InfraAlertCondition` resource is deprecated and will be removed in the next major release. The resource NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query. For more details and examples on moving away from infra alert conditions to the NRQL based alternative, please check out these examples.
 //
 // ## Example Usage
 //
@@ -117,9 +117,9 @@ import (
 //
 // The `critical` and `warning` threshold mapping supports the following arguments:
 //
-//   - `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-//   - `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
-//   - `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
+// * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
+// * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
+// * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
 //
 // ## Tags
 //

@@ -52,7 +52,7 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
-        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
@@ -70,9 +70,9 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         pulumi.set(__self__, "nrql", nrql)
@@ -222,7 +222,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="baselineDirection")
     def baseline_direction(self) -> Optional[pulumi.Input[str]]:
         """
-        The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         """
         return pulumi.get(self, "baseline_direction")
 
@@ -429,7 +429,7 @@ class NrqlAlertConditionArgs:
     def violation_time_limit(self) -> Optional[pulumi.Input[str]]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-        <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit")
 
@@ -442,7 +442,7 @@ class NrqlAlertConditionArgs:
     def violation_time_limit_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-        <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
@@ -501,7 +501,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
-        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
@@ -522,9 +522,9 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         if account_id is not None:
@@ -654,7 +654,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="baselineDirection")
     def baseline_direction(self) -> Optional[pulumi.Input[str]]:
         """
-        The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         """
         return pulumi.get(self, "baseline_direction")
 
@@ -897,7 +897,7 @@ class _NrqlAlertConditionState:
     def violation_time_limit(self) -> Optional[pulumi.Input[str]]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-        <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit")
 
@@ -910,7 +910,7 @@ class _NrqlAlertConditionState:
     def violation_time_limit_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-        <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
@@ -1033,13 +1033,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
         - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
         - `threshold` - (Required) The value which will trigger an incident.
-        <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
+        <br>For *baseline* NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
+        <br>For *baseline* NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+        <br>For *static* NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
 
         - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
+        - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in *minutes*, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
         - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
 
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.
@@ -1232,7 +1232,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
-        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
         :param pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
@@ -1252,9 +1252,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         ...
@@ -1332,13 +1332,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
         - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
         - `threshold` - (Required) The value which will trigger an incident.
-        <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
+        <br>For *baseline* NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
+        <br>For *baseline* NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+        <br>For *static* NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
 
         - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
+        - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in *minutes*, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
         - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
 
         > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.
@@ -1657,7 +1657,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
-        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open incidents when the signal expires.
         :param pulumi.Input[Union['NrqlAlertConditionCriticalArgs', 'NrqlAlertConditionCriticalArgsDict']] critical: A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
@@ -1678,9 +1678,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-               <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+               <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']] warning: A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1761,7 +1761,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="baselineDirection")
     def baseline_direction(self) -> pulumi.Output[Optional[str]]:
         """
-        The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         """
         return pulumi.get(self, "baseline_direction")
 
@@ -1924,7 +1924,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def violation_time_limit(self) -> pulumi.Output[str]:
         """
         **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-        <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit")
 
@@ -1933,7 +1933,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     def violation_time_limit_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-        <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        <small>\\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 

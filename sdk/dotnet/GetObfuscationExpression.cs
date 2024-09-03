@@ -12,6 +12,15 @@ namespace Pulumi.NewRelic
     public static class GetObfuscationExpression
     {
         /// <summary>
+        /// layout: "newrelic"
+        /// page_title: "New Relic: newrelic.ObfuscationExpression"
+        /// sidebar_current: "docs-newrelic-datasource-obfuscation-expression"
+        /// description: |-
+        /// Grabs a Obfuscation Expression by name.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+        /// 
+        /// # Data Source: newrelic\_obfuscation\_expression
+        /// 
         /// Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
         /// 
         /// ## Example Usage
@@ -57,6 +66,15 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObfuscationExpressionResult>("newrelic:index/getObfuscationExpression:getObfuscationExpression", args ?? new GetObfuscationExpressionArgs(), options.WithDefaults());
 
         /// <summary>
+        /// layout: "newrelic"
+        /// page_title: "New Relic: newrelic.ObfuscationExpression"
+        /// sidebar_current: "docs-newrelic-datasource-obfuscation-expression"
+        /// description: |-
+        /// Grabs a Obfuscation Expression by name.
+        /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+        /// 
+        /// # Data Source: newrelic\_obfuscation\_expression
+        /// 
         /// Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
         /// 
         /// ## Example Usage

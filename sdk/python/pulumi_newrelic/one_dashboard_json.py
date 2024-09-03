@@ -147,6 +147,18 @@ class OneDashboardJson(pulumi.CustomResource):
                  json: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ### Create a New Relic One Dashboard from a JSON file
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+        import pulumi_std as std
+
+        foo = newrelic.OneDashboardJson("foo", json=std.file(input="dashboard.json").result)
+        ```
+
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.
@@ -169,6 +181,18 @@ class OneDashboardJson(pulumi.CustomResource):
                  args: OneDashboardJsonArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ### Create a New Relic One Dashboard from a JSON file
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+        import pulumi_std as std
+
+        foo = newrelic.OneDashboardJson("foo", json=std.file(input="dashboard.json").result)
+        ```
+
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.

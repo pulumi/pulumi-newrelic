@@ -132,6 +132,15 @@ class GcpLinkAccount(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: cloud.GcpLinkAccount"
+        sidebar_current: "docs-new relic-resource-cloud-gcp-link-account"
+        description: |-
+        Link a GCP account to New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: cloud.GcpLinkAccount
+
         Use this resource to link a GCP account to New Relic.
 
         ## Prerequisite
@@ -183,6 +192,15 @@ class GcpLinkAccount(pulumi.CustomResource):
                  args: GcpLinkAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: cloud.GcpLinkAccount"
+        sidebar_current: "docs-new relic-resource-cloud-gcp-link-account"
+        description: |-
+        Link a GCP account to New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: cloud.GcpLinkAccount
+
         Use this resource to link a GCP account to New Relic.
 
         ## Prerequisite

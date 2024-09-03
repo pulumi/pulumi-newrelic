@@ -619,6 +619,7 @@ class ScriptMonitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `SCRIPT_BROWSER`
 
         ```python
@@ -682,6 +683,7 @@ class ScriptMonitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `SCRIPT_BROWSER`
 
         ```python
@@ -777,6 +779,7 @@ class ScriptMonitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `SCRIPT_BROWSER`
 
         ```python
@@ -840,6 +843,7 @@ class ScriptMonitor(pulumi.CustomResource):
                 "values": ["some_value"],
             }])
         ```
+
         ##### Type: `SCRIPT_BROWSER`
 
         ```python

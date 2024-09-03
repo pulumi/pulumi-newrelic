@@ -76,13 +76,13 @@ import * as utilities from "./utilities";
  * - `operator` - (Optional) Valid values are `above`, `aboveOrEquals`, `below`, `belowOrEquals`, `equals`, or `notEquals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
  * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
  * - `threshold` - (Required) The value which will trigger an incident.
- * <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
+ * <br>For *baseline* NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
  * - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
- * <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
- * <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
+ * <br>For *baseline* NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+ * <br>For *static* NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
  *
  * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
- * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
+ * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in *minutes*, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
  * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
  *
  * > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `thresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
@@ -322,7 +322,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly aggregationWindow!: pulumi.Output<number>;
     /**
-     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
+     * The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     public readonly baselineDirection!: pulumi.Output<string | undefined>;
     /**
@@ -405,14 +405,14 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     public readonly type!: pulumi.Output<string | undefined>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * <small>\***Note**: One of `violationTimeLimit` *or* `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
     public readonly violationTimeLimit!: pulumi.Output<string>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * <small>\***Note**: One of `violationTimeLimit` *or* `violationTimeLimitSeconds` must be set, but not both.</small>
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -528,7 +528,7 @@ export interface NrqlAlertConditionState {
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
-     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
+     * The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     baselineDirection?: pulumi.Input<string>;
     /**
@@ -611,14 +611,14 @@ export interface NrqlAlertConditionState {
     type?: pulumi.Input<string>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * <small>\***Note**: One of `violationTimeLimit` *or* `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
     violationTimeLimit?: pulumi.Input<string>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * <small>\***Note**: One of `violationTimeLimit` *or* `violationTimeLimitSeconds` must be set, but not both.</small>
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
@@ -652,7 +652,7 @@ export interface NrqlAlertConditionArgs {
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
-     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
+     * The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     baselineDirection?: pulumi.Input<string>;
     /**
@@ -731,14 +731,14 @@ export interface NrqlAlertConditionArgs {
     type?: pulumi.Input<string>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * <small>\***Note**: One of `violationTimeLimit` *or* `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
     violationTimeLimit?: pulumi.Input<string>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * <small>\***Note**: One of `violationTimeLimit` *or* `violationTimeLimitSeconds` must be set, but not both.</small>
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**

@@ -14,6 +14,15 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.cloud.GcpLinkAccount&#34;
+ * sidebar_current: &#34;docs-new relic-resource-cloud-gcp-link-account&#34;
+ * description: |-
+ * Link a GCP account to New Relic.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic.cloud.GcpLinkAccount
+ * 
  * Use this resource to link a GCP account to New Relic.
  * 
  * ## Prerequisite

@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
+    /// layout: "newrelic"
+    /// page_title: "New Relic: newrelic.cloud.AzureIntegrations"
+    /// sidebar_current: "docs-newrelic-resource-cloud-azure-integrations"
+    /// description: |-
+    /// Integrate Azure services with New Relic.
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # Resource: newrelic\_cloud\_azure\_integrations
+    /// 
     /// Use this resource to integrate Azure services with New Relic.
     /// 
     /// ## Prerequisite
@@ -421,7 +430,6 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
         /// 
-        /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         /// </summary>
         [Output("linkedAccountId")]
@@ -680,7 +688,6 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
         /// 
-        /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
@@ -900,7 +907,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked Azure account in New Relic.
-        /// 
         /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         /// </summary>

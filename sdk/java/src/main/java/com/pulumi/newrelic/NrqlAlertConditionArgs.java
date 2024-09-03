@@ -100,14 +100,14 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+     * The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
      * 
      */
     @Import(name="baselineDirection")
     private @Nullable Output<String> baselineDirection;
 
     /**
-     * @return The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+     * @return The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
      * 
      */
     public Optional<Output<String>> baselineDirection() {
@@ -394,7 +394,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      * @deprecated
      * use `violation_time_limit_seconds` attribute instead
@@ -406,7 +406,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      * @deprecated
      * use `violation_time_limit_seconds` attribute instead
@@ -419,7 +419,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     @Import(name="violationTimeLimitSeconds")
@@ -427,7 +427,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     public Optional<Output<Integer>> violationTimeLimitSeconds() {
@@ -605,7 +605,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param baselineDirection The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+         * @param baselineDirection The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param baselineDirection The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+         * @param baselineDirection The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
          * 
          * @return builder
          * 
@@ -1027,7 +1027,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param violationTimeLimit **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-         * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+         * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
          * 
@@ -1043,7 +1043,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param violationTimeLimit **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-         * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+         * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
          * 
@@ -1058,7 +1058,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-         * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+         * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
          * 
@@ -1070,7 +1070,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-         * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+         * &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
          * 

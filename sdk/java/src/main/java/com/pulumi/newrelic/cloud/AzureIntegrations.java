@@ -47,6 +47,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.cloud.AzureIntegrations&#34;
+ * sidebar_current: &#34;docs-newrelic-resource-cloud-azure-integrations&#34;
+ * description: |-
+ * Integrate Azure services with New Relic.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic\_cloud\_azure\_integrations
+ * 
  * Use this resource to integrate Azure services with New Relic.
  * 
  * ## Prerequisite

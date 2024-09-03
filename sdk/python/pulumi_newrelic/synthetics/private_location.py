@@ -229,6 +229,15 @@ class PrivateLocation(pulumi.CustomResource):
                  verified_script_execution: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: synthetics.PrivateLocation"
+        sidebar_current: "docs-newrelic-resource-synthetics-private-location"
+        description: |-
+        Create and manage Synthetics private location in New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_synthetics\\_private\\_location
+
         Use this resource to create and manage New Relic Synthetic private location.
 
         ## Example Usage
@@ -264,6 +273,15 @@ class PrivateLocation(pulumi.CustomResource):
                  args: PrivateLocationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: synthetics.PrivateLocation"
+        sidebar_current: "docs-newrelic-resource-synthetics-private-location"
+        description: |-
+        Create and manage Synthetics private location in New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_synthetics\\_private\\_location
+
         Use this resource to create and manage New Relic Synthetic private location.
 
         ## Example Usage

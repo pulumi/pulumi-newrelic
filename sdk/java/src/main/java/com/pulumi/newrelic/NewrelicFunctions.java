@@ -1756,6 +1756,15 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;newrelic&#34;
+     * page_title: &#34;New Relic: newrelic.ObfuscationExpression&#34;
+     * sidebar_current: &#34;docs-newrelic-datasource-obfuscation-expression&#34;
+     * description: |-
+     * Grabs a Obfuscation Expression by name.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: newrelic\_obfuscation\_expression
+     * 
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
@@ -1814,6 +1823,15 @@ public final class NewrelicFunctions {
         return getObfuscationExpression(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;newrelic&#34;
+     * page_title: &#34;New Relic: newrelic.ObfuscationExpression&#34;
+     * sidebar_current: &#34;docs-newrelic-datasource-obfuscation-expression&#34;
+     * description: |-
+     * Grabs a Obfuscation Expression by name.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: newrelic\_obfuscation\_expression
+     * 
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
@@ -1872,6 +1890,15 @@ public final class NewrelicFunctions {
         return getObfuscationExpressionPlain(args, InvokeOptions.Empty);
     }
     /**
+     * layout: &#34;newrelic&#34;
+     * page_title: &#34;New Relic: newrelic.ObfuscationExpression&#34;
+     * sidebar_current: &#34;docs-newrelic-datasource-obfuscation-expression&#34;
+     * description: |-
+     * Grabs a Obfuscation Expression by name.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: newrelic\_obfuscation\_expression
+     * 
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage
@@ -1930,6 +1957,15 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * layout: &#34;newrelic&#34;
+     * page_title: &#34;New Relic: newrelic.ObfuscationExpression&#34;
+     * sidebar_current: &#34;docs-newrelic-datasource-obfuscation-expression&#34;
+     * description: |-
+     * Grabs a Obfuscation Expression by name.
+     * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+     * 
+     * # Data Source: newrelic\_obfuscation\_expression
+     * 
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
      * 
      * ## Example Usage

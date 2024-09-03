@@ -41,6 +41,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
  * ## Tags
  *
  * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
@@ -106,7 +107,7 @@ import * as utilities from "../utilities";
  *
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
  *
- *  `<policy_id>:<condition_id>`, e.g.
+ * `<policy_id>:<condition_id>`, e.g.
  *
  * bash
  *
@@ -176,7 +177,6 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
      * A condition term with the priority set to warning.
-     *
      *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
@@ -269,7 +269,6 @@ export interface MultiLocationAlertConditionState {
     /**
      * A condition term with the priority set to warning.
      *
-     *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
     warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
@@ -309,7 +308,6 @@ export interface MultiLocationAlertConditionArgs {
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
-     *
      *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */

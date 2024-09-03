@@ -65,6 +65,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// });
     /// ```
+    /// 
     /// ## Tags
     /// 
     /// Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
@@ -171,7 +172,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
     /// 
-    ///  `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
+    /// `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
     /// 
     /// bash
     /// 
@@ -232,7 +233,6 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
-        /// 
         /// 
         /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
@@ -336,7 +336,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// A condition term with the priority set to warning.
         /// 
-        /// 
         /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>
         [Input("warning")]
@@ -406,7 +405,6 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// A condition term with the priority set to warning.
-        /// 
         /// 
         /// &gt; **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
         /// </summary>

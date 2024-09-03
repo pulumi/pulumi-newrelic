@@ -186,7 +186,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &gt; **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
+ * &gt; **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the *same authentication domain*. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
  * 
  * ## Import
  * 

@@ -12,6 +12,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Create a New Relic One Dashboard from a JSON file
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "dashboard.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewOneDashboardJson(ctx, "foo", &newrelic.OneDashboardJsonArgs{
+//				Json: pulumi.String(invokeFile.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // New Relic dashboards can be imported using their GUID, e.g.

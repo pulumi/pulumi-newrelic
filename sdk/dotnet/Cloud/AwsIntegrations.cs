@@ -517,186 +517,174 @@ namespace Pulumi.NewRelic.Cloud
     /// &lt;details&gt;
     ///   &lt;summary&gt;Expand this section to view all supported AWS services supported, that may be integrated via this resource.&lt;/summary&gt;
     /// 
-    /// | Block                   | Description                   |
-    /// |-------------------------|-------------------------------|
-    /// | `alb`                   | ALB Integration               |
-    /// | `api_gateway`           | API Gateway Integration       |
-    /// | `auto_scaling`          | Auto Scaling Integration      |
-    /// | `aws_app_sync`          | AppSync Integration           |
-    /// | `aws_athena`            | Athena Integration            |
-    /// | `aws_cognito`           | Cognito Integration           |
-    /// | `aws_connect`           | Connect Integration           |
-    /// | `aws_direct_connect`    | Direct Connect Integration    |
-    /// | `aws_fsx`               | FSx Integration               |
-    /// | `aws_glue`              | Glue Integration              |
-    /// | `aws_kinesis_analytics` | Kinesis Analytics Integration |
-    /// | `aws_media_convert`     | MediaConvert Integration      |
-    /// | `aws_media_package_vod` | Media Package VOD Integration |
-    /// | `aws_mq`                | MQ Integration                |
-    /// | `aws_msk`               | MSK Integration               |
-    /// | `aws_neptune`           | Neptune Integration           |
-    /// | `aws_qldb`              | QLDB Integration              |
-    /// | `aws_route53resolver`   | Route53 Resolver Integration  |
-    /// | `aws_states`            | States Integration            |
-    /// | `aws_transit_gateway`   | Transit Gateway Integration   |
-    /// | `aws_waf`               | WAF Integration               |
-    /// | `aws_wafv2`             | WAFv2 Integration             |
-    /// | `billing`               | Billing Integration           |
-    /// | `cloudfront`            | CloudFront Integration        |
-    /// | `cloudtrail`            | CloudTrail Integration        |
-    /// | `doc_db`                | DocumentDB Integration        |
-    /// | `dynamodb`              | DynamoDB Integration          |
-    /// | `ebs`                   | EBS Integration               |
-    /// | `ec2`                   | EC2 Integration               |
-    /// | `ecs`                   | ECS Integration               |
-    /// | `efs`                   | EFS Integration               |
-    /// | `elasticache`           | ElastiCache Integration       |
-    /// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-    /// | `elasticsearch`         | Elasticsearch Integration     |
-    /// | `elb`                   | ELB Integration               |
-    /// | `emr`                   | EMR Integration               |
-    /// | `health`                | Health Integration            |
-    /// | `iam`                   | IAM Integration               |
-    /// | `iot`                   | IoT Integration               |
-    /// | `kinesis`               | Kinesis Integration           |
-    /// | `kinesis_firehose`      | Kinesis Firehose Integration  |
-    /// | `lambda`                | Lambda Integration            |
-    /// | `rds`                   | RDS Integration               |
-    /// | `redshift`              | Redshift Integration          |
-    /// | `route53`               | Route53 Integration           |
-    /// | `s3`                    | S3 Integration                |
-    /// | `ses`                   | SES Integration               |
-    /// | `sns`                   | SNS Integration               |
-    /// | `sqs`                   | SQS Integration               |
-    /// | `trusted_advisor`       | Trusted Advisor Integration   |
-    /// | `vpc`                   | VPC Integration               |
-    /// | `x_ray`                 | X-Ray Integration             |
-    /// 
-    /// &lt;/details&gt;
-    /// 
-    /// ## Import
-    /// 
-    /// Linked AWS account integrations can be imported using the `id`, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo &lt;id&gt;
-    /// ```
+    /// |          Block          |    Description    |
+    /// |-------------------------|-------------------|
+    /// | `alb`                   | ALB               |
+    /// | `api_gateway`           | API Gateway       |
+    /// | `auto_scaling`          | Auto Scaling      |
+    /// | `aws_app_sync`          | AppSync           |
+    /// | `aws_athena`            | Athena            |
+    /// | `aws_cognito`           | Cognito           |
+    /// | `aws_connect`           | Connect           |
+    /// | `aws_direct_connect`    | Direct Connect    |
+    /// | `aws_fsx`               | FSx               |
+    /// | `aws_glue`              | Glue              |
+    /// | `aws_kinesis_analytics` | Kinesis Analytics |
+    /// | `aws_media_convert`     | MediaConvert      |
+    /// | `aws_media_package_vod` | Media Package VOD |
+    /// | `aws_mq`                | MQ                |
+    /// | `aws_msk`               | MSK               |
+    /// | `aws_neptune`           | Neptune           |
+    /// | `aws_qldb`              | QLDB              |
+    /// | `aws_route53resolver`   | Route53 Resolver  |
+    /// | `aws_states`            | States            |
+    /// | `aws_transit_gateway`   | Transit Gateway   |
+    /// | `aws_waf`               | WAF               |
+    /// | `aws_wafv2`             | WAFv2             |
+    /// | `billing`               | Billing           |
+    /// | `cloudfront`            | CloudFront        |
+    /// | `cloudtrail`            | CloudTrail        |
+    /// | `doc_db`                | DocumentDB        |
+    /// | `dynamodb`              | DynamoDB          |
+    /// | `ebs`                   | EBS               |
+    /// | `ec2`                   | EC2               |
+    /// | `ecs`                   | ECS               |
+    /// | `efs`                   | EFS               |
+    /// | `elasticache`           | ElastiCache       |
+    /// | `elasticbeanstalk`      | Elastic Beanstalk |
+    /// | `elasticsearch`         | Elasticsearch     |
+    /// | `elb`                   | ELB               |
+    /// | `emr`                   | EMR               |
+    /// | `health`                | Health            |
+    /// | `iam`                   | IAM               |
+    /// | `iot`                   | IoT               |
+    /// | `kinesis`               | Kinesis           |
+    /// | `kinesis_firehose`      | Kinesis Firehose  |
+    /// | `lambda`                | Lambda            |
+    /// | `rds`                   | RDS               |
+    /// | `redshift`              | Redshift          |
+    /// | `route53`               | Route53           |
+    /// | `s3`                    | S3                |
+    /// | `ses`                   | SES               |
+    /// | `sns`                   | SNS               |
+    /// | `sqs`                   | SQS               |
+    /// | `trusted_advisor`       | Trusted Advisor   |
+    /// | `vpc`                   | VPC               |
+    /// | `x_ray`                 | X-Ray             |
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsIntegrations:AwsIntegrations")]
     public partial class AwsIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The ID of the account in New Relic.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// AWS ALB. See Integration blocks below for details.
+        /// ALB integration
         /// </summary>
         [Output("alb")]
         public Output<Outputs.AwsIntegrationsAlb?> Alb { get; private set; } = null!;
 
         /// <summary>
-        /// AWS API Gateway. See Integration blocks below for details.
+        /// API Gateway integration
         /// </summary>
         [Output("apiGateway")]
         public Output<Outputs.AwsIntegrationsApiGateway?> ApiGateway { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Auto Scaling. See Integration blocks below for details.
+        /// AutoScaling integration
         /// </summary>
         [Output("autoScaling")]
         public Output<Outputs.AwsIntegrationsAutoScaling?> AutoScaling { get; private set; } = null!;
 
         /// <summary>
-        /// AWS AppSync. See Integration blocks below for details.
+        /// Aws Appsync integration
         /// </summary>
         [Output("awsAppSync")]
         public Output<Outputs.AwsIntegrationsAwsAppSync?> AwsAppSync { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Athena. See Integration blocks below for details.
+        /// Aws Athena integration
         /// </summary>
         [Output("awsAthena")]
         public Output<Outputs.AwsIntegrationsAwsAthena?> AwsAthena { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Cognito. See Integration blocks below for details.
+        /// Aws Cognito integration
         /// </summary>
         [Output("awsCognito")]
         public Output<Outputs.AwsIntegrationsAwsCognito?> AwsCognito { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Connect. See Integration blocks below for details.
+        /// Aws Connect integration
         /// </summary>
         [Output("awsConnect")]
         public Output<Outputs.AwsIntegrationsAwsConnect?> AwsConnect { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Direct Connect. See Integration blocks below for details.
+        /// Aws Direct Connect integration
         /// </summary>
         [Output("awsDirectConnect")]
         public Output<Outputs.AwsIntegrationsAwsDirectConnect?> AwsDirectConnect { get; private set; } = null!;
 
         /// <summary>
-        /// AWS FSx. See Integration blocks below for details.
+        /// Aws Fsx integration
         /// </summary>
         [Output("awsFsx")]
         public Output<Outputs.AwsIntegrationsAwsFsx?> AwsFsx { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Glue. See Integration blocks below for details.
+        /// Aws Glue integration
         /// </summary>
         [Output("awsGlue")]
         public Output<Outputs.AwsIntegrationsAwsGlue?> AwsGlue { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Kinesis Data Analytics. See Integration blocks below for details.
+        /// Aws Kinesis Analytics integration
         /// </summary>
         [Output("awsKinesisAnalytics")]
         public Output<Outputs.AwsIntegrationsAwsKinesisAnalytics?> AwsKinesisAnalytics { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Media Convert. See Integration blocks below for details.
+        /// Aws Media Convert integration
         /// </summary>
         [Output("awsMediaConvert")]
         public Output<Outputs.AwsIntegrationsAwsMediaConvert?> AwsMediaConvert { get; private set; } = null!;
 
         /// <summary>
-        /// AWS MediaPackage VOD. See Integration blocks below for details.
+        /// Aws Media PackageVod integration
         /// </summary>
         [Output("awsMediaPackageVod")]
         public Output<Outputs.AwsIntegrationsAwsMediaPackageVod?> AwsMediaPackageVod { get; private set; } = null!;
 
         /// <summary>
-        /// AWS MQ. See Integration blocks below for details.
+        /// Aws Mq integration
         /// </summary>
         [Output("awsMq")]
         public Output<Outputs.AwsIntegrationsAwsMq?> AwsMq { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Managed Kafka (MSK). See Integration blocks below for details.
+        /// Aws Msk integration
         /// </summary>
         [Output("awsMsk")]
         public Output<Outputs.AwsIntegrationsAwsMsk?> AwsMsk { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Neptune. See Integration blocks below for details.
+        /// Aws Neptune integration
         /// </summary>
         [Output("awsNeptune")]
         public Output<Outputs.AwsIntegrationsAwsNeptune?> AwsNeptune { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon QLDB. See Integration blocks below for details.
+        /// Aws Qldb integration
         /// </summary>
         [Output("awsQldb")]
         public Output<Outputs.AwsIntegrationsAwsQldb?> AwsQldb { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Route53 Resolver. See Integration blocks below for details.
+        /// Aws Route53resolver integration
         /// </summary>
         [Output("awsRoute53resolver")]
         public Output<Outputs.AwsIntegrationsAwsRoute53resolver?> AwsRoute53resolver { get; private set; } = null!;
@@ -708,200 +696,193 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsAwsStates?> AwsStates { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Transit Gateway. See Integration blocks below for details.
+        /// Aws Transit Gateway integration
         /// </summary>
         [Output("awsTransitGateway")]
         public Output<Outputs.AwsIntegrationsAwsTransitGateway?> AwsTransitGateway { get; private set; } = null!;
 
         /// <summary>
-        /// AWS WAF. See Integration blocks below for details.
+        /// Aws Waf integration
         /// </summary>
         [Output("awsWaf")]
         public Output<Outputs.AwsIntegrationsAwsWaf?> AwsWaf { get; private set; } = null!;
 
         /// <summary>
-        /// AWS WAF V2. See Integration blocks below for details.
+        /// Aws Wafv2 integration
         /// </summary>
         [Output("awsWafv2")]
         public Output<Outputs.AwsIntegrationsAwsWafv2?> AwsWafv2 { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Billing. See Integration blocks below for details.
+        /// Billing integration
         /// </summary>
         [Output("billing")]
         public Output<Outputs.AwsIntegrationsBilling?> Billing { get; private set; } = null!;
 
         /// <summary>
-        /// AWS CloudFront. See Integration blocks below for details.
+        /// Cloudfront integration
         /// </summary>
         [Output("cloudfront")]
         public Output<Outputs.AwsIntegrationsCloudfront?> Cloudfront { get; private set; } = null!;
 
         /// <summary>
-        /// AWS CloudTrail. See Integration blocks below for details.
+        /// CloudTrail integration
         /// </summary>
         [Output("cloudtrail")]
         public Output<Outputs.AwsIntegrationsCloudtrail?> Cloudtrail { get; private set; } = null!;
 
         /// <summary>
-        /// AWS DocumentDB. See Integration blocks below for details.
+        /// Doc DB integration
         /// </summary>
         [Output("docDb")]
         public Output<Outputs.AwsIntegrationsDocDb?> DocDb { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon DynamoDB. See Integration blocks below for details.
+        /// Dynamo DB integration
         /// </summary>
         [Output("dynamodb")]
         public Output<Outputs.AwsIntegrationsDynamodb?> Dynamodb { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon EBS. See Integration blocks below for details.
+        /// EBS integration
         /// </summary>
         [Output("ebs")]
         public Output<Outputs.AwsIntegrationsEbs?> Ebs { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon EC2. See Integration blocks below for details.
+        /// Ec2 integration
         /// </summary>
         [Output("ec2")]
         public Output<Outputs.AwsIntegrationsEc2?> Ec2 { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon ECS. See Integration blocks below for details.
+        /// Ecs integration
         /// </summary>
         [Output("ecs")]
         public Output<Outputs.AwsIntegrationsEcs?> Ecs { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon EFS. See Integration blocks below for details.
+        /// Efs integration
         /// </summary>
         [Output("efs")]
         public Output<Outputs.AwsIntegrationsEfs?> Efs { get; private set; } = null!;
 
         /// <summary>
-        /// AWS ElastiCache. See Integration blocks below for details.
+        /// Elasticache integration
         /// </summary>
         [Output("elasticache")]
         public Output<Outputs.AwsIntegrationsElasticache?> Elasticache { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Elastic Beanstalk. See Integration blocks below for details.
+        /// Elastic Bean Stalk integration
         /// </summary>
         [Output("elasticbeanstalk")]
         public Output<Outputs.AwsIntegrationsElasticbeanstalk?> Elasticbeanstalk { get; private set; } = null!;
 
         /// <summary>
-        /// AWS ElasticSearch. See Integration blocks below for details.
+        /// Elastic Search integration
         /// </summary>
         [Output("elasticsearch")]
         public Output<Outputs.AwsIntegrationsElasticsearch?> Elasticsearch { get; private set; } = null!;
 
         /// <summary>
-        /// AWS ELB (Classic). See Integration blocks below for details.
+        /// Elb integration
         /// </summary>
         [Output("elb")]
         public Output<Outputs.AwsIntegrationsElb?> Elb { get; private set; } = null!;
 
         /// <summary>
-        /// AWS EMR. See Integration blocks below for details.
+        /// Emr integration
         /// </summary>
         [Output("emr")]
         public Output<Outputs.AwsIntegrationsEmr?> Emr { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Health. See Integration blocks below for details.
+        /// Health integration
         /// </summary>
         [Output("health")]
         public Output<Outputs.AwsIntegrationsHealth?> Health { get; private set; } = null!;
 
         /// <summary>
-        /// AWS IAM. See Integration blocks below for details.
+        /// Iam integration
         /// </summary>
         [Output("iam")]
         public Output<Outputs.AwsIntegrationsIam?> Iam { get; private set; } = null!;
 
         /// <summary>
-        /// AWS IoT. See Integration blocks below for details.
+        /// Iot integration
         /// </summary>
         [Output("iot")]
         public Output<Outputs.AwsIntegrationsIot?> Iot { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Kinesis. See Integration blocks below for details.
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+        /// Kinesis integration
         /// </summary>
         [Output("kinesis")]
         public Output<Outputs.AwsIntegrationsKinesis?> Kinesis { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Kinesis Data Firehose. See Integration blocks below for details.
+        /// Kinesis Firehose integration
         /// </summary>
         [Output("kinesisFirehose")]
         public Output<Outputs.AwsIntegrationsKinesisFirehose?> KinesisFirehose { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Lambda. See Integration blocks below for details.
+        /// Lambda integration
         /// </summary>
         [Output("lambda")]
         public Output<Outputs.AwsIntegrationsLambda?> Lambda { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the linked AWS account in New Relic.
-        /// 
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The ID of the linked AWS account in New Relic
         /// </summary>
         [Output("linkedAccountId")]
         public Output<string> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon RDS. See Integration blocks below for details.
+        /// Rds integration
         /// </summary>
         [Output("rds")]
         public Output<Outputs.AwsIntegrationsRds?> Rds { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Redshift. See Integration blocks below for details.
+        /// Redshift integration
         /// </summary>
         [Output("redshift")]
         public Output<Outputs.AwsIntegrationsRedshift?> Redshift { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Route 53. See Integration blocks below for details.
+        /// Route53 integration
         /// </summary>
         [Output("route53")]
         public Output<Outputs.AwsIntegrationsRoute53?> Route53 { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon S3. See Integration blocks below for details.
+        /// S3 integration
         /// </summary>
         [Output("s3")]
         public Output<Outputs.AwsIntegrationsS3?> S3 { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon SES. See Integration blocks below for details.
+        /// Ses integration
         /// </summary>
         [Output("ses")]
         public Output<Outputs.AwsIntegrationsSes?> Ses { get; private set; } = null!;
 
         /// <summary>
-        /// AWS SNS. See Integration blocks below for details.
+        /// Sns integration
         /// </summary>
         [Output("sns")]
         public Output<Outputs.AwsIntegrationsSns?> Sns { get; private set; } = null!;
 
         /// <summary>
-        /// AWS SQS. See Integration blocks below for details.
+        /// SQS integration
         /// </summary>
         [Output("sqs")]
         public Output<Outputs.AwsIntegrationsSqs?> Sqs { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Trusted Advisor. See Integration blocks below for details.
-        /// 
-        /// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+        /// Trusted Advisor integration
         /// </summary>
         [Output("trustedAdvisor")]
         public Output<Outputs.AwsIntegrationsTrustedAdvisor?> TrustedAdvisor { get; private set; } = null!;
@@ -913,10 +894,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsVpc?> Vpc { get; private set; } = null!;
 
         /// <summary>
-        /// AWS X-Ray. See Integration blocks below for details.
-        /// x
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+        /// X-Ray integration
         /// </summary>
         [Output("xRay")]
         public Output<Outputs.AwsIntegrationsXRay?> XRay { get; private set; } = null!;
@@ -968,115 +946,115 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AwsIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The ID of the account in New Relic.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// AWS ALB. See Integration blocks below for details.
+        /// ALB integration
         /// </summary>
         [Input("alb")]
         public Input<Inputs.AwsIntegrationsAlbArgs>? Alb { get; set; }
 
         /// <summary>
-        /// AWS API Gateway. See Integration blocks below for details.
+        /// API Gateway integration
         /// </summary>
         [Input("apiGateway")]
         public Input<Inputs.AwsIntegrationsApiGatewayArgs>? ApiGateway { get; set; }
 
         /// <summary>
-        /// AWS Auto Scaling. See Integration blocks below for details.
+        /// AutoScaling integration
         /// </summary>
         [Input("autoScaling")]
         public Input<Inputs.AwsIntegrationsAutoScalingArgs>? AutoScaling { get; set; }
 
         /// <summary>
-        /// AWS AppSync. See Integration blocks below for details.
+        /// Aws Appsync integration
         /// </summary>
         [Input("awsAppSync")]
         public Input<Inputs.AwsIntegrationsAwsAppSyncArgs>? AwsAppSync { get; set; }
 
         /// <summary>
-        /// AWS Athena. See Integration blocks below for details.
+        /// Aws Athena integration
         /// </summary>
         [Input("awsAthena")]
         public Input<Inputs.AwsIntegrationsAwsAthenaArgs>? AwsAthena { get; set; }
 
         /// <summary>
-        /// AWS Cognito. See Integration blocks below for details.
+        /// Aws Cognito integration
         /// </summary>
         [Input("awsCognito")]
         public Input<Inputs.AwsIntegrationsAwsCognitoArgs>? AwsCognito { get; set; }
 
         /// <summary>
-        /// AWS Connect. See Integration blocks below for details.
+        /// Aws Connect integration
         /// </summary>
         [Input("awsConnect")]
         public Input<Inputs.AwsIntegrationsAwsConnectArgs>? AwsConnect { get; set; }
 
         /// <summary>
-        /// AWS Direct Connect. See Integration blocks below for details.
+        /// Aws Direct Connect integration
         /// </summary>
         [Input("awsDirectConnect")]
         public Input<Inputs.AwsIntegrationsAwsDirectConnectArgs>? AwsDirectConnect { get; set; }
 
         /// <summary>
-        /// AWS FSx. See Integration blocks below for details.
+        /// Aws Fsx integration
         /// </summary>
         [Input("awsFsx")]
         public Input<Inputs.AwsIntegrationsAwsFsxArgs>? AwsFsx { get; set; }
 
         /// <summary>
-        /// AWS Glue. See Integration blocks below for details.
+        /// Aws Glue integration
         /// </summary>
         [Input("awsGlue")]
         public Input<Inputs.AwsIntegrationsAwsGlueArgs>? AwsGlue { get; set; }
 
         /// <summary>
-        /// AWS Kinesis Data Analytics. See Integration blocks below for details.
+        /// Aws Kinesis Analytics integration
         /// </summary>
         [Input("awsKinesisAnalytics")]
         public Input<Inputs.AwsIntegrationsAwsKinesisAnalyticsArgs>? AwsKinesisAnalytics { get; set; }
 
         /// <summary>
-        /// AWS Media Convert. See Integration blocks below for details.
+        /// Aws Media Convert integration
         /// </summary>
         [Input("awsMediaConvert")]
         public Input<Inputs.AwsIntegrationsAwsMediaConvertArgs>? AwsMediaConvert { get; set; }
 
         /// <summary>
-        /// AWS MediaPackage VOD. See Integration blocks below for details.
+        /// Aws Media PackageVod integration
         /// </summary>
         [Input("awsMediaPackageVod")]
         public Input<Inputs.AwsIntegrationsAwsMediaPackageVodArgs>? AwsMediaPackageVod { get; set; }
 
         /// <summary>
-        /// AWS MQ. See Integration blocks below for details.
+        /// Aws Mq integration
         /// </summary>
         [Input("awsMq")]
         public Input<Inputs.AwsIntegrationsAwsMqArgs>? AwsMq { get; set; }
 
         /// <summary>
-        /// Amazon Managed Kafka (MSK). See Integration blocks below for details.
+        /// Aws Msk integration
         /// </summary>
         [Input("awsMsk")]
         public Input<Inputs.AwsIntegrationsAwsMskArgs>? AwsMsk { get; set; }
 
         /// <summary>
-        /// AWS Neptune. See Integration blocks below for details.
+        /// Aws Neptune integration
         /// </summary>
         [Input("awsNeptune")]
         public Input<Inputs.AwsIntegrationsAwsNeptuneArgs>? AwsNeptune { get; set; }
 
         /// <summary>
-        /// Amazon QLDB. See Integration blocks below for details.
+        /// Aws Qldb integration
         /// </summary>
         [Input("awsQldb")]
         public Input<Inputs.AwsIntegrationsAwsQldbArgs>? AwsQldb { get; set; }
 
         /// <summary>
-        /// AWS Route53 Resolver. See Integration blocks below for details.
+        /// Aws Route53resolver integration
         /// </summary>
         [Input("awsRoute53resolver")]
         public Input<Inputs.AwsIntegrationsAwsRoute53resolverArgs>? AwsRoute53resolver { get; set; }
@@ -1088,200 +1066,193 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsAwsStatesArgs>? AwsStates { get; set; }
 
         /// <summary>
-        /// Amazon Transit Gateway. See Integration blocks below for details.
+        /// Aws Transit Gateway integration
         /// </summary>
         [Input("awsTransitGateway")]
         public Input<Inputs.AwsIntegrationsAwsTransitGatewayArgs>? AwsTransitGateway { get; set; }
 
         /// <summary>
-        /// AWS WAF. See Integration blocks below for details.
+        /// Aws Waf integration
         /// </summary>
         [Input("awsWaf")]
         public Input<Inputs.AwsIntegrationsAwsWafArgs>? AwsWaf { get; set; }
 
         /// <summary>
-        /// AWS WAF V2. See Integration blocks below for details.
+        /// Aws Wafv2 integration
         /// </summary>
         [Input("awsWafv2")]
         public Input<Inputs.AwsIntegrationsAwsWafv2Args>? AwsWafv2 { get; set; }
 
         /// <summary>
-        /// AWS Billing. See Integration blocks below for details.
+        /// Billing integration
         /// </summary>
         [Input("billing")]
         public Input<Inputs.AwsIntegrationsBillingArgs>? Billing { get; set; }
 
         /// <summary>
-        /// AWS CloudFront. See Integration blocks below for details.
+        /// Cloudfront integration
         /// </summary>
         [Input("cloudfront")]
         public Input<Inputs.AwsIntegrationsCloudfrontArgs>? Cloudfront { get; set; }
 
         /// <summary>
-        /// AWS CloudTrail. See Integration blocks below for details.
+        /// CloudTrail integration
         /// </summary>
         [Input("cloudtrail")]
         public Input<Inputs.AwsIntegrationsCloudtrailArgs>? Cloudtrail { get; set; }
 
         /// <summary>
-        /// AWS DocumentDB. See Integration blocks below for details.
+        /// Doc DB integration
         /// </summary>
         [Input("docDb")]
         public Input<Inputs.AwsIntegrationsDocDbArgs>? DocDb { get; set; }
 
         /// <summary>
-        /// Amazon DynamoDB. See Integration blocks below for details.
+        /// Dynamo DB integration
         /// </summary>
         [Input("dynamodb")]
         public Input<Inputs.AwsIntegrationsDynamodbArgs>? Dynamodb { get; set; }
 
         /// <summary>
-        /// Amazon EBS. See Integration blocks below for details.
+        /// EBS integration
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.AwsIntegrationsEbsArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// Amazon EC2. See Integration blocks below for details.
+        /// Ec2 integration
         /// </summary>
         [Input("ec2")]
         public Input<Inputs.AwsIntegrationsEc2Args>? Ec2 { get; set; }
 
         /// <summary>
-        /// Amazon ECS. See Integration blocks below for details.
+        /// Ecs integration
         /// </summary>
         [Input("ecs")]
         public Input<Inputs.AwsIntegrationsEcsArgs>? Ecs { get; set; }
 
         /// <summary>
-        /// Amazon EFS. See Integration blocks below for details.
+        /// Efs integration
         /// </summary>
         [Input("efs")]
         public Input<Inputs.AwsIntegrationsEfsArgs>? Efs { get; set; }
 
         /// <summary>
-        /// AWS ElastiCache. See Integration blocks below for details.
+        /// Elasticache integration
         /// </summary>
         [Input("elasticache")]
         public Input<Inputs.AwsIntegrationsElasticacheArgs>? Elasticache { get; set; }
 
         /// <summary>
-        /// AWS Elastic Beanstalk. See Integration blocks below for details.
+        /// Elastic Bean Stalk integration
         /// </summary>
         [Input("elasticbeanstalk")]
         public Input<Inputs.AwsIntegrationsElasticbeanstalkArgs>? Elasticbeanstalk { get; set; }
 
         /// <summary>
-        /// AWS ElasticSearch. See Integration blocks below for details.
+        /// Elastic Search integration
         /// </summary>
         [Input("elasticsearch")]
         public Input<Inputs.AwsIntegrationsElasticsearchArgs>? Elasticsearch { get; set; }
 
         /// <summary>
-        /// AWS ELB (Classic). See Integration blocks below for details.
+        /// Elb integration
         /// </summary>
         [Input("elb")]
         public Input<Inputs.AwsIntegrationsElbArgs>? Elb { get; set; }
 
         /// <summary>
-        /// AWS EMR. See Integration blocks below for details.
+        /// Emr integration
         /// </summary>
         [Input("emr")]
         public Input<Inputs.AwsIntegrationsEmrArgs>? Emr { get; set; }
 
         /// <summary>
-        /// AWS Health. See Integration blocks below for details.
+        /// Health integration
         /// </summary>
         [Input("health")]
         public Input<Inputs.AwsIntegrationsHealthArgs>? Health { get; set; }
 
         /// <summary>
-        /// AWS IAM. See Integration blocks below for details.
+        /// Iam integration
         /// </summary>
         [Input("iam")]
         public Input<Inputs.AwsIntegrationsIamArgs>? Iam { get; set; }
 
         /// <summary>
-        /// AWS IoT. See Integration blocks below for details.
+        /// Iot integration
         /// </summary>
         [Input("iot")]
         public Input<Inputs.AwsIntegrationsIotArgs>? Iot { get; set; }
 
         /// <summary>
-        /// AWS Kinesis. See Integration blocks below for details.
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+        /// Kinesis integration
         /// </summary>
         [Input("kinesis")]
         public Input<Inputs.AwsIntegrationsKinesisArgs>? Kinesis { get; set; }
 
         /// <summary>
-        /// Amazon Kinesis Data Firehose. See Integration blocks below for details.
+        /// Kinesis Firehose integration
         /// </summary>
         [Input("kinesisFirehose")]
         public Input<Inputs.AwsIntegrationsKinesisFirehoseArgs>? KinesisFirehose { get; set; }
 
         /// <summary>
-        /// AWS Lambda. See Integration blocks below for details.
+        /// Lambda integration
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.AwsIntegrationsLambdaArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// The ID of the linked AWS account in New Relic.
-        /// 
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The ID of the linked AWS account in New Relic
         /// </summary>
         [Input("linkedAccountId", required: true)]
         public Input<string> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Amazon RDS. See Integration blocks below for details.
+        /// Rds integration
         /// </summary>
         [Input("rds")]
         public Input<Inputs.AwsIntegrationsRdsArgs>? Rds { get; set; }
 
         /// <summary>
-        /// Amazon Redshift. See Integration blocks below for details.
+        /// Redshift integration
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.AwsIntegrationsRedshiftArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// Amazon Route 53. See Integration blocks below for details.
+        /// Route53 integration
         /// </summary>
         [Input("route53")]
         public Input<Inputs.AwsIntegrationsRoute53Args>? Route53 { get; set; }
 
         /// <summary>
-        /// Amazon S3. See Integration blocks below for details.
+        /// S3 integration
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AwsIntegrationsS3Args>? S3 { get; set; }
 
         /// <summary>
-        /// Amazon SES. See Integration blocks below for details.
+        /// Ses integration
         /// </summary>
         [Input("ses")]
         public Input<Inputs.AwsIntegrationsSesArgs>? Ses { get; set; }
 
         /// <summary>
-        /// AWS SNS. See Integration blocks below for details.
+        /// Sns integration
         /// </summary>
         [Input("sns")]
         public Input<Inputs.AwsIntegrationsSnsArgs>? Sns { get; set; }
 
         /// <summary>
-        /// AWS SQS. See Integration blocks below for details.
+        /// SQS integration
         /// </summary>
         [Input("sqs")]
         public Input<Inputs.AwsIntegrationsSqsArgs>? Sqs { get; set; }
 
         /// <summary>
-        /// AWS Trusted Advisor. See Integration blocks below for details.
-        /// 
-        /// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+        /// Trusted Advisor integration
         /// </summary>
         [Input("trustedAdvisor")]
         public Input<Inputs.AwsIntegrationsTrustedAdvisorArgs>? TrustedAdvisor { get; set; }
@@ -1293,10 +1264,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsVpcArgs>? Vpc { get; set; }
 
         /// <summary>
-        /// AWS X-Ray. See Integration blocks below for details.
-        /// x
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+        /// X-Ray integration
         /// </summary>
         [Input("xRay")]
         public Input<Inputs.AwsIntegrationsXRayArgs>? XRay { get; set; }
@@ -1310,115 +1278,115 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AwsIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The ID of the account in New Relic.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// AWS ALB. See Integration blocks below for details.
+        /// ALB integration
         /// </summary>
         [Input("alb")]
         public Input<Inputs.AwsIntegrationsAlbGetArgs>? Alb { get; set; }
 
         /// <summary>
-        /// AWS API Gateway. See Integration blocks below for details.
+        /// API Gateway integration
         /// </summary>
         [Input("apiGateway")]
         public Input<Inputs.AwsIntegrationsApiGatewayGetArgs>? ApiGateway { get; set; }
 
         /// <summary>
-        /// AWS Auto Scaling. See Integration blocks below for details.
+        /// AutoScaling integration
         /// </summary>
         [Input("autoScaling")]
         public Input<Inputs.AwsIntegrationsAutoScalingGetArgs>? AutoScaling { get; set; }
 
         /// <summary>
-        /// AWS AppSync. See Integration blocks below for details.
+        /// Aws Appsync integration
         /// </summary>
         [Input("awsAppSync")]
         public Input<Inputs.AwsIntegrationsAwsAppSyncGetArgs>? AwsAppSync { get; set; }
 
         /// <summary>
-        /// AWS Athena. See Integration blocks below for details.
+        /// Aws Athena integration
         /// </summary>
         [Input("awsAthena")]
         public Input<Inputs.AwsIntegrationsAwsAthenaGetArgs>? AwsAthena { get; set; }
 
         /// <summary>
-        /// AWS Cognito. See Integration blocks below for details.
+        /// Aws Cognito integration
         /// </summary>
         [Input("awsCognito")]
         public Input<Inputs.AwsIntegrationsAwsCognitoGetArgs>? AwsCognito { get; set; }
 
         /// <summary>
-        /// AWS Connect. See Integration blocks below for details.
+        /// Aws Connect integration
         /// </summary>
         [Input("awsConnect")]
         public Input<Inputs.AwsIntegrationsAwsConnectGetArgs>? AwsConnect { get; set; }
 
         /// <summary>
-        /// AWS Direct Connect. See Integration blocks below for details.
+        /// Aws Direct Connect integration
         /// </summary>
         [Input("awsDirectConnect")]
         public Input<Inputs.AwsIntegrationsAwsDirectConnectGetArgs>? AwsDirectConnect { get; set; }
 
         /// <summary>
-        /// AWS FSx. See Integration blocks below for details.
+        /// Aws Fsx integration
         /// </summary>
         [Input("awsFsx")]
         public Input<Inputs.AwsIntegrationsAwsFsxGetArgs>? AwsFsx { get; set; }
 
         /// <summary>
-        /// AWS Glue. See Integration blocks below for details.
+        /// Aws Glue integration
         /// </summary>
         [Input("awsGlue")]
         public Input<Inputs.AwsIntegrationsAwsGlueGetArgs>? AwsGlue { get; set; }
 
         /// <summary>
-        /// AWS Kinesis Data Analytics. See Integration blocks below for details.
+        /// Aws Kinesis Analytics integration
         /// </summary>
         [Input("awsKinesisAnalytics")]
         public Input<Inputs.AwsIntegrationsAwsKinesisAnalyticsGetArgs>? AwsKinesisAnalytics { get; set; }
 
         /// <summary>
-        /// AWS Media Convert. See Integration blocks below for details.
+        /// Aws Media Convert integration
         /// </summary>
         [Input("awsMediaConvert")]
         public Input<Inputs.AwsIntegrationsAwsMediaConvertGetArgs>? AwsMediaConvert { get; set; }
 
         /// <summary>
-        /// AWS MediaPackage VOD. See Integration blocks below for details.
+        /// Aws Media PackageVod integration
         /// </summary>
         [Input("awsMediaPackageVod")]
         public Input<Inputs.AwsIntegrationsAwsMediaPackageVodGetArgs>? AwsMediaPackageVod { get; set; }
 
         /// <summary>
-        /// AWS MQ. See Integration blocks below for details.
+        /// Aws Mq integration
         /// </summary>
         [Input("awsMq")]
         public Input<Inputs.AwsIntegrationsAwsMqGetArgs>? AwsMq { get; set; }
 
         /// <summary>
-        /// Amazon Managed Kafka (MSK). See Integration blocks below for details.
+        /// Aws Msk integration
         /// </summary>
         [Input("awsMsk")]
         public Input<Inputs.AwsIntegrationsAwsMskGetArgs>? AwsMsk { get; set; }
 
         /// <summary>
-        /// AWS Neptune. See Integration blocks below for details.
+        /// Aws Neptune integration
         /// </summary>
         [Input("awsNeptune")]
         public Input<Inputs.AwsIntegrationsAwsNeptuneGetArgs>? AwsNeptune { get; set; }
 
         /// <summary>
-        /// Amazon QLDB. See Integration blocks below for details.
+        /// Aws Qldb integration
         /// </summary>
         [Input("awsQldb")]
         public Input<Inputs.AwsIntegrationsAwsQldbGetArgs>? AwsQldb { get; set; }
 
         /// <summary>
-        /// AWS Route53 Resolver. See Integration blocks below for details.
+        /// Aws Route53resolver integration
         /// </summary>
         [Input("awsRoute53resolver")]
         public Input<Inputs.AwsIntegrationsAwsRoute53resolverGetArgs>? AwsRoute53resolver { get; set; }
@@ -1430,200 +1398,193 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsAwsStatesGetArgs>? AwsStates { get; set; }
 
         /// <summary>
-        /// Amazon Transit Gateway. See Integration blocks below for details.
+        /// Aws Transit Gateway integration
         /// </summary>
         [Input("awsTransitGateway")]
         public Input<Inputs.AwsIntegrationsAwsTransitGatewayGetArgs>? AwsTransitGateway { get; set; }
 
         /// <summary>
-        /// AWS WAF. See Integration blocks below for details.
+        /// Aws Waf integration
         /// </summary>
         [Input("awsWaf")]
         public Input<Inputs.AwsIntegrationsAwsWafGetArgs>? AwsWaf { get; set; }
 
         /// <summary>
-        /// AWS WAF V2. See Integration blocks below for details.
+        /// Aws Wafv2 integration
         /// </summary>
         [Input("awsWafv2")]
         public Input<Inputs.AwsIntegrationsAwsWafv2GetArgs>? AwsWafv2 { get; set; }
 
         /// <summary>
-        /// AWS Billing. See Integration blocks below for details.
+        /// Billing integration
         /// </summary>
         [Input("billing")]
         public Input<Inputs.AwsIntegrationsBillingGetArgs>? Billing { get; set; }
 
         /// <summary>
-        /// AWS CloudFront. See Integration blocks below for details.
+        /// Cloudfront integration
         /// </summary>
         [Input("cloudfront")]
         public Input<Inputs.AwsIntegrationsCloudfrontGetArgs>? Cloudfront { get; set; }
 
         /// <summary>
-        /// AWS CloudTrail. See Integration blocks below for details.
+        /// CloudTrail integration
         /// </summary>
         [Input("cloudtrail")]
         public Input<Inputs.AwsIntegrationsCloudtrailGetArgs>? Cloudtrail { get; set; }
 
         /// <summary>
-        /// AWS DocumentDB. See Integration blocks below for details.
+        /// Doc DB integration
         /// </summary>
         [Input("docDb")]
         public Input<Inputs.AwsIntegrationsDocDbGetArgs>? DocDb { get; set; }
 
         /// <summary>
-        /// Amazon DynamoDB. See Integration blocks below for details.
+        /// Dynamo DB integration
         /// </summary>
         [Input("dynamodb")]
         public Input<Inputs.AwsIntegrationsDynamodbGetArgs>? Dynamodb { get; set; }
 
         /// <summary>
-        /// Amazon EBS. See Integration blocks below for details.
+        /// EBS integration
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.AwsIntegrationsEbsGetArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// Amazon EC2. See Integration blocks below for details.
+        /// Ec2 integration
         /// </summary>
         [Input("ec2")]
         public Input<Inputs.AwsIntegrationsEc2GetArgs>? Ec2 { get; set; }
 
         /// <summary>
-        /// Amazon ECS. See Integration blocks below for details.
+        /// Ecs integration
         /// </summary>
         [Input("ecs")]
         public Input<Inputs.AwsIntegrationsEcsGetArgs>? Ecs { get; set; }
 
         /// <summary>
-        /// Amazon EFS. See Integration blocks below for details.
+        /// Efs integration
         /// </summary>
         [Input("efs")]
         public Input<Inputs.AwsIntegrationsEfsGetArgs>? Efs { get; set; }
 
         /// <summary>
-        /// AWS ElastiCache. See Integration blocks below for details.
+        /// Elasticache integration
         /// </summary>
         [Input("elasticache")]
         public Input<Inputs.AwsIntegrationsElasticacheGetArgs>? Elasticache { get; set; }
 
         /// <summary>
-        /// AWS Elastic Beanstalk. See Integration blocks below for details.
+        /// Elastic Bean Stalk integration
         /// </summary>
         [Input("elasticbeanstalk")]
         public Input<Inputs.AwsIntegrationsElasticbeanstalkGetArgs>? Elasticbeanstalk { get; set; }
 
         /// <summary>
-        /// AWS ElasticSearch. See Integration blocks below for details.
+        /// Elastic Search integration
         /// </summary>
         [Input("elasticsearch")]
         public Input<Inputs.AwsIntegrationsElasticsearchGetArgs>? Elasticsearch { get; set; }
 
         /// <summary>
-        /// AWS ELB (Classic). See Integration blocks below for details.
+        /// Elb integration
         /// </summary>
         [Input("elb")]
         public Input<Inputs.AwsIntegrationsElbGetArgs>? Elb { get; set; }
 
         /// <summary>
-        /// AWS EMR. See Integration blocks below for details.
+        /// Emr integration
         /// </summary>
         [Input("emr")]
         public Input<Inputs.AwsIntegrationsEmrGetArgs>? Emr { get; set; }
 
         /// <summary>
-        /// AWS Health. See Integration blocks below for details.
+        /// Health integration
         /// </summary>
         [Input("health")]
         public Input<Inputs.AwsIntegrationsHealthGetArgs>? Health { get; set; }
 
         /// <summary>
-        /// AWS IAM. See Integration blocks below for details.
+        /// Iam integration
         /// </summary>
         [Input("iam")]
         public Input<Inputs.AwsIntegrationsIamGetArgs>? Iam { get; set; }
 
         /// <summary>
-        /// AWS IoT. See Integration blocks below for details.
+        /// Iot integration
         /// </summary>
         [Input("iot")]
         public Input<Inputs.AwsIntegrationsIotGetArgs>? Iot { get; set; }
 
         /// <summary>
-        /// AWS Kinesis. See Integration blocks below for details.
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+        /// Kinesis integration
         /// </summary>
         [Input("kinesis")]
         public Input<Inputs.AwsIntegrationsKinesisGetArgs>? Kinesis { get; set; }
 
         /// <summary>
-        /// Amazon Kinesis Data Firehose. See Integration blocks below for details.
+        /// Kinesis Firehose integration
         /// </summary>
         [Input("kinesisFirehose")]
         public Input<Inputs.AwsIntegrationsKinesisFirehoseGetArgs>? KinesisFirehose { get; set; }
 
         /// <summary>
-        /// AWS Lambda. See Integration blocks below for details.
+        /// Lambda integration
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.AwsIntegrationsLambdaGetArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// The ID of the linked AWS account in New Relic.
-        /// 
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The ID of the linked AWS account in New Relic
         /// </summary>
         [Input("linkedAccountId")]
         public Input<string>? LinkedAccountId { get; set; }
 
         /// <summary>
-        /// Amazon RDS. See Integration blocks below for details.
+        /// Rds integration
         /// </summary>
         [Input("rds")]
         public Input<Inputs.AwsIntegrationsRdsGetArgs>? Rds { get; set; }
 
         /// <summary>
-        /// Amazon Redshift. See Integration blocks below for details.
+        /// Redshift integration
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.AwsIntegrationsRedshiftGetArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// Amazon Route 53. See Integration blocks below for details.
+        /// Route53 integration
         /// </summary>
         [Input("route53")]
         public Input<Inputs.AwsIntegrationsRoute53GetArgs>? Route53 { get; set; }
 
         /// <summary>
-        /// Amazon S3. See Integration blocks below for details.
+        /// S3 integration
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AwsIntegrationsS3GetArgs>? S3 { get; set; }
 
         /// <summary>
-        /// Amazon SES. See Integration blocks below for details.
+        /// Ses integration
         /// </summary>
         [Input("ses")]
         public Input<Inputs.AwsIntegrationsSesGetArgs>? Ses { get; set; }
 
         /// <summary>
-        /// AWS SNS. See Integration blocks below for details.
+        /// Sns integration
         /// </summary>
         [Input("sns")]
         public Input<Inputs.AwsIntegrationsSnsGetArgs>? Sns { get; set; }
 
         /// <summary>
-        /// AWS SQS. See Integration blocks below for details.
+        /// SQS integration
         /// </summary>
         [Input("sqs")]
         public Input<Inputs.AwsIntegrationsSqsGetArgs>? Sqs { get; set; }
 
         /// <summary>
-        /// AWS Trusted Advisor. See Integration blocks below for details.
-        /// 
-        /// All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+        /// Trusted Advisor integration
         /// </summary>
         [Input("trustedAdvisor")]
         public Input<Inputs.AwsIntegrationsTrustedAdvisorGetArgs>? TrustedAdvisor { get; set; }
@@ -1635,10 +1596,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsVpcGetArgs>? Vpc { get; set; }
 
         /// <summary>
-        /// AWS X-Ray. See Integration blocks below for details.
-        /// x
-        /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+        /// X-Ray integration
         /// </summary>
         [Input("xRay")]
         public Input<Inputs.AwsIntegrationsXRayGetArgs>? XRay { get; set; }

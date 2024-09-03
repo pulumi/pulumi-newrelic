@@ -7,6 +7,15 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "newrelic"
+ * page_title: "New Relic: newrelic.Workflow"
+ * sidebar_current: "docs-newrelic-resource-workflow"
+ * description: |-
+ * Create and manage a workflow in New Relic.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Resource: newrelic\_workflow
+ *
  * Use this resource to create and manage New Relic workflows.
  *
  * ## Example Usage
@@ -150,7 +159,7 @@ import * as utilities from "./utilities";
  * More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
  *
  * ### Moving from Legacy Alert Policy Channels to Workflows
- * As described in the documentation of this resource, mapping alert channels (created using `newrelic.NotificationDestination`).
+ * As described in the documentation of this resource, mapping alert channels (created using `newrelic.NotificationDestination` and `newrelic.NotificationChannel`) to policies can be performed using the `newrelic.Workflow` resource, which is an alternative to the legacy resource `newrelic.AlertPolicyChannel` (which consumes alert channels created using the legacy resource `newrelic.AlertChannel`).
  *
  * Both of the legacy resources mentioned above, `newrelic.AlertChannel` and `newrelic.AlertPolicyChannel` are **deprecated** and will be **removed in a future major release**, as stated in the documentation of both of these resources.
  *

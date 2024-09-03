@@ -61,7 +61,7 @@ namespace Pulumi.NewRelic
     /// 
     /// New Relic One entity tags can be imported using a concatenated string of the format
     /// 
-    ///  `&lt;guid&gt;`, e.g.
+    /// `&lt;guid&gt;`, e.g.
     /// 
     /// bash
     /// 

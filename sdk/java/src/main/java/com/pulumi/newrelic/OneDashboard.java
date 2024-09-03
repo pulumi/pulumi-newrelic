@@ -18,6 +18,214 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * ### Create a New Relic One Dashboard
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.OneDashboard;
+ * import com.pulumi.newrelic.OneDashboardArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardVariableArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardVariableNrqlQueryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampledash = new OneDashboard("exampledash", OneDashboardArgs.builder()
+ *             .name("New Relic Terraform Example")
+ *             .permissions("public_read_only")
+ *             .pages(OneDashboardPageArgs.builder()
+ *                 .name("New Relic Terraform Example")
+ *                 .widgetBillboards(OneDashboardPageWidgetBillboardArgs.builder()
+ *                     .title("Requests per minute")
+ *                     .row(1)
+ *                     .column(1)
+ *                     .width(6)
+ *                     .height(3)
+ *                     .nrqlQueries(OneDashboardPageWidgetBillboardNrqlQueryArgs.builder()
+ *                         .query("FROM Transaction SELECT rate(count(*), 1 minute)")
+ *                         .build())
+ *                     .build())
+ *                 .widgetBars(                
+ *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .title("Average transaction duration, by application")
+ *                         .row(1)
+ *                         .column(7)
+ *                         .width(6)
+ *                         .height(3)
+ *                         .nrqlQueries(OneDashboardPageWidgetBarNrqlQueryArgs.builder()
+ *                             .accountId(12345)
+ *                             .query("FROM Transaction SELECT average(duration) FACET appName")
+ *                             .build())
+ *                         .linkedEntityGuids("abc123")
+ *                         .build(),
+ *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .title("Average transaction duration, by application")
+ *                         .row(4)
+ *                         .column(1)
+ *                         .width(6)
+ *                         .height(3)
+ *                         .nrqlQueries(OneDashboardPageWidgetBarNrqlQueryArgs.builder()
+ *                             .accountId(12345)
+ *                             .query("FROM Transaction SELECT average(duration) FACET appName")
+ *                             .build())
+ *                         .filterCurrentDashboard(true)
+ *                         .colors(OneDashboardPageWidgetBarColorArgs.builder()
+ *                             .color("#722727")
+ *                             .seriesOverrides(                            
+ *                                 OneDashboardPageWidgetBarColorSeriesOverrideArgs.builder()
+ *                                     .color("#722322")
+ *                                     .seriesName("Node")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetBarColorSeriesOverrideArgs.builder()
+ *                                     .color("#236f70")
+ *                                     .seriesName("Java")
+ *                                     .build())
+ *                             .build())
+ *                         .build())
+ *                 .widgetLines(                
+ *                     OneDashboardPageWidgetLineArgs.builder()
+ *                         .title("Average transaction duration and the request per minute, by application")
+ *                         .row(4)
+ *                         .column(7)
+ *                         .width(6)
+ *                         .height(3)
+ *                         .nrqlQueries(                        
+ *                             OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                                 .accountId(12345)
+ *                                 .query("FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago")
+ *                                 .build(),
+ *                             OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                                 .query("FROM Transaction SELECT rate(count(*), 1 minute)")
+ *                                 .build())
+ *                         .legendEnabled(true)
+ *                         .ignoreTimeRange(false)
+ *                         .yAxisLeftZero(true)
+ *                         .yAxisLeftMin(0)
+ *                         .yAxisLeftMax(1)
+ *                         .yAxisRight(OneDashboardPageWidgetLineYAxisRightArgs.builder()
+ *                             .yAxisRightZero(true)
+ *                             .yAxisRightMin(0)
+ *                             .yAxisRightMax(300)
+ *                             .yAxisRightSeries(                            
+ *                                 "A",
+ *                                 "B")
+ *                             .build())
+ *                         .isLabelVisible(true)
+ *                         .thresholds(                        
+ *                             OneDashboardPageWidgetLineThresholdArgs.builder()
+ *                                 .name("Duration Threshold")
+ *                                 .from(1)
+ *                                 .to(2)
+ *                                 .severity("critical")
+ *                                 .build(),
+ *                             OneDashboardPageWidgetLineThresholdArgs.builder()
+ *                                 .name("Duration Threshold Two")
+ *                                 .from(2.1)
+ *                                 .to(3.3)
+ *                                 .severity("warning")
+ *                                 .build())
+ *                         .units(OneDashboardPageWidgetLineUnitArgs.builder()
+ *                             .unit("ms")
+ *                             .seriesOverrides(OneDashboardPageWidgetLineUnitSeriesOverrideArgs.builder()
+ *                                 .unit("ms")
+ *                                 .seriesName("max duration")
+ *                                 .build())
+ *                             .build())
+ *                         .build(),
+ *                     OneDashboardPageWidgetLineArgs.builder()
+ *                         .title("Overall CPU % Statistics")
+ *                         .row(1)
+ *                         .column(5)
+ *                         .height(3)
+ *                         .width(4)
+ *                         .nrqlQueries(OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                             .query("""
+ * SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES
+ *                             """)
+ *                             .build())
+ *                         .facetShowOtherSeries(false)
+ *                         .legendEnabled(true)
+ *                         .ignoreTimeRange(false)
+ *                         .yAxisLeftZero(true)
+ *                         .yAxisLeftMin(0)
+ *                         .yAxisLeftMax(0)
+ *                         .nullValues(OneDashboardPageWidgetLineNullValueArgs.builder()
+ *                             .nullValue("default")
+ *                             .seriesOverrides(                            
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("remove")
+ *                                     .seriesName("Avg Cpu User Percent")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("zero")
+ *                                     .seriesName("Avg Cpu Idle Percent")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("default")
+ *                                     .seriesName("Avg Cpu IO Wait Percent")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("preserve")
+ *                                     .seriesName("Avg Cpu System Percent")
+ *                                     .build())
+ *                             .build())
+ *                         .build())
+ *                 .widgetMarkdowns(OneDashboardPageWidgetMarkdownArgs.builder()
+ *                     .title("Dashboard Note")
+ *                     .row(7)
+ *                     .column(1)
+ *                     .width(12)
+ *                     .height(3)
+ *                     .text("""
+ * ### Helpful Links
+ * 
+ * * [New Relic One](https://one.newrelic.com)
+ * * [Developer Portal](https://developer.newrelic.com)                    """)
+ *                     .build())
+ *                 .build())
+ *             .variables(OneDashboardVariableArgs.builder()
+ *                 .defaultValues("value")
+ *                 .isMultiSelection(true)
+ *                 .items(OneDashboardVariableItemArgs.builder()
+ *                     .title("item")
+ *                     .value("ITEM")
+ *                     .build())
+ *                 .name("variable")
+ *                 .nrqlQuery(OneDashboardVariableNrqlQueryArgs.builder()
+ *                     .accountIds(12345)
+ *                     .query("FROM Transaction SELECT average(duration) FACET appName")
+ *                     .build())
+ *                 .replacementStrategy("default")
+ *                 .title("title")
+ *                 .type("nrql")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * See additional examples.
+ * 
  * ## Import
  * 
  * New Relic dashboards can be imported using their GUID, e.g.

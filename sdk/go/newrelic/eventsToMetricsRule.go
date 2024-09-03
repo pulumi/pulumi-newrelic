@@ -45,9 +45,9 @@ import (
 //
 // ## Import
 //
-// New Relic Events to Metrics rules can be imported using a concatenated string of the format
+// # New Relic Events to Metrics rules can be imported using a concatenated string of the format
 //
-//	`<account_id>:<rule_id>`, e.g.
+// `<account_id>:<rule_id>`, e.g.
 //
 // bash
 //

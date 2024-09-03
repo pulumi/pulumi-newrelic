@@ -54,7 +54,6 @@ class AzureIntegrationsArgs:
         The set of arguments for constructing a AzureIntegrations resource.
         :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
@@ -169,7 +168,6 @@ class AzureIntegrationsArgs:
     def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked Azure account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
@@ -637,7 +635,6 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
@@ -907,7 +904,6 @@ class _AzureIntegrationsState:
     def linked_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the linked Azure account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """
@@ -1193,6 +1189,15 @@ class AzureIntegrations(pulumi.CustomResource):
                  vpn_gateway: Optional[pulumi.Input[Union['AzureIntegrationsVpnGatewayArgs', 'AzureIntegrationsVpnGatewayArgsDict']]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: cloud.AzureIntegrations"
+        sidebar_current: "docs-newrelic-resource-cloud-azure-integrations"
+        description: |-
+        Integrate Azure services with New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_cloud\\_azure\\_integrations
+
         Use this resource to integrate Azure services with New Relic.
 
         ## Prerequisite
@@ -1386,7 +1391,6 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
@@ -1421,6 +1425,15 @@ class AzureIntegrations(pulumi.CustomResource):
                  args: AzureIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: cloud.AzureIntegrations"
+        sidebar_current: "docs-newrelic-resource-cloud-azure-integrations"
+        description: |-
+        Integrate Azure services with New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_cloud\\_azure\\_integrations
+
         Use this resource to integrate Azure services with New Relic.
 
         ## Prerequisite
@@ -1757,7 +1770,6 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AzureIntegrationsKeyVaultArgs', 'AzureIntegrationsKeyVaultArgsDict']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked Azure account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         :param pulumi.Input[Union['AzureIntegrationsLoadBalancerArgs', 'AzureIntegrationsLoadBalancerArgsDict']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsLogicAppsArgs', 'AzureIntegrationsLogicAppsArgsDict']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
@@ -1942,7 +1954,6 @@ class AzureIntegrations(pulumi.CustomResource):
     def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked Azure account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
         """

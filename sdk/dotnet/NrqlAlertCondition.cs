@@ -93,13 +93,13 @@ namespace Pulumi.NewRelic
     /// - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
     /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
     /// - `threshold` - (Required) The value which will trigger an incident.
-    /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
+    /// &lt;br&gt;For *baseline* NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
     /// - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-    /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
-    /// &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
+    /// &lt;br&gt;For *baseline* NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+    /// &lt;br&gt;For *static* NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
     /// 
     /// - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-    /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
+    /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in *minutes*, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
     /// - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
     /// 
     /// &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.
@@ -382,7 +382,7 @@ namespace Pulumi.NewRelic
         public Output<int> AggregationWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        /// The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         /// </summary>
         [Output("baselineDirection")]
         public Output<string?> BaselineDirection { get; private set; } = null!;
@@ -503,14 +503,14 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimit")]
         public Output<string> ViolationTimeLimit { get; private set; } = null!;
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimitSeconds")]
         public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
@@ -598,7 +598,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AggregationWindow { get; set; }
 
         /// <summary>
-        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        /// The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         /// </summary>
         [Input("baselineDirection")]
         public Input<string>? BaselineDirection { get; set; }
@@ -720,14 +720,14 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
         public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
@@ -777,7 +777,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AggregationWindow { get; set; }
 
         /// <summary>
-        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        /// The baseline direction of a *baseline* NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         /// </summary>
         [Input("baselineDirection")]
         public Input<string>? BaselineDirection { get; set; }
@@ -905,14 +905,14 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
         public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `violation_time_limit` *or* `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }

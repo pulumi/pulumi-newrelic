@@ -454,337 +454,325 @@ import javax.annotation.Nullable;
  * &lt;details&gt;
  *   &lt;summary&gt;Expand this section to view all supported AWS services supported, that may be integrated via this resource.&lt;/summary&gt;
  * 
- * | Block                   | Description                   |
- * |-------------------------|-------------------------------|
- * | `alb`                   | ALB Integration               |
- * | `api_gateway`           | API Gateway Integration       |
- * | `auto_scaling`          | Auto Scaling Integration      |
- * | `aws_app_sync`          | AppSync Integration           |
- * | `aws_athena`            | Athena Integration            |
- * | `aws_cognito`           | Cognito Integration           |
- * | `aws_connect`           | Connect Integration           |
- * | `aws_direct_connect`    | Direct Connect Integration    |
- * | `aws_fsx`               | FSx Integration               |
- * | `aws_glue`              | Glue Integration              |
- * | `aws_kinesis_analytics` | Kinesis Analytics Integration |
- * | `aws_media_convert`     | MediaConvert Integration      |
- * | `aws_media_package_vod` | Media Package VOD Integration |
- * | `aws_mq`                | MQ Integration                |
- * | `aws_msk`               | MSK Integration               |
- * | `aws_neptune`           | Neptune Integration           |
- * | `aws_qldb`              | QLDB Integration              |
- * | `aws_route53resolver`   | Route53 Resolver Integration  |
- * | `aws_states`            | States Integration            |
- * | `aws_transit_gateway`   | Transit Gateway Integration   |
- * | `aws_waf`               | WAF Integration               |
- * | `aws_wafv2`             | WAFv2 Integration             |
- * | `billing`               | Billing Integration           |
- * | `cloudfront`            | CloudFront Integration        |
- * | `cloudtrail`            | CloudTrail Integration        |
- * | `doc_db`                | DocumentDB Integration        |
- * | `dynamodb`              | DynamoDB Integration          |
- * | `ebs`                   | EBS Integration               |
- * | `ec2`                   | EC2 Integration               |
- * | `ecs`                   | ECS Integration               |
- * | `efs`                   | EFS Integration               |
- * | `elasticache`           | ElastiCache Integration       |
- * | `elasticbeanstalk`      | Elastic Beanstalk Integration |
- * | `elasticsearch`         | Elasticsearch Integration     |
- * | `elb`                   | ELB Integration               |
- * | `emr`                   | EMR Integration               |
- * | `health`                | Health Integration            |
- * | `iam`                   | IAM Integration               |
- * | `iot`                   | IoT Integration               |
- * | `kinesis`               | Kinesis Integration           |
- * | `kinesis_firehose`      | Kinesis Firehose Integration  |
- * | `lambda`                | Lambda Integration            |
- * | `rds`                   | RDS Integration               |
- * | `redshift`              | Redshift Integration          |
- * | `route53`               | Route53 Integration           |
- * | `s3`                    | S3 Integration                |
- * | `ses`                   | SES Integration               |
- * | `sns`                   | SNS Integration               |
- * | `sqs`                   | SQS Integration               |
- * | `trusted_advisor`       | Trusted Advisor Integration   |
- * | `vpc`                   | VPC Integration               |
- * | `x_ray`                 | X-Ray Integration             |
- * 
- * &lt;/details&gt;
- * 
- * ## Import
- * 
- * Linked AWS account integrations can be imported using the `id`, e.g.
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo &lt;id&gt;
- * ```
+ * |          Block          |    Description    |
+ * |-------------------------|-------------------|
+ * | `alb`                   | ALB               |
+ * | `api_gateway`           | API Gateway       |
+ * | `auto_scaling`          | Auto Scaling      |
+ * | `aws_app_sync`          | AppSync           |
+ * | `aws_athena`            | Athena            |
+ * | `aws_cognito`           | Cognito           |
+ * | `aws_connect`           | Connect           |
+ * | `aws_direct_connect`    | Direct Connect    |
+ * | `aws_fsx`               | FSx               |
+ * | `aws_glue`              | Glue              |
+ * | `aws_kinesis_analytics` | Kinesis Analytics |
+ * | `aws_media_convert`     | MediaConvert      |
+ * | `aws_media_package_vod` | Media Package VOD |
+ * | `aws_mq`                | MQ                |
+ * | `aws_msk`               | MSK               |
+ * | `aws_neptune`           | Neptune           |
+ * | `aws_qldb`              | QLDB              |
+ * | `aws_route53resolver`   | Route53 Resolver  |
+ * | `aws_states`            | States            |
+ * | `aws_transit_gateway`   | Transit Gateway   |
+ * | `aws_waf`               | WAF               |
+ * | `aws_wafv2`             | WAFv2             |
+ * | `billing`               | Billing           |
+ * | `cloudfront`            | CloudFront        |
+ * | `cloudtrail`            | CloudTrail        |
+ * | `doc_db`                | DocumentDB        |
+ * | `dynamodb`              | DynamoDB          |
+ * | `ebs`                   | EBS               |
+ * | `ec2`                   | EC2               |
+ * | `ecs`                   | ECS               |
+ * | `efs`                   | EFS               |
+ * | `elasticache`           | ElastiCache       |
+ * | `elasticbeanstalk`      | Elastic Beanstalk |
+ * | `elasticsearch`         | Elasticsearch     |
+ * | `elb`                   | ELB               |
+ * | `emr`                   | EMR               |
+ * | `health`                | Health            |
+ * | `iam`                   | IAM               |
+ * | `iot`                   | IoT               |
+ * | `kinesis`               | Kinesis           |
+ * | `kinesis_firehose`      | Kinesis Firehose  |
+ * | `lambda`                | Lambda            |
+ * | `rds`                   | RDS               |
+ * | `redshift`              | Redshift          |
+ * | `route53`               | Route53           |
+ * | `s3`                    | S3                |
+ * | `ses`                   | SES               |
+ * | `sns`                   | SNS               |
+ * | `sqs`                   | SQS               |
+ * | `trusted_advisor`       | Trusted Advisor   |
+ * | `vpc`                   | VPC               |
+ * | `x_ray`                 | X-Ray             |
  * 
  */
 @ResourceType(type="newrelic:cloud/awsIntegrations:AwsIntegrations")
 public class AwsIntegrations extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The ID of the account in New Relic.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The ID of the account in New Relic.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * AWS ALB. See Integration blocks below for details.
+     * ALB integration
      * 
      */
     @Export(name="alb", refs={AwsIntegrationsAlb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAlb> alb;
 
     /**
-     * @return AWS ALB. See Integration blocks below for details.
+     * @return ALB integration
      * 
      */
     public Output<Optional<AwsIntegrationsAlb>> alb() {
         return Codegen.optional(this.alb);
     }
     /**
-     * AWS API Gateway. See Integration blocks below for details.
+     * API Gateway integration
      * 
      */
     @Export(name="apiGateway", refs={AwsIntegrationsApiGateway.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsApiGateway> apiGateway;
 
     /**
-     * @return AWS API Gateway. See Integration blocks below for details.
+     * @return API Gateway integration
      * 
      */
     public Output<Optional<AwsIntegrationsApiGateway>> apiGateway() {
         return Codegen.optional(this.apiGateway);
     }
     /**
-     * AWS Auto Scaling. See Integration blocks below for details.
+     * AutoScaling integration
      * 
      */
     @Export(name="autoScaling", refs={AwsIntegrationsAutoScaling.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAutoScaling> autoScaling;
 
     /**
-     * @return AWS Auto Scaling. See Integration blocks below for details.
+     * @return AutoScaling integration
      * 
      */
     public Output<Optional<AwsIntegrationsAutoScaling>> autoScaling() {
         return Codegen.optional(this.autoScaling);
     }
     /**
-     * AWS AppSync. See Integration blocks below for details.
+     * Aws Appsync integration
      * 
      */
     @Export(name="awsAppSync", refs={AwsIntegrationsAwsAppSync.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsAppSync> awsAppSync;
 
     /**
-     * @return AWS AppSync. See Integration blocks below for details.
+     * @return Aws Appsync integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsAppSync>> awsAppSync() {
         return Codegen.optional(this.awsAppSync);
     }
     /**
-     * AWS Athena. See Integration blocks below for details.
+     * Aws Athena integration
      * 
      */
     @Export(name="awsAthena", refs={AwsIntegrationsAwsAthena.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsAthena> awsAthena;
 
     /**
-     * @return AWS Athena. See Integration blocks below for details.
+     * @return Aws Athena integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsAthena>> awsAthena() {
         return Codegen.optional(this.awsAthena);
     }
     /**
-     * AWS Cognito. See Integration blocks below for details.
+     * Aws Cognito integration
      * 
      */
     @Export(name="awsCognito", refs={AwsIntegrationsAwsCognito.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsCognito> awsCognito;
 
     /**
-     * @return AWS Cognito. See Integration blocks below for details.
+     * @return Aws Cognito integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsCognito>> awsCognito() {
         return Codegen.optional(this.awsCognito);
     }
     /**
-     * AWS Connect. See Integration blocks below for details.
+     * Aws Connect integration
      * 
      */
     @Export(name="awsConnect", refs={AwsIntegrationsAwsConnect.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsConnect> awsConnect;
 
     /**
-     * @return AWS Connect. See Integration blocks below for details.
+     * @return Aws Connect integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsConnect>> awsConnect() {
         return Codegen.optional(this.awsConnect);
     }
     /**
-     * AWS Direct Connect. See Integration blocks below for details.
+     * Aws Direct Connect integration
      * 
      */
     @Export(name="awsDirectConnect", refs={AwsIntegrationsAwsDirectConnect.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsDirectConnect> awsDirectConnect;
 
     /**
-     * @return AWS Direct Connect. See Integration blocks below for details.
+     * @return Aws Direct Connect integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsDirectConnect>> awsDirectConnect() {
         return Codegen.optional(this.awsDirectConnect);
     }
     /**
-     * AWS FSx. See Integration blocks below for details.
+     * Aws Fsx integration
      * 
      */
     @Export(name="awsFsx", refs={AwsIntegrationsAwsFsx.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsFsx> awsFsx;
 
     /**
-     * @return AWS FSx. See Integration blocks below for details.
+     * @return Aws Fsx integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsFsx>> awsFsx() {
         return Codegen.optional(this.awsFsx);
     }
     /**
-     * AWS Glue. See Integration blocks below for details.
+     * Aws Glue integration
      * 
      */
     @Export(name="awsGlue", refs={AwsIntegrationsAwsGlue.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsGlue> awsGlue;
 
     /**
-     * @return AWS Glue. See Integration blocks below for details.
+     * @return Aws Glue integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsGlue>> awsGlue() {
         return Codegen.optional(this.awsGlue);
     }
     /**
-     * AWS Kinesis Data Analytics. See Integration blocks below for details.
+     * Aws Kinesis Analytics integration
      * 
      */
     @Export(name="awsKinesisAnalytics", refs={AwsIntegrationsAwsKinesisAnalytics.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsKinesisAnalytics> awsKinesisAnalytics;
 
     /**
-     * @return AWS Kinesis Data Analytics. See Integration blocks below for details.
+     * @return Aws Kinesis Analytics integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsKinesisAnalytics>> awsKinesisAnalytics() {
         return Codegen.optional(this.awsKinesisAnalytics);
     }
     /**
-     * AWS Media Convert. See Integration blocks below for details.
+     * Aws Media Convert integration
      * 
      */
     @Export(name="awsMediaConvert", refs={AwsIntegrationsAwsMediaConvert.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMediaConvert> awsMediaConvert;
 
     /**
-     * @return AWS Media Convert. See Integration blocks below for details.
+     * @return Aws Media Convert integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsMediaConvert>> awsMediaConvert() {
         return Codegen.optional(this.awsMediaConvert);
     }
     /**
-     * AWS MediaPackage VOD. See Integration blocks below for details.
+     * Aws Media PackageVod integration
      * 
      */
     @Export(name="awsMediaPackageVod", refs={AwsIntegrationsAwsMediaPackageVod.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMediaPackageVod> awsMediaPackageVod;
 
     /**
-     * @return AWS MediaPackage VOD. See Integration blocks below for details.
+     * @return Aws Media PackageVod integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsMediaPackageVod>> awsMediaPackageVod() {
         return Codegen.optional(this.awsMediaPackageVod);
     }
     /**
-     * AWS MQ. See Integration blocks below for details.
+     * Aws Mq integration
      * 
      */
     @Export(name="awsMq", refs={AwsIntegrationsAwsMq.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMq> awsMq;
 
     /**
-     * @return AWS MQ. See Integration blocks below for details.
+     * @return Aws Mq integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsMq>> awsMq() {
         return Codegen.optional(this.awsMq);
     }
     /**
-     * Amazon Managed Kafka (MSK). See Integration blocks below for details.
+     * Aws Msk integration
      * 
      */
     @Export(name="awsMsk", refs={AwsIntegrationsAwsMsk.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsMsk> awsMsk;
 
     /**
-     * @return Amazon Managed Kafka (MSK). See Integration blocks below for details.
+     * @return Aws Msk integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsMsk>> awsMsk() {
         return Codegen.optional(this.awsMsk);
     }
     /**
-     * AWS Neptune. See Integration blocks below for details.
+     * Aws Neptune integration
      * 
      */
     @Export(name="awsNeptune", refs={AwsIntegrationsAwsNeptune.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsNeptune> awsNeptune;
 
     /**
-     * @return AWS Neptune. See Integration blocks below for details.
+     * @return Aws Neptune integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsNeptune>> awsNeptune() {
         return Codegen.optional(this.awsNeptune);
     }
     /**
-     * Amazon QLDB. See Integration blocks below for details.
+     * Aws Qldb integration
      * 
      */
     @Export(name="awsQldb", refs={AwsIntegrationsAwsQldb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsQldb> awsQldb;
 
     /**
-     * @return Amazon QLDB. See Integration blocks below for details.
+     * @return Aws Qldb integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsQldb>> awsQldb() {
         return Codegen.optional(this.awsQldb);
     }
     /**
-     * AWS Route53 Resolver. See Integration blocks below for details.
+     * Aws Route53resolver integration
      * 
      */
     @Export(name="awsRoute53resolver", refs={AwsIntegrationsAwsRoute53resolver.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsRoute53resolver> awsRoute53resolver;
 
     /**
-     * @return AWS Route53 Resolver. See Integration blocks below for details.
+     * @return Aws Route53resolver integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsRoute53resolver>> awsRoute53resolver() {
@@ -805,460 +793,448 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.awsStates);
     }
     /**
-     * Amazon Transit Gateway. See Integration blocks below for details.
+     * Aws Transit Gateway integration
      * 
      */
     @Export(name="awsTransitGateway", refs={AwsIntegrationsAwsTransitGateway.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsTransitGateway> awsTransitGateway;
 
     /**
-     * @return Amazon Transit Gateway. See Integration blocks below for details.
+     * @return Aws Transit Gateway integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsTransitGateway>> awsTransitGateway() {
         return Codegen.optional(this.awsTransitGateway);
     }
     /**
-     * AWS WAF. See Integration blocks below for details.
+     * Aws Waf integration
      * 
      */
     @Export(name="awsWaf", refs={AwsIntegrationsAwsWaf.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsWaf> awsWaf;
 
     /**
-     * @return AWS WAF. See Integration blocks below for details.
+     * @return Aws Waf integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsWaf>> awsWaf() {
         return Codegen.optional(this.awsWaf);
     }
     /**
-     * AWS WAF V2. See Integration blocks below for details.
+     * Aws Wafv2 integration
      * 
      */
     @Export(name="awsWafv2", refs={AwsIntegrationsAwsWafv2.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsAwsWafv2> awsWafv2;
 
     /**
-     * @return AWS WAF V2. See Integration blocks below for details.
+     * @return Aws Wafv2 integration
      * 
      */
     public Output<Optional<AwsIntegrationsAwsWafv2>> awsWafv2() {
         return Codegen.optional(this.awsWafv2);
     }
     /**
-     * AWS Billing. See Integration blocks below for details.
+     * Billing integration
      * 
      */
     @Export(name="billing", refs={AwsIntegrationsBilling.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsBilling> billing;
 
     /**
-     * @return AWS Billing. See Integration blocks below for details.
+     * @return Billing integration
      * 
      */
     public Output<Optional<AwsIntegrationsBilling>> billing() {
         return Codegen.optional(this.billing);
     }
     /**
-     * AWS CloudFront. See Integration blocks below for details.
+     * Cloudfront integration
      * 
      */
     @Export(name="cloudfront", refs={AwsIntegrationsCloudfront.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsCloudfront> cloudfront;
 
     /**
-     * @return AWS CloudFront. See Integration blocks below for details.
+     * @return Cloudfront integration
      * 
      */
     public Output<Optional<AwsIntegrationsCloudfront>> cloudfront() {
         return Codegen.optional(this.cloudfront);
     }
     /**
-     * AWS CloudTrail. See Integration blocks below for details.
+     * CloudTrail integration
      * 
      */
     @Export(name="cloudtrail", refs={AwsIntegrationsCloudtrail.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsCloudtrail> cloudtrail;
 
     /**
-     * @return AWS CloudTrail. See Integration blocks below for details.
+     * @return CloudTrail integration
      * 
      */
     public Output<Optional<AwsIntegrationsCloudtrail>> cloudtrail() {
         return Codegen.optional(this.cloudtrail);
     }
     /**
-     * AWS DocumentDB. See Integration blocks below for details.
+     * Doc DB integration
      * 
      */
     @Export(name="docDb", refs={AwsIntegrationsDocDb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsDocDb> docDb;
 
     /**
-     * @return AWS DocumentDB. See Integration blocks below for details.
+     * @return Doc DB integration
      * 
      */
     public Output<Optional<AwsIntegrationsDocDb>> docDb() {
         return Codegen.optional(this.docDb);
     }
     /**
-     * Amazon DynamoDB. See Integration blocks below for details.
+     * Dynamo DB integration
      * 
      */
     @Export(name="dynamodb", refs={AwsIntegrationsDynamodb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsDynamodb> dynamodb;
 
     /**
-     * @return Amazon DynamoDB. See Integration blocks below for details.
+     * @return Dynamo DB integration
      * 
      */
     public Output<Optional<AwsIntegrationsDynamodb>> dynamodb() {
         return Codegen.optional(this.dynamodb);
     }
     /**
-     * Amazon EBS. See Integration blocks below for details.
+     * EBS integration
      * 
      */
     @Export(name="ebs", refs={AwsIntegrationsEbs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEbs> ebs;
 
     /**
-     * @return Amazon EBS. See Integration blocks below for details.
+     * @return EBS integration
      * 
      */
     public Output<Optional<AwsIntegrationsEbs>> ebs() {
         return Codegen.optional(this.ebs);
     }
     /**
-     * Amazon EC2. See Integration blocks below for details.
+     * Ec2 integration
      * 
      */
     @Export(name="ec2", refs={AwsIntegrationsEc2.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEc2> ec2;
 
     /**
-     * @return Amazon EC2. See Integration blocks below for details.
+     * @return Ec2 integration
      * 
      */
     public Output<Optional<AwsIntegrationsEc2>> ec2() {
         return Codegen.optional(this.ec2);
     }
     /**
-     * Amazon ECS. See Integration blocks below for details.
+     * Ecs integration
      * 
      */
     @Export(name="ecs", refs={AwsIntegrationsEcs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEcs> ecs;
 
     /**
-     * @return Amazon ECS. See Integration blocks below for details.
+     * @return Ecs integration
      * 
      */
     public Output<Optional<AwsIntegrationsEcs>> ecs() {
         return Codegen.optional(this.ecs);
     }
     /**
-     * Amazon EFS. See Integration blocks below for details.
+     * Efs integration
      * 
      */
     @Export(name="efs", refs={AwsIntegrationsEfs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEfs> efs;
 
     /**
-     * @return Amazon EFS. See Integration blocks below for details.
+     * @return Efs integration
      * 
      */
     public Output<Optional<AwsIntegrationsEfs>> efs() {
         return Codegen.optional(this.efs);
     }
     /**
-     * AWS ElastiCache. See Integration blocks below for details.
+     * Elasticache integration
      * 
      */
     @Export(name="elasticache", refs={AwsIntegrationsElasticache.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElasticache> elasticache;
 
     /**
-     * @return AWS ElastiCache. See Integration blocks below for details.
+     * @return Elasticache integration
      * 
      */
     public Output<Optional<AwsIntegrationsElasticache>> elasticache() {
         return Codegen.optional(this.elasticache);
     }
     /**
-     * AWS Elastic Beanstalk. See Integration blocks below for details.
+     * Elastic Bean Stalk integration
      * 
      */
     @Export(name="elasticbeanstalk", refs={AwsIntegrationsElasticbeanstalk.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElasticbeanstalk> elasticbeanstalk;
 
     /**
-     * @return AWS Elastic Beanstalk. See Integration blocks below for details.
+     * @return Elastic Bean Stalk integration
      * 
      */
     public Output<Optional<AwsIntegrationsElasticbeanstalk>> elasticbeanstalk() {
         return Codegen.optional(this.elasticbeanstalk);
     }
     /**
-     * AWS ElasticSearch. See Integration blocks below for details.
+     * Elastic Search integration
      * 
      */
     @Export(name="elasticsearch", refs={AwsIntegrationsElasticsearch.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElasticsearch> elasticsearch;
 
     /**
-     * @return AWS ElasticSearch. See Integration blocks below for details.
+     * @return Elastic Search integration
      * 
      */
     public Output<Optional<AwsIntegrationsElasticsearch>> elasticsearch() {
         return Codegen.optional(this.elasticsearch);
     }
     /**
-     * AWS ELB (Classic). See Integration blocks below for details.
+     * Elb integration
      * 
      */
     @Export(name="elb", refs={AwsIntegrationsElb.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsElb> elb;
 
     /**
-     * @return AWS ELB (Classic). See Integration blocks below for details.
+     * @return Elb integration
      * 
      */
     public Output<Optional<AwsIntegrationsElb>> elb() {
         return Codegen.optional(this.elb);
     }
     /**
-     * AWS EMR. See Integration blocks below for details.
+     * Emr integration
      * 
      */
     @Export(name="emr", refs={AwsIntegrationsEmr.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsEmr> emr;
 
     /**
-     * @return AWS EMR. See Integration blocks below for details.
+     * @return Emr integration
      * 
      */
     public Output<Optional<AwsIntegrationsEmr>> emr() {
         return Codegen.optional(this.emr);
     }
     /**
-     * AWS Health. See Integration blocks below for details.
+     * Health integration
      * 
      */
     @Export(name="health", refs={AwsIntegrationsHealth.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsHealth> health;
 
     /**
-     * @return AWS Health. See Integration blocks below for details.
+     * @return Health integration
      * 
      */
     public Output<Optional<AwsIntegrationsHealth>> health() {
         return Codegen.optional(this.health);
     }
     /**
-     * AWS IAM. See Integration blocks below for details.
+     * Iam integration
      * 
      */
     @Export(name="iam", refs={AwsIntegrationsIam.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsIam> iam;
 
     /**
-     * @return AWS IAM. See Integration blocks below for details.
+     * @return Iam integration
      * 
      */
     public Output<Optional<AwsIntegrationsIam>> iam() {
         return Codegen.optional(this.iam);
     }
     /**
-     * AWS IoT. See Integration blocks below for details.
+     * Iot integration
      * 
      */
     @Export(name="iot", refs={AwsIntegrationsIot.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsIot> iot;
 
     /**
-     * @return AWS IoT. See Integration blocks below for details.
+     * @return Iot integration
      * 
      */
     public Output<Optional<AwsIntegrationsIot>> iot() {
         return Codegen.optional(this.iot);
     }
     /**
-     * AWS Kinesis. See Integration blocks below for details.
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * Kinesis integration
      * 
      */
     @Export(name="kinesis", refs={AwsIntegrationsKinesis.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsKinesis> kinesis;
 
     /**
-     * @return AWS Kinesis. See Integration blocks below for details.
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * @return Kinesis integration
      * 
      */
     public Output<Optional<AwsIntegrationsKinesis>> kinesis() {
         return Codegen.optional(this.kinesis);
     }
     /**
-     * Amazon Kinesis Data Firehose. See Integration blocks below for details.
+     * Kinesis Firehose integration
      * 
      */
     @Export(name="kinesisFirehose", refs={AwsIntegrationsKinesisFirehose.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsKinesisFirehose> kinesisFirehose;
 
     /**
-     * @return Amazon Kinesis Data Firehose. See Integration blocks below for details.
+     * @return Kinesis Firehose integration
      * 
      */
     public Output<Optional<AwsIntegrationsKinesisFirehose>> kinesisFirehose() {
         return Codegen.optional(this.kinesisFirehose);
     }
     /**
-     * AWS Lambda. See Integration blocks below for details.
+     * Lambda integration
      * 
      */
     @Export(name="lambda", refs={AwsIntegrationsLambda.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsLambda> lambda;
 
     /**
-     * @return AWS Lambda. See Integration blocks below for details.
+     * @return Lambda integration
      * 
      */
     public Output<Optional<AwsIntegrationsLambda>> lambda() {
         return Codegen.optional(this.lambda);
     }
     /**
-     * The ID of the linked AWS account in New Relic.
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The ID of the linked AWS account in New Relic
      * 
      */
     @Export(name="linkedAccountId", refs={String.class}, tree="[0]")
     private Output<String> linkedAccountId;
 
     /**
-     * @return The ID of the linked AWS account in New Relic.
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * @return The ID of the linked AWS account in New Relic
      * 
      */
     public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
     /**
-     * Amazon RDS. See Integration blocks below for details.
+     * Rds integration
      * 
      */
     @Export(name="rds", refs={AwsIntegrationsRds.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsRds> rds;
 
     /**
-     * @return Amazon RDS. See Integration blocks below for details.
+     * @return Rds integration
      * 
      */
     public Output<Optional<AwsIntegrationsRds>> rds() {
         return Codegen.optional(this.rds);
     }
     /**
-     * Amazon Redshift. See Integration blocks below for details.
+     * Redshift integration
      * 
      */
     @Export(name="redshift", refs={AwsIntegrationsRedshift.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsRedshift> redshift;
 
     /**
-     * @return Amazon Redshift. See Integration blocks below for details.
+     * @return Redshift integration
      * 
      */
     public Output<Optional<AwsIntegrationsRedshift>> redshift() {
         return Codegen.optional(this.redshift);
     }
     /**
-     * Amazon Route 53. See Integration blocks below for details.
+     * Route53 integration
      * 
      */
     @Export(name="route53", refs={AwsIntegrationsRoute53.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsRoute53> route53;
 
     /**
-     * @return Amazon Route 53. See Integration blocks below for details.
+     * @return Route53 integration
      * 
      */
     public Output<Optional<AwsIntegrationsRoute53>> route53() {
         return Codegen.optional(this.route53);
     }
     /**
-     * Amazon S3. See Integration blocks below for details.
+     * S3 integration
      * 
      */
     @Export(name="s3", refs={AwsIntegrationsS3.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsS3> s3;
 
     /**
-     * @return Amazon S3. See Integration blocks below for details.
+     * @return S3 integration
      * 
      */
     public Output<Optional<AwsIntegrationsS3>> s3() {
         return Codegen.optional(this.s3);
     }
     /**
-     * Amazon SES. See Integration blocks below for details.
+     * Ses integration
      * 
      */
     @Export(name="ses", refs={AwsIntegrationsSes.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsSes> ses;
 
     /**
-     * @return Amazon SES. See Integration blocks below for details.
+     * @return Ses integration
      * 
      */
     public Output<Optional<AwsIntegrationsSes>> ses() {
         return Codegen.optional(this.ses);
     }
     /**
-     * AWS SNS. See Integration blocks below for details.
+     * Sns integration
      * 
      */
     @Export(name="sns", refs={AwsIntegrationsSns.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsSns> sns;
 
     /**
-     * @return AWS SNS. See Integration blocks below for details.
+     * @return Sns integration
      * 
      */
     public Output<Optional<AwsIntegrationsSns>> sns() {
         return Codegen.optional(this.sns);
     }
     /**
-     * AWS SQS. See Integration blocks below for details.
+     * SQS integration
      * 
      */
     @Export(name="sqs", refs={AwsIntegrationsSqs.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsSqs> sqs;
 
     /**
-     * @return AWS SQS. See Integration blocks below for details.
+     * @return SQS integration
      * 
      */
     public Output<Optional<AwsIntegrationsSqs>> sqs() {
         return Codegen.optional(this.sqs);
     }
     /**
-     * AWS Trusted Advisor. See Integration blocks below for details.
-     * 
-     * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+     * Trusted Advisor integration
      * 
      */
     @Export(name="trustedAdvisor", refs={AwsIntegrationsTrustedAdvisor.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsTrustedAdvisor> trustedAdvisor;
 
     /**
-     * @return AWS Trusted Advisor. See Integration blocks below for details.
-     * 
-     * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+     * @return Trusted Advisor integration
      * 
      */
     public Output<Optional<AwsIntegrationsTrustedAdvisor>> trustedAdvisor() {
@@ -1279,20 +1255,14 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.vpc);
     }
     /**
-     * AWS X-Ray. See Integration blocks below for details.
-     * x
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+     * X-Ray integration
      * 
      */
     @Export(name="xRay", refs={AwsIntegrationsXRay.class}, tree="[0]")
     private Output</* @Nullable */ AwsIntegrationsXRay> xRay;
 
     /**
-     * @return AWS X-Ray. See Integration blocks below for details.
-     * x
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+     * @return X-Ray integration
      * 
      */
     public Output<Optional<AwsIntegrationsXRay>> xRay() {

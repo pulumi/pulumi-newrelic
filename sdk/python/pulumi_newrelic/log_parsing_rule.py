@@ -310,6 +310,15 @@ class LogParsingRule(pulumi.CustomResource):
                  nrql: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: LogParsingRule"
+        sidebar_current: "docs-newrelic-resource-log-parsing-rule"
+        description: |-
+        Create and manage Log Parsing Rule.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_log\\_parsing\\_rule
+
         Use this resource to create, update and delete New Relic Log Parsing Rule.
 
         ## Example Usage
@@ -376,6 +385,15 @@ class LogParsingRule(pulumi.CustomResource):
                  args: LogParsingRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: LogParsingRule"
+        sidebar_current: "docs-newrelic-resource-log-parsing-rule"
+        description: |-
+        Create and manage Log Parsing Rule.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_log\\_parsing\\_rule
+
         Use this resource to create, update and delete New Relic Log Parsing Rule.
 
         ## Example Usage

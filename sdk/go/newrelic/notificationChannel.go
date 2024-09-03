@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: NotificationChannel"
+// sidebar_current: "docs-newrelic-resource-notification-channel"
+// description: |-
+// Create and manage a notification channel for notifications in New Relic.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Resource: newrelic\_notification\_channel
+//
 // Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 //
 // A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
@@ -99,6 +108,7 @@ import (
 //	}
 //
 // ```
+//
 // ##### [ServiceNowApp](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenowapp)
 // ```go
 // package main
@@ -520,8 +530,9 @@ import (
 // ## Additional Information
 //
 // More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+//
 // ### Moving from Legacy Alert Channels to Notification Channels
-// As described in the documentation of this resource, channels can be created and managed using `NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+// As described in the documentation of this resource, channels can be created and managed using `NotificationDestination` and `NotificationChannel`. A combination of these resources is an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
 //
 // If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
 //
@@ -536,7 +547,7 @@ import (
 // That being said, importing is possible using -
 //
 // ```sh
-// $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>
+// $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>`
 // ```
 type NotificationChannel struct {
 	pulumi.CustomResourceState

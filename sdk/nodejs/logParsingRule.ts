@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "newrelic"
+ * page_title: "New Relic: newrelic.LogParsingRule"
+ * sidebar_current: "docs-newrelic-resource-log-parsing-rule"
+ * description: |-
+ * Create and manage Log Parsing Rule.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Resource: newrelic\_log\_parsing\_rule
+ *
  * Use this resource to create, update and delete New Relic Log Parsing Rule.
  *
  * ## Example Usage

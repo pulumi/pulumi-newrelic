@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  *
  * New Relic NRQL drop rules can be imported using a concatenated string of the format
  *
- *  `<account_id>:<rule_id>`, e.g.
+ * `<account_id>:<rule_id>`, e.g.
  *
  * bash
  *

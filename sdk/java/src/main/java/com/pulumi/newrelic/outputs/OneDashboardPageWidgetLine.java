@@ -48,12 +48,12 @@ public final class OneDashboardPageWidgetLine {
      */
     private @Nullable String id;
     /**
-     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
     /**
-     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
      * 
      */
     private @Nullable Boolean isLabelVisible;
@@ -151,14 +151,14 @@ public final class OneDashboardPageWidgetLine {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+     * @return (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     public Optional<Boolean> ignoreTimeRange() {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
     /**
-     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+     * @return (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
      * 
      */
     public Optional<Boolean> isLabelVisible() {

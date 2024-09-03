@@ -12,6 +12,235 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Create a New Relic One Dashboard
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewOneDashboard(ctx, "exampledash", &newrelic.OneDashboardArgs{
+//				Name:        pulumi.String("New Relic Terraform Example"),
+//				Permissions: pulumi.String("public_read_only"),
+//				Pages: newrelic.OneDashboardPageArray{
+//					&newrelic.OneDashboardPageArgs{
+//						Name: pulumi.String("New Relic Terraform Example"),
+//						WidgetBillboards: newrelic.OneDashboardPageWidgetBillboardArray{
+//							&newrelic.OneDashboardPageWidgetBillboardArgs{
+//								Title:  pulumi.String("Requests per minute"),
+//								Row:    pulumi.Int(1),
+//								Column: pulumi.Int(1),
+//								Width:  pulumi.Int(6),
+//								Height: pulumi.Int(3),
+//								NrqlQueries: newrelic.OneDashboardPageWidgetBillboardNrqlQueryArray{
+//									&newrelic.OneDashboardPageWidgetBillboardNrqlQueryArgs{
+//										Query: pulumi.String("FROM Transaction SELECT rate(count(*), 1 minute)"),
+//									},
+//								},
+//							},
+//						},
+//						WidgetBars: newrelic.OneDashboardPageWidgetBarArray{
+//							&newrelic.OneDashboardPageWidgetBarArgs{
+//								Title:  pulumi.String("Average transaction duration, by application"),
+//								Row:    pulumi.Int(1),
+//								Column: pulumi.Int(7),
+//								Width:  pulumi.Int(6),
+//								Height: pulumi.Int(3),
+//								NrqlQueries: newrelic.OneDashboardPageWidgetBarNrqlQueryArray{
+//									&newrelic.OneDashboardPageWidgetBarNrqlQueryArgs{
+//										AccountId: pulumi.String("12345"),
+//										Query:     pulumi.String("FROM Transaction SELECT average(duration) FACET appName"),
+//									},
+//								},
+//								LinkedEntityGuids: pulumi.StringArray{
+//									pulumi.String("abc123"),
+//								},
+//							},
+//							&newrelic.OneDashboardPageWidgetBarArgs{
+//								Title:  pulumi.String("Average transaction duration, by application"),
+//								Row:    pulumi.Int(4),
+//								Column: pulumi.Int(1),
+//								Width:  pulumi.Int(6),
+//								Height: pulumi.Int(3),
+//								NrqlQueries: newrelic.OneDashboardPageWidgetBarNrqlQueryArray{
+//									&newrelic.OneDashboardPageWidgetBarNrqlQueryArgs{
+//										AccountId: pulumi.String("12345"),
+//										Query:     pulumi.String("FROM Transaction SELECT average(duration) FACET appName"),
+//									},
+//								},
+//								FilterCurrentDashboard: pulumi.Bool(true),
+//								Colors: newrelic.OneDashboardPageWidgetBarColorArray{
+//									&newrelic.OneDashboardPageWidgetBarColorArgs{
+//										Color: pulumi.String("#722727"),
+//										SeriesOverrides: newrelic.OneDashboardPageWidgetBarColorSeriesOverrideArray{
+//											&newrelic.OneDashboardPageWidgetBarColorSeriesOverrideArgs{
+//												Color:      pulumi.String("#722322"),
+//												SeriesName: pulumi.String("Node"),
+//											},
+//											&newrelic.OneDashboardPageWidgetBarColorSeriesOverrideArgs{
+//												Color:      pulumi.String("#236f70"),
+//												SeriesName: pulumi.String("Java"),
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						WidgetLines: newrelic.OneDashboardPageWidgetLineArray{
+//							&newrelic.OneDashboardPageWidgetLineArgs{
+//								Title:  pulumi.String("Average transaction duration and the request per minute, by application"),
+//								Row:    pulumi.Int(4),
+//								Column: pulumi.Int(7),
+//								Width:  pulumi.Int(6),
+//								Height: pulumi.Int(3),
+//								NrqlQueries: newrelic.OneDashboardPageWidgetLineNrqlQueryArray{
+//									&newrelic.OneDashboardPageWidgetLineNrqlQueryArgs{
+//										AccountId: pulumi.String("12345"),
+//										Query:     pulumi.String("FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago"),
+//									},
+//									&newrelic.OneDashboardPageWidgetLineNrqlQueryArgs{
+//										Query: pulumi.String("FROM Transaction SELECT rate(count(*), 1 minute)"),
+//									},
+//								},
+//								LegendEnabled:   pulumi.Bool(true),
+//								IgnoreTimeRange: pulumi.Bool(false),
+//								YAxisLeftZero:   pulumi.Bool(true),
+//								YAxisLeftMin:    pulumi.Float64(0),
+//								YAxisLeftMax:    pulumi.Float64(1),
+//								YAxisRight: &newrelic.OneDashboardPageWidgetLineYAxisRightArgs{
+//									YAxisRightZero: pulumi.Bool(true),
+//									YAxisRightMin:  pulumi.Float64(0),
+//									YAxisRightMax:  pulumi.Float64(300),
+//									YAxisRightSeries: pulumi.StringArray{
+//										pulumi.String("A"),
+//										pulumi.String("B"),
+//									},
+//								},
+//								IsLabelVisible: pulumi.Bool(true),
+//								Thresholds: newrelic.OneDashboardPageWidgetLineThresholdArray{
+//									&newrelic.OneDashboardPageWidgetLineThresholdArgs{
+//										Name:     pulumi.String("Duration Threshold"),
+//										From:     pulumi.String("1"),
+//										To:       pulumi.String("2"),
+//										Severity: pulumi.String("critical"),
+//									},
+//									&newrelic.OneDashboardPageWidgetLineThresholdArgs{
+//										Name:     pulumi.String("Duration Threshold Two"),
+//										From:     pulumi.String("2.1"),
+//										To:       pulumi.String("3.3"),
+//										Severity: pulumi.String("warning"),
+//									},
+//								},
+//								Units: newrelic.OneDashboardPageWidgetLineUnitArray{
+//									&newrelic.OneDashboardPageWidgetLineUnitArgs{
+//										Unit: pulumi.String("ms"),
+//										SeriesOverrides: newrelic.OneDashboardPageWidgetLineUnitSeriesOverrideArray{
+//											&newrelic.OneDashboardPageWidgetLineUnitSeriesOverrideArgs{
+//												Unit:       pulumi.String("ms"),
+//												SeriesName: pulumi.String("max duration"),
+//											},
+//										},
+//									},
+//								},
+//							},
+//							&newrelic.OneDashboardPageWidgetLineArgs{
+//								Title:  pulumi.String("Overall CPU % Statistics"),
+//								Row:    pulumi.Int(1),
+//								Column: pulumi.Int(5),
+//								Height: pulumi.Int(3),
+//								Width:  pulumi.Int(4),
+//								NrqlQueries: newrelic.OneDashboardPageWidgetLineNrqlQueryArray{
+//									&newrelic.OneDashboardPageWidgetLineNrqlQueryArgs{
+//										Query: pulumi.String("SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES\n"),
+//									},
+//								},
+//								FacetShowOtherSeries: pulumi.Bool(false),
+//								LegendEnabled:        pulumi.Bool(true),
+//								IgnoreTimeRange:      pulumi.Bool(false),
+//								YAxisLeftZero:        pulumi.Bool(true),
+//								YAxisLeftMin:         pulumi.Float64(0),
+//								YAxisLeftMax:         pulumi.Float64(0),
+//								NullValues: newrelic.OneDashboardPageWidgetLineNullValueArray{
+//									&newrelic.OneDashboardPageWidgetLineNullValueArgs{
+//										NullValue: pulumi.String("default"),
+//										SeriesOverrides: newrelic.OneDashboardPageWidgetLineNullValueSeriesOverrideArray{
+//											&newrelic.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{
+//												NullValue:  pulumi.String("remove"),
+//												SeriesName: pulumi.String("Avg Cpu User Percent"),
+//											},
+//											&newrelic.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{
+//												NullValue:  pulumi.String("zero"),
+//												SeriesName: pulumi.String("Avg Cpu Idle Percent"),
+//											},
+//											&newrelic.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{
+//												NullValue:  pulumi.String("default"),
+//												SeriesName: pulumi.String("Avg Cpu IO Wait Percent"),
+//											},
+//											&newrelic.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{
+//												NullValue:  pulumi.String("preserve"),
+//												SeriesName: pulumi.String("Avg Cpu System Percent"),
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						WidgetMarkdowns: newrelic.OneDashboardPageWidgetMarkdownArray{
+//							&newrelic.OneDashboardPageWidgetMarkdownArgs{
+//								Title:  pulumi.String("Dashboard Note"),
+//								Row:    pulumi.Int(7),
+//								Column: pulumi.Int(1),
+//								Width:  pulumi.Int(12),
+//								Height: pulumi.Int(3),
+//								Text:   pulumi.String("### Helpful Links\n\n* [New Relic One](https://one.newrelic.com)\n* [Developer Portal](https://developer.newrelic.com)"),
+//							},
+//						},
+//					},
+//				},
+//				Variables: newrelic.OneDashboardVariableArray{
+//					&newrelic.OneDashboardVariableArgs{
+//						DefaultValues: pulumi.StringArray{
+//							pulumi.String("value"),
+//						},
+//						IsMultiSelection: pulumi.Bool(true),
+//						Items: newrelic.OneDashboardVariableItemArray{
+//							&newrelic.OneDashboardVariableItemArgs{
+//								Title: pulumi.String("item"),
+//								Value: pulumi.String("ITEM"),
+//							},
+//						},
+//						Name: pulumi.String("variable"),
+//						NrqlQuery: &newrelic.OneDashboardVariableNrqlQueryArgs{
+//							AccountIds: pulumi.StringArray{
+//								pulumi.String("12345"),
+//							},
+//							Query: pulumi.String("FROM Transaction SELECT average(duration) FACET appName"),
+//						},
+//						ReplacementStrategy: pulumi.String("default"),
+//						Title:               pulumi.String("title"),
+//						Type:                pulumi.String("nrql"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// See additional examples.
+//
 // ## Import
 //
 // New Relic dashboards can be imported using their GUID, e.g.

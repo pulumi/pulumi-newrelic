@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Create A New Relic One Dashboard With RawConfiguration
+ * ### Create a New Relic One Dashboard with RawConfiguration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

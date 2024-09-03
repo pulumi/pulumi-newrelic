@@ -244,6 +244,15 @@ class DataPartitionRule(pulumi.CustomResource):
                  target_data_partition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: DataPartitionRule"
+        sidebar_current: "docs-newrelic-resource-data-partition-rule"
+        description: |-
+        Create and manage Data partition rule.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_data\\_partition\\_rule
+
         Use this resource to create, update and delete New Relic Data partition rule.
 
         ## Example Usage
@@ -290,6 +299,15 @@ class DataPartitionRule(pulumi.CustomResource):
                  args: DataPartitionRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: DataPartitionRule"
+        sidebar_current: "docs-newrelic-resource-data-partition-rule"
+        description: |-
+        Create and manage Data partition rule.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_data\\_partition\\_rule
+
         Use this resource to create, update and delete New Relic Data partition rule.
 
         ## Example Usage
