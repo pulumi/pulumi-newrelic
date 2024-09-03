@@ -243,10 +243,12 @@ import javax.annotation.Nullable;
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key("project")
  *                     .value("10000")
+ *                     .label("Project-Name")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key("issuetype")
  *                     .value("10004")
+ *                     .label("Bug")
  *                     .build(),
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key("description")

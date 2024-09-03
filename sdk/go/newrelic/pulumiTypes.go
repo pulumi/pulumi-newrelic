@@ -4151,12 +4151,16 @@ type OneDashboardPageWidgetArea struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetAreaInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetAreaNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetAreaNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -4194,12 +4198,16 @@ type OneDashboardPageWidgetAreaArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetAreaInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetAreaNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetAreaNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -4294,6 +4302,11 @@ func (o OneDashboardPageWidgetAreaOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetAreaOutput) InitialSorting() OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *OneDashboardPageWidgetAreaInitialSorting { return v.InitialSorting }).(OneDashboardPageWidgetAreaInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetAreaOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -4307,6 +4320,11 @@ func (o OneDashboardPageWidgetAreaOutput) NrqlQueries() OneDashboardPageWidgetAr
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetAreaOutput) NullValues() OneDashboardPageWidgetAreaNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNullValue { return v.NullValues }).(OneDashboardPageWidgetAreaNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetAreaOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4570,6 +4588,162 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetAreaColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetAreaColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetAreaInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetAreaInitialSortingInput is an input type that accepts OneDashboardPageWidgetAreaInitialSortingArgs and OneDashboardPageWidgetAreaInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetAreaInitialSortingArgs{...}
+type OneDashboardPageWidgetAreaInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaInitialSortingOutput() OneDashboardPageWidgetAreaInitialSortingOutput
+	ToOneDashboardPageWidgetAreaInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetAreaInitialSortingOutput
+}
+
+type OneDashboardPageWidgetAreaInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetAreaInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaInitialSortingArgs) ToOneDashboardPageWidgetAreaInitialSortingOutput() OneDashboardPageWidgetAreaInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetAreaInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaInitialSortingArgs) ToOneDashboardPageWidgetAreaInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetAreaInitialSortingArgs) ToOneDashboardPageWidgetAreaInitialSortingPtrOutput() OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaInitialSortingArgs) ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaInitialSortingOutput).ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetAreaInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetAreaInitialSortingArgs, OneDashboardPageWidgetAreaInitialSortingPtr and OneDashboardPageWidgetAreaInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetAreaInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetAreaInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaInitialSortingPtrOutput() OneDashboardPageWidgetAreaInitialSortingPtrOutput
+	ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetAreaInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetAreaInitialSortingPtrType OneDashboardPageWidgetAreaInitialSortingArgs
+
+func OneDashboardPageWidgetAreaInitialSortingPtr(v *OneDashboardPageWidgetAreaInitialSortingArgs) OneDashboardPageWidgetAreaInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetAreaInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetAreaInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetAreaInitialSortingPtrType) ToOneDashboardPageWidgetAreaInitialSortingPtrOutput() OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetAreaInitialSortingPtrType) ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingOutput) ToOneDashboardPageWidgetAreaInitialSortingOutput() OneDashboardPageWidgetAreaInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingOutput) ToOneDashboardPageWidgetAreaInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingOutput) ToOneDashboardPageWidgetAreaInitialSortingPtrOutput() OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingOutput) ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetAreaInitialSorting) *OneDashboardPageWidgetAreaInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetAreaInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetAreaInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetAreaInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetAreaInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingPtrOutput) ToOneDashboardPageWidgetAreaInitialSortingPtrOutput() OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingPtrOutput) ToOneDashboardPageWidgetAreaInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaInitialSortingPtrOutput) Elem() OneDashboardPageWidgetAreaInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaInitialSorting) OneDashboardPageWidgetAreaInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetAreaInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetAreaInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetAreaInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetAreaInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetAreaNrqlQuery struct {
@@ -5121,6 +5295,8 @@ type OneDashboardPageWidgetBar struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetBarInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5129,6 +5305,8 @@ type OneDashboardPageWidgetBar struct {
 	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetBarNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -5168,6 +5346,8 @@ type OneDashboardPageWidgetBarArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetBarInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5176,6 +5356,8 @@ type OneDashboardPageWidgetBarArgs struct {
 	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetBarNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -5275,6 +5457,11 @@ func (o OneDashboardPageWidgetBarOutput) IgnoreTimeRange() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetBarOutput) InitialSorting() OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *OneDashboardPageWidgetBarInitialSorting { return v.InitialSorting }).(OneDashboardPageWidgetBarInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetBarOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -5293,6 +5480,11 @@ func (o OneDashboardPageWidgetBarOutput) NrqlQueries() OneDashboardPageWidgetBar
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetBarOutput) NullValues() OneDashboardPageWidgetBarNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNullValue { return v.NullValues }).(OneDashboardPageWidgetBarNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetBarOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -5556,6 +5748,162 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetBarColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBarColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBarInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetBarInitialSortingInput is an input type that accepts OneDashboardPageWidgetBarInitialSortingArgs and OneDashboardPageWidgetBarInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetBarInitialSortingArgs{...}
+type OneDashboardPageWidgetBarInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarInitialSortingOutput() OneDashboardPageWidgetBarInitialSortingOutput
+	ToOneDashboardPageWidgetBarInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetBarInitialSortingOutput
+}
+
+type OneDashboardPageWidgetBarInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetBarInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarInitialSortingArgs) ToOneDashboardPageWidgetBarInitialSortingOutput() OneDashboardPageWidgetBarInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetBarInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarInitialSortingArgs) ToOneDashboardPageWidgetBarInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetBarInitialSortingArgs) ToOneDashboardPageWidgetBarInitialSortingPtrOutput() OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarInitialSortingArgs) ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarInitialSortingOutput).ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBarInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetBarInitialSortingArgs, OneDashboardPageWidgetBarInitialSortingPtr and OneDashboardPageWidgetBarInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetBarInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBarInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarInitialSortingPtrOutput() OneDashboardPageWidgetBarInitialSortingPtrOutput
+	ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetBarInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetBarInitialSortingPtrType OneDashboardPageWidgetBarInitialSortingArgs
+
+func OneDashboardPageWidgetBarInitialSortingPtr(v *OneDashboardPageWidgetBarInitialSortingArgs) OneDashboardPageWidgetBarInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetBarInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBarInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBarInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBarInitialSortingPtrType) ToOneDashboardPageWidgetBarInitialSortingPtrOutput() OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBarInitialSortingPtrType) ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetBarInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingOutput) ToOneDashboardPageWidgetBarInitialSortingOutput() OneDashboardPageWidgetBarInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingOutput) ToOneDashboardPageWidgetBarInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingOutput) ToOneDashboardPageWidgetBarInitialSortingPtrOutput() OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingOutput) ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBarInitialSorting) *OneDashboardPageWidgetBarInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetBarInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetBarInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBarInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBarInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBarInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingPtrOutput) ToOneDashboardPageWidgetBarInitialSortingPtrOutput() OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingPtrOutput) ToOneDashboardPageWidgetBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarInitialSortingPtrOutput) Elem() OneDashboardPageWidgetBarInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarInitialSorting) OneDashboardPageWidgetBarInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBarInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetBarInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetBarInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBarInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetBarNrqlQuery struct {
@@ -6107,12 +6455,16 @@ type OneDashboardPageWidgetBillboard struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetBillboardInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBillboardNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetBillboardNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -6154,12 +6506,16 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetBillboardInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBillboardNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetBillboardNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -6261,6 +6617,13 @@ func (o OneDashboardPageWidgetBillboardOutput) IgnoreTimeRange() pulumi.BoolPtrO
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetBillboardOutput) InitialSorting() OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *OneDashboardPageWidgetBillboardInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetBillboardInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetBillboardOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -6278,6 +6641,11 @@ func (o OneDashboardPageWidgetBillboardOutput) NullValues() OneDashboardPageWidg
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNullValue {
 		return v.NullValues
 	}).(OneDashboardPageWidgetBillboardNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetBillboardOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -6546,6 +6914,162 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetBillboardColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBillboardInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetBillboardInitialSortingInput is an input type that accepts OneDashboardPageWidgetBillboardInitialSortingArgs and OneDashboardPageWidgetBillboardInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetBillboardInitialSortingArgs{...}
+type OneDashboardPageWidgetBillboardInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardInitialSortingOutput() OneDashboardPageWidgetBillboardInitialSortingOutput
+	ToOneDashboardPageWidgetBillboardInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetBillboardInitialSortingOutput
+}
+
+type OneDashboardPageWidgetBillboardInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetBillboardInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardInitialSortingArgs) ToOneDashboardPageWidgetBillboardInitialSortingOutput() OneDashboardPageWidgetBillboardInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetBillboardInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardInitialSortingArgs) ToOneDashboardPageWidgetBillboardInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardInitialSortingArgs) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutput() OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardInitialSortingArgs) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardInitialSortingOutput).ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetBillboardInitialSortingArgs, OneDashboardPageWidgetBillboardInitialSortingPtr and OneDashboardPageWidgetBillboardInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardInitialSortingPtrOutput() OneDashboardPageWidgetBillboardInitialSortingPtrOutput
+	ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardInitialSortingPtrType OneDashboardPageWidgetBillboardInitialSortingArgs
+
+func OneDashboardPageWidgetBillboardInitialSortingPtr(v *OneDashboardPageWidgetBillboardInitialSortingArgs) OneDashboardPageWidgetBillboardInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetBillboardInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardInitialSortingPtrType) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutput() OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardInitialSortingPtrType) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingOutput) ToOneDashboardPageWidgetBillboardInitialSortingOutput() OneDashboardPageWidgetBillboardInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingOutput) ToOneDashboardPageWidgetBillboardInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingOutput) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutput() OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingOutput) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardInitialSorting) *OneDashboardPageWidgetBillboardInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetBillboardInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetBillboardInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBillboardInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBillboardInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingPtrOutput) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutput() OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingPtrOutput) ToOneDashboardPageWidgetBillboardInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardInitialSortingPtrOutput) Elem() OneDashboardPageWidgetBillboardInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardInitialSorting) OneDashboardPageWidgetBillboardInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetBillboardInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetBillboardInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBillboardInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetBillboardNrqlQuery struct {
@@ -7095,6 +7619,8 @@ type OneDashboardPageWidgetBullet struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetBulletInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Required) Visualization limit for the widget.
@@ -7103,6 +7629,8 @@ type OneDashboardPageWidgetBullet struct {
 	NrqlQueries []OneDashboardPageWidgetBulletNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetBulletNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -7140,6 +7668,8 @@ type OneDashboardPageWidgetBulletArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetBulletInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Required) Visualization limit for the widget.
@@ -7148,6 +7678,8 @@ type OneDashboardPageWidgetBulletArgs struct {
 	NrqlQueries OneDashboardPageWidgetBulletNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetBulletNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -7242,6 +7774,13 @@ func (o OneDashboardPageWidgetBulletOutput) IgnoreTimeRange() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetBulletOutput) InitialSorting() OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *OneDashboardPageWidgetBulletInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetBulletInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetBulletOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -7260,6 +7799,11 @@ func (o OneDashboardPageWidgetBulletOutput) NrqlQueries() OneDashboardPageWidget
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetBulletOutput) NullValues() OneDashboardPageWidgetBulletNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletNullValue { return v.NullValues }).(OneDashboardPageWidgetBulletNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetBulletOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -7523,6 +8067,162 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetBulletColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBulletColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBulletInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetBulletInitialSortingInput is an input type that accepts OneDashboardPageWidgetBulletInitialSortingArgs and OneDashboardPageWidgetBulletInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetBulletInitialSortingArgs{...}
+type OneDashboardPageWidgetBulletInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletInitialSortingOutput() OneDashboardPageWidgetBulletInitialSortingOutput
+	ToOneDashboardPageWidgetBulletInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetBulletInitialSortingOutput
+}
+
+type OneDashboardPageWidgetBulletInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetBulletInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletInitialSortingArgs) ToOneDashboardPageWidgetBulletInitialSortingOutput() OneDashboardPageWidgetBulletInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetBulletInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletInitialSortingArgs) ToOneDashboardPageWidgetBulletInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetBulletInitialSortingArgs) ToOneDashboardPageWidgetBulletInitialSortingPtrOutput() OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletInitialSortingArgs) ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletInitialSortingOutput).ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBulletInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetBulletInitialSortingArgs, OneDashboardPageWidgetBulletInitialSortingPtr and OneDashboardPageWidgetBulletInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetBulletInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBulletInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletInitialSortingPtrOutput() OneDashboardPageWidgetBulletInitialSortingPtrOutput
+	ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetBulletInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetBulletInitialSortingPtrType OneDashboardPageWidgetBulletInitialSortingArgs
+
+func OneDashboardPageWidgetBulletInitialSortingPtr(v *OneDashboardPageWidgetBulletInitialSortingArgs) OneDashboardPageWidgetBulletInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetBulletInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBulletInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBulletInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBulletInitialSortingPtrType) ToOneDashboardPageWidgetBulletInitialSortingPtrOutput() OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBulletInitialSortingPtrType) ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingOutput) ToOneDashboardPageWidgetBulletInitialSortingOutput() OneDashboardPageWidgetBulletInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingOutput) ToOneDashboardPageWidgetBulletInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingOutput) ToOneDashboardPageWidgetBulletInitialSortingPtrOutput() OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingOutput) ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBulletInitialSorting) *OneDashboardPageWidgetBulletInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetBulletInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetBulletInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBulletInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBulletInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBulletInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingPtrOutput) ToOneDashboardPageWidgetBulletInitialSortingPtrOutput() OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingPtrOutput) ToOneDashboardPageWidgetBulletInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletInitialSortingPtrOutput) Elem() OneDashboardPageWidgetBulletInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletInitialSorting) OneDashboardPageWidgetBulletInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBulletInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetBulletInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetBulletInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBulletInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetBulletNrqlQuery struct {
@@ -8072,12 +8772,16 @@ type OneDashboardPageWidgetFunnel struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetFunnelInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetFunnelNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetFunnelNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -8115,12 +8819,16 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetFunnelInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetFunnelNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetFunnelNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -8215,6 +8923,13 @@ func (o OneDashboardPageWidgetFunnelOutput) IgnoreTimeRange() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetFunnelOutput) InitialSorting() OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *OneDashboardPageWidgetFunnelInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetFunnelInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetFunnelOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -8228,6 +8943,11 @@ func (o OneDashboardPageWidgetFunnelOutput) NrqlQueries() OneDashboardPageWidget
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetFunnelOutput) NullValues() OneDashboardPageWidgetFunnelNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelNullValue { return v.NullValues }).(OneDashboardPageWidgetFunnelNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetFunnelOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -8491,6 +9211,162 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetFunnelColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetFunnelInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetFunnelInitialSortingInput is an input type that accepts OneDashboardPageWidgetFunnelInitialSortingArgs and OneDashboardPageWidgetFunnelInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetFunnelInitialSortingArgs{...}
+type OneDashboardPageWidgetFunnelInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelInitialSortingOutput() OneDashboardPageWidgetFunnelInitialSortingOutput
+	ToOneDashboardPageWidgetFunnelInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetFunnelInitialSortingOutput
+}
+
+type OneDashboardPageWidgetFunnelInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetFunnelInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelInitialSortingArgs) ToOneDashboardPageWidgetFunnelInitialSortingOutput() OneDashboardPageWidgetFunnelInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetFunnelInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelInitialSortingArgs) ToOneDashboardPageWidgetFunnelInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetFunnelInitialSortingArgs) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutput() OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelInitialSortingArgs) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelInitialSortingOutput).ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetFunnelInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetFunnelInitialSortingArgs, OneDashboardPageWidgetFunnelInitialSortingPtr and OneDashboardPageWidgetFunnelInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetFunnelInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetFunnelInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelInitialSortingPtrOutput() OneDashboardPageWidgetFunnelInitialSortingPtrOutput
+	ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetFunnelInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetFunnelInitialSortingPtrType OneDashboardPageWidgetFunnelInitialSortingArgs
+
+func OneDashboardPageWidgetFunnelInitialSortingPtr(v *OneDashboardPageWidgetFunnelInitialSortingArgs) OneDashboardPageWidgetFunnelInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetFunnelInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetFunnelInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetFunnelInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetFunnelInitialSortingPtrType) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutput() OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetFunnelInitialSortingPtrType) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingOutput) ToOneDashboardPageWidgetFunnelInitialSortingOutput() OneDashboardPageWidgetFunnelInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingOutput) ToOneDashboardPageWidgetFunnelInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingOutput) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutput() OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingOutput) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetFunnelInitialSorting) *OneDashboardPageWidgetFunnelInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetFunnelInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetFunnelInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetFunnelInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetFunnelInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetFunnelInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingPtrOutput) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutput() OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingPtrOutput) ToOneDashboardPageWidgetFunnelInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelInitialSortingPtrOutput) Elem() OneDashboardPageWidgetFunnelInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelInitialSorting) OneDashboardPageWidgetFunnelInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetFunnelInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetFunnelInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetFunnelInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetFunnelInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetFunnelNrqlQuery struct {
@@ -9042,6 +9918,8 @@ type OneDashboardPageWidgetHeatmap struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetHeatmapInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -9050,6 +9928,8 @@ type OneDashboardPageWidgetHeatmap struct {
 	NrqlQueries []OneDashboardPageWidgetHeatmapNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetHeatmapNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -9089,6 +9969,8 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetHeatmapInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -9097,6 +9979,8 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	NrqlQueries OneDashboardPageWidgetHeatmapNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetHeatmapNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -9196,6 +10080,13 @@ func (o OneDashboardPageWidgetHeatmapOutput) IgnoreTimeRange() pulumi.BoolPtrOut
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetHeatmapOutput) InitialSorting() OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *OneDashboardPageWidgetHeatmapInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetHeatmapInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetHeatmapOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -9214,6 +10105,11 @@ func (o OneDashboardPageWidgetHeatmapOutput) NrqlQueries() OneDashboardPageWidge
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetHeatmapOutput) NullValues() OneDashboardPageWidgetHeatmapNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapNullValue { return v.NullValues }).(OneDashboardPageWidgetHeatmapNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetHeatmapOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -9477,6 +10373,162 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetHeatmapColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetHeatmapInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetHeatmapInitialSortingInput is an input type that accepts OneDashboardPageWidgetHeatmapInitialSortingArgs and OneDashboardPageWidgetHeatmapInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetHeatmapInitialSortingArgs{...}
+type OneDashboardPageWidgetHeatmapInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapInitialSortingOutput() OneDashboardPageWidgetHeatmapInitialSortingOutput
+	ToOneDashboardPageWidgetHeatmapInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapInitialSortingOutput
+}
+
+type OneDashboardPageWidgetHeatmapInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetHeatmapInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapInitialSortingArgs) ToOneDashboardPageWidgetHeatmapInitialSortingOutput() OneDashboardPageWidgetHeatmapInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetHeatmapInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapInitialSortingArgs) ToOneDashboardPageWidgetHeatmapInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetHeatmapInitialSortingArgs) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutput() OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapInitialSortingArgs) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapInitialSortingOutput).ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetHeatmapInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetHeatmapInitialSortingArgs, OneDashboardPageWidgetHeatmapInitialSortingPtr and OneDashboardPageWidgetHeatmapInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetHeatmapInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetHeatmapInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutput() OneDashboardPageWidgetHeatmapInitialSortingPtrOutput
+	ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetHeatmapInitialSortingPtrType OneDashboardPageWidgetHeatmapInitialSortingArgs
+
+func OneDashboardPageWidgetHeatmapInitialSortingPtr(v *OneDashboardPageWidgetHeatmapInitialSortingArgs) OneDashboardPageWidgetHeatmapInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetHeatmapInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetHeatmapInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHeatmapInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetHeatmapInitialSortingPtrType) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutput() OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetHeatmapInitialSortingPtrType) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingOutput) ToOneDashboardPageWidgetHeatmapInitialSortingOutput() OneDashboardPageWidgetHeatmapInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingOutput) ToOneDashboardPageWidgetHeatmapInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingOutput) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutput() OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingOutput) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetHeatmapInitialSorting) *OneDashboardPageWidgetHeatmapInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetHeatmapInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetHeatmapInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetHeatmapInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetHeatmapInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHeatmapInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingPtrOutput) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutput() OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingPtrOutput) ToOneDashboardPageWidgetHeatmapInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapInitialSortingPtrOutput) Elem() OneDashboardPageWidgetHeatmapInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapInitialSorting) OneDashboardPageWidgetHeatmapInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetHeatmapInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetHeatmapInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetHeatmapInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetHeatmapInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetHeatmapNrqlQuery struct {
@@ -10026,12 +11078,16 @@ type OneDashboardPageWidgetHistogram struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetHistogramInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetHistogramNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetHistogramNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -10069,12 +11125,16 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetHistogramInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetHistogramNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetHistogramNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -10169,6 +11229,13 @@ func (o OneDashboardPageWidgetHistogramOutput) IgnoreTimeRange() pulumi.BoolPtrO
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetHistogramOutput) InitialSorting() OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *OneDashboardPageWidgetHistogramInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetHistogramInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetHistogramOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -10186,6 +11253,11 @@ func (o OneDashboardPageWidgetHistogramOutput) NullValues() OneDashboardPageWidg
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramNullValue {
 		return v.NullValues
 	}).(OneDashboardPageWidgetHistogramNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetHistogramOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -10449,6 +11521,162 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetHistogramColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetHistogramInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetHistogramInitialSortingInput is an input type that accepts OneDashboardPageWidgetHistogramInitialSortingArgs and OneDashboardPageWidgetHistogramInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetHistogramInitialSortingArgs{...}
+type OneDashboardPageWidgetHistogramInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramInitialSortingOutput() OneDashboardPageWidgetHistogramInitialSortingOutput
+	ToOneDashboardPageWidgetHistogramInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetHistogramInitialSortingOutput
+}
+
+type OneDashboardPageWidgetHistogramInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetHistogramInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramInitialSortingArgs) ToOneDashboardPageWidgetHistogramInitialSortingOutput() OneDashboardPageWidgetHistogramInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetHistogramInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramInitialSortingArgs) ToOneDashboardPageWidgetHistogramInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetHistogramInitialSortingArgs) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutput() OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramInitialSortingArgs) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramInitialSortingOutput).ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetHistogramInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetHistogramInitialSortingArgs, OneDashboardPageWidgetHistogramInitialSortingPtr and OneDashboardPageWidgetHistogramInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetHistogramInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetHistogramInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramInitialSortingPtrOutput() OneDashboardPageWidgetHistogramInitialSortingPtrOutput
+	ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetHistogramInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetHistogramInitialSortingPtrType OneDashboardPageWidgetHistogramInitialSortingArgs
+
+func OneDashboardPageWidgetHistogramInitialSortingPtr(v *OneDashboardPageWidgetHistogramInitialSortingArgs) OneDashboardPageWidgetHistogramInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetHistogramInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetHistogramInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHistogramInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetHistogramInitialSortingPtrType) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutput() OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetHistogramInitialSortingPtrType) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingOutput) ToOneDashboardPageWidgetHistogramInitialSortingOutput() OneDashboardPageWidgetHistogramInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingOutput) ToOneDashboardPageWidgetHistogramInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingOutput) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutput() OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingOutput) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetHistogramInitialSorting) *OneDashboardPageWidgetHistogramInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetHistogramInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetHistogramInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetHistogramInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetHistogramInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHistogramInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingPtrOutput) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutput() OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingPtrOutput) ToOneDashboardPageWidgetHistogramInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramInitialSortingPtrOutput) Elem() OneDashboardPageWidgetHistogramInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramInitialSorting) OneDashboardPageWidgetHistogramInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetHistogramInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetHistogramInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetHistogramInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetHistogramInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetHistogramNrqlQuery struct {
@@ -10998,12 +12226,16 @@ type OneDashboardPageWidgetJson struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetJsonInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetJsonNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetJsonNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -11041,12 +12273,16 @@ type OneDashboardPageWidgetJsonArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetJsonInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetJsonNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetJsonNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -11141,6 +12377,11 @@ func (o OneDashboardPageWidgetJsonOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetJsonOutput) InitialSorting() OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *OneDashboardPageWidgetJsonInitialSorting { return v.InitialSorting }).(OneDashboardPageWidgetJsonInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetJsonOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -11154,6 +12395,11 @@ func (o OneDashboardPageWidgetJsonOutput) NrqlQueries() OneDashboardPageWidgetJs
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetJsonOutput) NullValues() OneDashboardPageWidgetJsonNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonNullValue { return v.NullValues }).(OneDashboardPageWidgetJsonNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetJsonOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -11417,6 +12663,162 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetJsonColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetJsonColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetJsonInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetJsonInitialSortingInput is an input type that accepts OneDashboardPageWidgetJsonInitialSortingArgs and OneDashboardPageWidgetJsonInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetJsonInitialSortingArgs{...}
+type OneDashboardPageWidgetJsonInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonInitialSortingOutput() OneDashboardPageWidgetJsonInitialSortingOutput
+	ToOneDashboardPageWidgetJsonInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetJsonInitialSortingOutput
+}
+
+type OneDashboardPageWidgetJsonInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetJsonInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonInitialSortingArgs) ToOneDashboardPageWidgetJsonInitialSortingOutput() OneDashboardPageWidgetJsonInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetJsonInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonInitialSortingArgs) ToOneDashboardPageWidgetJsonInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetJsonInitialSortingArgs) ToOneDashboardPageWidgetJsonInitialSortingPtrOutput() OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonInitialSortingArgs) ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonInitialSortingOutput).ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetJsonInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetJsonInitialSortingArgs, OneDashboardPageWidgetJsonInitialSortingPtr and OneDashboardPageWidgetJsonInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetJsonInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetJsonInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonInitialSortingPtrOutput() OneDashboardPageWidgetJsonInitialSortingPtrOutput
+	ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetJsonInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetJsonInitialSortingPtrType OneDashboardPageWidgetJsonInitialSortingArgs
+
+func OneDashboardPageWidgetJsonInitialSortingPtr(v *OneDashboardPageWidgetJsonInitialSortingArgs) OneDashboardPageWidgetJsonInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetJsonInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetJsonInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetJsonInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetJsonInitialSortingPtrType) ToOneDashboardPageWidgetJsonInitialSortingPtrOutput() OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetJsonInitialSortingPtrType) ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingOutput) ToOneDashboardPageWidgetJsonInitialSortingOutput() OneDashboardPageWidgetJsonInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingOutput) ToOneDashboardPageWidgetJsonInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingOutput) ToOneDashboardPageWidgetJsonInitialSortingPtrOutput() OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingOutput) ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetJsonInitialSorting) *OneDashboardPageWidgetJsonInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetJsonInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetJsonInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetJsonInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetJsonInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetJsonInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingPtrOutput) ToOneDashboardPageWidgetJsonInitialSortingPtrOutput() OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingPtrOutput) ToOneDashboardPageWidgetJsonInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonInitialSortingPtrOutput) Elem() OneDashboardPageWidgetJsonInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonInitialSorting) OneDashboardPageWidgetJsonInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetJsonInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetJsonInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetJsonInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetJsonInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetJsonNrqlQuery struct {
@@ -11966,6 +13368,8 @@ type OneDashboardPageWidgetLine struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetLineInitialSorting `pulumi:"initialSorting"`
 	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
 	IsLabelVisible *bool `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -11974,6 +13378,8 @@ type OneDashboardPageWidgetLine struct {
 	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetLineNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
@@ -12017,6 +13423,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetLineInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
 	IsLabelVisible pulumi.BoolPtrInput `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
@@ -12025,6 +13433,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetLineNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
@@ -12125,6 +13535,11 @@ func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetLineOutput) InitialSorting() OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *OneDashboardPageWidgetLineInitialSorting { return v.InitialSorting }).(OneDashboardPageWidgetLineInitialSortingPtrOutput)
+}
+
 // (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
 func (o OneDashboardPageWidgetLineOutput) IsLabelVisible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IsLabelVisible }).(pulumi.BoolPtrOutput)
@@ -12143,6 +13558,11 @@ func (o OneDashboardPageWidgetLineOutput) NrqlQueries() OneDashboardPageWidgetLi
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetLineOutput) NullValues() OneDashboardPageWidgetLineNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNullValue { return v.NullValues }).(OneDashboardPageWidgetLineNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetLineOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -12421,6 +13841,162 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetLineColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLineInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetLineInitialSortingInput is an input type that accepts OneDashboardPageWidgetLineInitialSortingArgs and OneDashboardPageWidgetLineInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetLineInitialSortingArgs{...}
+type OneDashboardPageWidgetLineInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineInitialSortingOutput() OneDashboardPageWidgetLineInitialSortingOutput
+	ToOneDashboardPageWidgetLineInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetLineInitialSortingOutput
+}
+
+type OneDashboardPageWidgetLineInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetLineInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineInitialSortingArgs) ToOneDashboardPageWidgetLineInitialSortingOutput() OneDashboardPageWidgetLineInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetLineInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineInitialSortingArgs) ToOneDashboardPageWidgetLineInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetLineInitialSortingArgs) ToOneDashboardPageWidgetLineInitialSortingPtrOutput() OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineInitialSortingArgs) ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineInitialSortingOutput).ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLineInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetLineInitialSortingArgs, OneDashboardPageWidgetLineInitialSortingPtr and OneDashboardPageWidgetLineInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetLineInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLineInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineInitialSortingPtrOutput() OneDashboardPageWidgetLineInitialSortingPtrOutput
+	ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetLineInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetLineInitialSortingPtrType OneDashboardPageWidgetLineInitialSortingArgs
+
+func OneDashboardPageWidgetLineInitialSortingPtr(v *OneDashboardPageWidgetLineInitialSortingArgs) OneDashboardPageWidgetLineInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetLineInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLineInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLineInitialSortingPtrType) ToOneDashboardPageWidgetLineInitialSortingPtrOutput() OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLineInitialSortingPtrType) ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetLineInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingOutput) ToOneDashboardPageWidgetLineInitialSortingOutput() OneDashboardPageWidgetLineInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingOutput) ToOneDashboardPageWidgetLineInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingOutput) ToOneDashboardPageWidgetLineInitialSortingPtrOutput() OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingOutput) ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLineInitialSorting) *OneDashboardPageWidgetLineInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetLineInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetLineInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLineInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLineInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingPtrOutput) ToOneDashboardPageWidgetLineInitialSortingPtrOutput() OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingPtrOutput) ToOneDashboardPageWidgetLineInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineInitialSortingPtrOutput) Elem() OneDashboardPageWidgetLineInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineInitialSorting) OneDashboardPageWidgetLineInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLineInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetLineInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetLineInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLineInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetLineNrqlQuery struct {
@@ -13288,12 +14864,16 @@ type OneDashboardPageWidgetLogTable struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetLogTableInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetLogTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetLogTableNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -13331,12 +14911,16 @@ type OneDashboardPageWidgetLogTableArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetLogTableInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetLogTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetLogTableNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -13431,6 +15015,13 @@ func (o OneDashboardPageWidgetLogTableOutput) IgnoreTimeRange() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetLogTableOutput) InitialSorting() OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *OneDashboardPageWidgetLogTableInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetLogTableInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetLogTableOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -13444,6 +15035,11 @@ func (o OneDashboardPageWidgetLogTableOutput) NrqlQueries() OneDashboardPageWidg
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetLogTableOutput) NullValues() OneDashboardPageWidgetLogTableNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableNullValue { return v.NullValues }).(OneDashboardPageWidgetLogTableNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetLogTableOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -13707,6 +15303,162 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetLogTableColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLogTableInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetLogTableInitialSortingInput is an input type that accepts OneDashboardPageWidgetLogTableInitialSortingArgs and OneDashboardPageWidgetLogTableInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetLogTableInitialSortingArgs{...}
+type OneDashboardPageWidgetLogTableInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableInitialSortingOutput() OneDashboardPageWidgetLogTableInitialSortingOutput
+	ToOneDashboardPageWidgetLogTableInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetLogTableInitialSortingOutput
+}
+
+type OneDashboardPageWidgetLogTableInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetLogTableInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableInitialSortingArgs) ToOneDashboardPageWidgetLogTableInitialSortingOutput() OneDashboardPageWidgetLogTableInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetLogTableInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableInitialSortingArgs) ToOneDashboardPageWidgetLogTableInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetLogTableInitialSortingArgs) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutput() OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableInitialSortingArgs) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableInitialSortingOutput).ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLogTableInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetLogTableInitialSortingArgs, OneDashboardPageWidgetLogTableInitialSortingPtr and OneDashboardPageWidgetLogTableInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetLogTableInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLogTableInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableInitialSortingPtrOutput() OneDashboardPageWidgetLogTableInitialSortingPtrOutput
+	ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetLogTableInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetLogTableInitialSortingPtrType OneDashboardPageWidgetLogTableInitialSortingArgs
+
+func OneDashboardPageWidgetLogTableInitialSortingPtr(v *OneDashboardPageWidgetLogTableInitialSortingArgs) OneDashboardPageWidgetLogTableInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetLogTableInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLogTableInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLogTableInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLogTableInitialSortingPtrType) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutput() OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLogTableInitialSortingPtrType) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingOutput) ToOneDashboardPageWidgetLogTableInitialSortingOutput() OneDashboardPageWidgetLogTableInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingOutput) ToOneDashboardPageWidgetLogTableInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingOutput) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutput() OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingOutput) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLogTableInitialSorting) *OneDashboardPageWidgetLogTableInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetLogTableInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetLogTableInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLogTableInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLogTableInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLogTableInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingPtrOutput) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutput() OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingPtrOutput) ToOneDashboardPageWidgetLogTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableInitialSortingPtrOutput) Elem() OneDashboardPageWidgetLogTableInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableInitialSorting) OneDashboardPageWidgetLogTableInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLogTableInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetLogTableInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetLogTableInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLogTableInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetLogTableNrqlQuery struct {
@@ -14256,10 +16008,14 @@ type OneDashboardPageWidgetMarkdown struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetMarkdownInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetMarkdownNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
@@ -14299,10 +16055,14 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetMarkdownInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetMarkdownNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
@@ -14399,6 +16159,13 @@ func (o OneDashboardPageWidgetMarkdownOutput) IgnoreTimeRange() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetMarkdownOutput) InitialSorting() OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *OneDashboardPageWidgetMarkdownInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetMarkdownInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetMarkdownOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -14407,6 +16174,11 @@ func (o OneDashboardPageWidgetMarkdownOutput) LegendEnabled() pulumi.BoolPtrOutp
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetMarkdownOutput) NullValues() OneDashboardPageWidgetMarkdownNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) []OneDashboardPageWidgetMarkdownNullValue { return v.NullValues }).(OneDashboardPageWidgetMarkdownNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetMarkdownOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -14675,6 +16447,162 @@ func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetMarkdownColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetMarkdownInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetMarkdownInitialSortingInput is an input type that accepts OneDashboardPageWidgetMarkdownInitialSortingArgs and OneDashboardPageWidgetMarkdownInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetMarkdownInitialSortingArgs{...}
+type OneDashboardPageWidgetMarkdownInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownInitialSortingOutput() OneDashboardPageWidgetMarkdownInitialSortingOutput
+	ToOneDashboardPageWidgetMarkdownInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownInitialSortingOutput
+}
+
+type OneDashboardPageWidgetMarkdownInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetMarkdownInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownInitialSortingArgs) ToOneDashboardPageWidgetMarkdownInitialSortingOutput() OneDashboardPageWidgetMarkdownInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetMarkdownInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownInitialSortingArgs) ToOneDashboardPageWidgetMarkdownInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetMarkdownInitialSortingArgs) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutput() OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownInitialSortingArgs) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownInitialSortingOutput).ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetMarkdownInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetMarkdownInitialSortingArgs, OneDashboardPageWidgetMarkdownInitialSortingPtr and OneDashboardPageWidgetMarkdownInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetMarkdownInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetMarkdownInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutput() OneDashboardPageWidgetMarkdownInitialSortingPtrOutput
+	ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetMarkdownInitialSortingPtrType OneDashboardPageWidgetMarkdownInitialSortingArgs
+
+func OneDashboardPageWidgetMarkdownInitialSortingPtr(v *OneDashboardPageWidgetMarkdownInitialSortingArgs) OneDashboardPageWidgetMarkdownInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetMarkdownInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetMarkdownInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetMarkdownInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetMarkdownInitialSortingPtrType) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutput() OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetMarkdownInitialSortingPtrType) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingOutput) ToOneDashboardPageWidgetMarkdownInitialSortingOutput() OneDashboardPageWidgetMarkdownInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingOutput) ToOneDashboardPageWidgetMarkdownInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingOutput) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutput() OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingOutput) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetMarkdownInitialSorting) *OneDashboardPageWidgetMarkdownInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetMarkdownInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetMarkdownInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetMarkdownInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetMarkdownInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetMarkdownInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingPtrOutput) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutput() OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingPtrOutput) ToOneDashboardPageWidgetMarkdownInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownInitialSortingPtrOutput) Elem() OneDashboardPageWidgetMarkdownInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownInitialSorting) OneDashboardPageWidgetMarkdownInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetMarkdownInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetMarkdownInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetMarkdownInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetMarkdownInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetMarkdownNullValue struct {
@@ -15120,6 +17048,8 @@ type OneDashboardPageWidgetPy struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetPyInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -15128,6 +17058,8 @@ type OneDashboardPageWidgetPy struct {
 	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetPyNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -15167,6 +17099,8 @@ type OneDashboardPageWidgetPyArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetPyInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -15175,6 +17109,8 @@ type OneDashboardPageWidgetPyArgs struct {
 	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetPyNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -15274,6 +17210,11 @@ func (o OneDashboardPageWidgetPyOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetPyOutput) InitialSorting() OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *OneDashboardPageWidgetPyInitialSorting { return v.InitialSorting }).(OneDashboardPageWidgetPyInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetPyOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -15292,6 +17233,11 @@ func (o OneDashboardPageWidgetPyOutput) NrqlQueries() OneDashboardPageWidgetPyNr
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetPyOutput) NullValues() OneDashboardPageWidgetPyNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNullValue { return v.NullValues }).(OneDashboardPageWidgetPyNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetPyOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -15555,6 +17501,162 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetPyColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetPyColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetPyInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetPyInitialSortingInput is an input type that accepts OneDashboardPageWidgetPyInitialSortingArgs and OneDashboardPageWidgetPyInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetPyInitialSortingArgs{...}
+type OneDashboardPageWidgetPyInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyInitialSortingOutput() OneDashboardPageWidgetPyInitialSortingOutput
+	ToOneDashboardPageWidgetPyInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetPyInitialSortingOutput
+}
+
+type OneDashboardPageWidgetPyInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetPyInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyInitialSortingArgs) ToOneDashboardPageWidgetPyInitialSortingOutput() OneDashboardPageWidgetPyInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetPyInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyInitialSortingArgs) ToOneDashboardPageWidgetPyInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetPyInitialSortingArgs) ToOneDashboardPageWidgetPyInitialSortingPtrOutput() OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyInitialSortingArgs) ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyInitialSortingOutput).ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetPyInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetPyInitialSortingArgs, OneDashboardPageWidgetPyInitialSortingPtr and OneDashboardPageWidgetPyInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetPyInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetPyInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyInitialSortingPtrOutput() OneDashboardPageWidgetPyInitialSortingPtrOutput
+	ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetPyInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetPyInitialSortingPtrType OneDashboardPageWidgetPyInitialSortingArgs
+
+func OneDashboardPageWidgetPyInitialSortingPtr(v *OneDashboardPageWidgetPyInitialSortingArgs) OneDashboardPageWidgetPyInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetPyInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetPyInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetPyInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetPyInitialSortingPtrType) ToOneDashboardPageWidgetPyInitialSortingPtrOutput() OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetPyInitialSortingPtrType) ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetPyInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingOutput) ToOneDashboardPageWidgetPyInitialSortingOutput() OneDashboardPageWidgetPyInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingOutput) ToOneDashboardPageWidgetPyInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingOutput) ToOneDashboardPageWidgetPyInitialSortingPtrOutput() OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingOutput) ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetPyInitialSorting) *OneDashboardPageWidgetPyInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetPyInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetPyInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetPyInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetPyInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetPyInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingPtrOutput) ToOneDashboardPageWidgetPyInitialSortingPtrOutput() OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingPtrOutput) ToOneDashboardPageWidgetPyInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyInitialSortingPtrOutput) Elem() OneDashboardPageWidgetPyInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyInitialSorting) OneDashboardPageWidgetPyInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetPyInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetPyInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetPyInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetPyInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetPyNrqlQuery struct {
@@ -16104,12 +18206,16 @@ type OneDashboardPageWidgetStackedBar struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetStackedBarInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetStackedBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetStackedBarNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -16147,12 +18253,16 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetStackedBarInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetStackedBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetStackedBarNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
@@ -16247,6 +18357,13 @@ func (o OneDashboardPageWidgetStackedBarOutput) IgnoreTimeRange() pulumi.BoolPtr
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetStackedBarOutput) InitialSorting() OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *OneDashboardPageWidgetStackedBarInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetStackedBarInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetStackedBarOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -16264,6 +18381,11 @@ func (o OneDashboardPageWidgetStackedBarOutput) NullValues() OneDashboardPageWid
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNullValue {
 		return v.NullValues
 	}).(OneDashboardPageWidgetStackedBarNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetStackedBarOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -16527,6 +18649,162 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetStackedBarColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetStackedBarInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetStackedBarInitialSortingInput is an input type that accepts OneDashboardPageWidgetStackedBarInitialSortingArgs and OneDashboardPageWidgetStackedBarInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetStackedBarInitialSortingArgs{...}
+type OneDashboardPageWidgetStackedBarInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarInitialSortingOutput() OneDashboardPageWidgetStackedBarInitialSortingOutput
+	ToOneDashboardPageWidgetStackedBarInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarInitialSortingOutput
+}
+
+type OneDashboardPageWidgetStackedBarInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetStackedBarInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarInitialSortingArgs) ToOneDashboardPageWidgetStackedBarInitialSortingOutput() OneDashboardPageWidgetStackedBarInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetStackedBarInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarInitialSortingArgs) ToOneDashboardPageWidgetStackedBarInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetStackedBarInitialSortingArgs) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutput() OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarInitialSortingArgs) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarInitialSortingOutput).ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetStackedBarInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetStackedBarInitialSortingArgs, OneDashboardPageWidgetStackedBarInitialSortingPtr and OneDashboardPageWidgetStackedBarInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetStackedBarInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetStackedBarInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutput() OneDashboardPageWidgetStackedBarInitialSortingPtrOutput
+	ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetStackedBarInitialSortingPtrType OneDashboardPageWidgetStackedBarInitialSortingArgs
+
+func OneDashboardPageWidgetStackedBarInitialSortingPtr(v *OneDashboardPageWidgetStackedBarInitialSortingArgs) OneDashboardPageWidgetStackedBarInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetStackedBarInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetStackedBarInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetStackedBarInitialSortingPtrType) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutput() OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetStackedBarInitialSortingPtrType) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingOutput) ToOneDashboardPageWidgetStackedBarInitialSortingOutput() OneDashboardPageWidgetStackedBarInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingOutput) ToOneDashboardPageWidgetStackedBarInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingOutput) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutput() OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingOutput) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetStackedBarInitialSorting) *OneDashboardPageWidgetStackedBarInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetStackedBarInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetStackedBarInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetStackedBarInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetStackedBarInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingPtrOutput) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutput() OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingPtrOutput) ToOneDashboardPageWidgetStackedBarInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarInitialSortingPtrOutput) Elem() OneDashboardPageWidgetStackedBarInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarInitialSorting) OneDashboardPageWidgetStackedBarInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetStackedBarInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetStackedBarInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetStackedBarInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetStackedBarInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetStackedBarNrqlQuery struct {
@@ -17078,6 +19356,8 @@ type OneDashboardPageWidgetTable struct {
 	Id *string `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting *OneDashboardPageWidgetTableInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -17086,6 +19366,8 @@ type OneDashboardPageWidgetTable struct {
 	NrqlQueries []OneDashboardPageWidgetTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetTableNullValue `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate *string `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
@@ -17127,6 +19409,8 @@ type OneDashboardPageWidgetTableArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+	InitialSorting OneDashboardPageWidgetTableInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -17135,6 +19419,8 @@ type OneDashboardPageWidgetTableArgs struct {
 	NrqlQueries OneDashboardPageWidgetTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetTableNullValueArrayInput `pulumi:"nullValues"`
+	// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
@@ -17236,6 +19522,13 @@ func (o OneDashboardPageWidgetTableOutput) IgnoreTimeRange() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+func (o OneDashboardPageWidgetTableOutput) InitialSorting() OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *OneDashboardPageWidgetTableInitialSorting {
+		return v.InitialSorting
+	}).(OneDashboardPageWidgetTableInitialSortingPtrOutput)
+}
+
 // (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 func (o OneDashboardPageWidgetTableOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
@@ -17254,6 +19547,11 @@ func (o OneDashboardPageWidgetTableOutput) NrqlQueries() OneDashboardPageWidgetT
 // (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 func (o OneDashboardPageWidgetTableOutput) NullValues() OneDashboardPageWidgetTableNullValueArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNullValue { return v.NullValues }).(OneDashboardPageWidgetTableNullValueArrayOutput)
+}
+
+// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+func (o OneDashboardPageWidgetTableOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -17522,6 +19820,162 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetTableColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetTableInitialSorting struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction string `pulumi:"direction"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+}
+
+// OneDashboardPageWidgetTableInitialSortingInput is an input type that accepts OneDashboardPageWidgetTableInitialSortingArgs and OneDashboardPageWidgetTableInitialSortingOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableInitialSortingInput` via:
+//
+//	OneDashboardPageWidgetTableInitialSortingArgs{...}
+type OneDashboardPageWidgetTableInitialSortingInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableInitialSortingOutput() OneDashboardPageWidgetTableInitialSortingOutput
+	ToOneDashboardPageWidgetTableInitialSortingOutputWithContext(context.Context) OneDashboardPageWidgetTableInitialSortingOutput
+}
+
+type OneDashboardPageWidgetTableInitialSortingArgs struct {
+	// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OneDashboardPageWidgetTableInitialSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableInitialSorting)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableInitialSortingArgs) ToOneDashboardPageWidgetTableInitialSortingOutput() OneDashboardPageWidgetTableInitialSortingOutput {
+	return i.ToOneDashboardPageWidgetTableInitialSortingOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableInitialSortingArgs) ToOneDashboardPageWidgetTableInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableInitialSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableInitialSortingOutput)
+}
+
+func (i OneDashboardPageWidgetTableInitialSortingArgs) ToOneDashboardPageWidgetTableInitialSortingPtrOutput() OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableInitialSortingArgs) ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableInitialSortingOutput).ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetTableInitialSortingPtrInput is an input type that accepts OneDashboardPageWidgetTableInitialSortingArgs, OneDashboardPageWidgetTableInitialSortingPtr and OneDashboardPageWidgetTableInitialSortingPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableInitialSortingPtrInput` via:
+//
+//	        OneDashboardPageWidgetTableInitialSortingArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetTableInitialSortingPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableInitialSortingPtrOutput() OneDashboardPageWidgetTableInitialSortingPtrOutput
+	ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(context.Context) OneDashboardPageWidgetTableInitialSortingPtrOutput
+}
+
+type oneDashboardPageWidgetTableInitialSortingPtrType OneDashboardPageWidgetTableInitialSortingArgs
+
+func OneDashboardPageWidgetTableInitialSortingPtr(v *OneDashboardPageWidgetTableInitialSortingArgs) OneDashboardPageWidgetTableInitialSortingPtrInput {
+	return (*oneDashboardPageWidgetTableInitialSortingPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetTableInitialSortingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetTableInitialSorting)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetTableInitialSortingPtrType) ToOneDashboardPageWidgetTableInitialSortingPtrOutput() OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return i.ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetTableInitialSortingPtrType) ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableInitialSortingPtrOutput)
+}
+
+type OneDashboardPageWidgetTableInitialSortingOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableInitialSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingOutput) ToOneDashboardPageWidgetTableInitialSortingOutput() OneDashboardPageWidgetTableInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingOutput) ToOneDashboardPageWidgetTableInitialSortingOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableInitialSortingOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingOutput) ToOneDashboardPageWidgetTableInitialSortingPtrOutput() OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return o.ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingOutput) ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetTableInitialSorting) *OneDashboardPageWidgetTableInitialSorting {
+		return &v
+	}).(OneDashboardPageWidgetTableInitialSortingPtrOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetTableInitialSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableInitialSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetTableInitialSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableInitialSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetTableInitialSortingPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableInitialSortingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetTableInitialSorting)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingPtrOutput) ToOneDashboardPageWidgetTableInitialSortingPtrOutput() OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingPtrOutput) ToOneDashboardPageWidgetTableInitialSortingPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableInitialSortingPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableInitialSortingPtrOutput) Elem() OneDashboardPageWidgetTableInitialSortingOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableInitialSorting) OneDashboardPageWidgetTableInitialSorting {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetTableInitialSorting
+		return ret
+	}).(OneDashboardPageWidgetTableInitialSortingOutput)
+}
+
+// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+func (o OneDashboardPageWidgetTableInitialSortingPtrOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Direction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetTableInitialSortingPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableInitialSorting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetTableNrqlQuery struct {
@@ -22316,6 +24770,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetAreaInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetAreaInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueArgs{})
@@ -22332,6 +24788,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetBarInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetBarInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNullValueInput)(nil)).Elem(), OneDashboardPageWidgetBarNullValueArgs{})
@@ -22348,6 +24806,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetBillboardInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNullValueArgs{})
@@ -22364,6 +24824,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetBulletInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetBulletInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueInput)(nil)).Elem(), OneDashboardPageWidgetBulletNullValueArgs{})
@@ -22380,6 +24842,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetFunnelInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetFunnelInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNullValueArgs{})
@@ -22396,6 +24860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNullValueArgs{})
@@ -22412,6 +24878,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetHistogramInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetHistogramInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNullValueArgs{})
@@ -22428,6 +24896,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetJsonInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetJsonInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueInput)(nil)).Elem(), OneDashboardPageWidgetJsonNullValueArgs{})
@@ -22444,6 +24914,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetLineInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueArgs{})
@@ -22464,6 +24936,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetLogTableInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetLogTableInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNullValueArgs{})
@@ -22480,6 +24954,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs{})
@@ -22494,6 +24970,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetPyInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetPyInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNullValueInput)(nil)).Elem(), OneDashboardPageWidgetPyNullValueArgs{})
@@ -22510,6 +24988,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueArgs{})
@@ -22526,6 +25006,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetTableInitialSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetTableInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueArgs{})
@@ -22645,6 +25127,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueOutput{})
@@ -22661,6 +25145,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNullValueOutput{})
@@ -22677,6 +25163,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNullValueOutput{})
@@ -22693,6 +25181,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNullValueOutput{})
@@ -22709,6 +25199,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNullValueOutput{})
@@ -22725,6 +25217,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNullValueOutput{})
@@ -22741,6 +25235,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNullValueOutput{})
@@ -22757,6 +25253,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNullValueOutput{})
@@ -22773,6 +25271,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueOutput{})
@@ -22793,6 +25293,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNullValueOutput{})
@@ -22809,6 +25311,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput{})
@@ -22823,6 +25327,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNullValueOutput{})
@@ -22839,6 +25345,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueOutput{})
@@ -22855,6 +25363,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableInitialSortingOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueOutput{})

@@ -55,6 +55,12 @@ namespace Pulumi.NewRelic.Inputs
         public Input<bool>? IgnoreTimeRange { get; set; }
 
         /// <summary>
+        /// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        /// </summary>
+        [Input("initialSorting")]
+        public Input<Inputs.OneDashboardPageWidgetLineInitialSortingGetArgs>? InitialSorting { get; set; }
+
+        /// <summary>
         /// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
         /// </summary>
         [Input("isLabelVisible")]
@@ -89,6 +95,12 @@ namespace Pulumi.NewRelic.Inputs
             get => _nullValues ?? (_nullValues = new InputList<Inputs.OneDashboardPageWidgetLineNullValueGetArgs>());
             set => _nullValues = value;
         }
+
+        /// <summary>
+        /// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        /// </summary>
+        [Input("refreshRate")]
+        public Input<string>? RefreshRate { get; set; }
 
         /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.

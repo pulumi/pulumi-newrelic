@@ -42,6 +42,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly bool? IgnoreTimeRange;
         /// <summary>
+        /// (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetTableInitialSorting? InitialSorting;
+        /// <summary>
         /// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         /// </summary>
         public readonly bool? LegendEnabled;
@@ -57,6 +61,10 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTableNullValue> NullValues;
+        /// <summary>
+        /// (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        /// </summary>
+        public readonly string? RefreshRate;
         /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>
@@ -99,6 +107,8 @@ namespace Pulumi.NewRelic.Outputs
 
             bool? ignoreTimeRange,
 
+            Outputs.OneDashboardPageWidgetTableInitialSorting? initialSorting,
+
             bool? legendEnabled,
 
             ImmutableArray<string> linkedEntityGuids,
@@ -106,6 +116,8 @@ namespace Pulumi.NewRelic.Outputs
             ImmutableArray<Outputs.OneDashboardPageWidgetTableNrqlQuery> nrqlQueries,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetTableNullValue> nullValues,
+
+            string? refreshRate,
 
             int row,
 
@@ -128,10 +140,12 @@ namespace Pulumi.NewRelic.Outputs
             Height = height;
             Id = id;
             IgnoreTimeRange = ignoreTimeRange;
+            InitialSorting = initialSorting;
             LegendEnabled = legendEnabled;
             LinkedEntityGuids = linkedEntityGuids;
             NrqlQueries = nrqlQueries;
             NullValues = nullValues;
+            RefreshRate = refreshRate;
             Row = row;
             Thresholds = thresholds;
             Title = title;
