@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage New Relic alert channels.
  *
- * > **WARNING:** The `newrelic.AlertChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can set up channels using a combination of the newer resources `newrelic.NotificationDestination` for a detailed illustration on setting up channels with these resources.
+ * > **WARNING:** The `newrelic.AlertChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can set up channels using a combination of the newer resources `newrelic.NotificationDestination` and `newrelic.NotificationChannel`. We **strongly recommend** migrating to these new resources at the earliest. Please refer to this example for a detailed illustration on setting up channels with these resources.
  *
  * ## Example Usage
  *
