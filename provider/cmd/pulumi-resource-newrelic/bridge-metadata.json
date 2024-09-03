@@ -1384,6 +1384,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1423,6 +1426,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
                                             },
                                             "linked_entity_guids": {
                                                 "maxItemsOne": false
@@ -1467,6 +1473,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1506,6 +1515,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
                                             },
                                             "nrql_query": {
                                                 "maxItemsOne": false
@@ -1547,6 +1559,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1586,6 +1601,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
                                             },
                                             "linked_entity_guids": {
                                                 "maxItemsOne": false
@@ -1630,6 +1648,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1670,6 +1691,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1709,6 +1733,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
                                             },
                                             "nrql_query": {
                                                 "maxItemsOne": false
@@ -1763,6 +1790,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1803,6 +1833,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "null_values": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1839,6 +1872,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
                                             },
                                             "linked_entity_guids": {
                                                 "maxItemsOne": false
@@ -1883,6 +1919,9 @@
                                                     }
                                                 }
                                             },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
+                                            },
                                             "nrql_query": {
                                                 "maxItemsOne": false
                                             },
@@ -1922,6 +1961,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "initial_sorting": {
+                                                "maxItemsOne": true
                                             },
                                             "linked_entity_guids": {
                                                 "maxItemsOne": false
