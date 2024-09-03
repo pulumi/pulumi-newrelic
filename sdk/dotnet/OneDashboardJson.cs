@@ -10,6 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ### Create a New Relic One Dashboard from a JSON file
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.OneDashboardJson("foo", new()
+    ///     {
+    ///         Json = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "dashboard.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic dashboards can be imported using their GUID, e.g.

@@ -15,6 +15,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.ObfuscationExpression&#34;
+ * sidebar_current: &#34;docs-newrelic-resource-obfuscation-expression&#34;
+ * description: |-
+ * Create and manage Obfuscation Expression.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic\_obfuscation\_expression
+ * 
  * Use this resource to create, update and delete New Relic Obfuscation Expressions.
  * 
  * ## Example Usage

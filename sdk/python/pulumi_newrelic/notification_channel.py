@@ -279,6 +279,15 @@ class NotificationChannel(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: NotificationChannel"
+        sidebar_current: "docs-newrelic-resource-notification-channel"
+        description: |-
+        Create and manage a notification channel for notifications in New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_notification\\_channel
+
         Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 
         A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
@@ -332,6 +341,7 @@ class NotificationChannel(pulumi.CustomResource):
                 },
             ])
         ```
+
         ##### [ServiceNowApp](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenowapp)
         ```python
         import pulumi
@@ -585,8 +595,9 @@ class NotificationChannel(pulumi.CustomResource):
         ## Additional Information
 
         More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+
         ### Moving from Legacy Alert Channels to Notification Channels
-        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination` and `NotificationChannel`. A combination of these resources is an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
 
         If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
 
@@ -601,7 +612,7 @@ class NotificationChannel(pulumi.CustomResource):
         That being said, importing is possible using -
 
         ```sh
-        $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>
+        $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -621,6 +632,15 @@ class NotificationChannel(pulumi.CustomResource):
                  args: NotificationChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "newrelic"
+        page_title: "New Relic: NotificationChannel"
+        sidebar_current: "docs-newrelic-resource-notification-channel"
+        description: |-
+        Create and manage a notification channel for notifications in New Relic.
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # Resource: newrelic\\_notification\\_channel
+
         Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 
         A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
@@ -674,6 +694,7 @@ class NotificationChannel(pulumi.CustomResource):
                 },
             ])
         ```
+
         ##### [ServiceNowApp](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenowapp)
         ```python
         import pulumi
@@ -927,8 +948,9 @@ class NotificationChannel(pulumi.CustomResource):
         ## Additional Information
 
         More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+
         ### Moving from Legacy Alert Channels to Notification Channels
-        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination` and `NotificationChannel`. A combination of these resources is an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
 
         If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
 
@@ -943,7 +965,7 @@ class NotificationChannel(pulumi.CustomResource):
         That being said, importing is possible using -
 
         ```sh
-        $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>
+        $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo <destination_id>`
         ```
 
         :param str resource_name: The name of the resource.

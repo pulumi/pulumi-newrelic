@@ -35,7 +35,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
 
     /**
      * The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-15T14:30:00&#39;
-     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
      * 
      */
     @Import(name="endTime")
@@ -43,7 +43,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
 
     /**
      * @return The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-15T14:30:00&#39;
-     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+     * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
      * 
      */
     public Optional<Output<String>> endTime() {
@@ -178,7 +178,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
 
         /**
          * @param endTime The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-15T14:30:00&#39;
-         * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+         * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
 
         /**
          * @param endTime The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-15T14:30:00&#39;
-         * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+         * * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: &#39;America/Los_Angeles&#39;. See &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
          * 
          * @return builder
          * 

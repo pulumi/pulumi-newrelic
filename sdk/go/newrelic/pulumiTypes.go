@@ -938,7 +938,7 @@ type AlertMutingRuleSchedule struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat *string `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
-	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
 	EndTime *string `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat *string `pulumi:"repeat"`
@@ -967,7 +967,7 @@ type AlertMutingRuleScheduleArgs struct {
 	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
 	EndRepeat pulumi.StringPtrInput `pulumi:"endRepeat"`
 	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
-	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
 	Repeat pulumi.StringPtrInput `pulumi:"repeat"`
@@ -1064,7 +1064,7 @@ func (o AlertMutingRuleScheduleOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
-// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
 func (o AlertMutingRuleScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
@@ -1129,7 +1129,7 @@ func (o AlertMutingRuleSchedulePtrOutput) EndRepeat() pulumi.StringPtrOutput {
 }
 
 // The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
-// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
 func (o AlertMutingRuleSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
 		if v == nil {
@@ -4149,7 +4149,7 @@ type OneDashboardPageWidgetArea struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -4192,7 +4192,7 @@ type OneDashboardPageWidgetAreaArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -4289,7 +4289,7 @@ func (o OneDashboardPageWidgetAreaOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetAreaOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -5119,7 +5119,7 @@ type OneDashboardPageWidgetBar struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -5166,7 +5166,7 @@ type OneDashboardPageWidgetBarArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -5270,7 +5270,7 @@ func (o OneDashboardPageWidgetBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetBarOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -6105,7 +6105,7 @@ type OneDashboardPageWidgetBillboard struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -6152,7 +6152,7 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -6256,7 +6256,7 @@ func (o OneDashboardPageWidgetBillboardOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetBillboardOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -7093,7 +7093,7 @@ type OneDashboardPageWidgetBullet struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -7138,7 +7138,7 @@ type OneDashboardPageWidgetBulletArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -7237,7 +7237,7 @@ func (o OneDashboardPageWidgetBulletOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetBulletOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -8070,7 +8070,7 @@ type OneDashboardPageWidgetFunnel struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -8113,7 +8113,7 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -8210,7 +8210,7 @@ func (o OneDashboardPageWidgetFunnelOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetFunnelOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -9040,7 +9040,7 @@ type OneDashboardPageWidgetHeatmap struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -9087,7 +9087,7 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -9191,7 +9191,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetHeatmapOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -10024,7 +10024,7 @@ type OneDashboardPageWidgetHistogram struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -10067,7 +10067,7 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -10164,7 +10164,7 @@ func (o OneDashboardPageWidgetHistogramOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetHistogramOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -10996,7 +10996,7 @@ type OneDashboardPageWidgetJson struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -11039,7 +11039,7 @@ type OneDashboardPageWidgetJsonArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -11136,7 +11136,7 @@ func (o OneDashboardPageWidgetJsonOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetJsonOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -11964,9 +11964,9 @@ type OneDashboardPageWidgetLine struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
 	IsLabelVisible *bool `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -12015,9 +12015,9 @@ type OneDashboardPageWidgetLineArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+	// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
 	IsLabelVisible pulumi.BoolPtrInput `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -12120,12 +12120,12 @@ func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+// (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the *label always visible* toggle in the *Thresholds* section in the settings of the widget is enabled.
 func (o OneDashboardPageWidgetLineOutput) IsLabelVisible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IsLabelVisible }).(pulumi.BoolPtrOutput)
 }
@@ -12748,7 +12748,7 @@ type OneDashboardPageWidgetLineThreshold struct {
 	From *string `pulumi:"from"`
 	// The title of the dashboard.
 	Name *string `pulumi:"name"`
-	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
 	To *string `pulumi:"to"`
@@ -12770,7 +12770,7 @@ type OneDashboardPageWidgetLineThresholdArgs struct {
 	From pulumi.StringPtrInput `pulumi:"from"`
 	// The title of the dashboard.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
 	To pulumi.StringPtrInput `pulumi:"to"`
@@ -12837,7 +12837,7 @@ func (o OneDashboardPageWidgetLineThresholdOutput) Name() pulumi.StringPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 func (o OneDashboardPageWidgetLineThresholdOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLineThreshold) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -13286,7 +13286,7 @@ type OneDashboardPageWidgetLogTable struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -13329,7 +13329,7 @@ type OneDashboardPageWidgetLogTableArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -13426,7 +13426,7 @@ func (o OneDashboardPageWidgetLogTableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetLogTableOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -14254,7 +14254,7 @@ type OneDashboardPageWidgetMarkdown struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -14297,7 +14297,7 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -14394,7 +14394,7 @@ func (o OneDashboardPageWidgetMarkdownOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetMarkdownOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -15118,7 +15118,7 @@ type OneDashboardPageWidgetPy struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -15165,7 +15165,7 @@ type OneDashboardPageWidgetPyArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -15269,7 +15269,7 @@ func (o OneDashboardPageWidgetPyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetPyOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -16102,7 +16102,7 @@ type OneDashboardPageWidgetStackedBar struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -16145,7 +16145,7 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -16242,7 +16242,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetStackedBarOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -17076,7 +17076,7 @@ type OneDashboardPageWidgetTable struct {
 	Height *int `pulumi:"height"`
 	// The ID of the widget.
 	Id *string `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
@@ -17125,7 +17125,7 @@ type OneDashboardPageWidgetTableArgs struct {
 	Height pulumi.IntPtrInput `pulumi:"height"`
 	// The ID of the widget.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
@@ -17231,7 +17231,7 @@ func (o OneDashboardPageWidgetTableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardPageWidgetTableOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -17849,7 +17849,7 @@ type OneDashboardPageWidgetTableThreshold struct {
 	ColumnName *string `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
 	From *string `pulumi:"from"`
-	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity *string `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
 	To *string `pulumi:"to"`
@@ -17871,7 +17871,7 @@ type OneDashboardPageWidgetTableThresholdArgs struct {
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// The value 'from' which the threshold would need to be applied.
 	From pulumi.StringPtrInput `pulumi:"from"`
-	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+	// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The value until which the threshold would need to be applied.
 	To pulumi.StringPtrInput `pulumi:"to"`
@@ -17938,7 +17938,7 @@ func (o OneDashboardPageWidgetTableThresholdOutput) From() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.From }).(pulumi.StringPtrOutput)
 }
 
-// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+// The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels *Warning*, *Approaching critical*, *Critical*, *Good*, *Neutral* in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
 func (o OneDashboardPageWidgetTableThresholdOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTableThreshold) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -18907,7 +18907,7 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Query() pulumi.StringPtrOutput {
 }
 
 type OneDashboardVariableOption struct {
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 }
 
@@ -18923,7 +18923,7 @@ type OneDashboardVariableOptionInput interface {
 }
 
 type OneDashboardVariableOptionArgs struct {
-	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+	// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 }
 
@@ -18978,7 +18978,7 @@ func (o OneDashboardVariableOptionOutput) ToOneDashboardVariableOptionOutputWith
 	return o
 }
 
-// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+// (Optional) An argument with a boolean value that is supported only by variables of `type` *nrql* - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardVariableOptionOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardVariableOption) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }

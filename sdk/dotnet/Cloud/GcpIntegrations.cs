@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
+    /// layout: "newrelic"
+    /// page_title: "New Relic: newrelic.cloud.GcpIntegrations"
+    /// sidebar_current: "docs-newrelic-resource-cloud-gcp-integrations"
+    /// description: |-
+    /// Integrate GCP services with New Relic.
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # Resource: newrelic\_cloud\_gcp\_integrations
+    /// 
     /// Use this resource to integrate GCP services with New Relic.
     /// 
     /// ## Prerequisite

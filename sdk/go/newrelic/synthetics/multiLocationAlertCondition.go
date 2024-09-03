@@ -74,6 +74,7 @@ import (
 //	}
 //
 // ```
+//
 // ## Tags
 //
 // Manage synthetics multilocation alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
@@ -176,9 +177,9 @@ import (
 //
 // ## Import
 //
-// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+// # New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
 //
-//	`<policy_id>:<condition_id>`, e.g.
+// `<policy_id>:<condition_id>`, e.g.
 //
 // bash
 //

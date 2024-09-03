@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: ObfuscationExpression"
+// sidebar_current: "docs-newrelic-datasource-obfuscation-expression"
+// description: |-
+// Grabs a Obfuscation Expression by name.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Data Source: newrelic\_obfuscation\_expression
+//
 // Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
 //
 // ## Example Usage

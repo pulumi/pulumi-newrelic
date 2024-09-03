@@ -62,6 +62,7 @@ import (
 //	}
 //
 // ```
+//
 // ##### Type: `SIMPLE BROWSER`
 //
 // ```go
@@ -184,6 +185,7 @@ import (
 //	}
 //
 // ```
+//
 // ##### Type: `BROWSER`
 //
 // ```go

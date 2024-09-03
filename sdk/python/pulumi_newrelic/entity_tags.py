@@ -132,7 +132,7 @@ class EntityTags(pulumi.CustomResource):
 
         New Relic One entity tags can be imported using a concatenated string of the format
 
-         `<guid>`, e.g.
+        `<guid>`, e.g.
 
         bash
 
@@ -184,7 +184,7 @@ class EntityTags(pulumi.CustomResource):
 
         New Relic One entity tags can be imported using a concatenated string of the format
 
-         `<guid>`, e.g.
+        `<guid>`, e.g.
 
         bash
 

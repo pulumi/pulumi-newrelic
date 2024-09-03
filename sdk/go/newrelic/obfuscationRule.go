@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: ObfuscationRule"
+// sidebar_current: "docs-newrelic-resource-obfuscation-rule"
+// description: |-
+// Create and manage Obfuscation Rule.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Resource: newrelic\_obfuscation\_rule
+//
 // Use this resource to create, update and delete New Relic Obfuscation Rule.
 //
 // ## Example Usage

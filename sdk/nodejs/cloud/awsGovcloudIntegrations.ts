@@ -7,7 +7,15 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * layout: "newrelic"
+ * page_title: "New Relic: newrelic.cloud.AwsGovcloudIntegrations"
+ * sidebar_current: "docs-newrelic-cloud-resource-aws-govcloud-integrations"
+ * description: |-
+ * Integrating an AwsGovCloud account to New Relic.
+ * <!-- yaml: line 6: could not find expected ':' -->
  * > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
+ *
+ * # Resource: newrelic.cloud.AwsGovcloudIntegrations
  *
  * Use this resource to integrate an AWSGovCloud account to New Relic.
  *

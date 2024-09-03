@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// layout: "newrelic"
+    /// page_title: "New Relic: newrelic.ObfuscationRule"
+    /// sidebar_current: "docs-newrelic-resource-obfuscation-rule"
+    /// description: |-
+    /// Create and manage Obfuscation Rule.
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # Resource: newrelic\_obfuscation\_rule
+    /// 
     /// Use this resource to create, update and delete New Relic Obfuscation Rule.
     /// 
     /// ## Example Usage

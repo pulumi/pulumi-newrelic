@@ -276,7 +276,7 @@ import javax.annotation.Nullable;
  * 
  * New Relic workloads can be imported using a concatenated string of the format
  * 
- *  `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g.
+ * `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g.
  * 
  * bash
  * 

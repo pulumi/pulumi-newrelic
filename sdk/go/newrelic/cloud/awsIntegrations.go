@@ -430,60 +430,224 @@ import (
 //
 //	<summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
 //
-// | Block                   | Description                   |
-// |-------------------------|-------------------------------|
-// | `alb`                   | ALB Integration               |
-// | `apiGateway`           | API Gateway Integration       |
-// | `autoScaling`          | Auto Scaling Integration      |
-// | `awsAppSync`          | AppSync Integration           |
-// | `awsAthena`            | Athena Integration            |
-// | `awsCognito`           | Cognito Integration           |
-// | `awsConnect`           | Connect Integration           |
-// | `awsDirectConnect`    | Direct Connect Integration    |
-// | `awsFsx`               | FSx Integration               |
-// | `awsGlue`              | Glue Integration              |
-// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
-// | `awsMediaConvert`     | MediaConvert Integration      |
-// | `awsMediaPackageVod` | Media Package VOD Integration |
-// | `awsMq`                | MQ Integration                |
-// | `awsMsk`               | MSK Integration               |
-// | `awsNeptune`           | Neptune Integration           |
-// | `awsQldb`              | QLDB Integration              |
-// | `awsRoute53resolver`   | Route53 Resolver Integration  |
-// | `awsStates`            | States Integration            |
-// | `awsTransitGateway`   | Transit Gateway Integration   |
-// | `awsWaf`               | WAF Integration               |
-// | `awsWafv2`             | WAFv2 Integration             |
-// | `billing`               | Billing Integration           |
-// | `cloudfront`            | CloudFront Integration        |
-// | `cloudtrail`            | CloudTrail Integration        |
-// | `docDb`                | DocumentDB Integration        |
-// | `dynamodb`              | DynamoDB Integration          |
-// | `ebs`                   | EBS Integration               |
-// | `ec2`                   | EC2 Integration               |
-// | `ecs`                   | ECS Integration               |
-// | `efs`                   | EFS Integration               |
-// | `elasticache`           | ElastiCache Integration       |
-// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-// | `elasticsearch`         | Elasticsearch Integration     |
-// | `elb`                   | ELB Integration               |
-// | `emr`                   | EMR Integration               |
-// | `health`                | Health Integration            |
-// | `iam`                   | IAM Integration               |
-// | `iot`                   | IoT Integration               |
-// | `kinesis`               | Kinesis Integration           |
-// | `kinesisFirehose`      | Kinesis Firehose Integration  |
-// | `lambda`                | Lambda Integration            |
-// | `rds`                   | RDS Integration               |
-// | `redshift`              | Redshift Integration          |
-// | `route53`               | Route53 Integration           |
-// | `s3`                    | S3 Integration                |
-// | `ses`                   | SES Integration               |
-// | `sns`                   | SNS Integration               |
-// | `sqs`                   | SQS Integration               |
-// | `trustedAdvisor`       | Trusted Advisor Integration   |
-// | `vpc`                   | VPC Integration               |
-// | `xRay`                 | X-Ray Integration             |
+// <table>
+// <thead>
+// <tr>
+// <th>Block</th>
+// <th>Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>`alb`</td>
+// <td>ALB Integration</td>
+// </tr>
+// <tr>
+// <td>`apiGateway`</td>
+// <td>API Gateway Integration</td>
+// </tr>
+// <tr>
+// <td>`autoScaling`</td>
+// <td>Auto Scaling Integration</td>
+// </tr>
+// <tr>
+// <td>`awsAppSync`</td>
+// <td>AppSync Integration</td>
+// </tr>
+// <tr>
+// <td>`awsAthena`</td>
+// <td>Athena Integration</td>
+// </tr>
+// <tr>
+// <td>`awsCognito`</td>
+// <td>Cognito Integration</td>
+// </tr>
+// <tr>
+// <td>`awsConnect`</td>
+// <td>Connect Integration</td>
+// </tr>
+// <tr>
+// <td>`awsDirectConnect`</td>
+// <td>Direct Connect Integration</td>
+// </tr>
+// <tr>
+// <td>`awsFsx`</td>
+// <td>FSx Integration</td>
+// </tr>
+// <tr>
+// <td>`awsGlue`</td>
+// <td>Glue Integration</td>
+// </tr>
+// <tr>
+// <td>`awsKinesisAnalytics`</td>
+// <td>Kinesis Analytics Integration</td>
+// </tr>
+// <tr>
+// <td>`awsMediaConvert`</td>
+// <td>MediaConvert Integration</td>
+// </tr>
+// <tr>
+// <td>`awsMediaPackageVod`</td>
+// <td>Media Package VOD Integration</td>
+// </tr>
+// <tr>
+// <td>`awsMq`</td>
+// <td>MQ Integration</td>
+// </tr>
+// <tr>
+// <td>`awsMsk`</td>
+// <td>MSK Integration</td>
+// </tr>
+// <tr>
+// <td>`awsNeptune`</td>
+// <td>Neptune Integration</td>
+// </tr>
+// <tr>
+// <td>`awsQldb`</td>
+// <td>QLDB Integration</td>
+// </tr>
+// <tr>
+// <td>`awsRoute53resolver`</td>
+// <td>Route53 Resolver Integration</td>
+// </tr>
+// <tr>
+// <td>`awsStates`</td>
+// <td>States Integration</td>
+// </tr>
+// <tr>
+// <td>`awsTransitGateway`</td>
+// <td>Transit Gateway Integration</td>
+// </tr>
+// <tr>
+// <td>`awsWaf`</td>
+// <td>WAF Integration</td>
+// </tr>
+// <tr>
+// <td>`awsWafv2`</td>
+// <td>WAFv2 Integration</td>
+// </tr>
+// <tr>
+// <td>`billing`</td>
+// <td>Billing Integration</td>
+// </tr>
+// <tr>
+// <td>`cloudfront`</td>
+// <td>CloudFront Integration</td>
+// </tr>
+// <tr>
+// <td>`cloudtrail`</td>
+// <td>CloudTrail Integration</td>
+// </tr>
+// <tr>
+// <td>`docDb`</td>
+// <td>DocumentDB Integration</td>
+// </tr>
+// <tr>
+// <td>`dynamodb`</td>
+// <td>DynamoDB Integration</td>
+// </tr>
+// <tr>
+// <td>`ebs`</td>
+// <td>EBS Integration</td>
+// </tr>
+// <tr>
+// <td>`ec2`</td>
+// <td>EC2 Integration</td>
+// </tr>
+// <tr>
+// <td>`ecs`</td>
+// <td>ECS Integration</td>
+// </tr>
+// <tr>
+// <td>`efs`</td>
+// <td>EFS Integration</td>
+// </tr>
+// <tr>
+// <td>`elasticache`</td>
+// <td>ElastiCache Integration</td>
+// </tr>
+// <tr>
+// <td>`elasticbeanstalk`</td>
+// <td>Elastic Beanstalk Integration</td>
+// </tr>
+// <tr>
+// <td>`elasticsearch`</td>
+// <td>Elasticsearch Integration</td>
+// </tr>
+// <tr>
+// <td>`elb`</td>
+// <td>ELB Integration</td>
+// </tr>
+// <tr>
+// <td>`emr`</td>
+// <td>EMR Integration</td>
+// </tr>
+// <tr>
+// <td>`health`</td>
+// <td>Health Integration</td>
+// </tr>
+// <tr>
+// <td>`iam`</td>
+// <td>IAM Integration</td>
+// </tr>
+// <tr>
+// <td>`iot`</td>
+// <td>IoT Integration</td>
+// </tr>
+// <tr>
+// <td>`kinesis`</td>
+// <td>Kinesis Integration</td>
+// </tr>
+// <tr>
+// <td>`kinesisFirehose`</td>
+// <td>Kinesis Firehose Integration</td>
+// </tr>
+// <tr>
+// <td>`lambda`</td>
+// <td>Lambda Integration</td>
+// </tr>
+// <tr>
+// <td>`rds`</td>
+// <td>RDS Integration</td>
+// </tr>
+// <tr>
+// <td>`redshift`</td>
+// <td>Redshift Integration</td>
+// </tr>
+// <tr>
+// <td>`route53`</td>
+// <td>Route53 Integration</td>
+// </tr>
+// <tr>
+// <td>`s3`</td>
+// <td>S3 Integration</td>
+// </tr>
+// <tr>
+// <td>`ses`</td>
+// <td>SES Integration</td>
+// </tr>
+// <tr>
+// <td>`sns`</td>
+// <td>SNS Integration</td>
+// </tr>
+// <tr>
+// <td>`sqs`</td>
+// <td>SQS Integration</td>
+// </tr>
+// <tr>
+// <td>`trustedAdvisor`</td>
+// <td>Trusted Advisor Integration</td>
+// </tr>
+// <tr>
+// <td>`vpc`</td>
+// <td>VPC Integration</td>
+// </tr>
+// <tr>
+// <td>`xRay`</td>
+// <td>X-Ray Integration</td>
+// </tr>
+// </tbody>
+// </table>
 //
 // </details>
 //

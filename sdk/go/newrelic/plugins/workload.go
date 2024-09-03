@@ -248,9 +248,9 @@ import (
 //
 // ## Import
 //
-// New Relic workloads can be imported using a concatenated string of the format
+// # New Relic workloads can be imported using a concatenated string of the format
 //
-//	`<account_id>:<workload_id>:<guid>`, e.g.
+// `<account_id>:<workload_id>:<guid>`, e.g.
 //
 // bash
 //

@@ -17,7 +17,7 @@ namespace Pulumi.NewRelic
         /// ## Example Usage
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
-        ///     
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -91,7 +91,7 @@ namespace Pulumi.NewRelic
         /// ## Example Usage
         /// 
         /// The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
-        ///     
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;

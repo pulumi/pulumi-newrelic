@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: Workflow"
+// sidebar_current: "docs-newrelic-resource-workflow"
+// description: |-
+// Create and manage a workflow in New Relic.
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # Resource: newrelic\_workflow
+//
 // Use this resource to create and manage New Relic workflows.
 //
 // ## Example Usage
@@ -260,7 +269,7 @@ import (
 // More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
 //
 // ### Moving from Legacy Alert Policy Channels to Workflows
-// As described in the documentation of this resource, mapping alert channels (created using `NotificationDestination`).
+// As described in the documentation of this resource, mapping alert channels (created using `NotificationDestination` and `NotificationChannel`) to policies can be performed using the `Workflow` resource, which is an alternative to the legacy resource `AlertPolicyChannel` (which consumes alert channels created using the legacy resource `AlertChannel`).
 //
 // Both of the legacy resources mentioned above, `AlertChannel` and `AlertPolicyChannel` are **deprecated** and will be **removed in a future major release**, as stated in the documentation of both of these resources.
 //

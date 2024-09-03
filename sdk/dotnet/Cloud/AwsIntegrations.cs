@@ -516,61 +516,224 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// &lt;details&gt;
     ///   &lt;summary&gt;Expand this section to view all supported AWS services supported, that may be integrated via this resource.&lt;/summary&gt;
-    /// 
-    /// | Block                   | Description                   |
-    /// |-------------------------|-------------------------------|
-    /// | `alb`                   | ALB Integration               |
-    /// | `api_gateway`           | API Gateway Integration       |
-    /// | `auto_scaling`          | Auto Scaling Integration      |
-    /// | `aws_app_sync`          | AppSync Integration           |
-    /// | `aws_athena`            | Athena Integration            |
-    /// | `aws_cognito`           | Cognito Integration           |
-    /// | `aws_connect`           | Connect Integration           |
-    /// | `aws_direct_connect`    | Direct Connect Integration    |
-    /// | `aws_fsx`               | FSx Integration               |
-    /// | `aws_glue`              | Glue Integration              |
-    /// | `aws_kinesis_analytics` | Kinesis Analytics Integration |
-    /// | `aws_media_convert`     | MediaConvert Integration      |
-    /// | `aws_media_package_vod` | Media Package VOD Integration |
-    /// | `aws_mq`                | MQ Integration                |
-    /// | `aws_msk`               | MSK Integration               |
-    /// | `aws_neptune`           | Neptune Integration           |
-    /// | `aws_qldb`              | QLDB Integration              |
-    /// | `aws_route53resolver`   | Route53 Resolver Integration  |
-    /// | `aws_states`            | States Integration            |
-    /// | `aws_transit_gateway`   | Transit Gateway Integration   |
-    /// | `aws_waf`               | WAF Integration               |
-    /// | `aws_wafv2`             | WAFv2 Integration             |
-    /// | `billing`               | Billing Integration           |
-    /// | `cloudfront`            | CloudFront Integration        |
-    /// | `cloudtrail`            | CloudTrail Integration        |
-    /// | `doc_db`                | DocumentDB Integration        |
-    /// | `dynamodb`              | DynamoDB Integration          |
-    /// | `ebs`                   | EBS Integration               |
-    /// | `ec2`                   | EC2 Integration               |
-    /// | `ecs`                   | ECS Integration               |
-    /// | `efs`                   | EFS Integration               |
-    /// | `elasticache`           | ElastiCache Integration       |
-    /// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-    /// | `elasticsearch`         | Elasticsearch Integration     |
-    /// | `elb`                   | ELB Integration               |
-    /// | `emr`                   | EMR Integration               |
-    /// | `health`                | Health Integration            |
-    /// | `iam`                   | IAM Integration               |
-    /// | `iot`                   | IoT Integration               |
-    /// | `kinesis`               | Kinesis Integration           |
-    /// | `kinesis_firehose`      | Kinesis Firehose Integration  |
-    /// | `lambda`                | Lambda Integration            |
-    /// | `rds`                   | RDS Integration               |
-    /// | `redshift`              | Redshift Integration          |
-    /// | `route53`               | Route53 Integration           |
-    /// | `s3`                    | S3 Integration                |
-    /// | `ses`                   | SES Integration               |
-    /// | `sns`                   | SNS Integration               |
-    /// | `sqs`                   | SQS Integration               |
-    /// | `trusted_advisor`       | Trusted Advisor Integration   |
-    /// | `vpc`                   | VPC Integration               |
-    /// | `x_ray`                 | X-Ray Integration             |
+    /// &lt;table&gt;
+    /// &lt;thead&gt;
+    /// &lt;tr&gt;
+    /// &lt;th&gt;Block&lt;/th&gt;
+    /// &lt;th&gt;Description&lt;/th&gt;
+    /// &lt;/tr&gt;
+    /// &lt;/thead&gt;
+    /// &lt;tbody&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`alb`&lt;/td&gt;
+    /// &lt;td&gt;ALB Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`api_gateway`&lt;/td&gt;
+    /// &lt;td&gt;API Gateway Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`auto_scaling`&lt;/td&gt;
+    /// &lt;td&gt;Auto Scaling Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_app_sync`&lt;/td&gt;
+    /// &lt;td&gt;AppSync Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_athena`&lt;/td&gt;
+    /// &lt;td&gt;Athena Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_cognito`&lt;/td&gt;
+    /// &lt;td&gt;Cognito Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_connect`&lt;/td&gt;
+    /// &lt;td&gt;Connect Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_direct_connect`&lt;/td&gt;
+    /// &lt;td&gt;Direct Connect Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_fsx`&lt;/td&gt;
+    /// &lt;td&gt;FSx Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_glue`&lt;/td&gt;
+    /// &lt;td&gt;Glue Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_kinesis_analytics`&lt;/td&gt;
+    /// &lt;td&gt;Kinesis Analytics Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_media_convert`&lt;/td&gt;
+    /// &lt;td&gt;MediaConvert Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_media_package_vod`&lt;/td&gt;
+    /// &lt;td&gt;Media Package VOD Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_mq`&lt;/td&gt;
+    /// &lt;td&gt;MQ Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_msk`&lt;/td&gt;
+    /// &lt;td&gt;MSK Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_neptune`&lt;/td&gt;
+    /// &lt;td&gt;Neptune Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_qldb`&lt;/td&gt;
+    /// &lt;td&gt;QLDB Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_route53resolver`&lt;/td&gt;
+    /// &lt;td&gt;Route53 Resolver Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_states`&lt;/td&gt;
+    /// &lt;td&gt;States Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_transit_gateway`&lt;/td&gt;
+    /// &lt;td&gt;Transit Gateway Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_waf`&lt;/td&gt;
+    /// &lt;td&gt;WAF Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`aws_wafv2`&lt;/td&gt;
+    /// &lt;td&gt;WAFv2 Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`billing`&lt;/td&gt;
+    /// &lt;td&gt;Billing Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`cloudfront`&lt;/td&gt;
+    /// &lt;td&gt;CloudFront Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`cloudtrail`&lt;/td&gt;
+    /// &lt;td&gt;CloudTrail Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`doc_db`&lt;/td&gt;
+    /// &lt;td&gt;DocumentDB Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`dynamodb`&lt;/td&gt;
+    /// &lt;td&gt;DynamoDB Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`ebs`&lt;/td&gt;
+    /// &lt;td&gt;EBS Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`ec2`&lt;/td&gt;
+    /// &lt;td&gt;EC2 Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`ecs`&lt;/td&gt;
+    /// &lt;td&gt;ECS Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`efs`&lt;/td&gt;
+    /// &lt;td&gt;EFS Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`elasticache`&lt;/td&gt;
+    /// &lt;td&gt;ElastiCache Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`elasticbeanstalk`&lt;/td&gt;
+    /// &lt;td&gt;Elastic Beanstalk Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`elasticsearch`&lt;/td&gt;
+    /// &lt;td&gt;Elasticsearch Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`elb`&lt;/td&gt;
+    /// &lt;td&gt;ELB Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`emr`&lt;/td&gt;
+    /// &lt;td&gt;EMR Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`health`&lt;/td&gt;
+    /// &lt;td&gt;Health Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`iam`&lt;/td&gt;
+    /// &lt;td&gt;IAM Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`iot`&lt;/td&gt;
+    /// &lt;td&gt;IoT Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`kinesis`&lt;/td&gt;
+    /// &lt;td&gt;Kinesis Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`kinesis_firehose`&lt;/td&gt;
+    /// &lt;td&gt;Kinesis Firehose Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`lambda`&lt;/td&gt;
+    /// &lt;td&gt;Lambda Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`rds`&lt;/td&gt;
+    /// &lt;td&gt;RDS Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`redshift`&lt;/td&gt;
+    /// &lt;td&gt;Redshift Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`route53`&lt;/td&gt;
+    /// &lt;td&gt;Route53 Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`s3`&lt;/td&gt;
+    /// &lt;td&gt;S3 Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`ses`&lt;/td&gt;
+    /// &lt;td&gt;SES Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`sns`&lt;/td&gt;
+    /// &lt;td&gt;SNS Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`sqs`&lt;/td&gt;
+    /// &lt;td&gt;SQS Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`trusted_advisor`&lt;/td&gt;
+    /// &lt;td&gt;Trusted Advisor Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`vpc`&lt;/td&gt;
+    /// &lt;td&gt;VPC Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td&gt;`x_ray`&lt;/td&gt;
+    /// &lt;td&gt;X-Ray Integration&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;/tbody&gt;
+    /// &lt;/table&gt;
     /// 
     /// &lt;/details&gt;
     /// 
@@ -849,7 +1012,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked AWS account in New Relic.
-        /// 
         /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
@@ -1230,7 +1392,6 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked AWS account in New Relic.
         /// 
-        /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
@@ -1571,7 +1732,6 @@ namespace Pulumi.NewRelic.Cloud
 
         /// <summary>
         /// The ID of the linked AWS account in New Relic.
-        /// 
         /// 
         /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         /// </summary>

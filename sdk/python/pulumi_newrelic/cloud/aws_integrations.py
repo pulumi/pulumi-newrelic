@@ -74,7 +74,6 @@ class AwsIntegrationsArgs:
         The set of arguments for constructing a AwsIntegrations resource.
         :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: AWS ALB. See Integration blocks below for details.
@@ -250,7 +249,6 @@ class AwsIntegrationsArgs:
     def linked_account_id(self) -> pulumi.Input[str]:
         """
         The ID of the linked AWS account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
@@ -1010,7 +1008,6 @@ class _AwsIntegrationsState:
         :param pulumi.Input['AwsIntegrationsLambdaArgs'] lambda_: AWS Lambda. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
                
-               
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input['AwsIntegrationsRdsArgs'] rds: Amazon RDS. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsRedshiftArgs'] redshift: Amazon Redshift. See Integration blocks below for details.
@@ -1661,7 +1658,6 @@ class _AwsIntegrationsState:
         """
         The ID of the linked AWS account in New Relic.
 
-
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """
         return pulumi.get(self, "linked_account_id")
@@ -2165,61 +2161,224 @@ class AwsIntegrations(pulumi.CustomResource):
 
         <details>
           <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-
-        | Block                   | Description                   |
-        |-------------------------|-------------------------------|
-        | `alb`                   | ALB Integration               |
-        | `api_gateway`           | API Gateway Integration       |
-        | `auto_scaling`          | Auto Scaling Integration      |
-        | `aws_app_sync`          | AppSync Integration           |
-        | `aws_athena`            | Athena Integration            |
-        | `aws_cognito`           | Cognito Integration           |
-        | `aws_connect`           | Connect Integration           |
-        | `aws_direct_connect`    | Direct Connect Integration    |
-        | `aws_fsx`               | FSx Integration               |
-        | `aws_glue`              | Glue Integration              |
-        | `aws_kinesis_analytics` | Kinesis Analytics Integration |
-        | `aws_media_convert`     | MediaConvert Integration      |
-        | `aws_media_package_vod` | Media Package VOD Integration |
-        | `aws_mq`                | MQ Integration                |
-        | `aws_msk`               | MSK Integration               |
-        | `aws_neptune`           | Neptune Integration           |
-        | `aws_qldb`              | QLDB Integration              |
-        | `aws_route53resolver`   | Route53 Resolver Integration  |
-        | `aws_states`            | States Integration            |
-        | `aws_transit_gateway`   | Transit Gateway Integration   |
-        | `aws_waf`               | WAF Integration               |
-        | `aws_wafv2`             | WAFv2 Integration             |
-        | `billing`               | Billing Integration           |
-        | `cloudfront`            | CloudFront Integration        |
-        | `cloudtrail`            | CloudTrail Integration        |
-        | `doc_db`                | DocumentDB Integration        |
-        | `dynamodb`              | DynamoDB Integration          |
-        | `ebs`                   | EBS Integration               |
-        | `ec2`                   | EC2 Integration               |
-        | `ecs`                   | ECS Integration               |
-        | `efs`                   | EFS Integration               |
-        | `elasticache`           | ElastiCache Integration       |
-        | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-        | `elasticsearch`         | Elasticsearch Integration     |
-        | `elb`                   | ELB Integration               |
-        | `emr`                   | EMR Integration               |
-        | `health`                | Health Integration            |
-        | `iam`                   | IAM Integration               |
-        | `iot`                   | IoT Integration               |
-        | `kinesis`               | Kinesis Integration           |
-        | `kinesis_firehose`      | Kinesis Firehose Integration  |
-        | `lambda`                | Lambda Integration            |
-        | `rds`                   | RDS Integration               |
-        | `redshift`              | Redshift Integration          |
-        | `route53`               | Route53 Integration           |
-        | `s3`                    | S3 Integration                |
-        | `ses`                   | SES Integration               |
-        | `sns`                   | SNS Integration               |
-        | `sqs`                   | SQS Integration               |
-        | `trusted_advisor`       | Trusted Advisor Integration   |
-        | `vpc`                   | VPC Integration               |
-        | `x_ray`                 | X-Ray Integration             |
+        <table>
+        <thead>
+        <tr>
+        <th>Block</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`alb`</td>
+        <td>ALB Integration</td>
+        </tr>
+        <tr>
+        <td>`api_gateway`</td>
+        <td>API Gateway Integration</td>
+        </tr>
+        <tr>
+        <td>`auto_scaling`</td>
+        <td>Auto Scaling Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_app_sync`</td>
+        <td>AppSync Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_athena`</td>
+        <td>Athena Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_cognito`</td>
+        <td>Cognito Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_connect`</td>
+        <td>Connect Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_direct_connect`</td>
+        <td>Direct Connect Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_fsx`</td>
+        <td>FSx Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_glue`</td>
+        <td>Glue Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_kinesis_analytics`</td>
+        <td>Kinesis Analytics Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_media_convert`</td>
+        <td>MediaConvert Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_media_package_vod`</td>
+        <td>Media Package VOD Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_mq`</td>
+        <td>MQ Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_msk`</td>
+        <td>MSK Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_neptune`</td>
+        <td>Neptune Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_qldb`</td>
+        <td>QLDB Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_route53resolver`</td>
+        <td>Route53 Resolver Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_states`</td>
+        <td>States Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_transit_gateway`</td>
+        <td>Transit Gateway Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_waf`</td>
+        <td>WAF Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_wafv2`</td>
+        <td>WAFv2 Integration</td>
+        </tr>
+        <tr>
+        <td>`billing`</td>
+        <td>Billing Integration</td>
+        </tr>
+        <tr>
+        <td>`cloudfront`</td>
+        <td>CloudFront Integration</td>
+        </tr>
+        <tr>
+        <td>`cloudtrail`</td>
+        <td>CloudTrail Integration</td>
+        </tr>
+        <tr>
+        <td>`doc_db`</td>
+        <td>DocumentDB Integration</td>
+        </tr>
+        <tr>
+        <td>`dynamodb`</td>
+        <td>DynamoDB Integration</td>
+        </tr>
+        <tr>
+        <td>`ebs`</td>
+        <td>EBS Integration</td>
+        </tr>
+        <tr>
+        <td>`ec2`</td>
+        <td>EC2 Integration</td>
+        </tr>
+        <tr>
+        <td>`ecs`</td>
+        <td>ECS Integration</td>
+        </tr>
+        <tr>
+        <td>`efs`</td>
+        <td>EFS Integration</td>
+        </tr>
+        <tr>
+        <td>`elasticache`</td>
+        <td>ElastiCache Integration</td>
+        </tr>
+        <tr>
+        <td>`elasticbeanstalk`</td>
+        <td>Elastic Beanstalk Integration</td>
+        </tr>
+        <tr>
+        <td>`elasticsearch`</td>
+        <td>Elasticsearch Integration</td>
+        </tr>
+        <tr>
+        <td>`elb`</td>
+        <td>ELB Integration</td>
+        </tr>
+        <tr>
+        <td>`emr`</td>
+        <td>EMR Integration</td>
+        </tr>
+        <tr>
+        <td>`health`</td>
+        <td>Health Integration</td>
+        </tr>
+        <tr>
+        <td>`iam`</td>
+        <td>IAM Integration</td>
+        </tr>
+        <tr>
+        <td>`iot`</td>
+        <td>IoT Integration</td>
+        </tr>
+        <tr>
+        <td>`kinesis`</td>
+        <td>Kinesis Integration</td>
+        </tr>
+        <tr>
+        <td>`kinesis_firehose`</td>
+        <td>Kinesis Firehose Integration</td>
+        </tr>
+        <tr>
+        <td>`lambda`</td>
+        <td>Lambda Integration</td>
+        </tr>
+        <tr>
+        <td>`rds`</td>
+        <td>RDS Integration</td>
+        </tr>
+        <tr>
+        <td>`redshift`</td>
+        <td>Redshift Integration</td>
+        </tr>
+        <tr>
+        <td>`route53`</td>
+        <td>Route53 Integration</td>
+        </tr>
+        <tr>
+        <td>`s3`</td>
+        <td>S3 Integration</td>
+        </tr>
+        <tr>
+        <td>`ses`</td>
+        <td>SES Integration</td>
+        </tr>
+        <tr>
+        <td>`sns`</td>
+        <td>SNS Integration</td>
+        </tr>
+        <tr>
+        <td>`sqs`</td>
+        <td>SQS Integration</td>
+        </tr>
+        <tr>
+        <td>`trusted_advisor`</td>
+        <td>Trusted Advisor Integration</td>
+        </tr>
+        <tr>
+        <td>`vpc`</td>
+        <td>VPC Integration</td>
+        </tr>
+        <tr>
+        <td>`x_ray`</td>
+        <td>X-Ray Integration</td>
+        </tr>
+        </tbody>
+        </table>
 
         </details>
 
@@ -2281,7 +2440,6 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']] kinesis_firehose: Amazon Kinesis Data Firehose. See Integration blocks below for details.
         :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']] lambda_: AWS Lambda. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
-               
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']] rds: Amazon RDS. See Integration blocks below for details.
@@ -2615,61 +2773,224 @@ class AwsIntegrations(pulumi.CustomResource):
 
         <details>
           <summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
-
-        | Block                   | Description                   |
-        |-------------------------|-------------------------------|
-        | `alb`                   | ALB Integration               |
-        | `api_gateway`           | API Gateway Integration       |
-        | `auto_scaling`          | Auto Scaling Integration      |
-        | `aws_app_sync`          | AppSync Integration           |
-        | `aws_athena`            | Athena Integration            |
-        | `aws_cognito`           | Cognito Integration           |
-        | `aws_connect`           | Connect Integration           |
-        | `aws_direct_connect`    | Direct Connect Integration    |
-        | `aws_fsx`               | FSx Integration               |
-        | `aws_glue`              | Glue Integration              |
-        | `aws_kinesis_analytics` | Kinesis Analytics Integration |
-        | `aws_media_convert`     | MediaConvert Integration      |
-        | `aws_media_package_vod` | Media Package VOD Integration |
-        | `aws_mq`                | MQ Integration                |
-        | `aws_msk`               | MSK Integration               |
-        | `aws_neptune`           | Neptune Integration           |
-        | `aws_qldb`              | QLDB Integration              |
-        | `aws_route53resolver`   | Route53 Resolver Integration  |
-        | `aws_states`            | States Integration            |
-        | `aws_transit_gateway`   | Transit Gateway Integration   |
-        | `aws_waf`               | WAF Integration               |
-        | `aws_wafv2`             | WAFv2 Integration             |
-        | `billing`               | Billing Integration           |
-        | `cloudfront`            | CloudFront Integration        |
-        | `cloudtrail`            | CloudTrail Integration        |
-        | `doc_db`                | DocumentDB Integration        |
-        | `dynamodb`              | DynamoDB Integration          |
-        | `ebs`                   | EBS Integration               |
-        | `ec2`                   | EC2 Integration               |
-        | `ecs`                   | ECS Integration               |
-        | `efs`                   | EFS Integration               |
-        | `elasticache`           | ElastiCache Integration       |
-        | `elasticbeanstalk`      | Elastic Beanstalk Integration |
-        | `elasticsearch`         | Elasticsearch Integration     |
-        | `elb`                   | ELB Integration               |
-        | `emr`                   | EMR Integration               |
-        | `health`                | Health Integration            |
-        | `iam`                   | IAM Integration               |
-        | `iot`                   | IoT Integration               |
-        | `kinesis`               | Kinesis Integration           |
-        | `kinesis_firehose`      | Kinesis Firehose Integration  |
-        | `lambda`                | Lambda Integration            |
-        | `rds`                   | RDS Integration               |
-        | `redshift`              | Redshift Integration          |
-        | `route53`               | Route53 Integration           |
-        | `s3`                    | S3 Integration                |
-        | `ses`                   | SES Integration               |
-        | `sns`                   | SNS Integration               |
-        | `sqs`                   | SQS Integration               |
-        | `trusted_advisor`       | Trusted Advisor Integration   |
-        | `vpc`                   | VPC Integration               |
-        | `x_ray`                 | X-Ray Integration             |
+        <table>
+        <thead>
+        <tr>
+        <th>Block</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`alb`</td>
+        <td>ALB Integration</td>
+        </tr>
+        <tr>
+        <td>`api_gateway`</td>
+        <td>API Gateway Integration</td>
+        </tr>
+        <tr>
+        <td>`auto_scaling`</td>
+        <td>Auto Scaling Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_app_sync`</td>
+        <td>AppSync Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_athena`</td>
+        <td>Athena Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_cognito`</td>
+        <td>Cognito Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_connect`</td>
+        <td>Connect Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_direct_connect`</td>
+        <td>Direct Connect Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_fsx`</td>
+        <td>FSx Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_glue`</td>
+        <td>Glue Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_kinesis_analytics`</td>
+        <td>Kinesis Analytics Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_media_convert`</td>
+        <td>MediaConvert Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_media_package_vod`</td>
+        <td>Media Package VOD Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_mq`</td>
+        <td>MQ Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_msk`</td>
+        <td>MSK Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_neptune`</td>
+        <td>Neptune Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_qldb`</td>
+        <td>QLDB Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_route53resolver`</td>
+        <td>Route53 Resolver Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_states`</td>
+        <td>States Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_transit_gateway`</td>
+        <td>Transit Gateway Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_waf`</td>
+        <td>WAF Integration</td>
+        </tr>
+        <tr>
+        <td>`aws_wafv2`</td>
+        <td>WAFv2 Integration</td>
+        </tr>
+        <tr>
+        <td>`billing`</td>
+        <td>Billing Integration</td>
+        </tr>
+        <tr>
+        <td>`cloudfront`</td>
+        <td>CloudFront Integration</td>
+        </tr>
+        <tr>
+        <td>`cloudtrail`</td>
+        <td>CloudTrail Integration</td>
+        </tr>
+        <tr>
+        <td>`doc_db`</td>
+        <td>DocumentDB Integration</td>
+        </tr>
+        <tr>
+        <td>`dynamodb`</td>
+        <td>DynamoDB Integration</td>
+        </tr>
+        <tr>
+        <td>`ebs`</td>
+        <td>EBS Integration</td>
+        </tr>
+        <tr>
+        <td>`ec2`</td>
+        <td>EC2 Integration</td>
+        </tr>
+        <tr>
+        <td>`ecs`</td>
+        <td>ECS Integration</td>
+        </tr>
+        <tr>
+        <td>`efs`</td>
+        <td>EFS Integration</td>
+        </tr>
+        <tr>
+        <td>`elasticache`</td>
+        <td>ElastiCache Integration</td>
+        </tr>
+        <tr>
+        <td>`elasticbeanstalk`</td>
+        <td>Elastic Beanstalk Integration</td>
+        </tr>
+        <tr>
+        <td>`elasticsearch`</td>
+        <td>Elasticsearch Integration</td>
+        </tr>
+        <tr>
+        <td>`elb`</td>
+        <td>ELB Integration</td>
+        </tr>
+        <tr>
+        <td>`emr`</td>
+        <td>EMR Integration</td>
+        </tr>
+        <tr>
+        <td>`health`</td>
+        <td>Health Integration</td>
+        </tr>
+        <tr>
+        <td>`iam`</td>
+        <td>IAM Integration</td>
+        </tr>
+        <tr>
+        <td>`iot`</td>
+        <td>IoT Integration</td>
+        </tr>
+        <tr>
+        <td>`kinesis`</td>
+        <td>Kinesis Integration</td>
+        </tr>
+        <tr>
+        <td>`kinesis_firehose`</td>
+        <td>Kinesis Firehose Integration</td>
+        </tr>
+        <tr>
+        <td>`lambda`</td>
+        <td>Lambda Integration</td>
+        </tr>
+        <tr>
+        <td>`rds`</td>
+        <td>RDS Integration</td>
+        </tr>
+        <tr>
+        <td>`redshift`</td>
+        <td>Redshift Integration</td>
+        </tr>
+        <tr>
+        <td>`route53`</td>
+        <td>Route53 Integration</td>
+        </tr>
+        <tr>
+        <td>`s3`</td>
+        <td>S3 Integration</td>
+        </tr>
+        <tr>
+        <td>`ses`</td>
+        <td>SES Integration</td>
+        </tr>
+        <tr>
+        <td>`sns`</td>
+        <td>SNS Integration</td>
+        </tr>
+        <tr>
+        <td>`sqs`</td>
+        <td>SQS Integration</td>
+        </tr>
+        <tr>
+        <td>`trusted_advisor`</td>
+        <td>Trusted Advisor Integration</td>
+        </tr>
+        <tr>
+        <td>`vpc`</td>
+        <td>VPC Integration</td>
+        </tr>
+        <tr>
+        <td>`x_ray`</td>
+        <td>X-Ray Integration</td>
+        </tr>
+        </tbody>
+        </table>
 
         </details>
 
@@ -2934,7 +3255,6 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AwsIntegrationsKinesisFirehoseArgs', 'AwsIntegrationsKinesisFirehoseArgsDict']] kinesis_firehose: Amazon Kinesis Data Firehose. See Integration blocks below for details.
         :param pulumi.Input[Union['AwsIntegrationsLambdaArgs', 'AwsIntegrationsLambdaArgsDict']] lambda_: AWS Lambda. See Integration blocks below for details.
         :param pulumi.Input[str] linked_account_id: The ID of the linked AWS account in New Relic.
-               
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         :param pulumi.Input[Union['AwsIntegrationsRdsArgs', 'AwsIntegrationsRdsArgsDict']] rds: Amazon RDS. See Integration blocks below for details.
@@ -3364,7 +3684,6 @@ class AwsIntegrations(pulumi.CustomResource):
     def linked_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked AWS account in New Relic.
-
 
         The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
         """

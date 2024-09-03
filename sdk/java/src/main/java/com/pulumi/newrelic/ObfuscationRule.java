@@ -18,6 +18,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.ObfuscationRule&#34;
+ * sidebar_current: &#34;docs-newrelic-resource-obfuscation-rule&#34;
+ * description: |-
+ * Create and manage Obfuscation Rule.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic\_obfuscation\_rule
+ * 
  * Use this resource to create, update and delete New Relic Obfuscation Rule.
  * 
  * ## Example Usage

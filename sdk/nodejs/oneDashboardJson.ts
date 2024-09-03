@@ -5,6 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ### Create a New Relic One Dashboard from a JSON file
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * const foo = new newrelic.OneDashboardJson("foo", {json: std.file({
+ *     input: "dashboard.json",
+ * }).then(invoke => invoke.result)});
+ * ```
+ *
  * ## Import
  *
  * New Relic dashboards can be imported using their GUID, e.g.

@@ -34,6 +34,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
  * ##### Type: `SCRIPT_BROWSER`
  *
  * ```typescript
@@ -100,6 +101,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
  * ##### Type: `SCRIPT_BROWSER`
  *
  * ```typescript

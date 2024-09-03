@@ -66,6 +66,15 @@ def get_obfuscation_expression(account_id: Optional[str] = None,
                                name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObfuscationExpressionResult:
     """
+    layout: "newrelic"
+    page_title: "New Relic: ObfuscationExpression"
+    sidebar_current: "docs-newrelic-datasource-obfuscation-expression"
+    description: |-
+    Grabs a Obfuscation Expression by name.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: newrelic\\_obfuscation\\_expression
+
     Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
 
     ## Example Usage
@@ -109,6 +118,15 @@ def get_obfuscation_expression_output(account_id: Optional[pulumi.Input[Optional
                                       name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObfuscationExpressionResult]:
     """
+    layout: "newrelic"
+    page_title: "New Relic: ObfuscationExpression"
+    sidebar_current: "docs-newrelic-datasource-obfuscation-expression"
+    description: |-
+    Grabs a Obfuscation Expression by name.
+    <!-- yaml: line 6: could not find expected ':' -->
+
+    # Data Source: newrelic\\_obfuscation\\_expression
+
     Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
 
     ## Example Usage

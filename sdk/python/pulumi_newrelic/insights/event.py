@@ -102,17 +102,17 @@ class Event(pulumi.CustomResource):
 
         The `event` mapping supports the following arguments:
 
-          * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
-          * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
-          * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+        * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
 
         ### Attributes
 
         The `attribute` mapping supports the following arguments:
 
-          * `key` - (Required) The name of the attribute.
-          * `value` - (Required) The value of the attribute.
-          * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+        * `key` - (Required) The name of the attribute.
+        * `value` - (Required) The value of the attribute.
+        * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,17 +159,17 @@ class Event(pulumi.CustomResource):
 
         The `event` mapping supports the following arguments:
 
-          * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
-          * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
-          * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+        * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
 
         ### Attributes
 
         The `attribute` mapping supports the following arguments:
 
-          * `key` - (Required) The name of the attribute.
-          * `value` - (Required) The value of the attribute.
-          * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+        * `key` - (Required) The name of the attribute.
+        * `value` - (Required) The value of the attribute.
+        * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
 
         :param str resource_name: The name of the resource.
         :param EventArgs args: The arguments to use to populate this resource's properties.

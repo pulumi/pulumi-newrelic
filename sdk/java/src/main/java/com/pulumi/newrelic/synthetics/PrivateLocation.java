@@ -16,6 +16,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.synthetics.PrivateLocation&#34;
+ * sidebar_current: &#34;docs-newrelic-resource-synthetics-private-location&#34;
+ * description: |-
+ * Create and manage Synthetics private location in New Relic.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic\_synthetics\_private\_location
+ * 
  * Use this resource to create and manage New Relic Synthetic private location.
  * 
  * ## Example Usage

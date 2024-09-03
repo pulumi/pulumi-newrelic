@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// layout: "newrelic"
+    /// page_title: "New Relic: newrelic.DataPartitionRule"
+    /// sidebar_current: "docs-newrelic-resource-data-partition-rule"
+    /// description: |-
+    /// Create and manage Data partition rule.
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # Resource: newrelic\_data\_partition\_rule
+    /// 
     /// Use this resource to create, update and delete New Relic Data partition rule.
     /// 
     /// ## Example Usage

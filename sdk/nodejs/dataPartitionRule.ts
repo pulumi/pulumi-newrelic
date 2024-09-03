@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "newrelic"
+ * page_title: "New Relic: newrelic.DataPartitionRule"
+ * sidebar_current: "docs-newrelic-resource-data-partition-rule"
+ * description: |-
+ * Create and manage Data partition rule.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Resource: newrelic\_data\_partition\_rule
+ *
  * Use this resource to create, update and delete New Relic Data partition rule.
  *
  * ## Example Usage

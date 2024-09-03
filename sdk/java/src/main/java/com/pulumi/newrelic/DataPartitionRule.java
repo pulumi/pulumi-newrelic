@@ -16,6 +16,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;newrelic&#34;
+ * page_title: &#34;New Relic: newrelic.DataPartitionRule&#34;
+ * sidebar_current: &#34;docs-newrelic-resource-data-partition-rule&#34;
+ * description: |-
+ * Create and manage Data partition rule.
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # Resource: newrelic\_data\_partition\_rule
+ * 
  * Use this resource to create, update and delete New Relic Data partition rule.
  * 
  * ## Example Usage

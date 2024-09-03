@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string? EndRepeat;
         /// <summary>
         /// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
-        /// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        /// * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See &lt;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&gt;
         /// </summary>
         public readonly string? EndTime;
         /// <summary>

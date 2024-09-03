@@ -88,6 +88,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Tags
  * 
  * Manage synthetics multilocation alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
@@ -191,7 +192,7 @@ import javax.annotation.Nullable;
  * 
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
  * 
- *  `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
+ * `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
  * 
  * bash
  * 

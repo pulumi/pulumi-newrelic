@@ -71,6 +71,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ##### Type: `SCRIPT_BROWSER`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -190,6 +191,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ##### Type: `SCRIPT_BROWSER`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

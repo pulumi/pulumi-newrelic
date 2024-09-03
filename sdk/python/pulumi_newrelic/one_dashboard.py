@@ -265,6 +265,190 @@ class OneDashboard(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ### Create a New Relic One Dashboard
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        exampledash = newrelic.OneDashboard("exampledash",
+            name="New Relic Terraform Example",
+            permissions="public_read_only",
+            pages=[{
+                "name": "New Relic Terraform Example",
+                "widget_billboards": [{
+                    "title": "Requests per minute",
+                    "row": 1,
+                    "column": 1,
+                    "width": 6,
+                    "height": 3,
+                    "nrql_queries": [{
+                        "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                    }],
+                }],
+                "widget_bars": [
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 1,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "linked_entity_guids": ["abc123"],
+                    },
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 4,
+                        "column": 1,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "filter_current_dashboard": True,
+                        "colors": [{
+                            "color": "#722727",
+                            "series_overrides": [
+                                {
+                                    "color": "#722322",
+                                    "series_name": "Node",
+                                },
+                                {
+                                    "color": "#236f70",
+                                    "series_name": "Java",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_lines": [
+                    {
+                        "title": "Average transaction duration and the request per minute, by application",
+                        "row": 4,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [
+                            {
+                                "account_id": "12345",
+                                "query": "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago",
+                            },
+                            {
+                                "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                            },
+                        ],
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 1,
+                        "y_axis_right": {
+                            "y_axis_right_zero": True,
+                            "y_axis_right_min": 0,
+                            "y_axis_right_max": 300,
+                            "y_axis_right_series": [
+                                "A",
+                                "B",
+                            ],
+                        },
+                        "is_label_visible": True,
+                        "thresholds": [
+                            {
+                                "name": "Duration Threshold",
+                                "from_": "1",
+                                "to": "2",
+                                "severity": "critical",
+                            },
+                            {
+                                "name": "Duration Threshold Two",
+                                "from_": "2.1",
+                                "to": "3.3",
+                                "severity": "warning",
+                            },
+                        ],
+                        "units": [{
+                            "unit": "ms",
+                            "series_overrides": [{
+                                "unit": "ms",
+                                "series_name": "max duration",
+                            }],
+                        }],
+                    },
+                    {
+                        "title": "Overall CPU % Statistics",
+                        "row": 1,
+                        "column": 5,
+                        "height": 3,
+                        "width": 4,
+                        "nrql_queries": [{
+                            "query": "SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES\\n",
+                        }],
+                        "facet_show_other_series": False,
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 0,
+                        "null_values": [{
+                            "null_value": "default",
+                            "series_overrides": [
+                                {
+                                    "null_value": "remove",
+                                    "series_name": "Avg Cpu User Percent",
+                                },
+                                {
+                                    "null_value": "zero",
+                                    "series_name": "Avg Cpu Idle Percent",
+                                },
+                                {
+                                    "null_value": "default",
+                                    "series_name": "Avg Cpu IO Wait Percent",
+                                },
+                                {
+                                    "null_value": "preserve",
+                                    "series_name": "Avg Cpu System Percent",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_markdowns": [{
+                    "title": "Dashboard Note",
+                    "row": 7,
+                    "column": 1,
+                    "width": 12,
+                    "height": 3,
+                    "text": \"\"\"### Helpful Links
+
+        * [New Relic One](https://one.newrelic.com)
+        * [Developer Portal](https://developer.newrelic.com)\"\"\",
+                }],
+            }],
+            variables=[{
+                "default_values": ["value"],
+                "is_multi_selection": True,
+                "items": [{
+                    "title": "item",
+                    "value": "ITEM",
+                }],
+                "name": "variable",
+                "nrql_query": {
+                    "account_ids": ["12345"],
+                    "query": "FROM Transaction SELECT average(duration) FACET appName",
+                },
+                "replacement_strategy": "default",
+                "title": "title",
+                "type": "nrql",
+            }])
+        ```
+        See additional examples.
+
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.
@@ -291,6 +475,190 @@ class OneDashboard(pulumi.CustomResource):
                  args: OneDashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ### Create a New Relic One Dashboard
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        exampledash = newrelic.OneDashboard("exampledash",
+            name="New Relic Terraform Example",
+            permissions="public_read_only",
+            pages=[{
+                "name": "New Relic Terraform Example",
+                "widget_billboards": [{
+                    "title": "Requests per minute",
+                    "row": 1,
+                    "column": 1,
+                    "width": 6,
+                    "height": 3,
+                    "nrql_queries": [{
+                        "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                    }],
+                }],
+                "widget_bars": [
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 1,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "linked_entity_guids": ["abc123"],
+                    },
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 4,
+                        "column": 1,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "filter_current_dashboard": True,
+                        "colors": [{
+                            "color": "#722727",
+                            "series_overrides": [
+                                {
+                                    "color": "#722322",
+                                    "series_name": "Node",
+                                },
+                                {
+                                    "color": "#236f70",
+                                    "series_name": "Java",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_lines": [
+                    {
+                        "title": "Average transaction duration and the request per minute, by application",
+                        "row": 4,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [
+                            {
+                                "account_id": "12345",
+                                "query": "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago",
+                            },
+                            {
+                                "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                            },
+                        ],
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 1,
+                        "y_axis_right": {
+                            "y_axis_right_zero": True,
+                            "y_axis_right_min": 0,
+                            "y_axis_right_max": 300,
+                            "y_axis_right_series": [
+                                "A",
+                                "B",
+                            ],
+                        },
+                        "is_label_visible": True,
+                        "thresholds": [
+                            {
+                                "name": "Duration Threshold",
+                                "from_": "1",
+                                "to": "2",
+                                "severity": "critical",
+                            },
+                            {
+                                "name": "Duration Threshold Two",
+                                "from_": "2.1",
+                                "to": "3.3",
+                                "severity": "warning",
+                            },
+                        ],
+                        "units": [{
+                            "unit": "ms",
+                            "series_overrides": [{
+                                "unit": "ms",
+                                "series_name": "max duration",
+                            }],
+                        }],
+                    },
+                    {
+                        "title": "Overall CPU % Statistics",
+                        "row": 1,
+                        "column": 5,
+                        "height": 3,
+                        "width": 4,
+                        "nrql_queries": [{
+                            "query": "SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES\\n",
+                        }],
+                        "facet_show_other_series": False,
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 0,
+                        "null_values": [{
+                            "null_value": "default",
+                            "series_overrides": [
+                                {
+                                    "null_value": "remove",
+                                    "series_name": "Avg Cpu User Percent",
+                                },
+                                {
+                                    "null_value": "zero",
+                                    "series_name": "Avg Cpu Idle Percent",
+                                },
+                                {
+                                    "null_value": "default",
+                                    "series_name": "Avg Cpu IO Wait Percent",
+                                },
+                                {
+                                    "null_value": "preserve",
+                                    "series_name": "Avg Cpu System Percent",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_markdowns": [{
+                    "title": "Dashboard Note",
+                    "row": 7,
+                    "column": 1,
+                    "width": 12,
+                    "height": 3,
+                    "text": \"\"\"### Helpful Links
+
+        * [New Relic One](https://one.newrelic.com)
+        * [Developer Portal](https://developer.newrelic.com)\"\"\",
+                }],
+            }],
+            variables=[{
+                "default_values": ["value"],
+                "is_multi_selection": True,
+                "items": [{
+                    "title": "item",
+                    "value": "ITEM",
+                }],
+                "name": "variable",
+                "nrql_query": {
+                    "account_ids": ["12345"],
+                    "query": "FROM Transaction SELECT average(duration) FACET appName",
+                },
+                "replacement_strategy": "default",
+                "title": "title",
+                "type": "nrql",
+            }])
+        ```
+        See additional examples.
+
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.

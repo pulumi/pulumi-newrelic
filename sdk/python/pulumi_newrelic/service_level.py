@@ -376,7 +376,7 @@ class ServiceLevel(pulumi.CustomResource):
 
         New Relic Service Levels can be imported using a concatenated string of the format
 
-         `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
+        `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 
         Example:
 
@@ -541,7 +541,7 @@ class ServiceLevel(pulumi.CustomResource):
 
         New Relic Service Levels can be imported using a concatenated string of the format
 
-         `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
+        `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 
         Example:
 

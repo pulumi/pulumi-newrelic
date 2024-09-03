@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * layout: "newrelic"
+ * page_title: "New Relic: newrelic.synthetics.PrivateLocation"
+ * sidebar_current: "docs-newrelic-resource-synthetics-private-location"
+ * description: |-
+ * Create and manage Synthetics private location in New Relic.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Resource: newrelic\_synthetics\_private\_location
+ *
  * Use this resource to create and manage New Relic Synthetic private location.
  *
  * ## Example Usage

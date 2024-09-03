@@ -12,7 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "newrelic"
+// page_title: "New Relic: cloud.AwsGovcloudIntegrations"
+// sidebar_current: "docs-newrelic-cloud-resource-aws-govcloud-integrations"
+// description: |-
+// Integrating an AwsGovCloud account to New Relic.
+// <!-- yaml: line 6: could not find expected ':' -->
 // > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
+//
+// # Resource: cloud.AwsGovcloudIntegrations
 //
 // Use this resource to integrate an AWSGovCloud account to New Relic.
 //

@@ -218,7 +218,7 @@ class NrqlDropRule(pulumi.CustomResource):
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format
 
-         `<account_id>:<rule_id>`, e.g.
+        `<account_id>:<rule_id>`, e.g.
 
         bash
 
@@ -278,7 +278,7 @@ class NrqlDropRule(pulumi.CustomResource):
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format
 
-         `<account_id>:<rule_id>`, e.g.
+        `<account_id>:<rule_id>`, e.g.
 
         bash
 

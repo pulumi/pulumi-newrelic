@@ -7,6 +7,15 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * layout: "newrelic"
+ * page_title: "New Relic: newrelic.cloud.AzureIntegrations"
+ * sidebar_current: "docs-newrelic-resource-cloud-azure-integrations"
+ * description: |-
+ * Integrate Azure services with New Relic.
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # Resource: newrelic\_cloud\_azure\_integrations
+ *
  * Use this resource to integrate Azure services with New Relic.
  *
  * ## Prerequisite
@@ -271,7 +280,6 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The ID of the linked Azure account in New Relic.
      *
-     *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
     public readonly linkedAccountId!: pulumi.Output<string>;
@@ -513,7 +521,6 @@ export interface AzureIntegrationsState {
     /**
      * The ID of the linked Azure account in New Relic.
      *
-     *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
     linkedAccountId?: pulumi.Input<string>;
@@ -663,7 +670,6 @@ export interface AzureIntegrationsArgs {
     keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
     /**
      * The ID of the linked Azure account in New Relic.
-     *
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
