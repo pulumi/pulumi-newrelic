@@ -625,6 +625,10 @@ export interface OneDashboardPageWidgetArea {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetAreaInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -636,6 +640,10 @@ export interface OneDashboardPageWidgetArea {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetAreaNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -679,6 +687,17 @@ export interface OneDashboardPageWidgetAreaColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetAreaInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetAreaNrqlQuery {
@@ -766,6 +785,10 @@ export interface OneDashboardPageWidgetBar {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetBarInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -781,6 +804,10 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetBarNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -824,6 +851,17 @@ export interface OneDashboardPageWidgetBarColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetBarInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetBarNrqlQuery {
@@ -911,6 +949,10 @@ export interface OneDashboardPageWidgetBillboard {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetBillboardInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -922,6 +964,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetBillboardNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -969,6 +1015,17 @@ export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetBillboardInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetBillboardNrqlQuery {
@@ -1052,6 +1109,10 @@ export interface OneDashboardPageWidgetBullet {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetBulletInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1067,6 +1128,10 @@ export interface OneDashboardPageWidgetBullet {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetBulletNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1110,6 +1175,17 @@ export interface OneDashboardPageWidgetBulletColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetBulletInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetBulletNrqlQuery {
@@ -1193,6 +1269,10 @@ export interface OneDashboardPageWidgetFunnel {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetFunnelInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1204,6 +1284,10 @@ export interface OneDashboardPageWidgetFunnel {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetFunnelNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1247,6 +1331,17 @@ export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetFunnelInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetFunnelNrqlQuery {
@@ -1334,6 +1429,10 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetHeatmapInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1349,6 +1448,10 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetHeatmapNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1392,6 +1495,17 @@ export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetHeatmapInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetHeatmapNrqlQuery {
@@ -1475,6 +1589,10 @@ export interface OneDashboardPageWidgetHistogram {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetHistogramInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1486,6 +1604,10 @@ export interface OneDashboardPageWidgetHistogram {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetHistogramNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1529,6 +1651,17 @@ export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetHistogramInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetHistogramNrqlQuery {
@@ -1612,6 +1745,10 @@ export interface OneDashboardPageWidgetJson {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetJsonInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1623,6 +1760,10 @@ export interface OneDashboardPageWidgetJson {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetJsonNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1666,6 +1807,17 @@ export interface OneDashboardPageWidgetJsonColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetJsonInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetJsonNrqlQuery {
@@ -1749,6 +1901,10 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetLineInitialSorting;
+    /**
      * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
      */
     isLabelVisible?: boolean;
@@ -1764,6 +1920,10 @@ export interface OneDashboardPageWidgetLine {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetLineNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1819,6 +1979,17 @@ export interface OneDashboardPageWidgetLineColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetLineInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetLineNrqlQuery {
@@ -1940,6 +2111,10 @@ export interface OneDashboardPageWidgetLogTable {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetLogTableInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -1951,6 +2126,10 @@ export interface OneDashboardPageWidgetLogTable {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetLogTableNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1994,6 +2173,17 @@ export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetLogTableInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetLogTableNrqlQuery {
@@ -2077,6 +2267,10 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetMarkdownInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -2084,6 +2278,10 @@ export interface OneDashboardPageWidgetMarkdown {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetMarkdownNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2131,6 +2329,17 @@ export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetMarkdownInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetMarkdownNullValue {
@@ -2207,6 +2416,10 @@ export interface OneDashboardPageWidgetPy {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetPyInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -2222,6 +2435,10 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetPyNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2265,6 +2482,17 @@ export interface OneDashboardPageWidgetPyColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetPyInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetPyNrqlQuery {
@@ -2348,6 +2576,10 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetStackedBarInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -2359,6 +2591,10 @@ export interface OneDashboardPageWidgetStackedBar {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetStackedBarNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2402,6 +2638,17 @@ export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetStackedBarInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetStackedBarNrqlQuery {
@@ -2489,6 +2736,10 @@ export interface OneDashboardPageWidgetTable {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: outputs.OneDashboardPageWidgetTableInitialSorting;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: boolean;
@@ -2504,6 +2755,10 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: outputs.OneDashboardPageWidgetTableNullValue[];
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: string;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2551,6 +2806,17 @@ export interface OneDashboardPageWidgetTableColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetTableInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
 }
 
 export interface OneDashboardPageWidgetTableNrqlQuery {

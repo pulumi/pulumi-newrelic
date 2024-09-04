@@ -190,10 +190,12 @@ import (
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("project"),
 //						Value: pulumi.String("10000"),
+//						Label: pulumi.String("Project-Name"),
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("issuetype"),
 //						Value: pulumi.String("10004"),
+//						Label: pulumi.String("Bug"),
 //					},
 //					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("description"),

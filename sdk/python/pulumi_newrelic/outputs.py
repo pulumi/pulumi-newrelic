@@ -37,6 +37,7 @@ __all__ = [
     'OneDashboardPageWidgetArea',
     'OneDashboardPageWidgetAreaColor',
     'OneDashboardPageWidgetAreaColorSeriesOverride',
+    'OneDashboardPageWidgetAreaInitialSorting',
     'OneDashboardPageWidgetAreaNrqlQuery',
     'OneDashboardPageWidgetAreaNullValue',
     'OneDashboardPageWidgetAreaNullValueSeriesOverride',
@@ -45,6 +46,7 @@ __all__ = [
     'OneDashboardPageWidgetBar',
     'OneDashboardPageWidgetBarColor',
     'OneDashboardPageWidgetBarColorSeriesOverride',
+    'OneDashboardPageWidgetBarInitialSorting',
     'OneDashboardPageWidgetBarNrqlQuery',
     'OneDashboardPageWidgetBarNullValue',
     'OneDashboardPageWidgetBarNullValueSeriesOverride',
@@ -53,6 +55,7 @@ __all__ = [
     'OneDashboardPageWidgetBillboard',
     'OneDashboardPageWidgetBillboardColor',
     'OneDashboardPageWidgetBillboardColorSeriesOverride',
+    'OneDashboardPageWidgetBillboardInitialSorting',
     'OneDashboardPageWidgetBillboardNrqlQuery',
     'OneDashboardPageWidgetBillboardNullValue',
     'OneDashboardPageWidgetBillboardNullValueSeriesOverride',
@@ -61,6 +64,7 @@ __all__ = [
     'OneDashboardPageWidgetBullet',
     'OneDashboardPageWidgetBulletColor',
     'OneDashboardPageWidgetBulletColorSeriesOverride',
+    'OneDashboardPageWidgetBulletInitialSorting',
     'OneDashboardPageWidgetBulletNrqlQuery',
     'OneDashboardPageWidgetBulletNullValue',
     'OneDashboardPageWidgetBulletNullValueSeriesOverride',
@@ -69,6 +73,7 @@ __all__ = [
     'OneDashboardPageWidgetFunnel',
     'OneDashboardPageWidgetFunnelColor',
     'OneDashboardPageWidgetFunnelColorSeriesOverride',
+    'OneDashboardPageWidgetFunnelInitialSorting',
     'OneDashboardPageWidgetFunnelNrqlQuery',
     'OneDashboardPageWidgetFunnelNullValue',
     'OneDashboardPageWidgetFunnelNullValueSeriesOverride',
@@ -77,6 +82,7 @@ __all__ = [
     'OneDashboardPageWidgetHeatmap',
     'OneDashboardPageWidgetHeatmapColor',
     'OneDashboardPageWidgetHeatmapColorSeriesOverride',
+    'OneDashboardPageWidgetHeatmapInitialSorting',
     'OneDashboardPageWidgetHeatmapNrqlQuery',
     'OneDashboardPageWidgetHeatmapNullValue',
     'OneDashboardPageWidgetHeatmapNullValueSeriesOverride',
@@ -85,6 +91,7 @@ __all__ = [
     'OneDashboardPageWidgetHistogram',
     'OneDashboardPageWidgetHistogramColor',
     'OneDashboardPageWidgetHistogramColorSeriesOverride',
+    'OneDashboardPageWidgetHistogramInitialSorting',
     'OneDashboardPageWidgetHistogramNrqlQuery',
     'OneDashboardPageWidgetHistogramNullValue',
     'OneDashboardPageWidgetHistogramNullValueSeriesOverride',
@@ -93,6 +100,7 @@ __all__ = [
     'OneDashboardPageWidgetJson',
     'OneDashboardPageWidgetJsonColor',
     'OneDashboardPageWidgetJsonColorSeriesOverride',
+    'OneDashboardPageWidgetJsonInitialSorting',
     'OneDashboardPageWidgetJsonNrqlQuery',
     'OneDashboardPageWidgetJsonNullValue',
     'OneDashboardPageWidgetJsonNullValueSeriesOverride',
@@ -101,6 +109,7 @@ __all__ = [
     'OneDashboardPageWidgetLine',
     'OneDashboardPageWidgetLineColor',
     'OneDashboardPageWidgetLineColorSeriesOverride',
+    'OneDashboardPageWidgetLineInitialSorting',
     'OneDashboardPageWidgetLineNrqlQuery',
     'OneDashboardPageWidgetLineNullValue',
     'OneDashboardPageWidgetLineNullValueSeriesOverride',
@@ -111,6 +120,7 @@ __all__ = [
     'OneDashboardPageWidgetLogTable',
     'OneDashboardPageWidgetLogTableColor',
     'OneDashboardPageWidgetLogTableColorSeriesOverride',
+    'OneDashboardPageWidgetLogTableInitialSorting',
     'OneDashboardPageWidgetLogTableNrqlQuery',
     'OneDashboardPageWidgetLogTableNullValue',
     'OneDashboardPageWidgetLogTableNullValueSeriesOverride',
@@ -119,6 +129,7 @@ __all__ = [
     'OneDashboardPageWidgetMarkdown',
     'OneDashboardPageWidgetMarkdownColor',
     'OneDashboardPageWidgetMarkdownColorSeriesOverride',
+    'OneDashboardPageWidgetMarkdownInitialSorting',
     'OneDashboardPageWidgetMarkdownNullValue',
     'OneDashboardPageWidgetMarkdownNullValueSeriesOverride',
     'OneDashboardPageWidgetMarkdownUnit',
@@ -126,6 +137,7 @@ __all__ = [
     'OneDashboardPageWidgetPy',
     'OneDashboardPageWidgetPyColor',
     'OneDashboardPageWidgetPyColorSeriesOverride',
+    'OneDashboardPageWidgetPyInitialSorting',
     'OneDashboardPageWidgetPyNrqlQuery',
     'OneDashboardPageWidgetPyNullValue',
     'OneDashboardPageWidgetPyNullValueSeriesOverride',
@@ -134,6 +146,7 @@ __all__ = [
     'OneDashboardPageWidgetStackedBar',
     'OneDashboardPageWidgetStackedBarColor',
     'OneDashboardPageWidgetStackedBarColorSeriesOverride',
+    'OneDashboardPageWidgetStackedBarInitialSorting',
     'OneDashboardPageWidgetStackedBarNrqlQuery',
     'OneDashboardPageWidgetStackedBarNullValue',
     'OneDashboardPageWidgetStackedBarNullValueSeriesOverride',
@@ -142,6 +155,7 @@ __all__ = [
     'OneDashboardPageWidgetTable',
     'OneDashboardPageWidgetTableColor',
     'OneDashboardPageWidgetTableColorSeriesOverride',
+    'OneDashboardPageWidgetTableInitialSorting',
     'OneDashboardPageWidgetTableNrqlQuery',
     'OneDashboardPageWidgetTableNullValue',
     'OneDashboardPageWidgetTableNullValueSeriesOverride',
@@ -1999,10 +2013,14 @@ class OneDashboardPageWidgetArea(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -2029,8 +2047,10 @@ class OneDashboardPageWidgetArea(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetAreaInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -2045,8 +2065,10 @@ class OneDashboardPageWidgetArea(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetAreaInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetAreaNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetAreaUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -2065,10 +2087,14 @@ class OneDashboardPageWidgetArea(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -2151,6 +2177,14 @@ class OneDashboardPageWidgetArea(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetAreaInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -2165,6 +2199,14 @@ class OneDashboardPageWidgetArea(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -2290,6 +2332,35 @@ class OneDashboardPageWidgetAreaColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -2548,12 +2619,16 @@ class OneDashboardPageWidgetBar(dict):
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -2581,9 +2656,11 @@ class OneDashboardPageWidgetBar(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetBarInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetBarNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetBarUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -2599,9 +2676,11 @@ class OneDashboardPageWidgetBar(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetBarInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetBarUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -2622,12 +2701,16 @@ class OneDashboardPageWidgetBar(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -2718,6 +2801,14 @@ class OneDashboardPageWidgetBar(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetBarInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -2740,6 +2831,14 @@ class OneDashboardPageWidgetBar(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -2865,6 +2964,35 @@ class OneDashboardPageWidgetBarColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -3121,10 +3249,14 @@ class OneDashboardPageWidgetBillboard(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -3152,8 +3284,10 @@ class OneDashboardPageWidgetBillboard(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetBillboardInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardUnit']] = None,
                  warning: Optional[str] = None,
                  width: Optional[int] = None,
@@ -3170,8 +3304,10 @@ class OneDashboardPageWidgetBillboard(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetBillboardInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetBillboardNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetBillboardUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param str warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -3193,10 +3329,14 @@ class OneDashboardPageWidgetBillboard(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if warning is not None:
@@ -3289,6 +3429,14 @@ class OneDashboardPageWidgetBillboard(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetBillboardInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -3303,6 +3451,14 @@ class OneDashboardPageWidgetBillboard(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -3436,6 +3592,35 @@ class OneDashboardPageWidgetBillboardColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -3692,10 +3877,14 @@ class OneDashboardPageWidgetBullet(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -3723,8 +3912,10 @@ class OneDashboardPageWidgetBullet(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetBulletInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetBulletNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetBulletUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -3740,8 +3931,10 @@ class OneDashboardPageWidgetBullet(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetBulletInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetBulletNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetBulletUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -3761,10 +3954,14 @@ class OneDashboardPageWidgetBullet(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -3855,6 +4052,14 @@ class OneDashboardPageWidgetBullet(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetBulletInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -3869,6 +4074,14 @@ class OneDashboardPageWidgetBullet(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -3994,6 +4207,35 @@ class OneDashboardPageWidgetBulletColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -4250,10 +4492,14 @@ class OneDashboardPageWidgetFunnel(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -4280,8 +4526,10 @@ class OneDashboardPageWidgetFunnel(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetFunnelInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -4296,8 +4544,10 @@ class OneDashboardPageWidgetFunnel(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetFunnelInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetFunnelNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetFunnelUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -4316,10 +4566,14 @@ class OneDashboardPageWidgetFunnel(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -4402,6 +4656,14 @@ class OneDashboardPageWidgetFunnel(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetFunnelInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -4416,6 +4678,14 @@ class OneDashboardPageWidgetFunnel(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -4541,6 +4811,35 @@ class OneDashboardPageWidgetFunnelColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -4799,12 +5098,16 @@ class OneDashboardPageWidgetHeatmap(dict):
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -4832,9 +5135,11 @@ class OneDashboardPageWidgetHeatmap(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetHeatmapInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -4850,9 +5155,11 @@ class OneDashboardPageWidgetHeatmap(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetHeatmapInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetHeatmapNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetHeatmapUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -4873,12 +5180,16 @@ class OneDashboardPageWidgetHeatmap(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -4969,6 +5280,14 @@ class OneDashboardPageWidgetHeatmap(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetHeatmapInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -4991,6 +5310,14 @@ class OneDashboardPageWidgetHeatmap(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -5116,6 +5443,35 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -5372,10 +5728,14 @@ class OneDashboardPageWidgetHistogram(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -5402,8 +5762,10 @@ class OneDashboardPageWidgetHistogram(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetHistogramInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -5418,8 +5780,10 @@ class OneDashboardPageWidgetHistogram(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetHistogramInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetHistogramNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetHistogramUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -5438,10 +5802,14 @@ class OneDashboardPageWidgetHistogram(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -5524,6 +5892,14 @@ class OneDashboardPageWidgetHistogram(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetHistogramInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -5538,6 +5914,14 @@ class OneDashboardPageWidgetHistogram(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -5663,6 +6047,35 @@ class OneDashboardPageWidgetHistogramColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -5919,10 +6332,14 @@ class OneDashboardPageWidgetJson(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -5949,8 +6366,10 @@ class OneDashboardPageWidgetJson(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetJsonInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetJsonNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetJsonUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -5965,8 +6384,10 @@ class OneDashboardPageWidgetJson(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetJsonInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetJsonNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetJsonUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -5985,10 +6406,14 @@ class OneDashboardPageWidgetJson(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -6071,6 +6496,14 @@ class OneDashboardPageWidgetJson(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetJsonInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -6085,6 +6518,14 @@ class OneDashboardPageWidgetJson(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -6210,6 +6651,35 @@ class OneDashboardPageWidgetJsonColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -6466,12 +6936,16 @@ class OneDashboardPageWidgetLine(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "isLabelVisible":
             suggest = "is_label_visible"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -6502,9 +6976,11 @@ class OneDashboardPageWidgetLine(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetLineInitialSorting'] = None,
                  is_label_visible: Optional[bool] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  thresholds: Optional[Sequence['outputs.OneDashboardPageWidgetLineThreshold']] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetLineUnit']] = None,
                  width: Optional[int] = None,
@@ -6522,9 +6998,11 @@ class OneDashboardPageWidgetLine(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetLineInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool is_label_visible: (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetLineNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetLineThresholdArgs'] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         :param Sequence['OneDashboardPageWidgetLineUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -6546,12 +7024,16 @@ class OneDashboardPageWidgetLine(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if is_label_visible is not None:
             pulumi.set(__self__, "is_label_visible", is_label_visible)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if thresholds is not None:
             pulumi.set(__self__, "thresholds", thresholds)
         if units is not None:
@@ -6640,6 +7122,14 @@ class OneDashboardPageWidgetLine(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetLineInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="isLabelVisible")
     def is_label_visible(self) -> Optional[bool]:
         """
@@ -6662,6 +7152,14 @@ class OneDashboardPageWidgetLine(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -6811,6 +7309,35 @@ class OneDashboardPageWidgetLineColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -7217,10 +7744,14 @@ class OneDashboardPageWidgetLogTable(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -7247,8 +7778,10 @@ class OneDashboardPageWidgetLogTable(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetLogTableInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -7263,8 +7796,10 @@ class OneDashboardPageWidgetLogTable(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetLogTableInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetLogTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetLogTableUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -7283,10 +7818,14 @@ class OneDashboardPageWidgetLogTable(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -7369,6 +7908,14 @@ class OneDashboardPageWidgetLogTable(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetLogTableInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -7383,6 +7930,14 @@ class OneDashboardPageWidgetLogTable(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -7508,6 +8063,35 @@ class OneDashboardPageWidgetLogTableColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -7762,10 +8346,14 @@ class OneDashboardPageWidgetMarkdown(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -7792,8 +8380,10 @@ class OneDashboardPageWidgetMarkdown(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetMarkdownInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -7808,8 +8398,10 @@ class OneDashboardPageWidgetMarkdown(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetMarkdownInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetMarkdownNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetMarkdownUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -7828,10 +8420,14 @@ class OneDashboardPageWidgetMarkdown(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -7914,6 +8510,14 @@ class OneDashboardPageWidgetMarkdown(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetMarkdownInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -7928,6 +8532,14 @@ class OneDashboardPageWidgetMarkdown(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -8053,6 +8665,35 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -8264,12 +8905,16 @@ class OneDashboardPageWidgetPy(dict):
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -8297,9 +8942,11 @@ class OneDashboardPageWidgetPy(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetPyInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetPyNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetPyUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -8315,9 +8962,11 @@ class OneDashboardPageWidgetPy(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetPyInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetPyNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetPyUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -8338,12 +8987,16 @@ class OneDashboardPageWidgetPy(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -8434,6 +9087,14 @@ class OneDashboardPageWidgetPy(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetPyInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -8456,6 +9117,14 @@ class OneDashboardPageWidgetPy(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -8581,6 +9250,35 @@ class OneDashboardPageWidgetPyColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -8837,10 +9535,14 @@ class OneDashboardPageWidgetStackedBar(dict):
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -8867,8 +9569,10 @@ class OneDashboardPageWidgetStackedBar(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetStackedBarInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnit']] = None,
                  width: Optional[int] = None,
                  y_axis_left_max: Optional[float] = None,
@@ -8883,8 +9587,10 @@ class OneDashboardPageWidgetStackedBar(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetStackedBarInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetStackedBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetStackedBarUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -8903,10 +9609,14 @@ class OneDashboardPageWidgetStackedBar(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -8989,6 +9699,14 @@ class OneDashboardPageWidgetStackedBar(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetStackedBarInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -9003,6 +9721,14 @@ class OneDashboardPageWidgetStackedBar(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -9128,6 +9854,35 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -9386,12 +10141,16 @@ class OneDashboardPageWidgetTable(dict):
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "initialSorting":
+            suggest = "initial_sorting"
         elif key == "legendEnabled":
             suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
         elif key == "nullValues":
             suggest = "null_values"
+        elif key == "refreshRate":
+            suggest = "refresh_rate"
         elif key == "yAxisLeftMax":
             suggest = "y_axis_left_max"
         elif key == "yAxisLeftMin":
@@ -9419,9 +10178,11 @@ class OneDashboardPageWidgetTable(dict):
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 initial_sorting: Optional['outputs.OneDashboardPageWidgetTableInitialSorting'] = None,
                  legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValue']] = None,
+                 refresh_rate: Optional[str] = None,
                  thresholds: Optional[Sequence['outputs.OneDashboardPageWidgetTableThreshold']] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetTableUnit']] = None,
                  width: Optional[int] = None,
@@ -9438,9 +10199,11 @@ class OneDashboardPageWidgetTable(dict):
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param 'OneDashboardPageWidgetTableInitialSortingArgs' initial_sorting: (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
         :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param Sequence['OneDashboardPageWidgetTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetTableThresholdArgs'] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         :param Sequence['OneDashboardPageWidgetTableUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -9462,12 +10225,16 @@ class OneDashboardPageWidgetTable(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if initial_sorting is not None:
+            pulumi.set(__self__, "initial_sorting", initial_sorting)
         if legend_enabled is not None:
             pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if null_values is not None:
             pulumi.set(__self__, "null_values", null_values)
+        if refresh_rate is not None:
+            pulumi.set(__self__, "refresh_rate", refresh_rate)
         if thresholds is not None:
             pulumi.set(__self__, "thresholds", thresholds)
         if units is not None:
@@ -9560,6 +10327,14 @@ class OneDashboardPageWidgetTable(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="initialSorting")
+    def initial_sorting(self) -> Optional['outputs.OneDashboardPageWidgetTableInitialSorting']:
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        return pulumi.get(self, "initial_sorting")
+
+    @property
     @pulumi.getter(name="legendEnabled")
     def legend_enabled(self) -> Optional[bool]:
         """
@@ -9582,6 +10357,14 @@ class OneDashboardPageWidgetTable(dict):
         (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         """
         return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter(name="refreshRate")
+    def refresh_rate(self) -> Optional[str]:
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        return pulumi.get(self, "refresh_rate")
 
     @property
     @pulumi.getter
@@ -9715,6 +10498,35 @@ class OneDashboardPageWidgetTableColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableInitialSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        :param str name: The title of the dashboard.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

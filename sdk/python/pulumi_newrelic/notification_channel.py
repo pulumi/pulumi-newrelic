@@ -383,10 +383,12 @@ class NotificationChannel(pulumi.CustomResource):
                 {
                     "key": "project",
                     "value": "10000",
+                    "label": "Project-Name",
                 },
                 {
                     "key": "issuetype",
                     "value": "10004",
+                    "label": "Bug",
                 },
                 {
                     "key": "description",
@@ -725,10 +727,12 @@ class NotificationChannel(pulumi.CustomResource):
                 {
                     "key": "project",
                     "value": "10000",
+                    "label": "Project-Name",
                 },
                 {
                     "key": "issuetype",
                     "value": "10004",
+                    "label": "Bug",
                 },
                 {
                     "key": "description",

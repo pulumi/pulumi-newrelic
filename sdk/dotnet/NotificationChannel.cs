@@ -163,11 +163,13 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 Key = "project",
     ///                 Value = "10000",
+    ///                 Label = "Project-Name",
     ///             },
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "issuetype",
     ///                 Value = "10004",
+    ///                 Label = "Bug",
     ///             },
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {

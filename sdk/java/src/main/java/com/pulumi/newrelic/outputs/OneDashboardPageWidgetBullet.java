@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBulletColor;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBulletInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBulletNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBulletNullValue;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBulletUnit;
@@ -51,6 +52,11 @@ public final class OneDashboardPageWidgetBullet {
      */
     private @Nullable Boolean ignoreTimeRange;
     /**
+     * @return (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetBulletInitialSorting initialSorting;
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -70,6 +76,11 @@ public final class OneDashboardPageWidgetBullet {
      * 
      */
     private @Nullable List<OneDashboardPageWidgetBulletNullValue> nullValues;
+    /**
+     * @return (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     * 
+     */
+    private @Nullable String refreshRate;
     /**
      * @return (Required) Row position of widget from top left, starting at `1`.
      * 
@@ -141,6 +152,13 @@ public final class OneDashboardPageWidgetBullet {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
     /**
+     * @return (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public Optional<OneDashboardPageWidgetBulletInitialSorting> initialSorting() {
+        return Optional.ofNullable(this.initialSorting);
+    }
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -167,6 +185,13 @@ public final class OneDashboardPageWidgetBullet {
      */
     public List<OneDashboardPageWidgetBulletNullValue> nullValues() {
         return this.nullValues == null ? List.of() : this.nullValues;
+    }
+    /**
+     * @return (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     * 
+     */
+    public Optional<String> refreshRate() {
+        return Optional.ofNullable(this.refreshRate);
     }
     /**
      * @return (Required) Row position of widget from top left, starting at `1`.
@@ -222,10 +247,12 @@ public final class OneDashboardPageWidgetBullet {
         private @Nullable Integer height;
         private @Nullable String id;
         private @Nullable Boolean ignoreTimeRange;
+        private @Nullable OneDashboardPageWidgetBulletInitialSorting initialSorting;
         private @Nullable Boolean legendEnabled;
         private Double limit;
         private List<OneDashboardPageWidgetBulletNrqlQuery> nrqlQueries;
         private @Nullable List<OneDashboardPageWidgetBulletNullValue> nullValues;
+        private @Nullable String refreshRate;
         private Integer row;
         private String title;
         private @Nullable List<OneDashboardPageWidgetBulletUnit> units;
@@ -241,10 +268,12 @@ public final class OneDashboardPageWidgetBullet {
     	      this.height = defaults.height;
     	      this.id = defaults.id;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
+    	      this.initialSorting = defaults.initialSorting;
     	      this.legendEnabled = defaults.legendEnabled;
     	      this.limit = defaults.limit;
     	      this.nrqlQueries = defaults.nrqlQueries;
     	      this.nullValues = defaults.nullValues;
+    	      this.refreshRate = defaults.refreshRate;
     	      this.row = defaults.row;
     	      this.title = defaults.title;
     	      this.units = defaults.units;
@@ -295,6 +324,12 @@ public final class OneDashboardPageWidgetBullet {
             return this;
         }
         @CustomType.Setter
+        public Builder initialSorting(@Nullable OneDashboardPageWidgetBulletInitialSorting initialSorting) {
+
+            this.initialSorting = initialSorting;
+            return this;
+        }
+        @CustomType.Setter
         public Builder legendEnabled(@Nullable Boolean legendEnabled) {
 
             this.legendEnabled = legendEnabled;
@@ -327,6 +362,12 @@ public final class OneDashboardPageWidgetBullet {
         }
         public Builder nullValues(OneDashboardPageWidgetBulletNullValue... nullValues) {
             return nullValues(List.of(nullValues));
+        }
+        @CustomType.Setter
+        public Builder refreshRate(@Nullable String refreshRate) {
+
+            this.refreshRate = refreshRate;
+            return this;
         }
         @CustomType.Setter
         public Builder row(Integer row) {
@@ -379,10 +420,12 @@ public final class OneDashboardPageWidgetBullet {
             _resultValue.height = height;
             _resultValue.id = id;
             _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.initialSorting = initialSorting;
             _resultValue.legendEnabled = legendEnabled;
             _resultValue.limit = limit;
             _resultValue.nrqlQueries = nrqlQueries;
             _resultValue.nullValues = nullValues;
+            _resultValue.refreshRate = refreshRate;
             _resultValue.row = row;
             _resultValue.title = title;
             _resultValue.units = units;
