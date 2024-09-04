@@ -572,6 +572,10 @@ export interface OneDashboardPageWidgetArea {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetAreaInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -583,6 +587,10 @@ export interface OneDashboardPageWidgetArea {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -626,6 +634,17 @@ export interface OneDashboardPageWidgetAreaColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetAreaInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetAreaNrqlQuery {
@@ -713,6 +732,10 @@ export interface OneDashboardPageWidgetBar {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBarInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -728,6 +751,10 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -771,6 +798,17 @@ export interface OneDashboardPageWidgetBarColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBarInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBarNrqlQuery {
@@ -858,6 +896,10 @@ export interface OneDashboardPageWidgetBillboard {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -869,6 +911,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -916,6 +962,17 @@ export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBillboardInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBillboardNrqlQuery {
@@ -999,6 +1056,10 @@ export interface OneDashboardPageWidgetBullet {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetBulletInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -1014,6 +1075,10 @@ export interface OneDashboardPageWidgetBullet {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1057,6 +1122,17 @@ export interface OneDashboardPageWidgetBulletColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBulletInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBulletNrqlQuery {
@@ -1140,6 +1216,10 @@ export interface OneDashboardPageWidgetFunnel {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -1151,6 +1231,10 @@ export interface OneDashboardPageWidgetFunnel {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1194,6 +1278,17 @@ export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetFunnelInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetFunnelNrqlQuery {
@@ -1281,6 +1376,10 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -1296,6 +1395,10 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1339,6 +1442,17 @@ export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHeatmapInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetHeatmapNrqlQuery {
@@ -1422,6 +1536,10 @@ export interface OneDashboardPageWidgetHistogram {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -1433,6 +1551,10 @@ export interface OneDashboardPageWidgetHistogram {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1476,6 +1598,17 @@ export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHistogramInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetHistogramNrqlQuery {
@@ -1559,6 +1692,10 @@ export interface OneDashboardPageWidgetJson {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetJsonInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -1570,6 +1707,10 @@ export interface OneDashboardPageWidgetJson {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1613,6 +1754,17 @@ export interface OneDashboardPageWidgetJsonColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetJsonInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetJsonNrqlQuery {
@@ -1696,6 +1848,10 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetLineInitialSorting>;
+    /**
      * (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
      */
     isLabelVisible?: pulumi.Input<boolean>;
@@ -1711,6 +1867,10 @@ export interface OneDashboardPageWidgetLine {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1766,6 +1926,17 @@ export interface OneDashboardPageWidgetLineColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLineInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLineNrqlQuery {
@@ -1887,6 +2058,10 @@ export interface OneDashboardPageWidgetLogTable {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -1898,6 +2073,10 @@ export interface OneDashboardPageWidgetLogTable {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1941,6 +2120,17 @@ export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLogTableInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLogTableNrqlQuery {
@@ -2024,6 +2214,10 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -2031,6 +2225,10 @@ export interface OneDashboardPageWidgetMarkdown {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2078,6 +2276,17 @@ export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetMarkdownInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetMarkdownNullValue {
@@ -2154,6 +2363,10 @@ export interface OneDashboardPageWidgetPy {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetPyInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -2169,6 +2382,10 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2212,6 +2429,17 @@ export interface OneDashboardPageWidgetPyColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetPyInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetPyNrqlQuery {
@@ -2295,6 +2523,10 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -2306,6 +2538,10 @@ export interface OneDashboardPageWidgetStackedBar {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2349,6 +2585,17 @@ export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetStackedBarInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetStackedBarNrqlQuery {
@@ -2436,6 +2683,10 @@ export interface OneDashboardPageWidgetTable {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     */
+    initialSorting?: pulumi.Input<inputs.OneDashboardPageWidgetTableInitialSorting>;
+    /**
      * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      */
     legendEnabled?: pulumi.Input<boolean>;
@@ -2451,6 +2702,10 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
      */
     nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValue>[]>;
+    /**
+     * (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     */
+    refreshRate?: pulumi.Input<string>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -2498,6 +2753,17 @@ export interface OneDashboardPageWidgetTableColorSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetTableInitialSorting {
+    /**
+     * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetTableNrqlQuery {

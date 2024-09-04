@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramColor;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramNullValue;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramUnit;
@@ -51,6 +52,11 @@ public final class OneDashboardPageWidgetHistogram {
      */
     private @Nullable Boolean ignoreTimeRange;
     /**
+     * @return (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetHistogramInitialSorting initialSorting;
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -65,6 +71,11 @@ public final class OneDashboardPageWidgetHistogram {
      * 
      */
     private @Nullable List<OneDashboardPageWidgetHistogramNullValue> nullValues;
+    /**
+     * @return (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     * 
+     */
+    private @Nullable String refreshRate;
     /**
      * @return (Required) Row position of widget from top left, starting at `1`.
      * 
@@ -136,6 +147,13 @@ public final class OneDashboardPageWidgetHistogram {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
     /**
+     * @return (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public Optional<OneDashboardPageWidgetHistogramInitialSorting> initialSorting() {
+        return Optional.ofNullable(this.initialSorting);
+    }
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -155,6 +173,13 @@ public final class OneDashboardPageWidgetHistogram {
      */
     public List<OneDashboardPageWidgetHistogramNullValue> nullValues() {
         return this.nullValues == null ? List.of() : this.nullValues;
+    }
+    /**
+     * @return (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     * 
+     */
+    public Optional<String> refreshRate() {
+        return Optional.ofNullable(this.refreshRate);
     }
     /**
      * @return (Required) Row position of widget from top left, starting at `1`.
@@ -210,9 +235,11 @@ public final class OneDashboardPageWidgetHistogram {
         private @Nullable Integer height;
         private @Nullable String id;
         private @Nullable Boolean ignoreTimeRange;
+        private @Nullable OneDashboardPageWidgetHistogramInitialSorting initialSorting;
         private @Nullable Boolean legendEnabled;
         private List<OneDashboardPageWidgetHistogramNrqlQuery> nrqlQueries;
         private @Nullable List<OneDashboardPageWidgetHistogramNullValue> nullValues;
+        private @Nullable String refreshRate;
         private Integer row;
         private String title;
         private @Nullable List<OneDashboardPageWidgetHistogramUnit> units;
@@ -228,9 +255,11 @@ public final class OneDashboardPageWidgetHistogram {
     	      this.height = defaults.height;
     	      this.id = defaults.id;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
+    	      this.initialSorting = defaults.initialSorting;
     	      this.legendEnabled = defaults.legendEnabled;
     	      this.nrqlQueries = defaults.nrqlQueries;
     	      this.nullValues = defaults.nullValues;
+    	      this.refreshRate = defaults.refreshRate;
     	      this.row = defaults.row;
     	      this.title = defaults.title;
     	      this.units = defaults.units;
@@ -281,6 +310,12 @@ public final class OneDashboardPageWidgetHistogram {
             return this;
         }
         @CustomType.Setter
+        public Builder initialSorting(@Nullable OneDashboardPageWidgetHistogramInitialSorting initialSorting) {
+
+            this.initialSorting = initialSorting;
+            return this;
+        }
+        @CustomType.Setter
         public Builder legendEnabled(@Nullable Boolean legendEnabled) {
 
             this.legendEnabled = legendEnabled;
@@ -305,6 +340,12 @@ public final class OneDashboardPageWidgetHistogram {
         }
         public Builder nullValues(OneDashboardPageWidgetHistogramNullValue... nullValues) {
             return nullValues(List.of(nullValues));
+        }
+        @CustomType.Setter
+        public Builder refreshRate(@Nullable String refreshRate) {
+
+            this.refreshRate = refreshRate;
+            return this;
         }
         @CustomType.Setter
         public Builder row(Integer row) {
@@ -357,9 +398,11 @@ public final class OneDashboardPageWidgetHistogram {
             _resultValue.height = height;
             _resultValue.id = id;
             _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.initialSorting = initialSorting;
             _resultValue.legendEnabled = legendEnabled;
             _resultValue.nrqlQueries = nrqlQueries;
             _resultValue.nullValues = nullValues;
+            _resultValue.refreshRate = refreshRate;
             _resultValue.row = row;
             _resultValue.title = title;
             _resultValue.units = units;

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableColor;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableNullValue;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetTableThreshold;
@@ -57,6 +58,11 @@ public final class OneDashboardPageWidgetTable {
      */
     private @Nullable Boolean ignoreTimeRange;
     /**
+     * @return (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetTableInitialSorting initialSorting;
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -76,6 +82,11 @@ public final class OneDashboardPageWidgetTable {
      * 
      */
     private @Nullable List<OneDashboardPageWidgetTableNullValue> nullValues;
+    /**
+     * @return (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     * 
+     */
+    private @Nullable String refreshRate;
     /**
      * @return (Required) Row position of widget from top left, starting at `1`.
      * 
@@ -159,6 +170,13 @@ public final class OneDashboardPageWidgetTable {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
     /**
+     * @return (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+     * 
+     */
+    public Optional<OneDashboardPageWidgetTableInitialSorting> initialSorting() {
+        return Optional.ofNullable(this.initialSorting);
+    }
+    /**
      * @return (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
      * 
      */
@@ -185,6 +203,13 @@ public final class OneDashboardPageWidgetTable {
      */
     public List<OneDashboardPageWidgetTableNullValue> nullValues() {
         return this.nullValues == null ? List.of() : this.nullValues;
+    }
+    /**
+     * @return (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+     * 
+     */
+    public Optional<String> refreshRate() {
+        return Optional.ofNullable(this.refreshRate);
     }
     /**
      * @return (Required) Row position of widget from top left, starting at `1`.
@@ -248,10 +273,12 @@ public final class OneDashboardPageWidgetTable {
         private @Nullable Integer height;
         private @Nullable String id;
         private @Nullable Boolean ignoreTimeRange;
+        private @Nullable OneDashboardPageWidgetTableInitialSorting initialSorting;
         private @Nullable Boolean legendEnabled;
         private @Nullable List<String> linkedEntityGuids;
         private List<OneDashboardPageWidgetTableNrqlQuery> nrqlQueries;
         private @Nullable List<OneDashboardPageWidgetTableNullValue> nullValues;
+        private @Nullable String refreshRate;
         private Integer row;
         private @Nullable List<OneDashboardPageWidgetTableThreshold> thresholds;
         private String title;
@@ -269,10 +296,12 @@ public final class OneDashboardPageWidgetTable {
     	      this.height = defaults.height;
     	      this.id = defaults.id;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
+    	      this.initialSorting = defaults.initialSorting;
     	      this.legendEnabled = defaults.legendEnabled;
     	      this.linkedEntityGuids = defaults.linkedEntityGuids;
     	      this.nrqlQueries = defaults.nrqlQueries;
     	      this.nullValues = defaults.nullValues;
+    	      this.refreshRate = defaults.refreshRate;
     	      this.row = defaults.row;
     	      this.thresholds = defaults.thresholds;
     	      this.title = defaults.title;
@@ -330,6 +359,12 @@ public final class OneDashboardPageWidgetTable {
             return this;
         }
         @CustomType.Setter
+        public Builder initialSorting(@Nullable OneDashboardPageWidgetTableInitialSorting initialSorting) {
+
+            this.initialSorting = initialSorting;
+            return this;
+        }
+        @CustomType.Setter
         public Builder legendEnabled(@Nullable Boolean legendEnabled) {
 
             this.legendEnabled = legendEnabled;
@@ -363,6 +398,12 @@ public final class OneDashboardPageWidgetTable {
         }
         public Builder nullValues(OneDashboardPageWidgetTableNullValue... nullValues) {
             return nullValues(List.of(nullValues));
+        }
+        @CustomType.Setter
+        public Builder refreshRate(@Nullable String refreshRate) {
+
+            this.refreshRate = refreshRate;
+            return this;
         }
         @CustomType.Setter
         public Builder row(Integer row) {
@@ -425,10 +466,12 @@ public final class OneDashboardPageWidgetTable {
             _resultValue.height = height;
             _resultValue.id = id;
             _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.initialSorting = initialSorting;
             _resultValue.legendEnabled = legendEnabled;
             _resultValue.linkedEntityGuids = linkedEntityGuids;
             _resultValue.nrqlQueries = nrqlQueries;
             _resultValue.nullValues = nullValues;
+            _resultValue.refreshRate = refreshRate;
             _resultValue.row = row;
             _resultValue.thresholds = thresholds;
             _resultValue.title = title;

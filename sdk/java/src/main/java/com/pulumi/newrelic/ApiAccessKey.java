@@ -33,6 +33,12 @@ import javax.annotation.Nullable;
  * 
  * &gt; **WARNING:** Creating &#39;Ingest - License&#39; and &#39;Ingest - Browser&#39; keys using this resource is restricted to &#39;core&#39; or &#39;full platform&#39; New Relic user accounts. If you&#39;ve signed up as a &#39;basic&#39; user with New Relic, or have been added as a &#39;basic&#39; user to your organization on New Relic, you would not be able to use your account to create &#39;Ingest&#39; keys. If you see the message `&#34;You do not have permission to create this key&#34;` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
  * 
+ * ## Extended Usage
+ * 
+ * This module may be used to create a user or ingest key using the `create_access_keys_service` resource, and fetch the created key using `fetch_access_keys_service`, by performing a NerdGraph query under the hood, using the ID of the key created via the resource to fetch the created key.
+ * Please refer\
+ * create access keys and fetch access keys for more info.
+ * 
  * ## Import
  * 
  * Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;`
