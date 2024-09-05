@@ -588,7 +588,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
         ### Moving from Legacy Alert Channels to Notification Channels
-        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination` and `NotificationChannel`. A combination of these resources is an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
 
         If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
 
@@ -932,7 +932,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
         ### Moving from Legacy Alert Channels to Notification Channels
-        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+        As described in the documentation of this resource, channels can be created and managed using `NotificationDestination` and `NotificationChannel`. A combination of these resources is an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
 
         If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
 

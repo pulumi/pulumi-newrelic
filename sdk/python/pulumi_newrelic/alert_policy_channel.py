@@ -133,7 +133,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
         """
         Use this resource to map alert policies to alert channels in New Relic.
 
-        > **WARNING:** The `AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `Workflow` for a detailed illustration on setting up channels and workflows with these resources.
+        > **WARNING:** The `AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `Workflow`, with the channels to be mapped created using a combination of the newer resources `NotificationDestination` and `NotificationChannel`. We **strongly recommend** migrating to these new resources at the earliest. Please refer to this example for a detailed illustration on setting up channels and workflows with these resources.
 
         ## Example Usage
 
@@ -196,7 +196,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
         """
         Use this resource to map alert policies to alert channels in New Relic.
 
-        > **WARNING:** The `AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `Workflow` for a detailed illustration on setting up channels and workflows with these resources.
+        > **WARNING:** The `AlertPolicyChannel` resource is **deprecated** and will be **removed in a future major release**. As an alternative, you can map channels to policies using the resource `Workflow`, with the channels to be mapped created using a combination of the newer resources `NotificationDestination` and `NotificationChannel`. We **strongly recommend** migrating to these new resources at the earliest. Please refer to this example for a detailed illustration on setting up channels and workflows with these resources.
 
         ## Example Usage
 
