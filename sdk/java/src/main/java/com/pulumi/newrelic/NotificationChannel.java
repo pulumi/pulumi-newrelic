@@ -633,7 +633,7 @@ import javax.annotation.Nullable;
  * 
  * More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
  * ### Moving from Legacy Alert Channels to Notification Channels
- * As described in the documentation of this resource, channels can be created and managed using `newrelic.NotificationDestination`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+ * As described in the documentation of this resource, channels can be created and managed using `newrelic.NotificationDestination` and `newrelic.NotificationChannel`. A combination of these resources is an alternative to the legacy resource `newrelic.AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
  * 
  * If you&#39;re currently using `newrelic.AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
  * 
