@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage Infrastructure alert conditions in New Relic.
  *
- * > **WARNING:** The `newrelic.InfraAlertCondition` resource is deprecated and will be removed in the next major release. The resource newrelic.NrqlAlertCondition examples.
+ * > **WARNING:** The `newrelic.InfraAlertCondition` resource is deprecated and will be removed in the next major release. The resource newrelic.NrqlAlertCondition would be a preferred alternative to configure alert conditions - in most cases, feature parity can be achieved with a NRQL query. For more details and examples on moving away from infra alert conditions to the NRQL based alternative, please check out these examples.
  *
  * ## Example Usage
  *
