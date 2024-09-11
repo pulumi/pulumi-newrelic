@@ -8261,7 +8261,7 @@
             }
         },
         "newrelic:cloud/awsIntegrations:AwsIntegrations": {
-            "description": "Use this resource to integrate AWS services with New Relic.\n\n## Prerequisite\n\nSetup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.\n\nNew Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.\n\nUsing a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.\n\n## Example Usage\n\nLeave an integration block empty to use its default configuration. You can also use the full example, including the AWS set up, found in our guides.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.cloud.AwsLinkAccount(\"foo\", {\n    arn: newrelicAwsRole.arn,\n    metricCollectionMode: \"PULL\",\n    name: \"foo\",\n});\nconst bar = new newrelic.cloud.AwsIntegrations(\"bar\", {\n    linkedAccountId: foo.id,\n    billing: {\n        metricsPollingInterval: 3600,\n    },\n    cloudtrail: {\n        metricsPollingInterval: 300,\n        awsRegions: [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n    },\n    health: {\n        metricsPollingInterval: 300,\n    },\n    trustedAdvisor: {\n        metricsPollingInterval: 3600,\n    },\n    vpc: {\n        metricsPollingInterval: 900,\n        awsRegions: [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n        fetchNatGateway: true,\n        fetchVpn: false,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    xRay: {\n        metricsPollingInterval: 300,\n        awsRegions: [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n    },\n    s3: {\n        metricsPollingInterval: 3600,\n    },\n    docDb: {\n        metricsPollingInterval: 300,\n    },\n    sqs: {\n        fetchExtendedInventory: true,\n        fetchTags: true,\n        queuePrefixes: [\"queue prefix\"],\n        metricsPollingInterval: 300,\n        awsRegions: [\"us-east-1\"],\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    ebs: {\n        metricsPollingInterval: 900,\n        fetchExtendedInventory: true,\n        awsRegions: [\"us-east-1\"],\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    alb: {\n        fetchExtendedInventory: true,\n        fetchTags: true,\n        loadBalancerPrefixes: [\"load balancer prefix\"],\n        metricsPollingInterval: 300,\n        awsRegions: [\"us-east-1\"],\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    elasticache: {\n        awsRegions: [\"us-east-1\"],\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    apiGateway: {\n        metricsPollingInterval: 300,\n        awsRegions: [\"us-east-1\"],\n        stagePrefixes: [\"stage prefix\"],\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    autoScaling: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsAppSync: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsAthena: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsCognito: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsConnect: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsDirectConnect: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsFsx: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsGlue: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsKinesisAnalytics: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsMediaConvert: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsMediaPackageVod: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsMq: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsMsk: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsNeptune: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsQldb: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsRoute53resolver: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsStates: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsTransitGateway: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsWaf: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    awsWafv2: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    cloudfront: {\n        fetchLambdasAtEdge: true,\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    dynamodb: {\n        awsRegions: [\"us-east-1\"],\n        fetchExtendedInventory: true,\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    ec2: {\n        awsRegions: [\"us-east-1\"],\n        duplicateEc2Tags: true,\n        fetchIpAddresses: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    ecs: {\n        awsRegions: [\"us-east-1\"],\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    efs: {\n        awsRegions: [\"us-east-1\"],\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    elasticbeanstalk: {\n        awsRegions: [\"us-east-1\"],\n        fetchExtendedInventory: true,\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    elasticsearch: {\n        awsRegions: [\"us-east-1\"],\n        fetchNodes: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    elb: {\n        awsRegions: [\"us-east-1\"],\n        fetchExtendedInventory: true,\n        fetchTags: true,\n        metricsPollingInterval: 300,\n    },\n    emr: {\n        awsRegions: [\"us-east-1\"],\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    iam: {\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    iot: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    kinesis: {\n        awsRegions: [\"us-east-1\"],\n        fetchShards: true,\n        fetchTags: true,\n        metricsPollingInterval: 900,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    kinesisFirehose: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    lambda: {\n        awsRegions: [\"us-east-1\"],\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    rds: {\n        awsRegions: [\"us-east-1\"],\n        fetchTags: true,\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    redshift: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n        tagKey: \"tag key\",\n        tagValue: \"tag value\",\n    },\n    route53: {\n        fetchExtendedInventory: true,\n        metricsPollingInterval: 300,\n    },\n    ses: {\n        awsRegions: [\"us-east-1\"],\n        metricsPollingInterval: 300,\n    },\n    sns: {\n        awsRegions: [\"us-east-1\"],\n        fetchExtendedInventory: true,\n        metricsPollingInterval: 300,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.cloud.AwsLinkAccount(\"foo\",\n    arn=newrelic_aws_role[\"arn\"],\n    metric_collection_mode=\"PULL\",\n    name=\"foo\")\nbar = newrelic.cloud.AwsIntegrations(\"bar\",\n    linked_account_id=foo.id,\n    billing={\n        \"metrics_polling_interval\": 3600,\n    },\n    cloudtrail={\n        \"metrics_polling_interval\": 300,\n        \"aws_regions\": [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n    },\n    health={\n        \"metrics_polling_interval\": 300,\n    },\n    trusted_advisor={\n        \"metrics_polling_interval\": 3600,\n    },\n    vpc={\n        \"metrics_polling_interval\": 900,\n        \"aws_regions\": [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n        \"fetch_nat_gateway\": True,\n        \"fetch_vpn\": False,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    x_ray={\n        \"metrics_polling_interval\": 300,\n        \"aws_regions\": [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n    },\n    s3={\n        \"metrics_polling_interval\": 3600,\n    },\n    doc_db={\n        \"metrics_polling_interval\": 300,\n    },\n    sqs={\n        \"fetch_extended_inventory\": True,\n        \"fetch_tags\": True,\n        \"queue_prefixes\": [\"queue prefix\"],\n        \"metrics_polling_interval\": 300,\n        \"aws_regions\": [\"us-east-1\"],\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    ebs={\n        \"metrics_polling_interval\": 900,\n        \"fetch_extended_inventory\": True,\n        \"aws_regions\": [\"us-east-1\"],\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    alb={\n        \"fetch_extended_inventory\": True,\n        \"fetch_tags\": True,\n        \"load_balancer_prefixes\": [\"load balancer prefix\"],\n        \"metrics_polling_interval\": 300,\n        \"aws_regions\": [\"us-east-1\"],\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    elasticache={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    api_gateway={\n        \"metrics_polling_interval\": 300,\n        \"aws_regions\": [\"us-east-1\"],\n        \"stage_prefixes\": [\"stage prefix\"],\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    auto_scaling={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_app_sync={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_athena={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_cognito={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_connect={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_direct_connect={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_fsx={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_glue={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_kinesis_analytics={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_media_convert={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_media_package_vod={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_mq={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_msk={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_neptune={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_qldb={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_route53resolver={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_states={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_transit_gateway={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_waf={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    aws_wafv2={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    cloudfront={\n        \"fetch_lambdas_at_edge\": True,\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    dynamodb={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_extended_inventory\": True,\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    ec2={\n        \"aws_regions\": [\"us-east-1\"],\n        \"duplicate_ec2_tags\": True,\n        \"fetch_ip_addresses\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    ecs={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    efs={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    elasticbeanstalk={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_extended_inventory\": True,\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    elasticsearch={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_nodes\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    elb={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_extended_inventory\": True,\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n    },\n    emr={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    iam={\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    iot={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    kinesis={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_shards\": True,\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 900,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    kinesis_firehose={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    lambda_={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    rds={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_tags\": True,\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    redshift={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n        \"tag_key\": \"tag key\",\n        \"tag_value\": \"tag value\",\n    },\n    route53={\n        \"fetch_extended_inventory\": True,\n        \"metrics_polling_interval\": 300,\n    },\n    ses={\n        \"aws_regions\": [\"us-east-1\"],\n        \"metrics_polling_interval\": 300,\n    },\n    sns={\n        \"aws_regions\": [\"us-east-1\"],\n        \"fetch_extended_inventory\": True,\n        \"metrics_polling_interval\": 300,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new NewRelic.Cloud.AwsLinkAccount(\"foo\", new()\n    {\n        Arn = newrelicAwsRole.Arn,\n        MetricCollectionMode = \"PULL\",\n        Name = \"foo\",\n    });\n\n    var bar = new NewRelic.Cloud.AwsIntegrations(\"bar\", new()\n    {\n        LinkedAccountId = foo.Id,\n        Billing = new NewRelic.Cloud.Inputs.AwsIntegrationsBillingArgs\n        {\n            MetricsPollingInterval = 3600,\n        },\n        Cloudtrail = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudtrailArgs\n        {\n            MetricsPollingInterval = 300,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n                \"us-east-2\",\n            },\n        },\n        Health = new NewRelic.Cloud.Inputs.AwsIntegrationsHealthArgs\n        {\n            MetricsPollingInterval = 300,\n        },\n        TrustedAdvisor = new NewRelic.Cloud.Inputs.AwsIntegrationsTrustedAdvisorArgs\n        {\n            MetricsPollingInterval = 3600,\n        },\n        Vpc = new NewRelic.Cloud.Inputs.AwsIntegrationsVpcArgs\n        {\n            MetricsPollingInterval = 900,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n                \"us-east-2\",\n            },\n            FetchNatGateway = true,\n            FetchVpn = false,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        XRay = new NewRelic.Cloud.Inputs.AwsIntegrationsXRayArgs\n        {\n            MetricsPollingInterval = 300,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n                \"us-east-2\",\n            },\n        },\n        S3 = new NewRelic.Cloud.Inputs.AwsIntegrationsS3Args\n        {\n            MetricsPollingInterval = 3600,\n        },\n        DocDb = new NewRelic.Cloud.Inputs.AwsIntegrationsDocDbArgs\n        {\n            MetricsPollingInterval = 300,\n        },\n        Sqs = new NewRelic.Cloud.Inputs.AwsIntegrationsSqsArgs\n        {\n            FetchExtendedInventory = true,\n            FetchTags = true,\n            QueuePrefixes = new[]\n            {\n                \"queue prefix\",\n            },\n            MetricsPollingInterval = 300,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Ebs = new NewRelic.Cloud.Inputs.AwsIntegrationsEbsArgs\n        {\n            MetricsPollingInterval = 900,\n            FetchExtendedInventory = true,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Alb = new NewRelic.Cloud.Inputs.AwsIntegrationsAlbArgs\n        {\n            FetchExtendedInventory = true,\n            FetchTags = true,\n            LoadBalancerPrefixes = new[]\n            {\n                \"load balancer prefix\",\n            },\n            MetricsPollingInterval = 300,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Elasticache = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticacheArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        ApiGateway = new NewRelic.Cloud.Inputs.AwsIntegrationsApiGatewayArgs\n        {\n            MetricsPollingInterval = 300,\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            StagePrefixes = new[]\n            {\n                \"stage prefix\",\n            },\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        AutoScaling = new NewRelic.Cloud.Inputs.AwsIntegrationsAutoScalingArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsAppSync = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsAppSyncArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsAthena = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsAthenaArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsCognito = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsCognitoArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsConnect = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsConnectArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsDirectConnect = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsDirectConnectArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsFsx = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsFsxArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsGlue = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsGlueArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsKinesisAnalytics = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsKinesisAnalyticsArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsMediaConvert = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMediaConvertArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsMediaPackageVod = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMediaPackageVodArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsMq = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMqArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsMsk = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMskArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsNeptune = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsNeptuneArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsQldb = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsQldbArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsRoute53resolver = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsRoute53resolverArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsStates = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsStatesArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsTransitGateway = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsTransitGatewayArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsWaf = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsWafArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        AwsWafv2 = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsWafv2Args\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        Cloudfront = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudfrontArgs\n        {\n            FetchLambdasAtEdge = true,\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Dynamodb = new NewRelic.Cloud.Inputs.AwsIntegrationsDynamodbArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchExtendedInventory = true,\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Ec2 = new NewRelic.Cloud.Inputs.AwsIntegrationsEc2Args\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            DuplicateEc2Tags = true,\n            FetchIpAddresses = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Ecs = new NewRelic.Cloud.Inputs.AwsIntegrationsEcsArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Efs = new NewRelic.Cloud.Inputs.AwsIntegrationsEfsArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Elasticbeanstalk = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticbeanstalkArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchExtendedInventory = true,\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Elasticsearch = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticsearchArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchNodes = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Elb = new NewRelic.Cloud.Inputs.AwsIntegrationsElbArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchExtendedInventory = true,\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n        },\n        Emr = new NewRelic.Cloud.Inputs.AwsIntegrationsEmrArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Iam = new NewRelic.Cloud.Inputs.AwsIntegrationsIamArgs\n        {\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Iot = new NewRelic.Cloud.Inputs.AwsIntegrationsIotArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        Kinesis = new NewRelic.Cloud.Inputs.AwsIntegrationsKinesisArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchShards = true,\n            FetchTags = true,\n            MetricsPollingInterval = 900,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        KinesisFirehose = new NewRelic.Cloud.Inputs.AwsIntegrationsKinesisFirehoseArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        Lambda = new NewRelic.Cloud.Inputs.AwsIntegrationsLambdaArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Rds = new NewRelic.Cloud.Inputs.AwsIntegrationsRdsArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchTags = true,\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Redshift = new NewRelic.Cloud.Inputs.AwsIntegrationsRedshiftArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n            TagKey = \"tag key\",\n            TagValue = \"tag value\",\n        },\n        Route53 = new NewRelic.Cloud.Inputs.AwsIntegrationsRoute53Args\n        {\n            FetchExtendedInventory = true,\n            MetricsPollingInterval = 300,\n        },\n        Ses = new NewRelic.Cloud.Inputs.AwsIntegrationsSesArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            MetricsPollingInterval = 300,\n        },\n        Sns = new NewRelic.Cloud.Inputs.AwsIntegrationsSnsArgs\n        {\n            AwsRegions = new[]\n            {\n                \"us-east-1\",\n            },\n            FetchExtendedInventory = true,\n            MetricsPollingInterval = 300,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfoo, err := cloud.NewAwsLinkAccount(ctx, \"foo\", \u0026cloud.AwsLinkAccountArgs{\n\t\t\tArn:                  pulumi.Any(newrelicAwsRole.Arn),\n\t\t\tMetricCollectionMode: pulumi.String(\"PULL\"),\n\t\t\tName:                 pulumi.String(\"foo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = cloud.NewAwsIntegrations(ctx, \"bar\", \u0026cloud.AwsIntegrationsArgs{\n\t\t\tLinkedAccountId: foo.ID(),\n\t\t\tBilling: \u0026cloud.AwsIntegrationsBillingArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(3600),\n\t\t\t},\n\t\t\tCloudtrail: \u0026cloud.AwsIntegrationsCloudtrailArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t\tpulumi.String(\"us-east-2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tHealth: \u0026cloud.AwsIntegrationsHealthArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tTrustedAdvisor: \u0026cloud.AwsIntegrationsTrustedAdvisorArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(3600),\n\t\t\t},\n\t\t\tVpc: \u0026cloud.AwsIntegrationsVpcArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(900),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t\tpulumi.String(\"us-east-2\"),\n\t\t\t\t},\n\t\t\t\tFetchNatGateway: pulumi.Bool(true),\n\t\t\t\tFetchVpn:        pulumi.Bool(false),\n\t\t\t\tTagKey:          pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:        pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tXRay: \u0026cloud.AwsIntegrationsXRayArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t\tpulumi.String(\"us-east-2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tS3: \u0026cloud.AwsIntegrationsS3Args{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(3600),\n\t\t\t},\n\t\t\tDocDb: \u0026cloud.AwsIntegrationsDocDbArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tSqs: \u0026cloud.AwsIntegrationsSqsArgs{\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tQueuePrefixes: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"queue prefix\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tTagKey:   pulumi.String(\"tag key\"),\n\t\t\t\tTagValue: pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tEbs: \u0026cloud.AwsIntegrationsEbsArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(900),\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tTagKey:   pulumi.String(\"tag key\"),\n\t\t\t\tTagValue: pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tAlb: \u0026cloud.AwsIntegrationsAlbArgs{\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tLoadBalancerPrefixes: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"load balancer prefix\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tTagKey:   pulumi.String(\"tag key\"),\n\t\t\t\tTagValue: pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tElasticache: \u0026cloud.AwsIntegrationsElasticacheArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tApiGateway: \u0026cloud.AwsIntegrationsApiGatewayArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tStagePrefixes: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"stage prefix\"),\n\t\t\t\t},\n\t\t\t\tTagKey:   pulumi.String(\"tag key\"),\n\t\t\t\tTagValue: pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tAutoScaling: \u0026cloud.AwsIntegrationsAutoScalingArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsAppSync: \u0026cloud.AwsIntegrationsAwsAppSyncArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsAthena: \u0026cloud.AwsIntegrationsAwsAthenaArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsCognito: \u0026cloud.AwsIntegrationsAwsCognitoArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsConnect: \u0026cloud.AwsIntegrationsAwsConnectArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsDirectConnect: \u0026cloud.AwsIntegrationsAwsDirectConnectArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsFsx: \u0026cloud.AwsIntegrationsAwsFsxArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsGlue: \u0026cloud.AwsIntegrationsAwsGlueArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsKinesisAnalytics: \u0026cloud.AwsIntegrationsAwsKinesisAnalyticsArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsMediaConvert: \u0026cloud.AwsIntegrationsAwsMediaConvertArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsMediaPackageVod: \u0026cloud.AwsIntegrationsAwsMediaPackageVodArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsMq: \u0026cloud.AwsIntegrationsAwsMqArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsMsk: \u0026cloud.AwsIntegrationsAwsMskArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsNeptune: \u0026cloud.AwsIntegrationsAwsNeptuneArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsQldb: \u0026cloud.AwsIntegrationsAwsQldbArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsRoute53resolver: \u0026cloud.AwsIntegrationsAwsRoute53resolverArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsStates: \u0026cloud.AwsIntegrationsAwsStatesArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsTransitGateway: \u0026cloud.AwsIntegrationsAwsTransitGatewayArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsWaf: \u0026cloud.AwsIntegrationsAwsWafArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tAwsWafv2: \u0026cloud.AwsIntegrationsAwsWafv2Args{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tCloudfront: \u0026cloud.AwsIntegrationsCloudfrontArgs{\n\t\t\t\tFetchLambdasAtEdge:     pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tDynamodb: \u0026cloud.AwsIntegrationsDynamodbArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tEc2: \u0026cloud.AwsIntegrationsEc2Args{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tDuplicateEc2Tags:       pulumi.Bool(true),\n\t\t\t\tFetchIpAddresses:       pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tEcs: \u0026cloud.AwsIntegrationsEcsArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tEfs: \u0026cloud.AwsIntegrationsEfsArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tElasticbeanstalk: \u0026cloud.AwsIntegrationsElasticbeanstalkArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tElasticsearch: \u0026cloud.AwsIntegrationsElasticsearchArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchNodes:             pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tElb: \u0026cloud.AwsIntegrationsElbArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tEmr: \u0026cloud.AwsIntegrationsEmrArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tIam: \u0026cloud.AwsIntegrationsIamArgs{\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tIot: \u0026cloud.AwsIntegrationsIotArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tKinesis: \u0026cloud.AwsIntegrationsKinesisArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchShards:            pulumi.Bool(true),\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(900),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tKinesisFirehose: \u0026cloud.AwsIntegrationsKinesisFirehoseArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tLambda: \u0026cloud.AwsIntegrationsLambdaArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tRds: \u0026cloud.AwsIntegrationsRdsArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchTags:              pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tRedshift: \u0026cloud.AwsIntegrationsRedshiftArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t\tTagKey:                 pulumi.String(\"tag key\"),\n\t\t\t\tTagValue:               pulumi.String(\"tag value\"),\n\t\t\t},\n\t\t\tRoute53: \u0026cloud.AwsIntegrationsRoute53Args{\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tSes: \u0026cloud.AwsIntegrationsSesArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t\tSns: \u0026cloud.AwsIntegrationsSnsArgs{\n\t\t\t\tAwsRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"us-east-1\"),\n\t\t\t\t},\n\t\t\t\tFetchExtendedInventory: pulumi.Bool(true),\n\t\t\t\tMetricsPollingInterval: pulumi.Int(300),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.cloud.AwsLinkAccount;\nimport com.pulumi.newrelic.cloud.AwsLinkAccountArgs;\nimport com.pulumi.newrelic.cloud.AwsIntegrations;\nimport com.pulumi.newrelic.cloud.AwsIntegrationsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsBillingArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudtrailArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsHealthArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsTrustedAdvisorArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsVpcArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsXRayArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsS3Args;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDocDbArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSqsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEbsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAlbArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticacheArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsApiGatewayArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAutoScalingArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAppSyncArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAthenaArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsCognitoArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsConnectArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsDirectConnectArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsFsxArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsGlueArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsKinesisAnalyticsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMediaConvertArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMediaPackageVodArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMqArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsMskArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsNeptuneArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsQldbArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsRoute53resolverArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsStatesArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsTransitGatewayArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsWafArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsWafv2Args;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudfrontArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDynamodbArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEc2Args;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEcsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEfsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticbeanstalkArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElasticsearchArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsElbArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsEmrArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsIamArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsIotArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsKinesisArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsKinesisFirehoseArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsLambdaArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRdsArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRedshiftArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRoute53Args;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSesArgs;\nimport com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSnsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new AwsLinkAccount(\"foo\", AwsLinkAccountArgs.builder()\n            .arn(newrelicAwsRole.arn())\n            .metricCollectionMode(\"PULL\")\n            .name(\"foo\")\n            .build());\n\n        var bar = new AwsIntegrations(\"bar\", AwsIntegrationsArgs.builder()\n            .linkedAccountId(foo.id())\n            .billing(AwsIntegrationsBillingArgs.builder()\n                .metricsPollingInterval(3600)\n                .build())\n            .cloudtrail(AwsIntegrationsCloudtrailArgs.builder()\n                .metricsPollingInterval(300)\n                .awsRegions(                \n                    \"us-east-1\",\n                    \"us-east-2\")\n                .build())\n            .health(AwsIntegrationsHealthArgs.builder()\n                .metricsPollingInterval(300)\n                .build())\n            .trustedAdvisor(AwsIntegrationsTrustedAdvisorArgs.builder()\n                .metricsPollingInterval(3600)\n                .build())\n            .vpc(AwsIntegrationsVpcArgs.builder()\n                .metricsPollingInterval(900)\n                .awsRegions(                \n                    \"us-east-1\",\n                    \"us-east-2\")\n                .fetchNatGateway(true)\n                .fetchVpn(false)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .xRay(AwsIntegrationsXRayArgs.builder()\n                .metricsPollingInterval(300)\n                .awsRegions(                \n                    \"us-east-1\",\n                    \"us-east-2\")\n                .build())\n            .s3(AwsIntegrationsS3Args.builder()\n                .metricsPollingInterval(3600)\n                .build())\n            .docDb(AwsIntegrationsDocDbArgs.builder()\n                .metricsPollingInterval(300)\n                .build())\n            .sqs(AwsIntegrationsSqsArgs.builder()\n                .fetchExtendedInventory(true)\n                .fetchTags(true)\n                .queuePrefixes(\"queue prefix\")\n                .metricsPollingInterval(300)\n                .awsRegions(\"us-east-1\")\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .ebs(AwsIntegrationsEbsArgs.builder()\n                .metricsPollingInterval(900)\n                .fetchExtendedInventory(true)\n                .awsRegions(\"us-east-1\")\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .alb(AwsIntegrationsAlbArgs.builder()\n                .fetchExtendedInventory(true)\n                .fetchTags(true)\n                .loadBalancerPrefixes(\"load balancer prefix\")\n                .metricsPollingInterval(300)\n                .awsRegions(\"us-east-1\")\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .elasticache(AwsIntegrationsElasticacheArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .apiGateway(AwsIntegrationsApiGatewayArgs.builder()\n                .metricsPollingInterval(300)\n                .awsRegions(\"us-east-1\")\n                .stagePrefixes(\"stage prefix\")\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .autoScaling(AwsIntegrationsAutoScalingArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsAppSync(AwsIntegrationsAwsAppSyncArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsAthena(AwsIntegrationsAwsAthenaArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsCognito(AwsIntegrationsAwsCognitoArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsConnect(AwsIntegrationsAwsConnectArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsDirectConnect(AwsIntegrationsAwsDirectConnectArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsFsx(AwsIntegrationsAwsFsxArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsGlue(AwsIntegrationsAwsGlueArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsKinesisAnalytics(AwsIntegrationsAwsKinesisAnalyticsArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsMediaConvert(AwsIntegrationsAwsMediaConvertArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsMediaPackageVod(AwsIntegrationsAwsMediaPackageVodArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsMq(AwsIntegrationsAwsMqArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsMsk(AwsIntegrationsAwsMskArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsNeptune(AwsIntegrationsAwsNeptuneArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsQldb(AwsIntegrationsAwsQldbArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsRoute53resolver(AwsIntegrationsAwsRoute53resolverArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsStates(AwsIntegrationsAwsStatesArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsTransitGateway(AwsIntegrationsAwsTransitGatewayArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsWaf(AwsIntegrationsAwsWafArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .awsWafv2(AwsIntegrationsAwsWafv2Args.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .cloudfront(AwsIntegrationsCloudfrontArgs.builder()\n                .fetchLambdasAtEdge(true)\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .dynamodb(AwsIntegrationsDynamodbArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchExtendedInventory(true)\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .ec2(AwsIntegrationsEc2Args.builder()\n                .awsRegions(\"us-east-1\")\n                .duplicateEc2Tags(true)\n                .fetchIpAddresses(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .ecs(AwsIntegrationsEcsArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .efs(AwsIntegrationsEfsArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .elasticbeanstalk(AwsIntegrationsElasticbeanstalkArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchExtendedInventory(true)\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .elasticsearch(AwsIntegrationsElasticsearchArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchNodes(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .elb(AwsIntegrationsElbArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchExtendedInventory(true)\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .build())\n            .emr(AwsIntegrationsEmrArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .iam(AwsIntegrationsIamArgs.builder()\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .iot(AwsIntegrationsIotArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .kinesis(AwsIntegrationsKinesisArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchShards(true)\n                .fetchTags(true)\n                .metricsPollingInterval(900)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .kinesisFirehose(AwsIntegrationsKinesisFirehoseArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .lambda(AwsIntegrationsLambdaArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .rds(AwsIntegrationsRdsArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchTags(true)\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .redshift(AwsIntegrationsRedshiftArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .tagKey(\"tag key\")\n                .tagValue(\"tag value\")\n                .build())\n            .route53(AwsIntegrationsRoute53Args.builder()\n                .fetchExtendedInventory(true)\n                .metricsPollingInterval(300)\n                .build())\n            .ses(AwsIntegrationsSesArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .metricsPollingInterval(300)\n                .build())\n            .sns(AwsIntegrationsSnsArgs.builder()\n                .awsRegions(\"us-east-1\")\n                .fetchExtendedInventory(true)\n                .metricsPollingInterval(300)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:cloud:AwsLinkAccount\n    properties:\n      arn: ${newrelicAwsRole.arn}\n      metricCollectionMode: PULL\n      name: foo\n  bar:\n    type: newrelic:cloud:AwsIntegrations\n    properties:\n      linkedAccountId: ${foo.id}\n      billing:\n        metricsPollingInterval: 3600\n      cloudtrail:\n        metricsPollingInterval: 300\n        awsRegions:\n          - us-east-1\n          - us-east-2\n      health:\n        metricsPollingInterval: 300\n      trustedAdvisor:\n        metricsPollingInterval: 3600\n      vpc:\n        metricsPollingInterval: 900\n        awsRegions:\n          - us-east-1\n          - us-east-2\n        fetchNatGateway: true\n        fetchVpn: false\n        tagKey: tag key\n        tagValue: tag value\n      xRay:\n        metricsPollingInterval: 300\n        awsRegions:\n          - us-east-1\n          - us-east-2\n      s3:\n        metricsPollingInterval: 3600\n      docDb:\n        metricsPollingInterval: 300\n      sqs:\n        fetchExtendedInventory: true\n        fetchTags: true\n        queuePrefixes:\n          - queue prefix\n        metricsPollingInterval: 300\n        awsRegions:\n          - us-east-1\n        tagKey: tag key\n        tagValue: tag value\n      ebs:\n        metricsPollingInterval: 900\n        fetchExtendedInventory: true\n        awsRegions:\n          - us-east-1\n        tagKey: tag key\n        tagValue: tag value\n      alb:\n        fetchExtendedInventory: true\n        fetchTags: true\n        loadBalancerPrefixes:\n          - load balancer prefix\n        metricsPollingInterval: 300\n        awsRegions:\n          - us-east-1\n        tagKey: tag key\n        tagValue: tag value\n      elasticache:\n        awsRegions:\n          - us-east-1\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      apiGateway:\n        metricsPollingInterval: 300\n        awsRegions:\n          - us-east-1\n        stagePrefixes:\n          - stage prefix\n        tagKey: tag key\n        tagValue: tag value\n      autoScaling:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsAppSync:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsAthena:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsCognito:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsConnect:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsDirectConnect:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsFsx:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsGlue:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsKinesisAnalytics:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsMediaConvert:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsMediaPackageVod:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsMq:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsMsk:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsNeptune:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsQldb:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsRoute53resolver:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsStates:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsTransitGateway:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsWaf:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      awsWafv2:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      cloudfront:\n        fetchLambdasAtEdge: true\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      dynamodb:\n        awsRegions:\n          - us-east-1\n        fetchExtendedInventory: true\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      ec2:\n        awsRegions:\n          - us-east-1\n        duplicateEc2Tags: true\n        fetchIpAddresses: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      ecs:\n        awsRegions:\n          - us-east-1\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      efs:\n        awsRegions:\n          - us-east-1\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      elasticbeanstalk:\n        awsRegions:\n          - us-east-1\n        fetchExtendedInventory: true\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      elasticsearch:\n        awsRegions:\n          - us-east-1\n        fetchNodes: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      elb:\n        awsRegions:\n          - us-east-1\n        fetchExtendedInventory: true\n        fetchTags: true\n        metricsPollingInterval: 300\n      emr:\n        awsRegions:\n          - us-east-1\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      iam:\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      iot:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      kinesis:\n        awsRegions:\n          - us-east-1\n        fetchShards: true\n        fetchTags: true\n        metricsPollingInterval: 900\n        tagKey: tag key\n        tagValue: tag value\n      kinesisFirehose:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      lambda:\n        awsRegions:\n          - us-east-1\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      rds:\n        awsRegions:\n          - us-east-1\n        fetchTags: true\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      redshift:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n        tagKey: tag key\n        tagValue: tag value\n      route53:\n        fetchExtendedInventory: true\n        metricsPollingInterval: 300\n      ses:\n        awsRegions:\n          - us-east-1\n        metricsPollingInterval: 300\n      sns:\n        awsRegions:\n          - us-east-1\n        fetchExtendedInventory: true\n        metricsPollingInterval: 300\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Supported AWS Integrations\n\n\u003cdetails\u003e\n  \u003csummary\u003eExpand this section to view all supported AWS services supported, that may be integrated via this resource.\u003c/summary\u003e\n\n| Block                   | Description                   |\n|-------------------------|-------------------------------|\n| `alb`                   | ALB Integration               |\n| `api_gateway`           | API Gateway Integration       |\n| `auto_scaling`          | Auto Scaling Integration      |\n| `aws_app_sync`          | AppSync Integration           |\n| `aws_athena`            | Athena Integration            |\n| `aws_cognito`           | Cognito Integration           |\n| `aws_connect`           | Connect Integration           |\n| `aws_direct_connect`    | Direct Connect Integration    |\n| `aws_fsx`               | FSx Integration               |\n| `aws_glue`              | Glue Integration              |\n| `aws_kinesis_analytics` | Kinesis Analytics Integration |\n| `aws_media_convert`     | MediaConvert Integration      |\n| `aws_media_package_vod` | Media Package VOD Integration |\n| `aws_mq`                | MQ Integration                |\n| `aws_msk`               | MSK Integration               |\n| `aws_neptune`           | Neptune Integration           |\n| `aws_qldb`              | QLDB Integration              |\n| `aws_route53resolver`   | Route53 Resolver Integration  |\n| `aws_states`            | States Integration            |\n| `aws_transit_gateway`   | Transit Gateway Integration   |\n| `aws_waf`               | WAF Integration               |\n| `aws_wafv2`             | WAFv2 Integration             |\n| `billing`               | Billing Integration           |\n| `cloudfront`            | CloudFront Integration        |\n| `cloudtrail`            | CloudTrail Integration        |\n| `doc_db`                | DocumentDB Integration        |\n| `dynamodb`              | DynamoDB Integration          |\n| `ebs`                   | EBS Integration               |\n| `ec2`                   | EC2 Integration               |\n| `ecs`                   | ECS Integration               |\n| `efs`                   | EFS Integration               |\n| `elasticache`           | ElastiCache Integration       |\n| `elasticbeanstalk`      | Elastic Beanstalk Integration |\n| `elasticsearch`         | Elasticsearch Integration     |\n| `elb`                   | ELB Integration               |\n| `emr`                   | EMR Integration               |\n| `health`                | Health Integration            |\n| `iam`                   | IAM Integration               |\n| `iot`                   | IoT Integration               |\n| `kinesis`               | Kinesis Integration           |\n| `kinesis_firehose`      | Kinesis Firehose Integration  |\n| `lambda`                | Lambda Integration            |\n| `rds`                   | RDS Integration               |\n| `redshift`              | Redshift Integration          |\n| `route53`               | Route53 Integration           |\n| `s3`                    | S3 Integration                |\n| `ses`                   | SES Integration               |\n| `sns`                   | SNS Integration               |\n| `sqs`                   | SQS Integration               |\n| `trusted_advisor`       | Trusted Advisor Integration   |\n| `vpc`                   | VPC Integration               |\n| `x_ray`                 | X-Ray Integration             |\n\n\u003c/details\u003e\n\n## Import\n\nLinked AWS account integrations can be imported using the `id`, e.g.\n\nbash\n\n```sh\n$ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo \u003cid\u003e\n```\n\n",
+            "description": "\n\n## Import\n\nLinked AWS account integrations can be imported using the `id`, e.g.\n\nbash\n\n```sh\n$ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo \u003cid\u003e\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -8269,75 +8269,75 @@
                 },
                 "alb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAlb:AwsIntegrationsAlb",
-                    "description": "AWS ALB. See Integration blocks below for details.\n"
+                    "description": "ALB integration\n"
                 },
                 "apiGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsApiGateway:AwsIntegrationsApiGateway",
-                    "description": "AWS API Gateway. See Integration blocks below for details.\n"
+                    "description": "API Gateway integration\n"
                 },
                 "autoScaling": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAutoScaling:AwsIntegrationsAutoScaling",
-                    "description": "AWS Auto Scaling. See Integration blocks below for details.\n"
+                    "description": "AutoScaling integration\n"
                 },
                 "awsAppSync": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAppSync:AwsIntegrationsAwsAppSync",
-                    "description": "AWS AppSync. See Integration blocks below for details.\n"
+                    "description": "Aws Appsync integration\n"
                 },
                 "awsAthena": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAthena:AwsIntegrationsAwsAthena",
-                    "description": "AWS Athena. See Integration blocks below for details.\n"
+                    "description": "Aws Athena integration\n"
                 },
                 "awsCognito": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsCognito:AwsIntegrationsAwsCognito",
-                    "description": "AWS Cognito. See Integration blocks below for details.\n"
+                    "description": "Aws Cognito integration\n"
                 },
                 "awsConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsConnect:AwsIntegrationsAwsConnect",
-                    "description": "AWS Connect. See Integration blocks below for details.\n"
+                    "description": "Aws Connect integration\n"
                 },
                 "awsDirectConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsDirectConnect:AwsIntegrationsAwsDirectConnect",
-                    "description": "AWS Direct Connect. See Integration blocks below for details.\n"
+                    "description": "Aws Direct Connect integration\n"
                 },
                 "awsFsx": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsFsx:AwsIntegrationsAwsFsx",
-                    "description": "AWS FSx. See Integration blocks below for details.\n"
+                    "description": "Aws Fsx integration\n"
                 },
                 "awsGlue": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsGlue:AwsIntegrationsAwsGlue",
-                    "description": "AWS Glue. See Integration blocks below for details.\n"
+                    "description": "Aws Glue integration\n"
                 },
                 "awsKinesisAnalytics": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsKinesisAnalytics:AwsIntegrationsAwsKinesisAnalytics",
-                    "description": "AWS Kinesis Data Analytics. See Integration blocks below for details.\n"
+                    "description": "Aws Kinesis Analytics integration\n"
                 },
                 "awsMediaConvert": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaConvert:AwsIntegrationsAwsMediaConvert",
-                    "description": "AWS Media Convert. See Integration blocks below for details.\n"
+                    "description": "Aws Media Convert integration\n"
                 },
                 "awsMediaPackageVod": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaPackageVod:AwsIntegrationsAwsMediaPackageVod",
-                    "description": "AWS MediaPackage VOD. See Integration blocks below for details.\n"
+                    "description": "Aws Media PackageVod integration\n"
                 },
                 "awsMq": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMq:AwsIntegrationsAwsMq",
-                    "description": "AWS MQ. See Integration blocks below for details.\n"
+                    "description": "Aws Mq integration\n"
                 },
                 "awsMsk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMsk:AwsIntegrationsAwsMsk",
-                    "description": "Amazon Managed Kafka (MSK). See Integration blocks below for details.\n"
+                    "description": "Aws Msk integration\n"
                 },
                 "awsNeptune": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsNeptune:AwsIntegrationsAwsNeptune",
-                    "description": "AWS Neptune. See Integration blocks below for details.\n"
+                    "description": "Aws Neptune integration\n"
                 },
                 "awsQldb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsQldb:AwsIntegrationsAwsQldb",
-                    "description": "Amazon QLDB. See Integration blocks below for details.\n"
+                    "description": "Aws Qldb integration\n"
                 },
                 "awsRoute53resolver": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsRoute53resolver:AwsIntegrationsAwsRoute53resolver",
-                    "description": "AWS Route53 Resolver. See Integration blocks below for details.\n"
+                    "description": "Aws Route53resolver integration\n"
                 },
                 "awsStates": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsStates:AwsIntegrationsAwsStates",
@@ -8345,131 +8345,131 @@
                 },
                 "awsTransitGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsTransitGateway:AwsIntegrationsAwsTransitGateway",
-                    "description": "Amazon Transit Gateway. See Integration blocks below for details.\n"
+                    "description": "Aws Transit Gateway integration\n"
                 },
                 "awsWaf": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWaf:AwsIntegrationsAwsWaf",
-                    "description": "AWS WAF. See Integration blocks below for details.\n"
+                    "description": "Aws Waf integration\n"
                 },
                 "awsWafv2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWafv2:AwsIntegrationsAwsWafv2",
-                    "description": "AWS WAF V2. See Integration blocks below for details.\n"
+                    "description": "Aws Wafv2 integration\n"
                 },
                 "billing": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsBilling:AwsIntegrationsBilling",
-                    "description": "AWS Billing. See Integration blocks below for details.\n"
+                    "description": "Billing integration\n"
                 },
                 "cloudfront": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront",
-                    "description": "AWS CloudFront. See Integration blocks below for details.\n"
+                    "description": "Cloudfront integration\n"
                 },
                 "cloudtrail": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudtrail:AwsIntegrationsCloudtrail",
-                    "description": "AWS CloudTrail. See Integration blocks below for details.\n"
+                    "description": "CloudTrail integration\n"
                 },
                 "docDb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDocDb:AwsIntegrationsDocDb",
-                    "description": "AWS DocumentDB. See Integration blocks below for details.\n"
+                    "description": "Doc DB integration\n"
                 },
                 "dynamodb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDynamodb:AwsIntegrationsDynamodb",
-                    "description": "Amazon DynamoDB. See Integration blocks below for details.\n"
+                    "description": "Dynamo DB integration\n"
                 },
                 "ebs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEbs:AwsIntegrationsEbs",
-                    "description": "Amazon EBS. See Integration blocks below for details.\n"
+                    "description": "EBS integration\n"
                 },
                 "ec2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEc2:AwsIntegrationsEc2",
-                    "description": "Amazon EC2. See Integration blocks below for details.\n"
+                    "description": "Ec2 integration\n"
                 },
                 "ecs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEcs:AwsIntegrationsEcs",
-                    "description": "Amazon ECS. See Integration blocks below for details.\n"
+                    "description": "Ecs integration\n"
                 },
                 "efs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEfs:AwsIntegrationsEfs",
-                    "description": "Amazon EFS. See Integration blocks below for details.\n"
+                    "description": "Efs integration\n"
                 },
                 "elasticache": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticache:AwsIntegrationsElasticache",
-                    "description": "AWS ElastiCache. See Integration blocks below for details.\n"
+                    "description": "Elasticache integration\n"
                 },
                 "elasticbeanstalk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticbeanstalk:AwsIntegrationsElasticbeanstalk",
-                    "description": "AWS Elastic Beanstalk. See Integration blocks below for details.\n"
+                    "description": "Elastic Bean Stalk integration\n"
                 },
                 "elasticsearch": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticsearch:AwsIntegrationsElasticsearch",
-                    "description": "AWS ElasticSearch. See Integration blocks below for details.\n"
+                    "description": "Elastic Search integration\n"
                 },
                 "elb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElb:AwsIntegrationsElb",
-                    "description": "AWS ELB (Classic). See Integration blocks below for details.\n"
+                    "description": "Elb integration\n"
                 },
                 "emr": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEmr:AwsIntegrationsEmr",
-                    "description": "AWS EMR. See Integration blocks below for details.\n"
+                    "description": "Emr integration\n"
                 },
                 "health": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsHealth:AwsIntegrationsHealth",
-                    "description": "AWS Health. See Integration blocks below for details.\n"
+                    "description": "Health integration\n"
                 },
                 "iam": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIam:AwsIntegrationsIam",
-                    "description": "AWS IAM. See Integration blocks below for details.\n"
+                    "description": "Iam integration\n"
                 },
                 "iot": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIot:AwsIntegrationsIot",
-                    "description": "AWS IoT. See Integration blocks below for details.\n"
+                    "description": "Iot integration\n"
                 },
                 "kinesis": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesis:AwsIntegrationsKinesis",
-                    "description": "AWS Kinesis. See Integration blocks below for details.\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.\n"
+                    "description": "Kinesis integration\n"
                 },
                 "kinesisFirehose": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesisFirehose:AwsIntegrationsKinesisFirehose",
-                    "description": "Amazon Kinesis Data Firehose. See Integration blocks below for details.\n"
+                    "description": "Kinesis Firehose integration\n"
                 },
                 "lambda": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsLambda:AwsIntegrationsLambda",
-                    "description": "AWS Lambda. See Integration blocks below for details.\n"
+                    "description": "Lambda integration\n"
                 },
                 "linkedAccountId": {
                     "type": "string",
-                    "description": "The ID of the linked AWS account in New Relic.\n\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.\n"
+                    "description": "The ID of the linked AWS account in New Relic.\n"
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
-                    "description": "Amazon RDS. See Integration blocks below for details.\n"
+                    "description": "Rds integration\n"
                 },
                 "redshift": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRedshift:AwsIntegrationsRedshift",
-                    "description": "Amazon Redshift. See Integration blocks below for details.\n"
+                    "description": "Redshift integration\n"
                 },
                 "route53": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53",
-                    "description": "Amazon Route 53. See Integration blocks below for details.\n"
+                    "description": "Route53 integration\n"
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3",
-                    "description": "Amazon S3. See Integration blocks below for details.\n"
+                    "description": "S3 integration\n"
                 },
                 "ses": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSes:AwsIntegrationsSes",
-                    "description": "Amazon SES. See Integration blocks below for details.\n"
+                    "description": "Ses integration\n"
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSns:AwsIntegrationsSns",
-                    "description": "AWS SNS. See Integration blocks below for details.\n"
+                    "description": "Sns integration\n"
                 },
                 "sqs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSqs:AwsIntegrationsSqs",
-                    "description": "AWS SQS. See Integration blocks below for details.\n"
+                    "description": "SQS integration\n"
                 },
                 "trustedAdvisor": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsTrustedAdvisor:AwsIntegrationsTrustedAdvisor",
-                    "description": "AWS Trusted Advisor. See Integration blocks below for details.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n"
+                    "description": "Trusted Advisor integration\n"
                 },
                 "vpc": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsVpc:AwsIntegrationsVpc",
@@ -8477,7 +8477,7 @@
                 },
                 "xRay": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsXRay:AwsIntegrationsXRay",
-                    "description": "AWS X-Ray. See Integration blocks below for details.\nx\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.\n"
+                    "description": "X-Ray integration\n"
                 }
             },
             "required": [
@@ -8491,75 +8491,75 @@
                 },
                 "alb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAlb:AwsIntegrationsAlb",
-                    "description": "AWS ALB. See Integration blocks below for details.\n"
+                    "description": "ALB integration\n"
                 },
                 "apiGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsApiGateway:AwsIntegrationsApiGateway",
-                    "description": "AWS API Gateway. See Integration blocks below for details.\n"
+                    "description": "API Gateway integration\n"
                 },
                 "autoScaling": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAutoScaling:AwsIntegrationsAutoScaling",
-                    "description": "AWS Auto Scaling. See Integration blocks below for details.\n"
+                    "description": "AutoScaling integration\n"
                 },
                 "awsAppSync": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAppSync:AwsIntegrationsAwsAppSync",
-                    "description": "AWS AppSync. See Integration blocks below for details.\n"
+                    "description": "Aws Appsync integration\n"
                 },
                 "awsAthena": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAthena:AwsIntegrationsAwsAthena",
-                    "description": "AWS Athena. See Integration blocks below for details.\n"
+                    "description": "Aws Athena integration\n"
                 },
                 "awsCognito": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsCognito:AwsIntegrationsAwsCognito",
-                    "description": "AWS Cognito. See Integration blocks below for details.\n"
+                    "description": "Aws Cognito integration\n"
                 },
                 "awsConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsConnect:AwsIntegrationsAwsConnect",
-                    "description": "AWS Connect. See Integration blocks below for details.\n"
+                    "description": "Aws Connect integration\n"
                 },
                 "awsDirectConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsDirectConnect:AwsIntegrationsAwsDirectConnect",
-                    "description": "AWS Direct Connect. See Integration blocks below for details.\n"
+                    "description": "Aws Direct Connect integration\n"
                 },
                 "awsFsx": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsFsx:AwsIntegrationsAwsFsx",
-                    "description": "AWS FSx. See Integration blocks below for details.\n"
+                    "description": "Aws Fsx integration\n"
                 },
                 "awsGlue": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsGlue:AwsIntegrationsAwsGlue",
-                    "description": "AWS Glue. See Integration blocks below for details.\n"
+                    "description": "Aws Glue integration\n"
                 },
                 "awsKinesisAnalytics": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsKinesisAnalytics:AwsIntegrationsAwsKinesisAnalytics",
-                    "description": "AWS Kinesis Data Analytics. See Integration blocks below for details.\n"
+                    "description": "Aws Kinesis Analytics integration\n"
                 },
                 "awsMediaConvert": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaConvert:AwsIntegrationsAwsMediaConvert",
-                    "description": "AWS Media Convert. See Integration blocks below for details.\n"
+                    "description": "Aws Media Convert integration\n"
                 },
                 "awsMediaPackageVod": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaPackageVod:AwsIntegrationsAwsMediaPackageVod",
-                    "description": "AWS MediaPackage VOD. See Integration blocks below for details.\n"
+                    "description": "Aws Media PackageVod integration\n"
                 },
                 "awsMq": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMq:AwsIntegrationsAwsMq",
-                    "description": "AWS MQ. See Integration blocks below for details.\n"
+                    "description": "Aws Mq integration\n"
                 },
                 "awsMsk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMsk:AwsIntegrationsAwsMsk",
-                    "description": "Amazon Managed Kafka (MSK). See Integration blocks below for details.\n"
+                    "description": "Aws Msk integration\n"
                 },
                 "awsNeptune": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsNeptune:AwsIntegrationsAwsNeptune",
-                    "description": "AWS Neptune. See Integration blocks below for details.\n"
+                    "description": "Aws Neptune integration\n"
                 },
                 "awsQldb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsQldb:AwsIntegrationsAwsQldb",
-                    "description": "Amazon QLDB. See Integration blocks below for details.\n"
+                    "description": "Aws Qldb integration\n"
                 },
                 "awsRoute53resolver": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsRoute53resolver:AwsIntegrationsAwsRoute53resolver",
-                    "description": "AWS Route53 Resolver. See Integration blocks below for details.\n"
+                    "description": "Aws Route53resolver integration\n"
                 },
                 "awsStates": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsStates:AwsIntegrationsAwsStates",
@@ -8567,132 +8567,132 @@
                 },
                 "awsTransitGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsTransitGateway:AwsIntegrationsAwsTransitGateway",
-                    "description": "Amazon Transit Gateway. See Integration blocks below for details.\n"
+                    "description": "Aws Transit Gateway integration\n"
                 },
                 "awsWaf": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWaf:AwsIntegrationsAwsWaf",
-                    "description": "AWS WAF. See Integration blocks below for details.\n"
+                    "description": "Aws Waf integration\n"
                 },
                 "awsWafv2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWafv2:AwsIntegrationsAwsWafv2",
-                    "description": "AWS WAF V2. See Integration blocks below for details.\n"
+                    "description": "Aws Wafv2 integration\n"
                 },
                 "billing": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsBilling:AwsIntegrationsBilling",
-                    "description": "AWS Billing. See Integration blocks below for details.\n"
+                    "description": "Billing integration\n"
                 },
                 "cloudfront": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront",
-                    "description": "AWS CloudFront. See Integration blocks below for details.\n"
+                    "description": "Cloudfront integration\n"
                 },
                 "cloudtrail": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudtrail:AwsIntegrationsCloudtrail",
-                    "description": "AWS CloudTrail. See Integration blocks below for details.\n"
+                    "description": "CloudTrail integration\n"
                 },
                 "docDb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDocDb:AwsIntegrationsDocDb",
-                    "description": "AWS DocumentDB. See Integration blocks below for details.\n"
+                    "description": "Doc DB integration\n"
                 },
                 "dynamodb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDynamodb:AwsIntegrationsDynamodb",
-                    "description": "Amazon DynamoDB. See Integration blocks below for details.\n"
+                    "description": "Dynamo DB integration\n"
                 },
                 "ebs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEbs:AwsIntegrationsEbs",
-                    "description": "Amazon EBS. See Integration blocks below for details.\n"
+                    "description": "EBS integration\n"
                 },
                 "ec2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEc2:AwsIntegrationsEc2",
-                    "description": "Amazon EC2. See Integration blocks below for details.\n"
+                    "description": "Ec2 integration\n"
                 },
                 "ecs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEcs:AwsIntegrationsEcs",
-                    "description": "Amazon ECS. See Integration blocks below for details.\n"
+                    "description": "Ecs integration\n"
                 },
                 "efs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEfs:AwsIntegrationsEfs",
-                    "description": "Amazon EFS. See Integration blocks below for details.\n"
+                    "description": "Efs integration\n"
                 },
                 "elasticache": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticache:AwsIntegrationsElasticache",
-                    "description": "AWS ElastiCache. See Integration blocks below for details.\n"
+                    "description": "Elasticache integration\n"
                 },
                 "elasticbeanstalk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticbeanstalk:AwsIntegrationsElasticbeanstalk",
-                    "description": "AWS Elastic Beanstalk. See Integration blocks below for details.\n"
+                    "description": "Elastic Bean Stalk integration\n"
                 },
                 "elasticsearch": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticsearch:AwsIntegrationsElasticsearch",
-                    "description": "AWS ElasticSearch. See Integration blocks below for details.\n"
+                    "description": "Elastic Search integration\n"
                 },
                 "elb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElb:AwsIntegrationsElb",
-                    "description": "AWS ELB (Classic). See Integration blocks below for details.\n"
+                    "description": "Elb integration\n"
                 },
                 "emr": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEmr:AwsIntegrationsEmr",
-                    "description": "AWS EMR. See Integration blocks below for details.\n"
+                    "description": "Emr integration\n"
                 },
                 "health": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsHealth:AwsIntegrationsHealth",
-                    "description": "AWS Health. See Integration blocks below for details.\n"
+                    "description": "Health integration\n"
                 },
                 "iam": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIam:AwsIntegrationsIam",
-                    "description": "AWS IAM. See Integration blocks below for details.\n"
+                    "description": "Iam integration\n"
                 },
                 "iot": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIot:AwsIntegrationsIot",
-                    "description": "AWS IoT. See Integration blocks below for details.\n"
+                    "description": "Iot integration\n"
                 },
                 "kinesis": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesis:AwsIntegrationsKinesis",
-                    "description": "AWS Kinesis. See Integration blocks below for details.\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.\n"
+                    "description": "Kinesis integration\n"
                 },
                 "kinesisFirehose": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesisFirehose:AwsIntegrationsKinesisFirehose",
-                    "description": "Amazon Kinesis Data Firehose. See Integration blocks below for details.\n"
+                    "description": "Kinesis Firehose integration\n"
                 },
                 "lambda": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsLambda:AwsIntegrationsLambda",
-                    "description": "AWS Lambda. See Integration blocks below for details.\n"
+                    "description": "Lambda integration\n"
                 },
                 "linkedAccountId": {
                     "type": "string",
-                    "description": "The ID of the linked AWS account in New Relic.\n\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.\n",
+                    "description": "The ID of the linked AWS account in New Relic.\n",
                     "willReplaceOnChanges": true
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
-                    "description": "Amazon RDS. See Integration blocks below for details.\n"
+                    "description": "Rds integration\n"
                 },
                 "redshift": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRedshift:AwsIntegrationsRedshift",
-                    "description": "Amazon Redshift. See Integration blocks below for details.\n"
+                    "description": "Redshift integration\n"
                 },
                 "route53": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53",
-                    "description": "Amazon Route 53. See Integration blocks below for details.\n"
+                    "description": "Route53 integration\n"
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3",
-                    "description": "Amazon S3. See Integration blocks below for details.\n"
+                    "description": "S3 integration\n"
                 },
                 "ses": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSes:AwsIntegrationsSes",
-                    "description": "Amazon SES. See Integration blocks below for details.\n"
+                    "description": "Ses integration\n"
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSns:AwsIntegrationsSns",
-                    "description": "AWS SNS. See Integration blocks below for details.\n"
+                    "description": "Sns integration\n"
                 },
                 "sqs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSqs:AwsIntegrationsSqs",
-                    "description": "AWS SQS. See Integration blocks below for details.\n"
+                    "description": "SQS integration\n"
                 },
                 "trustedAdvisor": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsTrustedAdvisor:AwsIntegrationsTrustedAdvisor",
-                    "description": "AWS Trusted Advisor. See Integration blocks below for details.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n"
+                    "description": "Trusted Advisor integration\n"
                 },
                 "vpc": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsVpc:AwsIntegrationsVpc",
@@ -8700,7 +8700,7 @@
                 },
                 "xRay": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsXRay:AwsIntegrationsXRay",
-                    "description": "AWS X-Ray. See Integration blocks below for details.\nx\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.\n"
+                    "description": "X-Ray integration\n"
                 }
             },
             "requiredInputs": [
@@ -8715,75 +8715,75 @@
                     },
                     "alb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAlb:AwsIntegrationsAlb",
-                        "description": "AWS ALB. See Integration blocks below for details.\n"
+                        "description": "ALB integration\n"
                     },
                     "apiGateway": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsApiGateway:AwsIntegrationsApiGateway",
-                        "description": "AWS API Gateway. See Integration blocks below for details.\n"
+                        "description": "API Gateway integration\n"
                     },
                     "autoScaling": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAutoScaling:AwsIntegrationsAutoScaling",
-                        "description": "AWS Auto Scaling. See Integration blocks below for details.\n"
+                        "description": "AutoScaling integration\n"
                     },
                     "awsAppSync": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAppSync:AwsIntegrationsAwsAppSync",
-                        "description": "AWS AppSync. See Integration blocks below for details.\n"
+                        "description": "Aws Appsync integration\n"
                     },
                     "awsAthena": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAthena:AwsIntegrationsAwsAthena",
-                        "description": "AWS Athena. See Integration blocks below for details.\n"
+                        "description": "Aws Athena integration\n"
                     },
                     "awsCognito": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsCognito:AwsIntegrationsAwsCognito",
-                        "description": "AWS Cognito. See Integration blocks below for details.\n"
+                        "description": "Aws Cognito integration\n"
                     },
                     "awsConnect": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsConnect:AwsIntegrationsAwsConnect",
-                        "description": "AWS Connect. See Integration blocks below for details.\n"
+                        "description": "Aws Connect integration\n"
                     },
                     "awsDirectConnect": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsDirectConnect:AwsIntegrationsAwsDirectConnect",
-                        "description": "AWS Direct Connect. See Integration blocks below for details.\n"
+                        "description": "Aws Direct Connect integration\n"
                     },
                     "awsFsx": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsFsx:AwsIntegrationsAwsFsx",
-                        "description": "AWS FSx. See Integration blocks below for details.\n"
+                        "description": "Aws Fsx integration\n"
                     },
                     "awsGlue": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsGlue:AwsIntegrationsAwsGlue",
-                        "description": "AWS Glue. See Integration blocks below for details.\n"
+                        "description": "Aws Glue integration\n"
                     },
                     "awsKinesisAnalytics": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsKinesisAnalytics:AwsIntegrationsAwsKinesisAnalytics",
-                        "description": "AWS Kinesis Data Analytics. See Integration blocks below for details.\n"
+                        "description": "Aws Kinesis Analytics integration\n"
                     },
                     "awsMediaConvert": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaConvert:AwsIntegrationsAwsMediaConvert",
-                        "description": "AWS Media Convert. See Integration blocks below for details.\n"
+                        "description": "Aws Media Convert integration\n"
                     },
                     "awsMediaPackageVod": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaPackageVod:AwsIntegrationsAwsMediaPackageVod",
-                        "description": "AWS MediaPackage VOD. See Integration blocks below for details.\n"
+                        "description": "Aws Media PackageVod integration\n"
                     },
                     "awsMq": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMq:AwsIntegrationsAwsMq",
-                        "description": "AWS MQ. See Integration blocks below for details.\n"
+                        "description": "Aws Mq integration\n"
                     },
                     "awsMsk": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMsk:AwsIntegrationsAwsMsk",
-                        "description": "Amazon Managed Kafka (MSK). See Integration blocks below for details.\n"
+                        "description": "Aws Msk integration\n"
                     },
                     "awsNeptune": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsNeptune:AwsIntegrationsAwsNeptune",
-                        "description": "AWS Neptune. See Integration blocks below for details.\n"
+                        "description": "Aws Neptune integration\n"
                     },
                     "awsQldb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsQldb:AwsIntegrationsAwsQldb",
-                        "description": "Amazon QLDB. See Integration blocks below for details.\n"
+                        "description": "Aws Qldb integration\n"
                     },
                     "awsRoute53resolver": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsRoute53resolver:AwsIntegrationsAwsRoute53resolver",
-                        "description": "AWS Route53 Resolver. See Integration blocks below for details.\n"
+                        "description": "Aws Route53resolver integration\n"
                     },
                     "awsStates": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsStates:AwsIntegrationsAwsStates",
@@ -8791,132 +8791,132 @@
                     },
                     "awsTransitGateway": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsTransitGateway:AwsIntegrationsAwsTransitGateway",
-                        "description": "Amazon Transit Gateway. See Integration blocks below for details.\n"
+                        "description": "Aws Transit Gateway integration\n"
                     },
                     "awsWaf": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWaf:AwsIntegrationsAwsWaf",
-                        "description": "AWS WAF. See Integration blocks below for details.\n"
+                        "description": "Aws Waf integration\n"
                     },
                     "awsWafv2": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWafv2:AwsIntegrationsAwsWafv2",
-                        "description": "AWS WAF V2. See Integration blocks below for details.\n"
+                        "description": "Aws Wafv2 integration\n"
                     },
                     "billing": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsBilling:AwsIntegrationsBilling",
-                        "description": "AWS Billing. See Integration blocks below for details.\n"
+                        "description": "Billing integration\n"
                     },
                     "cloudfront": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront",
-                        "description": "AWS CloudFront. See Integration blocks below for details.\n"
+                        "description": "Cloudfront integration\n"
                     },
                     "cloudtrail": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudtrail:AwsIntegrationsCloudtrail",
-                        "description": "AWS CloudTrail. See Integration blocks below for details.\n"
+                        "description": "CloudTrail integration\n"
                     },
                     "docDb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsDocDb:AwsIntegrationsDocDb",
-                        "description": "AWS DocumentDB. See Integration blocks below for details.\n"
+                        "description": "Doc DB integration\n"
                     },
                     "dynamodb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsDynamodb:AwsIntegrationsDynamodb",
-                        "description": "Amazon DynamoDB. See Integration blocks below for details.\n"
+                        "description": "Dynamo DB integration\n"
                     },
                     "ebs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEbs:AwsIntegrationsEbs",
-                        "description": "Amazon EBS. See Integration blocks below for details.\n"
+                        "description": "EBS integration\n"
                     },
                     "ec2": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEc2:AwsIntegrationsEc2",
-                        "description": "Amazon EC2. See Integration blocks below for details.\n"
+                        "description": "Ec2 integration\n"
                     },
                     "ecs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEcs:AwsIntegrationsEcs",
-                        "description": "Amazon ECS. See Integration blocks below for details.\n"
+                        "description": "Ecs integration\n"
                     },
                     "efs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEfs:AwsIntegrationsEfs",
-                        "description": "Amazon EFS. See Integration blocks below for details.\n"
+                        "description": "Efs integration\n"
                     },
                     "elasticache": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticache:AwsIntegrationsElasticache",
-                        "description": "AWS ElastiCache. See Integration blocks below for details.\n"
+                        "description": "Elasticache integration\n"
                     },
                     "elasticbeanstalk": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticbeanstalk:AwsIntegrationsElasticbeanstalk",
-                        "description": "AWS Elastic Beanstalk. See Integration blocks below for details.\n"
+                        "description": "Elastic Bean Stalk integration\n"
                     },
                     "elasticsearch": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticsearch:AwsIntegrationsElasticsearch",
-                        "description": "AWS ElasticSearch. See Integration blocks below for details.\n"
+                        "description": "Elastic Search integration\n"
                     },
                     "elb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElb:AwsIntegrationsElb",
-                        "description": "AWS ELB (Classic). See Integration blocks below for details.\n"
+                        "description": "Elb integration\n"
                     },
                     "emr": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEmr:AwsIntegrationsEmr",
-                        "description": "AWS EMR. See Integration blocks below for details.\n"
+                        "description": "Emr integration\n"
                     },
                     "health": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsHealth:AwsIntegrationsHealth",
-                        "description": "AWS Health. See Integration blocks below for details.\n"
+                        "description": "Health integration\n"
                     },
                     "iam": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsIam:AwsIntegrationsIam",
-                        "description": "AWS IAM. See Integration blocks below for details.\n"
+                        "description": "Iam integration\n"
                     },
                     "iot": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsIot:AwsIntegrationsIot",
-                        "description": "AWS IoT. See Integration blocks below for details.\n"
+                        "description": "Iot integration\n"
                     },
                     "kinesis": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesis:AwsIntegrationsKinesis",
-                        "description": "AWS Kinesis. See Integration blocks below for details.\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.\n"
+                        "description": "Kinesis integration\n"
                     },
                     "kinesisFirehose": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesisFirehose:AwsIntegrationsKinesisFirehose",
-                        "description": "Amazon Kinesis Data Firehose. See Integration blocks below for details.\n"
+                        "description": "Kinesis Firehose integration\n"
                     },
                     "lambda": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsLambda:AwsIntegrationsLambda",
-                        "description": "AWS Lambda. See Integration blocks below for details.\n"
+                        "description": "Lambda integration\n"
                     },
                     "linkedAccountId": {
                         "type": "string",
-                        "description": "The ID of the linked AWS account in New Relic.\n\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.\n",
+                        "description": "The ID of the linked AWS account in New Relic.\n",
                         "willReplaceOnChanges": true
                     },
                     "rds": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
-                        "description": "Amazon RDS. See Integration blocks below for details.\n"
+                        "description": "Rds integration\n"
                     },
                     "redshift": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRedshift:AwsIntegrationsRedshift",
-                        "description": "Amazon Redshift. See Integration blocks below for details.\n"
+                        "description": "Redshift integration\n"
                     },
                     "route53": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53",
-                        "description": "Amazon Route 53. See Integration blocks below for details.\n"
+                        "description": "Route53 integration\n"
                     },
                     "s3": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3",
-                        "description": "Amazon S3. See Integration blocks below for details.\n"
+                        "description": "S3 integration\n"
                     },
                     "ses": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsSes:AwsIntegrationsSes",
-                        "description": "Amazon SES. See Integration blocks below for details.\n"
+                        "description": "Ses integration\n"
                     },
                     "sns": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsSns:AwsIntegrationsSns",
-                        "description": "AWS SNS. See Integration blocks below for details.\n"
+                        "description": "Sns integration\n"
                     },
                     "sqs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsSqs:AwsIntegrationsSqs",
-                        "description": "AWS SQS. See Integration blocks below for details.\n"
+                        "description": "SQS integration\n"
                     },
                     "trustedAdvisor": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsTrustedAdvisor:AwsIntegrationsTrustedAdvisor",
-                        "description": "AWS Trusted Advisor. See Integration blocks below for details.\n\nAll other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**\n"
+                        "description": "Trusted Advisor integration\n"
                     },
                     "vpc": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsVpc:AwsIntegrationsVpc",
@@ -8924,7 +8924,7 @@
                     },
                     "xRay": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsXRay:AwsIntegrationsXRay",
-                        "description": "AWS X-Ray. See Integration blocks below for details.\nx\n\nThe following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.\n"
+                        "description": "X-Ray integration\n"
                     }
                 },
                 "type": "object"
