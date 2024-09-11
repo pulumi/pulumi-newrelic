@@ -84,14 +84,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS ALB. See Integration blocks below for details.
+     * ALB integration
      * 
      */
     @Import(name="alb")
     private @Nullable Output<AwsIntegrationsAlbArgs> alb;
 
     /**
-     * @return AWS ALB. See Integration blocks below for details.
+     * @return ALB integration
      * 
      */
     public Optional<Output<AwsIntegrationsAlbArgs>> alb() {
@@ -99,14 +99,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS API Gateway. See Integration blocks below for details.
+     * API Gateway integration
      * 
      */
     @Import(name="apiGateway")
     private @Nullable Output<AwsIntegrationsApiGatewayArgs> apiGateway;
 
     /**
-     * @return AWS API Gateway. See Integration blocks below for details.
+     * @return API Gateway integration
      * 
      */
     public Optional<Output<AwsIntegrationsApiGatewayArgs>> apiGateway() {
@@ -114,14 +114,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Auto Scaling. See Integration blocks below for details.
+     * AutoScaling integration
      * 
      */
     @Import(name="autoScaling")
     private @Nullable Output<AwsIntegrationsAutoScalingArgs> autoScaling;
 
     /**
-     * @return AWS Auto Scaling. See Integration blocks below for details.
+     * @return AutoScaling integration
      * 
      */
     public Optional<Output<AwsIntegrationsAutoScalingArgs>> autoScaling() {
@@ -129,14 +129,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS AppSync. See Integration blocks below for details.
+     * Aws Appsync integration
      * 
      */
     @Import(name="awsAppSync")
     private @Nullable Output<AwsIntegrationsAwsAppSyncArgs> awsAppSync;
 
     /**
-     * @return AWS AppSync. See Integration blocks below for details.
+     * @return Aws Appsync integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsAppSyncArgs>> awsAppSync() {
@@ -144,14 +144,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Athena. See Integration blocks below for details.
+     * Aws Athena integration
      * 
      */
     @Import(name="awsAthena")
     private @Nullable Output<AwsIntegrationsAwsAthenaArgs> awsAthena;
 
     /**
-     * @return AWS Athena. See Integration blocks below for details.
+     * @return Aws Athena integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsAthenaArgs>> awsAthena() {
@@ -159,14 +159,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Cognito. See Integration blocks below for details.
+     * Aws Cognito integration
      * 
      */
     @Import(name="awsCognito")
     private @Nullable Output<AwsIntegrationsAwsCognitoArgs> awsCognito;
 
     /**
-     * @return AWS Cognito. See Integration blocks below for details.
+     * @return Aws Cognito integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsCognitoArgs>> awsCognito() {
@@ -174,14 +174,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Connect. See Integration blocks below for details.
+     * Aws Connect integration
      * 
      */
     @Import(name="awsConnect")
     private @Nullable Output<AwsIntegrationsAwsConnectArgs> awsConnect;
 
     /**
-     * @return AWS Connect. See Integration blocks below for details.
+     * @return Aws Connect integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsConnectArgs>> awsConnect() {
@@ -189,14 +189,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Direct Connect. See Integration blocks below for details.
+     * Aws Direct Connect integration
      * 
      */
     @Import(name="awsDirectConnect")
     private @Nullable Output<AwsIntegrationsAwsDirectConnectArgs> awsDirectConnect;
 
     /**
-     * @return AWS Direct Connect. See Integration blocks below for details.
+     * @return Aws Direct Connect integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsDirectConnectArgs>> awsDirectConnect() {
@@ -204,14 +204,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS FSx. See Integration blocks below for details.
+     * Aws Fsx integration
      * 
      */
     @Import(name="awsFsx")
     private @Nullable Output<AwsIntegrationsAwsFsxArgs> awsFsx;
 
     /**
-     * @return AWS FSx. See Integration blocks below for details.
+     * @return Aws Fsx integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsFsxArgs>> awsFsx() {
@@ -219,14 +219,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Glue. See Integration blocks below for details.
+     * Aws Glue integration
      * 
      */
     @Import(name="awsGlue")
     private @Nullable Output<AwsIntegrationsAwsGlueArgs> awsGlue;
 
     /**
-     * @return AWS Glue. See Integration blocks below for details.
+     * @return Aws Glue integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsGlueArgs>> awsGlue() {
@@ -234,14 +234,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Kinesis Data Analytics. See Integration blocks below for details.
+     * Aws Kinesis Analytics integration
      * 
      */
     @Import(name="awsKinesisAnalytics")
     private @Nullable Output<AwsIntegrationsAwsKinesisAnalyticsArgs> awsKinesisAnalytics;
 
     /**
-     * @return AWS Kinesis Data Analytics. See Integration blocks below for details.
+     * @return Aws Kinesis Analytics integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsKinesisAnalyticsArgs>> awsKinesisAnalytics() {
@@ -249,14 +249,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Media Convert. See Integration blocks below for details.
+     * Aws Media Convert integration
      * 
      */
     @Import(name="awsMediaConvert")
     private @Nullable Output<AwsIntegrationsAwsMediaConvertArgs> awsMediaConvert;
 
     /**
-     * @return AWS Media Convert. See Integration blocks below for details.
+     * @return Aws Media Convert integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsMediaConvertArgs>> awsMediaConvert() {
@@ -264,14 +264,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS MediaPackage VOD. See Integration blocks below for details.
+     * Aws Media PackageVod integration
      * 
      */
     @Import(name="awsMediaPackageVod")
     private @Nullable Output<AwsIntegrationsAwsMediaPackageVodArgs> awsMediaPackageVod;
 
     /**
-     * @return AWS MediaPackage VOD. See Integration blocks below for details.
+     * @return Aws Media PackageVod integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsMediaPackageVodArgs>> awsMediaPackageVod() {
@@ -279,14 +279,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS MQ. See Integration blocks below for details.
+     * Aws Mq integration
      * 
      */
     @Import(name="awsMq")
     private @Nullable Output<AwsIntegrationsAwsMqArgs> awsMq;
 
     /**
-     * @return AWS MQ. See Integration blocks below for details.
+     * @return Aws Mq integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsMqArgs>> awsMq() {
@@ -294,14 +294,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Managed Kafka (MSK). See Integration blocks below for details.
+     * Aws Msk integration
      * 
      */
     @Import(name="awsMsk")
     private @Nullable Output<AwsIntegrationsAwsMskArgs> awsMsk;
 
     /**
-     * @return Amazon Managed Kafka (MSK). See Integration blocks below for details.
+     * @return Aws Msk integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsMskArgs>> awsMsk() {
@@ -309,14 +309,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Neptune. See Integration blocks below for details.
+     * Aws Neptune integration
      * 
      */
     @Import(name="awsNeptune")
     private @Nullable Output<AwsIntegrationsAwsNeptuneArgs> awsNeptune;
 
     /**
-     * @return AWS Neptune. See Integration blocks below for details.
+     * @return Aws Neptune integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsNeptuneArgs>> awsNeptune() {
@@ -324,14 +324,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon QLDB. See Integration blocks below for details.
+     * Aws Qldb integration
      * 
      */
     @Import(name="awsQldb")
     private @Nullable Output<AwsIntegrationsAwsQldbArgs> awsQldb;
 
     /**
-     * @return Amazon QLDB. See Integration blocks below for details.
+     * @return Aws Qldb integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsQldbArgs>> awsQldb() {
@@ -339,14 +339,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Route53 Resolver. See Integration blocks below for details.
+     * Aws Route53resolver integration
      * 
      */
     @Import(name="awsRoute53resolver")
     private @Nullable Output<AwsIntegrationsAwsRoute53resolverArgs> awsRoute53resolver;
 
     /**
-     * @return AWS Route53 Resolver. See Integration blocks below for details.
+     * @return Aws Route53resolver integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsRoute53resolverArgs>> awsRoute53resolver() {
@@ -369,14 +369,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Transit Gateway. See Integration blocks below for details.
+     * Aws Transit Gateway integration
      * 
      */
     @Import(name="awsTransitGateway")
     private @Nullable Output<AwsIntegrationsAwsTransitGatewayArgs> awsTransitGateway;
 
     /**
-     * @return Amazon Transit Gateway. See Integration blocks below for details.
+     * @return Aws Transit Gateway integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsTransitGatewayArgs>> awsTransitGateway() {
@@ -384,14 +384,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS WAF. See Integration blocks below for details.
+     * Aws Waf integration
      * 
      */
     @Import(name="awsWaf")
     private @Nullable Output<AwsIntegrationsAwsWafArgs> awsWaf;
 
     /**
-     * @return AWS WAF. See Integration blocks below for details.
+     * @return Aws Waf integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsWafArgs>> awsWaf() {
@@ -399,14 +399,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS WAF V2. See Integration blocks below for details.
+     * Aws Wafv2 integration
      * 
      */
     @Import(name="awsWafv2")
     private @Nullable Output<AwsIntegrationsAwsWafv2Args> awsWafv2;
 
     /**
-     * @return AWS WAF V2. See Integration blocks below for details.
+     * @return Aws Wafv2 integration
      * 
      */
     public Optional<Output<AwsIntegrationsAwsWafv2Args>> awsWafv2() {
@@ -414,14 +414,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Billing. See Integration blocks below for details.
+     * Billing integration
      * 
      */
     @Import(name="billing")
     private @Nullable Output<AwsIntegrationsBillingArgs> billing;
 
     /**
-     * @return AWS Billing. See Integration blocks below for details.
+     * @return Billing integration
      * 
      */
     public Optional<Output<AwsIntegrationsBillingArgs>> billing() {
@@ -429,14 +429,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS CloudFront. See Integration blocks below for details.
+     * Cloudfront integration
      * 
      */
     @Import(name="cloudfront")
     private @Nullable Output<AwsIntegrationsCloudfrontArgs> cloudfront;
 
     /**
-     * @return AWS CloudFront. See Integration blocks below for details.
+     * @return Cloudfront integration
      * 
      */
     public Optional<Output<AwsIntegrationsCloudfrontArgs>> cloudfront() {
@@ -444,14 +444,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS CloudTrail. See Integration blocks below for details.
+     * CloudTrail integration
      * 
      */
     @Import(name="cloudtrail")
     private @Nullable Output<AwsIntegrationsCloudtrailArgs> cloudtrail;
 
     /**
-     * @return AWS CloudTrail. See Integration blocks below for details.
+     * @return CloudTrail integration
      * 
      */
     public Optional<Output<AwsIntegrationsCloudtrailArgs>> cloudtrail() {
@@ -459,14 +459,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS DocumentDB. See Integration blocks below for details.
+     * Doc DB integration
      * 
      */
     @Import(name="docDb")
     private @Nullable Output<AwsIntegrationsDocDbArgs> docDb;
 
     /**
-     * @return AWS DocumentDB. See Integration blocks below for details.
+     * @return Doc DB integration
      * 
      */
     public Optional<Output<AwsIntegrationsDocDbArgs>> docDb() {
@@ -474,14 +474,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon DynamoDB. See Integration blocks below for details.
+     * Dynamo DB integration
      * 
      */
     @Import(name="dynamodb")
     private @Nullable Output<AwsIntegrationsDynamodbArgs> dynamodb;
 
     /**
-     * @return Amazon DynamoDB. See Integration blocks below for details.
+     * @return Dynamo DB integration
      * 
      */
     public Optional<Output<AwsIntegrationsDynamodbArgs>> dynamodb() {
@@ -489,14 +489,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon EBS. See Integration blocks below for details.
+     * EBS integration
      * 
      */
     @Import(name="ebs")
     private @Nullable Output<AwsIntegrationsEbsArgs> ebs;
 
     /**
-     * @return Amazon EBS. See Integration blocks below for details.
+     * @return EBS integration
      * 
      */
     public Optional<Output<AwsIntegrationsEbsArgs>> ebs() {
@@ -504,14 +504,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon EC2. See Integration blocks below for details.
+     * Ec2 integration
      * 
      */
     @Import(name="ec2")
     private @Nullable Output<AwsIntegrationsEc2Args> ec2;
 
     /**
-     * @return Amazon EC2. See Integration blocks below for details.
+     * @return Ec2 integration
      * 
      */
     public Optional<Output<AwsIntegrationsEc2Args>> ec2() {
@@ -519,14 +519,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon ECS. See Integration blocks below for details.
+     * Ecs integration
      * 
      */
     @Import(name="ecs")
     private @Nullable Output<AwsIntegrationsEcsArgs> ecs;
 
     /**
-     * @return Amazon ECS. See Integration blocks below for details.
+     * @return Ecs integration
      * 
      */
     public Optional<Output<AwsIntegrationsEcsArgs>> ecs() {
@@ -534,14 +534,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon EFS. See Integration blocks below for details.
+     * Efs integration
      * 
      */
     @Import(name="efs")
     private @Nullable Output<AwsIntegrationsEfsArgs> efs;
 
     /**
-     * @return Amazon EFS. See Integration blocks below for details.
+     * @return Efs integration
      * 
      */
     public Optional<Output<AwsIntegrationsEfsArgs>> efs() {
@@ -549,14 +549,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS ElastiCache. See Integration blocks below for details.
+     * Elasticache integration
      * 
      */
     @Import(name="elasticache")
     private @Nullable Output<AwsIntegrationsElasticacheArgs> elasticache;
 
     /**
-     * @return AWS ElastiCache. See Integration blocks below for details.
+     * @return Elasticache integration
      * 
      */
     public Optional<Output<AwsIntegrationsElasticacheArgs>> elasticache() {
@@ -564,14 +564,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Elastic Beanstalk. See Integration blocks below for details.
+     * Elastic Bean Stalk integration
      * 
      */
     @Import(name="elasticbeanstalk")
     private @Nullable Output<AwsIntegrationsElasticbeanstalkArgs> elasticbeanstalk;
 
     /**
-     * @return AWS Elastic Beanstalk. See Integration blocks below for details.
+     * @return Elastic Bean Stalk integration
      * 
      */
     public Optional<Output<AwsIntegrationsElasticbeanstalkArgs>> elasticbeanstalk() {
@@ -579,14 +579,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS ElasticSearch. See Integration blocks below for details.
+     * Elastic Search integration
      * 
      */
     @Import(name="elasticsearch")
     private @Nullable Output<AwsIntegrationsElasticsearchArgs> elasticsearch;
 
     /**
-     * @return AWS ElasticSearch. See Integration blocks below for details.
+     * @return Elastic Search integration
      * 
      */
     public Optional<Output<AwsIntegrationsElasticsearchArgs>> elasticsearch() {
@@ -594,14 +594,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS ELB (Classic). See Integration blocks below for details.
+     * Elb integration
      * 
      */
     @Import(name="elb")
     private @Nullable Output<AwsIntegrationsElbArgs> elb;
 
     /**
-     * @return AWS ELB (Classic). See Integration blocks below for details.
+     * @return Elb integration
      * 
      */
     public Optional<Output<AwsIntegrationsElbArgs>> elb() {
@@ -609,14 +609,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS EMR. See Integration blocks below for details.
+     * Emr integration
      * 
      */
     @Import(name="emr")
     private @Nullable Output<AwsIntegrationsEmrArgs> emr;
 
     /**
-     * @return AWS EMR. See Integration blocks below for details.
+     * @return Emr integration
      * 
      */
     public Optional<Output<AwsIntegrationsEmrArgs>> emr() {
@@ -624,14 +624,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Health. See Integration blocks below for details.
+     * Health integration
      * 
      */
     @Import(name="health")
     private @Nullable Output<AwsIntegrationsHealthArgs> health;
 
     /**
-     * @return AWS Health. See Integration blocks below for details.
+     * @return Health integration
      * 
      */
     public Optional<Output<AwsIntegrationsHealthArgs>> health() {
@@ -639,14 +639,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS IAM. See Integration blocks below for details.
+     * Iam integration
      * 
      */
     @Import(name="iam")
     private @Nullable Output<AwsIntegrationsIamArgs> iam;
 
     /**
-     * @return AWS IAM. See Integration blocks below for details.
+     * @return Iam integration
      * 
      */
     public Optional<Output<AwsIntegrationsIamArgs>> iam() {
@@ -654,14 +654,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS IoT. See Integration blocks below for details.
+     * Iot integration
      * 
      */
     @Import(name="iot")
     private @Nullable Output<AwsIntegrationsIotArgs> iot;
 
     /**
-     * @return AWS IoT. See Integration blocks below for details.
+     * @return Iot integration
      * 
      */
     public Optional<Output<AwsIntegrationsIotArgs>> iot() {
@@ -669,18 +669,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Kinesis. See Integration blocks below for details.
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * Kinesis integration
      * 
      */
     @Import(name="kinesis")
     private @Nullable Output<AwsIntegrationsKinesisArgs> kinesis;
 
     /**
-     * @return AWS Kinesis. See Integration blocks below for details.
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * @return Kinesis integration
      * 
      */
     public Optional<Output<AwsIntegrationsKinesisArgs>> kinesis() {
@@ -688,14 +684,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Kinesis Data Firehose. See Integration blocks below for details.
+     * Kinesis Firehose integration
      * 
      */
     @Import(name="kinesisFirehose")
     private @Nullable Output<AwsIntegrationsKinesisFirehoseArgs> kinesisFirehose;
 
     /**
-     * @return Amazon Kinesis Data Firehose. See Integration blocks below for details.
+     * @return Kinesis Firehose integration
      * 
      */
     public Optional<Output<AwsIntegrationsKinesisFirehoseArgs>> kinesisFirehose() {
@@ -703,14 +699,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Lambda. See Integration blocks below for details.
+     * Lambda integration
      * 
      */
     @Import(name="lambda")
     private @Nullable Output<AwsIntegrationsLambdaArgs> lambda;
 
     /**
-     * @return AWS Lambda. See Integration blocks below for details.
+     * @return Lambda integration
      * 
      */
     public Optional<Output<AwsIntegrationsLambdaArgs>> lambda() {
@@ -720,8 +716,6 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The ID of the linked AWS account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-     * 
      */
     @Import(name="linkedAccountId", required=true)
     private Output<String> linkedAccountId;
@@ -729,22 +723,20 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return The ID of the linked AWS account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-     * 
      */
     public Output<String> linkedAccountId() {
         return this.linkedAccountId;
     }
 
     /**
-     * Amazon RDS. See Integration blocks below for details.
+     * Rds integration
      * 
      */
     @Import(name="rds")
     private @Nullable Output<AwsIntegrationsRdsArgs> rds;
 
     /**
-     * @return Amazon RDS. See Integration blocks below for details.
+     * @return Rds integration
      * 
      */
     public Optional<Output<AwsIntegrationsRdsArgs>> rds() {
@@ -752,14 +744,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Redshift. See Integration blocks below for details.
+     * Redshift integration
      * 
      */
     @Import(name="redshift")
     private @Nullable Output<AwsIntegrationsRedshiftArgs> redshift;
 
     /**
-     * @return Amazon Redshift. See Integration blocks below for details.
+     * @return Redshift integration
      * 
      */
     public Optional<Output<AwsIntegrationsRedshiftArgs>> redshift() {
@@ -767,14 +759,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Route 53. See Integration blocks below for details.
+     * Route53 integration
      * 
      */
     @Import(name="route53")
     private @Nullable Output<AwsIntegrationsRoute53Args> route53;
 
     /**
-     * @return Amazon Route 53. See Integration blocks below for details.
+     * @return Route53 integration
      * 
      */
     public Optional<Output<AwsIntegrationsRoute53Args>> route53() {
@@ -782,14 +774,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon S3. See Integration blocks below for details.
+     * S3 integration
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AwsIntegrationsS3Args> s3;
 
     /**
-     * @return Amazon S3. See Integration blocks below for details.
+     * @return S3 integration
      * 
      */
     public Optional<Output<AwsIntegrationsS3Args>> s3() {
@@ -797,14 +789,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon SES. See Integration blocks below for details.
+     * Ses integration
      * 
      */
     @Import(name="ses")
     private @Nullable Output<AwsIntegrationsSesArgs> ses;
 
     /**
-     * @return Amazon SES. See Integration blocks below for details.
+     * @return Ses integration
      * 
      */
     public Optional<Output<AwsIntegrationsSesArgs>> ses() {
@@ -812,14 +804,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS SNS. See Integration blocks below for details.
+     * Sns integration
      * 
      */
     @Import(name="sns")
     private @Nullable Output<AwsIntegrationsSnsArgs> sns;
 
     /**
-     * @return AWS SNS. See Integration blocks below for details.
+     * @return Sns integration
      * 
      */
     public Optional<Output<AwsIntegrationsSnsArgs>> sns() {
@@ -827,14 +819,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS SQS. See Integration blocks below for details.
+     * SQS integration
      * 
      */
     @Import(name="sqs")
     private @Nullable Output<AwsIntegrationsSqsArgs> sqs;
 
     /**
-     * @return AWS SQS. See Integration blocks below for details.
+     * @return SQS integration
      * 
      */
     public Optional<Output<AwsIntegrationsSqsArgs>> sqs() {
@@ -842,18 +834,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS Trusted Advisor. See Integration blocks below for details.
-     * 
-     * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+     * Trusted Advisor integration
      * 
      */
     @Import(name="trustedAdvisor")
     private @Nullable Output<AwsIntegrationsTrustedAdvisorArgs> trustedAdvisor;
 
     /**
-     * @return AWS Trusted Advisor. See Integration blocks below for details.
-     * 
-     * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+     * @return Trusted Advisor integration
      * 
      */
     public Optional<Output<AwsIntegrationsTrustedAdvisorArgs>> trustedAdvisor() {
@@ -876,20 +864,14 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * AWS X-Ray. See Integration blocks below for details.
-     * x
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+     * X-Ray integration
      * 
      */
     @Import(name="xRay")
     private @Nullable Output<AwsIntegrationsXRayArgs> xRay;
 
     /**
-     * @return AWS X-Ray. See Integration blocks below for details.
-     * x
-     * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+     * @return X-Ray integration
      * 
      */
     public Optional<Output<AwsIntegrationsXRayArgs>> xRay() {
@@ -995,7 +977,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alb AWS ALB. See Integration blocks below for details.
+         * @param alb ALB integration
          * 
          * @return builder
          * 
@@ -1006,7 +988,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alb AWS ALB. See Integration blocks below for details.
+         * @param alb ALB integration
          * 
          * @return builder
          * 
@@ -1016,7 +998,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiGateway AWS API Gateway. See Integration blocks below for details.
+         * @param apiGateway API Gateway integration
          * 
          * @return builder
          * 
@@ -1027,7 +1009,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiGateway AWS API Gateway. See Integration blocks below for details.
+         * @param apiGateway API Gateway integration
          * 
          * @return builder
          * 
@@ -1037,7 +1019,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoScaling AWS Auto Scaling. See Integration blocks below for details.
+         * @param autoScaling AutoScaling integration
          * 
          * @return builder
          * 
@@ -1048,7 +1030,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoScaling AWS Auto Scaling. See Integration blocks below for details.
+         * @param autoScaling AutoScaling integration
          * 
          * @return builder
          * 
@@ -1058,7 +1040,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsAppSync AWS AppSync. See Integration blocks below for details.
+         * @param awsAppSync Aws Appsync integration
          * 
          * @return builder
          * 
@@ -1069,7 +1051,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsAppSync AWS AppSync. See Integration blocks below for details.
+         * @param awsAppSync Aws Appsync integration
          * 
          * @return builder
          * 
@@ -1079,7 +1061,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsAthena AWS Athena. See Integration blocks below for details.
+         * @param awsAthena Aws Athena integration
          * 
          * @return builder
          * 
@@ -1090,7 +1072,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsAthena AWS Athena. See Integration blocks below for details.
+         * @param awsAthena Aws Athena integration
          * 
          * @return builder
          * 
@@ -1100,7 +1082,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsCognito AWS Cognito. See Integration blocks below for details.
+         * @param awsCognito Aws Cognito integration
          * 
          * @return builder
          * 
@@ -1111,7 +1093,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsCognito AWS Cognito. See Integration blocks below for details.
+         * @param awsCognito Aws Cognito integration
          * 
          * @return builder
          * 
@@ -1121,7 +1103,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsConnect AWS Connect. See Integration blocks below for details.
+         * @param awsConnect Aws Connect integration
          * 
          * @return builder
          * 
@@ -1132,7 +1114,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsConnect AWS Connect. See Integration blocks below for details.
+         * @param awsConnect Aws Connect integration
          * 
          * @return builder
          * 
@@ -1142,7 +1124,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsDirectConnect AWS Direct Connect. See Integration blocks below for details.
+         * @param awsDirectConnect Aws Direct Connect integration
          * 
          * @return builder
          * 
@@ -1153,7 +1135,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsDirectConnect AWS Direct Connect. See Integration blocks below for details.
+         * @param awsDirectConnect Aws Direct Connect integration
          * 
          * @return builder
          * 
@@ -1163,7 +1145,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsFsx AWS FSx. See Integration blocks below for details.
+         * @param awsFsx Aws Fsx integration
          * 
          * @return builder
          * 
@@ -1174,7 +1156,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsFsx AWS FSx. See Integration blocks below for details.
+         * @param awsFsx Aws Fsx integration
          * 
          * @return builder
          * 
@@ -1184,7 +1166,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsGlue AWS Glue. See Integration blocks below for details.
+         * @param awsGlue Aws Glue integration
          * 
          * @return builder
          * 
@@ -1195,7 +1177,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsGlue AWS Glue. See Integration blocks below for details.
+         * @param awsGlue Aws Glue integration
          * 
          * @return builder
          * 
@@ -1205,7 +1187,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsKinesisAnalytics AWS Kinesis Data Analytics. See Integration blocks below for details.
+         * @param awsKinesisAnalytics Aws Kinesis Analytics integration
          * 
          * @return builder
          * 
@@ -1216,7 +1198,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsKinesisAnalytics AWS Kinesis Data Analytics. See Integration blocks below for details.
+         * @param awsKinesisAnalytics Aws Kinesis Analytics integration
          * 
          * @return builder
          * 
@@ -1226,7 +1208,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMediaConvert AWS Media Convert. See Integration blocks below for details.
+         * @param awsMediaConvert Aws Media Convert integration
          * 
          * @return builder
          * 
@@ -1237,7 +1219,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMediaConvert AWS Media Convert. See Integration blocks below for details.
+         * @param awsMediaConvert Aws Media Convert integration
          * 
          * @return builder
          * 
@@ -1247,7 +1229,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMediaPackageVod AWS MediaPackage VOD. See Integration blocks below for details.
+         * @param awsMediaPackageVod Aws Media PackageVod integration
          * 
          * @return builder
          * 
@@ -1258,7 +1240,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMediaPackageVod AWS MediaPackage VOD. See Integration blocks below for details.
+         * @param awsMediaPackageVod Aws Media PackageVod integration
          * 
          * @return builder
          * 
@@ -1268,7 +1250,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMq AWS MQ. See Integration blocks below for details.
+         * @param awsMq Aws Mq integration
          * 
          * @return builder
          * 
@@ -1279,7 +1261,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMq AWS MQ. See Integration blocks below for details.
+         * @param awsMq Aws Mq integration
          * 
          * @return builder
          * 
@@ -1289,7 +1271,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMsk Amazon Managed Kafka (MSK). See Integration blocks below for details.
+         * @param awsMsk Aws Msk integration
          * 
          * @return builder
          * 
@@ -1300,7 +1282,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsMsk Amazon Managed Kafka (MSK). See Integration blocks below for details.
+         * @param awsMsk Aws Msk integration
          * 
          * @return builder
          * 
@@ -1310,7 +1292,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsNeptune AWS Neptune. See Integration blocks below for details.
+         * @param awsNeptune Aws Neptune integration
          * 
          * @return builder
          * 
@@ -1321,7 +1303,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsNeptune AWS Neptune. See Integration blocks below for details.
+         * @param awsNeptune Aws Neptune integration
          * 
          * @return builder
          * 
@@ -1331,7 +1313,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsQldb Amazon QLDB. See Integration blocks below for details.
+         * @param awsQldb Aws Qldb integration
          * 
          * @return builder
          * 
@@ -1342,7 +1324,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsQldb Amazon QLDB. See Integration blocks below for details.
+         * @param awsQldb Aws Qldb integration
          * 
          * @return builder
          * 
@@ -1352,7 +1334,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsRoute53resolver AWS Route53 Resolver. See Integration blocks below for details.
+         * @param awsRoute53resolver Aws Route53resolver integration
          * 
          * @return builder
          * 
@@ -1363,7 +1345,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsRoute53resolver AWS Route53 Resolver. See Integration blocks below for details.
+         * @param awsRoute53resolver Aws Route53resolver integration
          * 
          * @return builder
          * 
@@ -1394,7 +1376,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsTransitGateway Amazon Transit Gateway. See Integration blocks below for details.
+         * @param awsTransitGateway Aws Transit Gateway integration
          * 
          * @return builder
          * 
@@ -1405,7 +1387,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsTransitGateway Amazon Transit Gateway. See Integration blocks below for details.
+         * @param awsTransitGateway Aws Transit Gateway integration
          * 
          * @return builder
          * 
@@ -1415,7 +1397,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsWaf AWS WAF. See Integration blocks below for details.
+         * @param awsWaf Aws Waf integration
          * 
          * @return builder
          * 
@@ -1426,7 +1408,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsWaf AWS WAF. See Integration blocks below for details.
+         * @param awsWaf Aws Waf integration
          * 
          * @return builder
          * 
@@ -1436,7 +1418,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsWafv2 AWS WAF V2. See Integration blocks below for details.
+         * @param awsWafv2 Aws Wafv2 integration
          * 
          * @return builder
          * 
@@ -1447,7 +1429,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param awsWafv2 AWS WAF V2. See Integration blocks below for details.
+         * @param awsWafv2 Aws Wafv2 integration
          * 
          * @return builder
          * 
@@ -1457,7 +1439,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param billing AWS Billing. See Integration blocks below for details.
+         * @param billing Billing integration
          * 
          * @return builder
          * 
@@ -1468,7 +1450,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param billing AWS Billing. See Integration blocks below for details.
+         * @param billing Billing integration
          * 
          * @return builder
          * 
@@ -1478,7 +1460,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudfront AWS CloudFront. See Integration blocks below for details.
+         * @param cloudfront Cloudfront integration
          * 
          * @return builder
          * 
@@ -1489,7 +1471,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudfront AWS CloudFront. See Integration blocks below for details.
+         * @param cloudfront Cloudfront integration
          * 
          * @return builder
          * 
@@ -1499,7 +1481,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudtrail AWS CloudTrail. See Integration blocks below for details.
+         * @param cloudtrail CloudTrail integration
          * 
          * @return builder
          * 
@@ -1510,7 +1492,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudtrail AWS CloudTrail. See Integration blocks below for details.
+         * @param cloudtrail CloudTrail integration
          * 
          * @return builder
          * 
@@ -1520,7 +1502,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param docDb AWS DocumentDB. See Integration blocks below for details.
+         * @param docDb Doc DB integration
          * 
          * @return builder
          * 
@@ -1531,7 +1513,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param docDb AWS DocumentDB. See Integration blocks below for details.
+         * @param docDb Doc DB integration
          * 
          * @return builder
          * 
@@ -1541,7 +1523,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dynamodb Amazon DynamoDB. See Integration blocks below for details.
+         * @param dynamodb Dynamo DB integration
          * 
          * @return builder
          * 
@@ -1552,7 +1534,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dynamodb Amazon DynamoDB. See Integration blocks below for details.
+         * @param dynamodb Dynamo DB integration
          * 
          * @return builder
          * 
@@ -1562,7 +1544,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ebs Amazon EBS. See Integration blocks below for details.
+         * @param ebs EBS integration
          * 
          * @return builder
          * 
@@ -1573,7 +1555,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ebs Amazon EBS. See Integration blocks below for details.
+         * @param ebs EBS integration
          * 
          * @return builder
          * 
@@ -1583,7 +1565,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ec2 Amazon EC2. See Integration blocks below for details.
+         * @param ec2 Ec2 integration
          * 
          * @return builder
          * 
@@ -1594,7 +1576,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ec2 Amazon EC2. See Integration blocks below for details.
+         * @param ec2 Ec2 integration
          * 
          * @return builder
          * 
@@ -1604,7 +1586,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ecs Amazon ECS. See Integration blocks below for details.
+         * @param ecs Ecs integration
          * 
          * @return builder
          * 
@@ -1615,7 +1597,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ecs Amazon ECS. See Integration blocks below for details.
+         * @param ecs Ecs integration
          * 
          * @return builder
          * 
@@ -1625,7 +1607,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param efs Amazon EFS. See Integration blocks below for details.
+         * @param efs Efs integration
          * 
          * @return builder
          * 
@@ -1636,7 +1618,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param efs Amazon EFS. See Integration blocks below for details.
+         * @param efs Efs integration
          * 
          * @return builder
          * 
@@ -1646,7 +1628,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elasticache AWS ElastiCache. See Integration blocks below for details.
+         * @param elasticache Elasticache integration
          * 
          * @return builder
          * 
@@ -1657,7 +1639,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elasticache AWS ElastiCache. See Integration blocks below for details.
+         * @param elasticache Elasticache integration
          * 
          * @return builder
          * 
@@ -1667,7 +1649,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elasticbeanstalk AWS Elastic Beanstalk. See Integration blocks below for details.
+         * @param elasticbeanstalk Elastic Bean Stalk integration
          * 
          * @return builder
          * 
@@ -1678,7 +1660,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elasticbeanstalk AWS Elastic Beanstalk. See Integration blocks below for details.
+         * @param elasticbeanstalk Elastic Bean Stalk integration
          * 
          * @return builder
          * 
@@ -1688,7 +1670,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elasticsearch AWS ElasticSearch. See Integration blocks below for details.
+         * @param elasticsearch Elastic Search integration
          * 
          * @return builder
          * 
@@ -1699,7 +1681,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elasticsearch AWS ElasticSearch. See Integration blocks below for details.
+         * @param elasticsearch Elastic Search integration
          * 
          * @return builder
          * 
@@ -1709,7 +1691,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elb AWS ELB (Classic). See Integration blocks below for details.
+         * @param elb Elb integration
          * 
          * @return builder
          * 
@@ -1720,7 +1702,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param elb AWS ELB (Classic). See Integration blocks below for details.
+         * @param elb Elb integration
          * 
          * @return builder
          * 
@@ -1730,7 +1712,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param emr AWS EMR. See Integration blocks below for details.
+         * @param emr Emr integration
          * 
          * @return builder
          * 
@@ -1741,7 +1723,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param emr AWS EMR. See Integration blocks below for details.
+         * @param emr Emr integration
          * 
          * @return builder
          * 
@@ -1751,7 +1733,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param health AWS Health. See Integration blocks below for details.
+         * @param health Health integration
          * 
          * @return builder
          * 
@@ -1762,7 +1744,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param health AWS Health. See Integration blocks below for details.
+         * @param health Health integration
          * 
          * @return builder
          * 
@@ -1772,7 +1754,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iam AWS IAM. See Integration blocks below for details.
+         * @param iam Iam integration
          * 
          * @return builder
          * 
@@ -1783,7 +1765,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iam AWS IAM. See Integration blocks below for details.
+         * @param iam Iam integration
          * 
          * @return builder
          * 
@@ -1793,7 +1775,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iot AWS IoT. See Integration blocks below for details.
+         * @param iot Iot integration
          * 
          * @return builder
          * 
@@ -1804,7 +1786,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iot AWS IoT. See Integration blocks below for details.
+         * @param iot Iot integration
          * 
          * @return builder
          * 
@@ -1814,9 +1796,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kinesis AWS Kinesis. See Integration blocks below for details.
-         * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+         * @param kinesis Kinesis integration
          * 
          * @return builder
          * 
@@ -1827,9 +1807,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kinesis AWS Kinesis. See Integration blocks below for details.
-         * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+         * @param kinesis Kinesis integration
          * 
          * @return builder
          * 
@@ -1839,7 +1817,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kinesisFirehose Amazon Kinesis Data Firehose. See Integration blocks below for details.
+         * @param kinesisFirehose Kinesis Firehose integration
          * 
          * @return builder
          * 
@@ -1850,7 +1828,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kinesisFirehose Amazon Kinesis Data Firehose. See Integration blocks below for details.
+         * @param kinesisFirehose Kinesis Firehose integration
          * 
          * @return builder
          * 
@@ -1860,7 +1838,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lambda AWS Lambda. See Integration blocks below for details.
+         * @param lambda Lambda integration
          * 
          * @return builder
          * 
@@ -1871,7 +1849,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lambda AWS Lambda. See Integration blocks below for details.
+         * @param lambda Lambda integration
          * 
          * @return builder
          * 
@@ -1882,8 +1860,6 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param linkedAccountId The ID of the linked AWS account in New Relic.
-         * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
          * 
          * @return builder
          * 
@@ -1896,8 +1872,6 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param linkedAccountId The ID of the linked AWS account in New Relic.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
-         * 
          * @return builder
          * 
          */
@@ -1906,7 +1880,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rds Amazon RDS. See Integration blocks below for details.
+         * @param rds Rds integration
          * 
          * @return builder
          * 
@@ -1917,7 +1891,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rds Amazon RDS. See Integration blocks below for details.
+         * @param rds Rds integration
          * 
          * @return builder
          * 
@@ -1927,7 +1901,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param redshift Amazon Redshift. See Integration blocks below for details.
+         * @param redshift Redshift integration
          * 
          * @return builder
          * 
@@ -1938,7 +1912,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param redshift Amazon Redshift. See Integration blocks below for details.
+         * @param redshift Redshift integration
          * 
          * @return builder
          * 
@@ -1948,7 +1922,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param route53 Amazon Route 53. See Integration blocks below for details.
+         * @param route53 Route53 integration
          * 
          * @return builder
          * 
@@ -1959,7 +1933,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param route53 Amazon Route 53. See Integration blocks below for details.
+         * @param route53 Route53 integration
          * 
          * @return builder
          * 
@@ -1969,7 +1943,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param s3 Amazon S3. See Integration blocks below for details.
+         * @param s3 S3 integration
          * 
          * @return builder
          * 
@@ -1980,7 +1954,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param s3 Amazon S3. See Integration blocks below for details.
+         * @param s3 S3 integration
          * 
          * @return builder
          * 
@@ -1990,7 +1964,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ses Amazon SES. See Integration blocks below for details.
+         * @param ses Ses integration
          * 
          * @return builder
          * 
@@ -2001,7 +1975,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ses Amazon SES. See Integration blocks below for details.
+         * @param ses Ses integration
          * 
          * @return builder
          * 
@@ -2011,7 +1985,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sns AWS SNS. See Integration blocks below for details.
+         * @param sns Sns integration
          * 
          * @return builder
          * 
@@ -2022,7 +1996,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sns AWS SNS. See Integration blocks below for details.
+         * @param sns Sns integration
          * 
          * @return builder
          * 
@@ -2032,7 +2006,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sqs AWS SQS. See Integration blocks below for details.
+         * @param sqs SQS integration
          * 
          * @return builder
          * 
@@ -2043,7 +2017,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sqs AWS SQS. See Integration blocks below for details.
+         * @param sqs SQS integration
          * 
          * @return builder
          * 
@@ -2053,9 +2027,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param trustedAdvisor AWS Trusted Advisor. See Integration blocks below for details.
-         * 
-         * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+         * @param trustedAdvisor Trusted Advisor integration
          * 
          * @return builder
          * 
@@ -2066,9 +2038,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param trustedAdvisor AWS Trusted Advisor. See Integration blocks below for details.
-         * 
-         * All other arguments are dependent on the services to be integrated, which have been listed in the collapsible section below. All of these are **optional** blocks that can be added in any required combination. **For details on arguments that can be used with each service, check out the `Integration` blocks section below.**
+         * @param trustedAdvisor Trusted Advisor integration
          * 
          * @return builder
          * 
@@ -2099,10 +2069,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param xRay AWS X-Ray. See Integration blocks below for details.
-         * x
-         * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+         * @param xRay X-Ray integration
          * 
          * @return builder
          * 
@@ -2113,10 +2080,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param xRay AWS X-Ray. See Integration blocks below for details.
-         * x
-         * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 900 seconds.
+         * @param xRay X-Ray integration
          * 
          * @return builder
          * 
