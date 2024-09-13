@@ -49,11 +49,17 @@ import * as utilities from "../utilities";
  *         "AP_EAST_1",
  *     ],
  *     period: "EVERY_HOUR",
- *     enableScreenshotOnFailureAndScript: false,
  *     script: "$browser.get('https://one.newrelic.com')",
  *     runtimeTypeVersion: "100",
  *     runtimeType: "CHROME_BROWSER",
  *     scriptLanguage: "JAVASCRIPT",
+ *     devices: [
+ *         "DESKTOP",
+ *         "MOBILE_PORTRAIT",
+ *         "TABLET_LANDSCAPE",
+ *     ],
+ *     browsers: ["CHROME"],
+ *     enableScreenshotOnFailureAndScript: false,
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
@@ -117,16 +123,20 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_BROWSER",
  *     period: "EVERY_HOUR",
  *     script: "$browser.get('https://one.newrelic.com')",
+ *     runtimeTypeVersion: "100",
+ *     runtimeType: "CHROME_BROWSER",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     devices: [
+ *         "DESKTOP",
+ *         "MOBILE_PORTRAIT",
+ *         "TABLET_LANDSCAPE",
+ *     ],
+ *     browsers: ["CHROME"],
  *     enableScreenshotOnFailureAndScript: false,
  *     locationPrivates: [{
  *         guid: location.id,
  *         vsePassword: "secret",
  *     }],
- *     runtimeTypeVersion: "100",
- *     runtimeType: "CHROME_BROWSER",
- *     scriptLanguage: "JAVASCRIPT",
- *     deviceType: "MOBILE",
- *     deviceOrientation: "LANDSCAPE",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
@@ -177,13 +187,21 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     */
+    public readonly browsers!: pulumi.Output<string[] | undefined>;
+    /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     public readonly deviceOrientation!: pulumi.Output<string | undefined>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     public readonly deviceType!: pulumi.Output<string | undefined>;
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     */
+    public readonly devices!: pulumi.Output<string[] | undefined>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -258,8 +276,10 @@ export class ScriptMonitor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ScriptMonitorState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["browsers"] = state ? state.browsers : undefined;
             resourceInputs["deviceOrientation"] = state ? state.deviceOrientation : undefined;
             resourceInputs["deviceType"] = state ? state.deviceType : undefined;
+            resourceInputs["devices"] = state ? state.devices : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = state ? state.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["locationPrivates"] = state ? state.locationPrivates : undefined;
@@ -287,8 +307,10 @@ export class ScriptMonitor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["browsers"] = args ? args.browsers : undefined;
             resourceInputs["deviceOrientation"] = args ? args.deviceOrientation : undefined;
             resourceInputs["deviceType"] = args ? args.deviceType : undefined;
+            resourceInputs["devices"] = args ? args.devices : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = args ? args.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["locationPrivates"] = args ? args.locationPrivates : undefined;
             resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
@@ -319,13 +341,21 @@ export interface ScriptMonitorState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     */
+    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceOrientation?: pulumi.Input<string>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceType?: pulumi.Input<string>;
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     */
+    devices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -396,13 +426,21 @@ export interface ScriptMonitorArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     */
+    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceOrientation?: pulumi.Input<string>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceType?: pulumi.Input<string>;
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     */
+    devices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Capture a screenshot during job execution.
      */

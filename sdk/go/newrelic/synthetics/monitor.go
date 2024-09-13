@@ -85,20 +85,26 @@ import (
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
-//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
-//					&synthetics.MonitorCustomHeaderArgs{
-//						Name:  pulumi.String("some_name"),
-//						Value: pulumi.String("some_value"),
-//					},
-//				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				ValidationString:                   pulumi.String("success"),
 //				VerifySsl:                          pulumi.Bool(true),
 //				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
 //				RuntimeTypeVersion:                 pulumi.String("100"),
 //				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
-//				DeviceType:                         pulumi.String("MOBILE"),
-//				DeviceOrientation:                  pulumi.String("LANDSCAPE"),
+//				Devices: pulumi.StringArray{
+//					pulumi.String("DESKTOP"),
+//					pulumi.String("TABLET_LANDSCAPE"),
+//					pulumi.String("MOBILE_PORTRAIT"),
+//				},
+//				Browsers: pulumi.StringArray{
+//					pulumi.String("CHROME"),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -215,18 +221,26 @@ import (
 //				LocationsPrivates: pulumi.StringArray{
 //					location.ID(),
 //				},
-//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
-//					&synthetics.MonitorCustomHeaderArgs{
-//						Name:  pulumi.String("some_name"),
-//						Value: pulumi.String("some_value"),
-//					},
-//				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				ValidationString:                   pulumi.String("success"),
 //				VerifySsl:                          pulumi.Bool(true),
 //				RuntimeTypeVersion:                 pulumi.String("100"),
 //				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
 //				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
+//				Devices: pulumi.StringArray{
+//					pulumi.String("DESKTOP"),
+//					pulumi.String("TABLET_LANDSCAPE"),
+//					pulumi.String("MOBILE_PORTRAIT"),
+//				},
+//				Browsers: pulumi.StringArray{
+//					pulumi.String("CHROME"),
+//				},
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -259,16 +273,20 @@ type Monitor struct {
 
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers pulumi.StringArrayOutput `pulumi:"browsers"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+	Devices pulumi.StringArrayOutput `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -344,16 +362,20 @@ func GetMonitor(ctx *pulumi.Context,
 type monitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers []string `pulumi:"browsers"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType *string `pulumi:"deviceType"`
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+	Devices []string `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -394,16 +416,20 @@ type monitorState struct {
 type MonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.StringPtrInput
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers pulumi.StringArrayInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation pulumi.StringPtrInput
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType pulumi.StringPtrInput
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+	Devices pulumi.StringArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -448,16 +474,20 @@ func (MonitorState) ElementType() reflect.Type {
 type monitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers []string `pulumi:"browsers"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType *string `pulumi:"deviceType"`
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+	Devices []string `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -497,16 +527,20 @@ type monitorArgs struct {
 type MonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.StringPtrInput
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers pulumi.StringArrayInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	//
 	// The `BROWSER` monitor type supports the following additional arguments:
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation pulumi.StringPtrInput
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType pulumi.StringPtrInput
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+	Devices pulumi.StringArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
@@ -634,6 +668,11 @@ func (o MonitorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+func (o MonitorOutput) Browsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.Browsers }).(pulumi.StringArrayOutput)
+}
+
 // Monitor should skip default HEAD request and instead use GET verb in check.
 //
 // The `BROWSER` monitor type supports the following additional arguments:
@@ -646,14 +685,19 @@ func (o MonitorOutput) CustomHeaders() MonitorCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorCustomHeaderArrayOutput { return v.CustomHeaders }).(MonitorCustomHeaderArrayOutput)
 }
 
-// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 func (o MonitorOutput) DeviceOrientation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceOrientation }).(pulumi.StringPtrOutput)
 }
 
-// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 func (o MonitorOutput) DeviceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
+}
+
+// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+func (o MonitorOutput) Devices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.Devices }).(pulumi.StringArrayOutput)
 }
 
 // Capture a screenshot during job execution.

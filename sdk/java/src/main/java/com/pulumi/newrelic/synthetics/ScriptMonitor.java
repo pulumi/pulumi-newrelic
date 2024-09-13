@@ -105,11 +105,16 @@ import javax.annotation.Nullable;
  *                 "AP_SOUTH_1",
  *                 "AP_EAST_1")
  *             .period("EVERY_HOUR")
- *             .enableScreenshotOnFailureAndScript(false)
  *             .script("$browser.get('https://one.newrelic.com')")
  *             .runtimeTypeVersion("100")
  *             .runtimeType("CHROME_BROWSER")
  *             .scriptLanguage("JAVASCRIPT")
+ *             .devices(            
+ *                 "DESKTOP",
+ *                 "MOBILE_PORTRAIT",
+ *                 "TABLET_LANDSCAPE")
+ *             .browsers("CHROME")
+ *             .enableScreenshotOnFailureAndScript(false)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key("some_key")
  *                 .values("some_value")
@@ -231,16 +236,19 @@ import javax.annotation.Nullable;
  *             .type("SCRIPT_BROWSER")
  *             .period("EVERY_HOUR")
  *             .script("$browser.get('https://one.newrelic.com')")
+ *             .runtimeTypeVersion("100")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .scriptLanguage("JAVASCRIPT")
+ *             .devices(            
+ *                 "DESKTOP",
+ *                 "MOBILE_PORTRAIT",
+ *                 "TABLET_LANDSCAPE")
+ *             .browsers("CHROME")
  *             .enableScreenshotOnFailureAndScript(false)
  *             .locationPrivates(ScriptMonitorLocationPrivateArgs.builder()
  *                 .guid(location.id())
  *                 .vsePassword("secret")
  *                 .build())
- *             .runtimeTypeVersion("100")
- *             .runtimeType("CHROME_BROWSER")
- *             .scriptLanguage("JAVASCRIPT")
- *             .deviceType("MOBILE")
- *             .deviceOrientation("LANDSCAPE")
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key("some_key")
  *                 .values("some_value")
@@ -281,32 +289,60 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    @Export(name="browsers", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> browsers;
+
+    /**
+     * @return The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    public Output<Optional<List<String>>> browsers() {
+        return Codegen.optional(this.browsers);
+    }
+    /**
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceOrientation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceOrientation;
 
     /**
-     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceOrientation() {
         return Codegen.optional(this.deviceOrientation);
     }
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceType;
 
     /**
-     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceType() {
         return Codegen.optional(this.deviceType);
+    }
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     * 
+     */
+    @Export(name="devices", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> devices;
+
+    /**
+     * @return The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     * 
+     */
+    public Output<Optional<List<String>>> devices() {
+        return Codegen.optional(this.devices);
     }
     /**
      * Capture a screenshot during job execution.

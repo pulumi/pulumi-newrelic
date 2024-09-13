@@ -37,6 +37,38 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    @Import(name="browsers")
+    private @Nullable Output<List<String>> browsers;
+
+    /**
+     * @return The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    public Optional<Output<List<String>>> browsers() {
+        return Optional.ofNullable(this.browsers);
+    }
+
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * 
+     */
+    @Import(name="devices")
+    private @Nullable Output<List<String>> devices;
+
+    /**
+     * @return The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * 
+     */
+    public Optional<Output<List<String>>> devices() {
+        return Optional.ofNullable(this.devices);
+    }
+
+    /**
      * Capture a screenshot during job execution.
      * 
      */
@@ -127,14 +159,14 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The specific semver version of the runtime type.
+     * The specific version of the runtime type selected.
      * 
      */
     @Import(name="runtimeTypeVersion")
     private @Nullable Output<String> runtimeTypeVersion;
 
     /**
-     * @return The specific semver version of the runtime type.
+     * @return The specific version of the runtime type selected.
      * 
      */
     public Optional<Output<String>> runtimeTypeVersion() {
@@ -197,6 +229,8 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     private StepMonitorArgs(StepMonitorArgs $) {
         this.accountId = $.accountId;
+        this.browsers = $.browsers;
+        this.devices = $.devices;
         this.enableScreenshotOnFailureAndScript = $.enableScreenshotOnFailureAndScript;
         this.locationPrivates = $.locationPrivates;
         this.locationsPublics = $.locationsPublics;
@@ -247,6 +281,71 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param browsers The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browsers(@Nullable Output<List<String>> browsers) {
+            $.browsers = browsers;
+            return this;
+        }
+
+        /**
+         * @param browsers The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browsers(List<String> browsers) {
+            return browsers(Output.of(browsers));
+        }
+
+        /**
+         * @param browsers The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browsers(String... browsers) {
+            return browsers(List.of(browsers));
+        }
+
+        /**
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+         * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devices(@Nullable Output<List<String>> devices) {
+            $.devices = devices;
+            return this;
+        }
+
+        /**
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+         * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devices(List<String> devices) {
+            return devices(Output.of(devices));
+        }
+
+        /**
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+         * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devices(String... devices) {
+            return devices(List.of(devices));
         }
 
         /**
@@ -396,7 +495,7 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific semver version of the runtime type.
+         * @param runtimeTypeVersion The specific version of the runtime type selected.
          * 
          * @return builder
          * 
@@ -407,7 +506,7 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific semver version of the runtime type.
+         * @param runtimeTypeVersion The specific version of the runtime type selected.
          * 
          * @return builder
          * 
