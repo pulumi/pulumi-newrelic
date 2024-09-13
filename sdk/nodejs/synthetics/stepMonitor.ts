@@ -24,6 +24,12 @@ import * as utilities from "../utilities";
  *     status: "ENABLED",
  *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
+ *     devices: [
+ *         "DESKTOP",
+ *         "MOBILE_PORTRAIT",
+ *         "TABLET_LANDSCAPE",
+ *     ],
+ *     browsers: ["CHROME"],
  *     steps: [{
  *         ordinal: 0,
  *         type: "NAVIGATE",
@@ -58,6 +64,14 @@ import * as utilities from "../utilities";
  *     name: "Sample Step Monitor",
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
+ *     devices: [
+ *         "DESKTOP",
+ *         "MOBILE_PORTRAIT",
+ *         "TABLET_LANDSCAPE",
+ *     ],
+ *     browsers: ["CHROME"],
  *     locationPrivates: [{
  *         guid: foo.id,
  *         vsePassword: "secret",
@@ -117,6 +131,15 @@ export class StepMonitor extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     */
+    public readonly browsers!: pulumi.Output<string[] | undefined>;
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     */
+    public readonly devices!: pulumi.Output<string[] | undefined>;
+    /**
      * Capture a screenshot during job execution.
      */
     public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
@@ -149,7 +172,7 @@ export class StepMonitor extends pulumi.CustomResource {
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
-     * The specific semver version of the runtime type.
+     * The specific version of the runtime type selected.
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -180,6 +203,8 @@ export class StepMonitor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StepMonitorState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["browsers"] = state ? state.browsers : undefined;
+            resourceInputs["devices"] = state ? state.devices : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = state ? state.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["locationPrivates"] = state ? state.locationPrivates : undefined;
@@ -205,6 +230,8 @@ export class StepMonitor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'steps'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["browsers"] = args ? args.browsers : undefined;
+            resourceInputs["devices"] = args ? args.devices : undefined;
             resourceInputs["enableScreenshotOnFailureAndScript"] = args ? args.enableScreenshotOnFailureAndScript : undefined;
             resourceInputs["locationPrivates"] = args ? args.locationPrivates : undefined;
             resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
@@ -232,6 +259,15 @@ export interface StepMonitorState {
      * The account in which the Synthetics monitor will be created.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     */
+    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     */
+    devices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Capture a screenshot during job execution.
      */
@@ -265,7 +301,7 @@ export interface StepMonitorState {
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific semver version of the runtime type.
+     * The specific version of the runtime type selected.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -292,6 +328,15 @@ export interface StepMonitorArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     */
+    browsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     */
+    devices?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Capture a screenshot during job execution.
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
@@ -316,7 +361,7 @@ export interface StepMonitorArgs {
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific semver version of the runtime type.
+     * The specific version of the runtime type selected.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**

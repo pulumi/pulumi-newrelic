@@ -37,6 +37,14 @@ import (
 //				Status:             pulumi.String("ENABLED"),
 //				RuntimeType:        pulumi.String("CHROME_BROWSER"),
 //				RuntimeTypeVersion: pulumi.String("100"),
+//				Devices: pulumi.StringArray{
+//					pulumi.String("DESKTOP"),
+//					pulumi.String("MOBILE_PORTRAIT"),
+//					pulumi.String("TABLET_LANDSCAPE"),
+//				},
+//				Browsers: pulumi.StringArray{
+//					pulumi.String("CHROME"),
+//				},
 //				Steps: synthetics.StepMonitorStepArray{
 //					&synthetics.StepMonitorStepArgs{
 //						Ordinal: pulumi.Int(0),
@@ -94,9 +102,19 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewStepMonitor(ctx, "foo", &synthetics.StepMonitorArgs{
-//				Name:   pulumi.String("Sample Step Monitor"),
-//				Period: pulumi.String("EVERY_6_HOURS"),
-//				Status: pulumi.String("ENABLED"),
+//				Name:               pulumi.String("Sample Step Monitor"),
+//				Period:             pulumi.String("EVERY_6_HOURS"),
+//				Status:             pulumi.String("ENABLED"),
+//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
+//				RuntimeTypeVersion: pulumi.String("100"),
+//				Devices: pulumi.StringArray{
+//					pulumi.String("DESKTOP"),
+//					pulumi.String("MOBILE_PORTRAIT"),
+//					pulumi.String("TABLET_LANDSCAPE"),
+//				},
+//				Browsers: pulumi.StringArray{
+//					pulumi.String("CHROME"),
+//				},
 //				LocationPrivates: synthetics.StepMonitorLocationPrivateArray{
 //					&synthetics.StepMonitorLocationPrivateArgs{
 //						Guid:        foo.ID(),
@@ -144,6 +162,11 @@ type StepMonitor struct {
 
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers pulumi.StringArrayOutput `pulumi:"browsers"`
+	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	Devices pulumi.StringArrayOutput `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique entity identifier of the monitor in New Relic.
@@ -160,7 +183,7 @@ type StepMonitor struct {
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected.
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -212,6 +235,11 @@ func GetStepMonitor(ctx *pulumi.Context,
 type stepMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers []string `pulumi:"browsers"`
+	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	Devices []string `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique entity identifier of the monitor in New Relic.
@@ -228,7 +256,7 @@ type stepMonitorState struct {
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status *string `pulumi:"status"`
@@ -242,6 +270,11 @@ type stepMonitorState struct {
 type StepMonitorState struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.StringPtrInput
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers pulumi.StringArrayInput
+	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	Devices pulumi.StringArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The unique entity identifier of the monitor in New Relic.
@@ -258,7 +291,7 @@ type StepMonitorState struct {
 	PeriodInMinutes pulumi.IntPtrInput
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType pulumi.StringPtrInput
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringPtrInput
@@ -276,6 +309,11 @@ func (StepMonitorState) ElementType() reflect.Type {
 type stepMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *string `pulumi:"accountId"`
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers []string `pulumi:"browsers"`
+	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	Devices []string `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
@@ -288,7 +326,7 @@ type stepMonitorArgs struct {
 	Period string `pulumi:"period"`
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The monitor status (ENABLED or DISABLED).
 	Status string `pulumi:"status"`
@@ -303,6 +341,11 @@ type stepMonitorArgs struct {
 type StepMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.StringPtrInput
+	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+	Browsers pulumi.StringArrayInput
+	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	Devices pulumi.StringArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
@@ -315,7 +358,7 @@ type StepMonitorArgs struct {
 	Period pulumi.StringInput
 	// The runtime that the monitor will use to run jobs.
 	RuntimeType pulumi.StringPtrInput
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The monitor status (ENABLED or DISABLED).
 	Status pulumi.StringInput
@@ -418,6 +461,17 @@ func (o StepMonitorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+func (o StepMonitorOutput) Browsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StepMonitor) pulumi.StringArrayOutput { return v.Browsers }).(pulumi.StringArrayOutput)
+}
+
+// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+func (o StepMonitorOutput) Devices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StepMonitor) pulumi.StringArrayOutput { return v.Devices }).(pulumi.StringArrayOutput)
+}
+
 // Capture a screenshot during job execution.
 func (o StepMonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
@@ -458,7 +512,7 @@ func (o StepMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
 }
 
-// The specific semver version of the runtime type.
+// The specific version of the runtime type selected.
 func (o StepMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }

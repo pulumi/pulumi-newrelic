@@ -33,6 +33,16 @@ namespace Pulumi.NewRelic.Synthetics
     ///         Status = "ENABLED",
     ///         RuntimeType = "CHROME_BROWSER",
     ///         RuntimeTypeVersion = "100",
+    ///         Devices = new[]
+    ///         {
+    ///             "DESKTOP",
+    ///             "MOBILE_PORTRAIT",
+    ///             "TABLET_LANDSCAPE",
+    ///         },
+    ///         Browsers = new[]
+    ///         {
+    ///             "CHROME",
+    ///         },
     ///         Steps = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.StepMonitorStepArgs
@@ -90,6 +100,18 @@ namespace Pulumi.NewRelic.Synthetics
     ///         Name = "Sample Step Monitor",
     ///         Period = "EVERY_6_HOURS",
     ///         Status = "ENABLED",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
+    ///         Devices = new[]
+    ///         {
+    ///             "DESKTOP",
+    ///             "MOBILE_PORTRAIT",
+    ///             "TABLET_LANDSCAPE",
+    ///         },
+    ///         Browsers = new[]
+    ///         {
+    ///             "CHROME",
+    ///         },
     ///         LocationPrivates = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
@@ -146,6 +168,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+        /// </summary>
+        [Output("browsers")]
+        public Output<ImmutableArray<string>> Browsers { get; private set; } = null!;
+
+        /// <summary>
+        /// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+        /// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        /// </summary>
+        [Output("devices")]
+        public Output<ImmutableArray<string>> Devices { get; private set; } = null!;
+
+        /// <summary>
         /// Capture a screenshot during job execution.
         /// </summary>
         [Output("enableScreenshotOnFailureAndScript")]
@@ -194,7 +229,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> RuntimeType { get; private set; } = null!;
 
         /// <summary>
-        /// The specific semver version of the runtime type.
+        /// The specific version of the runtime type selected.
         /// </summary>
         [Output("runtimeTypeVersion")]
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
@@ -272,6 +307,31 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        [Input("browsers")]
+        private InputList<string>? _browsers;
+
+        /// <summary>
+        /// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+        /// </summary>
+        public InputList<string> Browsers
+        {
+            get => _browsers ?? (_browsers = new InputList<string>());
+            set => _browsers = value;
+        }
+
+        [Input("devices")]
+        private InputList<string>? _devices;
+
+        /// <summary>
+        /// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+        /// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        /// </summary>
+        public InputList<string> Devices
+        {
+            get => _devices ?? (_devices = new InputList<string>());
+            set => _devices = value;
+        }
+
         /// <summary>
         /// Capture a screenshot during job execution.
         /// </summary>
@@ -321,7 +381,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The specific semver version of the runtime type.
+        /// The specific version of the runtime type selected.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
@@ -372,6 +432,31 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        [Input("browsers")]
+        private InputList<string>? _browsers;
+
+        /// <summary>
+        /// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+        /// </summary>
+        public InputList<string> Browsers
+        {
+            get => _browsers ?? (_browsers = new InputList<string>());
+            set => _browsers = value;
+        }
+
+        [Input("devices")]
+        private InputList<string>? _devices;
+
+        /// <summary>
+        /// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+        /// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        /// </summary>
+        public InputList<string> Devices
+        {
+            get => _devices ?? (_devices = new InputList<string>());
+            set => _devices = value;
+        }
 
         /// <summary>
         /// Capture a screenshot during job execution.
@@ -434,7 +519,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The specific semver version of the runtime type.
+        /// The specific version of the runtime type selected.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }

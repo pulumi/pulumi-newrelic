@@ -58,6 +58,11 @@ import javax.annotation.Nullable;
  *             .status("ENABLED")
  *             .runtimeType("CHROME_BROWSER")
  *             .runtimeTypeVersion("100")
+ *             .devices(            
+ *                 "DESKTOP",
+ *                 "MOBILE_PORTRAIT",
+ *                 "TABLET_LANDSCAPE")
+ *             .browsers("CHROME")
  *             .steps(StepMonitorStepArgs.builder()
  *                 .ordinal(0)
  *                 .type("NAVIGATE")
@@ -122,6 +127,13 @@ import javax.annotation.Nullable;
  *             .name("Sample Step Monitor")
  *             .period("EVERY_6_HOURS")
  *             .status("ENABLED")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .runtimeTypeVersion("100")
+ *             .devices(            
+ *                 "DESKTOP",
+ *                 "MOBILE_PORTRAIT",
+ *                 "TABLET_LANDSCAPE")
+ *             .browsers("CHROME")
  *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
  *                 .guid(foo.id())
  *                 .vsePassword("secret")
@@ -169,6 +181,36 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> accountId() {
         return this.accountId;
+    }
+    /**
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    @Export(name="browsers", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> browsers;
+
+    /**
+     * @return The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    public Output<Optional<List<String>>> browsers() {
+        return Codegen.optional(this.browsers);
+    }
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * 
+     */
+    @Export(name="devices", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> devices;
+
+    /**
+     * @return The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
+     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * 
+     */
+    public Output<Optional<List<String>>> devices() {
+        return Codegen.optional(this.devices);
     }
     /**
      * Capture a screenshot during job execution.
@@ -283,14 +325,14 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The specific semver version of the runtime type.
+     * The specific version of the runtime type selected.
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The specific semver version of the runtime type.
+     * @return The specific version of the runtime type selected.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {

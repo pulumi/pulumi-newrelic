@@ -79,6 +79,22 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             "AP_SOUTH_1",
     ///         },
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Devices = new[]
+    ///         {
+    ///             "DESKTOP",
+    ///             "TABLET_LANDSCAPE",
+    ///             "MOBILE_PORTRAIT",
+    ///         },
+    ///         Browsers = new[]
+    ///         {
+    ///             "CHROME",
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -87,14 +103,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 Value = "some_value",
     ///             },
     ///         },
-    ///         EnableScreenshotOnFailureAndScript = true,
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
-    ///         RuntimeType = "CHROME_BROWSER",
-    ///         RuntimeTypeVersion = "100",
-    ///         ScriptLanguage = "JAVASCRIPT",
-    ///         DeviceType = "MOBILE",
-    ///         DeviceOrientation = "LANDSCAPE",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -203,6 +211,22 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             location.Id,
     ///         },
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///         RuntimeTypeVersion = "100",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Devices = new[]
+    ///         {
+    ///             "DESKTOP",
+    ///             "TABLET_LANDSCAPE",
+    ///             "MOBILE_PORTRAIT",
+    ///         },
+    ///         Browsers = new[]
+    ///         {
+    ///             "CHROME",
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -211,12 +235,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 Value = "some_value",
     ///             },
     ///         },
-    ///         EnableScreenshotOnFailureAndScript = true,
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
-    ///         RuntimeTypeVersion = "100",
-    ///         RuntimeType = "CHROME_BROWSER",
-    ///         ScriptLanguage = "JAVASCRIPT",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -253,6 +271,12 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+        /// </summary>
+        [Output("browsers")]
+        public Output<ImmutableArray<string>> Browsers { get; private set; } = null!;
+
+        /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
         /// 
         /// The `BROWSER` monitor type supports the following additional arguments:
@@ -267,16 +291,22 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceOrientation")]
         public Output<string?> DeviceOrientation { get; private set; } = null!;
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceType")]
         public Output<string?> DeviceType { get; private set; } = null!;
+
+        /// <summary>
+        /// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+        /// </summary>
+        [Output("devices")]
+        public Output<ImmutableArray<string>> Devices { get; private set; } = null!;
 
         /// <summary>
         /// Capture a screenshot during job execution.
@@ -431,6 +461,18 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        [Input("browsers")]
+        private InputList<string>? _browsers;
+
+        /// <summary>
+        /// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+        /// </summary>
+        public InputList<string> Browsers
+        {
+            get => _browsers ?? (_browsers = new InputList<string>());
+            set => _browsers = value;
+        }
+
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
         /// 
@@ -452,16 +494,28 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
+
+        [Input("devices")]
+        private InputList<string>? _devices;
+
+        /// <summary>
+        /// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+        /// </summary>
+        public InputList<string> Devices
+        {
+            get => _devices ?? (_devices = new InputList<string>());
+            set => _devices = value;
+        }
 
         /// <summary>
         /// Capture a screenshot during job execution.
@@ -590,6 +644,18 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        [Input("browsers")]
+        private InputList<string>? _browsers;
+
+        /// <summary>
+        /// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+        /// </summary>
+        public InputList<string> Browsers
+        {
+            get => _browsers ?? (_browsers = new InputList<string>());
+            set => _browsers = value;
+        }
+
         /// <summary>
         /// Monitor should skip default HEAD request and instead use GET verb in check.
         /// 
@@ -611,16 +677,28 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
+
+        [Input("devices")]
+        private InputList<string>? _devices;
+
+        /// <summary>
+        /// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+        /// </summary>
+        public InputList<string> Devices
+        {
+            get => _devices ?? (_devices = new InputList<string>());
+            set => _devices = value;
+        }
 
         /// <summary>
         /// Capture a screenshot during job execution.

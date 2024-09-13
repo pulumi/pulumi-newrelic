@@ -36,6 +36,21 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    @Import(name="browsers")
+    private @Nullable Output<List<String>> browsers;
+
+    /**
+     * @return The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+     * 
+     */
+    public Optional<Output<List<String>>> browsers() {
+        return Optional.ofNullable(this.browsers);
+    }
+
+    /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      * 
      * The `BROWSER` monitor type supports the following additional arguments:
@@ -70,14 +85,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceOrientation")
     private @Nullable Output<String> deviceOrientation;
 
     /**
-     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceOrientation() {
@@ -85,18 +100,33 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceType")
     private @Nullable Output<String> deviceType;
 
     /**
-     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceType() {
         return Optional.ofNullable(this.deviceType);
+    }
+
+    /**
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     * 
+     */
+    @Import(name="devices")
+    private @Nullable Output<List<String>> devices;
+
+    /**
+     * @return The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+     * 
+     */
+    public Optional<Output<List<String>>> devices() {
+        return Optional.ofNullable(this.devices);
     }
 
     /**
@@ -339,10 +369,12 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     private MonitorArgs(MonitorArgs $) {
         this.accountId = $.accountId;
+        this.browsers = $.browsers;
         this.bypassHeadRequest = $.bypassHeadRequest;
         this.customHeaders = $.customHeaders;
         this.deviceOrientation = $.deviceOrientation;
         this.deviceType = $.deviceType;
+        this.devices = $.devices;
         this.enableScreenshotOnFailureAndScript = $.enableScreenshotOnFailureAndScript;
         this.locationsPrivates = $.locationsPrivates;
         this.locationsPublics = $.locationsPublics;
@@ -398,6 +430,37 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param browsers The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browsers(@Nullable Output<List<String>> browsers) {
+            $.browsers = browsers;
+            return this;
+        }
+
+        /**
+         * @param browsers The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browsers(List<String> browsers) {
+            return browsers(Output.of(browsers));
+        }
+
+        /**
+         * @param browsers The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browsers(String... browsers) {
+            return browsers(List.of(browsers));
         }
 
         /**
@@ -457,7 +520,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -468,7 +531,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -478,7 +541,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -489,13 +552,44 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
          */
         public Builder deviceType(String deviceType) {
             return deviceType(Output.of(deviceType));
+        }
+
+        /**
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devices(@Nullable Output<List<String>> devices) {
+            $.devices = devices;
+            return this;
+        }
+
+        /**
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devices(List<String> devices) {
+            return devices(Output.of(devices));
+        }
+
+        /**
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devices(String... devices) {
+            return devices(List.of(devices));
         }
 
         /**
