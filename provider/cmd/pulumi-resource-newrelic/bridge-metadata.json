@@ -2167,7 +2167,13 @@
                 "current": "newrelic:synthetics/monitor:Monitor",
                 "majorVersion": 5,
                 "fields": {
+                    "browsers": {
+                        "maxItemsOne": false
+                    },
                     "custom_header": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
                         "maxItemsOne": false
                     },
                     "locations_private": {
@@ -2211,6 +2217,12 @@
                 "current": "newrelic:synthetics/scriptMonitor:ScriptMonitor",
                 "majorVersion": 5,
                 "fields": {
+                    "browsers": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": false
+                    },
                     "location_private": {
                         "maxItemsOne": false
                     },
@@ -2237,6 +2249,12 @@
                 "current": "newrelic:synthetics/stepMonitor:StepMonitor",
                 "majorVersion": 5,
                 "fields": {
+                    "browsers": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": false
+                    },
                     "location_private": {
                         "maxItemsOne": false
                     },
