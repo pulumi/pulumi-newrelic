@@ -35,7 +35,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {
         "name": args.name,
@@ -93,7 +92,10 @@ export interface GetKeyTransactionResult {
  * ```
  */
 export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyTransactionResult> {
-    return pulumi.output(args).apply((a: any) => getKeyTransaction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getKeyTransaction:getKeyTransaction", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

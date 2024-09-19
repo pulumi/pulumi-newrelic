@@ -57,14 +57,20 @@ type LookupNotificationDestinationResult struct {
 
 func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotificationDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationDestinationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNotificationDestinationResult, error) {
+		ApplyT(func(v interface{}) (LookupNotificationDestinationResultOutput, error) {
 			args := v.(LookupNotificationDestinationArgs)
-			r, err := LookupNotificationDestination(ctx, &args, opts...)
-			var s LookupNotificationDestinationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNotificationDestinationResult
+			secret, err := ctx.InvokePackageRaw("newrelic:index/getNotificationDestination:getNotificationDestination", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNotificationDestinationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNotificationDestinationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNotificationDestinationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNotificationDestinationResultOutput)
 }
 

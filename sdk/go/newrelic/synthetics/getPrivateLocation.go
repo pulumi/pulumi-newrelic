@@ -114,14 +114,20 @@ type LookupPrivateLocationResult struct {
 
 func LookupPrivateLocationOutput(ctx *pulumi.Context, args LookupPrivateLocationOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateLocationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPrivateLocationResult, error) {
+		ApplyT(func(v interface{}) (LookupPrivateLocationResultOutput, error) {
 			args := v.(LookupPrivateLocationArgs)
-			r, err := LookupPrivateLocation(ctx, &args, opts...)
-			var s LookupPrivateLocationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPrivateLocationResult
+			secret, err := ctx.InvokePackageRaw("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPrivateLocationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPrivateLocationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPrivateLocationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPrivateLocationResultOutput)
 }
 

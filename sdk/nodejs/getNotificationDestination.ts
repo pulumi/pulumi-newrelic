@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
 
 export function getNotificationDestination(args?: GetNotificationDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationDestinationResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getNotificationDestination:getNotificationDestination", {
         "accountId": args.accountId,
@@ -78,7 +77,14 @@ export interface GetNotificationDestinationResult {
     readonly type: string;
 }
 export function getNotificationDestinationOutput(args?: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationDestinationResult> {
-    return pulumi.output(args).apply((a: any) => getNotificationDestination(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getNotificationDestination:getNotificationDestination", {
+        "accountId": args.accountId,
+        "id": args.id,
+        "name": args.name,
+        "secureUrls": args.secureUrls,
+    }, opts);
 }
 
 /**

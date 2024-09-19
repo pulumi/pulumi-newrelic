@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getAccount:getAccount", {
         "accountId": args.accountId,
@@ -78,7 +77,13 @@ export interface GetAccountResult {
  * ```
  */
 export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getAccount:getAccount", {
+        "accountId": args.accountId,
+        "name": args.name,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**
