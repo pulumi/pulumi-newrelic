@@ -16,7 +16,9 @@ package newrelic
 
 import (
 	"fmt"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"unicode"
 
@@ -125,6 +127,7 @@ func Provider() tfbridge.ProviderInfo {
 		UpstreamRepoPath:        "./upstream",
 		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
 		Version:                 version.Version,
+		DocRules:                &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -285,6 +288,40 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(
+		defaults,
+		skipSections()...,
+	)
+}
+
+var sectionRegexps = []*regexp.Regexp{
+	regexp.MustCompile(`Upgrading to`),
+	regexp.MustCompile(`Support for`),
+	regexp.MustCompile(`Quick Links`),
+	regexp.MustCompile(`Community`),
+}
+
+// Removes sections meant to address the TF maintainer community, see sectionREgexps
+func skipSections() []tfbridge.DocsEdit {
+	var edits []tfbridge.DocsEdit
+	for _, sectionRegexp := range sectionRegexps {
+		edits = append(
+			edits,
+			tfbridge.DocsEdit{
+				Path: "index.html.markdown",
+				Edit: func(_ string, content []byte) ([]byte, error) {
+					return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+						return sectionRegexp.Match([]byte(headerText))
+					})
+				},
+			},
+		)
+	}
+
+	return edits
 }
 
 //go:embed cmd/pulumi-resource-newrelic/bridge-metadata.json
