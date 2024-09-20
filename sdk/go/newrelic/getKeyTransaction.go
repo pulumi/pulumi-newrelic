@@ -91,14 +91,20 @@ type GetKeyTransactionResult struct {
 
 func GetKeyTransactionOutput(ctx *pulumi.Context, args GetKeyTransactionOutputArgs, opts ...pulumi.InvokeOption) GetKeyTransactionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetKeyTransactionResult, error) {
+		ApplyT(func(v interface{}) (GetKeyTransactionResultOutput, error) {
 			args := v.(GetKeyTransactionArgs)
-			r, err := GetKeyTransaction(ctx, &args, opts...)
-			var s GetKeyTransactionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetKeyTransactionResult
+			secret, err := ctx.InvokePackageRaw("newrelic:index/getKeyTransaction:getKeyTransaction", args, &rv, "", opts...)
+			if err != nil {
+				return GetKeyTransactionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetKeyTransactionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetKeyTransactionResultOutput), nil
+			}
+			return output, nil
 		}).(GetKeyTransactionResultOutput)
 }
 

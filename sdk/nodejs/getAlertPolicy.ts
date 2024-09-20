@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
  */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {
         "accountId": args.accountId,
@@ -68,7 +67,12 @@ export interface GetAlertPolicyResult {
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
  */
 export function getAlertPolicyOutput(args: GetAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAlertPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getAlertPolicy:getAlertPolicy", {
+        "accountId": args.accountId,
+        "incidentPreference": args.incidentPreference,
+        "name": args.name,
+    }, opts);
 }
 
 /**

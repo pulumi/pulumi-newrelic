@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", {
         "accountId": args.accountId,
@@ -79,7 +78,11 @@ export interface GetSecureCredentialResult {
  * ```
  */
 export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
-    return pulumi.output(args).apply((a: any) => getSecureCredential(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:synthetics/getSecureCredential:getSecureCredential", {
+        "accountId": args.accountId,
+        "key": args.key,
+    }, opts);
 }
 
 /**

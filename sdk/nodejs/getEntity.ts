@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getEntity:getEntity", {
         "accountId": args.accountId,
@@ -96,7 +95,17 @@ export interface GetEntityResult {
     readonly type: string;
 }
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
-    return pulumi.output(args).apply((a: any) => getEntity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getEntity:getEntity", {
+        "accountId": args.accountId,
+        "domain": args.domain,
+        "entityTags": args.entityTags,
+        "ignoreCase": args.ignoreCase,
+        "ignoreNotFound": args.ignoreNotFound,
+        "name": args.name,
+        "tags": args.tags,
+        "type": args.type,
+    }, opts);
 }
 
 /**

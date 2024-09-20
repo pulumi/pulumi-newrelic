@@ -64,14 +64,20 @@ type GetAuthenticationDomainResult struct {
 
 func GetAuthenticationDomainOutput(ctx *pulumi.Context, args GetAuthenticationDomainOutputArgs, opts ...pulumi.InvokeOption) GetAuthenticationDomainResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAuthenticationDomainResult, error) {
+		ApplyT(func(v interface{}) (GetAuthenticationDomainResultOutput, error) {
 			args := v.(GetAuthenticationDomainArgs)
-			r, err := GetAuthenticationDomain(ctx, &args, opts...)
-			var s GetAuthenticationDomainResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAuthenticationDomainResult
+			secret, err := ctx.InvokePackageRaw("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", args, &rv, "", opts...)
+			if err != nil {
+				return GetAuthenticationDomainResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAuthenticationDomainResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAuthenticationDomainResultOutput), nil
+			}
+			return output, nil
 		}).(GetAuthenticationDomainResultOutput)
 }
 
