@@ -48,14 +48,20 @@ type LookupAlertChannelResult struct {
 
 func LookupAlertChannelOutput(ctx *pulumi.Context, args LookupAlertChannelOutputArgs, opts ...pulumi.InvokeOption) LookupAlertChannelResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAlertChannelResult, error) {
+		ApplyT(func(v interface{}) (LookupAlertChannelResultOutput, error) {
 			args := v.(LookupAlertChannelArgs)
-			r, err := LookupAlertChannel(ctx, &args, opts...)
-			var s LookupAlertChannelResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAlertChannelResult
+			secret, err := ctx.InvokePackageRaw("newrelic:index/getAlertChannel:getAlertChannel", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAlertChannelResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAlertChannelResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAlertChannelResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAlertChannelResultOutput)
 }
 

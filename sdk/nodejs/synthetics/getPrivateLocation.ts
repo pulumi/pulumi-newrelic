@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLocationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", {
         "accountId": args.accountId,
@@ -106,7 +105,12 @@ export interface GetPrivateLocationResult {
  * ```
  */
 export function getPrivateLocationOutput(args: GetPrivateLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLocationResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLocation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:synthetics/getPrivateLocation:getPrivateLocation", {
+        "accountId": args.accountId,
+        "keys": args.keys,
+        "name": args.name,
+    }, opts);
 }
 
 /**

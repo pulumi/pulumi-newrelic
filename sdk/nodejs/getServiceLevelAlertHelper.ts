@@ -124,7 +124,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServiceLevelAlertHelper(args: GetServiceLevelAlertHelperArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelAlertHelperResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", {
         "alertType": args.alertType,
@@ -323,7 +322,16 @@ export interface GetServiceLevelAlertHelperResult {
  * ```
  */
 export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelAlertHelperResult> {
-    return pulumi.output(args).apply((a: any) => getServiceLevelAlertHelper(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", {
+        "alertType": args.alertType,
+        "customEvaluationPeriod": args.customEvaluationPeriod,
+        "customToleratedBudgetConsumption": args.customToleratedBudgetConsumption,
+        "isBadEvents": args.isBadEvents,
+        "sliGuid": args.sliGuid,
+        "sloPeriod": args.sloPeriod,
+        "sloTarget": args.sloTarget,
+    }, opts);
 }
 
 /**

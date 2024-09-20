@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTestGrokPattern(args: GetTestGrokPatternArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGrokPatternResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getTestGrokPattern:getTestGrokPattern", {
         "accountId": args.accountId,
@@ -85,7 +84,12 @@ export interface GetTestGrokPatternResult {
  * ```
  */
 export function getTestGrokPatternOutput(args: GetTestGrokPatternOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGrokPatternResult> {
-    return pulumi.output(args).apply((a: any) => getTestGrokPattern(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getTestGrokPattern:getTestGrokPattern", {
+        "accountId": args.accountId,
+        "grok": args.grok,
+        "logLines": args.logLines,
+    }, opts);
 }
 
 /**

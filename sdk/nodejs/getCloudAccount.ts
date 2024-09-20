@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCloudAccount(args: GetCloudAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getCloudAccount:getCloudAccount", {
         "accountId": args.accountId,
@@ -79,7 +78,12 @@ export interface GetCloudAccountResult {
  * ```
  */
 export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudAccountResult> {
-    return pulumi.output(args).apply((a: any) => getCloudAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getCloudAccount:getCloudAccount", {
+        "accountId": args.accountId,
+        "cloudProvider": args.cloudProvider,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  */
 export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getAlertChannel:getAlertChannel", {
         "accountId": args.accountId,
@@ -63,7 +62,11 @@ export interface GetAlertChannelResult {
  * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  */
 export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertChannelResult> {
-    return pulumi.output(args).apply((a: any) => getAlertChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getAlertChannel:getAlertChannel", {
+        "accountId": args.accountId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

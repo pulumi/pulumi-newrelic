@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAuthenticationDomain(args: GetAuthenticationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthenticationDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", {
         "name": args.name,
@@ -71,7 +70,10 @@ export interface GetAuthenticationDomainResult {
  * ```
  */
 export function getAuthenticationDomainOutput(args: GetAuthenticationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticationDomainResult> {
-    return pulumi.output(args).apply((a: any) => getAuthenticationDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

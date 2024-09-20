@@ -31,7 +31,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getObfuscationExpression(args: GetObfuscationExpressionArgs, opts?: pulumi.InvokeOptions): Promise<GetObfuscationExpressionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", {
         "accountId": args.accountId,
@@ -91,7 +90,11 @@ export interface GetObfuscationExpressionResult {
  * ```
  */
 export function getObfuscationExpressionOutput(args: GetObfuscationExpressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObfuscationExpressionResult> {
-    return pulumi.output(args).apply((a: any) => getObfuscationExpression(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("newrelic:index/getObfuscationExpression:getObfuscationExpression", {
+        "accountId": args.accountId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

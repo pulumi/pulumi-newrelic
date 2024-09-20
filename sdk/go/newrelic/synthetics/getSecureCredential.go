@@ -72,14 +72,20 @@ type LookupSecureCredentialResult struct {
 
 func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredentialOutputArgs, opts ...pulumi.InvokeOption) LookupSecureCredentialResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSecureCredentialResult, error) {
+		ApplyT(func(v interface{}) (LookupSecureCredentialResultOutput, error) {
 			args := v.(LookupSecureCredentialArgs)
-			r, err := LookupSecureCredential(ctx, &args, opts...)
-			var s LookupSecureCredentialResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSecureCredentialResult
+			secret, err := ctx.InvokePackageRaw("newrelic:synthetics/getSecureCredential:getSecureCredential", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSecureCredentialResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSecureCredentialResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSecureCredentialResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSecureCredentialResultOutput)
 }
 
