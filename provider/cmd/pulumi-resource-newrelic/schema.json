@@ -3258,6 +3258,13 @@
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
                 },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaDataFormat:OneDashboardPageWidgetAreaDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
+                },
                 "facetShowOtherSeries": {
                     "type": "boolean",
                     "description": "(Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`\n"
@@ -3375,6 +3382,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetAreaDataFormat:OneDashboardPageWidgetAreaDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetAreaInitialSorting:OneDashboardPageWidgetAreaInitialSorting": {
             "properties": {
                 "direction": {
@@ -3486,6 +3518,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarDataFormat:OneDashboardPageWidgetBarDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -3616,6 +3655,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetBarDataFormat:OneDashboardPageWidgetBarDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetBarInitialSorting:OneDashboardPageWidgetBarInitialSorting": {
             "properties": {
                 "direction": {
@@ -3731,6 +3795,13 @@
                 "critical": {
                     "type": "string",
                     "description": "(Optional) Threshold above which the displayed value will be styled with a red color.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardDataFormat:OneDashboardPageWidgetBillboardDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -3853,6 +3924,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetBillboardDataFormat:OneDashboardPageWidgetBillboardDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetBillboardInitialSorting:OneDashboardPageWidgetBillboardInitialSorting": {
             "properties": {
                 "direction": {
@@ -3964,6 +4060,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBulletDataFormat:OneDashboardPageWidgetBulletDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -4088,6 +4191,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetBulletDataFormat:OneDashboardPageWidgetBulletDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetBulletInitialSorting:OneDashboardPageWidgetBulletInitialSorting": {
             "properties": {
                 "direction": {
@@ -4199,6 +4327,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetFunnelDataFormat:OneDashboardPageWidgetFunnelDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -4317,6 +4452,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetFunnelDataFormat:OneDashboardPageWidgetFunnelDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetFunnelInitialSorting:OneDashboardPageWidgetFunnelInitialSorting": {
             "properties": {
                 "direction": {
@@ -4428,6 +4588,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHeatmapDataFormat:OneDashboardPageWidgetHeatmapDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -4558,6 +4725,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetHeatmapDataFormat:OneDashboardPageWidgetHeatmapDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetHeatmapInitialSorting:OneDashboardPageWidgetHeatmapInitialSorting": {
             "properties": {
                 "direction": {
@@ -4669,6 +4861,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHistogramDataFormat:OneDashboardPageWidgetHistogramDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -4787,6 +4986,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetHistogramDataFormat:OneDashboardPageWidgetHistogramDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetHistogramInitialSorting:OneDashboardPageWidgetHistogramInitialSorting": {
             "properties": {
                 "direction": {
@@ -4898,6 +5122,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJsonDataFormat:OneDashboardPageWidgetJsonDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -5016,6 +5247,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetJsonDataFormat:OneDashboardPageWidgetJsonDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetJsonInitialSorting:OneDashboardPageWidgetJsonInitialSorting": {
             "properties": {
                 "direction": {
@@ -5127,6 +5383,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineDataFormat:OneDashboardPageWidgetLineDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -5263,6 +5526,31 @@
                 }
             },
             "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetLineDataFormat:OneDashboardPageWidgetLineDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetLineInitialSorting:OneDashboardPageWidgetLineInitialSorting": {
             "properties": {
@@ -5421,6 +5709,13 @@
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
                 },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLogTableDataFormat:OneDashboardPageWidgetLogTableDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
+                },
                 "facetShowOtherSeries": {
                     "type": "boolean",
                     "description": "(Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`\n"
@@ -5538,6 +5833,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetLogTableDataFormat:OneDashboardPageWidgetLogTableDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetLogTableInitialSorting:OneDashboardPageWidgetLogTableInitialSorting": {
             "properties": {
                 "direction": {
@@ -5649,6 +5969,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetMarkdownDataFormat:OneDashboardPageWidgetMarkdownDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -5764,6 +6091,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetMarkdownDataFormat:OneDashboardPageWidgetMarkdownDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetMarkdownInitialSorting:OneDashboardPageWidgetMarkdownInitialSorting": {
             "properties": {
                 "direction": {
@@ -5851,6 +6203,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyDataFormat:OneDashboardPageWidgetPyDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -5981,6 +6340,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetPyDataFormat:OneDashboardPageWidgetPyDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetPyInitialSorting:OneDashboardPageWidgetPyInitialSorting": {
             "properties": {
                 "direction": {
@@ -6092,6 +6476,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBarDataFormat:OneDashboardPageWidgetStackedBarDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -6210,6 +6601,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetStackedBarDataFormat:OneDashboardPageWidgetStackedBarDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetStackedBarInitialSorting:OneDashboardPageWidgetStackedBarInitialSorting": {
             "properties": {
                 "direction": {
@@ -6321,6 +6737,13 @@
                 "column": {
                     "type": "integer",
                     "description": "(Required) Column position of widget from top left, starting at `1`.\n"
+                },
+                "dataFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableDataFormat:OneDashboardPageWidgetTableDataFormat"
+                    },
+                    "description": "(Optional) A nested block that describes data format. See Nested data_format blocks below for details.\n"
                 },
                 "facetShowOtherSeries": {
                     "type": "boolean",
@@ -6457,6 +6880,31 @@
                 }
             },
             "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetTableDataFormat:OneDashboardPageWidgetTableDataFormat": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "precision": {
+                    "type": "integer",
+                    "description": "(Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetTableInitialSorting:OneDashboardPageWidgetTableInitialSorting": {
             "properties": {
@@ -11331,6 +11779,114 @@
                 "type": "object"
             }
         },
+        "newrelic:index/keyTransaction:KeyTransaction": {
+            "description": "Use this resource to create a new Key Transaction in New Relic.\n\n\u003e **NOTE:** For more information on Key Transactions, head over to [this page](https://docs.newrelic.com/docs/apm/transactions/key-transactions/introduction-key-transactions/) in New Relic's docs.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.KeyTransaction(\"foo\", {\n    applicationGuid: \"MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy\",\n    apdexIndex: 0.5,\n    browserApdexTarget: 0.5,\n    metricName: \"WebTransaction/Function/__main__:foo_bar\",\n    name: \"Sample Key Transaction\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.KeyTransaction(\"foo\",\n    application_guid=\"MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy\",\n    apdex_index=0.5,\n    browser_apdex_target=0.5,\n    metric_name=\"WebTransaction/Function/__main__:foo_bar\",\n    name=\"Sample Key Transaction\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new NewRelic.KeyTransaction(\"foo\", new()\n    {\n        ApplicationGuid = \"MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy\",\n        ApdexIndex = 0.5,\n        BrowserApdexTarget = 0.5,\n        MetricName = \"WebTransaction/Function/__main__:foo_bar\",\n        Name = \"Sample Key Transaction\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewKeyTransaction(ctx, \"foo\", \u0026newrelic.KeyTransactionArgs{\n\t\t\tApplicationGuid:    pulumi.String(\"MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy\"),\n\t\t\tApdexIndex:         pulumi.Float64(0.5),\n\t\t\tBrowserApdexTarget: pulumi.Float64(0.5),\n\t\t\tMetricName:         pulumi.String(\"WebTransaction/Function/__main__:foo_bar\"),\n\t\t\tName:               pulumi.String(\"Sample Key Transaction\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.KeyTransaction;\nimport com.pulumi.newrelic.KeyTransactionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new KeyTransaction(\"foo\", KeyTransactionArgs.builder()\n            .applicationGuid(\"MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy\")\n            .apdexIndex(0.5)\n            .browserApdexTarget(0.5)\n            .metricName(\"WebTransaction/Function/__main__:foo_bar\")\n            .name(\"Sample Key Transaction\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:KeyTransaction\n    properties:\n      applicationGuid: MzgfNjUyNnxBUE19QVBQTElDQVHJT068NTUfNDT4MjUy\n      apdexIndex: 0.5\n      browserApdexTarget: 0.5\n      metricName: WebTransaction/Function/__main__:foo_bar\n      name: Sample Key Transaction\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nA Key Transaction in New Relic may be imported into Terraform using its GUID specified in the `\u003cid\u003e` field, in the following command.\n\nbash\n\n```sh\n$ pulumi import newrelic:index/keyTransaction:KeyTransaction foo \u003cid\u003e\n```\n\n",
+            "properties": {
+                "apdexIndex": {
+                    "type": "number",
+                    "description": "A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).\n"
+                },
+                "applicationGuid": {
+                    "type": "string",
+                    "description": "The GUID of the APM Application comprising transactions, of which one would be made a key transaction.\n"
+                },
+                "browserApdexTarget": {
+                    "type": "number",
+                    "description": "A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).\n\n\u003e **NOTE:** It may be noted that the `metric_name` and `application_guid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `application_guid` and/or `metric_name` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The domain of the entity monitored by the key transaction.\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name of the underlying metric monitored by the key transaction to be created.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the key transaction.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the entity monitored by the key transaction.\n"
+                }
+            },
+            "required": [
+                "apdexIndex",
+                "applicationGuid",
+                "browserApdexTarget",
+                "domain",
+                "metricName",
+                "name",
+                "type"
+            ],
+            "inputProperties": {
+                "apdexIndex": {
+                    "type": "number",
+                    "description": "A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).\n"
+                },
+                "applicationGuid": {
+                    "type": "string",
+                    "description": "The GUID of the APM Application comprising transactions, of which one would be made a key transaction.\n",
+                    "willReplaceOnChanges": true
+                },
+                "browserApdexTarget": {
+                    "type": "number",
+                    "description": "A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).\n\n\u003e **NOTE:** It may be noted that the `metric_name` and `application_guid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `application_guid` and/or `metric_name` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name of the underlying metric monitored by the key transaction to be created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the key transaction.\n"
+                }
+            },
+            "requiredInputs": [
+                "apdexIndex",
+                "applicationGuid",
+                "browserApdexTarget",
+                "metricName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KeyTransaction resources.\n",
+                "properties": {
+                    "apdexIndex": {
+                        "type": "number",
+                        "description": "A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).\n"
+                    },
+                    "applicationGuid": {
+                        "type": "string",
+                        "description": "The GUID of the APM Application comprising transactions, of which one would be made a key transaction.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "browserApdexTarget": {
+                        "type": "number",
+                        "description": "A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).\n\n\u003e **NOTE:** It may be noted that the `metric_name` and `application_guid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `application_guid` and/or `metric_name` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.\n"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "The domain of the entity monitored by the key transaction.\n"
+                    },
+                    "metricName": {
+                        "type": "string",
+                        "description": "The name of the underlying metric monitored by the key transaction to be created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the key transaction.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the entity monitored by the key transaction.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "newrelic:index/logParsingRule:LogParsingRule": {
             "description": "Use this resource to create, update and delete New Relic Log Parsing Rule.\n\n## Example Usage\n\nUse this example to create the log parse rule.\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.LogParsingRule(\"foo\", {\n    name: \"log_parse_rule\",\n    attribute: \"message\",\n    enabled: true,\n    grok: \"sampleattribute='%{NUMBER:test:int}'\",\n    lucene: \"logtype:linux_messages\",\n    nrql: \"SELECT * FROM Log WHERE logtype = 'linux_messages'\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.LogParsingRule(\"foo\",\n    name=\"log_parse_rule\",\n    attribute=\"message\",\n    enabled=True,\n    grok=\"sampleattribute='%{NUMBER:test:int}'\",\n    lucene=\"logtype:linux_messages\",\n    nrql=\"SELECT * FROM Log WHERE logtype = 'linux_messages'\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new NewRelic.LogParsingRule(\"foo\", new()\n    {\n        Name = \"log_parse_rule\",\n        Attribute = \"message\",\n        Enabled = true,\n        Grok = \"sampleattribute='%{NUMBER:test:int}'\",\n        Lucene = \"logtype:linux_messages\",\n        Nrql = \"SELECT * FROM Log WHERE logtype = 'linux_messages'\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewLogParsingRule(ctx, \"foo\", \u0026newrelic.LogParsingRuleArgs{\n\t\t\tName:      pulumi.String(\"log_parse_rule\"),\n\t\t\tAttribute: pulumi.String(\"message\"),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tGrok:      pulumi.String(\"sampleattribute='%{NUMBER:test:int}'\"),\n\t\t\tLucene:    pulumi.String(\"logtype:linux_messages\"),\n\t\t\tNrql:      pulumi.String(\"SELECT * FROM Log WHERE logtype = 'linux_messages'\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.LogParsingRule;\nimport com.pulumi.newrelic.LogParsingRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new LogParsingRule(\"foo\", LogParsingRuleArgs.builder()\n            .name(\"log_parse_rule\")\n            .attribute(\"message\")\n            .enabled(true)\n            .grok(\"sampleattribute='%{NUMBER:test:int}'\")\n            .lucene(\"logtype:linux_messages\")\n            .nrql(\"SELECT * FROM Log WHERE logtype = 'linux_messages'\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:LogParsingRule\n    properties:\n      name: log_parse_rule\n      attribute: message\n      enabled: true\n      grok: sampleattribute='%{NUMBER:test:int}'\n      lucene: logtype:linux_messages\n      nrql: SELECT * FROM Log WHERE logtype = 'linux_messages'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Additional Example\n\nUse this example to validate a grok pattern and create the log parse rule.  More\ninformation on grok pattern can be found [here](https://docs.newrelic.com/docs/logs/ui-data/parsing/#grok)\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst grok = newrelic.getTestGrokPattern({\n    grok: \"%{IP:host_ip}\",\n    logLines: [\"host_ip: 43.3.120.2\"],\n});\nconst foo = new newrelic.LogParsingRule(\"foo\", {\n    name: \"log_parse_rule\",\n    attribute: \"message\",\n    enabled: true,\n    grok: grok.then(grok =\u003e grok.grok),\n    lucene: \"logtype:linux_messages\",\n    nrql: \"SELECT * FROM Log WHERE logtype = 'linux_messages'\",\n    matched: grok.then(grok =\u003e grok.testGroks?.[0]?.matched),\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ngrok = newrelic.get_test_grok_pattern(grok=\"%{IP:host_ip}\",\n    log_lines=[\"host_ip: 43.3.120.2\"])\nfoo = newrelic.LogParsingRule(\"foo\",\n    name=\"log_parse_rule\",\n    attribute=\"message\",\n    enabled=True,\n    grok=grok.grok,\n    lucene=\"logtype:linux_messages\",\n    nrql=\"SELECT * FROM Log WHERE logtype = 'linux_messages'\",\n    matched=grok.test_groks[0].matched)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grok = NewRelic.GetTestGrokPattern.Invoke(new()\n    {\n        Grok = \"%{IP:host_ip}\",\n        LogLines = new[]\n        {\n            \"host_ip: 43.3.120.2\",\n        },\n    });\n\n    var foo = new NewRelic.LogParsingRule(\"foo\", new()\n    {\n        Name = \"log_parse_rule\",\n        Attribute = \"message\",\n        Enabled = true,\n        Grok = grok.Apply(getTestGrokPatternResult =\u003e getTestGrokPatternResult.Grok),\n        Lucene = \"logtype:linux_messages\",\n        Nrql = \"SELECT * FROM Log WHERE logtype = 'linux_messages'\",\n        Matched = grok.Apply(getTestGrokPatternResult =\u003e getTestGrokPatternResult.TestGroks[0]?.Matched),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tgrok, err := newrelic.GetTestGrokPattern(ctx, \u0026newrelic.GetTestGrokPatternArgs{\n\t\t\tGrok: \"%{IP:host_ip}\",\n\t\t\tLogLines: []string{\n\t\t\t\t\"host_ip: 43.3.120.2\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewLogParsingRule(ctx, \"foo\", \u0026newrelic.LogParsingRuleArgs{\n\t\t\tName:      pulumi.String(\"log_parse_rule\"),\n\t\t\tAttribute: pulumi.String(\"message\"),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tGrok:      pulumi.String(grok.Grok),\n\t\t\tLucene:    pulumi.String(\"logtype:linux_messages\"),\n\t\t\tNrql:      pulumi.String(\"SELECT * FROM Log WHERE logtype = 'linux_messages'\"),\n\t\t\tMatched:   pulumi.Bool(grok.TestGroks[0].Matched),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;\nimport com.pulumi.newrelic.LogParsingRule;\nimport com.pulumi.newrelic.LogParsingRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var grok = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()\n            .grok(\"%{IP:host_ip}\")\n            .logLines(\"host_ip: 43.3.120.2\")\n            .build());\n\n        var foo = new LogParsingRule(\"foo\", LogParsingRuleArgs.builder()\n            .name(\"log_parse_rule\")\n            .attribute(\"message\")\n            .enabled(true)\n            .grok(grok.applyValue(getTestGrokPatternResult -\u003e getTestGrokPatternResult.grok()))\n            .lucene(\"logtype:linux_messages\")\n            .nrql(\"SELECT * FROM Log WHERE logtype = 'linux_messages'\")\n            .matched(grok.applyValue(getTestGrokPatternResult -\u003e getTestGrokPatternResult.testGroks()[0].matched()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:LogParsingRule\n    properties:\n      name: log_parse_rule\n      attribute: message\n      enabled: true\n      grok: ${grok.grok}\n      lucene: logtype:linux_messages\n      nrql: SELECT * FROM Log WHERE logtype = 'linux_messages'\n      matched: ${grok.testGroks[0].matched}\nvariables:\n  grok:\n    fn::invoke:\n      Function: newrelic:getTestGrokPattern\n      Arguments:\n        grok: '%{IP:host_ip}'\n        logLines:\n          - 'host_ip: 43.3.120.2'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nNew Relic log parsing rule can be imported using the rule ID, e.g.\n\nbash\n\n```sh\n$ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789\n```\n\n",
             "properties": {
@@ -15755,7 +16311,7 @@
             }
         },
         "newrelic:index/getKeyTransaction:getKeyTransaction": {
-            "description": "Use this data source to get information about a specific key transaction in New Relic that already exists.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst txn = newrelic.getKeyTransaction({\n    name: \"txn\",\n});\nconst foo = new newrelic.AlertPolicy(\"foo\", {name: \"foo\"});\nconst fooAlertCondition = new newrelic.AlertCondition(\"foo\", {\n    policyId: foo.id,\n    name: \"foo\",\n    type: \"apm_kt_metric\",\n    entities: [txn.then(txn =\u003e txn.id)],\n    metric: \"error_percentage\",\n    runbookUrl: \"https://www.example.com\",\n    terms: [{\n        duration: 5,\n        operator: \"below\",\n        priority: \"critical\",\n        threshold: 0.75,\n        timeFunction: \"all\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ntxn = newrelic.get_key_transaction(name=\"txn\")\nfoo = newrelic.AlertPolicy(\"foo\", name=\"foo\")\nfoo_alert_condition = newrelic.AlertCondition(\"foo\",\n    policy_id=foo.id,\n    name=\"foo\",\n    type=\"apm_kt_metric\",\n    entities=[txn.id],\n    metric=\"error_percentage\",\n    runbook_url=\"https://www.example.com\",\n    terms=[{\n        \"duration\": 5,\n        \"operator\": \"below\",\n        \"priority\": \"critical\",\n        \"threshold\": 0.75,\n        \"time_function\": \"all\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var txn = NewRelic.GetKeyTransaction.Invoke(new()\n    {\n        Name = \"txn\",\n    });\n\n    var foo = new NewRelic.AlertPolicy(\"foo\", new()\n    {\n        Name = \"foo\",\n    });\n\n    var fooAlertCondition = new NewRelic.AlertCondition(\"foo\", new()\n    {\n        PolicyId = foo.Id,\n        Name = \"foo\",\n        Type = \"apm_kt_metric\",\n        Entities = new[]\n        {\n            txn.Apply(getKeyTransactionResult =\u003e getKeyTransactionResult.Id),\n        },\n        Metric = \"error_percentage\",\n        RunbookUrl = \"https://www.example.com\",\n        Terms = new[]\n        {\n            new NewRelic.Inputs.AlertConditionTermArgs\n            {\n                Duration = 5,\n                Operator = \"below\",\n                Priority = \"critical\",\n                Threshold = 0.75,\n                TimeFunction = \"all\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttxn, err := newrelic.GetKeyTransaction(ctx, \u0026newrelic.GetKeyTransactionArgs{\n\t\t\tName: \"txn\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfoo, err := newrelic.NewAlertPolicy(ctx, \"foo\", \u0026newrelic.AlertPolicyArgs{\n\t\t\tName: pulumi.String(\"foo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewAlertCondition(ctx, \"foo\", \u0026newrelic.AlertConditionArgs{\n\t\t\tPolicyId: foo.ID(),\n\t\t\tName:     pulumi.String(\"foo\"),\n\t\t\tType:     pulumi.String(\"apm_kt_metric\"),\n\t\t\tEntities: pulumi.StringArray{\n\t\t\t\tpulumi.String(txn.Id),\n\t\t\t},\n\t\t\tMetric:     pulumi.String(\"error_percentage\"),\n\t\t\tRunbookUrl: pulumi.String(\"https://www.example.com\"),\n\t\t\tTerms: newrelic.AlertConditionTermArray{\n\t\t\t\t\u0026newrelic.AlertConditionTermArgs{\n\t\t\t\t\tDuration:     pulumi.Int(5),\n\t\t\t\t\tOperator:     pulumi.String(\"below\"),\n\t\t\t\t\tPriority:     pulumi.String(\"critical\"),\n\t\t\t\t\tThreshold:    pulumi.Float64(0.75),\n\t\t\t\t\tTimeFunction: pulumi.String(\"all\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetKeyTransactionArgs;\nimport com.pulumi.newrelic.AlertPolicy;\nimport com.pulumi.newrelic.AlertPolicyArgs;\nimport com.pulumi.newrelic.AlertCondition;\nimport com.pulumi.newrelic.AlertConditionArgs;\nimport com.pulumi.newrelic.inputs.AlertConditionTermArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var txn = NewrelicFunctions.getKeyTransaction(GetKeyTransactionArgs.builder()\n            .name(\"txn\")\n            .build());\n\n        var foo = new AlertPolicy(\"foo\", AlertPolicyArgs.builder()\n            .name(\"foo\")\n            .build());\n\n        var fooAlertCondition = new AlertCondition(\"fooAlertCondition\", AlertConditionArgs.builder()\n            .policyId(foo.id())\n            .name(\"foo\")\n            .type(\"apm_kt_metric\")\n            .entities(txn.applyValue(getKeyTransactionResult -\u003e getKeyTransactionResult.id()))\n            .metric(\"error_percentage\")\n            .runbookUrl(\"https://www.example.com\")\n            .terms(AlertConditionTermArgs.builder()\n                .duration(5)\n                .operator(\"below\")\n                .priority(\"critical\")\n                .threshold(\"0.75\")\n                .timeFunction(\"all\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:AlertPolicy\n    properties:\n      name: foo\n  fooAlertCondition:\n    type: newrelic:AlertCondition\n    name: foo\n    properties:\n      policyId: ${foo.id}\n      name: foo\n      type: apm_kt_metric\n      entities:\n        - ${txn.id}\n      metric: error_percentage\n      runbookUrl: https://www.example.com\n      terms:\n        - duration: 5\n          operator: below\n          priority: critical\n          threshold: '0.75'\n          timeFunction: all\nvariables:\n  txn:\n    fn::invoke:\n      Function: newrelic:getKeyTransaction\n      Arguments:\n        name: txn\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Use this data source to get information about a specific key transaction in New Relic that already exists.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst txn = newrelic.getKeyTransaction({\n    name: \"txn\",\n});\nconst foo = new newrelic.AlertPolicy(\"foo\", {name: \"foo\"});\nconst fooAlertCondition = new newrelic.AlertCondition(\"foo\", {\n    policyId: foo.id,\n    name: \"foo\",\n    type: \"apm_kt_metric\",\n    entities: [txn.then(txn =\u003e txn.id)],\n    metric: \"error_percentage\",\n    runbookUrl: \"https://www.example.com\",\n    terms: [{\n        duration: 5,\n        operator: \"below\",\n        priority: \"critical\",\n        threshold: 0.75,\n        timeFunction: \"all\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\ntxn = newrelic.get_key_transaction(name=\"txn\")\nfoo = newrelic.AlertPolicy(\"foo\", name=\"foo\")\nfoo_alert_condition = newrelic.AlertCondition(\"foo\",\n    policy_id=foo.id,\n    name=\"foo\",\n    type=\"apm_kt_metric\",\n    entities=[txn.id],\n    metric=\"error_percentage\",\n    runbook_url=\"https://www.example.com\",\n    terms=[{\n        \"duration\": 5,\n        \"operator\": \"below\",\n        \"priority\": \"critical\",\n        \"threshold\": 0.75,\n        \"time_function\": \"all\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var txn = NewRelic.GetKeyTransaction.Invoke(new()\n    {\n        Name = \"txn\",\n    });\n\n    var foo = new NewRelic.AlertPolicy(\"foo\", new()\n    {\n        Name = \"foo\",\n    });\n\n    var fooAlertCondition = new NewRelic.AlertCondition(\"foo\", new()\n    {\n        PolicyId = foo.Id,\n        Name = \"foo\",\n        Type = \"apm_kt_metric\",\n        Entities = new[]\n        {\n            txn.Apply(getKeyTransactionResult =\u003e getKeyTransactionResult.Id),\n        },\n        Metric = \"error_percentage\",\n        RunbookUrl = \"https://www.example.com\",\n        Terms = new[]\n        {\n            new NewRelic.Inputs.AlertConditionTermArgs\n            {\n                Duration = 5,\n                Operator = \"below\",\n                Priority = \"critical\",\n                Threshold = 0.75,\n                TimeFunction = \"all\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttxn, err := newrelic.LookupKeyTransaction(ctx, \u0026newrelic.LookupKeyTransactionArgs{\n\t\t\tName: \"txn\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfoo, err := newrelic.NewAlertPolicy(ctx, \"foo\", \u0026newrelic.AlertPolicyArgs{\n\t\t\tName: pulumi.String(\"foo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewAlertCondition(ctx, \"foo\", \u0026newrelic.AlertConditionArgs{\n\t\t\tPolicyId: foo.ID(),\n\t\t\tName:     pulumi.String(\"foo\"),\n\t\t\tType:     pulumi.String(\"apm_kt_metric\"),\n\t\t\tEntities: pulumi.StringArray{\n\t\t\t\tpulumi.String(txn.Id),\n\t\t\t},\n\t\t\tMetric:     pulumi.String(\"error_percentage\"),\n\t\t\tRunbookUrl: pulumi.String(\"https://www.example.com\"),\n\t\t\tTerms: newrelic.AlertConditionTermArray{\n\t\t\t\t\u0026newrelic.AlertConditionTermArgs{\n\t\t\t\t\tDuration:     pulumi.Int(5),\n\t\t\t\t\tOperator:     pulumi.String(\"below\"),\n\t\t\t\t\tPriority:     pulumi.String(\"critical\"),\n\t\t\t\t\tThreshold:    pulumi.Float64(0.75),\n\t\t\t\t\tTimeFunction: pulumi.String(\"all\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetKeyTransactionArgs;\nimport com.pulumi.newrelic.AlertPolicy;\nimport com.pulumi.newrelic.AlertPolicyArgs;\nimport com.pulumi.newrelic.AlertCondition;\nimport com.pulumi.newrelic.AlertConditionArgs;\nimport com.pulumi.newrelic.inputs.AlertConditionTermArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var txn = NewrelicFunctions.getKeyTransaction(GetKeyTransactionArgs.builder()\n            .name(\"txn\")\n            .build());\n\n        var foo = new AlertPolicy(\"foo\", AlertPolicyArgs.builder()\n            .name(\"foo\")\n            .build());\n\n        var fooAlertCondition = new AlertCondition(\"fooAlertCondition\", AlertConditionArgs.builder()\n            .policyId(foo.id())\n            .name(\"foo\")\n            .type(\"apm_kt_metric\")\n            .entities(txn.applyValue(getKeyTransactionResult -\u003e getKeyTransactionResult.id()))\n            .metric(\"error_percentage\")\n            .runbookUrl(\"https://www.example.com\")\n            .terms(AlertConditionTermArgs.builder()\n                .duration(5)\n                .operator(\"below\")\n                .priority(\"critical\")\n                .threshold(\"0.75\")\n                .timeFunction(\"all\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: newrelic:AlertPolicy\n    properties:\n      name: foo\n  fooAlertCondition:\n    type: newrelic:AlertCondition\n    name: foo\n    properties:\n      policyId: ${foo.id}\n      name: foo\n      type: apm_kt_metric\n      entities:\n        - ${txn.id}\n      metric: error_percentage\n      runbookUrl: https://www.example.com\n      terms:\n        - duration: 5\n          operator: below\n          priority: critical\n          threshold: '0.75'\n          timeFunction: all\nvariables:\n  txn:\n    fn::invoke:\n      Function: newrelic:getKeyTransaction\n      Arguments:\n        name: txn\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getKeyTransaction.\n",
                 "properties": {
