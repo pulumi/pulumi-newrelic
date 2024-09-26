@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonColorArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonInitialSortingArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonNullValueArgs;
@@ -53,6 +54,21 @@ public final class OneDashboardPageWidgetJsonArgs extends com.pulumi.resources.R
      */
     public Output<Integer> column() {
         return this.column;
+    }
+
+    /**
+     * (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    @Import(name="dataFormats")
+    private @Nullable Output<List<OneDashboardPageWidgetJsonDataFormatArgs>> dataFormats;
+
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public Optional<Output<List<OneDashboardPageWidgetJsonDataFormatArgs>>> dataFormats() {
+        return Optional.ofNullable(this.dataFormats);
     }
 
     /**
@@ -277,6 +293,7 @@ public final class OneDashboardPageWidgetJsonArgs extends com.pulumi.resources.R
     private OneDashboardPageWidgetJsonArgs(OneDashboardPageWidgetJsonArgs $) {
         this.colors = $.colors;
         this.column = $.column;
+        this.dataFormats = $.dataFormats;
         this.facetShowOtherSeries = $.facetShowOtherSeries;
         this.height = $.height;
         this.id = $.id;
@@ -362,6 +379,37 @@ public final class OneDashboardPageWidgetJsonArgs extends com.pulumi.resources.R
          */
         public Builder column(Integer column) {
             return column(Output.of(column));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(@Nullable Output<List<OneDashboardPageWidgetJsonDataFormatArgs>> dataFormats) {
+            $.dataFormats = dataFormats;
+            return this;
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(List<OneDashboardPageWidgetJsonDataFormatArgs> dataFormats) {
+            return dataFormats(Output.of(dataFormats));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(OneDashboardPageWidgetJsonDataFormatArgs... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
 
         /**

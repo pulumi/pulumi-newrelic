@@ -32,6 +32,7 @@ from .get_test_grok_pattern import *
 from .get_user import *
 from .group import *
 from .infra_alert_condition import *
+from .key_transaction import *
 from .log_parsing_rule import *
 from .monitor_downtime import *
 from .notification_channel import *
@@ -238,6 +239,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/infraAlertCondition:InfraAlertCondition": "InfraAlertCondition"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/keyTransaction",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/keyTransaction:KeyTransaction": "KeyTransaction"
   }
  },
  {

@@ -30,6 +30,18 @@ namespace Pulumi.NewRelic.Inputs
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
+        [Input("dataFormats")]
+        private InputList<Inputs.OneDashboardPageWidgetLineDataFormatArgs>? _dataFormats;
+
+        /// <summary>
+        /// (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetLineDataFormatArgs> DataFormats
+        {
+            get => _dataFormats ?? (_dataFormats = new InputList<Inputs.OneDashboardPageWidgetLineDataFormatArgs>());
+            set => _dataFormats = value;
+        }
+
         /// <summary>
         /// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         /// </summary>

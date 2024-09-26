@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetPyColorArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetPyDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetPyInitialSortingArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetPyNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetPyNullValueArgs;
@@ -53,6 +54,21 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
      */
     public Output<Integer> column() {
         return this.column;
+    }
+
+    /**
+     * (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    @Import(name="dataFormats")
+    private @Nullable Output<List<OneDashboardPageWidgetPyDataFormatArgs>> dataFormats;
+
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public Optional<Output<List<OneDashboardPageWidgetPyDataFormatArgs>>> dataFormats() {
+        return Optional.ofNullable(this.dataFormats);
     }
 
     /**
@@ -307,6 +323,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
     private OneDashboardPageWidgetPyArgs(OneDashboardPageWidgetPyArgs $) {
         this.colors = $.colors;
         this.column = $.column;
+        this.dataFormats = $.dataFormats;
         this.facetShowOtherSeries = $.facetShowOtherSeries;
         this.filterCurrentDashboard = $.filterCurrentDashboard;
         this.height = $.height;
@@ -394,6 +411,37 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
          */
         public Builder column(Integer column) {
             return column(Output.of(column));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(@Nullable Output<List<OneDashboardPageWidgetPyDataFormatArgs>> dataFormats) {
+            $.dataFormats = dataFormats;
+            return this;
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(List<OneDashboardPageWidgetPyDataFormatArgs> dataFormats) {
+            return dataFormats(Output.of(dataFormats));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(OneDashboardPageWidgetPyDataFormatArgs... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
 
         /**

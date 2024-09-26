@@ -22,6 +22,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly int Column;
         /// <summary>
+        /// (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBulletDataFormat> DataFormats;
+        /// <summary>
         /// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         /// </summary>
         public readonly bool? FacetShowOtherSeries;
@@ -89,6 +93,8 @@ namespace Pulumi.NewRelic.Outputs
 
             int column,
 
+            ImmutableArray<Outputs.OneDashboardPageWidgetBulletDataFormat> dataFormats,
+
             bool? facetShowOtherSeries,
 
             int? height,
@@ -123,6 +129,7 @@ namespace Pulumi.NewRelic.Outputs
         {
             Colors = colors;
             Column = column;
+            DataFormats = dataFormats;
             FacetShowOtherSeries = facetShowOtherSeries;
             Height = height;
             Id = id;

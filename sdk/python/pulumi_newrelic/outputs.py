@@ -37,6 +37,7 @@ __all__ = [
     'OneDashboardPageWidgetArea',
     'OneDashboardPageWidgetAreaColor',
     'OneDashboardPageWidgetAreaColorSeriesOverride',
+    'OneDashboardPageWidgetAreaDataFormat',
     'OneDashboardPageWidgetAreaInitialSorting',
     'OneDashboardPageWidgetAreaNrqlQuery',
     'OneDashboardPageWidgetAreaNullValue',
@@ -46,6 +47,7 @@ __all__ = [
     'OneDashboardPageWidgetBar',
     'OneDashboardPageWidgetBarColor',
     'OneDashboardPageWidgetBarColorSeriesOverride',
+    'OneDashboardPageWidgetBarDataFormat',
     'OneDashboardPageWidgetBarInitialSorting',
     'OneDashboardPageWidgetBarNrqlQuery',
     'OneDashboardPageWidgetBarNullValue',
@@ -55,6 +57,7 @@ __all__ = [
     'OneDashboardPageWidgetBillboard',
     'OneDashboardPageWidgetBillboardColor',
     'OneDashboardPageWidgetBillboardColorSeriesOverride',
+    'OneDashboardPageWidgetBillboardDataFormat',
     'OneDashboardPageWidgetBillboardInitialSorting',
     'OneDashboardPageWidgetBillboardNrqlQuery',
     'OneDashboardPageWidgetBillboardNullValue',
@@ -64,6 +67,7 @@ __all__ = [
     'OneDashboardPageWidgetBullet',
     'OneDashboardPageWidgetBulletColor',
     'OneDashboardPageWidgetBulletColorSeriesOverride',
+    'OneDashboardPageWidgetBulletDataFormat',
     'OneDashboardPageWidgetBulletInitialSorting',
     'OneDashboardPageWidgetBulletNrqlQuery',
     'OneDashboardPageWidgetBulletNullValue',
@@ -73,6 +77,7 @@ __all__ = [
     'OneDashboardPageWidgetFunnel',
     'OneDashboardPageWidgetFunnelColor',
     'OneDashboardPageWidgetFunnelColorSeriesOverride',
+    'OneDashboardPageWidgetFunnelDataFormat',
     'OneDashboardPageWidgetFunnelInitialSorting',
     'OneDashboardPageWidgetFunnelNrqlQuery',
     'OneDashboardPageWidgetFunnelNullValue',
@@ -82,6 +87,7 @@ __all__ = [
     'OneDashboardPageWidgetHeatmap',
     'OneDashboardPageWidgetHeatmapColor',
     'OneDashboardPageWidgetHeatmapColorSeriesOverride',
+    'OneDashboardPageWidgetHeatmapDataFormat',
     'OneDashboardPageWidgetHeatmapInitialSorting',
     'OneDashboardPageWidgetHeatmapNrqlQuery',
     'OneDashboardPageWidgetHeatmapNullValue',
@@ -91,6 +97,7 @@ __all__ = [
     'OneDashboardPageWidgetHistogram',
     'OneDashboardPageWidgetHistogramColor',
     'OneDashboardPageWidgetHistogramColorSeriesOverride',
+    'OneDashboardPageWidgetHistogramDataFormat',
     'OneDashboardPageWidgetHistogramInitialSorting',
     'OneDashboardPageWidgetHistogramNrqlQuery',
     'OneDashboardPageWidgetHistogramNullValue',
@@ -100,6 +107,7 @@ __all__ = [
     'OneDashboardPageWidgetJson',
     'OneDashboardPageWidgetJsonColor',
     'OneDashboardPageWidgetJsonColorSeriesOverride',
+    'OneDashboardPageWidgetJsonDataFormat',
     'OneDashboardPageWidgetJsonInitialSorting',
     'OneDashboardPageWidgetJsonNrqlQuery',
     'OneDashboardPageWidgetJsonNullValue',
@@ -109,6 +117,7 @@ __all__ = [
     'OneDashboardPageWidgetLine',
     'OneDashboardPageWidgetLineColor',
     'OneDashboardPageWidgetLineColorSeriesOverride',
+    'OneDashboardPageWidgetLineDataFormat',
     'OneDashboardPageWidgetLineInitialSorting',
     'OneDashboardPageWidgetLineNrqlQuery',
     'OneDashboardPageWidgetLineNullValue',
@@ -120,6 +129,7 @@ __all__ = [
     'OneDashboardPageWidgetLogTable',
     'OneDashboardPageWidgetLogTableColor',
     'OneDashboardPageWidgetLogTableColorSeriesOverride',
+    'OneDashboardPageWidgetLogTableDataFormat',
     'OneDashboardPageWidgetLogTableInitialSorting',
     'OneDashboardPageWidgetLogTableNrqlQuery',
     'OneDashboardPageWidgetLogTableNullValue',
@@ -129,6 +139,7 @@ __all__ = [
     'OneDashboardPageWidgetMarkdown',
     'OneDashboardPageWidgetMarkdownColor',
     'OneDashboardPageWidgetMarkdownColorSeriesOverride',
+    'OneDashboardPageWidgetMarkdownDataFormat',
     'OneDashboardPageWidgetMarkdownInitialSorting',
     'OneDashboardPageWidgetMarkdownNullValue',
     'OneDashboardPageWidgetMarkdownNullValueSeriesOverride',
@@ -137,6 +148,7 @@ __all__ = [
     'OneDashboardPageWidgetPy',
     'OneDashboardPageWidgetPyColor',
     'OneDashboardPageWidgetPyColorSeriesOverride',
+    'OneDashboardPageWidgetPyDataFormat',
     'OneDashboardPageWidgetPyInitialSorting',
     'OneDashboardPageWidgetPyNrqlQuery',
     'OneDashboardPageWidgetPyNullValue',
@@ -146,6 +158,7 @@ __all__ = [
     'OneDashboardPageWidgetStackedBar',
     'OneDashboardPageWidgetStackedBarColor',
     'OneDashboardPageWidgetStackedBarColorSeriesOverride',
+    'OneDashboardPageWidgetStackedBarDataFormat',
     'OneDashboardPageWidgetStackedBarInitialSorting',
     'OneDashboardPageWidgetStackedBarNrqlQuery',
     'OneDashboardPageWidgetStackedBarNullValue',
@@ -155,6 +168,7 @@ __all__ = [
     'OneDashboardPageWidgetTable',
     'OneDashboardPageWidgetTableColor',
     'OneDashboardPageWidgetTableColorSeriesOverride',
+    'OneDashboardPageWidgetTableDataFormat',
     'OneDashboardPageWidgetTableInitialSorting',
     'OneDashboardPageWidgetTableNrqlQuery',
     'OneDashboardPageWidgetTableNullValue',
@@ -2009,6 +2023,8 @@ class OneDashboardPageWidgetArea(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -2043,6 +2059,7 @@ class OneDashboardPageWidgetArea(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetAreaColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetAreaDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -2061,6 +2078,7 @@ class OneDashboardPageWidgetArea(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetAreaColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetAreaDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -2079,6 +2097,8 @@ class OneDashboardPageWidgetArea(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -2143,6 +2163,14 @@ class OneDashboardPageWidgetArea(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -2332,6 +2360,59 @@ class OneDashboardPageWidgetAreaColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -2613,6 +2694,8 @@ class OneDashboardPageWidgetBar(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
@@ -2651,6 +2734,7 @@ class OneDashboardPageWidgetBar(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetBarColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetBarDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
@@ -2671,6 +2755,7 @@ class OneDashboardPageWidgetBar(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetBarColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBarDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2691,6 +2776,8 @@ class OneDashboardPageWidgetBar(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
@@ -2759,6 +2846,14 @@ class OneDashboardPageWidgetBar(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -2964,6 +3059,59 @@ class OneDashboardPageWidgetBarColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -3245,6 +3393,8 @@ class OneDashboardPageWidgetBillboard(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -3280,6 +3430,7 @@ class OneDashboardPageWidgetBillboard(dict):
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColor']] = None,
                  critical: Optional[str] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -3300,6 +3451,7 @@ class OneDashboardPageWidgetBillboard(dict):
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetBillboardColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param str critical: (Optional) Threshold above which the displayed value will be styled with a red color.
+        :param Sequence['OneDashboardPageWidgetBillboardDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -3321,6 +3473,8 @@ class OneDashboardPageWidgetBillboard(dict):
             pulumi.set(__self__, "colors", colors)
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -3395,6 +3549,14 @@ class OneDashboardPageWidgetBillboard(dict):
         (Optional) Threshold above which the displayed value will be styled with a red color.
         """
         return pulumi.get(self, "critical")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -3592,6 +3754,59 @@ class OneDashboardPageWidgetBillboardColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -3873,6 +4088,8 @@ class OneDashboardPageWidgetBullet(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -3908,6 +4125,7 @@ class OneDashboardPageWidgetBullet(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetBulletColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetBulletDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -3927,6 +4145,7 @@ class OneDashboardPageWidgetBullet(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetBulletColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBulletDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -3946,6 +4165,8 @@ class OneDashboardPageWidgetBullet(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -4018,6 +4239,14 @@ class OneDashboardPageWidgetBullet(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -4207,6 +4436,59 @@ class OneDashboardPageWidgetBulletColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -4488,6 +4770,8 @@ class OneDashboardPageWidgetFunnel(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -4522,6 +4806,7 @@ class OneDashboardPageWidgetFunnel(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -4540,6 +4825,7 @@ class OneDashboardPageWidgetFunnel(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetFunnelColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetFunnelDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -4558,6 +4844,8 @@ class OneDashboardPageWidgetFunnel(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -4622,6 +4910,14 @@ class OneDashboardPageWidgetFunnel(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -4811,6 +5107,59 @@ class OneDashboardPageWidgetFunnelColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -5092,6 +5441,8 @@ class OneDashboardPageWidgetHeatmap(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
@@ -5130,6 +5481,7 @@ class OneDashboardPageWidgetHeatmap(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
@@ -5150,6 +5502,7 @@ class OneDashboardPageWidgetHeatmap(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetHeatmapColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetHeatmapDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -5170,6 +5523,8 @@ class OneDashboardPageWidgetHeatmap(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
@@ -5238,6 +5593,14 @@ class OneDashboardPageWidgetHeatmap(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -5443,6 +5806,59 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -5724,6 +6140,8 @@ class OneDashboardPageWidgetHistogram(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -5758,6 +6176,7 @@ class OneDashboardPageWidgetHistogram(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -5776,6 +6195,7 @@ class OneDashboardPageWidgetHistogram(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetHistogramColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetHistogramDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -5794,6 +6214,8 @@ class OneDashboardPageWidgetHistogram(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -5858,6 +6280,14 @@ class OneDashboardPageWidgetHistogram(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -6047,6 +6477,59 @@ class OneDashboardPageWidgetHistogramColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -6328,6 +6811,8 @@ class OneDashboardPageWidgetJson(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -6362,6 +6847,7 @@ class OneDashboardPageWidgetJson(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetJsonColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetJsonDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -6380,6 +6866,7 @@ class OneDashboardPageWidgetJson(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetJsonColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetJsonDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -6398,6 +6885,8 @@ class OneDashboardPageWidgetJson(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -6462,6 +6951,14 @@ class OneDashboardPageWidgetJson(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -6651,6 +7148,59 @@ class OneDashboardPageWidgetJsonColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -6932,6 +7482,8 @@ class OneDashboardPageWidgetLine(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -6972,6 +7524,7 @@ class OneDashboardPageWidgetLine(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetLineColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetLineDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -6994,6 +7547,7 @@ class OneDashboardPageWidgetLine(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetLineColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetLineDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -7016,6 +7570,8 @@ class OneDashboardPageWidgetLine(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -7088,6 +7644,14 @@ class OneDashboardPageWidgetLine(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -7309,6 +7873,59 @@ class OneDashboardPageWidgetLineColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -7740,6 +8357,8 @@ class OneDashboardPageWidgetLogTable(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -7774,6 +8393,7 @@ class OneDashboardPageWidgetLogTable(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -7792,6 +8412,7 @@ class OneDashboardPageWidgetLogTable(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetLogTableColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetLogTableDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -7810,6 +8431,8 @@ class OneDashboardPageWidgetLogTable(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -7874,6 +8497,14 @@ class OneDashboardPageWidgetLogTable(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -8063,6 +8694,59 @@ class OneDashboardPageWidgetLogTableColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -8342,7 +9026,9 @@ class OneDashboardPageWidgetMarkdown(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "facetShowOtherSeries":
+        if key == "dataFormats":
+            suggest = "data_formats"
+        elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
@@ -8376,6 +9062,7 @@ class OneDashboardPageWidgetMarkdown(dict):
                  text: str,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -8394,6 +9081,7 @@ class OneDashboardPageWidgetMarkdown(dict):
         :param str text: (Required) The markdown source to be rendered in the widget.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetMarkdownColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetMarkdownDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -8412,6 +9100,8 @@ class OneDashboardPageWidgetMarkdown(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -8476,6 +9166,14 @@ class OneDashboardPageWidgetMarkdown(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -8665,6 +9363,59 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -8899,6 +9650,8 @@ class OneDashboardPageWidgetPy(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
@@ -8937,6 +9690,7 @@ class OneDashboardPageWidgetPy(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetPyColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetPyDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
@@ -8957,6 +9711,7 @@ class OneDashboardPageWidgetPy(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetPyColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetPyDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -8977,6 +9732,8 @@ class OneDashboardPageWidgetPy(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
@@ -9045,6 +9802,14 @@ class OneDashboardPageWidgetPy(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -9250,6 +10015,59 @@ class OneDashboardPageWidgetPyColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -9531,6 +10349,8 @@ class OneDashboardPageWidgetStackedBar(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
@@ -9565,6 +10385,7 @@ class OneDashboardPageWidgetStackedBar(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
@@ -9583,6 +10404,7 @@ class OneDashboardPageWidgetStackedBar(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetStackedBarColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetStackedBarDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str id: The ID of the widget.
@@ -9601,6 +10423,8 @@ class OneDashboardPageWidgetStackedBar(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
@@ -9665,6 +10489,14 @@ class OneDashboardPageWidgetStackedBar(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -9854,6 +10686,59 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -10135,6 +11020,8 @@ class OneDashboardPageWidgetTable(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "dataFormats":
+            suggest = "data_formats"
         elif key == "facetShowOtherSeries":
             suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
@@ -10173,6 +11060,7 @@ class OneDashboardPageWidgetTable(dict):
                  row: int,
                  title: str,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetTableColor']] = None,
+                 data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetTableDataFormat']] = None,
                  facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
@@ -10194,6 +11082,7 @@ class OneDashboardPageWidgetTable(dict):
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
         :param Sequence['OneDashboardPageWidgetTableColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param Sequence['OneDashboardPageWidgetTableDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -10215,6 +11104,8 @@ class OneDashboardPageWidgetTable(dict):
         pulumi.set(__self__, "title", title)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
+        if data_formats is not None:
+            pulumi.set(__self__, "data_formats", data_formats)
         if facet_show_other_series is not None:
             pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
@@ -10285,6 +11176,14 @@ class OneDashboardPageWidgetTable(dict):
         (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         """
         return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="dataFormats")
+    def data_formats(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableDataFormat']]:
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        return pulumi.get(self, "data_formats")
 
     @property
     @pulumi.getter(name="facetShowOtherSeries")
@@ -10498,6 +11397,59 @@ class OneDashboardPageWidgetTableColorSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableDataFormat(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 format: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param str format: (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        :param int precision: (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type

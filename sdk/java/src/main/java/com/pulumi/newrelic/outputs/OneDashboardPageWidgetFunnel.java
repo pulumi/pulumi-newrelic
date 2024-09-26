@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelColor;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelNullValue;
@@ -31,6 +32,11 @@ public final class OneDashboardPageWidgetFunnel {
      * 
      */
     private Integer column;
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    private @Nullable List<OneDashboardPageWidgetFunnelDataFormat> dataFormats;
     /**
      * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      * 
@@ -117,6 +123,13 @@ public final class OneDashboardPageWidgetFunnel {
      */
     public Integer column() {
         return this.column;
+    }
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public List<OneDashboardPageWidgetFunnelDataFormat> dataFormats() {
+        return this.dataFormats == null ? List.of() : this.dataFormats;
     }
     /**
      * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -231,6 +244,7 @@ public final class OneDashboardPageWidgetFunnel {
     public static final class Builder {
         private @Nullable List<OneDashboardPageWidgetFunnelColor> colors;
         private Integer column;
+        private @Nullable List<OneDashboardPageWidgetFunnelDataFormat> dataFormats;
         private @Nullable Boolean facetShowOtherSeries;
         private @Nullable Integer height;
         private @Nullable String id;
@@ -251,6 +265,7 @@ public final class OneDashboardPageWidgetFunnel {
     	      Objects.requireNonNull(defaults);
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
+    	      this.dataFormats = defaults.dataFormats;
     	      this.facetShowOtherSeries = defaults.facetShowOtherSeries;
     	      this.height = defaults.height;
     	      this.id = defaults.id;
@@ -284,6 +299,15 @@ public final class OneDashboardPageWidgetFunnel {
             }
             this.column = column;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dataFormats(@Nullable List<OneDashboardPageWidgetFunnelDataFormat> dataFormats) {
+
+            this.dataFormats = dataFormats;
+            return this;
+        }
+        public Builder dataFormats(OneDashboardPageWidgetFunnelDataFormat... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
         @CustomType.Setter
         public Builder facetShowOtherSeries(@Nullable Boolean facetShowOtherSeries) {
@@ -394,6 +418,7 @@ public final class OneDashboardPageWidgetFunnel {
             final var _resultValue = new OneDashboardPageWidgetFunnel();
             _resultValue.colors = colors;
             _resultValue.column = column;
+            _resultValue.dataFormats = dataFormats;
             _resultValue.facetShowOtherSeries = facetShowOtherSeries;
             _resultValue.height = height;
             _resultValue.id = id;

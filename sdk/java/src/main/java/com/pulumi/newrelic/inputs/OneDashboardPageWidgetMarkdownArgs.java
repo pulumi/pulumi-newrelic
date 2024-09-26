@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownColorArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownInitialSortingArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownNullValueArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetMarkdownUnitArgs;
@@ -52,6 +53,21 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
      */
     public Output<Integer> column() {
         return this.column;
+    }
+
+    /**
+     * (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    @Import(name="dataFormats")
+    private @Nullable Output<List<OneDashboardPageWidgetMarkdownDataFormatArgs>> dataFormats;
+
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public Optional<Output<List<OneDashboardPageWidgetMarkdownDataFormatArgs>>> dataFormats() {
+        return Optional.ofNullable(this.dataFormats);
     }
 
     /**
@@ -276,6 +292,7 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
     private OneDashboardPageWidgetMarkdownArgs(OneDashboardPageWidgetMarkdownArgs $) {
         this.colors = $.colors;
         this.column = $.column;
+        this.dataFormats = $.dataFormats;
         this.facetShowOtherSeries = $.facetShowOtherSeries;
         this.height = $.height;
         this.id = $.id;
@@ -361,6 +378,37 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
          */
         public Builder column(Integer column) {
             return column(Output.of(column));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(@Nullable Output<List<OneDashboardPageWidgetMarkdownDataFormatArgs>> dataFormats) {
+            $.dataFormats = dataFormats;
+            return this;
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(List<OneDashboardPageWidgetMarkdownDataFormatArgs> dataFormats) {
+            return dataFormats(Output.of(dataFormats));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(OneDashboardPageWidgetMarkdownDataFormatArgs... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
 
         /**
