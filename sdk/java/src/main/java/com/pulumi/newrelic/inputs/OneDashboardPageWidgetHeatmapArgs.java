@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapColorArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapInitialSortingArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapNullValueArgs;
@@ -53,6 +54,21 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
      */
     public Output<Integer> column() {
         return this.column;
+    }
+
+    /**
+     * (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    @Import(name="dataFormats")
+    private @Nullable Output<List<OneDashboardPageWidgetHeatmapDataFormatArgs>> dataFormats;
+
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public Optional<Output<List<OneDashboardPageWidgetHeatmapDataFormatArgs>>> dataFormats() {
+        return Optional.ofNullable(this.dataFormats);
     }
 
     /**
@@ -307,6 +323,7 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
     private OneDashboardPageWidgetHeatmapArgs(OneDashboardPageWidgetHeatmapArgs $) {
         this.colors = $.colors;
         this.column = $.column;
+        this.dataFormats = $.dataFormats;
         this.facetShowOtherSeries = $.facetShowOtherSeries;
         this.filterCurrentDashboard = $.filterCurrentDashboard;
         this.height = $.height;
@@ -394,6 +411,37 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
          */
         public Builder column(Integer column) {
             return column(Output.of(column));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(@Nullable Output<List<OneDashboardPageWidgetHeatmapDataFormatArgs>> dataFormats) {
+            $.dataFormats = dataFormats;
+            return this;
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(List<OneDashboardPageWidgetHeatmapDataFormatArgs> dataFormats) {
+            return dataFormats(Output.of(dataFormats));
+        }
+
+        /**
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFormats(OneDashboardPageWidgetHeatmapDataFormatArgs... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
 
         /**

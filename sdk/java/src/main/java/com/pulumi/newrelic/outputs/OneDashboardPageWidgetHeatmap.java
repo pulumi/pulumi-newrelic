@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapColor;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapNullValue;
@@ -31,6 +32,11 @@ public final class OneDashboardPageWidgetHeatmap {
      * 
      */
     private Integer column;
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    private @Nullable List<OneDashboardPageWidgetHeatmapDataFormat> dataFormats;
     /**
      * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      * 
@@ -127,6 +133,13 @@ public final class OneDashboardPageWidgetHeatmap {
      */
     public Integer column() {
         return this.column;
+    }
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public List<OneDashboardPageWidgetHeatmapDataFormat> dataFormats() {
+        return this.dataFormats == null ? List.of() : this.dataFormats;
     }
     /**
      * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -255,6 +268,7 @@ public final class OneDashboardPageWidgetHeatmap {
     public static final class Builder {
         private @Nullable List<OneDashboardPageWidgetHeatmapColor> colors;
         private Integer column;
+        private @Nullable List<OneDashboardPageWidgetHeatmapDataFormat> dataFormats;
         private @Nullable Boolean facetShowOtherSeries;
         private @Nullable Boolean filterCurrentDashboard;
         private @Nullable Integer height;
@@ -277,6 +291,7 @@ public final class OneDashboardPageWidgetHeatmap {
     	      Objects.requireNonNull(defaults);
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
+    	      this.dataFormats = defaults.dataFormats;
     	      this.facetShowOtherSeries = defaults.facetShowOtherSeries;
     	      this.filterCurrentDashboard = defaults.filterCurrentDashboard;
     	      this.height = defaults.height;
@@ -312,6 +327,15 @@ public final class OneDashboardPageWidgetHeatmap {
             }
             this.column = column;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dataFormats(@Nullable List<OneDashboardPageWidgetHeatmapDataFormat> dataFormats) {
+
+            this.dataFormats = dataFormats;
+            return this;
+        }
+        public Builder dataFormats(OneDashboardPageWidgetHeatmapDataFormat... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
         @CustomType.Setter
         public Builder facetShowOtherSeries(@Nullable Boolean facetShowOtherSeries) {
@@ -437,6 +461,7 @@ public final class OneDashboardPageWidgetHeatmap {
             final var _resultValue = new OneDashboardPageWidgetHeatmap();
             _resultValue.colors = colors;
             _resultValue.column = column;
+            _resultValue.dataFormats = dataFormats;
             _resultValue.facetShowOtherSeries = facetShowOtherSeries;
             _resultValue.filterCurrentDashboard = filterCurrentDashboard;
             _resultValue.height = height;

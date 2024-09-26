@@ -140,6 +140,11 @@ export type InfraAlertCondition = import("./infraAlertCondition").InfraAlertCond
 export const InfraAlertCondition: typeof import("./infraAlertCondition").InfraAlertCondition = null as any;
 utilities.lazyLoad(exports, ["InfraAlertCondition"], () => require("./infraAlertCondition"));
 
+export { KeyTransactionArgs, KeyTransactionState } from "./keyTransaction";
+export type KeyTransaction = import("./keyTransaction").KeyTransaction;
+export const KeyTransaction: typeof import("./keyTransaction").KeyTransaction = null as any;
+utilities.lazyLoad(exports, ["KeyTransaction"], () => require("./keyTransaction"));
+
 export { LogParsingRuleArgs, LogParsingRuleState } from "./logParsingRule";
 export type LogParsingRule = import("./logParsingRule").LogParsingRule;
 export const LogParsingRule: typeof import("./logParsingRule").LogParsingRule = null as any;
@@ -263,6 +268,8 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "newrelic:index/infraAlertCondition:InfraAlertCondition":
                 return new InfraAlertCondition(name, <any>undefined, { urn })
+            case "newrelic:index/keyTransaction:KeyTransaction":
+                return new KeyTransaction(name, <any>undefined, { urn })
             case "newrelic:index/logParsingRule:LogParsingRule":
                 return new LogParsingRule(name, <any>undefined, { urn })
             case "newrelic:index/monitorDowntime:MonitorDowntime":
@@ -309,6 +316,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/monitorDowntime", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _module)

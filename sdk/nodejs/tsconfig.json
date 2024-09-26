@@ -54,6 +54,7 @@
         "infraAlertCondition.ts",
         "insights/event.ts",
         "insights/index.ts",
+        "keyTransaction.ts",
         "logParsingRule.ts",
         "monitorDowntime.ts",
         "notificationChannel.ts",

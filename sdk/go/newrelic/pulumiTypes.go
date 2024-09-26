@@ -4143,6 +4143,8 @@ type OneDashboardPageWidgetArea struct {
 	Colors []OneDashboardPageWidgetAreaColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetAreaDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4190,6 +4192,8 @@ type OneDashboardPageWidgetAreaArgs struct {
 	Colors OneDashboardPageWidgetAreaColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetAreaDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4280,6 +4284,11 @@ func (o OneDashboardPageWidgetAreaOutput) Colors() OneDashboardPageWidgetAreaCol
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetAreaOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) DataFormats() OneDashboardPageWidgetAreaDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaDataFormat { return v.DataFormats }).(OneDashboardPageWidgetAreaDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -4588,6 +4597,130 @@ func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetAreaColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetAreaColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetAreaDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetAreaDataFormatInput is an input type that accepts OneDashboardPageWidgetAreaDataFormatArgs and OneDashboardPageWidgetAreaDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaDataFormatInput` via:
+//
+//	OneDashboardPageWidgetAreaDataFormatArgs{...}
+type OneDashboardPageWidgetAreaDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaDataFormatOutput() OneDashboardPageWidgetAreaDataFormatOutput
+	ToOneDashboardPageWidgetAreaDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetAreaDataFormatOutput
+}
+
+type OneDashboardPageWidgetAreaDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetAreaDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaDataFormatArgs) ToOneDashboardPageWidgetAreaDataFormatOutput() OneDashboardPageWidgetAreaDataFormatOutput {
+	return i.ToOneDashboardPageWidgetAreaDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaDataFormatArgs) ToOneDashboardPageWidgetAreaDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaDataFormatOutput)
+}
+
+// OneDashboardPageWidgetAreaDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetAreaDataFormatArray and OneDashboardPageWidgetAreaDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaDataFormatArray{ OneDashboardPageWidgetAreaDataFormatArgs{...} }
+type OneDashboardPageWidgetAreaDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaDataFormatArrayOutput() OneDashboardPageWidgetAreaDataFormatArrayOutput
+	ToOneDashboardPageWidgetAreaDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetAreaDataFormatArray []OneDashboardPageWidgetAreaDataFormatInput
+
+func (OneDashboardPageWidgetAreaDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaDataFormatArray) ToOneDashboardPageWidgetAreaDataFormatArrayOutput() OneDashboardPageWidgetAreaDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaDataFormatArray) ToOneDashboardPageWidgetAreaDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaDataFormatOutput) ToOneDashboardPageWidgetAreaDataFormatOutput() OneDashboardPageWidgetAreaDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaDataFormatOutput) ToOneDashboardPageWidgetAreaDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetAreaDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetAreaDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetAreaDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetAreaDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetAreaDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaDataFormatArrayOutput) ToOneDashboardPageWidgetAreaDataFormatArrayOutput() OneDashboardPageWidgetAreaDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaDataFormatArrayOutput) ToOneDashboardPageWidgetAreaDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaDataFormat {
+		return vs[0].([]OneDashboardPageWidgetAreaDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaDataFormatOutput)
 }
 
 type OneDashboardPageWidgetAreaInitialSorting struct {
@@ -5285,6 +5418,8 @@ type OneDashboardPageWidgetBar struct {
 	Colors []OneDashboardPageWidgetBarColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetBarDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -5336,6 +5471,8 @@ type OneDashboardPageWidgetBarArgs struct {
 	Colors OneDashboardPageWidgetBarColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetBarDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -5430,6 +5567,11 @@ func (o OneDashboardPageWidgetBarOutput) Colors() OneDashboardPageWidgetBarColor
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetBarOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) DataFormats() OneDashboardPageWidgetBarDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarDataFormat { return v.DataFormats }).(OneDashboardPageWidgetBarDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -5748,6 +5890,130 @@ func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetBarColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBarColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBarDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetBarDataFormatInput is an input type that accepts OneDashboardPageWidgetBarDataFormatArgs and OneDashboardPageWidgetBarDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarDataFormatInput` via:
+//
+//	OneDashboardPageWidgetBarDataFormatArgs{...}
+type OneDashboardPageWidgetBarDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarDataFormatOutput() OneDashboardPageWidgetBarDataFormatOutput
+	ToOneDashboardPageWidgetBarDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetBarDataFormatOutput
+}
+
+type OneDashboardPageWidgetBarDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetBarDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarDataFormatArgs) ToOneDashboardPageWidgetBarDataFormatOutput() OneDashboardPageWidgetBarDataFormatOutput {
+	return i.ToOneDashboardPageWidgetBarDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarDataFormatArgs) ToOneDashboardPageWidgetBarDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarDataFormatOutput)
+}
+
+// OneDashboardPageWidgetBarDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetBarDataFormatArray and OneDashboardPageWidgetBarDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetBarDataFormatArray{ OneDashboardPageWidgetBarDataFormatArgs{...} }
+type OneDashboardPageWidgetBarDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarDataFormatArrayOutput() OneDashboardPageWidgetBarDataFormatArrayOutput
+	ToOneDashboardPageWidgetBarDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetBarDataFormatArray []OneDashboardPageWidgetBarDataFormatInput
+
+func (OneDashboardPageWidgetBarDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarDataFormatArray) ToOneDashboardPageWidgetBarDataFormatArrayOutput() OneDashboardPageWidgetBarDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetBarDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarDataFormatArray) ToOneDashboardPageWidgetBarDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetBarDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarDataFormatOutput) ToOneDashboardPageWidgetBarDataFormatOutput() OneDashboardPageWidgetBarDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarDataFormatOutput) ToOneDashboardPageWidgetBarDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetBarDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBarDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetBarDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetBarDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBarDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarDataFormatArrayOutput) ToOneDashboardPageWidgetBarDataFormatArrayOutput() OneDashboardPageWidgetBarDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarDataFormatArrayOutput) ToOneDashboardPageWidgetBarDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarDataFormat {
+		return vs[0].([]OneDashboardPageWidgetBarDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarDataFormatOutput)
 }
 
 type OneDashboardPageWidgetBarInitialSorting struct {
@@ -6447,6 +6713,8 @@ type OneDashboardPageWidgetBillboard struct {
 	Column int `pulumi:"column"`
 	// (Optional) Threshold above which the displayed value will be styled with a red color.
 	Critical *string `pulumi:"critical"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetBillboardDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6498,6 +6766,8 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	Column pulumi.IntInput `pulumi:"column"`
 	// (Optional) Threshold above which the displayed value will be styled with a red color.
 	Critical pulumi.StringPtrInput `pulumi:"critical"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetBillboardDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6595,6 +6865,13 @@ func (o OneDashboardPageWidgetBillboardOutput) Column() pulumi.IntOutput {
 // (Optional) Threshold above which the displayed value will be styled with a red color.
 func (o OneDashboardPageWidgetBillboardOutput) Critical() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Critical }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) DataFormats() OneDashboardPageWidgetBillboardDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardDataFormat {
+		return v.DataFormats
+	}).(OneDashboardPageWidgetBillboardDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -6914,6 +7191,130 @@ func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetBillboardColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBillboardDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetBillboardDataFormatInput is an input type that accepts OneDashboardPageWidgetBillboardDataFormatArgs and OneDashboardPageWidgetBillboardDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardDataFormatInput` via:
+//
+//	OneDashboardPageWidgetBillboardDataFormatArgs{...}
+type OneDashboardPageWidgetBillboardDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardDataFormatOutput() OneDashboardPageWidgetBillboardDataFormatOutput
+	ToOneDashboardPageWidgetBillboardDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetBillboardDataFormatOutput
+}
+
+type OneDashboardPageWidgetBillboardDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetBillboardDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardDataFormatArgs) ToOneDashboardPageWidgetBillboardDataFormatOutput() OneDashboardPageWidgetBillboardDataFormatOutput {
+	return i.ToOneDashboardPageWidgetBillboardDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardDataFormatArgs) ToOneDashboardPageWidgetBillboardDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardDataFormatOutput)
+}
+
+// OneDashboardPageWidgetBillboardDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetBillboardDataFormatArray and OneDashboardPageWidgetBillboardDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardDataFormatArray{ OneDashboardPageWidgetBillboardDataFormatArgs{...} }
+type OneDashboardPageWidgetBillboardDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardDataFormatArrayOutput() OneDashboardPageWidgetBillboardDataFormatArrayOutput
+	ToOneDashboardPageWidgetBillboardDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardDataFormatArray []OneDashboardPageWidgetBillboardDataFormatInput
+
+func (OneDashboardPageWidgetBillboardDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardDataFormatArray) ToOneDashboardPageWidgetBillboardDataFormatArrayOutput() OneDashboardPageWidgetBillboardDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardDataFormatArray) ToOneDashboardPageWidgetBillboardDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardDataFormatOutput) ToOneDashboardPageWidgetBillboardDataFormatOutput() OneDashboardPageWidgetBillboardDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardDataFormatOutput) ToOneDashboardPageWidgetBillboardDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetBillboardDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBillboardDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetBillboardDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetBillboardDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBillboardDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardDataFormatArrayOutput) ToOneDashboardPageWidgetBillboardDataFormatArrayOutput() OneDashboardPageWidgetBillboardDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardDataFormatArrayOutput) ToOneDashboardPageWidgetBillboardDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardDataFormat {
+		return vs[0].([]OneDashboardPageWidgetBillboardDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardDataFormatOutput)
 }
 
 type OneDashboardPageWidgetBillboardInitialSorting struct {
@@ -7611,6 +8012,8 @@ type OneDashboardPageWidgetBullet struct {
 	Colors []OneDashboardPageWidgetBulletColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetBulletDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -7660,6 +8063,8 @@ type OneDashboardPageWidgetBulletArgs struct {
 	Colors OneDashboardPageWidgetBulletColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetBulletDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -7752,6 +8157,11 @@ func (o OneDashboardPageWidgetBulletOutput) Colors() OneDashboardPageWidgetBulle
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetBulletOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetBulletOutput) DataFormats() OneDashboardPageWidgetBulletDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletDataFormat { return v.DataFormats }).(OneDashboardPageWidgetBulletDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -8067,6 +8477,130 @@ func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetBulletColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBulletColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBulletDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetBulletDataFormatInput is an input type that accepts OneDashboardPageWidgetBulletDataFormatArgs and OneDashboardPageWidgetBulletDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletDataFormatInput` via:
+//
+//	OneDashboardPageWidgetBulletDataFormatArgs{...}
+type OneDashboardPageWidgetBulletDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletDataFormatOutput() OneDashboardPageWidgetBulletDataFormatOutput
+	ToOneDashboardPageWidgetBulletDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetBulletDataFormatOutput
+}
+
+type OneDashboardPageWidgetBulletDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetBulletDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletDataFormatArgs) ToOneDashboardPageWidgetBulletDataFormatOutput() OneDashboardPageWidgetBulletDataFormatOutput {
+	return i.ToOneDashboardPageWidgetBulletDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletDataFormatArgs) ToOneDashboardPageWidgetBulletDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletDataFormatOutput)
+}
+
+// OneDashboardPageWidgetBulletDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetBulletDataFormatArray and OneDashboardPageWidgetBulletDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletDataFormatArray{ OneDashboardPageWidgetBulletDataFormatArgs{...} }
+type OneDashboardPageWidgetBulletDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletDataFormatArrayOutput() OneDashboardPageWidgetBulletDataFormatArrayOutput
+	ToOneDashboardPageWidgetBulletDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetBulletDataFormatArray []OneDashboardPageWidgetBulletDataFormatInput
+
+func (OneDashboardPageWidgetBulletDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletDataFormatArray) ToOneDashboardPageWidgetBulletDataFormatArrayOutput() OneDashboardPageWidgetBulletDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletDataFormatArray) ToOneDashboardPageWidgetBulletDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletDataFormatOutput) ToOneDashboardPageWidgetBulletDataFormatOutput() OneDashboardPageWidgetBulletDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletDataFormatOutput) ToOneDashboardPageWidgetBulletDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetBulletDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetBulletDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetBulletDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetBulletDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBulletDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletDataFormatArrayOutput) ToOneDashboardPageWidgetBulletDataFormatArrayOutput() OneDashboardPageWidgetBulletDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletDataFormatArrayOutput) ToOneDashboardPageWidgetBulletDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletDataFormat {
+		return vs[0].([]OneDashboardPageWidgetBulletDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletDataFormatOutput)
 }
 
 type OneDashboardPageWidgetBulletInitialSorting struct {
@@ -8764,6 +9298,8 @@ type OneDashboardPageWidgetFunnel struct {
 	Colors []OneDashboardPageWidgetFunnelColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetFunnelDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -8811,6 +9347,8 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	Colors OneDashboardPageWidgetFunnelColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetFunnelDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -8901,6 +9439,11 @@ func (o OneDashboardPageWidgetFunnelOutput) Colors() OneDashboardPageWidgetFunne
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetFunnelOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetFunnelOutput) DataFormats() OneDashboardPageWidgetFunnelDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelDataFormat { return v.DataFormats }).(OneDashboardPageWidgetFunnelDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -9211,6 +9754,130 @@ func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetFunnelColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetFunnelDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetFunnelDataFormatInput is an input type that accepts OneDashboardPageWidgetFunnelDataFormatArgs and OneDashboardPageWidgetFunnelDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelDataFormatInput` via:
+//
+//	OneDashboardPageWidgetFunnelDataFormatArgs{...}
+type OneDashboardPageWidgetFunnelDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelDataFormatOutput() OneDashboardPageWidgetFunnelDataFormatOutput
+	ToOneDashboardPageWidgetFunnelDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetFunnelDataFormatOutput
+}
+
+type OneDashboardPageWidgetFunnelDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetFunnelDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelDataFormatArgs) ToOneDashboardPageWidgetFunnelDataFormatOutput() OneDashboardPageWidgetFunnelDataFormatOutput {
+	return i.ToOneDashboardPageWidgetFunnelDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelDataFormatArgs) ToOneDashboardPageWidgetFunnelDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelDataFormatOutput)
+}
+
+// OneDashboardPageWidgetFunnelDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetFunnelDataFormatArray and OneDashboardPageWidgetFunnelDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelDataFormatArray{ OneDashboardPageWidgetFunnelDataFormatArgs{...} }
+type OneDashboardPageWidgetFunnelDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelDataFormatArrayOutput() OneDashboardPageWidgetFunnelDataFormatArrayOutput
+	ToOneDashboardPageWidgetFunnelDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelDataFormatArray []OneDashboardPageWidgetFunnelDataFormatInput
+
+func (OneDashboardPageWidgetFunnelDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelDataFormatArray) ToOneDashboardPageWidgetFunnelDataFormatArrayOutput() OneDashboardPageWidgetFunnelDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelDataFormatArray) ToOneDashboardPageWidgetFunnelDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelDataFormatOutput) ToOneDashboardPageWidgetFunnelDataFormatOutput() OneDashboardPageWidgetFunnelDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelDataFormatOutput) ToOneDashboardPageWidgetFunnelDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetFunnelDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetFunnelDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetFunnelDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetFunnelDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetFunnelDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelDataFormatArrayOutput) ToOneDashboardPageWidgetFunnelDataFormatArrayOutput() OneDashboardPageWidgetFunnelDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelDataFormatArrayOutput) ToOneDashboardPageWidgetFunnelDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelDataFormat {
+		return vs[0].([]OneDashboardPageWidgetFunnelDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelDataFormatOutput)
 }
 
 type OneDashboardPageWidgetFunnelInitialSorting struct {
@@ -9908,6 +10575,8 @@ type OneDashboardPageWidgetHeatmap struct {
 	Colors []OneDashboardPageWidgetHeatmapColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetHeatmapDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -9959,6 +10628,8 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	Colors OneDashboardPageWidgetHeatmapColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetHeatmapDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -10053,6 +10724,11 @@ func (o OneDashboardPageWidgetHeatmapOutput) Colors() OneDashboardPageWidgetHeat
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetHeatmapOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetHeatmapOutput) DataFormats() OneDashboardPageWidgetHeatmapDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapDataFormat { return v.DataFormats }).(OneDashboardPageWidgetHeatmapDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -10373,6 +11049,130 @@ func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetHeatmapColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetHeatmapDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetHeatmapDataFormatInput is an input type that accepts OneDashboardPageWidgetHeatmapDataFormatArgs and OneDashboardPageWidgetHeatmapDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapDataFormatInput` via:
+//
+//	OneDashboardPageWidgetHeatmapDataFormatArgs{...}
+type OneDashboardPageWidgetHeatmapDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapDataFormatOutput() OneDashboardPageWidgetHeatmapDataFormatOutput
+	ToOneDashboardPageWidgetHeatmapDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapDataFormatOutput
+}
+
+type OneDashboardPageWidgetHeatmapDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetHeatmapDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapDataFormatArgs) ToOneDashboardPageWidgetHeatmapDataFormatOutput() OneDashboardPageWidgetHeatmapDataFormatOutput {
+	return i.ToOneDashboardPageWidgetHeatmapDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapDataFormatArgs) ToOneDashboardPageWidgetHeatmapDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapDataFormatOutput)
+}
+
+// OneDashboardPageWidgetHeatmapDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapDataFormatArray and OneDashboardPageWidgetHeatmapDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapDataFormatArray{ OneDashboardPageWidgetHeatmapDataFormatArgs{...} }
+type OneDashboardPageWidgetHeatmapDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapDataFormatArrayOutput() OneDashboardPageWidgetHeatmapDataFormatArrayOutput
+	ToOneDashboardPageWidgetHeatmapDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapDataFormatArray []OneDashboardPageWidgetHeatmapDataFormatInput
+
+func (OneDashboardPageWidgetHeatmapDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapDataFormatArray) ToOneDashboardPageWidgetHeatmapDataFormatArrayOutput() OneDashboardPageWidgetHeatmapDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapDataFormatArray) ToOneDashboardPageWidgetHeatmapDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapDataFormatOutput) ToOneDashboardPageWidgetHeatmapDataFormatOutput() OneDashboardPageWidgetHeatmapDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapDataFormatOutput) ToOneDashboardPageWidgetHeatmapDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetHeatmapDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetHeatmapDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetHeatmapDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetHeatmapDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetHeatmapDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapDataFormatArrayOutput) ToOneDashboardPageWidgetHeatmapDataFormatArrayOutput() OneDashboardPageWidgetHeatmapDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapDataFormatArrayOutput) ToOneDashboardPageWidgetHeatmapDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapDataFormat {
+		return vs[0].([]OneDashboardPageWidgetHeatmapDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapDataFormatOutput)
 }
 
 type OneDashboardPageWidgetHeatmapInitialSorting struct {
@@ -11070,6 +11870,8 @@ type OneDashboardPageWidgetHistogram struct {
 	Colors []OneDashboardPageWidgetHistogramColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetHistogramDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -11117,6 +11919,8 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	Colors OneDashboardPageWidgetHistogramColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetHistogramDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -11207,6 +12011,13 @@ func (o OneDashboardPageWidgetHistogramOutput) Colors() OneDashboardPageWidgetHi
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetHistogramOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetHistogramOutput) DataFormats() OneDashboardPageWidgetHistogramDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramDataFormat {
+		return v.DataFormats
+	}).(OneDashboardPageWidgetHistogramDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -11521,6 +12332,130 @@ func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetHistogramColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetHistogramDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetHistogramDataFormatInput is an input type that accepts OneDashboardPageWidgetHistogramDataFormatArgs and OneDashboardPageWidgetHistogramDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramDataFormatInput` via:
+//
+//	OneDashboardPageWidgetHistogramDataFormatArgs{...}
+type OneDashboardPageWidgetHistogramDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramDataFormatOutput() OneDashboardPageWidgetHistogramDataFormatOutput
+	ToOneDashboardPageWidgetHistogramDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetHistogramDataFormatOutput
+}
+
+type OneDashboardPageWidgetHistogramDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetHistogramDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramDataFormatArgs) ToOneDashboardPageWidgetHistogramDataFormatOutput() OneDashboardPageWidgetHistogramDataFormatOutput {
+	return i.ToOneDashboardPageWidgetHistogramDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramDataFormatArgs) ToOneDashboardPageWidgetHistogramDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramDataFormatOutput)
+}
+
+// OneDashboardPageWidgetHistogramDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetHistogramDataFormatArray and OneDashboardPageWidgetHistogramDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramDataFormatArray{ OneDashboardPageWidgetHistogramDataFormatArgs{...} }
+type OneDashboardPageWidgetHistogramDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramDataFormatArrayOutput() OneDashboardPageWidgetHistogramDataFormatArrayOutput
+	ToOneDashboardPageWidgetHistogramDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramDataFormatArray []OneDashboardPageWidgetHistogramDataFormatInput
+
+func (OneDashboardPageWidgetHistogramDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramDataFormatArray) ToOneDashboardPageWidgetHistogramDataFormatArrayOutput() OneDashboardPageWidgetHistogramDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramDataFormatArray) ToOneDashboardPageWidgetHistogramDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramDataFormatOutput) ToOneDashboardPageWidgetHistogramDataFormatOutput() OneDashboardPageWidgetHistogramDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramDataFormatOutput) ToOneDashboardPageWidgetHistogramDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetHistogramDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetHistogramDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetHistogramDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetHistogramDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetHistogramDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramDataFormatArrayOutput) ToOneDashboardPageWidgetHistogramDataFormatArrayOutput() OneDashboardPageWidgetHistogramDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramDataFormatArrayOutput) ToOneDashboardPageWidgetHistogramDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramDataFormat {
+		return vs[0].([]OneDashboardPageWidgetHistogramDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramDataFormatOutput)
 }
 
 type OneDashboardPageWidgetHistogramInitialSorting struct {
@@ -12218,6 +13153,8 @@ type OneDashboardPageWidgetJson struct {
 	Colors []OneDashboardPageWidgetJsonColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetJsonDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -12265,6 +13202,8 @@ type OneDashboardPageWidgetJsonArgs struct {
 	Colors OneDashboardPageWidgetJsonColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetJsonDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -12355,6 +13294,11 @@ func (o OneDashboardPageWidgetJsonOutput) Colors() OneDashboardPageWidgetJsonCol
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetJsonOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetJsonOutput) DataFormats() OneDashboardPageWidgetJsonDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonDataFormat { return v.DataFormats }).(OneDashboardPageWidgetJsonDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -12663,6 +13607,130 @@ func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetJsonColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetJsonColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetJsonDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetJsonDataFormatInput is an input type that accepts OneDashboardPageWidgetJsonDataFormatArgs and OneDashboardPageWidgetJsonDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonDataFormatInput` via:
+//
+//	OneDashboardPageWidgetJsonDataFormatArgs{...}
+type OneDashboardPageWidgetJsonDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonDataFormatOutput() OneDashboardPageWidgetJsonDataFormatOutput
+	ToOneDashboardPageWidgetJsonDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetJsonDataFormatOutput
+}
+
+type OneDashboardPageWidgetJsonDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetJsonDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonDataFormatArgs) ToOneDashboardPageWidgetJsonDataFormatOutput() OneDashboardPageWidgetJsonDataFormatOutput {
+	return i.ToOneDashboardPageWidgetJsonDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonDataFormatArgs) ToOneDashboardPageWidgetJsonDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonDataFormatOutput)
+}
+
+// OneDashboardPageWidgetJsonDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetJsonDataFormatArray and OneDashboardPageWidgetJsonDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonDataFormatArray{ OneDashboardPageWidgetJsonDataFormatArgs{...} }
+type OneDashboardPageWidgetJsonDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonDataFormatArrayOutput() OneDashboardPageWidgetJsonDataFormatArrayOutput
+	ToOneDashboardPageWidgetJsonDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetJsonDataFormatArray []OneDashboardPageWidgetJsonDataFormatInput
+
+func (OneDashboardPageWidgetJsonDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonDataFormatArray) ToOneDashboardPageWidgetJsonDataFormatArrayOutput() OneDashboardPageWidgetJsonDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonDataFormatArray) ToOneDashboardPageWidgetJsonDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonDataFormatOutput) ToOneDashboardPageWidgetJsonDataFormatOutput() OneDashboardPageWidgetJsonDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonDataFormatOutput) ToOneDashboardPageWidgetJsonDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetJsonDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetJsonDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetJsonDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetJsonDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetJsonDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonDataFormatArrayOutput) ToOneDashboardPageWidgetJsonDataFormatArrayOutput() OneDashboardPageWidgetJsonDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonDataFormatArrayOutput) ToOneDashboardPageWidgetJsonDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonDataFormat {
+		return vs[0].([]OneDashboardPageWidgetJsonDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonDataFormatOutput)
 }
 
 type OneDashboardPageWidgetJsonInitialSorting struct {
@@ -13360,6 +14428,8 @@ type OneDashboardPageWidgetLine struct {
 	Colors []OneDashboardPageWidgetLineColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetLineDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -13415,6 +14485,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	Colors OneDashboardPageWidgetLineColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetLineDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -13513,6 +14585,11 @@ func (o OneDashboardPageWidgetLineOutput) Colors() OneDashboardPageWidgetLineCol
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetLineOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) DataFormats() OneDashboardPageWidgetLineDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineDataFormat { return v.DataFormats }).(OneDashboardPageWidgetLineDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -13841,6 +14918,130 @@ func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetLineColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLineDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetLineDataFormatInput is an input type that accepts OneDashboardPageWidgetLineDataFormatArgs and OneDashboardPageWidgetLineDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineDataFormatInput` via:
+//
+//	OneDashboardPageWidgetLineDataFormatArgs{...}
+type OneDashboardPageWidgetLineDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineDataFormatOutput() OneDashboardPageWidgetLineDataFormatOutput
+	ToOneDashboardPageWidgetLineDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetLineDataFormatOutput
+}
+
+type OneDashboardPageWidgetLineDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetLineDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineDataFormatArgs) ToOneDashboardPageWidgetLineDataFormatOutput() OneDashboardPageWidgetLineDataFormatOutput {
+	return i.ToOneDashboardPageWidgetLineDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineDataFormatArgs) ToOneDashboardPageWidgetLineDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineDataFormatOutput)
+}
+
+// OneDashboardPageWidgetLineDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetLineDataFormatArray and OneDashboardPageWidgetLineDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetLineDataFormatArray{ OneDashboardPageWidgetLineDataFormatArgs{...} }
+type OneDashboardPageWidgetLineDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineDataFormatArrayOutput() OneDashboardPageWidgetLineDataFormatArrayOutput
+	ToOneDashboardPageWidgetLineDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetLineDataFormatArray []OneDashboardPageWidgetLineDataFormatInput
+
+func (OneDashboardPageWidgetLineDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineDataFormatArray) ToOneDashboardPageWidgetLineDataFormatArrayOutput() OneDashboardPageWidgetLineDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetLineDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineDataFormatArray) ToOneDashboardPageWidgetLineDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetLineDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineDataFormatOutput) ToOneDashboardPageWidgetLineDataFormatOutput() OneDashboardPageWidgetLineDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineDataFormatOutput) ToOneDashboardPageWidgetLineDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetLineDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLineDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetLineDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetLineDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLineDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineDataFormatArrayOutput) ToOneDashboardPageWidgetLineDataFormatArrayOutput() OneDashboardPageWidgetLineDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineDataFormatArrayOutput) ToOneDashboardPageWidgetLineDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineDataFormat {
+		return vs[0].([]OneDashboardPageWidgetLineDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineDataFormatOutput)
 }
 
 type OneDashboardPageWidgetLineInitialSorting struct {
@@ -14856,6 +16057,8 @@ type OneDashboardPageWidgetLogTable struct {
 	Colors []OneDashboardPageWidgetLogTableColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetLogTableDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -14903,6 +16106,8 @@ type OneDashboardPageWidgetLogTableArgs struct {
 	Colors OneDashboardPageWidgetLogTableColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetLogTableDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -14993,6 +16198,13 @@ func (o OneDashboardPageWidgetLogTableOutput) Colors() OneDashboardPageWidgetLog
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetLogTableOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetLogTableOutput) DataFormats() OneDashboardPageWidgetLogTableDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableDataFormat {
+		return v.DataFormats
+	}).(OneDashboardPageWidgetLogTableDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -15303,6 +16515,130 @@ func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetLogTableColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLogTableDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetLogTableDataFormatInput is an input type that accepts OneDashboardPageWidgetLogTableDataFormatArgs and OneDashboardPageWidgetLogTableDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableDataFormatInput` via:
+//
+//	OneDashboardPageWidgetLogTableDataFormatArgs{...}
+type OneDashboardPageWidgetLogTableDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableDataFormatOutput() OneDashboardPageWidgetLogTableDataFormatOutput
+	ToOneDashboardPageWidgetLogTableDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetLogTableDataFormatOutput
+}
+
+type OneDashboardPageWidgetLogTableDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetLogTableDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableDataFormatArgs) ToOneDashboardPageWidgetLogTableDataFormatOutput() OneDashboardPageWidgetLogTableDataFormatOutput {
+	return i.ToOneDashboardPageWidgetLogTableDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableDataFormatArgs) ToOneDashboardPageWidgetLogTableDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableDataFormatOutput)
+}
+
+// OneDashboardPageWidgetLogTableDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetLogTableDataFormatArray and OneDashboardPageWidgetLogTableDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableDataFormatArray{ OneDashboardPageWidgetLogTableDataFormatArgs{...} }
+type OneDashboardPageWidgetLogTableDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableDataFormatArrayOutput() OneDashboardPageWidgetLogTableDataFormatArrayOutput
+	ToOneDashboardPageWidgetLogTableDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableDataFormatArray []OneDashboardPageWidgetLogTableDataFormatInput
+
+func (OneDashboardPageWidgetLogTableDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableDataFormatArray) ToOneDashboardPageWidgetLogTableDataFormatArrayOutput() OneDashboardPageWidgetLogTableDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableDataFormatArray) ToOneDashboardPageWidgetLogTableDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableDataFormatOutput) ToOneDashboardPageWidgetLogTableDataFormatOutput() OneDashboardPageWidgetLogTableDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableDataFormatOutput) ToOneDashboardPageWidgetLogTableDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetLogTableDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetLogTableDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetLogTableDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetLogTableDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLogTableDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableDataFormatArrayOutput) ToOneDashboardPageWidgetLogTableDataFormatArrayOutput() OneDashboardPageWidgetLogTableDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableDataFormatArrayOutput) ToOneDashboardPageWidgetLogTableDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableDataFormat {
+		return vs[0].([]OneDashboardPageWidgetLogTableDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableDataFormatOutput)
 }
 
 type OneDashboardPageWidgetLogTableInitialSorting struct {
@@ -16000,6 +17336,8 @@ type OneDashboardPageWidgetMarkdown struct {
 	Colors []OneDashboardPageWidgetMarkdownColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetMarkdownDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -16047,6 +17385,8 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	Colors OneDashboardPageWidgetMarkdownColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetMarkdownDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -16137,6 +17477,13 @@ func (o OneDashboardPageWidgetMarkdownOutput) Colors() OneDashboardPageWidgetMar
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetMarkdownOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetMarkdownOutput) DataFormats() OneDashboardPageWidgetMarkdownDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) []OneDashboardPageWidgetMarkdownDataFormat {
+		return v.DataFormats
+	}).(OneDashboardPageWidgetMarkdownDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -16447,6 +17794,130 @@ func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetMarkdownColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetMarkdownDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetMarkdownDataFormatInput is an input type that accepts OneDashboardPageWidgetMarkdownDataFormatArgs and OneDashboardPageWidgetMarkdownDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownDataFormatInput` via:
+//
+//	OneDashboardPageWidgetMarkdownDataFormatArgs{...}
+type OneDashboardPageWidgetMarkdownDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownDataFormatOutput() OneDashboardPageWidgetMarkdownDataFormatOutput
+	ToOneDashboardPageWidgetMarkdownDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownDataFormatOutput
+}
+
+type OneDashboardPageWidgetMarkdownDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetMarkdownDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownDataFormatArgs) ToOneDashboardPageWidgetMarkdownDataFormatOutput() OneDashboardPageWidgetMarkdownDataFormatOutput {
+	return i.ToOneDashboardPageWidgetMarkdownDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownDataFormatArgs) ToOneDashboardPageWidgetMarkdownDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownDataFormatOutput)
+}
+
+// OneDashboardPageWidgetMarkdownDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownDataFormatArray and OneDashboardPageWidgetMarkdownDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownDataFormatArray{ OneDashboardPageWidgetMarkdownDataFormatArgs{...} }
+type OneDashboardPageWidgetMarkdownDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownDataFormatArrayOutput() OneDashboardPageWidgetMarkdownDataFormatArrayOutput
+	ToOneDashboardPageWidgetMarkdownDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownDataFormatArray []OneDashboardPageWidgetMarkdownDataFormatInput
+
+func (OneDashboardPageWidgetMarkdownDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownDataFormatArray) ToOneDashboardPageWidgetMarkdownDataFormatArrayOutput() OneDashboardPageWidgetMarkdownDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownDataFormatArray) ToOneDashboardPageWidgetMarkdownDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownDataFormatOutput) ToOneDashboardPageWidgetMarkdownDataFormatOutput() OneDashboardPageWidgetMarkdownDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownDataFormatOutput) ToOneDashboardPageWidgetMarkdownDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetMarkdownDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetMarkdownDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetMarkdownDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetMarkdownDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetMarkdownDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownDataFormatArrayOutput) ToOneDashboardPageWidgetMarkdownDataFormatArrayOutput() OneDashboardPageWidgetMarkdownDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownDataFormatArrayOutput) ToOneDashboardPageWidgetMarkdownDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownDataFormat {
+		return vs[0].([]OneDashboardPageWidgetMarkdownDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownDataFormatOutput)
 }
 
 type OneDashboardPageWidgetMarkdownInitialSorting struct {
@@ -17038,6 +18509,8 @@ type OneDashboardPageWidgetPy struct {
 	Colors []OneDashboardPageWidgetPyColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetPyDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -17089,6 +18562,8 @@ type OneDashboardPageWidgetPyArgs struct {
 	Colors OneDashboardPageWidgetPyColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetPyDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -17183,6 +18658,11 @@ func (o OneDashboardPageWidgetPyOutput) Colors() OneDashboardPageWidgetPyColorAr
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetPyOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) DataFormats() OneDashboardPageWidgetPyDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyDataFormat { return v.DataFormats }).(OneDashboardPageWidgetPyDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -17501,6 +18981,130 @@ func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetPyColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetPyColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetPyDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetPyDataFormatInput is an input type that accepts OneDashboardPageWidgetPyDataFormatArgs and OneDashboardPageWidgetPyDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyDataFormatInput` via:
+//
+//	OneDashboardPageWidgetPyDataFormatArgs{...}
+type OneDashboardPageWidgetPyDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyDataFormatOutput() OneDashboardPageWidgetPyDataFormatOutput
+	ToOneDashboardPageWidgetPyDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetPyDataFormatOutput
+}
+
+type OneDashboardPageWidgetPyDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetPyDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyDataFormatArgs) ToOneDashboardPageWidgetPyDataFormatOutput() OneDashboardPageWidgetPyDataFormatOutput {
+	return i.ToOneDashboardPageWidgetPyDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyDataFormatArgs) ToOneDashboardPageWidgetPyDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyDataFormatOutput)
+}
+
+// OneDashboardPageWidgetPyDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetPyDataFormatArray and OneDashboardPageWidgetPyDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetPyDataFormatArray{ OneDashboardPageWidgetPyDataFormatArgs{...} }
+type OneDashboardPageWidgetPyDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyDataFormatArrayOutput() OneDashboardPageWidgetPyDataFormatArrayOutput
+	ToOneDashboardPageWidgetPyDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetPyDataFormatArray []OneDashboardPageWidgetPyDataFormatInput
+
+func (OneDashboardPageWidgetPyDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyDataFormatArray) ToOneDashboardPageWidgetPyDataFormatArrayOutput() OneDashboardPageWidgetPyDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetPyDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyDataFormatArray) ToOneDashboardPageWidgetPyDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetPyDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyDataFormatOutput) ToOneDashboardPageWidgetPyDataFormatOutput() OneDashboardPageWidgetPyDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyDataFormatOutput) ToOneDashboardPageWidgetPyDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetPyDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetPyDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetPyDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetPyDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetPyDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyDataFormatArrayOutput) ToOneDashboardPageWidgetPyDataFormatArrayOutput() OneDashboardPageWidgetPyDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyDataFormatArrayOutput) ToOneDashboardPageWidgetPyDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyDataFormat {
+		return vs[0].([]OneDashboardPageWidgetPyDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyDataFormatOutput)
 }
 
 type OneDashboardPageWidgetPyInitialSorting struct {
@@ -18198,6 +19802,8 @@ type OneDashboardPageWidgetStackedBar struct {
 	Colors []OneDashboardPageWidgetStackedBarColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetStackedBarDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -18245,6 +19851,8 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	Colors OneDashboardPageWidgetStackedBarColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetStackedBarDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -18335,6 +19943,13 @@ func (o OneDashboardPageWidgetStackedBarOutput) Colors() OneDashboardPageWidgetS
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetStackedBarOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetStackedBarOutput) DataFormats() OneDashboardPageWidgetStackedBarDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarDataFormat {
+		return v.DataFormats
+	}).(OneDashboardPageWidgetStackedBarDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -18649,6 +20264,130 @@ func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetStackedBarColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetStackedBarDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetStackedBarDataFormatInput is an input type that accepts OneDashboardPageWidgetStackedBarDataFormatArgs and OneDashboardPageWidgetStackedBarDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarDataFormatInput` via:
+//
+//	OneDashboardPageWidgetStackedBarDataFormatArgs{...}
+type OneDashboardPageWidgetStackedBarDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarDataFormatOutput() OneDashboardPageWidgetStackedBarDataFormatOutput
+	ToOneDashboardPageWidgetStackedBarDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarDataFormatOutput
+}
+
+type OneDashboardPageWidgetStackedBarDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetStackedBarDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarDataFormatArgs) ToOneDashboardPageWidgetStackedBarDataFormatOutput() OneDashboardPageWidgetStackedBarDataFormatOutput {
+	return i.ToOneDashboardPageWidgetStackedBarDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarDataFormatArgs) ToOneDashboardPageWidgetStackedBarDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarDataFormatOutput)
+}
+
+// OneDashboardPageWidgetStackedBarDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarDataFormatArray and OneDashboardPageWidgetStackedBarDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarDataFormatArray{ OneDashboardPageWidgetStackedBarDataFormatArgs{...} }
+type OneDashboardPageWidgetStackedBarDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarDataFormatArrayOutput() OneDashboardPageWidgetStackedBarDataFormatArrayOutput
+	ToOneDashboardPageWidgetStackedBarDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarDataFormatArray []OneDashboardPageWidgetStackedBarDataFormatInput
+
+func (OneDashboardPageWidgetStackedBarDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarDataFormatArray) ToOneDashboardPageWidgetStackedBarDataFormatArrayOutput() OneDashboardPageWidgetStackedBarDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarDataFormatArray) ToOneDashboardPageWidgetStackedBarDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarDataFormatOutput) ToOneDashboardPageWidgetStackedBarDataFormatOutput() OneDashboardPageWidgetStackedBarDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarDataFormatOutput) ToOneDashboardPageWidgetStackedBarDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetStackedBarDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetStackedBarDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetStackedBarDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetStackedBarDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetStackedBarDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarDataFormatArrayOutput) ToOneDashboardPageWidgetStackedBarDataFormatArrayOutput() OneDashboardPageWidgetStackedBarDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarDataFormatArrayOutput) ToOneDashboardPageWidgetStackedBarDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarDataFormat {
+		return vs[0].([]OneDashboardPageWidgetStackedBarDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarDataFormatOutput)
 }
 
 type OneDashboardPageWidgetStackedBarInitialSorting struct {
@@ -19346,6 +21085,8 @@ type OneDashboardPageWidgetTable struct {
 	Colors []OneDashboardPageWidgetTableColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats []OneDashboardPageWidgetTableDataFormat `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -19399,6 +21140,8 @@ type OneDashboardPageWidgetTableArgs struct {
 	Colors OneDashboardPageWidgetTableColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+	DataFormats OneDashboardPageWidgetTableDataFormatArrayInput `pulumi:"dataFormats"`
 	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
 	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
@@ -19495,6 +21238,11 @@ func (o OneDashboardPageWidgetTableOutput) Colors() OneDashboardPageWidgetTableC
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetTableOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) DataFormats() OneDashboardPageWidgetTableDataFormatArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableDataFormat { return v.DataFormats }).(OneDashboardPageWidgetTableDataFormatArrayOutput)
 }
 
 // (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -19820,6 +21568,130 @@ func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableColorSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetTableColorSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetTableDataFormat struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format *string `pulumi:"format"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision *int `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardPageWidgetTableDataFormatInput is an input type that accepts OneDashboardPageWidgetTableDataFormatArgs and OneDashboardPageWidgetTableDataFormatOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableDataFormatInput` via:
+//
+//	OneDashboardPageWidgetTableDataFormatArgs{...}
+type OneDashboardPageWidgetTableDataFormatInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableDataFormatOutput() OneDashboardPageWidgetTableDataFormatOutput
+	ToOneDashboardPageWidgetTableDataFormatOutputWithContext(context.Context) OneDashboardPageWidgetTableDataFormatOutput
+}
+
+type OneDashboardPageWidgetTableDataFormatArgs struct {
+	// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardPageWidgetTableDataFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableDataFormatArgs) ToOneDashboardPageWidgetTableDataFormatOutput() OneDashboardPageWidgetTableDataFormatOutput {
+	return i.ToOneDashboardPageWidgetTableDataFormatOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableDataFormatArgs) ToOneDashboardPageWidgetTableDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableDataFormatOutput)
+}
+
+// OneDashboardPageWidgetTableDataFormatArrayInput is an input type that accepts OneDashboardPageWidgetTableDataFormatArray and OneDashboardPageWidgetTableDataFormatArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableDataFormatArrayInput` via:
+//
+//	OneDashboardPageWidgetTableDataFormatArray{ OneDashboardPageWidgetTableDataFormatArgs{...} }
+type OneDashboardPageWidgetTableDataFormatArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableDataFormatArrayOutput() OneDashboardPageWidgetTableDataFormatArrayOutput
+	ToOneDashboardPageWidgetTableDataFormatArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableDataFormatArrayOutput
+}
+
+type OneDashboardPageWidgetTableDataFormatArray []OneDashboardPageWidgetTableDataFormatInput
+
+func (OneDashboardPageWidgetTableDataFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableDataFormat)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableDataFormatArray) ToOneDashboardPageWidgetTableDataFormatArrayOutput() OneDashboardPageWidgetTableDataFormatArrayOutput {
+	return i.ToOneDashboardPageWidgetTableDataFormatArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableDataFormatArray) ToOneDashboardPageWidgetTableDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableDataFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableDataFormatArrayOutput)
+}
+
+type OneDashboardPageWidgetTableDataFormatOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableDataFormatOutput) ToOneDashboardPageWidgetTableDataFormatOutput() OneDashboardPageWidgetTableDataFormatOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableDataFormatOutput) ToOneDashboardPageWidgetTableDataFormatOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableDataFormatOutput {
+	return o
+}
+
+// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+func (o OneDashboardPageWidgetTableDataFormatOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableDataFormat) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageWidgetTableDataFormatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableDataFormat) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+func (o OneDashboardPageWidgetTableDataFormatOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableDataFormat) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardPageWidgetTableDataFormatOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableDataFormat) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetTableDataFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableDataFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableDataFormat)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableDataFormatArrayOutput) ToOneDashboardPageWidgetTableDataFormatArrayOutput() OneDashboardPageWidgetTableDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableDataFormatArrayOutput) ToOneDashboardPageWidgetTableDataFormatArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableDataFormatArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableDataFormatArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableDataFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableDataFormat {
+		return vs[0].([]OneDashboardPageWidgetTableDataFormat)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableDataFormatOutput)
 }
 
 type OneDashboardPageWidgetTableInitialSorting struct {
@@ -24770,6 +26642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetAreaDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetAreaInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetAreaInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArgs{})
@@ -24788,6 +26662,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetBarDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetBarInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetBarInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArgs{})
@@ -24806,6 +26682,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetBillboardDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetBillboardInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArgs{})
@@ -24824,6 +26702,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetBulletDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetBulletInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetBulletInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArgs{})
@@ -24842,6 +26722,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetFunnelDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetFunnelInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetFunnelInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArgs{})
@@ -24860,6 +26742,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArgs{})
@@ -24878,6 +26762,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetHistogramDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetHistogramInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetHistogramInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArgs{})
@@ -24896,6 +26782,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetJsonDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetJsonInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetJsonInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArgs{})
@@ -24914,6 +26802,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetLineDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetLineInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArgs{})
@@ -24936,6 +26826,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetLogTableDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetLogTableInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetLogTableInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArgs{})
@@ -24954,6 +26846,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueArgs{})
@@ -24970,6 +26864,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetPyDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetPyInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetPyInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArgs{})
@@ -24988,6 +26884,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArgs{})
@@ -25006,6 +26904,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableDataFormatInput)(nil)).Elem(), OneDashboardPageWidgetTableDataFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableDataFormatArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableDataFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInitialSortingInput)(nil)).Elem(), OneDashboardPageWidgetTableInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInitialSortingPtrInput)(nil)).Elem(), OneDashboardPageWidgetTableInitialSortingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArgs{})
@@ -25127,6 +27027,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryOutput{})
@@ -25145,6 +27047,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryOutput{})
@@ -25163,6 +27067,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryOutput{})
@@ -25181,6 +27087,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNrqlQueryOutput{})
@@ -25199,6 +27107,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNrqlQueryOutput{})
@@ -25217,6 +27127,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNrqlQueryOutput{})
@@ -25235,6 +27147,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNrqlQueryOutput{})
@@ -25253,6 +27167,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNrqlQueryOutput{})
@@ -25271,6 +27187,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryOutput{})
@@ -25293,6 +27211,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryOutput{})
@@ -25311,6 +27231,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueOutput{})
@@ -25327,6 +27249,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryOutput{})
@@ -25345,6 +27269,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryOutput{})
@@ -25363,6 +27289,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableDataFormatOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableDataFormatArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableInitialSortingOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableInitialSortingPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryOutput{})

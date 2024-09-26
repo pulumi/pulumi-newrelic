@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			txn, err := newrelic.GetKeyTransaction(ctx, &newrelic.GetKeyTransactionArgs{
+//			txn, err := newrelic.LookupKeyTransaction(ctx, &newrelic.LookupKeyTransactionArgs{
 //				Name: "txn",
 //			}, nil)
 //			if err != nil {
@@ -66,9 +66,9 @@ import (
 //	}
 //
 // ```
-func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ...pulumi.InvokeOption) (*GetKeyTransactionResult, error) {
+func LookupKeyTransaction(ctx *pulumi.Context, args *LookupKeyTransactionArgs, opts ...pulumi.InvokeOption) (*LookupKeyTransactionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetKeyTransactionResult
+	var rv LookupKeyTransactionResult
 	err := ctx.Invoke("newrelic:index/getKeyTransaction:getKeyTransaction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -77,71 +77,71 @@ func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ..
 }
 
 // A collection of arguments for invoking getKeyTransaction.
-type GetKeyTransactionArgs struct {
+type LookupKeyTransactionArgs struct {
 	// The name of the key transaction in New Relic.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getKeyTransaction.
-type GetKeyTransactionResult struct {
+type LookupKeyTransactionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
-func GetKeyTransactionOutput(ctx *pulumi.Context, args GetKeyTransactionOutputArgs, opts ...pulumi.InvokeOption) GetKeyTransactionResultOutput {
+func LookupKeyTransactionOutput(ctx *pulumi.Context, args LookupKeyTransactionOutputArgs, opts ...pulumi.InvokeOption) LookupKeyTransactionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetKeyTransactionResultOutput, error) {
-			args := v.(GetKeyTransactionArgs)
+		ApplyT(func(v interface{}) (LookupKeyTransactionResultOutput, error) {
+			args := v.(LookupKeyTransactionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetKeyTransactionResult
+			var rv LookupKeyTransactionResult
 			secret, err := ctx.InvokePackageRaw("newrelic:index/getKeyTransaction:getKeyTransaction", args, &rv, "", opts...)
 			if err != nil {
-				return GetKeyTransactionResultOutput{}, err
+				return LookupKeyTransactionResultOutput{}, err
 			}
 
-			output := pulumi.ToOutput(rv).(GetKeyTransactionResultOutput)
+			output := pulumi.ToOutput(rv).(LookupKeyTransactionResultOutput)
 			if secret {
-				return pulumi.ToSecret(output).(GetKeyTransactionResultOutput), nil
+				return pulumi.ToSecret(output).(LookupKeyTransactionResultOutput), nil
 			}
 			return output, nil
-		}).(GetKeyTransactionResultOutput)
+		}).(LookupKeyTransactionResultOutput)
 }
 
 // A collection of arguments for invoking getKeyTransaction.
-type GetKeyTransactionOutputArgs struct {
+type LookupKeyTransactionOutputArgs struct {
 	// The name of the key transaction in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (GetKeyTransactionOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKeyTransactionArgs)(nil)).Elem()
+func (LookupKeyTransactionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyTransactionArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getKeyTransaction.
-type GetKeyTransactionResultOutput struct{ *pulumi.OutputState }
+type LookupKeyTransactionResultOutput struct{ *pulumi.OutputState }
 
-func (GetKeyTransactionResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKeyTransactionResult)(nil)).Elem()
+func (LookupKeyTransactionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyTransactionResult)(nil)).Elem()
 }
 
-func (o GetKeyTransactionResultOutput) ToGetKeyTransactionResultOutput() GetKeyTransactionResultOutput {
+func (o LookupKeyTransactionResultOutput) ToLookupKeyTransactionResultOutput() LookupKeyTransactionResultOutput {
 	return o
 }
 
-func (o GetKeyTransactionResultOutput) ToGetKeyTransactionResultOutputWithContext(ctx context.Context) GetKeyTransactionResultOutput {
+func (o LookupKeyTransactionResultOutput) ToLookupKeyTransactionResultOutputWithContext(ctx context.Context) LookupKeyTransactionResultOutput {
 	return o
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetKeyTransactionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyTransactionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupKeyTransactionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetKeyTransactionResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKeyTransactionResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupKeyTransactionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetKeyTransactionResultOutput{})
+	pulumi.RegisterOutputType(LookupKeyTransactionResultOutput{})
 }

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaColor;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaNullValue;
@@ -31,6 +32,11 @@ public final class OneDashboardPageWidgetArea {
      * 
      */
     private Integer column;
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    private @Nullable List<OneDashboardPageWidgetAreaDataFormat> dataFormats;
     /**
      * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      * 
@@ -117,6 +123,13 @@ public final class OneDashboardPageWidgetArea {
      */
     public Integer column() {
         return this.column;
+    }
+    /**
+     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * 
+     */
+    public List<OneDashboardPageWidgetAreaDataFormat> dataFormats() {
+        return this.dataFormats == null ? List.of() : this.dataFormats;
     }
     /**
      * @return (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -231,6 +244,7 @@ public final class OneDashboardPageWidgetArea {
     public static final class Builder {
         private @Nullable List<OneDashboardPageWidgetAreaColor> colors;
         private Integer column;
+        private @Nullable List<OneDashboardPageWidgetAreaDataFormat> dataFormats;
         private @Nullable Boolean facetShowOtherSeries;
         private @Nullable Integer height;
         private @Nullable String id;
@@ -251,6 +265,7 @@ public final class OneDashboardPageWidgetArea {
     	      Objects.requireNonNull(defaults);
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
+    	      this.dataFormats = defaults.dataFormats;
     	      this.facetShowOtherSeries = defaults.facetShowOtherSeries;
     	      this.height = defaults.height;
     	      this.id = defaults.id;
@@ -284,6 +299,15 @@ public final class OneDashboardPageWidgetArea {
             }
             this.column = column;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dataFormats(@Nullable List<OneDashboardPageWidgetAreaDataFormat> dataFormats) {
+
+            this.dataFormats = dataFormats;
+            return this;
+        }
+        public Builder dataFormats(OneDashboardPageWidgetAreaDataFormat... dataFormats) {
+            return dataFormats(List.of(dataFormats));
         }
         @CustomType.Setter
         public Builder facetShowOtherSeries(@Nullable Boolean facetShowOtherSeries) {
@@ -394,6 +418,7 @@ public final class OneDashboardPageWidgetArea {
             final var _resultValue = new OneDashboardPageWidgetArea();
             _resultValue.colors = colors;
             _resultValue.column = column;
+            _resultValue.dataFormats = dataFormats;
             _resultValue.facetShowOtherSeries = facetShowOtherSeries;
             _resultValue.height = height;
             _resultValue.id = id;

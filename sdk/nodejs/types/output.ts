@@ -609,6 +609,10 @@ export interface OneDashboardPageWidgetArea {
      */
     column: number;
     /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetAreaDataFormat[];
+    /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
     facetShowOtherSeries?: boolean;
@@ -689,6 +693,25 @@ export interface OneDashboardPageWidgetAreaColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetAreaDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetAreaInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -764,6 +787,10 @@ export interface OneDashboardPageWidgetBar {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetBarDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -853,6 +880,25 @@ export interface OneDashboardPageWidgetBarColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetBarDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetBarInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -932,6 +978,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Threshold above which the displayed value will be styled with a red color.
      */
     critical?: string;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetBillboardDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1017,6 +1067,25 @@ export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetBillboardDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetBillboardInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -1092,6 +1161,10 @@ export interface OneDashboardPageWidgetBullet {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetBulletDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1177,6 +1250,25 @@ export interface OneDashboardPageWidgetBulletColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetBulletDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetBulletInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -1252,6 +1344,10 @@ export interface OneDashboardPageWidgetFunnel {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetFunnelDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1333,6 +1429,25 @@ export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetFunnelDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetFunnelInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -1408,6 +1523,10 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetHeatmapDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1497,6 +1616,25 @@ export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetHeatmapDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetHeatmapInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -1572,6 +1710,10 @@ export interface OneDashboardPageWidgetHistogram {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetHistogramDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1653,6 +1795,25 @@ export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetHistogramDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetHistogramInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -1728,6 +1889,10 @@ export interface OneDashboardPageWidgetJson {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetJsonDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1809,6 +1974,25 @@ export interface OneDashboardPageWidgetJsonColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetJsonDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetJsonInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -1884,6 +2068,10 @@ export interface OneDashboardPageWidgetLine {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetLineDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -1979,6 +2167,25 @@ export interface OneDashboardPageWidgetLineColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetLineDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
 }
 
 export interface OneDashboardPageWidgetLineInitialSorting {
@@ -2095,6 +2302,10 @@ export interface OneDashboardPageWidgetLogTable {
      */
     column: number;
     /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetLogTableDataFormat[];
+    /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
     facetShowOtherSeries?: boolean;
@@ -2175,6 +2386,25 @@ export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetLogTableDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetLogTableInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -2250,6 +2480,10 @@ export interface OneDashboardPageWidgetMarkdown {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetMarkdownDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -2331,6 +2565,25 @@ export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetMarkdownDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetMarkdownInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -2395,6 +2648,10 @@ export interface OneDashboardPageWidgetPy {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetPyDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -2484,6 +2741,25 @@ export interface OneDashboardPageWidgetPyColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetPyDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetPyInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -2559,6 +2835,10 @@ export interface OneDashboardPageWidgetStackedBar {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetStackedBarDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -2640,6 +2920,25 @@ export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
     seriesName?: string;
 }
 
+export interface OneDashboardPageWidgetStackedBarDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
 export interface OneDashboardPageWidgetStackedBarInitialSorting {
     /**
      * (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
@@ -2715,6 +3014,10 @@ export interface OneDashboardPageWidgetTable {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
+     */
+    dataFormats?: outputs.OneDashboardPageWidgetTableDataFormat[];
     /**
      * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
      */
@@ -2806,6 +3109,25 @@ export interface OneDashboardPageWidgetTableColorSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetTableDataFormat {
+    /**
+     * (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+     */
+    format?: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+     */
+    precision?: number;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
 }
 
 export interface OneDashboardPageWidgetTableInitialSorting {
