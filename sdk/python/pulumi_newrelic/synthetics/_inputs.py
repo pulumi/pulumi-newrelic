@@ -4,24 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'BrokenLinksMonitorTagArgs',
+    'BrokenLinksMonitorTagArgsDict',
     'CertCheckMonitorTagArgs',
+    'CertCheckMonitorTagArgsDict',
     'MonitorCustomHeaderArgs',
+    'MonitorCustomHeaderArgsDict',
     'MonitorTagArgs',
+    'MonitorTagArgsDict',
     'MultiLocationAlertConditionCriticalArgs',
+    'MultiLocationAlertConditionCriticalArgsDict',
     'MultiLocationAlertConditionWarningArgs',
+    'MultiLocationAlertConditionWarningArgsDict',
     'ScriptMonitorLocationPrivateArgs',
+    'ScriptMonitorLocationPrivateArgsDict',
     'ScriptMonitorTagArgs',
+    'ScriptMonitorTagArgsDict',
     'StepMonitorLocationPrivateArgs',
+    'StepMonitorLocationPrivateArgsDict',
     'StepMonitorStepArgs',
+    'StepMonitorStepArgsDict',
     'StepMonitorTagArgs',
+    'StepMonitorTagArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BrokenLinksMonitorTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name of the tag key.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values associated with the tag key.
+        """
+elif False:
+    BrokenLinksMonitorTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrokenLinksMonitorTagArgs:
@@ -60,6 +91,19 @@ class BrokenLinksMonitorTagArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class CertCheckMonitorTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name of the tag key.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values associated with the tag key.
+        """
+elif False:
+    CertCheckMonitorTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertCheckMonitorTagArgs:
     def __init__(__self__, *,
@@ -96,6 +140,19 @@ class CertCheckMonitorTagArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class MonitorCustomHeaderArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Header Value.
+        """
+elif False:
+    MonitorCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorCustomHeaderArgs:
@@ -136,6 +193,19 @@ class MonitorCustomHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MonitorTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name of the tag key.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values associated with the tag key.
+        """
+elif False:
+    MonitorTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorTagArgs:
     def __init__(__self__, *,
@@ -173,6 +243,15 @@ class MonitorTagArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class MultiLocationAlertConditionCriticalArgsDict(TypedDict):
+        threshold: pulumi.Input[int]
+        """
+        The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        """
+elif False:
+    MultiLocationAlertConditionCriticalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MultiLocationAlertConditionCriticalArgs:
     def __init__(__self__, *,
@@ -195,6 +274,15 @@ class MultiLocationAlertConditionCriticalArgs:
         pulumi.set(self, "threshold", value)
 
 
+if not MYPY:
+    class MultiLocationAlertConditionWarningArgsDict(TypedDict):
+        threshold: pulumi.Input[int]
+        """
+        The minimum number of monitor locations that must be concurrently failing before an incident is opened.
+        """
+elif False:
+    MultiLocationAlertConditionWarningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MultiLocationAlertConditionWarningArgs:
     def __init__(__self__, *,
@@ -216,6 +304,19 @@ class MultiLocationAlertConditionWarningArgs:
     def threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "threshold", value)
 
+
+if not MYPY:
+    class ScriptMonitorLocationPrivateArgsDict(TypedDict):
+        guid: pulumi.Input[str]
+        """
+        The unique identifier for the Synthetics private location in New Relic.
+        """
+        vse_password: NotRequired[pulumi.Input[str]]
+        """
+        The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        """
+elif False:
+    ScriptMonitorLocationPrivateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScriptMonitorLocationPrivateArgs:
@@ -255,6 +356,19 @@ class ScriptMonitorLocationPrivateArgs:
         pulumi.set(self, "vse_password", value)
 
 
+if not MYPY:
+    class ScriptMonitorTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name of the tag key.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values associated with the tag key.
+        """
+elif False:
+    ScriptMonitorTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScriptMonitorTagArgs:
     def __init__(__self__, *,
@@ -291,6 +405,19 @@ class ScriptMonitorTagArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StepMonitorLocationPrivateArgsDict(TypedDict):
+        guid: pulumi.Input[str]
+        """
+        The unique identifier for the Synthetics private location in New Relic.
+        """
+        vse_password: NotRequired[pulumi.Input[str]]
+        """
+        The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
+        """
+elif False:
+    StepMonitorLocationPrivateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StepMonitorLocationPrivateArgs:
@@ -329,6 +456,23 @@ class StepMonitorLocationPrivateArgs:
     def vse_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vse_password", value)
 
+
+if not MYPY:
+    class StepMonitorStepArgsDict(TypedDict):
+        ordinal: pulumi.Input[int]
+        """
+        The position of the step within the script ranging from 0-100.
+        """
+        type: pulumi.Input[str]
+        """
+        Name of the tag key. Valid values are `ASSERT_ELEMENT`, `ASSERT_MODAL`, `ASSERT_TEXT`, `ASSERT_TITLE`, `CLICK_ELEMENT`, `DISMISS_MODAL`, `DOUBLE_CLICK_ELEMENT`, `HOVER_ELEMENT`, `NAVIGATE`, `SECURE_TEXT_ENTRY`, `SELECT_ELEMENT`, `TEXT_ENTRY`.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The metadata values related to the step.
+        """
+elif False:
+    StepMonitorStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StepMonitorStepArgs:
@@ -382,6 +526,19 @@ class StepMonitorStepArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class StepMonitorTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name of the tag key.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values associated with the tag key.
+        """
+elif False:
+    StepMonitorTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StepMonitorTagArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -79,9 +84,6 @@ def get_authentication_domain(name: Optional[str] = None,
     return AwaitableGetAuthenticationDomainResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_authentication_domain)
 def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthenticationDomainResult]:
     """
@@ -100,4 +102,10 @@ def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the authentication domain to be searched for. An error is thrown, if no authentication domain is found with the specified name.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getAuthenticationDomain:getAuthenticationDomain', __args__, opts=opts, typ=GetAuthenticationDomainResult)
+    return __ret__.apply(lambda __response__: GetAuthenticationDomainResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))
