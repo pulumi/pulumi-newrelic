@@ -15,8 +15,11 @@
 package newrelic
 
 import (
+	"bytes"
 	"fmt"
+	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"unicode"
 
@@ -27,6 +30,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/walk"
@@ -129,6 +133,7 @@ func Provider() tfbridge.ProviderInfo {
 		UpstreamRepoPath:        "./upstream",
 		MetadataInfo:            tfbridge.NewProviderMetadata(metadata),
 		Version:                 version.Version,
+		DocRules:                &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -289,6 +294,94 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	edits := []tfbridge.DocsEdit{
+		fixTables,
+		fixExample,
+	}
+	edits = append(edits, defaults...)
+	return append(
+		edits,
+		skipSections()...,
+	)
+}
+
+var sectionRegexps = []*regexp.Regexp{
+	regexp.MustCompile(`Upgrading to`),
+	regexp.MustCompile(`Support for`),
+	regexp.MustCompile(`Quick Links`),
+	regexp.MustCompile(`Community`),
+}
+
+// Removes sections meant to address the TF maintainer community, see sectionRegexps
+func skipSections() []tfbridge.DocsEdit {
+	var edits []tfbridge.DocsEdit
+	for _, sectionRegexp := range sectionRegexps {
+		edits = append(
+			edits,
+			tfbridge.DocsEdit{
+				Path: "index.html.markdown",
+				Edit: func(_ string, content []byte) ([]byte, error) {
+					return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+						return sectionRegexp.Match([]byte(headerText))
+					})
+				},
+			},
+		)
+	}
+
+	return edits
+}
+
+// fixTables introduces a hack, where a <!--HTML comment--> is appended to any table found in the upstream doc,
+// to ensure subsequent headers get rendered.
+// See https://github.com/pulumi/pulumi-terraform-bridge/issues/2466.
+var fixTables = tfbridge.DocsEdit{
+	Path: "index.html.markdown",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		files := []string{
+			"table1",
+			"table2",
+			"table3",
+		}
+		for _, file := range files {
+			input, err := os.ReadFile("provider/installation-replaces/" + file + "-input.md")
+			if err != nil {
+				return nil, err
+			}
+			desired, err := os.ReadFile("provider/installation-replaces/" + file + "-desired.md")
+			if err != nil {
+				return nil, err
+			}
+			content = bytes.ReplaceAll(
+				content,
+				input,
+				desired)
+
+		}
+		return content, nil
+	},
+}
+
+var fixExample = tfbridge.DocsEdit{
+	Path: "index.html.markdown",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		input, err := os.ReadFile("provider/installation-replaces/example-input.md")
+		if err != nil {
+			return nil, err
+		}
+		replace, err := os.ReadFile("provider/installation-replaces/example-desired.md")
+		if err != nil {
+			return nil, err
+		}
+		b := bytes.ReplaceAll(
+			content,
+			input,
+			replace)
+		return b, nil
+	},
 }
 
 //go:embed cmd/pulumi-resource-newrelic/bridge-metadata.json
