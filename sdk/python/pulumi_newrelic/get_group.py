@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -129,9 +134,6 @@ def get_group(authentication_domain_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         user_ids=pulumi.get(__ret__, 'user_ids'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
@@ -176,4 +178,13 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = Non
            
            > **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `get_authentication_domain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
     """
-    ...
+    __args__ = dict()
+    __args__['authenticationDomainId'] = authentication_domain_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        authentication_domain_id=pulumi.get(__response__, 'authentication_domain_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        user_ids=pulumi.get(__response__, 'user_ids')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -115,9 +120,6 @@ def get_user(authentication_domain_id: Optional[str] = None,
         email_id=pulumi.get(__ret__, 'email_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(authentication_domain_id: Optional[pulumi.Input[str]] = None,
                     email_id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -150,4 +152,14 @@ def get_user_output(authentication_domain_id: Optional[pulumi.Input[str]] = None
            > **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `get_authentication_domain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
     :param str name: The name of the user to search for.
     """
-    ...
+    __args__ = dict()
+    __args__['authenticationDomainId'] = authentication_domain_id
+    __args__['emailId'] = email_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        authentication_domain_id=pulumi.get(__response__, 'authentication_domain_id'),
+        email_id=pulumi.get(__response__, 'email_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))
