@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -308,9 +313,6 @@ def get_service_level_alert_helper(alert_type: Optional[str] = None,
         slo_target=pulumi.get(__ret__, 'slo_target'),
         threshold=pulumi.get(__ret__, 'threshold'),
         tolerated_budget_consumption=pulumi.get(__ret__, 'tolerated_budget_consumption'))
-
-
-@_utilities.lift_output_func(get_service_level_alert_helper)
 def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]] = None,
                                           custom_evaluation_period: Optional[pulumi.Input[Optional[int]]] = None,
                                           custom_tolerated_budget_consumption: Optional[pulumi.Input[Optional[float]]] = None,
@@ -440,4 +442,26 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     :param int slo_period: The time window of the Service Level Objective in days. Valid values are `1`, `7` and `28`.
     :param float slo_target: The target of the Service Level Objective, valid values between `0` and `100`.
     """
-    ...
+    __args__ = dict()
+    __args__['alertType'] = alert_type
+    __args__['customEvaluationPeriod'] = custom_evaluation_period
+    __args__['customToleratedBudgetConsumption'] = custom_tolerated_budget_consumption
+    __args__['isBadEvents'] = is_bad_events
+    __args__['sliGuid'] = sli_guid
+    __args__['sloPeriod'] = slo_period
+    __args__['sloTarget'] = slo_target
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper', __args__, opts=opts, typ=GetServiceLevelAlertHelperResult)
+    return __ret__.apply(lambda __response__: GetServiceLevelAlertHelperResult(
+        alert_type=pulumi.get(__response__, 'alert_type'),
+        custom_evaluation_period=pulumi.get(__response__, 'custom_evaluation_period'),
+        custom_tolerated_budget_consumption=pulumi.get(__response__, 'custom_tolerated_budget_consumption'),
+        evaluation_period=pulumi.get(__response__, 'evaluation_period'),
+        id=pulumi.get(__response__, 'id'),
+        is_bad_events=pulumi.get(__response__, 'is_bad_events'),
+        nrql=pulumi.get(__response__, 'nrql'),
+        sli_guid=pulumi.get(__response__, 'sli_guid'),
+        slo_period=pulumi.get(__response__, 'slo_period'),
+        slo_target=pulumi.get(__response__, 'slo_target'),
+        threshold=pulumi.get(__response__, 'threshold'),
+        tolerated_budget_consumption=pulumi.get(__response__, 'tolerated_budget_consumption')))

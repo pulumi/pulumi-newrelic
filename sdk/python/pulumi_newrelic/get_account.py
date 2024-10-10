@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -106,9 +111,6 @@ def get_account(account_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         scope=pulumi.get(__ret__, 'scope'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        scope: Optional[pulumi.Input[Optional[str]]] = None,
@@ -132,4 +134,14 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The account name in New Relic.
     :param str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    __args__['name'] = name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        scope=pulumi.get(__response__, 'scope')))

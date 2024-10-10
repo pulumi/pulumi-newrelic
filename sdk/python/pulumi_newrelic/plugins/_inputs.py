@@ -4,21 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'WorkloadEntitySearchQueryArgs',
+    'WorkloadEntitySearchQueryArgsDict',
     'WorkloadStatusConfigAutomaticArgs',
+    'WorkloadStatusConfigAutomaticArgsDict',
     'WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs',
+    'WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgsDict',
     'WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs',
+    'WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgsDict',
     'WorkloadStatusConfigAutomaticRuleArgs',
+    'WorkloadStatusConfigAutomaticRuleArgsDict',
     'WorkloadStatusConfigAutomaticRuleNrqlQueryArgs',
+    'WorkloadStatusConfigAutomaticRuleNrqlQueryArgsDict',
     'WorkloadStatusConfigAutomaticRuleRollupArgs',
+    'WorkloadStatusConfigAutomaticRuleRollupArgsDict',
     'WorkloadStatusConfigStaticArgs',
+    'WorkloadStatusConfigStaticArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class WorkloadEntitySearchQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        A valid entity search query; empty, and null values are considered invalid.
+        """
+elif False:
+    WorkloadEntitySearchQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadEntitySearchQueryArgs:
@@ -41,6 +65,23 @@ class WorkloadEntitySearchQueryArgs:
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
 
+
+if not MYPY:
+    class WorkloadStatusConfigAutomaticArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether the automatic status configuration is enabled or not.
+        """
+        remaining_entities_rule: NotRequired[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgsDict']]
+        """
+        An additional meta-rule that can consider all entities that haven't been evaluated by any other rule.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgsDict']]]]
+        """
+        A list of rules.
+        """
+elif False:
+    WorkloadStatusConfigAutomaticArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadStatusConfigAutomaticArgs:
@@ -96,6 +137,15 @@ class WorkloadStatusConfigAutomaticArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgsDict(TypedDict):
+        remaining_entities_rule_rollup: pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgsDict']
+        """
+        The input object used to represent a rollup strategy.
+        """
+elif False:
+    WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs:
     def __init__(__self__, *,
@@ -117,6 +167,27 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs:
     def remaining_entities_rule_rollup(self, value: pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs']):
         pulumi.set(self, "remaining_entities_rule_rollup", value)
 
+
+if not MYPY:
+    class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgsDict(TypedDict):
+        group_by: pulumi.Input[str]
+        """
+        The grouping to be applied to the remaining entities.
+        """
+        strategy: pulumi.Input[str]
+        """
+        The rollup strategy that is applied to a group of entities.
+        """
+        threshold_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+        """
+        threshold_value: NotRequired[pulumi.Input[int]]
+        """
+        Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+        """
+elif False:
+    WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs:
@@ -187,6 +258,23 @@ class WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRol
         pulumi.set(self, "threshold_value", value)
 
 
+if not MYPY:
+    class WorkloadStatusConfigAutomaticRuleArgsDict(TypedDict):
+        rollup: pulumi.Input['WorkloadStatusConfigAutomaticRuleRollupArgsDict']
+        """
+        The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+        """
+        entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+        """
+        nrql_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleNrqlQueryArgsDict']]]]
+        """
+        A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+        """
+elif False:
+    WorkloadStatusConfigAutomaticRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkloadStatusConfigAutomaticRuleArgs:
     def __init__(__self__, *,
@@ -241,6 +329,15 @@ class WorkloadStatusConfigAutomaticRuleArgs:
         pulumi.set(self, "nrql_queries", value)
 
 
+if not MYPY:
+    class WorkloadStatusConfigAutomaticRuleNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        The entity search query that is used to perform the search of a group of entities.
+        """
+elif False:
+    WorkloadStatusConfigAutomaticRuleNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkloadStatusConfigAutomaticRuleNrqlQueryArgs:
     def __init__(__self__, *,
@@ -262,6 +359,23 @@ class WorkloadStatusConfigAutomaticRuleNrqlQueryArgs:
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
 
+
+if not MYPY:
+    class WorkloadStatusConfigAutomaticRuleRollupArgsDict(TypedDict):
+        strategy: pulumi.Input[str]
+        """
+        The rollup strategy that is applied to a group of entities.
+        """
+        threshold_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+        """
+        threshold_value: NotRequired[pulumi.Input[int]]
+        """
+        Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+        """
+elif False:
+    WorkloadStatusConfigAutomaticRuleRollupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadStatusConfigAutomaticRuleRollupArgs:
@@ -316,6 +430,27 @@ class WorkloadStatusConfigAutomaticRuleRollupArgs:
     def threshold_value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threshold_value", value)
 
+
+if not MYPY:
+    class WorkloadStatusConfigStaticArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether the static status configuration is enabled or not.
+        """
+        status: pulumi.Input[str]
+        """
+        The status of the workload.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Relevant information about the workload.
+        """
+        summary: NotRequired[pulumi.Input[str]]
+        """
+        A short description of the status of the workload.
+        """
+elif False:
+    WorkloadStatusConfigStaticArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkloadStatusConfigStaticArgs:
