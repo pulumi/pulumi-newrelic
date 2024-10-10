@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -121,9 +126,6 @@ def get_test_grok_pattern(account_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         log_lines=pulumi.get(__ret__, 'log_lines'),
         test_groks=pulumi.get(__ret__, 'test_groks'))
-
-
-@_utilities.lift_output_func(get_test_grok_pattern)
 def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  grok: Optional[pulumi.Input[str]] = None,
                                  log_lines: Optional[pulumi.Input[Sequence[str]]] = None,
@@ -148,4 +150,15 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[str]
     :param str grok: The Grok pattern to test.
     :param Sequence[str] log_lines: The log lines to test the Grok pattern against.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    __args__['grok'] = grok
+    __args__['logLines'] = log_lines
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getTestGrokPattern:getTestGrokPattern', __args__, opts=opts, typ=GetTestGrokPatternResult)
+    return __ret__.apply(lambda __response__: GetTestGrokPatternResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        grok=pulumi.get(__response__, 'grok'),
+        id=pulumi.get(__response__, 'id'),
+        log_lines=pulumi.get(__response__, 'log_lines'),
+        test_groks=pulumi.get(__response__, 'test_groks')))

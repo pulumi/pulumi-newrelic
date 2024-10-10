@@ -4,202 +4,487 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'AlertChannelConfigArgs',
+    'AlertChannelConfigArgsDict',
     'AlertConditionTermArgs',
+    'AlertConditionTermArgsDict',
     'AlertMutingRuleConditionArgs',
+    'AlertMutingRuleConditionArgsDict',
     'AlertMutingRuleConditionConditionArgs',
+    'AlertMutingRuleConditionConditionArgsDict',
     'AlertMutingRuleScheduleArgs',
+    'AlertMutingRuleScheduleArgsDict',
     'EntityTagsTagArgs',
+    'EntityTagsTagArgsDict',
     'InfraAlertConditionCriticalArgs',
+    'InfraAlertConditionCriticalArgsDict',
     'InfraAlertConditionWarningArgs',
+    'InfraAlertConditionWarningArgsDict',
     'MonitorDowntimeEndRepeatArgs',
+    'MonitorDowntimeEndRepeatArgsDict',
     'MonitorDowntimeFrequencyArgs',
+    'MonitorDowntimeFrequencyArgsDict',
     'MonitorDowntimeFrequencyDaysOfWeekArgs',
+    'MonitorDowntimeFrequencyDaysOfWeekArgsDict',
     'NotificationChannelPropertyArgs',
+    'NotificationChannelPropertyArgsDict',
     'NotificationDestinationAuthBasicArgs',
+    'NotificationDestinationAuthBasicArgsDict',
     'NotificationDestinationAuthCustomHeaderArgs',
+    'NotificationDestinationAuthCustomHeaderArgsDict',
     'NotificationDestinationAuthTokenArgs',
+    'NotificationDestinationAuthTokenArgsDict',
     'NotificationDestinationPropertyArgs',
+    'NotificationDestinationPropertyArgsDict',
     'NotificationDestinationSecureUrlArgs',
+    'NotificationDestinationSecureUrlArgsDict',
     'NrqlAlertConditionCriticalArgs',
+    'NrqlAlertConditionCriticalArgsDict',
     'NrqlAlertConditionNrqlArgs',
+    'NrqlAlertConditionNrqlArgsDict',
     'NrqlAlertConditionTermArgs',
+    'NrqlAlertConditionTermArgsDict',
     'NrqlAlertConditionWarningArgs',
+    'NrqlAlertConditionWarningArgsDict',
     'ObfuscationRuleActionArgs',
+    'ObfuscationRuleActionArgsDict',
     'OneDashboardPageArgs',
+    'OneDashboardPageArgsDict',
     'OneDashboardPageWidgetAreaArgs',
+    'OneDashboardPageWidgetAreaArgsDict',
     'OneDashboardPageWidgetAreaColorArgs',
+    'OneDashboardPageWidgetAreaColorArgsDict',
     'OneDashboardPageWidgetAreaColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetAreaColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetAreaDataFormatArgs',
+    'OneDashboardPageWidgetAreaDataFormatArgsDict',
     'OneDashboardPageWidgetAreaInitialSortingArgs',
+    'OneDashboardPageWidgetAreaInitialSortingArgsDict',
     'OneDashboardPageWidgetAreaNrqlQueryArgs',
+    'OneDashboardPageWidgetAreaNrqlQueryArgsDict',
     'OneDashboardPageWidgetAreaNullValueArgs',
+    'OneDashboardPageWidgetAreaNullValueArgsDict',
     'OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetAreaNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetAreaUnitArgs',
+    'OneDashboardPageWidgetAreaUnitArgsDict',
     'OneDashboardPageWidgetAreaUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetAreaUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBarArgs',
+    'OneDashboardPageWidgetBarArgsDict',
     'OneDashboardPageWidgetBarColorArgs',
+    'OneDashboardPageWidgetBarColorArgsDict',
     'OneDashboardPageWidgetBarColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetBarColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBarDataFormatArgs',
+    'OneDashboardPageWidgetBarDataFormatArgsDict',
     'OneDashboardPageWidgetBarInitialSortingArgs',
+    'OneDashboardPageWidgetBarInitialSortingArgsDict',
     'OneDashboardPageWidgetBarNrqlQueryArgs',
+    'OneDashboardPageWidgetBarNrqlQueryArgsDict',
     'OneDashboardPageWidgetBarNullValueArgs',
+    'OneDashboardPageWidgetBarNullValueArgsDict',
     'OneDashboardPageWidgetBarNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetBarNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBarUnitArgs',
+    'OneDashboardPageWidgetBarUnitArgsDict',
     'OneDashboardPageWidgetBarUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetBarUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBillboardArgs',
+    'OneDashboardPageWidgetBillboardArgsDict',
     'OneDashboardPageWidgetBillboardColorArgs',
+    'OneDashboardPageWidgetBillboardColorArgsDict',
     'OneDashboardPageWidgetBillboardColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetBillboardColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBillboardDataFormatArgs',
+    'OneDashboardPageWidgetBillboardDataFormatArgsDict',
     'OneDashboardPageWidgetBillboardInitialSortingArgs',
+    'OneDashboardPageWidgetBillboardInitialSortingArgsDict',
     'OneDashboardPageWidgetBillboardNrqlQueryArgs',
+    'OneDashboardPageWidgetBillboardNrqlQueryArgsDict',
     'OneDashboardPageWidgetBillboardNullValueArgs',
+    'OneDashboardPageWidgetBillboardNullValueArgsDict',
     'OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBillboardUnitArgs',
+    'OneDashboardPageWidgetBillboardUnitArgsDict',
     'OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetBillboardUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBulletArgs',
+    'OneDashboardPageWidgetBulletArgsDict',
     'OneDashboardPageWidgetBulletColorArgs',
+    'OneDashboardPageWidgetBulletColorArgsDict',
     'OneDashboardPageWidgetBulletColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetBulletColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBulletDataFormatArgs',
+    'OneDashboardPageWidgetBulletDataFormatArgsDict',
     'OneDashboardPageWidgetBulletInitialSortingArgs',
+    'OneDashboardPageWidgetBulletInitialSortingArgsDict',
     'OneDashboardPageWidgetBulletNrqlQueryArgs',
+    'OneDashboardPageWidgetBulletNrqlQueryArgsDict',
     'OneDashboardPageWidgetBulletNullValueArgs',
+    'OneDashboardPageWidgetBulletNullValueArgsDict',
     'OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetBulletNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBulletUnitArgs',
+    'OneDashboardPageWidgetBulletUnitArgsDict',
     'OneDashboardPageWidgetBulletUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetBulletUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetFunnelArgs',
+    'OneDashboardPageWidgetFunnelArgsDict',
     'OneDashboardPageWidgetFunnelColorArgs',
+    'OneDashboardPageWidgetFunnelColorArgsDict',
     'OneDashboardPageWidgetFunnelColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetFunnelColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetFunnelDataFormatArgs',
+    'OneDashboardPageWidgetFunnelDataFormatArgsDict',
     'OneDashboardPageWidgetFunnelInitialSortingArgs',
+    'OneDashboardPageWidgetFunnelInitialSortingArgsDict',
     'OneDashboardPageWidgetFunnelNrqlQueryArgs',
+    'OneDashboardPageWidgetFunnelNrqlQueryArgsDict',
     'OneDashboardPageWidgetFunnelNullValueArgs',
+    'OneDashboardPageWidgetFunnelNullValueArgsDict',
     'OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetFunnelUnitArgs',
+    'OneDashboardPageWidgetFunnelUnitArgsDict',
     'OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetFunnelUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHeatmapArgs',
+    'OneDashboardPageWidgetHeatmapArgsDict',
     'OneDashboardPageWidgetHeatmapColorArgs',
+    'OneDashboardPageWidgetHeatmapColorArgsDict',
     'OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetHeatmapColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHeatmapDataFormatArgs',
+    'OneDashboardPageWidgetHeatmapDataFormatArgsDict',
     'OneDashboardPageWidgetHeatmapInitialSortingArgs',
+    'OneDashboardPageWidgetHeatmapInitialSortingArgsDict',
     'OneDashboardPageWidgetHeatmapNrqlQueryArgs',
+    'OneDashboardPageWidgetHeatmapNrqlQueryArgsDict',
     'OneDashboardPageWidgetHeatmapNullValueArgs',
+    'OneDashboardPageWidgetHeatmapNullValueArgsDict',
     'OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHeatmapUnitArgs',
+    'OneDashboardPageWidgetHeatmapUnitArgsDict',
     'OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHistogramArgs',
+    'OneDashboardPageWidgetHistogramArgsDict',
     'OneDashboardPageWidgetHistogramColorArgs',
+    'OneDashboardPageWidgetHistogramColorArgsDict',
     'OneDashboardPageWidgetHistogramColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetHistogramColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHistogramDataFormatArgs',
+    'OneDashboardPageWidgetHistogramDataFormatArgsDict',
     'OneDashboardPageWidgetHistogramInitialSortingArgs',
+    'OneDashboardPageWidgetHistogramInitialSortingArgsDict',
     'OneDashboardPageWidgetHistogramNrqlQueryArgs',
+    'OneDashboardPageWidgetHistogramNrqlQueryArgsDict',
     'OneDashboardPageWidgetHistogramNullValueArgs',
+    'OneDashboardPageWidgetHistogramNullValueArgsDict',
     'OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHistogramUnitArgs',
+    'OneDashboardPageWidgetHistogramUnitArgsDict',
     'OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetHistogramUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetJsonArgs',
+    'OneDashboardPageWidgetJsonArgsDict',
     'OneDashboardPageWidgetJsonColorArgs',
+    'OneDashboardPageWidgetJsonColorArgsDict',
     'OneDashboardPageWidgetJsonColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetJsonColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetJsonDataFormatArgs',
+    'OneDashboardPageWidgetJsonDataFormatArgsDict',
     'OneDashboardPageWidgetJsonInitialSortingArgs',
+    'OneDashboardPageWidgetJsonInitialSortingArgsDict',
     'OneDashboardPageWidgetJsonNrqlQueryArgs',
+    'OneDashboardPageWidgetJsonNrqlQueryArgsDict',
     'OneDashboardPageWidgetJsonNullValueArgs',
+    'OneDashboardPageWidgetJsonNullValueArgsDict',
     'OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetJsonNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetJsonUnitArgs',
+    'OneDashboardPageWidgetJsonUnitArgsDict',
     'OneDashboardPageWidgetJsonUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetJsonUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLineArgs',
+    'OneDashboardPageWidgetLineArgsDict',
     'OneDashboardPageWidgetLineColorArgs',
+    'OneDashboardPageWidgetLineColorArgsDict',
     'OneDashboardPageWidgetLineColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetLineColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLineDataFormatArgs',
+    'OneDashboardPageWidgetLineDataFormatArgsDict',
     'OneDashboardPageWidgetLineInitialSortingArgs',
+    'OneDashboardPageWidgetLineInitialSortingArgsDict',
     'OneDashboardPageWidgetLineNrqlQueryArgs',
+    'OneDashboardPageWidgetLineNrqlQueryArgsDict',
     'OneDashboardPageWidgetLineNullValueArgs',
+    'OneDashboardPageWidgetLineNullValueArgsDict',
     'OneDashboardPageWidgetLineNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetLineNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLineThresholdArgs',
+    'OneDashboardPageWidgetLineThresholdArgsDict',
     'OneDashboardPageWidgetLineUnitArgs',
+    'OneDashboardPageWidgetLineUnitArgsDict',
     'OneDashboardPageWidgetLineUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetLineUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLineYAxisRightArgs',
+    'OneDashboardPageWidgetLineYAxisRightArgsDict',
     'OneDashboardPageWidgetLogTableArgs',
+    'OneDashboardPageWidgetLogTableArgsDict',
     'OneDashboardPageWidgetLogTableColorArgs',
+    'OneDashboardPageWidgetLogTableColorArgsDict',
     'OneDashboardPageWidgetLogTableColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetLogTableColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLogTableDataFormatArgs',
+    'OneDashboardPageWidgetLogTableDataFormatArgsDict',
     'OneDashboardPageWidgetLogTableInitialSortingArgs',
+    'OneDashboardPageWidgetLogTableInitialSortingArgsDict',
     'OneDashboardPageWidgetLogTableNrqlQueryArgs',
+    'OneDashboardPageWidgetLogTableNrqlQueryArgsDict',
     'OneDashboardPageWidgetLogTableNullValueArgs',
+    'OneDashboardPageWidgetLogTableNullValueArgsDict',
     'OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLogTableUnitArgs',
+    'OneDashboardPageWidgetLogTableUnitArgsDict',
     'OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetLogTableUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetMarkdownArgs',
+    'OneDashboardPageWidgetMarkdownArgsDict',
     'OneDashboardPageWidgetMarkdownColorArgs',
+    'OneDashboardPageWidgetMarkdownColorArgsDict',
     'OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetMarkdownColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetMarkdownDataFormatArgs',
+    'OneDashboardPageWidgetMarkdownDataFormatArgsDict',
     'OneDashboardPageWidgetMarkdownInitialSortingArgs',
+    'OneDashboardPageWidgetMarkdownInitialSortingArgsDict',
     'OneDashboardPageWidgetMarkdownNullValueArgs',
+    'OneDashboardPageWidgetMarkdownNullValueArgsDict',
     'OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetMarkdownUnitArgs',
+    'OneDashboardPageWidgetMarkdownUnitArgsDict',
     'OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetPyArgs',
+    'OneDashboardPageWidgetPyArgsDict',
     'OneDashboardPageWidgetPyColorArgs',
+    'OneDashboardPageWidgetPyColorArgsDict',
     'OneDashboardPageWidgetPyColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetPyColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetPyDataFormatArgs',
+    'OneDashboardPageWidgetPyDataFormatArgsDict',
     'OneDashboardPageWidgetPyInitialSortingArgs',
+    'OneDashboardPageWidgetPyInitialSortingArgsDict',
     'OneDashboardPageWidgetPyNrqlQueryArgs',
+    'OneDashboardPageWidgetPyNrqlQueryArgsDict',
     'OneDashboardPageWidgetPyNullValueArgs',
+    'OneDashboardPageWidgetPyNullValueArgsDict',
     'OneDashboardPageWidgetPyNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetPyNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetPyUnitArgs',
+    'OneDashboardPageWidgetPyUnitArgsDict',
     'OneDashboardPageWidgetPyUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetPyUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetStackedBarArgs',
+    'OneDashboardPageWidgetStackedBarArgsDict',
     'OneDashboardPageWidgetStackedBarColorArgs',
+    'OneDashboardPageWidgetStackedBarColorArgsDict',
     'OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetStackedBarColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetStackedBarDataFormatArgs',
+    'OneDashboardPageWidgetStackedBarDataFormatArgsDict',
     'OneDashboardPageWidgetStackedBarInitialSortingArgs',
+    'OneDashboardPageWidgetStackedBarInitialSortingArgsDict',
     'OneDashboardPageWidgetStackedBarNrqlQueryArgs',
+    'OneDashboardPageWidgetStackedBarNrqlQueryArgsDict',
     'OneDashboardPageWidgetStackedBarNullValueArgs',
+    'OneDashboardPageWidgetStackedBarNullValueArgsDict',
     'OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetStackedBarUnitArgs',
+    'OneDashboardPageWidgetStackedBarUnitArgsDict',
     'OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetTableArgs',
+    'OneDashboardPageWidgetTableArgsDict',
     'OneDashboardPageWidgetTableColorArgs',
+    'OneDashboardPageWidgetTableColorArgsDict',
     'OneDashboardPageWidgetTableColorSeriesOverrideArgs',
+    'OneDashboardPageWidgetTableColorSeriesOverrideArgsDict',
     'OneDashboardPageWidgetTableDataFormatArgs',
+    'OneDashboardPageWidgetTableDataFormatArgsDict',
     'OneDashboardPageWidgetTableInitialSortingArgs',
+    'OneDashboardPageWidgetTableInitialSortingArgsDict',
     'OneDashboardPageWidgetTableNrqlQueryArgs',
+    'OneDashboardPageWidgetTableNrqlQueryArgsDict',
     'OneDashboardPageWidgetTableNullValueArgs',
+    'OneDashboardPageWidgetTableNullValueArgsDict',
     'OneDashboardPageWidgetTableNullValueSeriesOverrideArgs',
+    'OneDashboardPageWidgetTableNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetTableThresholdArgs',
+    'OneDashboardPageWidgetTableThresholdArgsDict',
     'OneDashboardPageWidgetTableUnitArgs',
+    'OneDashboardPageWidgetTableUnitArgsDict',
     'OneDashboardPageWidgetTableUnitSeriesOverrideArgs',
+    'OneDashboardPageWidgetTableUnitSeriesOverrideArgsDict',
     'OneDashboardRawPageArgs',
+    'OneDashboardRawPageArgsDict',
     'OneDashboardRawPageWidgetArgs',
+    'OneDashboardRawPageWidgetArgsDict',
     'OneDashboardVariableArgs',
+    'OneDashboardVariableArgsDict',
     'OneDashboardVariableItemArgs',
+    'OneDashboardVariableItemArgsDict',
     'OneDashboardVariableNrqlQueryArgs',
+    'OneDashboardVariableNrqlQueryArgsDict',
     'OneDashboardVariableOptionArgs',
+    'OneDashboardVariableOptionArgsDict',
     'ServiceLevelEventsArgs',
+    'ServiceLevelEventsArgsDict',
     'ServiceLevelEventsBadEventsArgs',
+    'ServiceLevelEventsBadEventsArgsDict',
     'ServiceLevelEventsBadEventsSelectArgs',
+    'ServiceLevelEventsBadEventsSelectArgsDict',
     'ServiceLevelEventsGoodEventsArgs',
+    'ServiceLevelEventsGoodEventsArgsDict',
     'ServiceLevelEventsGoodEventsSelectArgs',
+    'ServiceLevelEventsGoodEventsSelectArgsDict',
     'ServiceLevelEventsValidEventsArgs',
+    'ServiceLevelEventsValidEventsArgsDict',
     'ServiceLevelEventsValidEventsSelectArgs',
+    'ServiceLevelEventsValidEventsSelectArgsDict',
     'ServiceLevelObjectiveArgs',
+    'ServiceLevelObjectiveArgsDict',
     'ServiceLevelObjectiveTimeWindowArgs',
+    'ServiceLevelObjectiveTimeWindowArgsDict',
     'ServiceLevelObjectiveTimeWindowRollingArgs',
+    'ServiceLevelObjectiveTimeWindowRollingArgsDict',
     'WorkflowDestinationArgs',
+    'WorkflowDestinationArgsDict',
     'WorkflowEnrichmentsArgs',
+    'WorkflowEnrichmentsArgsDict',
     'WorkflowEnrichmentsNrqlArgs',
+    'WorkflowEnrichmentsNrqlArgsDict',
     'WorkflowEnrichmentsNrqlConfigurationArgs',
+    'WorkflowEnrichmentsNrqlConfigurationArgsDict',
     'WorkflowIssuesFilterArgs',
+    'WorkflowIssuesFilterArgsDict',
     'WorkflowIssuesFilterPredicateArgs',
+    'WorkflowIssuesFilterPredicateArgsDict',
     'GetEntityTagArgs',
+    'GetEntityTagArgsDict',
     'GetNotificationDestinationSecureUrlArgs',
+    'GetNotificationDestinationSecureUrlArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AlertChannelConfigArgsDict(TypedDict):
+        api_key: NotRequired[pulumi.Input[str]]
+        """
+        The API key for integrating with OpsGenie.
+        """
+        auth_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies an authentication password for use with a channel. Supported by the webhook channel type.
+        """
+        auth_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies an authentication method for use with a channel. Supported by the webhook channel type. Only HTTP basic authentication is currently supported via the value BASIC.
+        """
+        auth_username: NotRequired[pulumi.Input[str]]
+        """
+        Specifies an authentication username for use with a channel. Supported by the webhook channel type.
+        """
+        base_url: NotRequired[pulumi.Input[str]]
+        """
+        The base URL of the webhook destination.
+        """
+        channel: NotRequired[pulumi.Input[str]]
+        """
+        The Slack channel to send notifications to.
+        """
+        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
+        """
+        headers_string: NotRequired[pulumi.Input[str]]
+        """
+        Use instead of headers if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with headers.
+        """
+        include_json_attachment: NotRequired[pulumi.Input[str]]
+        """
+        true or false. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for integrating with VictorOps.
+        """
+        payload: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+        """
+        payload_string: NotRequired[pulumi.Input[str]]
+        """
+        Use instead of payload if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects). The value provided should be a valid JSON string with escaped double quotes. Conflicts with payload.
+        """
+        payload_type: NotRequired[pulumi.Input[str]]
+        """
+        Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+        """
+        recipients: NotRequired[pulumi.Input[str]]
+        """
+        A set of recipients for targeting notifications. Multiple values are comma separated.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The data center region to store your data. Valid values are US and EU. Default is US.
+        """
+        route_key: NotRequired[pulumi.Input[str]]
+        """
+        The route key for integrating with VictorOps.
+        """
+        service_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the service key for integrating with Pagerduty.
+        """
+        tags: NotRequired[pulumi.Input[str]]
+        """
+        A set of tags for targeting notifications. Multiple values are comma separated.
+        """
+        teams: NotRequired[pulumi.Input[str]]
+        """
+        A set of teams for targeting notifications. Multiple values are comma separated.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        Your organization's Slack URL.
+        """
+        user_id: NotRequired[pulumi.Input[str]]
+        """
+        The user ID for use with the user channel type.
+        """
+elif False:
+    AlertChannelConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertChannelConfigArgs:
@@ -544,6 +829,31 @@ class AlertChannelConfigArgs:
         pulumi.set(self, "user_id", value)
 
 
+if not MYPY:
+    class AlertConditionTermArgsDict(TypedDict):
+        duration: pulumi.Input[int]
+        """
+        In minutes, must be in the range of 5 to 120, inclusive.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Must be 0 or greater.
+        """
+        time_function: pulumi.Input[str]
+        """
+        One of (all, any).
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        One of (above, below, equal). Defaults to equal.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        One of (critical, warning). Defaults to critical.
+        """
+elif False:
+    AlertConditionTermArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertConditionTermArgs:
     def __init__(__self__, *,
@@ -628,6 +938,19 @@ class AlertConditionTermArgs:
         pulumi.set(self, "priority", value)
 
 
+if not MYPY:
+    class AlertMutingRuleConditionArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgsDict']]]
+        """
+        The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        """
+        operator: pulumi.Input[str]
+        """
+        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
+        """
+elif False:
+    AlertMutingRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertMutingRuleConditionArgs:
     def __init__(__self__, *,
@@ -664,6 +987,23 @@ class AlertMutingRuleConditionArgs:
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class AlertMutingRuleConditionConditionArgsDict(TypedDict):
+        attribute: pulumi.Input[str]
+        """
+        The attribute on an incident.
+        """
+        operator: pulumi.Input[str]
+        """
+        The operator used to compare the attribute's value with the supplied value(s).
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The value(s) to compare against the attribute's value.
+        """
+elif False:
+    AlertMutingRuleConditionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertMutingRuleConditionConditionArgs:
@@ -716,6 +1056,40 @@ class AlertMutingRuleConditionConditionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertMutingRuleScheduleArgsDict(TypedDict):
+        time_zone: pulumi.Input[str]
+        """
+        The time zone that applies to the MutingRule schedule.
+        """
+        end_repeat: NotRequired[pulumi.Input[str]]
+        """
+        The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+        * `timeZone` (Required) The time zone that applies to the muting rule schedule. Example: 'America/Los_Angeles'. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        """
+        repeat: NotRequired[pulumi.Input[str]]
+        """
+        The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+        """
+        repeat_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+        """
+        weekly_repeat_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+        """
+elif False:
+    AlertMutingRuleScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertMutingRuleScheduleArgs:
@@ -837,6 +1211,21 @@ class AlertMutingRuleScheduleArgs:
         pulumi.set(self, "weekly_repeat_days", value)
 
 
+if not MYPY:
+    class EntityTagsTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The key of the tag.
+
+        > **NOTE:** One should not use reserved (immutable) keys with this resource. It is recommended to choose unique and descriptive keys which do not conflict with existing reserved keys.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The tag values.
+        """
+elif False:
+    EntityTagsTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityTagsTagArgs:
     def __init__(__self__, *,
@@ -878,6 +1267,14 @@ class EntityTagsTagArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class InfraAlertConditionCriticalArgsDict(TypedDict):
+        duration: pulumi.Input[int]
+        time_function: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[float]]
+elif False:
+    InfraAlertConditionCriticalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InfraAlertConditionCriticalArgs:
     def __init__(__self__, *,
@@ -917,6 +1314,14 @@ class InfraAlertConditionCriticalArgs:
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InfraAlertConditionWarningArgsDict(TypedDict):
+        duration: pulumi.Input[int]
+        time_function: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[float]]
+elif False:
+    InfraAlertConditionWarningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InfraAlertConditionWarningArgs:
@@ -958,6 +1363,19 @@ class InfraAlertConditionWarningArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MonitorDowntimeEndRepeatArgsDict(TypedDict):
+        on_date: NotRequired[pulumi.Input[str]]
+        """
+        A date, on which the Monitor Downtime's repeat cycle is expected to end.
+        """
+        on_repeat: NotRequired[pulumi.Input[int]]
+        """
+        Number of repetitions after which the Monitor Downtime's repeat cycle is expected to end.
+        """
+elif False:
+    MonitorDowntimeEndRepeatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorDowntimeEndRepeatArgs:
     def __init__(__self__, *,
@@ -996,6 +1414,19 @@ class MonitorDowntimeEndRepeatArgs:
     def on_repeat(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "on_repeat", value)
 
+
+if not MYPY:
+    class MonitorDowntimeFrequencyArgsDict(TypedDict):
+        days_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        A numerical list of days of a month on which the Monitor Downtime is scheduled to run.
+        """
+        days_of_week: NotRequired[pulumi.Input['MonitorDowntimeFrequencyDaysOfWeekArgsDict']]
+        """
+        A list of days of the week on which the Monitor Downtime is scheduled to run.
+        """
+elif False:
+    MonitorDowntimeFrequencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorDowntimeFrequencyArgs:
@@ -1036,6 +1467,19 @@ class MonitorDowntimeFrequencyArgs:
         pulumi.set(self, "days_of_week", value)
 
 
+if not MYPY:
+    class MonitorDowntimeFrequencyDaysOfWeekArgsDict(TypedDict):
+        ordinal_day_of_month: pulumi.Input[str]
+        """
+        An occurrence of the day selected within the month.
+        """
+        week_day: pulumi.Input[str]
+        """
+        The day of the week on which the Monitor Downtime would run.
+        """
+elif False:
+    MonitorDowntimeFrequencyDaysOfWeekArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorDowntimeFrequencyDaysOfWeekArgs:
     def __init__(__self__, *,
@@ -1072,6 +1516,27 @@ class MonitorDowntimeFrequencyDaysOfWeekArgs:
     def week_day(self, value: pulumi.Input[str]):
         pulumi.set(self, "week_day", value)
 
+
+if not MYPY:
+    class NotificationChannelPropertyArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Notification property key.
+        """
+        value: pulumi.Input[str]
+        """
+        Notification property value.
+        """
+        display_value: NotRequired[pulumi.Input[str]]
+        """
+        Notification property display key.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Notification property label.
+        """
+elif False:
+    NotificationChannelPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationChannelPropertyArgs:
@@ -1142,6 +1607,19 @@ class NotificationChannelPropertyArgs:
         pulumi.set(self, "label", value)
 
 
+if not MYPY:
+    class NotificationDestinationAuthBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Specifies an authentication password for use with a destination.
+        """
+        user: pulumi.Input[str]
+        """
+        The username of the basic auth.
+        """
+elif False:
+    NotificationDestinationAuthBasicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationDestinationAuthBasicArgs:
     def __init__(__self__, *,
@@ -1178,6 +1656,19 @@ class NotificationDestinationAuthBasicArgs:
     def user(self, value: pulumi.Input[str]):
         pulumi.set(self, "user", value)
 
+
+if not MYPY:
+    class NotificationDestinationAuthCustomHeaderArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The notification property key.
+        """
+        value: pulumi.Input[str]
+        """
+        The notification property value.
+        """
+elif False:
+    NotificationDestinationAuthCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationDestinationAuthCustomHeaderArgs:
@@ -1216,6 +1707,19 @@ class NotificationDestinationAuthCustomHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NotificationDestinationAuthTokenArgsDict(TypedDict):
+        token: pulumi.Input[str]
+        """
+        Specifies the token for integrating.
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix of the URL.
+        """
+elif False:
+    NotificationDestinationAuthTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationDestinationAuthTokenArgs:
     def __init__(__self__, *,
@@ -1253,6 +1757,27 @@ class NotificationDestinationAuthTokenArgs:
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
 
+
+if not MYPY:
+    class NotificationDestinationPropertyArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Notification property key.
+        """
+        value: pulumi.Input[str]
+        """
+        Notification property value.
+        """
+        display_value: NotRequired[pulumi.Input[str]]
+        """
+        Notification property display key.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Notification property label.
+        """
+elif False:
+    NotificationDestinationPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationDestinationPropertyArgs:
@@ -1323,6 +1848,19 @@ class NotificationDestinationPropertyArgs:
         pulumi.set(self, "label", value)
 
 
+if not MYPY:
+    class NotificationDestinationSecureUrlArgsDict(TypedDict):
+        prefix: pulumi.Input[str]
+        """
+        The prefix of the URL.
+        """
+        secure_suffix: pulumi.Input[str]
+        """
+        The suffix of the URL, which contains sensitive data.
+        """
+elif False:
+    NotificationDestinationSecureUrlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationDestinationSecureUrlArgs:
     def __init__(__self__, *,
@@ -1359,6 +1897,35 @@ class NotificationDestinationSecureUrlArgs:
     def secure_suffix(self, value: pulumi.Input[str]):
         pulumi.set(self, "secure_suffix", value)
 
+
+if not MYPY:
+    class NrqlAlertConditionCriticalArgsDict(TypedDict):
+        threshold: pulumi.Input[float]
+        """
+        For baseline conditions must be in range [1, 1000].
+        """
+        duration: NotRequired[pulumi.Input[int]]
+        """
+        In minutes, must be in the range of 1 to 120 (inclusive).
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        """
+        threshold_duration: NotRequired[pulumi.Input[int]]
+        """
+        The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        """
+        threshold_occurrences: NotRequired[pulumi.Input[str]]
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        """
+        time_function: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are: 'all' or 'any'
+        """
+elif False:
+    NrqlAlertConditionCriticalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NrqlAlertConditionCriticalArgs:
@@ -1470,6 +2037,24 @@ class NrqlAlertConditionCriticalArgs:
         pulumi.set(self, "time_function", value)
 
 
+if not MYPY:
+    class NrqlAlertConditionNrqlArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        data_account_id: NotRequired[pulumi.Input[str]]
+        """
+        BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        """
+        evaluation_offset: NotRequired[pulumi.Input[int]]
+        """
+        NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        """
+        since_value: NotRequired[pulumi.Input[str]]
+        """
+        NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        """
+elif False:
+    NrqlAlertConditionNrqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NrqlAlertConditionNrqlArgs:
     def __init__(__self__, *,
@@ -1543,6 +2128,39 @@ class NrqlAlertConditionNrqlArgs:
     def since_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "since_value", value)
 
+
+if not MYPY:
+    class NrqlAlertConditionTermArgsDict(TypedDict):
+        threshold: pulumi.Input[float]
+        """
+        For baseline conditions must be in range [1, 1000].
+        """
+        duration: NotRequired[pulumi.Input[int]]
+        """
+        In minutes, must be in the range of 1 to 120 (inclusive).
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
+        """
+        threshold_duration: NotRequired[pulumi.Input[int]]
+        """
+        The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        """
+        threshold_occurrences: NotRequired[pulumi.Input[str]]
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        """
+        time_function: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are: 'all' or 'any'
+        """
+elif False:
+    NrqlAlertConditionTermArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NrqlAlertConditionTermArgs:
@@ -1670,6 +2288,35 @@ class NrqlAlertConditionTermArgs:
         pulumi.set(self, "time_function", value)
 
 
+if not MYPY:
+    class NrqlAlertConditionWarningArgsDict(TypedDict):
+        threshold: pulumi.Input[float]
+        """
+        For baseline conditions must be in range [1, 1000].
+        """
+        duration: NotRequired[pulumi.Input[int]]
+        """
+        In minutes, must be in the range of 1 to 120 (inclusive).
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        """
+        threshold_duration: NotRequired[pulumi.Input[int]]
+        """
+        The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
+        """
+        threshold_occurrences: NotRequired[pulumi.Input[str]]
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
+        """
+        time_function: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are: 'all' or 'any'
+        """
+elif False:
+    NrqlAlertConditionWarningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NrqlAlertConditionWarningArgs:
     def __init__(__self__, *,
@@ -1780,6 +2427,23 @@ class NrqlAlertConditionWarningArgs:
         pulumi.set(self, "time_function", value)
 
 
+if not MYPY:
+    class ObfuscationRuleActionArgsDict(TypedDict):
+        attributes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Attribute names for action. An empty list applies the action to all the attributes.
+        """
+        expression_id: pulumi.Input[str]
+        """
+        Expression Id for action.
+        """
+        method: pulumi.Input[str]
+        """
+        Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+        """
+elif False:
+    ObfuscationRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ObfuscationRuleActionArgs:
     def __init__(__self__, *,
@@ -1831,6 +2495,79 @@ class ObfuscationRuleActionArgs:
     def method(self, value: pulumi.Input[str]):
         pulumi.set(self, "method", value)
 
+
+if not MYPY:
+    class OneDashboardPageArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Brief text describing the dashboard.
+        """
+        guid: NotRequired[pulumi.Input[str]]
+        """
+        The unique entity identifier of the dashboard page in New Relic.
+        """
+        widget_areas: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgsDict']]]]
+        """
+        An area widget.
+        """
+        widget_bars: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgsDict']]]]
+        """
+        A bar widget.
+        """
+        widget_billboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgsDict']]]]
+        """
+        A billboard widget.
+        """
+        widget_bullets: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgsDict']]]]
+        """
+        A bullet widget.
+        """
+        widget_funnels: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgsDict']]]]
+        """
+        A funnel widget.
+        """
+        widget_heatmaps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgsDict']]]]
+        """
+        A heatmap widget.
+        """
+        widget_histograms: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgsDict']]]]
+        """
+        A histogram widget.
+        """
+        widget_jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgsDict']]]]
+        """
+        A JSON widget.
+        """
+        widget_lines: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgsDict']]]]
+        """
+        A line widget.
+        """
+        widget_log_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgsDict']]]]
+        """
+        A log table widget.
+        """
+        widget_markdowns: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgsDict']]]]
+        """
+        A markdown widget.
+        """
+        widget_pies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgsDict']]]]
+        """
+        A pie widget.
+        """
+        widget_stacked_bars: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgsDict']]]]
+        """
+        A stacked bar widget.
+        """
+        widget_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgsDict']]]]
+        """
+        A table widget.
+        """
+elif False:
+    OneDashboardPageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageArgs:
@@ -2109,6 +2846,80 @@ class OneDashboardPageArgs:
     def widget_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]]]):
         pulumi.set(self, "widget_tables", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetAreaArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetAreaInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetAreaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetAreaArgs:
@@ -2397,6 +3208,19 @@ class OneDashboardPageWidgetAreaArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetAreaColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetAreaColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetAreaColorArgs:
     def __init__(__self__, *,
@@ -2436,6 +3260,19 @@ class OneDashboardPageWidgetAreaColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetAreaColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetAreaColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetAreaColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -2474,6 +3311,27 @@ class OneDashboardPageWidgetAreaColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetAreaDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetAreaDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetAreaDataFormatArgs:
@@ -2544,6 +3402,19 @@ class OneDashboardPageWidgetAreaDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetAreaInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetAreaInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetAreaInitialSortingArgs:
     def __init__(__self__, *,
@@ -2580,6 +3451,19 @@ class OneDashboardPageWidgetAreaInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetAreaNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetAreaNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetAreaNrqlQueryArgs:
@@ -2618,6 +3502,19 @@ class OneDashboardPageWidgetAreaNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetAreaNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetAreaNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetAreaNullValueArgs:
@@ -2658,6 +3555,19 @@ class OneDashboardPageWidgetAreaNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetAreaNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -2696,6 +3606,19 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetAreaUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetAreaUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetAreaUnitArgs:
@@ -2736,6 +3659,19 @@ class OneDashboardPageWidgetAreaUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetAreaUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetAreaUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetAreaUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -2774,6 +3710,88 @@ class OneDashboardPageWidgetAreaUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBarArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        filter_current_dashboard: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetBarInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        linked_entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetBarArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBarArgs:
@@ -3094,6 +4112,19 @@ class OneDashboardPageWidgetBarArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBarColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetBarColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBarColorArgs:
     def __init__(__self__, *,
@@ -3133,6 +4164,19 @@ class OneDashboardPageWidgetBarColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBarColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetBarColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBarColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -3171,6 +4215,27 @@ class OneDashboardPageWidgetBarColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBarDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetBarDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBarDataFormatArgs:
@@ -3241,6 +4306,19 @@ class OneDashboardPageWidgetBarDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBarInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetBarInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBarInitialSortingArgs:
     def __init__(__self__, *,
@@ -3277,6 +4355,19 @@ class OneDashboardPageWidgetBarInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBarNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetBarNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBarNrqlQueryArgs:
@@ -3315,6 +4406,19 @@ class OneDashboardPageWidgetBarNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBarNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetBarNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBarNullValueArgs:
@@ -3355,6 +4459,19 @@ class OneDashboardPageWidgetBarNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBarNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetBarNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBarNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -3393,6 +4510,19 @@ class OneDashboardPageWidgetBarNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBarUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetBarUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBarUnitArgs:
@@ -3433,6 +4563,19 @@ class OneDashboardPageWidgetBarUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBarUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetBarUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBarUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -3471,6 +4614,88 @@ class OneDashboardPageWidgetBarUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        critical: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Threshold above which the displayed value will be styled with a red color.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetBillboardInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        warning: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Threshold above which the displayed value will be styled with a yellow color.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardArgs:
@@ -3791,6 +5016,19 @@ class OneDashboardPageWidgetBillboardArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBillboardColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardColorArgs:
     def __init__(__self__, *,
@@ -3830,6 +5068,19 @@ class OneDashboardPageWidgetBillboardColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBillboardColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetBillboardColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -3868,6 +5119,27 @@ class OneDashboardPageWidgetBillboardColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBillboardDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardDataFormatArgs:
@@ -3938,6 +5210,19 @@ class OneDashboardPageWidgetBillboardDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBillboardInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardInitialSortingArgs:
     def __init__(__self__, *,
@@ -3974,6 +5259,19 @@ class OneDashboardPageWidgetBillboardInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBillboardNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardNrqlQueryArgs:
@@ -4012,6 +5310,19 @@ class OneDashboardPageWidgetBillboardNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBillboardNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardNullValueArgs:
@@ -4052,6 +5363,19 @@ class OneDashboardPageWidgetBillboardNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -4090,6 +5414,19 @@ class OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBillboardUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardUnitArgs:
@@ -4130,6 +5467,19 @@ class OneDashboardPageWidgetBillboardUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetBillboardUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -4168,6 +5518,84 @@ class OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBulletArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        limit: pulumi.Input[float]
+        """
+        (Required) Visualization limit for the widget.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetBulletInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetBulletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBulletArgs:
@@ -4471,6 +5899,19 @@ class OneDashboardPageWidgetBulletArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBulletColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetBulletColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBulletColorArgs:
     def __init__(__self__, *,
@@ -4510,6 +5951,19 @@ class OneDashboardPageWidgetBulletColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBulletColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetBulletColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBulletColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -4548,6 +6002,27 @@ class OneDashboardPageWidgetBulletColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBulletDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetBulletDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBulletDataFormatArgs:
@@ -4618,6 +6093,19 @@ class OneDashboardPageWidgetBulletDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBulletInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetBulletInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBulletInitialSortingArgs:
     def __init__(__self__, *,
@@ -4654,6 +6142,19 @@ class OneDashboardPageWidgetBulletInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBulletNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetBulletNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBulletNrqlQueryArgs:
@@ -4692,6 +6193,19 @@ class OneDashboardPageWidgetBulletNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBulletNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetBulletNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBulletNullValueArgs:
@@ -4732,6 +6246,19 @@ class OneDashboardPageWidgetBulletNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetBulletNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -4770,6 +6297,19 @@ class OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetBulletUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetBulletUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetBulletUnitArgs:
@@ -4810,6 +6350,19 @@ class OneDashboardPageWidgetBulletUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetBulletUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetBulletUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetBulletUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -4848,6 +6401,80 @@ class OneDashboardPageWidgetBulletUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetFunnelArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetFunnelInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelArgs:
@@ -5136,6 +6763,19 @@ class OneDashboardPageWidgetFunnelArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetFunnelColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelColorArgs:
     def __init__(__self__, *,
@@ -5175,6 +6815,19 @@ class OneDashboardPageWidgetFunnelColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetFunnelColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetFunnelColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -5213,6 +6866,27 @@ class OneDashboardPageWidgetFunnelColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetFunnelDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelDataFormatArgs:
@@ -5283,6 +6957,19 @@ class OneDashboardPageWidgetFunnelDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetFunnelInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelInitialSortingArgs:
     def __init__(__self__, *,
@@ -5319,6 +7006,19 @@ class OneDashboardPageWidgetFunnelInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetFunnelNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelNrqlQueryArgs:
@@ -5357,6 +7057,19 @@ class OneDashboardPageWidgetFunnelNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetFunnelNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelNullValueArgs:
@@ -5397,6 +7110,19 @@ class OneDashboardPageWidgetFunnelNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -5435,6 +7161,19 @@ class OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetFunnelUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelUnitArgs:
@@ -5475,6 +7214,19 @@ class OneDashboardPageWidgetFunnelUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetFunnelUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetFunnelUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -5513,6 +7265,88 @@ class OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        filter_current_dashboard: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetHeatmapInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        linked_entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapArgs:
@@ -5833,6 +7667,19 @@ class OneDashboardPageWidgetHeatmapArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapColorArgs:
     def __init__(__self__, *,
@@ -5872,6 +7719,19 @@ class OneDashboardPageWidgetHeatmapColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -5910,6 +7770,27 @@ class OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapDataFormatArgs:
@@ -5980,6 +7861,19 @@ class OneDashboardPageWidgetHeatmapDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapInitialSortingArgs:
     def __init__(__self__, *,
@@ -6016,6 +7910,19 @@ class OneDashboardPageWidgetHeatmapInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapNrqlQueryArgs:
@@ -6054,6 +7961,19 @@ class OneDashboardPageWidgetHeatmapNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapNullValueArgs:
@@ -6094,6 +8014,19 @@ class OneDashboardPageWidgetHeatmapNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -6132,6 +8065,19 @@ class OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapUnitArgs:
@@ -6172,6 +8118,19 @@ class OneDashboardPageWidgetHeatmapUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -6210,6 +8169,80 @@ class OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHistogramArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetHistogramInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramArgs:
@@ -6498,6 +8531,19 @@ class OneDashboardPageWidgetHistogramArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHistogramColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramColorArgs:
     def __init__(__self__, *,
@@ -6537,6 +8583,19 @@ class OneDashboardPageWidgetHistogramColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHistogramColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetHistogramColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -6575,6 +8634,27 @@ class OneDashboardPageWidgetHistogramColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHistogramDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramDataFormatArgs:
@@ -6645,6 +8725,19 @@ class OneDashboardPageWidgetHistogramDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHistogramInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramInitialSortingArgs:
     def __init__(__self__, *,
@@ -6681,6 +8774,19 @@ class OneDashboardPageWidgetHistogramInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHistogramNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramNrqlQueryArgs:
@@ -6719,6 +8825,19 @@ class OneDashboardPageWidgetHistogramNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHistogramNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramNullValueArgs:
@@ -6759,6 +8878,19 @@ class OneDashboardPageWidgetHistogramNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -6797,6 +8929,19 @@ class OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetHistogramUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramUnitArgs:
@@ -6837,6 +8982,19 @@ class OneDashboardPageWidgetHistogramUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetHistogramUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -6875,6 +9033,80 @@ class OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetJsonArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetJsonInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetJsonArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetJsonArgs:
@@ -7163,6 +9395,19 @@ class OneDashboardPageWidgetJsonArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetJsonColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetJsonColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetJsonColorArgs:
     def __init__(__self__, *,
@@ -7202,6 +9447,19 @@ class OneDashboardPageWidgetJsonColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetJsonColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetJsonColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetJsonColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -7240,6 +9498,27 @@ class OneDashboardPageWidgetJsonColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetJsonDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetJsonDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetJsonDataFormatArgs:
@@ -7310,6 +9589,19 @@ class OneDashboardPageWidgetJsonDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetJsonInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetJsonInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetJsonInitialSortingArgs:
     def __init__(__self__, *,
@@ -7346,6 +9638,19 @@ class OneDashboardPageWidgetJsonInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetJsonNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetJsonNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetJsonNrqlQueryArgs:
@@ -7384,6 +9689,19 @@ class OneDashboardPageWidgetJsonNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetJsonNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetJsonNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetJsonNullValueArgs:
@@ -7424,6 +9742,19 @@ class OneDashboardPageWidgetJsonNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetJsonNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -7462,6 +9793,19 @@ class OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetJsonUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetJsonUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetJsonUnitArgs:
@@ -7502,6 +9846,19 @@ class OneDashboardPageWidgetJsonUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetJsonUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetJsonUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetJsonUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -7540,6 +9897,96 @@ class OneDashboardPageWidgetJsonUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLineArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetLineInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        is_label_visible: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) A boolean value, which when true, sets the label to be visibly displayed within thresholds. In other words, if this attribute is set to true, the _label always visible_ toggle in the _Thresholds_ section in the settings of the widget is enabled.
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        thresholds: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgsDict']]]]
+        """
+        (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        y_axis_left_zero: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+        """
+        y_axis_right: NotRequired[pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgsDict']]
+        """
+        (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
+        """
+elif False:
+    OneDashboardPageWidgetLineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineArgs:
@@ -7892,6 +10339,19 @@ class OneDashboardPageWidgetLineArgs:
         pulumi.set(self, "y_axis_right", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLineColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetLineColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLineColorArgs:
     def __init__(__self__, *,
@@ -7931,6 +10391,19 @@ class OneDashboardPageWidgetLineColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLineColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetLineColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLineColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -7969,6 +10442,27 @@ class OneDashboardPageWidgetLineColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLineDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetLineDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineDataFormatArgs:
@@ -8039,6 +10533,19 @@ class OneDashboardPageWidgetLineDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLineInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetLineInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLineInitialSortingArgs:
     def __init__(__self__, *,
@@ -8075,6 +10582,19 @@ class OneDashboardPageWidgetLineInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLineNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetLineNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineNrqlQueryArgs:
@@ -8113,6 +10633,19 @@ class OneDashboardPageWidgetLineNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLineNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetLineNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineNullValueArgs:
@@ -8153,6 +10686,19 @@ class OneDashboardPageWidgetLineNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLineNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetLineNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -8191,6 +10737,27 @@ class OneDashboardPageWidgetLineNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLineThresholdArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[str]]
+        """
+        The value 'from' which the threshold would need to be applied.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The title of the dashboard.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        The value until which the threshold would need to be applied.
+        """
+elif False:
+    OneDashboardPageWidgetLineThresholdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineThresholdArgs:
@@ -8263,6 +10830,19 @@ class OneDashboardPageWidgetLineThresholdArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLineUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetLineUnitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLineUnitArgs:
     def __init__(__self__, *,
@@ -8302,6 +10882,19 @@ class OneDashboardPageWidgetLineUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLineUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetLineUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLineUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -8340,6 +10933,27 @@ class OneDashboardPageWidgetLineUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLineYAxisRightArgsDict(TypedDict):
+        y_axis_right_max: NotRequired[pulumi.Input[float]]
+        """
+        Minimum value of the range to be specified with the Y-Axis on the right of the line widget.
+        """
+        y_axis_right_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+        """
+        y_axis_right_series: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) An attribute which takes a list of strings, specifying a selection of series' displayed in the line chart to be adjusted against the values of the right Y-axis.
+        """
+        y_axis_right_zero: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+        """
+elif False:
+    OneDashboardPageWidgetLineYAxisRightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineYAxisRightArgs:
@@ -8411,6 +11025,80 @@ class OneDashboardPageWidgetLineYAxisRightArgs:
     def y_axis_right_zero(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "y_axis_right_zero", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLogTableArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetLogTableInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableArgs:
@@ -8699,6 +11387,19 @@ class OneDashboardPageWidgetLogTableArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLogTableColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableColorArgs:
     def __init__(__self__, *,
@@ -8738,6 +11439,19 @@ class OneDashboardPageWidgetLogTableColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLogTableColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetLogTableColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -8776,6 +11490,27 @@ class OneDashboardPageWidgetLogTableColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLogTableDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableDataFormatArgs:
@@ -8846,6 +11581,19 @@ class OneDashboardPageWidgetLogTableDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLogTableInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableInitialSortingArgs:
     def __init__(__self__, *,
@@ -8882,6 +11630,19 @@ class OneDashboardPageWidgetLogTableInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLogTableNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableNrqlQueryArgs:
@@ -8920,6 +11681,19 @@ class OneDashboardPageWidgetLogTableNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLogTableNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableNullValueArgs:
@@ -8960,6 +11734,19 @@ class OneDashboardPageWidgetLogTableNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -8998,6 +11785,19 @@ class OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetLogTableUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableUnitArgs:
@@ -9038,6 +11838,19 @@ class OneDashboardPageWidgetLogTableUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetLogTableUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetLogTableUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -9076,6 +11889,80 @@ class OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        text: pulumi.Input[str]
+        """
+        (Required) The markdown source to be rendered in the widget.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetMarkdownInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownArgs:
@@ -9364,6 +12251,19 @@ class OneDashboardPageWidgetMarkdownArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownColorArgs:
     def __init__(__self__, *,
@@ -9403,6 +12303,19 @@ class OneDashboardPageWidgetMarkdownColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -9441,6 +12354,27 @@ class OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownDataFormatArgs:
@@ -9511,6 +12445,19 @@ class OneDashboardPageWidgetMarkdownDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownInitialSortingArgs:
     def __init__(__self__, *,
@@ -9547,6 +12494,19 @@ class OneDashboardPageWidgetMarkdownInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownNullValueArgs:
@@ -9587,6 +12547,19 @@ class OneDashboardPageWidgetMarkdownNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -9625,6 +12598,19 @@ class OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownUnitArgs:
@@ -9665,6 +12651,19 @@ class OneDashboardPageWidgetMarkdownUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -9703,6 +12702,88 @@ class OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetPyArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        filter_current_dashboard: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetPyInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        linked_entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetPyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetPyArgs:
@@ -10023,6 +13104,19 @@ class OneDashboardPageWidgetPyArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetPyColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetPyColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetPyColorArgs:
     def __init__(__self__, *,
@@ -10062,6 +13156,19 @@ class OneDashboardPageWidgetPyColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetPyColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetPyColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetPyColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -10100,6 +13207,27 @@ class OneDashboardPageWidgetPyColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetPyDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetPyDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetPyDataFormatArgs:
@@ -10170,6 +13298,19 @@ class OneDashboardPageWidgetPyDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetPyInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetPyInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetPyInitialSortingArgs:
     def __init__(__self__, *,
@@ -10206,6 +13347,19 @@ class OneDashboardPageWidgetPyInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetPyNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetPyNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetPyNrqlQueryArgs:
@@ -10244,6 +13398,19 @@ class OneDashboardPageWidgetPyNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetPyNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetPyNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetPyNullValueArgs:
@@ -10284,6 +13451,19 @@ class OneDashboardPageWidgetPyNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetPyNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetPyNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetPyNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -10322,6 +13502,19 @@ class OneDashboardPageWidgetPyNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetPyUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetPyUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetPyUnitArgs:
@@ -10362,6 +13555,19 @@ class OneDashboardPageWidgetPyUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetPyUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetPyUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetPyUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -10400,6 +13606,80 @@ class OneDashboardPageWidgetPyUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetStackedBarInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarArgs:
@@ -10688,6 +13968,19 @@ class OneDashboardPageWidgetStackedBarArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarColorArgs:
     def __init__(__self__, *,
@@ -10727,6 +14020,19 @@ class OneDashboardPageWidgetStackedBarColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -10765,6 +14071,27 @@ class OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarDataFormatArgs:
@@ -10835,6 +14162,19 @@ class OneDashboardPageWidgetStackedBarDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarInitialSortingArgs:
     def __init__(__self__, *,
@@ -10871,6 +14211,19 @@ class OneDashboardPageWidgetStackedBarInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarNrqlQueryArgs:
@@ -10909,6 +14262,19 @@ class OneDashboardPageWidgetStackedBarNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarNullValueArgs:
@@ -10949,6 +14315,19 @@ class OneDashboardPageWidgetStackedBarNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -10987,6 +14366,19 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarUnitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarUnitArgs:
@@ -11027,6 +14419,19 @@ class OneDashboardPageWidgetStackedBarUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -11065,6 +14470,92 @@ class OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetTableArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgsDict']]]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgsDict']]]]
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        data_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableDataFormatArgsDict']]]]
+        """
+        (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+        """
+        facet_show_other_series: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        filter_current_dashboard: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+        initial_sorting: NotRequired[pulumi.Input['OneDashboardPageWidgetTableInitialSortingArgsDict']]
+        """
+        (Optional) An attribute that describes the sorting mechanism for the table. This attribute requires specifying the following attributes in a nested block -
+        """
+        legend_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        linked_entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        null_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueArgsDict']]]]
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        refresh_rate: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        """
+        thresholds: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableThresholdArgsDict']]]]
+        """
+        (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        """
+        units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitArgsDict']]]]
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        y_axis_left_max: NotRequired[pulumi.Input[float]]
+        y_axis_left_min: NotRequired[pulumi.Input[float]]
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+elif False:
+    OneDashboardPageWidgetTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetTableArgs:
@@ -11401,6 +14892,19 @@ class OneDashboardPageWidgetTableArgs:
         pulumi.set(self, "y_axis_left_min", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetTableColorArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetTableColorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetTableColorArgs:
     def __init__(__self__, *,
@@ -11440,6 +14944,19 @@ class OneDashboardPageWidgetTableColorArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetTableColorSeriesOverrideArgsDict(TypedDict):
+        color: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetTableColorSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetTableColorSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -11478,6 +14995,27 @@ class OneDashboardPageWidgetTableColorSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetTableDataFormatArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        """
+elif False:
+    OneDashboardPageWidgetTableDataFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetTableDataFormatArgs:
@@ -11548,6 +15086,19 @@ class OneDashboardPageWidgetTableDataFormatArgs:
         pulumi.set(self, "precision", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetTableInitialSortingArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        """
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+elif False:
+    OneDashboardPageWidgetTableInitialSortingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetTableInitialSortingArgs:
     def __init__(__self__, *,
@@ -11584,6 +15135,19 @@ class OneDashboardPageWidgetTableInitialSortingArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetTableNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+elif False:
+    OneDashboardPageWidgetTableNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetTableNrqlQueryArgs:
@@ -11622,6 +15186,19 @@ class OneDashboardPageWidgetTableNrqlQueryArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetTableNullValueArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNullValueSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+elif False:
+    OneDashboardPageWidgetTableNullValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetTableNullValueArgs:
@@ -11662,6 +15239,19 @@ class OneDashboardPageWidgetTableNullValueArgs:
         pulumi.set(self, "series_overrides", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetTableNullValueSeriesOverrideArgsDict(TypedDict):
+        null_value: NotRequired[pulumi.Input[str]]
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+elif False:
+    OneDashboardPageWidgetTableNullValueSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -11700,6 +15290,27 @@ class OneDashboardPageWidgetTableNullValueSeriesOverrideArgs:
     def series_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "series_name", value)
 
+
+if not MYPY:
+    class OneDashboardPageWidgetTableThresholdArgsDict(TypedDict):
+        column_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the column in the table, to which the threshold would need to be applied.
+        """
+        from_: NotRequired[pulumi.Input[str]]
+        """
+        The value 'from' which the threshold would need to be applied.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        The severity of the threshold, which would affect the visual appearance of the threshold (such as its color) accordingly. The value of this attribute would need to be one of the following - `warning`, `severe`, `critical`, `success`, `unavailable` which correspond to the severity labels _Warning_, _Approaching critical_, _Critical_, _Good_, _Neutral_ in the dropdown that helps specify the severity of thresholds in table widgets in the UI, respectively.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        The value until which the threshold would need to be applied.
+        """
+elif False:
+    OneDashboardPageWidgetTableThresholdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardPageWidgetTableThresholdArgs:
@@ -11772,6 +15383,19 @@ class OneDashboardPageWidgetTableThresholdArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetTableUnitArgsDict(TypedDict):
+        series_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableUnitSeriesOverrideArgsDict']]]]
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetTableUnitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetTableUnitArgs:
     def __init__(__self__, *,
@@ -11811,6 +15435,19 @@ class OneDashboardPageWidgetTableUnitArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class OneDashboardPageWidgetTableUnitSeriesOverrideArgsDict(TypedDict):
+        series_name: NotRequired[pulumi.Input[str]]
+        """
+        Series name
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+elif False:
+    OneDashboardPageWidgetTableUnitSeriesOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardPageWidgetTableUnitSeriesOverrideArgs:
     def __init__(__self__, *,
@@ -11849,6 +15486,27 @@ class OneDashboardPageWidgetTableUnitSeriesOverrideArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class OneDashboardRawPageArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Brief text describing the dashboard.
+        """
+        guid: NotRequired[pulumi.Input[str]]
+        """
+        The unique entity identifier of the dashboard page in New Relic.
+        """
+        widgets: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgsDict']]]]
+        """
+        (Optional) A nested block that describes a widget. See Nested widget blocks below for details.
+        """
+elif False:
+    OneDashboardRawPageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardRawPageArgs:
@@ -11919,6 +15577,47 @@ class OneDashboardRawPageArgs:
     def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]]]):
         pulumi.set(self, "widgets", value)
 
+
+if not MYPY:
+    class OneDashboardRawPageWidgetArgsDict(TypedDict):
+        column: pulumi.Input[int]
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        configuration: pulumi.Input[str]
+        """
+        (Required) The configuration of the widget.
+        """
+        row: pulumi.Input[int]
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Required) A title for the widget.
+        """
+        visualization_id: pulumi.Input[str]
+        """
+        (Required) The visualization ID of the widget
+        """
+        height: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the widget.
+        """
+        linked_entity_guids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) Related entity GUIDs.
+        """
+        width: NotRequired[pulumi.Input[int]]
+        """
+        (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
+        """
+elif False:
+    OneDashboardRawPageWidgetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardRawPageWidgetArgs:
@@ -12065,6 +15764,47 @@ class OneDashboardRawPageWidgetArgs:
     def width(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "width", value)
 
+
+if not MYPY:
+    class OneDashboardVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The title of the dashboard.
+        """
+        replacement_strategy: pulumi.Input[str]
+        """
+        (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+        """
+        title: pulumi.Input[str]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        type: pulumi.Input[str]
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        default_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
+        """
+        is_multi_selection: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+        """
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableItemArgsDict']]]]
+        """
+        (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+        """
+        nrql_query: NotRequired[pulumi.Input['OneDashboardVariableNrqlQueryArgsDict']]
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        options: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableOptionArgsDict']]]]
+        """
+        (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
+        """
+elif False:
+    OneDashboardVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardVariableArgs:
@@ -12213,6 +15953,19 @@ class OneDashboardVariableArgs:
         pulumi.set(self, "options", value)
 
 
+if not MYPY:
+    class OneDashboardVariableItemArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        (Required) A possible variable value
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+elif False:
+    OneDashboardVariableItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardVariableItemArgs:
     def __init__(__self__, *,
@@ -12250,6 +16003,19 @@ class OneDashboardVariableItemArgs:
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
 
+
+if not MYPY:
+    class OneDashboardVariableNrqlQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        New Relic account ID(s) to issue the query against.
+        """
+elif False:
+    OneDashboardVariableNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OneDashboardVariableNrqlQueryArgs:
@@ -12289,6 +16055,15 @@ class OneDashboardVariableNrqlQueryArgs:
         pulumi.set(self, "account_ids", value)
 
 
+if not MYPY:
+    class OneDashboardVariableOptionArgsDict(TypedDict):
+        ignore_time_range: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        """
+elif False:
+    OneDashboardVariableOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OneDashboardVariableOptionArgs:
     def __init__(__self__, *,
@@ -12311,6 +16086,28 @@ class OneDashboardVariableOptionArgs:
     def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_time_range", value)
 
+
+if not MYPY:
+    class ServiceLevelEventsArgsDict(TypedDict):
+        account_id: pulumi.Input[str]
+        """
+        The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+        and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
+        """
+        valid_events: pulumi.Input['ServiceLevelEventsValidEventsArgsDict']
+        """
+        The definition of valid requests.
+        """
+        bad_events: NotRequired[pulumi.Input['ServiceLevelEventsBadEventsArgsDict']]
+        """
+        The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        """
+        good_events: NotRequired[pulumi.Input['ServiceLevelEventsGoodEventsArgsDict']]
+        """
+        The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+        """
+elif False:
+    ServiceLevelEventsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelEventsArgs:
@@ -12383,6 +16180,24 @@ class ServiceLevelEventsArgs:
         pulumi.set(self, "good_events", value)
 
 
+if not MYPY:
+    class ServiceLevelEventsBadEventsArgsDict(TypedDict):
+        from_: pulumi.Input[str]
+        """
+        The event type where NRDB data will be fetched from.
+        """
+        select: NotRequired[pulumi.Input['ServiceLevelEventsBadEventsSelectArgsDict']]
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
+        where: NotRequired[pulumi.Input[str]]
+        """
+        A filter that narrows down the NRDB events just to those that are considered bad responses (e.g, those that refer to
+        a particular entity and returned an error).
+        """
+elif False:
+    ServiceLevelEventsBadEventsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelEventsBadEventsArgs:
     def __init__(__self__, *,
@@ -12439,6 +16254,23 @@ class ServiceLevelEventsBadEventsArgs:
         pulumi.set(self, "where", value)
 
 
+if not MYPY:
+    class ServiceLevelEventsBadEventsSelectArgsDict(TypedDict):
+        function: pulumi.Input[str]
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        """
+        attribute: NotRequired[pulumi.Input[str]]
+        """
+        The event attribute to use in the SELECT clause.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        Limit for values to be counter by `GET_CDF_COUNT` function.
+        """
+elif False:
+    ServiceLevelEventsBadEventsSelectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelEventsBadEventsSelectArgs:
     def __init__(__self__, *,
@@ -12492,6 +16324,24 @@ class ServiceLevelEventsBadEventsSelectArgs:
     def threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "threshold", value)
 
+
+if not MYPY:
+    class ServiceLevelEventsGoodEventsArgsDict(TypedDict):
+        from_: pulumi.Input[str]
+        """
+        The event type where NRDB data will be fetched from.
+        """
+        select: NotRequired[pulumi.Input['ServiceLevelEventsGoodEventsSelectArgsDict']]
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
+        where: NotRequired[pulumi.Input[str]]
+        """
+        A filter that narrows down the NRDB events just to those that are considered good responses (e.g, those that refer to
+        a particular entity and were successful).
+        """
+elif False:
+    ServiceLevelEventsGoodEventsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelEventsGoodEventsArgs:
@@ -12549,6 +16399,23 @@ class ServiceLevelEventsGoodEventsArgs:
         pulumi.set(self, "where", value)
 
 
+if not MYPY:
+    class ServiceLevelEventsGoodEventsSelectArgsDict(TypedDict):
+        function: pulumi.Input[str]
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        """
+        attribute: NotRequired[pulumi.Input[str]]
+        """
+        The event attribute to use in the SELECT clause.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        Limit for values to be counter by `GET_CDF_COUNT` function.
+        """
+elif False:
+    ServiceLevelEventsGoodEventsSelectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelEventsGoodEventsSelectArgs:
     def __init__(__self__, *,
@@ -12602,6 +16469,23 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     def threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "threshold", value)
 
+
+if not MYPY:
+    class ServiceLevelEventsValidEventsArgsDict(TypedDict):
+        from_: pulumi.Input[str]
+        """
+        The event type where NRDB data will be fetched from.
+        """
+        select: NotRequired[pulumi.Input['ServiceLevelEventsValidEventsSelectArgsDict']]
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
+        where: NotRequired[pulumi.Input[str]]
+        """
+        A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        """
+elif False:
+    ServiceLevelEventsValidEventsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelEventsValidEventsArgs:
@@ -12657,6 +16541,23 @@ class ServiceLevelEventsValidEventsArgs:
         pulumi.set(self, "where", value)
 
 
+if not MYPY:
+    class ServiceLevelEventsValidEventsSelectArgsDict(TypedDict):
+        function: pulumi.Input[str]
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`, `SUM`, `GET_FIELD`, and `GET_CDF_COUNT`.
+        """
+        attribute: NotRequired[pulumi.Input[str]]
+        """
+        The event attribute to use in the SELECT clause.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        Limit for values to be counter by `GET_CDF_COUNT` function.
+        """
+elif False:
+    ServiceLevelEventsValidEventsSelectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelEventsValidEventsSelectArgs:
     def __init__(__self__, *,
@@ -12710,6 +16611,27 @@ class ServiceLevelEventsValidEventsSelectArgs:
     def threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "threshold", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveArgsDict(TypedDict):
+        target: pulumi.Input[float]
+        """
+        The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+        """
+        time_window: pulumi.Input['ServiceLevelObjectiveTimeWindowArgsDict']
+        """
+        Time window is the period of the objective.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the SLI.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A short name for the SLI that will help anyone understand what it is about.
+        """
+elif False:
+    ServiceLevelObjectiveArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveArgs:
@@ -12780,6 +16702,15 @@ class ServiceLevelObjectiveArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveTimeWindowArgsDict(TypedDict):
+        rolling: pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgsDict']
+        """
+        Rolling window.
+        """
+elif False:
+    ServiceLevelObjectiveTimeWindowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveTimeWindowArgs:
     def __init__(__self__, *,
@@ -12801,6 +16732,19 @@ class ServiceLevelObjectiveTimeWindowArgs:
     def rolling(self, value: pulumi.Input['ServiceLevelObjectiveTimeWindowRollingArgs']):
         pulumi.set(self, "rolling", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveTimeWindowRollingArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        Valid values are `1`, `7` and `28`.
+        """
+        unit: pulumi.Input[str]
+        """
+        The only supported value is `DAY`.
+        """
+elif False:
+    ServiceLevelObjectiveTimeWindowRollingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveTimeWindowRollingArgs:
@@ -12838,6 +16782,31 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     def unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class WorkflowDestinationArgsDict(TypedDict):
+        channel_id: pulumi.Input[str]
+        """
+        (Required) Destination's channel id.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the workflow.
+        """
+        notification_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of triggers to notify about in this destination configuration.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+        """
+        update_original_message: NotRequired[pulumi.Input[bool]]
+        """
+        Update original notification message (Slack channels only)
+        """
+elif False:
+    WorkflowDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowDestinationArgs:
@@ -12925,6 +16894,15 @@ class WorkflowDestinationArgs:
         pulumi.set(self, "update_original_message", value)
 
 
+if not MYPY:
+    class WorkflowEnrichmentsArgsDict(TypedDict):
+        nrqls: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgsDict']]]
+        """
+        (Required) Nrql type Enrichments.
+        """
+elif False:
+    WorkflowEnrichmentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowEnrichmentsArgs:
     def __init__(__self__, *,
@@ -12946,6 +16924,31 @@ class WorkflowEnrichmentsArgs:
     def nrqls(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgs']]]):
         pulumi.set(self, "nrqls", value)
 
+
+if not MYPY:
+    class WorkflowEnrichmentsNrqlArgsDict(TypedDict):
+        configurations: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgsDict']]]
+        """
+        A set of key-value pairs to represent a enrichment configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the workflow.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        """
+        enrichment_id: NotRequired[pulumi.Input[str]]
+        """
+        Enrichment's id.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the enrichment. One of: (NRQL).
+        """
+elif False:
+    WorkflowEnrichmentsNrqlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowEnrichmentsNrqlArgs:
@@ -13032,6 +17035,15 @@ class WorkflowEnrichmentsNrqlArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class WorkflowEnrichmentsNrqlConfigurationArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        enrichment's NRQL query
+        """
+elif False:
+    WorkflowEnrichmentsNrqlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowEnrichmentsNrqlConfigurationArgs:
     def __init__(__self__, *,
@@ -13053,6 +17065,27 @@ class WorkflowEnrichmentsNrqlConfigurationArgs:
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
 
+
+if not MYPY:
+    class WorkflowIssuesFilterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        (Required) Filter's name.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        """
+        filter_id: NotRequired[pulumi.Input[str]]
+        """
+        filter id.
+        """
+        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgsDict']]]]
+        """
+        A condition an issue event should satisfy to be processed by the workflow
+        """
+elif False:
+    WorkflowIssuesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowIssuesFilterArgs:
@@ -13123,6 +17156,23 @@ class WorkflowIssuesFilterArgs:
         pulumi.set(self, "predicates", value)
 
 
+if not MYPY:
+    class WorkflowIssuesFilterPredicateArgsDict(TypedDict):
+        attribute: pulumi.Input[str]
+        """
+        Issue event attribute to check
+        """
+        operator: pulumi.Input[str]
+        """
+        An operator to use to compare the attribute with the provided `values`, see supported operators below
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The `attribute` must match **any** of the values in this list
+        """
+elif False:
+    WorkflowIssuesFilterPredicateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowIssuesFilterPredicateArgs:
     def __init__(__self__, *,
@@ -13175,6 +17225,19 @@ class WorkflowIssuesFilterPredicateArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetEntityTagArgsDict(TypedDict):
+        key: str
+        """
+        The tag key.
+        """
+        value: str
+        """
+        The tag value.
+        """
+elif False:
+    GetEntityTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetEntityTagArgs:
     def __init__(__self__, *,
@@ -13211,6 +17274,12 @@ class GetEntityTagArgs:
     def value(self, value: str):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GetNotificationDestinationSecureUrlArgsDict(TypedDict):
+        prefix: str
+elif False:
+    GetNotificationDestinationSecureUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNotificationDestinationSecureUrlArgs:

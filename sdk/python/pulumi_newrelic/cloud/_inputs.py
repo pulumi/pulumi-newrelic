@@ -4,143 +4,313 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AwsGovcloudIntegrationsAlbArgs',
+    'AwsGovcloudIntegrationsAlbArgsDict',
     'AwsGovcloudIntegrationsApiGatewayArgs',
+    'AwsGovcloudIntegrationsApiGatewayArgsDict',
     'AwsGovcloudIntegrationsAutoScalingArgs',
+    'AwsGovcloudIntegrationsAutoScalingArgsDict',
     'AwsGovcloudIntegrationsAwsDirectConnectArgs',
+    'AwsGovcloudIntegrationsAwsDirectConnectArgsDict',
     'AwsGovcloudIntegrationsAwsStatesArgs',
+    'AwsGovcloudIntegrationsAwsStatesArgsDict',
     'AwsGovcloudIntegrationsCloudtrailArgs',
+    'AwsGovcloudIntegrationsCloudtrailArgsDict',
     'AwsGovcloudIntegrationsDynamoDbArgs',
+    'AwsGovcloudIntegrationsDynamoDbArgsDict',
     'AwsGovcloudIntegrationsEbsArgs',
+    'AwsGovcloudIntegrationsEbsArgsDict',
     'AwsGovcloudIntegrationsEc2Args',
+    'AwsGovcloudIntegrationsEc2ArgsDict',
     'AwsGovcloudIntegrationsElasticSearchArgs',
+    'AwsGovcloudIntegrationsElasticSearchArgsDict',
     'AwsGovcloudIntegrationsElbArgs',
+    'AwsGovcloudIntegrationsElbArgsDict',
     'AwsGovcloudIntegrationsEmrArgs',
+    'AwsGovcloudIntegrationsEmrArgsDict',
     'AwsGovcloudIntegrationsIamArgs',
+    'AwsGovcloudIntegrationsIamArgsDict',
     'AwsGovcloudIntegrationsLambdaArgs',
+    'AwsGovcloudIntegrationsLambdaArgsDict',
     'AwsGovcloudIntegrationsRdsArgs',
+    'AwsGovcloudIntegrationsRdsArgsDict',
     'AwsGovcloudIntegrationsRedShiftArgs',
+    'AwsGovcloudIntegrationsRedShiftArgsDict',
     'AwsGovcloudIntegrationsRoute53Args',
+    'AwsGovcloudIntegrationsRoute53ArgsDict',
     'AwsGovcloudIntegrationsS3Args',
+    'AwsGovcloudIntegrationsS3ArgsDict',
     'AwsGovcloudIntegrationsSnsArgs',
+    'AwsGovcloudIntegrationsSnsArgsDict',
     'AwsGovcloudIntegrationsSqsArgs',
+    'AwsGovcloudIntegrationsSqsArgsDict',
     'AwsIntegrationsAlbArgs',
+    'AwsIntegrationsAlbArgsDict',
     'AwsIntegrationsApiGatewayArgs',
+    'AwsIntegrationsApiGatewayArgsDict',
     'AwsIntegrationsAutoScalingArgs',
+    'AwsIntegrationsAutoScalingArgsDict',
     'AwsIntegrationsAwsAppSyncArgs',
+    'AwsIntegrationsAwsAppSyncArgsDict',
     'AwsIntegrationsAwsAthenaArgs',
+    'AwsIntegrationsAwsAthenaArgsDict',
     'AwsIntegrationsAwsCognitoArgs',
+    'AwsIntegrationsAwsCognitoArgsDict',
     'AwsIntegrationsAwsConnectArgs',
+    'AwsIntegrationsAwsConnectArgsDict',
     'AwsIntegrationsAwsDirectConnectArgs',
+    'AwsIntegrationsAwsDirectConnectArgsDict',
     'AwsIntegrationsAwsFsxArgs',
+    'AwsIntegrationsAwsFsxArgsDict',
     'AwsIntegrationsAwsGlueArgs',
+    'AwsIntegrationsAwsGlueArgsDict',
     'AwsIntegrationsAwsKinesisAnalyticsArgs',
+    'AwsIntegrationsAwsKinesisAnalyticsArgsDict',
     'AwsIntegrationsAwsMediaConvertArgs',
+    'AwsIntegrationsAwsMediaConvertArgsDict',
     'AwsIntegrationsAwsMediaPackageVodArgs',
+    'AwsIntegrationsAwsMediaPackageVodArgsDict',
     'AwsIntegrationsAwsMqArgs',
+    'AwsIntegrationsAwsMqArgsDict',
     'AwsIntegrationsAwsMskArgs',
+    'AwsIntegrationsAwsMskArgsDict',
     'AwsIntegrationsAwsNeptuneArgs',
+    'AwsIntegrationsAwsNeptuneArgsDict',
     'AwsIntegrationsAwsQldbArgs',
+    'AwsIntegrationsAwsQldbArgsDict',
     'AwsIntegrationsAwsRoute53resolverArgs',
+    'AwsIntegrationsAwsRoute53resolverArgsDict',
     'AwsIntegrationsAwsStatesArgs',
+    'AwsIntegrationsAwsStatesArgsDict',
     'AwsIntegrationsAwsTransitGatewayArgs',
+    'AwsIntegrationsAwsTransitGatewayArgsDict',
     'AwsIntegrationsAwsWafArgs',
+    'AwsIntegrationsAwsWafArgsDict',
     'AwsIntegrationsAwsWafv2Args',
+    'AwsIntegrationsAwsWafv2ArgsDict',
     'AwsIntegrationsBillingArgs',
+    'AwsIntegrationsBillingArgsDict',
     'AwsIntegrationsCloudfrontArgs',
+    'AwsIntegrationsCloudfrontArgsDict',
     'AwsIntegrationsCloudtrailArgs',
+    'AwsIntegrationsCloudtrailArgsDict',
     'AwsIntegrationsDocDbArgs',
+    'AwsIntegrationsDocDbArgsDict',
     'AwsIntegrationsDynamodbArgs',
+    'AwsIntegrationsDynamodbArgsDict',
     'AwsIntegrationsEbsArgs',
+    'AwsIntegrationsEbsArgsDict',
     'AwsIntegrationsEc2Args',
+    'AwsIntegrationsEc2ArgsDict',
     'AwsIntegrationsEcsArgs',
+    'AwsIntegrationsEcsArgsDict',
     'AwsIntegrationsEfsArgs',
+    'AwsIntegrationsEfsArgsDict',
     'AwsIntegrationsElasticacheArgs',
+    'AwsIntegrationsElasticacheArgsDict',
     'AwsIntegrationsElasticbeanstalkArgs',
+    'AwsIntegrationsElasticbeanstalkArgsDict',
     'AwsIntegrationsElasticsearchArgs',
+    'AwsIntegrationsElasticsearchArgsDict',
     'AwsIntegrationsElbArgs',
+    'AwsIntegrationsElbArgsDict',
     'AwsIntegrationsEmrArgs',
+    'AwsIntegrationsEmrArgsDict',
     'AwsIntegrationsHealthArgs',
+    'AwsIntegrationsHealthArgsDict',
     'AwsIntegrationsIamArgs',
+    'AwsIntegrationsIamArgsDict',
     'AwsIntegrationsIotArgs',
+    'AwsIntegrationsIotArgsDict',
     'AwsIntegrationsKinesisArgs',
+    'AwsIntegrationsKinesisArgsDict',
     'AwsIntegrationsKinesisFirehoseArgs',
+    'AwsIntegrationsKinesisFirehoseArgsDict',
     'AwsIntegrationsLambdaArgs',
+    'AwsIntegrationsLambdaArgsDict',
     'AwsIntegrationsRdsArgs',
+    'AwsIntegrationsRdsArgsDict',
     'AwsIntegrationsRedshiftArgs',
+    'AwsIntegrationsRedshiftArgsDict',
     'AwsIntegrationsRoute53Args',
+    'AwsIntegrationsRoute53ArgsDict',
     'AwsIntegrationsS3Args',
+    'AwsIntegrationsS3ArgsDict',
     'AwsIntegrationsSesArgs',
+    'AwsIntegrationsSesArgsDict',
     'AwsIntegrationsSnsArgs',
+    'AwsIntegrationsSnsArgsDict',
     'AwsIntegrationsSqsArgs',
+    'AwsIntegrationsSqsArgsDict',
     'AwsIntegrationsTrustedAdvisorArgs',
+    'AwsIntegrationsTrustedAdvisorArgsDict',
     'AwsIntegrationsVpcArgs',
+    'AwsIntegrationsVpcArgsDict',
     'AwsIntegrationsXRayArgs',
+    'AwsIntegrationsXRayArgsDict',
     'AzureIntegrationsApiManagementArgs',
+    'AzureIntegrationsApiManagementArgsDict',
     'AzureIntegrationsAppGatewayArgs',
+    'AzureIntegrationsAppGatewayArgsDict',
     'AzureIntegrationsAppServiceArgs',
+    'AzureIntegrationsAppServiceArgsDict',
     'AzureIntegrationsContainersArgs',
+    'AzureIntegrationsContainersArgsDict',
     'AzureIntegrationsCosmosDbArgs',
+    'AzureIntegrationsCosmosDbArgsDict',
     'AzureIntegrationsCostManagementArgs',
+    'AzureIntegrationsCostManagementArgsDict',
     'AzureIntegrationsDataFactoryArgs',
+    'AzureIntegrationsDataFactoryArgsDict',
     'AzureIntegrationsEventHubArgs',
+    'AzureIntegrationsEventHubArgsDict',
     'AzureIntegrationsExpressRouteArgs',
+    'AzureIntegrationsExpressRouteArgsDict',
     'AzureIntegrationsFirewallsArgs',
+    'AzureIntegrationsFirewallsArgsDict',
     'AzureIntegrationsFrontDoorArgs',
+    'AzureIntegrationsFrontDoorArgsDict',
     'AzureIntegrationsFunctionsArgs',
+    'AzureIntegrationsFunctionsArgsDict',
     'AzureIntegrationsKeyVaultArgs',
+    'AzureIntegrationsKeyVaultArgsDict',
     'AzureIntegrationsLoadBalancerArgs',
+    'AzureIntegrationsLoadBalancerArgsDict',
     'AzureIntegrationsLogicAppsArgs',
+    'AzureIntegrationsLogicAppsArgsDict',
     'AzureIntegrationsMachineLearningArgs',
+    'AzureIntegrationsMachineLearningArgsDict',
     'AzureIntegrationsMariaDbArgs',
+    'AzureIntegrationsMariaDbArgsDict',
     'AzureIntegrationsMonitorArgs',
+    'AzureIntegrationsMonitorArgsDict',
     'AzureIntegrationsMysqlArgs',
+    'AzureIntegrationsMysqlArgsDict',
     'AzureIntegrationsMysqlFlexibleArgs',
+    'AzureIntegrationsMysqlFlexibleArgsDict',
     'AzureIntegrationsPostgresqlArgs',
+    'AzureIntegrationsPostgresqlArgsDict',
     'AzureIntegrationsPostgresqlFlexibleArgs',
+    'AzureIntegrationsPostgresqlFlexibleArgsDict',
     'AzureIntegrationsPowerBiDedicatedArgs',
+    'AzureIntegrationsPowerBiDedicatedArgsDict',
     'AzureIntegrationsRedisCacheArgs',
+    'AzureIntegrationsRedisCacheArgsDict',
     'AzureIntegrationsServiceBusArgs',
+    'AzureIntegrationsServiceBusArgsDict',
     'AzureIntegrationsSqlArgs',
+    'AzureIntegrationsSqlArgsDict',
     'AzureIntegrationsSqlManagedArgs',
+    'AzureIntegrationsSqlManagedArgsDict',
     'AzureIntegrationsStorageArgs',
+    'AzureIntegrationsStorageArgsDict',
     'AzureIntegrationsVirtualMachineArgs',
+    'AzureIntegrationsVirtualMachineArgsDict',
     'AzureIntegrationsVirtualNetworksArgs',
+    'AzureIntegrationsVirtualNetworksArgsDict',
     'AzureIntegrationsVmsArgs',
+    'AzureIntegrationsVmsArgsDict',
     'AzureIntegrationsVpnGatewayArgs',
+    'AzureIntegrationsVpnGatewayArgsDict',
     'GcpIntegrationsAlloyDbArgs',
+    'GcpIntegrationsAlloyDbArgsDict',
     'GcpIntegrationsAppEngineArgs',
+    'GcpIntegrationsAppEngineArgsDict',
     'GcpIntegrationsBigQueryArgs',
+    'GcpIntegrationsBigQueryArgsDict',
     'GcpIntegrationsBigTableArgs',
+    'GcpIntegrationsBigTableArgsDict',
     'GcpIntegrationsComposerArgs',
+    'GcpIntegrationsComposerArgsDict',
     'GcpIntegrationsDataFlowArgs',
+    'GcpIntegrationsDataFlowArgsDict',
     'GcpIntegrationsDataProcArgs',
+    'GcpIntegrationsDataProcArgsDict',
     'GcpIntegrationsDataStoreArgs',
+    'GcpIntegrationsDataStoreArgsDict',
     'GcpIntegrationsFireBaseDatabaseArgs',
+    'GcpIntegrationsFireBaseDatabaseArgsDict',
     'GcpIntegrationsFireBaseHostingArgs',
+    'GcpIntegrationsFireBaseHostingArgsDict',
     'GcpIntegrationsFireBaseStorageArgs',
+    'GcpIntegrationsFireBaseStorageArgsDict',
     'GcpIntegrationsFireStoreArgs',
+    'GcpIntegrationsFireStoreArgsDict',
     'GcpIntegrationsFunctionsArgs',
+    'GcpIntegrationsFunctionsArgsDict',
     'GcpIntegrationsInterconnectArgs',
+    'GcpIntegrationsInterconnectArgsDict',
     'GcpIntegrationsKubernetesArgs',
+    'GcpIntegrationsKubernetesArgsDict',
     'GcpIntegrationsLoadBalancingArgs',
+    'GcpIntegrationsLoadBalancingArgsDict',
     'GcpIntegrationsMemCacheArgs',
+    'GcpIntegrationsMemCacheArgsDict',
     'GcpIntegrationsPubSubArgs',
+    'GcpIntegrationsPubSubArgsDict',
     'GcpIntegrationsRedisArgs',
+    'GcpIntegrationsRedisArgsDict',
     'GcpIntegrationsRouterArgs',
+    'GcpIntegrationsRouterArgsDict',
     'GcpIntegrationsRunArgs',
+    'GcpIntegrationsRunArgsDict',
     'GcpIntegrationsSpannerArgs',
+    'GcpIntegrationsSpannerArgsDict',
     'GcpIntegrationsSqlArgs',
+    'GcpIntegrationsSqlArgsDict',
     'GcpIntegrationsStorageArgs',
+    'GcpIntegrationsStorageArgsDict',
     'GcpIntegrationsVirtualMachinesArgs',
+    'GcpIntegrationsVirtualMachinesArgsDict',
     'GcpIntegrationsVpcAccessArgs',
+    'GcpIntegrationsVpcAccessArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AwsGovcloudIntegrationsAlbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        load_balancer_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsAlbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsAlbArgs:
@@ -261,6 +431,31 @@ class AwsGovcloudIntegrationsAlbArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsApiGatewayArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        stage_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsApiGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsApiGatewayArgs:
     def __init__(__self__, *,
@@ -348,6 +543,19 @@ class AwsGovcloudIntegrationsApiGatewayArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsAutoScalingArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsAutoScalingArgs:
     def __init__(__self__, *,
@@ -386,6 +594,19 @@ class AwsGovcloudIntegrationsAutoScalingArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsAwsDirectConnectArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsAwsDirectConnectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsAwsDirectConnectArgs:
@@ -426,6 +647,19 @@ class AwsGovcloudIntegrationsAwsDirectConnectArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsAwsStatesArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsAwsStatesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsAwsStatesArgs:
     def __init__(__self__, *,
@@ -465,6 +699,19 @@ class AwsGovcloudIntegrationsAwsStatesArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsCloudtrailArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsCloudtrailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsCloudtrailArgs:
     def __init__(__self__, *,
@@ -503,6 +750,35 @@ class AwsGovcloudIntegrationsCloudtrailArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsDynamoDbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsDynamoDbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsDynamoDbArgs:
@@ -607,6 +883,31 @@ class AwsGovcloudIntegrationsDynamoDbArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsEbsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsEbsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsEbsArgs:
     def __init__(__self__, *,
@@ -693,6 +994,31 @@ class AwsGovcloudIntegrationsEbsArgs:
     def tag_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag_value", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsEc2ArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_ip_addresses: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if IP addresses of ec2 instance should be collected
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsEc2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsEc2Args:
@@ -781,6 +1107,31 @@ class AwsGovcloudIntegrationsEc2Args:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsElasticSearchArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_nodes: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if IP addresses of ec2 instance should be collected
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsElasticSearchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsElasticSearchArgs:
     def __init__(__self__, *,
@@ -868,6 +1219,27 @@ class AwsGovcloudIntegrationsElasticSearchArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsElbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsElbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsElbArgs:
     def __init__(__self__, *,
@@ -938,6 +1310,31 @@ class AwsGovcloudIntegrationsElbArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsEmrArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[str]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsEmrArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsEmrArgs:
@@ -1026,6 +1423,23 @@ class AwsGovcloudIntegrationsEmrArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsIamArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsIamArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsIamArgs:
     def __init__(__self__, *,
@@ -1080,6 +1494,31 @@ class AwsGovcloudIntegrationsIamArgs:
     def tag_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag_value", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsLambdaArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsLambdaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsLambdaArgs:
@@ -1168,6 +1607,31 @@ class AwsGovcloudIntegrationsLambdaArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsRdsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsRdsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsRdsArgs:
     def __init__(__self__, *,
@@ -1255,6 +1719,27 @@ class AwsGovcloudIntegrationsRdsArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsRedShiftArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsRedShiftArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsRedShiftArgs:
     def __init__(__self__, *,
@@ -1326,6 +1811,19 @@ class AwsGovcloudIntegrationsRedShiftArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsRoute53ArgsDict(TypedDict):
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsRoute53ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsRoute53Args:
     def __init__(__self__, *,
@@ -1364,6 +1862,31 @@ class AwsGovcloudIntegrationsRoute53Args:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsS3ArgsDict(TypedDict):
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsS3Args:
@@ -1452,6 +1975,23 @@ class AwsGovcloudIntegrationsS3Args:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsGovcloudIntegrationsSnsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+elif False:
+    AwsGovcloudIntegrationsSnsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsGovcloudIntegrationsSnsArgs:
     def __init__(__self__, *,
@@ -1506,6 +2046,39 @@ class AwsGovcloudIntegrationsSnsArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsGovcloudIntegrationsSqsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        queue_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsGovcloudIntegrationsSqsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsGovcloudIntegrationsSqsArgs:
@@ -1626,6 +2199,39 @@ class AwsGovcloudIntegrationsSqsArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAlbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        load_balancer_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsAlbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAlbArgs:
     def __init__(__self__, *,
@@ -1745,6 +2351,31 @@ class AwsIntegrationsAlbArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsApiGatewayArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        stage_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsApiGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsApiGatewayArgs:
     def __init__(__self__, *,
@@ -1832,6 +2463,19 @@ class AwsIntegrationsApiGatewayArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAutoScalingArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAutoScalingArgs:
     def __init__(__self__, *,
@@ -1870,6 +2514,19 @@ class AwsIntegrationsAutoScalingArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsAppSyncArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsAppSyncArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsAppSyncArgs:
@@ -1910,6 +2567,19 @@ class AwsIntegrationsAwsAppSyncArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsAthenaArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsAthenaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsAthenaArgs:
     def __init__(__self__, *,
@@ -1948,6 +2618,19 @@ class AwsIntegrationsAwsAthenaArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsCognitoArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsCognitoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsCognitoArgs:
@@ -1988,6 +2671,19 @@ class AwsIntegrationsAwsCognitoArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsConnectArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsConnectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsConnectArgs:
     def __init__(__self__, *,
@@ -2026,6 +2722,19 @@ class AwsIntegrationsAwsConnectArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsDirectConnectArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsDirectConnectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsDirectConnectArgs:
@@ -2066,6 +2775,19 @@ class AwsIntegrationsAwsDirectConnectArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsFsxArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsFsxArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsFsxArgs:
     def __init__(__self__, *,
@@ -2104,6 +2826,19 @@ class AwsIntegrationsAwsFsxArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsGlueArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsGlueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsGlueArgs:
@@ -2144,6 +2879,19 @@ class AwsIntegrationsAwsGlueArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsKinesisAnalyticsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsKinesisAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsKinesisAnalyticsArgs:
     def __init__(__self__, *,
@@ -2182,6 +2930,19 @@ class AwsIntegrationsAwsKinesisAnalyticsArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsMediaConvertArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsMediaConvertArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsMediaConvertArgs:
@@ -2222,6 +2983,19 @@ class AwsIntegrationsAwsMediaConvertArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsMediaPackageVodArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsMediaPackageVodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsMediaPackageVodArgs:
     def __init__(__self__, *,
@@ -2260,6 +3034,19 @@ class AwsIntegrationsAwsMediaPackageVodArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsMqArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsMqArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsMqArgs:
@@ -2300,6 +3087,19 @@ class AwsIntegrationsAwsMqArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsMskArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsMskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsMskArgs:
     def __init__(__self__, *,
@@ -2338,6 +3138,19 @@ class AwsIntegrationsAwsMskArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsNeptuneArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsNeptuneArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsNeptuneArgs:
@@ -2378,6 +3191,19 @@ class AwsIntegrationsAwsNeptuneArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsQldbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsQldbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsQldbArgs:
     def __init__(__self__, *,
@@ -2416,6 +3242,19 @@ class AwsIntegrationsAwsQldbArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsRoute53resolverArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsRoute53resolverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsRoute53resolverArgs:
@@ -2456,6 +3295,19 @@ class AwsIntegrationsAwsRoute53resolverArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsStatesArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsStatesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsStatesArgs:
     def __init__(__self__, *,
@@ -2494,6 +3346,19 @@ class AwsIntegrationsAwsStatesArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsTransitGatewayArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsTransitGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsTransitGatewayArgs:
@@ -2534,6 +3399,19 @@ class AwsIntegrationsAwsTransitGatewayArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsAwsWafArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsWafArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsAwsWafArgs:
     def __init__(__self__, *,
@@ -2572,6 +3450,19 @@ class AwsIntegrationsAwsWafArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsAwsWafv2ArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsWafv2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsAwsWafv2Args:
@@ -2612,6 +3503,15 @@ class AwsIntegrationsAwsWafv2Args:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsBillingArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsBillingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsBillingArgs:
     def __init__(__self__, *,
@@ -2634,6 +3534,31 @@ class AwsIntegrationsBillingArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsCloudfrontArgsDict(TypedDict):
+        fetch_lambdas_at_edge: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if Lambdas@Edge should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsCloudfrontArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsCloudfrontArgs:
@@ -2722,6 +3647,19 @@ class AwsIntegrationsCloudfrontArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsCloudtrailArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsCloudtrailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsCloudtrailArgs:
     def __init__(__self__, *,
@@ -2761,6 +3699,19 @@ class AwsIntegrationsCloudtrailArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class AwsIntegrationsDocDbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsDocDbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsDocDbArgs:
     def __init__(__self__, *,
@@ -2799,6 +3750,35 @@ class AwsIntegrationsDocDbArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsDynamodbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsDynamodbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsDynamodbArgs:
@@ -2903,6 +3883,31 @@ class AwsIntegrationsDynamodbArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsEbsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsEbsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsEbsArgs:
     def __init__(__self__, *,
@@ -2989,6 +3994,35 @@ class AwsIntegrationsEbsArgs:
     def tag_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag_value", value)
 
+
+if not MYPY:
+    class AwsIntegrationsEc2ArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        duplicate_ec2_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if the old legacy metadata and tag names have to be kept, it will consume more ingest data size
+        """
+        fetch_ip_addresses: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if IP addresses of ec2 instance should be collected
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsEc2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsEc2Args:
@@ -3093,6 +4127,31 @@ class AwsIntegrationsEc2Args:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsEcsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsEcsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsEcsArgs:
     def __init__(__self__, *,
@@ -3179,6 +4238,31 @@ class AwsIntegrationsEcsArgs:
     def tag_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag_value", value)
 
+
+if not MYPY:
+    class AwsIntegrationsEfsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsEfsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsEfsArgs:
@@ -3267,6 +4351,31 @@ class AwsIntegrationsEfsArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsElasticacheArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsElasticacheArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsElasticacheArgs:
     def __init__(__self__, *,
@@ -3353,6 +4462,35 @@ class AwsIntegrationsElasticacheArgs:
     def tag_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag_value", value)
 
+
+if not MYPY:
+    class AwsIntegrationsElasticbeanstalkArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsElasticbeanstalkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsElasticbeanstalkArgs:
@@ -3457,6 +4595,31 @@ class AwsIntegrationsElasticbeanstalkArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsElasticsearchArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_nodes: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsElasticsearchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsElasticsearchArgs:
     def __init__(__self__, *,
@@ -3544,6 +4707,27 @@ class AwsIntegrationsElasticsearchArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsElbArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsElbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsElbArgs:
     def __init__(__self__, *,
@@ -3614,6 +4798,31 @@ class AwsIntegrationsElbArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsEmrArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsEmrArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsEmrArgs:
@@ -3702,6 +4911,15 @@ class AwsIntegrationsEmrArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsHealthArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsHealthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsHealthArgs:
     def __init__(__self__, *,
@@ -3724,6 +4942,23 @@ class AwsIntegrationsHealthArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsIamArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsIamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsIamArgs:
@@ -3780,6 +5015,19 @@ class AwsIntegrationsIamArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsIotArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsIotArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsIotArgs:
     def __init__(__self__, *,
@@ -3818,6 +5066,35 @@ class AwsIntegrationsIotArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsKinesisArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_shards: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if Shards should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsKinesisArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsKinesisArgs:
@@ -3922,6 +5199,19 @@ class AwsIntegrationsKinesisArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsKinesisFirehoseArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsKinesisFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsKinesisFirehoseArgs:
     def __init__(__self__, *,
@@ -3960,6 +5250,31 @@ class AwsIntegrationsKinesisFirehoseArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsLambdaArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsLambdaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsLambdaArgs:
@@ -4048,6 +5363,31 @@ class AwsIntegrationsLambdaArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsRdsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsRdsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsRdsArgs:
     def __init__(__self__, *,
@@ -4135,6 +5475,27 @@ class AwsIntegrationsRdsArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsRedshiftArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsRedshiftArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsRedshiftArgs:
     def __init__(__self__, *,
@@ -4206,6 +5567,19 @@ class AwsIntegrationsRedshiftArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsRoute53ArgsDict(TypedDict):
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsRoute53ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsRoute53Args:
     def __init__(__self__, *,
@@ -4244,6 +5618,31 @@ class AwsIntegrationsRoute53Args:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsS3ArgsDict(TypedDict):
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsS3Args:
@@ -4332,6 +5731,19 @@ class AwsIntegrationsS3Args:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsSesArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsSesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsSesArgs:
     def __init__(__self__, *,
@@ -4370,6 +5782,23 @@ class AwsIntegrationsSesArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsSnsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsSnsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsSnsArgs:
@@ -4425,6 +5854,39 @@ class AwsIntegrationsSnsArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsSqsArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_extended_inventory: NotRequired[pulumi.Input[bool]]
+        """
+        Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        queue_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsSqsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsSqsArgs:
@@ -4545,6 +6007,15 @@ class AwsIntegrationsSqsArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsTrustedAdvisorArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsTrustedAdvisorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsTrustedAdvisorArgs:
     def __init__(__self__, *,
@@ -4567,6 +6038,35 @@ class AwsIntegrationsTrustedAdvisorArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AwsIntegrationsVpcArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        fetch_nat_gateway: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        fetch_vpn: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+        """
+elif False:
+    AwsIntegrationsVpcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AwsIntegrationsVpcArgs:
@@ -4671,6 +6171,19 @@ class AwsIntegrationsVpcArgs:
         pulumi.set(self, "tag_value", value)
 
 
+if not MYPY:
+    class AwsIntegrationsXRayArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsXRayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AwsIntegrationsXRayArgs:
     def __init__(__self__, *,
@@ -4709,6 +6222,19 @@ class AwsIntegrationsXRayArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class AzureIntegrationsApiManagementArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsApiManagementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsApiManagementArgs:
@@ -4749,6 +6275,19 @@ class AzureIntegrationsApiManagementArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsAppGatewayArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsAppGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsAppGatewayArgs:
     def __init__(__self__, *,
@@ -4787,6 +6326,19 @@ class AzureIntegrationsAppGatewayArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsAppServiceArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsAppServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsAppServiceArgs:
@@ -4827,6 +6379,19 @@ class AzureIntegrationsAppServiceArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsContainersArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsContainersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsContainersArgs:
     def __init__(__self__, *,
@@ -4865,6 +6430,19 @@ class AzureIntegrationsContainersArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsCosmosDbArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsCosmosDbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsCosmosDbArgs:
@@ -4905,6 +6483,19 @@ class AzureIntegrationsCosmosDbArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsCostManagementArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        tag_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify if additional cost data per tag should be collected. This field is case sensitive.
+        """
+elif False:
+    AzureIntegrationsCostManagementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsCostManagementArgs:
     def __init__(__self__, *,
@@ -4943,6 +6534,19 @@ class AzureIntegrationsCostManagementArgs:
     def tag_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tag_keys", value)
 
+
+if not MYPY:
+    class AzureIntegrationsDataFactoryArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsDataFactoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsDataFactoryArgs:
@@ -4983,6 +6587,19 @@ class AzureIntegrationsDataFactoryArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsEventHubArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsEventHubArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsEventHubArgs:
     def __init__(__self__, *,
@@ -5021,6 +6638,19 @@ class AzureIntegrationsEventHubArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsExpressRouteArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsExpressRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsExpressRouteArgs:
@@ -5061,6 +6691,19 @@ class AzureIntegrationsExpressRouteArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsFirewallsArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsFirewallsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsFirewallsArgs:
     def __init__(__self__, *,
@@ -5099,6 +6742,19 @@ class AzureIntegrationsFirewallsArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsFrontDoorArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsFrontDoorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsFrontDoorArgs:
@@ -5139,6 +6795,19 @@ class AzureIntegrationsFrontDoorArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsFunctionsArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsFunctionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsFunctionsArgs:
     def __init__(__self__, *,
@@ -5177,6 +6846,19 @@ class AzureIntegrationsFunctionsArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsKeyVaultArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsKeyVaultArgs:
@@ -5217,6 +6899,19 @@ class AzureIntegrationsKeyVaultArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsLoadBalancerArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsLoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsLoadBalancerArgs:
     def __init__(__self__, *,
@@ -5255,6 +6950,19 @@ class AzureIntegrationsLoadBalancerArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsLogicAppsArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsLogicAppsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsLogicAppsArgs:
@@ -5295,6 +7003,19 @@ class AzureIntegrationsLogicAppsArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsMachineLearningArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsMachineLearningArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsMachineLearningArgs:
     def __init__(__self__, *,
@@ -5334,6 +7055,19 @@ class AzureIntegrationsMachineLearningArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsMariaDbArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsMariaDbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsMariaDbArgs:
     def __init__(__self__, *,
@@ -5372,6 +7106,35 @@ class AzureIntegrationsMariaDbArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsMonitorArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        A flag that specifies if the integration is active
+        """
+        exclude_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify resource tags in 'key:value' form to be excluded from monitoring
+        """
+        include_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify resource tags in 'key:value' form to be monitored
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Azure resource type that needs to be monitored
+        """
+elif False:
+    AzureIntegrationsMonitorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsMonitorArgs:
@@ -5476,6 +7239,19 @@ class AzureIntegrationsMonitorArgs:
         pulumi.set(self, "resource_types", value)
 
 
+if not MYPY:
+    class AzureIntegrationsMysqlArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsMysqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsMysqlArgs:
     def __init__(__self__, *,
@@ -5514,6 +7290,19 @@ class AzureIntegrationsMysqlArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsMysqlFlexibleArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsMysqlFlexibleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsMysqlFlexibleArgs:
@@ -5554,6 +7343,19 @@ class AzureIntegrationsMysqlFlexibleArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsPostgresqlArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsPostgresqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsPostgresqlArgs:
     def __init__(__self__, *,
@@ -5592,6 +7394,19 @@ class AzureIntegrationsPostgresqlArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsPostgresqlFlexibleArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsPostgresqlFlexibleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsPostgresqlFlexibleArgs:
@@ -5632,6 +7447,19 @@ class AzureIntegrationsPostgresqlFlexibleArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsPowerBiDedicatedArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsPowerBiDedicatedArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsPowerBiDedicatedArgs:
     def __init__(__self__, *,
@@ -5670,6 +7498,19 @@ class AzureIntegrationsPowerBiDedicatedArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsRedisCacheArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsRedisCacheArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsRedisCacheArgs:
@@ -5710,6 +7551,19 @@ class AzureIntegrationsRedisCacheArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsServiceBusArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsServiceBusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsServiceBusArgs:
     def __init__(__self__, *,
@@ -5748,6 +7602,19 @@ class AzureIntegrationsServiceBusArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsSqlArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsSqlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsSqlArgs:
@@ -5788,6 +7655,19 @@ class AzureIntegrationsSqlArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsSqlManagedArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsSqlManagedArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsSqlManagedArgs:
     def __init__(__self__, *,
@@ -5826,6 +7706,19 @@ class AzureIntegrationsSqlManagedArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsStorageArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsStorageArgs:
@@ -5866,6 +7759,19 @@ class AzureIntegrationsStorageArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsVirtualMachineArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsVirtualMachineArgs:
     def __init__(__self__, *,
@@ -5904,6 +7810,19 @@ class AzureIntegrationsVirtualMachineArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsVirtualNetworksArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsVirtualNetworksArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsVirtualNetworksArgs:
@@ -5944,6 +7863,19 @@ class AzureIntegrationsVirtualNetworksArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class AzureIntegrationsVmsArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsVmsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AzureIntegrationsVmsArgs:
     def __init__(__self__, *,
@@ -5982,6 +7914,19 @@ class AzureIntegrationsVmsArgs:
     def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_groups", value)
 
+
+if not MYPY:
+    class AzureIntegrationsVpnGatewayArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsVpnGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureIntegrationsVpnGatewayArgs:
@@ -6022,6 +7967,15 @@ class AzureIntegrationsVpnGatewayArgs:
         pulumi.set(self, "resource_groups", value)
 
 
+if not MYPY:
+    class GcpIntegrationsAlloyDbArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsAlloyDbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsAlloyDbArgs:
     def __init__(__self__, *,
@@ -6045,6 +7999,15 @@ class GcpIntegrationsAlloyDbArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsAppEngineArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsAppEngineArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsAppEngineArgs:
     def __init__(__self__, *,
@@ -6067,6 +8030,19 @@ class GcpIntegrationsAppEngineArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsBigQueryArgsDict(TypedDict):
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        to fetch tags of the resource
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsBigQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsBigQueryArgs:
@@ -6107,6 +8083,15 @@ class GcpIntegrationsBigQueryArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsBigTableArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsBigTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsBigTableArgs:
     def __init__(__self__, *,
@@ -6129,6 +8114,15 @@ class GcpIntegrationsBigTableArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsComposerArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsComposerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsComposerArgs:
@@ -6153,6 +8147,15 @@ class GcpIntegrationsComposerArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsDataFlowArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsDataFlowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsDataFlowArgs:
     def __init__(__self__, *,
@@ -6175,6 +8178,15 @@ class GcpIntegrationsDataFlowArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsDataProcArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsDataProcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsDataProcArgs:
@@ -6199,6 +8211,15 @@ class GcpIntegrationsDataProcArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsDataStoreArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsDataStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsDataStoreArgs:
     def __init__(__self__, *,
@@ -6221,6 +8242,15 @@ class GcpIntegrationsDataStoreArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsFireBaseDatabaseArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsFireBaseDatabaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsFireBaseDatabaseArgs:
@@ -6245,6 +8275,15 @@ class GcpIntegrationsFireBaseDatabaseArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsFireBaseHostingArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsFireBaseHostingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsFireBaseHostingArgs:
     def __init__(__self__, *,
@@ -6267,6 +8306,15 @@ class GcpIntegrationsFireBaseHostingArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsFireBaseStorageArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsFireBaseStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsFireBaseStorageArgs:
@@ -6291,6 +8339,15 @@ class GcpIntegrationsFireBaseStorageArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsFireStoreArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsFireStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsFireStoreArgs:
     def __init__(__self__, *,
@@ -6313,6 +8370,15 @@ class GcpIntegrationsFireStoreArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsFunctionsArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsFunctionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsFunctionsArgs:
@@ -6337,6 +8403,15 @@ class GcpIntegrationsFunctionsArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsInterconnectArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsInterconnectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsInterconnectArgs:
     def __init__(__self__, *,
@@ -6359,6 +8434,15 @@ class GcpIntegrationsInterconnectArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsKubernetesArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsKubernetesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsKubernetesArgs:
@@ -6383,6 +8467,15 @@ class GcpIntegrationsKubernetesArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsLoadBalancingArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsLoadBalancingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsLoadBalancingArgs:
     def __init__(__self__, *,
@@ -6406,6 +8499,15 @@ class GcpIntegrationsLoadBalancingArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsMemCacheArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsMemCacheArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsMemCacheArgs:
     def __init__(__self__, *,
@@ -6428,6 +8530,19 @@ class GcpIntegrationsMemCacheArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsPubSubArgsDict(TypedDict):
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        to fetch tags of the resource
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsPubSubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsPubSubArgs:
@@ -6468,6 +8583,15 @@ class GcpIntegrationsPubSubArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsRedisArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsRedisArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsRedisArgs:
     def __init__(__self__, *,
@@ -6490,6 +8614,15 @@ class GcpIntegrationsRedisArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsRouterArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsRouterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsRouterArgs:
@@ -6514,6 +8647,15 @@ class GcpIntegrationsRouterArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsRunArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsRunArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsRunArgs:
     def __init__(__self__, *,
@@ -6536,6 +8678,19 @@ class GcpIntegrationsRunArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsSpannerArgsDict(TypedDict):
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        to fetch tags of the resource
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsSpannerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsSpannerArgs:
@@ -6576,6 +8731,15 @@ class GcpIntegrationsSpannerArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsSqlArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsSqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsSqlArgs:
     def __init__(__self__, *,
@@ -6598,6 +8762,19 @@ class GcpIntegrationsSqlArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsStorageArgsDict(TypedDict):
+        fetch_tags: NotRequired[pulumi.Input[bool]]
+        """
+        to fetch tags of the resource
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsStorageArgs:
@@ -6638,6 +8815,15 @@ class GcpIntegrationsStorageArgs:
         pulumi.set(self, "metrics_polling_interval", value)
 
 
+if not MYPY:
+    class GcpIntegrationsVirtualMachinesArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsVirtualMachinesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GcpIntegrationsVirtualMachinesArgs:
     def __init__(__self__, *,
@@ -6660,6 +8846,15 @@ class GcpIntegrationsVirtualMachinesArgs:
     def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "metrics_polling_interval", value)
 
+
+if not MYPY:
+    class GcpIntegrationsVpcAccessArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[int]]
+        """
+        the data polling interval in seconds
+        """
+elif False:
+    GcpIntegrationsVpcAccessArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GcpIntegrationsVpcAccessArgs:
