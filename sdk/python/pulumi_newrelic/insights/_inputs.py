@@ -4,15 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EventEventArgs',
+    'EventEventArgsDict',
     'EventEventAttributeArgs',
+    'EventEventAttributeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EventEventArgsDict(TypedDict):
+        attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgsDict']]]
+        """
+        An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+        """
+        type: pulumi.Input[str]
+        """
+        The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+        """
+        timestamp: NotRequired[pulumi.Input[int]]
+        """
+        Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+        """
+elif False:
+    EventEventArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventEventArgs:
@@ -66,6 +92,23 @@ class EventEventArgs:
     def timestamp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timestamp", value)
 
+
+if not MYPY:
+    class EventEventAttributeArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The name of the attribute.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the attribute.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+        """
+elif False:
+    EventEventAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventEventAttributeArgs:
