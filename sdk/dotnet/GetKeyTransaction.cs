@@ -122,6 +122,14 @@ namespace Pulumi.NewRelic
     public sealed class GetKeyTransactionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// GUID of the key transaction in New Relic.
+        /// 
+        /// &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+        /// </summary>
+        [Input("guid")]
+        public string? Guid { get; set; }
+
+        /// <summary>
         /// The name of the key transaction in New Relic.
         /// </summary>
         [Input("name", required: true)]
@@ -135,6 +143,14 @@ namespace Pulumi.NewRelic
 
     public sealed class GetKeyTransactionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// GUID of the key transaction in New Relic.
+        /// 
+        /// &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+        /// </summary>
+        [Input("guid")]
+        public Input<string>? Guid { get; set; }
+
         /// <summary>
         /// The name of the key transaction in New Relic.
         /// </summary>
@@ -152,19 +168,43 @@ namespace Pulumi.NewRelic
     public sealed class GetKeyTransactionResult
     {
         /// <summary>
+        /// Domain of the key transaction in New Relic.
+        /// </summary>
+        public readonly string Domain;
+        /// <summary>
+        /// GUID of the key transaction in New Relic.
+        /// </summary>
+        public readonly string Guid;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the key Transation in New Relic.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of the key transaction in New Relic.
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetKeyTransactionResult(
+            string domain,
+
+            string guid,
+
             string id,
 
-            string name)
+            string name,
+
+            string type)
         {
+            Domain = domain;
+            Guid = guid;
             Id = id;
             Name = name;
+            Type = type;
         }
     }
 }

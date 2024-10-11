@@ -78,15 +78,26 @@ func LookupKeyTransaction(ctx *pulumi.Context, args *LookupKeyTransactionArgs, o
 
 // A collection of arguments for invoking getKeyTransaction.
 type LookupKeyTransactionArgs struct {
+	// GUID of the key transaction in New Relic.
+	//
+	// > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+	Guid *string `pulumi:"guid"`
 	// The name of the key transaction in New Relic.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getKeyTransaction.
 type LookupKeyTransactionResult struct {
+	// Domain of the key transaction in New Relic.
+	Domain string `pulumi:"domain"`
+	// GUID of the key transaction in New Relic.
+	Guid string `pulumi:"guid"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the key Transation in New Relic.
 	Name string `pulumi:"name"`
+	// Type of the key transaction in New Relic.
+	Type string `pulumi:"type"`
 }
 
 func LookupKeyTransactionOutput(ctx *pulumi.Context, args LookupKeyTransactionOutputArgs, opts ...pulumi.InvokeOption) LookupKeyTransactionResultOutput {
@@ -110,6 +121,10 @@ func LookupKeyTransactionOutput(ctx *pulumi.Context, args LookupKeyTransactionOu
 
 // A collection of arguments for invoking getKeyTransaction.
 type LookupKeyTransactionOutputArgs struct {
+	// GUID of the key transaction in New Relic.
+	//
+	// > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+	Guid pulumi.StringPtrInput `pulumi:"guid"`
 	// The name of the key transaction in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -133,13 +148,29 @@ func (o LookupKeyTransactionResultOutput) ToLookupKeyTransactionResultOutputWith
 	return o
 }
 
+// Domain of the key transaction in New Relic.
+func (o LookupKeyTransactionResultOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// GUID of the key transaction in New Relic.
+func (o LookupKeyTransactionResultOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Guid }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupKeyTransactionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the key Transation in New Relic.
 func (o LookupKeyTransactionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the key transaction in New Relic.
+func (o LookupKeyTransactionResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyTransactionResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
