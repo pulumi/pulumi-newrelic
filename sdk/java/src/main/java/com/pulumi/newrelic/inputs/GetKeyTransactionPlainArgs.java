@@ -7,11 +7,32 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetKeyTransactionPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKeyTransactionPlainArgs Empty = new GetKeyTransactionPlainArgs();
+
+    /**
+     * GUID of the key transaction in New Relic.
+     * 
+     * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+     * 
+     */
+    @Import(name="guid")
+    private @Nullable String guid;
+
+    /**
+     * @return GUID of the key transaction in New Relic.
+     * 
+     * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+     * 
+     */
+    public Optional<String> guid() {
+        return Optional.ofNullable(this.guid);
+    }
 
     /**
      * The name of the key transaction in New Relic.
@@ -31,6 +52,7 @@ public final class GetKeyTransactionPlainArgs extends com.pulumi.resources.Invok
     private GetKeyTransactionPlainArgs() {}
 
     private GetKeyTransactionPlainArgs(GetKeyTransactionPlainArgs $) {
+        this.guid = $.guid;
         this.name = $.name;
     }
 
@@ -50,6 +72,19 @@ public final class GetKeyTransactionPlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetKeyTransactionPlainArgs defaults) {
             $ = new GetKeyTransactionPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param guid GUID of the key transaction in New Relic.
+         * 
+         * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(@Nullable String guid) {
+            $.guid = guid;
+            return this;
         }
 
         /**

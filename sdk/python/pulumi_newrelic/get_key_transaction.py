@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -21,13 +26,38 @@ class GetKeyTransactionResult:
     """
     A collection of values returned by getKeyTransaction.
     """
-    def __init__(__self__, id=None, name=None):
+    def __init__(__self__, domain=None, guid=None, id=None, name=None, type=None):
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
+        if guid and not isinstance(guid, str):
+            raise TypeError("Expected argument 'guid' to be a str")
+        pulumi.set(__self__, "guid", guid)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        Domain of the key transaction in New Relic.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
+        """
+        GUID of the key transaction in New Relic.
+        """
+        return pulumi.get(self, "guid")
 
     @property
     @pulumi.getter
@@ -40,7 +70,18 @@ class GetKeyTransactionResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the key Transation in New Relic.
+        """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the key transaction in New Relic.
+        """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
@@ -49,11 +90,15 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
         if False:
             yield self
         return GetKeyTransactionResult(
+            domain=self.domain,
+            guid=self.guid,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            type=self.type)
 
 
-def get_key_transaction(name: Optional[str] = None,
+def get_key_transaction(guid: Optional[str] = None,
+                        name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyTransactionResult:
     """
     Use this data source to get information about a specific key transaction in New Relic that already exists.
@@ -83,20 +128,25 @@ def get_key_transaction(name: Optional[str] = None,
     ```
 
 
+    :param str guid: GUID of the key transaction in New Relic.
+           
+           > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
     :param str name: The name of the key transaction in New Relic.
     """
     __args__ = dict()
+    __args__['guid'] = guid
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult).value
 
     return AwaitableGetKeyTransactionResult(
+        domain=pulumi.get(__ret__, 'domain'),
+        guid=pulumi.get(__ret__, 'guid'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_key_transaction)
-def get_key_transaction_output(name: Optional[pulumi.Input[str]] = None,
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
+def get_key_transaction_output(guid: Optional[pulumi.Input[Optional[str]]] = None,
+                               name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyTransactionResult]:
     """
     Use this data source to get information about a specific key transaction in New Relic that already exists.
@@ -126,6 +176,19 @@ def get_key_transaction_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param str guid: GUID of the key transaction in New Relic.
+           
+           > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
     :param str name: The name of the key transaction in New Relic.
     """
-    ...
+    __args__ = dict()
+    __args__['guid'] = guid
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult)
+    return __ret__.apply(lambda __response__: GetKeyTransactionResult(
+        domain=pulumi.get(__response__, 'domain'),
+        guid=pulumi.get(__response__, 'guid'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))
