@@ -16309,6 +16309,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getKeyTransaction.\n",
                 "properties": {
+                    "guid": {
+                        "type": "string",
+                        "description": "GUID of the key transaction in New Relic.\n\n\u003e **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the key transaction in New Relic.\n"
@@ -16322,16 +16326,32 @@
             "outputs": {
                 "description": "A collection of values returned by getKeyTransaction.\n",
                 "properties": {
+                    "domain": {
+                        "description": "Domain of the key transaction in New Relic.\n",
+                        "type": "string"
+                    },
+                    "guid": {
+                        "description": "GUID of the key transaction in New Relic.\n",
+                        "type": "string"
+                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.\n",
                         "type": "string"
                     },
                     "name": {
+                        "description": "Name of the key Transation in New Relic.\n",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Type of the key transaction in New Relic.\n",
                         "type": "string"
                     }
                 },
                 "required": [
+                    "domain",
+                    "guid",
                     "name",
+                    "type",
                     "id"
                 ],
                 "type": "object"
