@@ -139,7 +139,7 @@ index 84b92c8b..b3f64a99 100644
  ## Example Usage
  
 diff --git a/website/docs/d/key_transaction.html.markdown b/website/docs/d/key_transaction.html.markdown
-index cba2f31a..78721d06 100644
+index 148783b2..9d1fc705 100644
 --- a/website/docs/d/key_transaction.html.markdown
 +++ b/website/docs/d/key_transaction.html.markdown
 @@ -8,7 +8,7 @@ description: |-
@@ -151,7 +151,7 @@ index cba2f31a..78721d06 100644
  
  ## Example Usage
  
-@@ -54,4 +54,4 @@ In addition to all arguments above, the following attributes are exported:
+@@ -61,4 +61,4 @@ In addition to all arguments above, the following attributes are exported:
  
  ```
  Warning: This data source will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
