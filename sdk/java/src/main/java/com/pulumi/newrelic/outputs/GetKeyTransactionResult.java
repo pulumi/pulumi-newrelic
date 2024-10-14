@@ -11,13 +11,46 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyTransactionResult {
     /**
+     * @return Domain of the key transaction in New Relic.
+     * 
+     */
+    private String domain;
+    /**
+     * @return GUID of the key transaction in New Relic.
+     * 
+     */
+    private String guid;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Name of the key Transation in New Relic.
+     * 
+     */
     private String name;
+    /**
+     * @return Type of the key transaction in New Relic.
+     * 
+     */
+    private String type;
 
     private GetKeyTransactionResult() {}
+    /**
+     * @return Domain of the key transaction in New Relic.
+     * 
+     */
+    public String domain() {
+        return this.domain;
+    }
+    /**
+     * @return GUID of the key transaction in New Relic.
+     * 
+     */
+    public String guid() {
+        return this.guid;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -25,8 +58,19 @@ public final class GetKeyTransactionResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the key Transation in New Relic.
+     * 
+     */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Type of the key transaction in New Relic.
+     * 
+     */
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -38,15 +82,37 @@ public final class GetKeyTransactionResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String domain;
+        private String guid;
         private String id;
         private String name;
+        private String type;
         public Builder() {}
         public Builder(GetKeyTransactionResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.domain = defaults.domain;
+    	      this.guid = defaults.guid;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder domain(String domain) {
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetKeyTransactionResult", "domain");
+            }
+            this.domain = domain;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder guid(String guid) {
+            if (guid == null) {
+              throw new MissingRequiredPropertyException("GetKeyTransactionResult", "guid");
+            }
+            this.guid = guid;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -63,10 +129,21 @@ public final class GetKeyTransactionResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetKeyTransactionResult", "type");
+            }
+            this.type = type;
+            return this;
+        }
         public GetKeyTransactionResult build() {
             final var _resultValue = new GetKeyTransactionResult();
+            _resultValue.domain = domain;
+            _resultValue.guid = guid;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.type = type;
             return _resultValue;
         }
     }
