@@ -38,18 +38,17 @@ class StepMonitorArgs:
         """
         The set of arguments for constructing a StepMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-               MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
-        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
         pulumi.set(__self__, "period", period)
@@ -94,7 +93,7 @@ class StepMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -142,8 +141,7 @@ class StepMonitorArgs:
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-        MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         """
         return pulumi.get(self, "devices")
 
@@ -203,7 +201,7 @@ class StepMonitorArgs:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime that the monitor will use to run jobs.
+        The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -215,7 +213,7 @@ class StepMonitorArgs:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The specific version of the runtime type selected.
+        The specific semver version of the runtime type.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -268,8 +266,7 @@ class _StepMonitorState:
         Input properties used for looking up and filtering StepMonitor resources.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-               MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorLocationPrivateArgs']]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
@@ -277,9 +274,9 @@ class _StepMonitorState:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
-        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
@@ -344,8 +341,7 @@ class _StepMonitorState:
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-        MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         """
         return pulumi.get(self, "devices")
 
@@ -441,7 +437,7 @@ class _StepMonitorState:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime that the monitor will use to run jobs.
+        The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -453,7 +449,7 @@ class _StepMonitorState:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The specific version of the runtime type selected.
+        The specific semver version of the runtime type.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -465,7 +461,7 @@ class _StepMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -620,16 +616,15 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-               MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
-        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
@@ -823,8 +818,7 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-               MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorLocationPrivateArgs', 'StepMonitorLocationPrivateArgsDict']]]] location_privates: The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
@@ -832,9 +826,9 @@ class StepMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
-        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorStepArgs', 'StepMonitorStepArgsDict']]]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StepMonitorTagArgs', 'StepMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         """
@@ -880,8 +874,7 @@ class StepMonitor(pulumi.CustomResource):
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-        MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         """
         return pulumi.get(self, "devices")
 
@@ -945,7 +938,7 @@ class StepMonitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime that the monitor will use to run jobs.
+        The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -953,7 +946,7 @@ class StepMonitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The specific version of the runtime type selected.
+        The specific semver version of the runtime type.
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -961,7 +954,7 @@ class StepMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 

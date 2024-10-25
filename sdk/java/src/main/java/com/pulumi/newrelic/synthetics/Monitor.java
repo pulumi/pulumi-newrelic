@@ -347,28 +347,32 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customHeaders);
     }
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceOrientation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceOrientation;
 
     /**
-     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceOrientation() {
         return Codegen.optional(this.deviceOrientation);
     }
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceType;
 
     /**
-     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceType() {
@@ -473,28 +477,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.periodInMinutes;
     }
     /**
-     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
-     * @return The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * @return The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     public Output<Optional<String>> runtimeType() {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The runtime type that the monitor will run. Valid value is `100`.
+     * The specific version of the runtime type selected (`100`).
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The runtime type that the monitor will run. Valid value is `100`.
+     * @return The specific version of the runtime type selected (`100`).
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {
@@ -515,14 +519,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scriptLanguage);
     }
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {

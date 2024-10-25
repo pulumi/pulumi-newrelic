@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyTransactionResult {
+    private String accountId;
     /**
      * @return Domain of the key transaction in New Relic.
      * 
@@ -25,10 +26,6 @@ public final class GetKeyTransactionResult {
      * 
      */
     private String id;
-    /**
-     * @return Name of the key Transation in New Relic.
-     * 
-     */
     private String name;
     /**
      * @return Type of the key transaction in New Relic.
@@ -37,6 +34,9 @@ public final class GetKeyTransactionResult {
     private String type;
 
     private GetKeyTransactionResult() {}
+    public String accountId() {
+        return this.accountId;
+    }
     /**
      * @return Domain of the key transaction in New Relic.
      * 
@@ -58,10 +58,6 @@ public final class GetKeyTransactionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the key Transation in New Relic.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -82,6 +78,7 @@ public final class GetKeyTransactionResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String accountId;
         private String domain;
         private String guid;
         private String id;
@@ -90,6 +87,7 @@ public final class GetKeyTransactionResult {
         public Builder() {}
         public Builder(GetKeyTransactionResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountId = defaults.accountId;
     	      this.domain = defaults.domain;
     	      this.guid = defaults.guid;
     	      this.id = defaults.id;
@@ -97,6 +95,14 @@ public final class GetKeyTransactionResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder accountId(String accountId) {
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetKeyTransactionResult", "accountId");
+            }
+            this.accountId = accountId;
+            return this;
+        }
         @CustomType.Setter
         public Builder domain(String domain) {
             if (domain == null) {
@@ -139,6 +145,7 @@ public final class GetKeyTransactionResult {
         }
         public GetKeyTransactionResult build() {
             final var _resultValue = new GetKeyTransactionResult();
+            _resultValue.accountId = accountId;
             _resultValue.domain = domain;
             _resultValue.guid = guid;
             _resultValue.id = id;

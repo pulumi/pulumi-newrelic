@@ -231,14 +231,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {
@@ -248,7 +248,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      * 
      */
     @Import(name="tags")
@@ -257,7 +257,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      * 
      */
     public Optional<Output<List<ScriptMonitorTagArgs>>> tags() {
@@ -662,7 +662,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
-         * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+         * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
-         * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+         * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details.
          * 
-         * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+         * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
          * 
          * @return builder
          * 

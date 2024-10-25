@@ -42,7 +42,7 @@ class ScriptMonitorArgs:
         """
         The set of arguments for constructing a ScriptMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
@@ -59,7 +59,7 @@ class ScriptMonitorArgs:
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
-               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+               The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         """
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "status", status)
@@ -111,7 +111,7 @@ class ScriptMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -293,7 +293,7 @@ class ScriptMonitorArgs:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
 
-        The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+        The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "tags")
 
@@ -352,10 +352,10 @@ class _ScriptMonitorState:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
-               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+               The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         if account_id is not None:
@@ -595,7 +595,7 @@ class _ScriptMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -609,7 +609,7 @@ class _ScriptMonitorState:
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
 
-        The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+        The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "tags")
 
@@ -821,10 +821,10 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
-               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+               The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         ...
@@ -1096,10 +1096,10 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected. For the `SCRIPT_API` monitor type, a valid value is `16.10`, which corresponds to the version of Node.js. For the `SCRIPT_BROWSER` monitor type, a valid value is `100`, which corresponds to the version of the Chrome browser.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScriptMonitorTagArgs', 'ScriptMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
-               The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+               The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1260,7 +1260,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -1270,7 +1270,7 @@ class ScriptMonitor(pulumi.CustomResource):
         """
         The tags that will be associated with the monitor. See Nested tag blocks below for details.
 
-        The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+        The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         """
         return pulumi.get(self, "tags")
 

@@ -46,7 +46,7 @@ class MonitorArgs:
                  verify_ssl: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
@@ -54,16 +54,18 @@ class MonitorArgs:
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected (`100`).
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
@@ -122,7 +124,7 @@ class MonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -196,7 +198,8 @@ class MonitorArgs:
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> Optional[pulumi.Input[str]]:
         """
-        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
 
@@ -208,7 +211,8 @@ class MonitorArgs:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
 
@@ -292,7 +296,7 @@ class MonitorArgs:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -304,7 +308,7 @@ class MonitorArgs:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run. Valid value is `100`.
+        The specific version of the runtime type selected (`100`).
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -431,8 +435,10 @@ class _MonitorState:
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -440,10 +446,10 @@ class _MonitorState:
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected (`100`).
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
@@ -556,7 +562,8 @@ class _MonitorState:
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> Optional[pulumi.Input[str]]:
         """
-        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
 
@@ -568,7 +575,8 @@ class _MonitorState:
     @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
 
@@ -664,7 +672,7 @@ class _MonitorState:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -676,7 +684,7 @@ class _MonitorState:
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime type that the monitor will run. Valid value is `100`.
+        The specific version of the runtime type selected (`100`).
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -700,7 +708,7 @@ class _MonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -979,18 +987,20 @@ class Monitor(pulumi.CustomResource):
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected (`100`).
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
@@ -1278,8 +1288,10 @@ class Monitor(pulumi.CustomResource):
                
                The `BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorCustomHeaderArgs', 'MonitorCustomHeaderArgsDict']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
-        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
-        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        :param pulumi.Input[str] device_type: Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+               * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
@@ -1287,10 +1299,10 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
-        :param pulumi.Input[str] runtime_type_version: The runtime type that the monitor will run. Valid value is `100`.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
+        :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected (`100`).
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagArgs', 'MonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SIMPLE` monitor type supports the following additional arguments:
@@ -1368,7 +1380,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="deviceOrientation")
     def device_orientation(self) -> pulumi.Output[Optional[str]]:
         """
-        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_orientation")
 
@@ -1376,7 +1389,8 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         """
         return pulumi.get(self, "device_type")
 
@@ -1440,7 +1454,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -1448,7 +1462,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeTypeVersion")
     def runtime_type_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime type that the monitor will run. Valid value is `100`.
+        The specific version of the runtime type selected (`100`).
         """
         return pulumi.get(self, "runtime_type_version")
 
@@ -1464,7 +1478,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 

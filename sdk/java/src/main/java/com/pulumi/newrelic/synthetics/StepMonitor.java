@@ -197,16 +197,14 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.browsers);
     }
     /**
-     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      * 
      */
     @Export(name="devices", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> devices;
 
     /**
-     * @return The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * @return The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      * 
      */
     public Output<Optional<List<String>>> devices() {
@@ -311,42 +309,42 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
         return this.periodInMinutes;
     }
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
-     * @return The runtime that the monitor will use to run jobs.
+     * @return The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     public Output<Optional<String>> runtimeType() {
         return Codegen.optional(this.runtimeType);
     }
     /**
-     * The specific version of the runtime type selected.
+     * The specific semver version of the runtime type.
      * 
      */
     @Export(name="runtimeTypeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected.
+     * @return The specific semver version of the runtime type.
      * 
      */
     public Output<Optional<String>> runtimeTypeVersion() {
         return Codegen.optional(this.runtimeTypeVersion);
     }
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {

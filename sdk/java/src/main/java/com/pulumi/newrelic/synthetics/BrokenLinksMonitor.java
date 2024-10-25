@@ -236,14 +236,14 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
         return this.periodInMinutes;
     }
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      * 
      */
     @Export(name="runtimeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeType;
 
     /**
-     * @return The runtime that the monitor will use to run jobs.
+     * @return The runtime that the monitor will use to run jobs (`NODE_API`).
      * 
      */
     public Output<Optional<String>> runtimeType() {
@@ -264,14 +264,14 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runtimeTypeVersion);
     }
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {

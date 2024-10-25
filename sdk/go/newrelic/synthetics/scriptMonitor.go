@@ -283,11 +283,11 @@ type ScriptMonitor struct {
 	Script pulumi.StringPtrOutput `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
-	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+	// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
 	Tags ScriptMonitorTagArrayOutput `pulumi:"tags"`
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
 	Type                        pulumi.StringOutput  `pulumi:"type"`
@@ -365,11 +365,11 @@ type scriptMonitorState struct {
 	Script *string `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
-	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+	// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
 	Tags []ScriptMonitorTag `pulumi:"tags"`
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
 	Type                        *string `pulumi:"type"`
@@ -409,11 +409,11 @@ type ScriptMonitorState struct {
 	Script pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
-	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+	// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
 	Tags ScriptMonitorTagArrayInput
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
 	Type                        pulumi.StringPtrInput
@@ -453,11 +453,11 @@ type scriptMonitorArgs struct {
 	Script *string `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
-	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+	// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
 	Tags []ScriptMonitorTag `pulumi:"tags"`
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
 	Type                        string `pulumi:"type"`
@@ -494,11 +494,11 @@ type ScriptMonitorArgs struct {
 	Script pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
-	// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+	// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
 	Tags ScriptMonitorTagArrayInput
 	// The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
 	Type                        pulumi.StringInput
@@ -672,14 +672,14 @@ func (o ScriptMonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The monitor status (ENABLED or DISABLED).
+// The run state of the monitor. (`ENABLED` or `DISABLED`).
 func (o ScriptMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // The tags that will be associated with the monitor. See Nested tag blocks below for details.
 //
-// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
 func (o ScriptMonitorOutput) Tags() ScriptMonitorTagArrayOutput {
 	return o.ApplyT(func(v *ScriptMonitor) ScriptMonitorTagArrayOutput { return v.Tags }).(ScriptMonitorTagArrayOutput)
 }

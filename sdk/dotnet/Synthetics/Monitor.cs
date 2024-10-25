@@ -291,13 +291,15 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceOrientation")]
         public Output<string?> DeviceOrientation { get; private set; } = null!;
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceType")]
         public Output<string?> DeviceType { get; private set; } = null!;
@@ -345,13 +347,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<int> PeriodInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        /// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         /// </summary>
         [Output("runtimeType")]
         public Output<string?> RuntimeType { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime type that the monitor will run. Valid value is `100`.
+        /// The specific version of the runtime type selected (`100`).
         /// </summary>
         [Output("runtimeTypeVersion")]
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
@@ -363,7 +365,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> ScriptLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -494,13 +496,15 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
@@ -560,13 +564,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Period { get; set; }
 
         /// <summary>
-        /// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        /// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The runtime type that the monitor will run. Valid value is `100`.
+        /// The specific version of the runtime type selected (`100`).
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
@@ -578,7 +582,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -677,13 +681,15 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
-        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
@@ -749,13 +755,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? PeriodInMinutes { get; set; }
 
         /// <summary>
-        /// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+        /// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The runtime type that the monitor will run. Valid value is `100`.
+        /// The specific version of the runtime type selected (`100`).
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
@@ -767,7 +773,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

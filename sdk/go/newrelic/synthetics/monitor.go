@@ -281,9 +281,11 @@ type Monitor struct {
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation pulumi.StringPtrOutput `pulumi:"deviceOrientation"`
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices pulumi.StringArrayOutput `pulumi:"devices"`
@@ -299,13 +301,13 @@ type Monitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
-	// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
-	// The runtime type that the monitor will run. Valid value is `100`.
+	// The specific version of the runtime type selected (`100`).
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -370,9 +372,11 @@ type monitorState struct {
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType *string `pulumi:"deviceType"`
 	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices []string `pulumi:"devices"`
@@ -388,13 +392,13 @@ type monitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
-	// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The runtime type that the monitor will run. Valid value is `100`.
+	// The specific version of the runtime type selected (`100`).
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -424,9 +428,11 @@ type MonitorState struct {
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation pulumi.StringPtrInput
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType pulumi.StringPtrInput
 	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices pulumi.StringArrayInput
@@ -442,13 +448,13 @@ type MonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
-	// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The runtime type that the monitor will run. Valid value is `100`.
+	// The specific version of the runtime type selected (`100`).
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -482,9 +488,11 @@ type monitorArgs struct {
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation *string `pulumi:"deviceOrientation"`
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType *string `pulumi:"deviceType"`
 	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices []string `pulumi:"devices"`
@@ -498,13 +506,13 @@ type monitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
 	Period *string `pulumi:"period"`
-	// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The runtime type that the monitor will run. Valid value is `100`.
+	// The specific version of the runtime type selected (`100`).
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -535,9 +543,11 @@ type MonitorArgs struct {
 	BypassHeadRequest pulumi.BoolPtrInput
 	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
-	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceOrientation pulumi.StringPtrInput
-	// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+	// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+	// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 	DeviceType pulumi.StringPtrInput
 	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices pulumi.StringArrayInput
@@ -551,13 +561,13 @@ type MonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
 	Period pulumi.StringPtrInput
-	// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The runtime type that the monitor will run. Valid value is `100`.
+	// The specific version of the runtime type selected (`100`).
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	//
@@ -685,12 +695,14 @@ func (o MonitorOutput) CustomHeaders() MonitorCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorCustomHeaderArrayOutput { return v.CustomHeaders }).(MonitorCustomHeaderArrayOutput)
 }
 
-// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 func (o MonitorOutput) DeviceOrientation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceOrientation }).(pulumi.StringPtrOutput)
 }
 
-// Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+// Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+// * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
 func (o MonitorOutput) DeviceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
 }
@@ -730,12 +742,12 @@ func (o MonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
-// The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 func (o MonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
 }
 
-// The runtime type that the monitor will run. Valid value is `100`.
+// The specific version of the runtime type selected (`100`).
 func (o MonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
@@ -745,7 +757,7 @@ func (o MonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The monitor status (ENABLED or DISABLED).
+// The run state of the monitor. (`ENABLED` or `DISABLED`).
 func (o MonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

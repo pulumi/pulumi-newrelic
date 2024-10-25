@@ -132,7 +132,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export class CertCheckMonitor extends pulumi.CustomResource {
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -245,7 +245,7 @@ export interface CertCheckMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface CertCheckMonitorState {
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface CertCheckMonitorArgs {
      */
     period: pulumi.Input<string>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
@@ -304,7 +304,7 @@ export interface CertCheckMonitorArgs {
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status: pulumi.Input<string>;
     /**

@@ -38,12 +38,12 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`NODE_API`).
         :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
@@ -108,7 +108,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -168,7 +168,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime that the monitor will use to run jobs.
+        The runtime that the monitor will use to run jobs (`NODE_API`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -236,9 +236,9 @@ class _CertCheckMonitorState:
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`NODE_API`).
         :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         if account_id is not None:
@@ -368,7 +368,7 @@ class _CertCheckMonitorState:
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime that the monitor will use to run jobs.
+        The runtime that the monitor will use to run jobs (`NODE_API`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -392,7 +392,7 @@ class _CertCheckMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 
@@ -511,9 +511,9 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`NODE_API`).
         :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         ...
@@ -679,9 +679,9 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
-        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs.
+        :param pulumi.Input[str] runtime_type: The runtime that the monitor will use to run jobs (`NODE_API`).
         :param pulumi.Input[str] runtime_type_version: The specific semver version of the runtime type.
-        :param pulumi.Input[str] status: The monitor status (ENABLED or DISABLED).
+        :param pulumi.Input[str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertCheckMonitorTagArgs', 'CertCheckMonitorTagArgsDict']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -771,7 +771,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter(name="runtimeType")
     def runtime_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime that the monitor will use to run jobs.
+        The runtime that the monitor will use to run jobs (`NODE_API`).
         """
         return pulumi.get(self, "runtime_type")
 
@@ -787,7 +787,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The monitor status (ENABLED or DISABLED).
+        The run state of the monitor. (`ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "status")
 

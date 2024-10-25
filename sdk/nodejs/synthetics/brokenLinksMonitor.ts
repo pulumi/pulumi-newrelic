@@ -126,7 +126,7 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
@@ -134,7 +134,7 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -236,7 +236,7 @@ export interface BrokenLinksMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface BrokenLinksMonitorState {
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status?: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface BrokenLinksMonitorArgs {
      */
     period: pulumi.Input<string>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
@@ -291,7 +291,7 @@ export interface BrokenLinksMonitorArgs {
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status: pulumi.Input<string>;
     /**

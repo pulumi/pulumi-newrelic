@@ -139,11 +139,11 @@ type CertCheckMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`NODE_API`).
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
 	// The specific semver version of the runtime type.
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags                        CertCheckMonitorTagArrayOutput `pulumi:"tags"`
@@ -208,11 +208,11 @@ type certCheckMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`NODE_API`).
 	RuntimeType *string `pulumi:"runtimeType"`
 	// The specific semver version of the runtime type.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags                        []CertCheckMonitorTag `pulumi:"tags"`
@@ -236,11 +236,11 @@ type CertCheckMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`NODE_API`).
 	RuntimeType pulumi.StringPtrInput
 	// The specific semver version of the runtime type.
 	RuntimeTypeVersion pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags                        CertCheckMonitorTagArrayInput
@@ -266,11 +266,11 @@ type certCheckMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
 	Period string `pulumi:"period"`
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`NODE_API`).
 	RuntimeType *string `pulumi:"runtimeType"`
 	// The specific semver version of the runtime type.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags                        []CertCheckMonitorTag `pulumi:"tags"`
@@ -293,11 +293,11 @@ type CertCheckMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
 	Period pulumi.StringInput
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`NODE_API`).
 	RuntimeType pulumi.StringPtrInput
 	// The specific semver version of the runtime type.
 	RuntimeTypeVersion pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags                        CertCheckMonitorTagArrayInput
@@ -431,7 +431,7 @@ func (o CertCheckMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
-// The runtime that the monitor will use to run jobs.
+// The runtime that the monitor will use to run jobs (`NODE_API`).
 func (o CertCheckMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
 }
@@ -441,7 +441,7 @@ func (o CertCheckMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The monitor status (ENABLED or DISABLED).
+// The run state of the monitor. (`ENABLED` or `DISABLED`).
 func (o CertCheckMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

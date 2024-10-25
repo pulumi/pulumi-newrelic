@@ -154,7 +154,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<int> PeriodInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs (`NODE_API`).
         /// </summary>
         [Output("runtimeType")]
         public Output<string?> RuntimeType { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string> Period { get; set; } = null!;
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs (`NODE_API`).
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RuntimeTypeVersion { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? PeriodInMinutes { get; set; }
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs (`NODE_API`).
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RuntimeTypeVersion { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

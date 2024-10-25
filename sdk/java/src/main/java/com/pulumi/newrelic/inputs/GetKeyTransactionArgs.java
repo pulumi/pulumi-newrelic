@@ -17,9 +17,26 @@ public final class GetKeyTransactionArgs extends com.pulumi.resources.InvokeArgs
     public static final GetKeyTransactionArgs Empty = new GetKeyTransactionArgs();
 
     /**
-     * GUID of the key transaction in New Relic.
+     * The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
      * 
      * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Output<String> accountId;
+
+    /**
+     * @return The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
+     * 
+     * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+     * 
+     */
+    public Optional<Output<String>> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * GUID of the key transaction in New Relic.
      * 
      */
     @Import(name="guid")
@@ -27,8 +44,6 @@ public final class GetKeyTransactionArgs extends com.pulumi.resources.InvokeArgs
 
     /**
      * @return GUID of the key transaction in New Relic.
-     * 
-     * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
      * 
      */
     public Optional<Output<String>> guid() {
@@ -53,6 +68,7 @@ public final class GetKeyTransactionArgs extends com.pulumi.resources.InvokeArgs
     private GetKeyTransactionArgs() {}
 
     private GetKeyTransactionArgs(GetKeyTransactionArgs $) {
+        this.accountId = $.accountId;
         this.guid = $.guid;
         this.name = $.name;
     }
@@ -76,9 +92,32 @@ public final class GetKeyTransactionArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param guid GUID of the key transaction in New Relic.
+         * @param accountId The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
          * 
          * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Output<String> accountId) {
+            $.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * @param accountId The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
+         * 
+         * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(String accountId) {
+            return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param guid GUID of the key transaction in New Relic.
          * 
          * @return builder
          * 
@@ -90,8 +129,6 @@ public final class GetKeyTransactionArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param guid GUID of the key transaction in New Relic.
-         * 
-         * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
          * 
          * @return builder
          * 
