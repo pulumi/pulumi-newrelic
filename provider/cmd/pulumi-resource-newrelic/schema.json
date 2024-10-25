@@ -14217,7 +14217,7 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime that the monitor will use to run jobs.\n"
+                    "description": "The runtime that the monitor will use to run jobs (`NODE_API`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
@@ -14225,7 +14225,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14281,7 +14281,7 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime that the monitor will use to run jobs.\n"
+                    "description": "The runtime that the monitor will use to run jobs (`NODE_API`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
@@ -14289,7 +14289,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14351,7 +14351,7 @@
                     },
                     "runtimeType": {
                         "type": "string",
-                        "description": "The runtime that the monitor will use to run jobs.\n"
+                        "description": "The runtime that the monitor will use to run jobs (`NODE_API`).\n"
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
@@ -14359,7 +14359,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (ENABLED or DISABLED).\n"
+                        "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -14422,7 +14422,7 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime that the monitor will use to run jobs.\n"
+                    "description": "The runtime that the monitor will use to run jobs (`NODE_API`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
@@ -14430,7 +14430,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14489,7 +14489,7 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime that the monitor will use to run jobs.\n"
+                    "description": "The runtime that the monitor will use to run jobs (`NODE_API`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
@@ -14497,7 +14497,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14559,7 +14559,7 @@
                     },
                     "runtimeType": {
                         "type": "string",
-                        "description": "The runtime that the monitor will use to run jobs.\n"
+                        "description": "The runtime that the monitor will use to run jobs (`NODE_API`).\n"
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
@@ -14567,7 +14567,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (ENABLED or DISABLED).\n"
+                        "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -14610,11 +14610,11 @@
                 },
                 "deviceOrientation": {
                     "type": "string",
-                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
+                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. \n* We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
                 },
                 "deviceType": {
                     "type": "string",
-                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
+                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`. \n* We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
                 },
                 "devices": {
                     "type": "array",
@@ -14655,11 +14655,11 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`\n"
+                    "description": "The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The runtime type that the monitor will run. Valid value is `100`.\n"
+                    "description": "The specific version of the runtime type selected (`100`).\n"
                 },
                 "scriptLanguage": {
                     "type": "string",
@@ -14667,7 +14667,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14733,11 +14733,11 @@
                 },
                 "deviceOrientation": {
                     "type": "string",
-                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
+                    "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. \n* We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
                 },
                 "deviceType": {
                     "type": "string",
-                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
+                    "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`. \n* We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
                 },
                 "devices": {
                     "type": "array",
@@ -14774,11 +14774,11 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`\n"
+                    "description": "The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The runtime type that the monitor will run. Valid value is `100`.\n"
+                    "description": "The specific version of the runtime type selected (`100`).\n"
                 },
                 "scriptLanguage": {
                     "type": "string",
@@ -14786,7 +14786,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -14851,11 +14851,11 @@
                     },
                     "deviceOrientation": {
                         "type": "string",
-                        "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
+                        "description": "Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. \n* We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
                     },
                     "deviceType": {
                         "type": "string",
-                        "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
+                        "description": "Device emulation type field. Valid values are `MOBILE` and `TABLET`. \n* We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.\n"
                     },
                     "devices": {
                         "type": "array",
@@ -14896,11 +14896,11 @@
                     },
                     "runtimeType": {
                         "type": "string",
-                        "description": "The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`\n"
+                        "description": "The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).\n"
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
-                        "description": "The runtime type that the monitor will run. Valid value is `100`.\n"
+                        "description": "The specific version of the runtime type selected (`100`).\n"
                     },
                     "scriptLanguage": {
                         "type": "string",
@@ -14908,7 +14908,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (ENABLED or DISABLED).\n"
+                        "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                     },
                     "tags": {
                         "type": "array",
@@ -15275,14 +15275,14 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:synthetics/ScriptMonitorTag:ScriptMonitorTag"
                     },
-                    "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n\nThe `SCRIPTED_BROWSER` monitor type supports the following additional argument:\n"
+                    "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n\nThe `SCRIPTED_BROWSER` monitor type supports the following additional arguments:\n"
                 },
                 "type": {
                     "type": "string",
@@ -15373,14 +15373,14 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:synthetics/ScriptMonitorTag:ScriptMonitorTag"
                     },
-                    "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n\nThe `SCRIPTED_BROWSER` monitor type supports the following additional argument:\n"
+                    "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n\nThe `SCRIPTED_BROWSER` monitor type supports the following additional arguments:\n"
                 },
                 "type": {
                     "type": "string",
@@ -15478,14 +15478,14 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (ENABLED or DISABLED).\n"
+                        "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                     },
                     "tags": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/newrelic:synthetics/ScriptMonitorTag:ScriptMonitorTag"
                         },
-                        "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n\nThe `SCRIPTED_BROWSER` monitor type supports the following additional argument:\n"
+                        "description": "The tags that will be associated with the monitor. See Nested tag blocks below for details.\n\nThe `SCRIPTED_BROWSER` monitor type supports the following additional arguments:\n"
                     },
                     "type": {
                         "type": "string",
@@ -15608,7 +15608,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,\nMOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT\n"
+                    "description": "The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.\n"
                 },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
@@ -15646,15 +15646,15 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime that the monitor will use to run jobs.\n"
+                    "description": "The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific version of the runtime type selected.\n"
+                    "description": "The specific semver version of the runtime type.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "steps": {
                     "type": "array",
@@ -15701,7 +15701,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,\nMOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT\n"
+                    "description": "The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.\n"
                 },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
@@ -15731,15 +15731,15 @@
                 },
                 "runtimeType": {
                     "type": "string",
-                    "description": "The runtime that the monitor will use to run jobs.\n"
+                    "description": "The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).\n"
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific version of the runtime type selected.\n"
+                    "description": "The specific semver version of the runtime type.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "The monitor status (ENABLED or DISABLED).\n"
+                    "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                 },
                 "steps": {
                     "type": "array",
@@ -15784,7 +15784,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,\nMOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT\n"
+                        "description": "The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.\n"
                     },
                     "enableScreenshotOnFailureAndScript": {
                         "type": "boolean",
@@ -15822,15 +15822,15 @@
                     },
                     "runtimeType": {
                         "type": "string",
-                        "description": "The runtime that the monitor will use to run jobs.\n"
+                        "description": "The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).\n"
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
-                        "description": "The specific version of the runtime type selected.\n"
+                        "description": "The specific semver version of the runtime type.\n"
                     },
                     "status": {
                         "type": "string",
-                        "description": "The monitor status (ENABLED or DISABLED).\n"
+                        "description": "The run state of the monitor. (`ENABLED` or `DISABLED`).\n"
                     },
                     "steps": {
                         "type": "array",
@@ -16309,9 +16309,13 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getKeyTransaction.\n",
                 "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.\n\n\u003e **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.\n"
+                    },
                     "guid": {
                         "type": "string",
-                        "description": "GUID of the key transaction in New Relic.\n\n\u003e **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.\n"
+                        "description": "GUID of the key transaction in New Relic.\n"
                     },
                     "name": {
                         "type": "string",
@@ -16326,6 +16330,9 @@
             "outputs": {
                 "description": "A collection of values returned by getKeyTransaction.\n",
                 "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
                     "domain": {
                         "description": "Domain of the key transaction in New Relic.\n",
                         "type": "string"
@@ -16339,7 +16346,6 @@
                         "type": "string"
                     },
                     "name": {
-                        "description": "Name of the key Transation in New Relic.\n",
                         "type": "string"
                     },
                     "type": {
@@ -16348,6 +16354,7 @@
                     }
                 },
                 "required": [
+                    "accountId",
                     "domain",
                     "guid",
                     "name",

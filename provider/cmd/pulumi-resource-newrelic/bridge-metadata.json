@@ -4524,6 +4524,9 @@
                 "authentication_domain_id",
                 "user_ids"
             ],
+            "newrelic_key_transaction": [
+                "account_id"
+            ],
             "newrelic_notification_destination": [
                 "account_id"
             ],
