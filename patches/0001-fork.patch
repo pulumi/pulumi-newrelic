@@ -139,7 +139,7 @@ index 84b92c8b..b3f64a99 100644
  ## Example Usage
  
 diff --git a/website/docs/d/key_transaction.html.markdown b/website/docs/d/key_transaction.html.markdown
-index 148783b2..9d1fc705 100644
+index d7c06301..94c3ca01 100644
 --- a/website/docs/d/key_transaction.html.markdown
 +++ b/website/docs/d/key_transaction.html.markdown
 @@ -8,7 +8,7 @@ description: |-

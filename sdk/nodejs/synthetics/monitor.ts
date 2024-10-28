@@ -209,11 +209,13 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly customHeaders!: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     public readonly deviceOrientation!: pulumi.Output<string | undefined>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     public readonly deviceType!: pulumi.Output<string | undefined>;
     /**
@@ -245,11 +247,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
-     * The runtime type that the monitor will run. Valid value is `100`.
+     * The specific version of the runtime type selected (`100`).
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
@@ -257,7 +259,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly scriptLanguage!: pulumi.Output<string | undefined>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -386,11 +388,13 @@ export interface MonitorState {
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceOrientation?: pulumi.Input<string>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceType?: pulumi.Input<string>;
     /**
@@ -422,11 +426,11 @@ export interface MonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The runtime type that the monitor will run. Valid value is `100`.
+     * The specific version of the runtime type selected (`100`).
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -434,7 +438,7 @@ export interface MonitorState {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status?: pulumi.Input<string>;
     /**
@@ -489,11 +493,13 @@ export interface MonitorArgs {
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceOrientation?: pulumi.Input<string>;
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
     deviceType?: pulumi.Input<string>;
     /**
@@ -521,11 +527,11 @@ export interface MonitorArgs {
      */
     period?: pulumi.Input<string>;
     /**
-     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The runtime type that the monitor will run. Valid value is `100`.
+     * The specific version of the runtime type selected (`100`).
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
@@ -533,7 +539,7 @@ export interface MonitorArgs {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status: pulumi.Input<string>;
     /**

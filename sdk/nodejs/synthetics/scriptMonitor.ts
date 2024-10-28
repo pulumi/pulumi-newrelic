@@ -247,13 +247,13 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly scriptLanguage!: pulumi.Output<string | undefined>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     public readonly status!: pulumi.Output<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      *
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      */
     public readonly tags!: pulumi.Output<outputs.synthetics.ScriptMonitorTag[] | undefined>;
     /**
@@ -401,13 +401,13 @@ export interface ScriptMonitorState {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status?: pulumi.Input<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      *
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[]>;
     /**
@@ -478,13 +478,13 @@ export interface ScriptMonitorArgs {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status: pulumi.Input<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      *
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorTag>[]>;
     /**

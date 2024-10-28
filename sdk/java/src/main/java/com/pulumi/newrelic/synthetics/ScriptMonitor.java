@@ -499,14 +499,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scriptLanguage);
     }
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {
@@ -515,7 +515,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      * 
      */
     @Export(name="tags", refs={List.class,ScriptMonitorTag.class}, tree="[0,1]")
@@ -524,7 +524,7 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
     /**
      * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
      * 
-     * The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+     * The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
      * 
      */
     public Output<Optional<List<ScriptMonitorTag>>> tags() {

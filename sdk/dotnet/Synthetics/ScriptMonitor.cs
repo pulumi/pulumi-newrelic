@@ -335,7 +335,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> ScriptLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
         /// 
-        /// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+        /// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ScriptMonitorTag>> Tags { get; private set; } = null!;
@@ -512,7 +512,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -523,7 +523,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
         /// 
-        /// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+        /// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         /// </summary>
         public InputList<Inputs.ScriptMonitorTagArgs> Tags
         {
@@ -669,7 +669,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -680,7 +680,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <summary>
         /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
         /// 
-        /// The `SCRIPTED_BROWSER` monitor type supports the following additional argument:
+        /// The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         /// </summary>
         public InputList<Inputs.ScriptMonitorTagGetArgs> Tags
         {

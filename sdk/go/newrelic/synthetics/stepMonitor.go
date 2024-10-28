@@ -164,8 +164,7 @@ type StepMonitor struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
 	Browsers pulumi.StringArrayOutput `pulumi:"browsers"`
-	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices pulumi.StringArrayOutput `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
@@ -181,11 +180,11 @@ type StepMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
-	// The specific version of the runtime type selected.
+	// The specific semver version of the runtime type.
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayOutput `pulumi:"steps"`
@@ -237,8 +236,7 @@ type stepMonitorState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
 	Browsers []string `pulumi:"browsers"`
-	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices []string `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
@@ -254,11 +252,11 @@ type stepMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific version of the runtime type selected.
+	// The specific semver version of the runtime type.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status *string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
@@ -272,8 +270,7 @@ type StepMonitorState struct {
 	AccountId pulumi.StringPtrInput
 	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
 	Browsers pulumi.StringArrayInput
-	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices pulumi.StringArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
@@ -289,11 +286,11 @@ type StepMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The interval in minutes at which Synthetic monitor should run.
 	PeriodInMinutes pulumi.IntPtrInput
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The specific version of the runtime type selected.
+	// The specific semver version of the runtime type.
 	RuntimeTypeVersion pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringPtrInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
@@ -311,8 +308,7 @@ type stepMonitorArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
 	Browsers []string `pulumi:"browsers"`
-	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices []string `pulumi:"devices"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
@@ -324,11 +320,11 @@ type stepMonitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
 	Period string `pulumi:"period"`
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific version of the runtime type selected.
+	// The specific semver version of the runtime type.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
@@ -343,8 +339,7 @@ type StepMonitorArgs struct {
 	AccountId pulumi.StringPtrInput
 	// The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
 	Browsers pulumi.StringArrayInput
-	// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-	// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+	// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 	Devices pulumi.StringArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
@@ -356,11 +351,11 @@ type StepMonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
 	Period pulumi.StringInput
-	// The runtime that the monitor will use to run jobs.
+	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The specific version of the runtime type selected.
+	// The specific semver version of the runtime type.
 	RuntimeTypeVersion pulumi.StringPtrInput
-	// The monitor status (ENABLED or DISABLED).
+	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
@@ -466,8 +461,7 @@ func (o StepMonitorOutput) Browsers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringArrayOutput { return v.Browsers }).(pulumi.StringArrayOutput)
 }
 
-// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
 func (o StepMonitorOutput) Devices() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringArrayOutput { return v.Devices }).(pulumi.StringArrayOutput)
 }
@@ -507,17 +501,17 @@ func (o StepMonitorOutput) PeriodInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.IntOutput { return v.PeriodInMinutes }).(pulumi.IntOutput)
 }
 
-// The runtime that the monitor will use to run jobs.
+// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 func (o StepMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
 }
 
-// The specific version of the runtime type selected.
+// The specific semver version of the runtime type.
 func (o StepMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The monitor status (ENABLED or DISABLED).
+// The run state of the monitor. (`ENABLED` or `DISABLED`).
 func (o StepMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -126,14 +126,14 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`NODE_API`).
      * 
      */
     @Import(name="runtimeType")
     private @Nullable Output<String> runtimeType;
 
     /**
-     * @return The runtime that the monitor will use to run jobs.
+     * @return The runtime that the monitor will use to run jobs (`NODE_API`).
      * 
      */
     public Optional<Output<String>> runtimeType() {
@@ -156,14 +156,14 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {
@@ -395,7 +395,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * @param runtimeType The runtime that the monitor will use to run jobs (`NODE_API`).
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * @param runtimeType The runtime that the monitor will use to run jobs (`NODE_API`).
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class CertCheckMonitorArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 

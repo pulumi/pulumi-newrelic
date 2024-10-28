@@ -122,9 +122,15 @@ namespace Pulumi.NewRelic
     public sealed class GetKeyTransactionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// GUID of the key transaction in New Relic.
+        /// The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
         /// 
         /// &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+        /// </summary>
+        [Input("accountId")]
+        public string? AccountId { get; set; }
+
+        /// <summary>
+        /// GUID of the key transaction in New Relic.
         /// </summary>
         [Input("guid")]
         public string? Guid { get; set; }
@@ -144,9 +150,15 @@ namespace Pulumi.NewRelic
     public sealed class GetKeyTransactionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// GUID of the key transaction in New Relic.
+        /// The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
         /// 
         /// &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// GUID of the key transaction in New Relic.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
@@ -167,6 +179,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetKeyTransactionResult
     {
+        public readonly string AccountId;
         /// <summary>
         /// Domain of the key transaction in New Relic.
         /// </summary>
@@ -179,9 +192,6 @@ namespace Pulumi.NewRelic
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the key Transation in New Relic.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Type of the key transaction in New Relic.
@@ -190,6 +200,8 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetKeyTransactionResult(
+            string accountId,
+
             string domain,
 
             string guid,
@@ -200,6 +212,7 @@ namespace Pulumi.NewRelic
 
             string type)
         {
+            AccountId = accountId;
             Domain = domain;
             Guid = guid;
             Id = id;

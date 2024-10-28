@@ -135,8 +135,7 @@ export class StepMonitor extends pulumi.CustomResource {
      */
     public readonly browsers!: pulumi.Output<string[] | undefined>;
     /**
-     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
     public readonly devices!: pulumi.Output<string[] | undefined>;
     /**
@@ -168,15 +167,15 @@ export class StepMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
     public readonly runtimeType!: pulumi.Output<string | undefined>;
     /**
-     * The specific version of the runtime type selected.
+     * The specific semver version of the runtime type.
      */
     public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -264,8 +263,7 @@ export interface StepMonitorState {
      */
     browsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
     devices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -297,15 +295,15 @@ export interface StepMonitorState {
      */
     periodInMinutes?: pulumi.Input<number>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific version of the runtime type selected.
+     * The specific semver version of the runtime type.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status?: pulumi.Input<string>;
     /**
@@ -332,8 +330,7 @@ export interface StepMonitorArgs {
      */
     browsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
     devices?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -357,15 +354,15 @@ export interface StepMonitorArgs {
      */
     period: pulumi.Input<string>;
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
     runtimeType?: pulumi.Input<string>;
     /**
-     * The specific version of the runtime type selected.
+     * The specific semver version of the runtime type.
      */
     runtimeTypeVersion?: pulumi.Input<string>;
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
     status: pulumi.Input<string>;
     /**

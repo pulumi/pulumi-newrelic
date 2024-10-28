@@ -52,16 +52,14 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      * 
      */
     @Import(name="devices")
     private @Nullable Output<List<String>> devices;
 
     /**
-     * @return The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-     * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+     * @return The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      * 
      */
     public Optional<Output<List<String>>> devices() {
@@ -174,14 +172,14 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime that the monitor will use to run jobs.
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     @Import(name="runtimeType")
     private @Nullable Output<String> runtimeType;
 
     /**
-     * @return The runtime that the monitor will use to run jobs.
+     * @return The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     public Optional<Output<String>> runtimeType() {
@@ -189,14 +187,14 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The specific version of the runtime type selected.
+     * The specific semver version of the runtime type.
      * 
      */
     @Import(name="runtimeTypeVersion")
     private @Nullable Output<String> runtimeTypeVersion;
 
     /**
-     * @return The specific version of the runtime type selected.
+     * @return The specific semver version of the runtime type.
      * 
      */
     public Optional<Output<String>> runtimeTypeVersion() {
@@ -204,14 +202,14 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Optional<Output<String>> status() {
@@ -347,8 +345,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-         * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
          * 
          * @return builder
          * 
@@ -359,8 +356,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-         * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
          * 
          * @return builder
          * 
@@ -370,8 +366,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-         * MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+         * @param devices The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
          * 
          * @return builder
          * 
@@ -548,7 +543,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * @param runtimeType The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
          * 
          * @return builder
          * 
@@ -559,7 +554,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeType The runtime that the monitor will use to run jobs.
+         * @param runtimeType The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
          * 
          * @return builder
          * 
@@ -569,7 +564,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific version of the runtime type selected.
+         * @param runtimeTypeVersion The specific semver version of the runtime type.
          * 
          * @return builder
          * 
@@ -580,7 +575,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific version of the runtime type selected.
+         * @param runtimeTypeVersion The specific semver version of the runtime type.
          * 
          * @return builder
          * 
@@ -590,7 +585,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 
@@ -601,7 +596,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 

@@ -26,7 +26,10 @@ class GetKeyTransactionResult:
     """
     A collection of values returned by getKeyTransaction.
     """
-    def __init__(__self__, domain=None, guid=None, id=None, name=None, type=None):
+    def __init__(__self__, account_id=None, domain=None, guid=None, id=None, name=None, type=None):
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        pulumi.set(__self__, "account_id", account_id)
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
@@ -42,6 +45,11 @@ class GetKeyTransactionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
@@ -70,9 +78,6 @@ class GetKeyTransactionResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the key Transation in New Relic.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -90,6 +95,7 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
         if False:
             yield self
         return GetKeyTransactionResult(
+            account_id=self.account_id,
             domain=self.domain,
             guid=self.guid,
             id=self.id,
@@ -97,7 +103,8 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
             type=self.type)
 
 
-def get_key_transaction(guid: Optional[str] = None,
+def get_key_transaction(account_id: Optional[str] = None,
+                        guid: Optional[str] = None,
                         name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyTransactionResult:
     """
@@ -128,24 +135,28 @@ def get_key_transaction(guid: Optional[str] = None,
     ```
 
 
-    :param str guid: GUID of the key transaction in New Relic.
+    :param str account_id: The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
            
            > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+    :param str guid: GUID of the key transaction in New Relic.
     :param str name: The name of the key transaction in New Relic.
     """
     __args__ = dict()
+    __args__['accountId'] = account_id
     __args__['guid'] = guid
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult).value
 
     return AwaitableGetKeyTransactionResult(
+        account_id=pulumi.get(__ret__, 'account_id'),
         domain=pulumi.get(__ret__, 'domain'),
         guid=pulumi.get(__ret__, 'guid'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_key_transaction_output(guid: Optional[pulumi.Input[Optional[str]]] = None,
+def get_key_transaction_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
+                               guid: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyTransactionResult]:
     """
@@ -176,17 +187,20 @@ def get_key_transaction_output(guid: Optional[pulumi.Input[Optional[str]]] = Non
     ```
 
 
-    :param str guid: GUID of the key transaction in New Relic.
+    :param str account_id: The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
            
            > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+    :param str guid: GUID of the key transaction in New Relic.
     :param str name: The name of the key transaction in New Relic.
     """
     __args__ = dict()
+    __args__['accountId'] = account_id
     __args__['guid'] = guid
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult)
     return __ret__.apply(lambda __response__: GetKeyTransactionResult(
+        account_id=pulumi.get(__response__, 'account_id'),
         domain=pulumi.get(__response__, 'domain'),
         guid=pulumi.get(__response__, 'guid'),
         id=pulumi.get(__response__, 'id'),

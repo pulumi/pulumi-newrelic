@@ -85,14 +85,16 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceOrientation")
     private @Nullable Output<String> deviceOrientation;
 
     /**
-     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceOrientation() {
@@ -100,14 +102,16 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceType")
     private @Nullable Output<String> deviceType;
 
     /**
-     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceType() {
@@ -205,14 +209,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     @Import(name="runtimeType")
     private @Nullable Output<String> runtimeType;
 
     /**
-     * @return The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+     * @return The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      * 
      */
     public Optional<Output<String>> runtimeType() {
@@ -220,14 +224,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime type that the monitor will run. Valid value is `100`.
+     * The specific version of the runtime type selected (`100`).
      * 
      */
     @Import(name="runtimeTypeVersion")
     private @Nullable Output<String> runtimeTypeVersion;
 
     /**
-     * @return The runtime type that the monitor will run. Valid value is `100`.
+     * @return The specific version of the runtime type selected (`100`).
      * 
      */
     public Optional<Output<String>> runtimeTypeVersion() {
@@ -250,14 +254,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The monitor status (ENABLED or DISABLED).
+     * The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The monitor status (ENABLED or DISABLED).
+     * @return The run state of the monitor. (`ENABLED` or `DISABLED`).
      * 
      */
     public Output<String> status() {
@@ -520,7 +524,8 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -531,7 +536,8 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
+         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -541,7 +547,8 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -552,7 +559,8 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
+         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -718,7 +726,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeType The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+         * @param runtimeType The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
          * 
          * @return builder
          * 
@@ -729,7 +737,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeType The runtime type that the monitor will run. Valid value is `CHROME_BROWSER`
+         * @param runtimeType The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
          * 
          * @return builder
          * 
@@ -739,7 +747,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The runtime type that the monitor will run. Valid value is `100`.
+         * @param runtimeTypeVersion The specific version of the runtime type selected (`100`).
          * 
          * @return builder
          * 
@@ -750,7 +758,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The runtime type that the monitor will run. Valid value is `100`.
+         * @param runtimeTypeVersion The specific version of the runtime type selected (`100`).
          * 
          * @return builder
          * 
@@ -781,7 +789,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 
@@ -792,7 +800,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The monitor status (ENABLED or DISABLED).
+         * @param status The run state of the monitor. (`ENABLED` or `DISABLED`).
          * 
          * @return builder
          * 

@@ -37,6 +37,7 @@ import * as utilities from "./utilities";
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {
+        "accountId": args.accountId,
         "guid": args.guid,
         "name": args.name,
     }, opts);
@@ -47,9 +48,13 @@ export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.Inv
  */
 export interface GetKeyTransactionArgs {
     /**
-     * GUID of the key transaction in New Relic.
+     * The account ID you would like to search for key transactions in. Defaults to `accountId` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
      *
      * > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+     */
+    accountId?: string;
+    /**
+     * GUID of the key transaction in New Relic.
      */
     guid?: string;
     /**
@@ -62,6 +67,7 @@ export interface GetKeyTransactionArgs {
  * A collection of values returned by getKeyTransaction.
  */
 export interface GetKeyTransactionResult {
+    readonly accountId: string;
     /**
      * Domain of the key transaction in New Relic.
      */
@@ -74,9 +80,6 @@ export interface GetKeyTransactionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the key Transation in New Relic.
-     */
     readonly name: string;
     /**
      * Type of the key transaction in New Relic.
@@ -116,6 +119,7 @@ export interface GetKeyTransactionResult {
 export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyTransactionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getKeyTransaction:getKeyTransaction", {
+        "accountId": args.accountId,
         "guid": args.guid,
         "name": args.name,
     }, opts);
@@ -126,9 +130,13 @@ export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?
  */
 export interface GetKeyTransactionOutputArgs {
     /**
-     * GUID of the key transaction in New Relic.
+     * The account ID you would like to search for key transactions in. Defaults to `accountId` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
      *
      * > **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
+     */
+    accountId?: pulumi.Input<string>;
+    /**
+     * GUID of the key transaction in New Relic.
      */
     guid?: pulumi.Input<string>;
     /**

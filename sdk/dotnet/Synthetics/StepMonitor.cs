@@ -174,8 +174,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<string>> Browsers { get; private set; } = null!;
 
         /// <summary>
-        /// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-        /// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        /// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         /// </summary>
         [Output("devices")]
         public Output<ImmutableArray<string>> Devices { get; private set; } = null!;
@@ -223,19 +222,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<int> PeriodInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         /// </summary>
         [Output("runtimeType")]
         public Output<string?> RuntimeType { get; private set; } = null!;
 
         /// <summary>
-        /// The specific version of the runtime type selected.
+        /// The specific semver version of the runtime type.
         /// </summary>
         [Output("runtimeTypeVersion")]
         public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -323,8 +322,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _devices;
 
         /// <summary>
-        /// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-        /// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        /// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         /// </summary>
         public InputList<string> Devices
         {
@@ -375,19 +373,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string> Period { get; set; } = null!;
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The specific version of the runtime type selected.
+        /// The specific semver version of the runtime type.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -449,8 +447,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _devices;
 
         /// <summary>
-        /// The multiple devices list on which synthetic monitors will run. Valid values are array of DESKTOP, MOBILE_LANDSCAPE,
-        /// MOBILE_PORTRAIT, TABLET_LANDSCAPE and TABLET_PORTRAIT
+        /// The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
         /// </summary>
         public InputList<string> Devices
         {
@@ -513,19 +510,19 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<int>? PeriodInMinutes { get; set; }
 
         /// <summary>
-        /// The runtime that the monitor will use to run jobs.
+        /// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
         /// </summary>
         [Input("runtimeType")]
         public Input<string>? RuntimeType { get; set; }
 
         /// <summary>
-        /// The specific version of the runtime type selected.
+        /// The specific semver version of the runtime type.
         /// </summary>
         [Input("runtimeTypeVersion")]
         public Input<string>? RuntimeTypeVersion { get; set; }
 
         /// <summary>
-        /// The monitor status (ENABLED or DISABLED).
+        /// The run state of the monitor. (`ENABLED` or `DISABLED`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
