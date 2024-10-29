@@ -12217,12 +12217,24 @@ class OneDashboardVariableOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 excluded: Optional[bool] = None,
                  ignore_time_range: Optional[bool] = None):
         """
+        :param bool excluded: (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
         :param bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
+        if excluded is not None:
+            pulumi.set(__self__, "excluded", excluded)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+
+    @property
+    @pulumi.getter
+    def excluded(self) -> Optional[bool]:
+        """
+        (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+        """
+        return pulumi.get(self, "excluded")
 
     @property
     @pulumi.getter(name="ignoreTimeRange")

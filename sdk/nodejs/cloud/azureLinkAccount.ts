@@ -84,7 +84,7 @@ export class AzureLinkAccount extends pulumi.CustomResource {
      */
     public readonly clientSecret!: pulumi.Output<string>;
     /**
-     * Name of the linked account
+     * The name of the application in New Relic APM.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -130,14 +130,14 @@ export class AzureLinkAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tenantId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["applicationId"] = args?.applicationId ? pulumi.secret(args.applicationId) : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["subscriptionId"] = args?.subscriptionId ? pulumi.secret(args.subscriptionId) : undefined;
+            resourceInputs["tenantId"] = args?.tenantId ? pulumi.secret(args.tenantId) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
+        const secretOpts = { additionalSecretOutputs: ["applicationId", "clientSecret", "subscriptionId", "tenantId"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(AzureLinkAccount.__pulumiType, name, resourceInputs, opts);
     }
@@ -160,7 +160,7 @@ export interface AzureLinkAccountState {
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * Name of the linked account
+     * The name of the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface AzureLinkAccountArgs {
      */
     clientSecret: pulumi.Input<string>;
     /**
-     * Name of the linked account
+     * The name of the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
     /**

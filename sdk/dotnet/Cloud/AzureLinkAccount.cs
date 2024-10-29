@@ -77,7 +77,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the linked account
+        /// The name of the application in New Relic APM.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -119,7 +119,10 @@ namespace Pulumi.NewRelic.Cloud
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "applicationId",
                     "clientSecret",
+                    "subscriptionId",
+                    "tenantId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -150,11 +153,21 @@ namespace Pulumi.NewRelic.Cloud
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        [Input("applicationId", required: true)]
+        private Input<string>? _applicationId;
+
         /// <summary>
         /// Application ID of the App.
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        public Input<string>? ApplicationId
+        {
+            get => _applicationId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applicationId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
@@ -173,22 +186,42 @@ namespace Pulumi.NewRelic.Cloud
         }
 
         /// <summary>
-        /// Name of the linked account
+        /// The name of the application in New Relic APM.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("subscriptionId", required: true)]
+        private Input<string>? _subscriptionId;
+
         /// <summary>
         /// Subscription ID of the Azure cloud account.
         /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
+        public Input<string>? SubscriptionId
+        {
+            get => _subscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _subscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tenantId", required: true)]
+        private Input<string>? _tenantId;
 
         /// <summary>
         /// Tenant ID of the Azure cloud account.
         /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
+        public Input<string>? TenantId
+        {
+            get => _tenantId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tenantId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public AzureLinkAccountArgs()
         {
@@ -204,11 +237,21 @@ namespace Pulumi.NewRelic.Cloud
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        [Input("applicationId")]
+        private Input<string>? _applicationId;
+
         /// <summary>
         /// Application ID of the App.
         /// </summary>
-        [Input("applicationId")]
-        public Input<string>? ApplicationId { get; set; }
+        public Input<string>? ApplicationId
+        {
+            get => _applicationId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _applicationId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
@@ -227,22 +270,42 @@ namespace Pulumi.NewRelic.Cloud
         }
 
         /// <summary>
-        /// Name of the linked account
+        /// The name of the application in New Relic APM.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("subscriptionId")]
+        private Input<string>? _subscriptionId;
+
         /// <summary>
         /// Subscription ID of the Azure cloud account.
         /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
+        public Input<string>? SubscriptionId
+        {
+            get => _subscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _subscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tenantId")]
+        private Input<string>? _tenantId;
 
         /// <summary>
         /// Tenant ID of the Azure cloud account.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        public Input<string>? TenantId
+        {
+            get => _tenantId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tenantId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public AzureLinkAccountState()
         {

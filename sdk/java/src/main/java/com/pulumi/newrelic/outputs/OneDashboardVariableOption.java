@@ -12,12 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardVariableOption {
     /**
+     * @return (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean excluded;
+    /**
      * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
 
     private OneDashboardVariableOption() {}
+    /**
+     * @return (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> excluded() {
+        return Optional.ofNullable(this.excluded);
+    }
     /**
      * @return (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
@@ -35,13 +47,21 @@ public final class OneDashboardVariableOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean excluded;
         private @Nullable Boolean ignoreTimeRange;
         public Builder() {}
         public Builder(OneDashboardVariableOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.excluded = defaults.excluded;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
         }
 
+        @CustomType.Setter
+        public Builder excluded(@Nullable Boolean excluded) {
+
+            this.excluded = excluded;
+            return this;
+        }
         @CustomType.Setter
         public Builder ignoreTimeRange(@Nullable Boolean ignoreTimeRange) {
 
@@ -50,6 +70,7 @@ public final class OneDashboardVariableOption {
         }
         public OneDashboardVariableOption build() {
             final var _resultValue = new OneDashboardVariableOption();
+            _resultValue.excluded = excluded;
             _resultValue.ignoreTimeRange = ignoreTimeRange;
             return _resultValue;
         }

@@ -62,14 +62,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the linked account
+     * The name of the application in New Relic APM.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the linked account
+     * @return The name of the application in New Relic APM.
      * 
      */
     public Optional<Output<String>> name() {
@@ -199,7 +199,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the linked account
+         * @param name The name of the application in New Relic APM.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the linked account
+         * @param name The name of the application in New Relic APM.
          * 
          * @return builder
          * 
