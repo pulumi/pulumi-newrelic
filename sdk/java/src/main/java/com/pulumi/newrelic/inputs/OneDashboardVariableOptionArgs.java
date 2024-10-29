@@ -16,6 +16,21 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
     public static final OneDashboardVariableOptionArgs Empty = new OneDashboardVariableOptionArgs();
 
     /**
+     * (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+     * 
+     */
+    @Import(name="excluded")
+    private @Nullable Output<Boolean> excluded;
+
+    /**
+     * @return (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> excluded() {
+        return Optional.ofNullable(this.excluded);
+    }
+
+    /**
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      * 
      */
@@ -33,6 +48,7 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
     private OneDashboardVariableOptionArgs() {}
 
     private OneDashboardVariableOptionArgs(OneDashboardVariableOptionArgs $) {
+        this.excluded = $.excluded;
         this.ignoreTimeRange = $.ignoreTimeRange;
     }
 
@@ -52,6 +68,27 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
 
         public Builder(OneDashboardVariableOptionArgs defaults) {
             $ = new OneDashboardVariableOptionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param excluded (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excluded(@Nullable Output<Boolean> excluded) {
+            $.excluded = excluded;
+            return this;
+        }
+
+        /**
+         * @param excluded (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excluded(Boolean excluded) {
+            return excluded(Output.of(excluded));
         }
 
         /**

@@ -14,13 +14,21 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardVariableOption
     {
         /// <summary>
+        /// (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+        /// </summary>
+        public readonly bool? Excluded;
+        /// <summary>
         /// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         /// </summary>
         public readonly bool? IgnoreTimeRange;
 
         [OutputConstructor]
-        private OneDashboardVariableOption(bool? ignoreTimeRange)
+        private OneDashboardVariableOption(
+            bool? excluded,
+
+            bool? ignoreTimeRange)
         {
+            Excluded = excluded;
             IgnoreTimeRange = ignoreTimeRange;
         }
     }

@@ -16057,6 +16057,10 @@ class OneDashboardVariableNrqlQueryArgs:
 
 if not MYPY:
     class OneDashboardVariableOptionArgsDict(TypedDict):
+        excluded: NotRequired[pulumi.Input[bool]]
+        """
+        (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+        """
         ignore_time_range: NotRequired[pulumi.Input[bool]]
         """
         (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
@@ -16067,12 +16071,28 @@ elif False:
 @pulumi.input_type
 class OneDashboardVariableOptionArgs:
     def __init__(__self__, *,
+                 excluded: Optional[pulumi.Input[bool]] = None,
                  ignore_time_range: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[bool] excluded: (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
+        if excluded is not None:
+            pulumi.set(__self__, "excluded", excluded)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+
+    @property
+    @pulumi.getter
+    def excluded(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+        """
+        return pulumi.get(self, "excluded")
+
+    @excluded.setter
+    def excluded(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "excluded", value)
 
     @property
     @pulumi.getter(name="ignoreTimeRange")

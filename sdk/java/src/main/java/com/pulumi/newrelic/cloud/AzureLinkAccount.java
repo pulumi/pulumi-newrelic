@@ -123,14 +123,14 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * Name of the linked account
+     * The name of the application in New Relic APM.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the linked account
+     * @return The name of the application in New Relic APM.
      * 
      */
     public Output<String> name() {
@@ -205,7 +205,10 @@ public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "clientSecret"
+                "applicationId",
+                "clientSecret",
+                "subscriptionId",
+                "tenantId"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

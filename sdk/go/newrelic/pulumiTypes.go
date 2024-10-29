@@ -23233,6 +23233,8 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Query() pulumi.StringPtrOutput {
 }
 
 type OneDashboardVariableOption struct {
+	// (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+	Excluded *bool `pulumi:"excluded"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 }
@@ -23249,6 +23251,8 @@ type OneDashboardVariableOptionInput interface {
 }
 
 type OneDashboardVariableOptionArgs struct {
+	// (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+	Excluded pulumi.BoolPtrInput `pulumi:"excluded"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 }
@@ -23302,6 +23306,11 @@ func (o OneDashboardVariableOptionOutput) ToOneDashboardVariableOptionOutput() O
 
 func (o OneDashboardVariableOptionOutput) ToOneDashboardVariableOptionOutputWithContext(ctx context.Context) OneDashboardVariableOptionOutput {
 	return o
+}
+
+// (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+func (o OneDashboardVariableOptionOutput) Excluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardVariableOption) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.

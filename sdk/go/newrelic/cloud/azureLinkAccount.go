@@ -73,7 +73,7 @@ type AzureLinkAccount struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Secret Value of the client.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// Name of the linked account
+	// The name of the application in New Relic APM.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
@@ -100,11 +100,23 @@ func NewAzureLinkAccount(ctx *pulumi.Context,
 	if args.TenantId == nil {
 		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
+	if args.ApplicationId != nil {
+		args.ApplicationId = pulumi.ToSecret(args.ApplicationId).(pulumi.StringInput)
+	}
 	if args.ClientSecret != nil {
 		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringInput)
 	}
+	if args.SubscriptionId != nil {
+		args.SubscriptionId = pulumi.ToSecret(args.SubscriptionId).(pulumi.StringInput)
+	}
+	if args.TenantId != nil {
+		args.TenantId = pulumi.ToSecret(args.TenantId).(pulumi.StringInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"applicationId",
 		"clientSecret",
+		"subscriptionId",
+		"tenantId",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -136,7 +148,7 @@ type azureLinkAccountState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// Secret Value of the client.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Name of the linked account
+	// The name of the application in New Relic APM.
 	Name *string `pulumi:"name"`
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId *string `pulumi:"subscriptionId"`
@@ -151,7 +163,7 @@ type AzureLinkAccountState struct {
 	ApplicationId pulumi.StringPtrInput
 	// Secret Value of the client.
 	ClientSecret pulumi.StringPtrInput
-	// Name of the linked account
+	// The name of the application in New Relic APM.
 	Name pulumi.StringPtrInput
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringPtrInput
@@ -170,7 +182,7 @@ type azureLinkAccountArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Secret Value of the client.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Name of the linked account
+	// The name of the application in New Relic APM.
 	Name *string `pulumi:"name"`
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId string `pulumi:"subscriptionId"`
@@ -186,7 +198,7 @@ type AzureLinkAccountArgs struct {
 	ApplicationId pulumi.StringInput
 	// Secret Value of the client.
 	ClientSecret pulumi.StringInput
-	// Name of the linked account
+	// The name of the application in New Relic APM.
 	Name pulumi.StringPtrInput
 	// Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringInput
@@ -296,7 +308,7 @@ func (o AzureLinkAccountOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Name of the linked account
+// The name of the application in New Relic APM.
 func (o AzureLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
