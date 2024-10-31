@@ -304,10 +304,10 @@ class OneDashboardRaw(pulumi.CustomResource):
                         "visualization_id": "viz.bar",
                         "configuration": json.dumps({
                             "facet": {
-                                "show_other_series": False,
+                                "showOtherSeries": False,
                             },
-                            "nrql_queries": [{
-                                "account_id": account_id,
+                            "nrqlQueries": [{
+                                "accountId": account_id,
                                 "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
                             }],
                         }),
@@ -399,10 +399,10 @@ class OneDashboardRaw(pulumi.CustomResource):
                         "visualization_id": "viz.bar",
                         "configuration": json.dumps({
                             "facet": {
-                                "show_other_series": False,
+                                "showOtherSeries": False,
                             },
-                            "nrql_queries": [{
-                                "account_id": account_id,
+                            "nrqlQueries": [{
+                                "accountId": account_id,
                                 "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
                             }],
                         }),
