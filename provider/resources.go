@@ -294,7 +294,6 @@ func Provider() tfbridge.ProviderInfo {
 
 func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	edits := []tfbridge.DocsEdit{
-		fixTables,
 		fixExample,
 	}
 	edits = append(edits, defaults...)
@@ -329,36 +328,6 @@ func skipSections() []tfbridge.DocsEdit {
 	}
 
 	return edits
-}
-
-// fixTables introduces a hack, where a <!--HTML comment--> is appended to any table found in the upstream doc,
-// to ensure subsequent headers get rendered.
-// See https://github.com/pulumi/pulumi-terraform-bridge/issues/2466.
-var fixTables = tfbridge.DocsEdit{
-	Path: "index.html.markdown",
-	Edit: func(_ string, content []byte) ([]byte, error) {
-		files := []string{
-			"table1",
-			"table2",
-			"table3",
-		}
-		for _, file := range files {
-			input, err := os.ReadFile("provider/installation-replaces/" + file + "-input.md")
-			if err != nil {
-				return nil, err
-			}
-			desired, err := os.ReadFile("provider/installation-replaces/" + file + "-desired.md")
-			if err != nil {
-				return nil, err
-			}
-			content = bytes.ReplaceAll(
-				content,
-				input,
-				desired)
-
-		}
-		return content, nil
-	},
 }
 
 var fixExample = tfbridge.DocsEdit{
