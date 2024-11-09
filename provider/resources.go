@@ -106,14 +106,10 @@ func setIDType(info tfbridge.PropertyVisitInfo) (tfbridge.PropertyVisitResult, e
 	return tfbridge.PropertyVisitResult{HasEffect: true}, nil
 }
 
-// A predicate that always returns true.
-func always[T any](T) bool { return true }
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(newrelic.Provider(),
-		shimv2.WithPlanResourceChange(always))
+	p := shimv2.NewProvider(newrelic.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
