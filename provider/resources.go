@@ -308,6 +308,7 @@ var sectionRegexps = []*regexp.Regexp{
 	regexp.MustCompile(`Support for`),
 	regexp.MustCompile(`Quick Links`),
 	regexp.MustCompile(`Community`),
+	regexp.MustCompile(`Support`),
 }
 
 // Removes sections meant to address the TF maintainer community, see sectionRegexps
