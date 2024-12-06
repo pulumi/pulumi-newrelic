@@ -131,7 +131,7 @@ def get_alert_channel(account_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                              name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertChannelResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertChannelResult]:
     """
     Use this data source to get information about a specific alert channel in New Relic that already exists.
 
@@ -144,7 +144,7 @@ def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[str]]] =
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getAlertChannel:getAlertChannel', __args__, opts=opts, typ=GetAlertChannelResult)
     return __ret__.apply(lambda __response__: GetAlertChannelResult(
         account_id=pulumi.get(__response__, 'account_id'),

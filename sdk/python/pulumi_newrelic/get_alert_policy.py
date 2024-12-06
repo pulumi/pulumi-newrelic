@@ -138,7 +138,7 @@ def get_alert_policy(account_id: Optional[str] = None,
 def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                             incident_preference: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertPolicyResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertPolicyResult]:
     """
     Use this data source to get information about a specific alert policy in New Relic that already exists.
 
@@ -154,7 +154,7 @@ def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[str]]] = 
     __args__['accountId'] = account_id
     __args__['incidentPreference'] = incident_preference
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts, typ=GetAlertPolicyResult)
     return __ret__.apply(lambda __response__: GetAlertPolicyResult(
         account_id=pulumi.get(__response__, 'account_id'),

@@ -116,7 +116,7 @@ export interface GetKeyTransactionResult {
  * });
  * ```
  */
-export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyTransactionResult> {
+export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyTransactionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getKeyTransaction:getKeyTransaction", {
         "accountId": args.accountId,

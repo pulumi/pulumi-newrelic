@@ -178,7 +178,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
                                         id: Optional[pulumi.Input[Optional[str]]] = None,
                                         name: Optional[pulumi.Input[Optional[str]]] = None,
                                         secure_urls: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationDestinationResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -194,7 +194,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
     __args__['id'] = id
     __args__['name'] = name
     __args__['secureUrls'] = secure_urls
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult)
     return __ret__.apply(lambda __response__: GetNotificationDestinationResult(
         account_id=pulumi.get(__response__, 'account_id'),

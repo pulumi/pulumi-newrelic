@@ -94,7 +94,7 @@ export interface GetEntityResult {
     readonly tags?: outputs.GetEntityTag[];
     readonly type: string;
 }
-export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
+export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getEntity:getEntity", {
         "accountId": args.accountId,

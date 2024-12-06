@@ -89,7 +89,7 @@ export interface GetObfuscationExpressionResult {
  * });
  * ```
  */
-export function getObfuscationExpressionOutput(args: GetObfuscationExpressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObfuscationExpressionResult> {
+export function getObfuscationExpressionOutput(args: GetObfuscationExpressionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObfuscationExpressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getObfuscationExpression:getObfuscationExpression", {
         "accountId": args.accountId,
