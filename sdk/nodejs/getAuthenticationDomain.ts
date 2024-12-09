@@ -69,7 +69,7 @@ export interface GetAuthenticationDomainResult {
  * }
  * ```
  */
-export function getAuthenticationDomainOutput(args: GetAuthenticationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthenticationDomainResult> {
+export function getAuthenticationDomainOutput(args: GetAuthenticationDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthenticationDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", {
         "name": args.name,

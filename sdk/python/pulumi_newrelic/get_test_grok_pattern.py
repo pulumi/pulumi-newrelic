@@ -129,7 +129,7 @@ def get_test_grok_pattern(account_id: Optional[str] = None,
 def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  grok: Optional[pulumi.Input[str]] = None,
                                  log_lines: Optional[pulumi.Input[Sequence[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestGrokPatternResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestGrokPatternResult]:
     """
     ## Example Usage
 
@@ -154,7 +154,7 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[str]
     __args__['accountId'] = account_id
     __args__['grok'] = grok
     __args__['logLines'] = log_lines
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getTestGrokPattern:getTestGrokPattern', __args__, opts=opts, typ=GetTestGrokPatternResult)
     return __ret__.apply(lambda __response__: GetTestGrokPatternResult(
         account_id=pulumi.get(__response__, 'account_id'),

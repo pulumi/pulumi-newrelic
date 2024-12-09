@@ -61,7 +61,7 @@ export interface GetAlertChannelResult {
  *
  * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  */
-export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertChannelResult> {
+export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getAlertChannel:getAlertChannel", {
         "accountId": args.accountId,

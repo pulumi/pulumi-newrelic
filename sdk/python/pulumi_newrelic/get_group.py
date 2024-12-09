@@ -136,7 +136,7 @@ def get_group(authentication_domain_id: Optional[str] = None,
         user_ids=pulumi.get(__ret__, 'user_ids'))
 def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     The `Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
 
@@ -181,7 +181,7 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['authenticationDomainId'] = authentication_domain_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         authentication_domain_id=pulumi.get(__response__, 'authentication_domain_id'),

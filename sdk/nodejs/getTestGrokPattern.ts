@@ -83,7 +83,7 @@ export interface GetTestGrokPatternResult {
  * });
  * ```
  */
-export function getTestGrokPatternOutput(args: GetTestGrokPatternOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGrokPatternResult> {
+export function getTestGrokPatternOutput(args: GetTestGrokPatternOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestGrokPatternResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getTestGrokPattern:getTestGrokPattern", {
         "accountId": args.accountId,

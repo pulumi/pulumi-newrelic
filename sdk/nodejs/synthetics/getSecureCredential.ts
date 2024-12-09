@@ -77,7 +77,7 @@ export interface GetSecureCredentialResult {
  * });
  * ```
  */
-export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
+export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecureCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:synthetics/getSecureCredential:getSecureCredential", {
         "accountId": args.accountId,
