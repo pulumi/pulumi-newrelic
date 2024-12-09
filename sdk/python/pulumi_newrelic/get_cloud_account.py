@@ -115,7 +115,7 @@ def get_cloud_account(account_id: Optional[str] = None,
 def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                              cloud_provider: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudAccountResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAccountResult]:
     """
     Use this data source to get information about a specific cloud account linked to New Relic.
     Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
@@ -140,7 +140,7 @@ def get_cloud_account_output(account_id: Optional[pulumi.Input[Optional[str]]] =
     __args__['accountId'] = account_id
     __args__['cloudProvider'] = cloud_provider
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getCloudAccount:getCloudAccount', __args__, opts=opts, typ=GetCloudAccountResult)
     return __ret__.apply(lambda __response__: GetCloudAccountResult(
         account_id=pulumi.get(__response__, 'account_id'),

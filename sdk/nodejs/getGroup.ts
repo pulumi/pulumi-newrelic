@@ -133,7 +133,7 @@ export interface GetGroupResult {
  * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
  * ```
  */
-export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getGroup:getGroup", {
         "authenticationDomainId": args.authenticationDomainId,
