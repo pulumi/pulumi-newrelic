@@ -321,7 +321,7 @@ export interface GetServiceLevelAlertHelperResult {
  * });
  * ```
  */
-export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelAlertHelperResult> {
+export function getServiceLevelAlertHelperOutput(args: GetServiceLevelAlertHelperOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceLevelAlertHelperResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", {
         "alertType": args.alertType,
