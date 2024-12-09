@@ -127,7 +127,7 @@ def get_application(name: Optional[str] = None,
         instance_ids=pulumi.get(__ret__, 'instance_ids'),
         name=pulumi.get(__ret__, 'name'))
 def get_application_output(name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     #### DEPRECATED! Use at your own risk. Use the `get_entity` data source instead. This feature may be removed in the next major release
 
@@ -162,7 +162,7 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         host_ids=pulumi.get(__response__, 'host_ids'),

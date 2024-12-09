@@ -320,7 +320,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
                                           sli_guid: Optional[pulumi.Input[str]] = None,
                                           slo_period: Optional[pulumi.Input[int]] = None,
                                           slo_target: Optional[pulumi.Input[float]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelAlertHelperResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLevelAlertHelperResult]:
     """
     Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
 
@@ -450,7 +450,7 @@ def get_service_level_alert_helper_output(alert_type: Optional[pulumi.Input[str]
     __args__['sliGuid'] = sli_guid
     __args__['sloPeriod'] = slo_period
     __args__['sloTarget'] = slo_target
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper', __args__, opts=opts, typ=GetServiceLevelAlertHelperResult)
     return __ret__.apply(lambda __response__: GetServiceLevelAlertHelperResult(
         alert_type=pulumi.get(__response__, 'alert_type'),
