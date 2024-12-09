@@ -77,7 +77,7 @@ export interface GetCloudAccountResult {
  * });
  * ```
  */
-export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudAccountResult> {
+export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getCloudAccount:getCloudAccount", {
         "accountId": args.accountId,

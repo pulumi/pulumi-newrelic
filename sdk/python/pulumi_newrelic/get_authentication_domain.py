@@ -85,7 +85,7 @@ def get_authentication_domain(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthenticationDomainResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticationDomainResult]:
     """
     Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
 
@@ -104,7 +104,7 @@ def get_authentication_domain_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getAuthenticationDomain:getAuthenticationDomain', __args__, opts=opts, typ=GetAuthenticationDomainResult)
     return __ret__.apply(lambda __response__: GetAuthenticationDomainResult(
         id=pulumi.get(__response__, 'id'),

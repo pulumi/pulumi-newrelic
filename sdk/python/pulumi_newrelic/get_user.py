@@ -123,7 +123,7 @@ def get_user(authentication_domain_id: Optional[str] = None,
 def get_user_output(authentication_domain_id: Optional[pulumi.Input[str]] = None,
                     email_id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     The `User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
 
@@ -156,7 +156,7 @@ def get_user_output(authentication_domain_id: Optional[pulumi.Input[str]] = None
     __args__['authenticationDomainId'] = authentication_domain_id
     __args__['emailId'] = email_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         authentication_domain_id=pulumi.get(__response__, 'authentication_domain_id'),

@@ -128,7 +128,7 @@ def get_private_location(account_id: Optional[str] = None,
 def get_private_location_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 keys: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLocationResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLocationResult]:
     """
     Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
 
@@ -163,7 +163,7 @@ def get_private_location_output(account_id: Optional[pulumi.Input[Optional[str]]
     __args__['accountId'] = account_id
     __args__['keys'] = keys
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:synthetics/getPrivateLocation:getPrivateLocation', __args__, opts=opts, typ=GetPrivateLocationResult)
     return __ret__.apply(lambda __response__: GetPrivateLocationResult(
         account_id=pulumi.get(__response__, 'account_id'),

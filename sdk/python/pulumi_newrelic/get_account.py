@@ -114,7 +114,7 @@ def get_account(account_id: Optional[str] = None,
 def get_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        scope: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to get information about a specific account in New Relic.
     Accounts can be located by ID or name.  At most one of the two attributes can
@@ -138,7 +138,7 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['accountId'] = account_id
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         account_id=pulumi.get(__response__, 'account_id'),

@@ -158,7 +158,7 @@ def get_key_transaction(account_id: Optional[str] = None,
 def get_key_transaction_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                guid: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyTransactionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyTransactionResult]:
     """
     Use this data source to get information about a specific key transaction in New Relic that already exists.
 
@@ -197,7 +197,7 @@ def get_key_transaction_output(account_id: Optional[pulumi.Input[Optional[str]]]
     __args__['accountId'] = account_id
     __args__['guid'] = guid
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult)
     return __ret__.apply(lambda __response__: GetKeyTransactionResult(
         account_id=pulumi.get(__response__, 'account_id'),

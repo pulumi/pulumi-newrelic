@@ -76,7 +76,7 @@ export interface GetNotificationDestinationResult {
      */
     readonly type: string;
 }
-export function getNotificationDestinationOutput(args?: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationDestinationResult> {
+export function getNotificationDestinationOutput(args?: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationDestinationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getNotificationDestination:getNotificationDestination", {

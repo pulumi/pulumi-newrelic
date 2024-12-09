@@ -104,7 +104,7 @@ export interface GetPrivateLocationResult {
  * }]});
  * ```
  */
-export function getPrivateLocationOutput(args: GetPrivateLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLocationResult> {
+export function getPrivateLocationOutput(args: GetPrivateLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:synthetics/getPrivateLocation:getPrivateLocation", {
         "accountId": args.accountId,
