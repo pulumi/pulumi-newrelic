@@ -22,6 +22,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetAlertPolicyResult> Invoke(GetAlertPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific alert policy in New Relic that already exists.
+        /// </summary>
+        public static Output<GetAlertPolicyResult> Invoke(GetAlertPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

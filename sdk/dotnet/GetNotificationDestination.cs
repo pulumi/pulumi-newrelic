@@ -16,6 +16,9 @@ namespace Pulumi.NewRelic
 
         public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -330,6 +330,166 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetServiceLevelAlertHelperResult> Invoke(GetServiceLevelAlertHelperInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooTarget = 99.9;
+        /// 
+        ///     var fooPeriod = 28;
+        /// 
+        ///     var foo = new NewRelic.ServiceLevel("foo", new()
+        ///     {
+        ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+        ///         Name = "Latency",
+        ///         Description = "Proportion of requests that are served faster than a threshold.",
+        ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
+        ///         {
+        ///             AccountId = "12345678",
+        ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
+        ///             {
+        ///                 From = "Transaction",
+        ///                 Where = "appName = 'Example application' AND (transactionType='Web')",
+        ///             },
+        ///             BadEvents = new NewRelic.Inputs.ServiceLevelEventsBadEventsArgs
+        ///             {
+        ///                 From = "Transaction",
+        ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &gt; 0.1",
+        ///             },
+        ///         },
+        ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
+        ///         {
+        ///             Target = fooTarget,
+        ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
+        ///             {
+        ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
+        ///                 {
+        ///                     Count = fooPeriod,
+        ///                     Unit = "DAY",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+        /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
+        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+        /// 
+        /// Here is an example of a `slow_burn` alert.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooSlowBurn = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     {
+        ///         AlertType = "slow_burn",
+        ///         SliGuid = foo.SliGuid,
+        ///         SloTarget = fooTarget,
+        ///         SloPeriod = fooPeriod,
+        ///         IsBadEvents = true,
+        ///     });
+        /// 
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     {
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
+        ///         Type = "static",
+        ///         Name = "Slow burn alert",
+        ///         Enabled = true,
+        ///         ViolationTimeLimitSeconds = 259200,
+        ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+        ///         {
+        ///             Query = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Nrql),
+        ///         },
+        ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+        ///         {
+        ///             Operator = "above_or_equals",
+        ///             Threshold = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
+        ///             ThresholdDuration = 900,
+        ///             ThresholdOccurrences = "at_least_once",
+        ///         },
+        ///         FillOption = "none",
+        ///         AggregationWindow = fooSlowBurn.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
+        ///         AggregationMethod = "event_flow",
+        ///         AggregationDelay = "120",
+        ///         SlideBy = 900,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Here is an example of a custom alert:
+        /// 
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fooCustom = NewRelic.GetServiceLevelAlertHelper.Invoke(new()
+        ///     {
+        ///         AlertType = "custom",
+        ///         SliGuid = foo.SliGuid,
+        ///         SloTarget = fooTarget,
+        ///         SloPeriod = fooPeriod,
+        ///         CustomToleratedBudgetConsumption = 4,
+        ///         CustomEvaluationPeriod = 5400,
+        ///         IsBadEvents = true,
+        ///     });
+        /// 
+        ///     var yourCondition = new NewRelic.NrqlAlertCondition("your_condition", new()
+        ///     {
+        ///         AccountId = "12345678",
+        ///         PolicyId = "67890",
+        ///         Type = "static",
+        ///         Name = "Custom burn alert",
+        ///         Enabled = true,
+        ///         ViolationTimeLimitSeconds = 259200,
+        ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+        ///         {
+        ///             Query = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Nrql),
+        ///         },
+        ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+        ///         {
+        ///             Operator = "above_or_equals",
+        ///             Threshold = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.Threshold),
+        ///             ThresholdDuration = 900,
+        ///             ThresholdOccurrences = "at_least_once",
+        ///         },
+        ///         FillOption = "none",
+        ///         AggregationWindow = fooCustom.Apply(getServiceLevelAlertHelperResult =&gt; getServiceLevelAlertHelperResult.EvaluationPeriod),
+        ///         AggregationMethod = "event_flow",
+        ///         AggregationDelay = "120",
+        ///         SlideBy = 60,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceLevelAlertHelperResult> Invoke(GetServiceLevelAlertHelperInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperInvokeArgs(), options.WithDefaults());
     }
 
 

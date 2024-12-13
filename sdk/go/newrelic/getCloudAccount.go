@@ -71,21 +71,11 @@ type GetCloudAccountResult struct {
 }
 
 func GetCloudAccountOutput(ctx *pulumi.Context, args GetCloudAccountOutputArgs, opts ...pulumi.InvokeOption) GetCloudAccountResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCloudAccountResultOutput, error) {
 			args := v.(GetCloudAccountArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCloudAccountResult
-			secret, err := ctx.InvokePackageRaw("newrelic:index/getCloudAccount:getCloudAccount", args, &rv, "", opts...)
-			if err != nil {
-				return GetCloudAccountResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCloudAccountResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCloudAccountResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("newrelic:index/getCloudAccount:getCloudAccount", args, GetCloudAccountResultOutput{}, options).(GetCloudAccountResultOutput), nil
 		}).(GetCloudAccountResultOutput)
 }
 

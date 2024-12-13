@@ -84,6 +84,43 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("newrelic:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The `newrelic.User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     {
+        ///         Name = "Test Authentication Domain",
+        ///     });
+        /// 
+        ///     var userOne = NewRelic.GetUser.Invoke(new()
+        ///     {
+        ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         Name = "Test User",
+        ///     });
+        /// 
+        ///     var userTwo = NewRelic.GetUser.Invoke(new()
+        ///     {
+        ///         AuthenticationDomainId = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///         EmailId = "test_user@random.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("newrelic:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 
