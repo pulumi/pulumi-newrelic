@@ -84,21 +84,11 @@ type LookupObfuscationExpressionResult struct {
 }
 
 func LookupObfuscationExpressionOutput(ctx *pulumi.Context, args LookupObfuscationExpressionOutputArgs, opts ...pulumi.InvokeOption) LookupObfuscationExpressionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupObfuscationExpressionResultOutput, error) {
 			args := v.(LookupObfuscationExpressionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupObfuscationExpressionResult
-			secret, err := ctx.InvokePackageRaw("newrelic:index/getObfuscationExpression:getObfuscationExpression", args, &rv, "", opts...)
-			if err != nil {
-				return LookupObfuscationExpressionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupObfuscationExpressionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupObfuscationExpressionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("newrelic:index/getObfuscationExpression:getObfuscationExpression", args, LookupObfuscationExpressionResultOutput{}, options).(LookupObfuscationExpressionResultOutput), nil
 		}).(LookupObfuscationExpressionResultOutput)
 }
 

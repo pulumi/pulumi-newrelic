@@ -66,6 +66,34 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetAuthenticationDomainResult> Invoke(GetAuthenticationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticationDomainResult>("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", args ?? new GetAuthenticationDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAuthenticationDomain.Invoke(new()
+        ///     {
+        ///         Name = "Test Authentication Domain",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getAuthenticationDomainResult =&gt; getAuthenticationDomainResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAuthenticationDomainResult> Invoke(GetAuthenticationDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticationDomainResult>("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", args ?? new GetAuthenticationDomainInvokeArgs(), options.WithDefaults());
     }
 
 

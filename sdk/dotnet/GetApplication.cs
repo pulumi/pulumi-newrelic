@@ -120,6 +120,61 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
+        /// 
+        /// Use this data source to get information about a specific application in New Relic that already exists.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var app = NewRelic.GetApplication.Invoke(new()
+        ///     {
+        ///         Name = "my-app",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
+        ///     {
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
+        ///         Type = "apm_app_metric",
+        ///         Entities = new[]
+        ///         {
+        ///             app.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///         },
+        ///         Metric = "apdex",
+        ///         RunbookUrl = "https://www.example.com",
+        ///         Terms = new[]
+        ///         {
+        ///             new NewRelic.Inputs.AlertConditionTermArgs
+        ///             {
+        ///                 Duration = 5,
+        ///                 Operator = "below",
+        ///                 Priority = "critical",
+        ///                 Threshold = 0.75,
+        ///                 TimeFunction = "all",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

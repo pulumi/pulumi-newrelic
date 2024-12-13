@@ -116,6 +116,59 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetKeyTransactionResult> Invoke(GetKeyTransactionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific key transaction in New Relic that already exists.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var txn = NewRelic.GetKeyTransaction.Invoke(new()
+        ///     {
+        ///         Name = "txn",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.AlertPolicy("foo", new()
+        ///     {
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("foo", new()
+        ///     {
+        ///         PolicyId = foo.Id,
+        ///         Name = "foo",
+        ///         Type = "apm_kt_metric",
+        ///         Entities = new[]
+        ///         {
+        ///             txn.Apply(getKeyTransactionResult =&gt; getKeyTransactionResult.Id),
+        ///         },
+        ///         Metric = "error_percentage",
+        ///         RunbookUrl = "https://www.example.com",
+        ///         Terms = new[]
+        ///         {
+        ///             new NewRelic.Inputs.AlertConditionTermArgs
+        ///             {
+        ///                 Duration = 5,
+        ///                 Operator = "below",
+        ///                 Priority = "critical",
+        ///                 Threshold = 0.75,
+        ///                 TimeFunction = "all",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetKeyTransactionResult> Invoke(GetKeyTransactionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionInvokeArgs(), options.WithDefaults());
     }
 
 

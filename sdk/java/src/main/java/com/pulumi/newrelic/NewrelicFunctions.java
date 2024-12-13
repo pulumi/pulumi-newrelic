@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.GetAccountArgs;
 import com.pulumi.newrelic.inputs.GetAccountPlainArgs;
@@ -314,6 +315,50 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific account in New Relic.
+     * Accounts can be located by ID or name.  At most one of the two attributes can
+     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .scope("global")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
@@ -370,6 +415,20 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific alert channel in New Relic that already exists.
+     * 
+     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
     }
@@ -407,6 +466,18 @@ public final class NewrelicFunctions {
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific alert policy in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -694,6 +765,75 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
+     * 
+     * Use this data source to get information about a specific application in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetApplicationArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertCondition;
+     * import com.pulumi.newrelic.AlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("my-app")
+     *             .build());
+     * 
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
+     *             .policyId(foo.id())
+     *             .name("foo")
+     *             .type("apm_app_metric")
+     *             .entities(app.applyValue(getApplicationResult -> getApplicationResult.id()))
+     *             .metric("apdex")
+     *             .runbookUrl("https://www.example.com")
+     *             .terms(AlertConditionTermArgs.builder()
+     *                 .duration(5)
+     *                 .operator("below")
+     *                 .priority("critical")
+     *                 .threshold("0.75")
+     *                 .timeFunction("all")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
     }
@@ -824,6 +964,49 @@ public final class NewrelicFunctions {
      * 
      */
     public static Output<GetAuthenticationDomainResult> getAuthenticationDomain(GetAuthenticationDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", TypeShape.of(GetAuthenticationDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to fetch the ID of an authentication domain belonging to your account, matching the specified name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name("Test Authentication Domain")
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAuthenticationDomainResult> getAuthenticationDomain(GetAuthenticationDomainArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getAuthenticationDomain:getAuthenticationDomain", TypeShape.of(GetAuthenticationDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1046,6 +1229,51 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCloudAccountResult> getCloudAccount(GetCloudAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getCloudAccount:getCloudAccount", TypeShape.of(GetCloudAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific cloud account linked to New Relic.
+     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetCloudAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var account = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
+     *             .accountId(12345)
+     *             .cloudProvider("aws")
+     *             .name("my aws account")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCloudAccountResult> getCloudAccountPlain(GetCloudAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getCloudAccount:getCloudAccount", TypeShape.of(GetCloudAccountResult.class), args, Utilities.withVersion(options));
     }
@@ -1056,6 +1284,9 @@ public final class NewrelicFunctions {
         return getEntityPlain(args, InvokeOptions.Empty);
     }
     public static Output<GetEntityResult> getEntity(GetEntityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getEntity:getEntity", TypeShape.of(GetEntityResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetEntityResult> getEntity(GetEntityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getEntity:getEntity", TypeShape.of(GetEntityResult.class), args, Utilities.withVersion(options));
     }
     public static CompletableFuture<GetEntityResult> getEntityPlain(GetEntityPlainArgs args, InvokeOptions options) {
@@ -1466,6 +1697,108 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The `newrelic.Group` data source helps search for a group by its name and retrieve the ID of the matching group and other associated attributes.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching the ID of a group (and IDs of users who belong to the group, if any) using the required arguments.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name("Test Authentication Domain")
+     *             .build());
+     * 
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .name("Test Group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Additional Examples
+     * 
+     * The following example demonstrates utilizing attributes exported by this data source.
+     * 
+     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name("Test Authentication Domain")
+     *             .build());
+     * 
+     *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .name("Test Group")
+     *             .build());
+     * 
+     *         final var id = fooGetGroup.applyValue(getGroupResult -> getGroupResult.id());
+     * 
+     *         final var userIds = fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()).length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(", ")
+     *             .input(fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()))
+     *             .build()).result() : "";
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -1734,6 +2067,73 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetKeyTransactionResult> getKeyTransaction(GetKeyTransactionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific key transaction in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertCondition;
+     * import com.pulumi.newrelic.AlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.AlertConditionTermArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var txn = NewrelicFunctions.getKeyTransaction(GetKeyTransactionArgs.builder()
+     *             .name("txn")
+     *             .build());
+     * 
+     *         var foo = new AlertPolicy("foo", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         var fooAlertCondition = new AlertCondition("fooAlertCondition", AlertConditionArgs.builder()
+     *             .policyId(foo.id())
+     *             .name("foo")
+     *             .type("apm_kt_metric")
+     *             .entities(txn.applyValue(getKeyTransactionResult -> getKeyTransactionResult.id()))
+     *             .metric("error_percentage")
+     *             .runbookUrl("https://www.example.com")
+     *             .terms(AlertConditionTermArgs.builder()
+     *                 .duration(5)
+     *                 .operator("below")
+     *                 .priority("critical")
+     *                 .threshold("0.75")
+     *                 .timeFunction("all")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
     }
@@ -1750,6 +2150,9 @@ public final class NewrelicFunctions {
         return getNotificationDestinationPlain(args, InvokeOptions.Empty);
     }
     public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
     }
     public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args, InvokeOptions options) {
@@ -1927,6 +2330,64 @@ public final class NewrelicFunctions {
      * 
      */
     public static Output<GetObfuscationExpressionResult> getObfuscationExpression(GetObfuscationExpressionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
+     * import com.pulumi.newrelic.ObfuscationRule;
+     * import com.pulumi.newrelic.ObfuscationRuleArgs;
+     * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
+     *             .accountId(123456)
+     *             .name("The expression")
+     *             .build());
+     * 
+     *         var rule = new ObfuscationRule("rule", ObfuscationRuleArgs.builder()
+     *             .name("ruleName")
+     *             .description("description of the rule")
+     *             .filter("hostStatus=running")
+     *             .enabled(true)
+     *             .actions(ObfuscationRuleActionArgs.builder()
+     *                 .attributes("message")
+     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -> getObfuscationExpressionResult.id()))
+     *                 .method("MASK")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetObfuscationExpressionResult> getObfuscationExpression(GetObfuscationExpressionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2836,6 +3297,219 @@ public final class NewrelicFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * 
+     * ## Example Usage
+     * 
+     * Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.ServiceLevel;
+     * import com.pulumi.newrelic.ServiceLevelArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelEventsBadEventsArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowArgs;
+     * import com.pulumi.newrelic.inputs.ServiceLevelObjectiveTimeWindowRollingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooTarget = 99.9;
+     * 
+     *         final var fooPeriod = 28;
+     * 
+     *         var foo = new ServiceLevel("foo", ServiceLevelArgs.builder()
+     *             .guid("MXxBUE18QVBQTElDQVRJT058MQ")
+     *             .name("Latency")
+     *             .description("Proportion of requests that are served faster than a threshold.")
+     *             .events(ServiceLevelEventsArgs.builder()
+     *                 .accountId(12345678)
+     *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
+     *                     .from("Transaction")
+     *                     .where("appName = 'Example application' AND (transactionType='Web')")
+     *                     .build())
+     *                 .badEvents(ServiceLevelEventsBadEventsArgs.builder()
+     *                     .from("Transaction")
+     *                     .where("appName = 'Example application' AND (transactionType= 'Web') AND duration > 0.1")
+     *                     .build())
+     *                 .build())
+     *             .objective(ServiceLevelObjectiveArgs.builder()
+     *                 .target(fooTarget)
+     *                 .timeWindow(ServiceLevelObjectiveTimeWindowArgs.builder()
+     *                     .rolling(ServiceLevelObjectiveTimeWindowRollingArgs.builder()
+     *                         .count(fooPeriod)
+     *                         .unit("DAY")
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
+     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+     * 
+     * Here is an example of a `slow_burn` alert.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooSlowBurn = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType("slow_burn")
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
+     *             .isBadEvents(true)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type("static")
+     *             .name("Slow burn alert")
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator("above_or_equals")
+     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(900)
+     *                 .thresholdOccurrences("at_least_once")
+     *                 .build())
+     *             .fillOption("none")
+     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationMethod("event_flow")
+     *             .aggregationDelay(120)
+     *             .slideBy(900)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * Here is an example of a custom alert:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetServiceLevelAlertHelperArgs;
+     * import com.pulumi.newrelic.NrqlAlertCondition;
+     * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+     * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooCustom = NewrelicFunctions.getServiceLevelAlertHelper(GetServiceLevelAlertHelperArgs.builder()
+     *             .alertType("custom")
+     *             .sliGuid(foo.sliGuid())
+     *             .sloTarget(fooTarget)
+     *             .sloPeriod(fooPeriod)
+     *             .customToleratedBudgetConsumption(4)
+     *             .customEvaluationPeriod(5400)
+     *             .isBadEvents(true)
+     *             .build());
+     * 
+     *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
+     *             .accountId(12345678)
+     *             .policyId(67890)
+     *             .type("static")
+     *             .name("Custom burn alert")
+     *             .enabled(true)
+     *             .violationTimeLimitSeconds(259200)
+     *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .build())
+     *             .critical(NrqlAlertConditionCriticalArgs.builder()
+     *                 .operator("above_or_equals")
+     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .thresholdDuration(900)
+     *                 .thresholdOccurrences("at_least_once")
+     *                 .build())
+     *             .fillOption("none")
+     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationMethod("event_flow")
+     *             .aggregationDelay(120)
+     *             .slideBy(60)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceLevelAlertHelperResult> getServiceLevelAlertHelperPlain(GetServiceLevelAlertHelperPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
     }
@@ -2969,6 +3643,50 @@ public final class NewrelicFunctions {
      * 
      */
     public static Output<GetTestGrokPatternResult> getTestGrokPattern(GetTestGrokPatternArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getTestGrokPattern:getTestGrokPattern", TypeShape.of(GetTestGrokPatternResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
+     *             .grok("%{IP:host_ip}")
+     *             .logLines(            
+     *                 "host_ip: 43.3.120.2",
+     *                 "bytes_received: 2048")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTestGrokPatternResult> getTestGrokPattern(GetTestGrokPatternArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getTestGrokPattern:getTestGrokPattern", TypeShape.of(GetTestGrokPatternResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3175,6 +3893,60 @@ public final class NewrelicFunctions {
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The `newrelic.User` data source helps search for a user by their name and/or email ID, and accordingly, fetch the ID of the matching user.
+     * 
+     * ## Example Usage
+     * 
+     * The below example illustrates fetching a the ID of a user (and other arguments) using the ID of the authentication domain the user belongs to, as well as a name and/or email ID, which can be used as criteria to search for a user who matches these specified parameters.
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+     * import com.pulumi.newrelic.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+     *             .name("Test Authentication Domain")
+     *             .build());
+     * 
+     *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .name("Test User")
+     *             .build());
+     * 
+     *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
+     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .emailId("test_user}{@literal @}{@code random.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
