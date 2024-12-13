@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
 import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationPlainArgs;
@@ -382,6 +383,98 @@ public final class SyntheticsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPrivateLocationResult> getPrivateLocation(GetPrivateLocationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", TypeShape.of(GetPrivateLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+     * import com.pulumi.newrelic.synthetics.Monitor;
+     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
+     *             .name("My private location")
+     *             .build());
+     * 
+     *         var foo = new Monitor("foo", MonitorArgs.builder()
+     *             .locationsPrivates(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+     * import com.pulumi.newrelic.synthetics.StepMonitor;
+     * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
+     *             .name("My private location")
+     *             .build());
+     * 
+     *         var foo = new StepMonitor("foo", StepMonitorArgs.builder()
+     *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
+     *                 .guid(example.applyValue(getPrivateLocationResult -> getPrivateLocationResult.id()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPrivateLocationResult> getPrivateLocationPlain(GetPrivateLocationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:synthetics/getPrivateLocation:getPrivateLocation", TypeShape.of(GetPrivateLocationResult.class), args, Utilities.withVersion(options));
     }
@@ -515,6 +608,50 @@ public final class SyntheticsFunctions {
      * 
      */
     public static Output<GetSecureCredentialResult> getSecureCredential(GetSecureCredentialArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", TypeShape.of(GetSecureCredentialResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
+     * 
+     * Note that the secure credential&#39;s value is not returned as an attribute for security reasons.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = SyntheticsFunctions.getSecureCredential(GetSecureCredentialArgs.builder()
+     *             .key("MY_KEY")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSecureCredentialResult> getSecureCredential(GetSecureCredentialArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", TypeShape.of(GetSecureCredentialResult.class), args, Utilities.withVersion(options));
     }
     /**

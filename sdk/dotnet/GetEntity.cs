@@ -16,6 +16,9 @@ namespace Pulumi.NewRelic
 
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
 
 

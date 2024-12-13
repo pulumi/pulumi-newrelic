@@ -66,6 +66,34 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Output<GetTestGrokPatternResult> Invoke(GetTestGrokPatternInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetTestGrokPattern.Invoke(new()
+        ///     {
+        ///         Grok = "%{IP:host_ip}",
+        ///         LogLines = new[]
+        ///         {
+        ///             "host_ip: 43.3.120.2",
+        ///             "bytes_received: 2048",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTestGrokPatternResult> Invoke(GetTestGrokPatternInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -73,21 +73,11 @@ type GetTestGrokPatternResult struct {
 }
 
 func GetTestGrokPatternOutput(ctx *pulumi.Context, args GetTestGrokPatternOutputArgs, opts ...pulumi.InvokeOption) GetTestGrokPatternResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTestGrokPatternResultOutput, error) {
 			args := v.(GetTestGrokPatternArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetTestGrokPatternResult
-			secret, err := ctx.InvokePackageRaw("newrelic:index/getTestGrokPattern:getTestGrokPattern", args, &rv, "", opts...)
-			if err != nil {
-				return GetTestGrokPatternResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetTestGrokPatternResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetTestGrokPatternResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("newrelic:index/getTestGrokPattern:getTestGrokPattern", args, GetTestGrokPatternResultOutput{}, options).(GetTestGrokPatternResultOutput), nil
 		}).(GetTestGrokPatternResultOutput)
 }
 

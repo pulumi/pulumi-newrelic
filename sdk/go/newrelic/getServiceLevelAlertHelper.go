@@ -229,21 +229,11 @@ type GetServiceLevelAlertHelperResult struct {
 }
 
 func GetServiceLevelAlertHelperOutput(ctx *pulumi.Context, args GetServiceLevelAlertHelperOutputArgs, opts ...pulumi.InvokeOption) GetServiceLevelAlertHelperResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceLevelAlertHelperResultOutput, error) {
 			args := v.(GetServiceLevelAlertHelperArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServiceLevelAlertHelperResult
-			secret, err := ctx.InvokePackageRaw("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args, &rv, "", opts...)
-			if err != nil {
-				return GetServiceLevelAlertHelperResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServiceLevelAlertHelperResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServiceLevelAlertHelperResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args, GetServiceLevelAlertHelperResultOutput{}, options).(GetServiceLevelAlertHelperResultOutput), nil
 		}).(GetServiceLevelAlertHelperResultOutput)
 }
 

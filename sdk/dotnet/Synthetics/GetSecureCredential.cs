@@ -62,6 +62,32 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         public static Output<GetSecureCredentialResult> Invoke(GetSecureCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
+        /// 
+        /// Note that the secure credential's value is not returned as an attribute for security reasons.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.Synthetics.GetSecureCredential.Invoke(new()
+        ///     {
+        ///         Key = "MY_KEY",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecureCredentialResult> Invoke(GetSecureCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithDefaults());
     }
 
 
