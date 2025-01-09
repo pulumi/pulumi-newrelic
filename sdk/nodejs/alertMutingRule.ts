@@ -44,6 +44,7 @@ import * as utilities from "./utilities";
  *         ],
  *         repeatCount: 42,
  *     },
+ *     actionOnMutingRuleWindowEnded: "CLOSE_ISSUES_ON_INACTIVE",
  * });
  * ```
  *
@@ -88,6 +89,10 @@ export class AlertMutingRule extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     */
+    public readonly actionOnMutingRuleWindowEnded!: pulumi.Output<string>;
+    /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     public readonly condition!: pulumi.Output<outputs.AlertMutingRuleCondition>;
@@ -122,6 +127,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AlertMutingRuleState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["actionOnMutingRuleWindowEnded"] = state ? state.actionOnMutingRuleWindowEnded : undefined;
             resourceInputs["condition"] = state ? state.condition : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
@@ -136,6 +142,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'enabled'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["actionOnMutingRuleWindowEnded"] = args ? args.actionOnMutingRuleWindowEnded : undefined;
             resourceInputs["condition"] = args ? args.condition : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
@@ -155,6 +162,10 @@ export interface AlertMutingRuleState {
      * The account id of the MutingRule.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     */
+    actionOnMutingRuleWindowEnded?: pulumi.Input<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
@@ -185,6 +196,10 @@ export interface AlertMutingRuleArgs {
      * The account id of the MutingRule.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     */
+    actionOnMutingRuleWindowEnded?: pulumi.Input<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */

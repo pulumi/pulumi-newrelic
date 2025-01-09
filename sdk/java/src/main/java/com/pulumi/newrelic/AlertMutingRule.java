@@ -74,6 +74,7 @@ import javax.annotation.Nullable;
  *                     "FRIDAY")
  *                 .repeatCount(42)
  *                 .build())
+ *             .actionOnMutingRuleWindowEnded("CLOSE_ISSUES_ON_INACTIVE")
  *             .build());
  * 
  *     }
@@ -106,6 +107,20 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> accountId() {
         return this.accountId;
+    }
+    /**
+     * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     * 
+     */
+    @Export(name="actionOnMutingRuleWindowEnded", refs={String.class}, tree="[0]")
+    private Output<String> actionOnMutingRuleWindowEnded;
+
+    /**
+     * @return The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     * 
+     */
+    public Output<String> actionOnMutingRuleWindowEnded() {
+        return this.actionOnMutingRuleWindowEnded;
     }
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
