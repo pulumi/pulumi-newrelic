@@ -61,6 +61,7 @@ import (
 //					},
 //					RepeatCount: pulumi.Int(42),
 //				},
+//				ActionOnMutingRuleWindowEnded: pulumi.String("CLOSE_ISSUES_ON_INACTIVE"),
 //			})
 //			if err != nil {
 //				return err
@@ -83,6 +84,8 @@ type AlertMutingRule struct {
 
 	// The account id of the MutingRule.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+	ActionOnMutingRuleWindowEnded pulumi.StringOutput `pulumi:"actionOnMutingRuleWindowEnded"`
 	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleConditionOutput `pulumi:"condition"`
 	// The description of the MutingRule.
@@ -133,6 +136,8 @@ func GetAlertMutingRule(ctx *pulumi.Context,
 type alertMutingRuleState struct {
 	// The account id of the MutingRule.
 	AccountId *string `pulumi:"accountId"`
+	// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+	ActionOnMutingRuleWindowEnded *string `pulumi:"actionOnMutingRuleWindowEnded"`
 	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition *AlertMutingRuleCondition `pulumi:"condition"`
 	// The description of the MutingRule.
@@ -148,6 +153,8 @@ type alertMutingRuleState struct {
 type AlertMutingRuleState struct {
 	// The account id of the MutingRule.
 	AccountId pulumi.StringPtrInput
+	// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+	ActionOnMutingRuleWindowEnded pulumi.StringPtrInput
 	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleConditionPtrInput
 	// The description of the MutingRule.
@@ -167,6 +174,8 @@ func (AlertMutingRuleState) ElementType() reflect.Type {
 type alertMutingRuleArgs struct {
 	// The account id of the MutingRule.
 	AccountId *string `pulumi:"accountId"`
+	// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+	ActionOnMutingRuleWindowEnded *string `pulumi:"actionOnMutingRuleWindowEnded"`
 	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleCondition `pulumi:"condition"`
 	// The description of the MutingRule.
@@ -183,6 +192,8 @@ type alertMutingRuleArgs struct {
 type AlertMutingRuleArgs struct {
 	// The account id of the MutingRule.
 	AccountId pulumi.StringPtrInput
+	// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+	ActionOnMutingRuleWindowEnded pulumi.StringPtrInput
 	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleConditionInput
 	// The description of the MutingRule.
@@ -285,6 +296,11 @@ func (o AlertMutingRuleOutput) ToAlertMutingRuleOutputWithContext(ctx context.Co
 // The account id of the MutingRule.
 func (o AlertMutingRuleOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertMutingRule) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+func (o AlertMutingRuleOutput) ActionOnMutingRuleWindowEnded() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertMutingRule) pulumi.StringOutput { return v.ActionOnMutingRuleWindowEnded }).(pulumi.StringOutput)
 }
 
 // The condition that defines which incidents to target. See Nested condition blocks below for details.

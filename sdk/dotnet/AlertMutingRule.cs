@@ -64,6 +64,7 @@ namespace Pulumi.NewRelic
     ///             },
     ///             RepeatCount = 42,
     ///         },
+    ///         ActionOnMutingRuleWindowEnded = "CLOSE_ISSUES_ON_INACTIVE",
     ///     });
     /// 
     /// });
@@ -85,6 +86,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+        /// </summary>
+        [Output("actionOnMutingRuleWindowEnded")]
+        public Output<string> ActionOnMutingRuleWindowEnded { get; private set; } = null!;
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.
@@ -169,6 +176,12 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+        /// </summary>
+        [Input("actionOnMutingRuleWindowEnded")]
+        public Input<string>? ActionOnMutingRuleWindowEnded { get; set; }
+
+        /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Input("condition", required: true)]
@@ -211,6 +224,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+        /// </summary>
+        [Input("actionOnMutingRuleWindowEnded")]
+        public Input<string>? ActionOnMutingRuleWindowEnded { get; set; }
 
         /// <summary>
         /// The condition that defines which incidents to target. See Nested condition blocks below for details.

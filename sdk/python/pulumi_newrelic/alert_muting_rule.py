@@ -24,6 +24,7 @@ class AlertMutingRuleArgs:
                  condition: pulumi.Input['AlertMutingRuleConditionArgs'],
                  enabled: pulumi.Input[bool],
                  account_id: Optional[pulumi.Input[str]] = None,
+                 action_on_muting_rule_window_ended: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
@@ -32,6 +33,7 @@ class AlertMutingRuleArgs:
         :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] account_id: The account id of the MutingRule.
+        :param pulumi.Input[str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[str] name: The name of the MutingRule.
         :param pulumi.Input['AlertMutingRuleScheduleArgs'] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
@@ -40,6 +42,8 @@ class AlertMutingRuleArgs:
         pulumi.set(__self__, "enabled", enabled)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if action_on_muting_rule_window_ended is not None:
+            pulumi.set(__self__, "action_on_muting_rule_window_ended", action_on_muting_rule_window_ended)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -84,6 +88,18 @@ class AlertMutingRuleArgs:
         pulumi.set(self, "account_id", value)
 
     @property
+    @pulumi.getter(name="actionOnMutingRuleWindowEnded")
+    def action_on_muting_rule_window_ended(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+        """
+        return pulumi.get(self, "action_on_muting_rule_window_ended")
+
+    @action_on_muting_rule_window_ended.setter
+    def action_on_muting_rule_window_ended(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action_on_muting_rule_window_ended", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -124,6 +140,7 @@ class AlertMutingRuleArgs:
 class _AlertMutingRuleState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 action_on_muting_rule_window_ended: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input['AlertMutingRuleConditionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -132,6 +149,7 @@ class _AlertMutingRuleState:
         """
         Input properties used for looking up and filtering AlertMutingRule resources.
         :param pulumi.Input[str] account_id: The account id of the MutingRule.
+        :param pulumi.Input[str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
         :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
@@ -140,6 +158,8 @@ class _AlertMutingRuleState:
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if action_on_muting_rule_window_ended is not None:
+            pulumi.set(__self__, "action_on_muting_rule_window_ended", action_on_muting_rule_window_ended)
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
         if description is not None:
@@ -162,6 +182,18 @@ class _AlertMutingRuleState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="actionOnMutingRuleWindowEnded")
+    def action_on_muting_rule_window_ended(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+        """
+        return pulumi.get(self, "action_on_muting_rule_window_ended")
+
+    @action_on_muting_rule_window_ended.setter
+    def action_on_muting_rule_window_ended(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action_on_muting_rule_window_ended", value)
 
     @property
     @pulumi.getter
@@ -230,6 +262,7 @@ class AlertMutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 action_on_muting_rule_window_ended: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -273,7 +306,8 @@ class AlertMutingRule(pulumi.CustomResource):
                     "FRIDAY",
                 ],
                 "repeat_count": 42,
-            })
+            },
+            action_on_muting_rule_window_ended="CLOSE_ISSUES_ON_INACTIVE")
         ```
 
         ## Import
@@ -287,6 +321,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account id of the MutingRule.
+        :param pulumi.Input[str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
         :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
@@ -336,7 +371,8 @@ class AlertMutingRule(pulumi.CustomResource):
                     "FRIDAY",
                 ],
                 "repeat_count": 42,
-            })
+            },
+            action_on_muting_rule_window_ended="CLOSE_ISSUES_ON_INACTIVE")
         ```
 
         ## Import
@@ -363,6 +399,7 @@ class AlertMutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 action_on_muting_rule_window_ended: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -378,6 +415,7 @@ class AlertMutingRule(pulumi.CustomResource):
             __props__ = AlertMutingRuleArgs.__new__(AlertMutingRuleArgs)
 
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["action_on_muting_rule_window_ended"] = action_on_muting_rule_window_ended
             if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")
             __props__.__dict__["condition"] = condition
@@ -398,6 +436,7 @@ class AlertMutingRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
+            action_on_muting_rule_window_ended: Optional[pulumi.Input[str]] = None,
             condition: Optional[pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -411,6 +450,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account id of the MutingRule.
+        :param pulumi.Input[str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
         :param pulumi.Input[Union['AlertMutingRuleConditionArgs', 'AlertMutingRuleConditionArgsDict']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
@@ -422,6 +462,7 @@ class AlertMutingRule(pulumi.CustomResource):
         __props__ = _AlertMutingRuleState.__new__(_AlertMutingRuleState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["action_on_muting_rule_window_ended"] = action_on_muting_rule_window_ended
         __props__.__dict__["condition"] = condition
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
@@ -436,6 +477,14 @@ class AlertMutingRule(pulumi.CustomResource):
         The account id of the MutingRule.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="actionOnMutingRuleWindowEnded")
+    def action_on_muting_rule_window_ended(self) -> pulumi.Output[str]:
+        """
+        The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+        """
+        return pulumi.get(self, "action_on_muting_rule_window_ended")
 
     @property
     @pulumi.getter

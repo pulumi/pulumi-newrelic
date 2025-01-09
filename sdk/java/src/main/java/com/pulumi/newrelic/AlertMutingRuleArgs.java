@@ -35,6 +35,21 @@ public final class AlertMutingRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     * 
+     */
+    @Import(name="actionOnMutingRuleWindowEnded")
+    private @Nullable Output<String> actionOnMutingRuleWindowEnded;
+
+    /**
+     * @return The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+     * 
+     */
+    public Optional<Output<String>> actionOnMutingRuleWindowEnded() {
+        return Optional.ofNullable(this.actionOnMutingRuleWindowEnded);
+    }
+
+    /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
@@ -113,6 +128,7 @@ public final class AlertMutingRuleArgs extends com.pulumi.resources.ResourceArgs
 
     private AlertMutingRuleArgs(AlertMutingRuleArgs $) {
         this.accountId = $.accountId;
+        this.actionOnMutingRuleWindowEnded = $.actionOnMutingRuleWindowEnded;
         this.condition = $.condition;
         this.description = $.description;
         this.enabled = $.enabled;
@@ -157,6 +173,27 @@ public final class AlertMutingRuleArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param actionOnMutingRuleWindowEnded The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionOnMutingRuleWindowEnded(@Nullable Output<String> actionOnMutingRuleWindowEnded) {
+            $.actionOnMutingRuleWindowEnded = actionOnMutingRuleWindowEnded;
+            return this;
+        }
+
+        /**
+         * @param actionOnMutingRuleWindowEnded The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionOnMutingRuleWindowEnded(String actionOnMutingRuleWindowEnded) {
+            return actionOnMutingRuleWindowEnded(Output.of(actionOnMutingRuleWindowEnded));
         }
 
         /**
