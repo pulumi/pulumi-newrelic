@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionNrql {
     /**
-     * @return BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
      * 
      */
     private @Nullable String dataAccountId;
@@ -40,7 +40,7 @@ public final class NrqlAlertConditionNrql {
 
     private NrqlAlertConditionNrql() {}
     /**
-     * @return BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
      * 
      */
     public Optional<String> dataAccountId() {

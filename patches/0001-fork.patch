@@ -5,7 +5,7 @@ Subject: [PATCH] fork
 
 
 diff --git a/newrelic/resource_newrelic_nrql_alert_condition.go b/newrelic/resource_newrelic_nrql_alert_condition.go
-index b3d5be77..cb14292f 100644
+index 1d0e207b..a0b2a92a 100644
 --- a/newrelic/resource_newrelic_nrql_alert_condition.go
 +++ b/newrelic/resource_newrelic_nrql_alert_condition.go
 @@ -179,14 +179,13 @@ func resourceNewRelicNrqlAlertCondition() *schema.Resource {
@@ -399,7 +399,7 @@ index d19049a5..d6522327 100644
  ## Example Usage
  
 diff --git a/website/docs/r/nrql_alert_condition.html.markdown b/website/docs/r/nrql_alert_condition.html.markdown
-index c2fd6def..ab28d085 100644
+index 7009ad03..9e415de6 100644
 --- a/website/docs/r/nrql_alert_condition.html.markdown
 +++ b/website/docs/r/nrql_alert_condition.html.markdown
 @@ -10,13 +10,10 @@ description: |-
