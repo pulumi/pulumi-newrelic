@@ -2042,7 +2042,7 @@ if not MYPY:
         query: pulumi.Input[str]
         data_account_id: NotRequired[pulumi.Input[str]]
         """
-        BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
         """
         evaluation_offset: NotRequired[pulumi.Input[int]]
         """
@@ -2063,7 +2063,7 @@ class NrqlAlertConditionNrqlArgs:
                  evaluation_offset: Optional[pulumi.Input[int]] = None,
                  since_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] data_account_id: BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        :param pulumi.Input[str] data_account_id: The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
         :param pulumi.Input[int] evaluation_offset: NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
         :param pulumi.Input[str] since_value: NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
         """
@@ -2094,7 +2094,7 @@ class NrqlAlertConditionNrqlArgs:
     @pulumi.getter(name="dataAccountId")
     def data_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
         """
         return pulumi.get(self, "data_account_id")
 

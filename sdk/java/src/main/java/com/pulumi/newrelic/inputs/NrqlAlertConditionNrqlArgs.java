@@ -18,14 +18,14 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     public static final NrqlAlertConditionNrqlArgs Empty = new NrqlAlertConditionNrqlArgs();
 
     /**
-     * BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
      * 
      */
     @Import(name="dataAccountId")
     private @Nullable Output<String> dataAccountId;
 
     /**
-     * @return BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
      * 
      */
     public Optional<Output<String>> dataAccountId() {
@@ -113,7 +113,7 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataAccountId BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+         * @param dataAccountId The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataAccountId BETA PREVIEW: the `data_account_id` field is in limited release and only enabled for preview on a per-account basis. - The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+         * @param dataAccountId The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
          * 
          * @return builder
          * 

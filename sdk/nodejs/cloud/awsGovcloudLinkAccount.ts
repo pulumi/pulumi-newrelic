@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
  *
- * Use this resource to link an AWSGovCloud account to New Relic.
+ * Use this resource to link an AWS GovCloud account to New Relic.
  *
  * ## Prerequisite
  *
@@ -24,18 +24,18 @@ import * as utilities from "../utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.cloud.AwsGovcloudLinkAccount("foo", {
- *     accountId: "The New Relic account ID where you want to link the AWS GovCloud account",
- *     accessKeyId: "access-key-id of aws govcloud account",
- *     awsAccountId: "aws govcloud account id",
- *     metricCollectionMode: "PULL",
- *     name: "account name",
- *     secretAccessKey: "secret access key of the aws govcloud account",
+ *     accountId: "1234567",
+ *     name: "My New Relic - AWS GovCloud Linked Account",
+ *     metricCollectionMode: "PUSH",
+ *     awsAccountId: "<Your AWS GovCloud Account's ID>",
+ *     accessKeyId: "<Your AWS GovCloud Account's Access Key ID>",
+ *     secretAccessKey: "<Your AWS GovCloud Account's Secret Access Key>",
  * });
  * ```
  *
  * ## Import
  *
- * Linked AWSGovCloud accounts can be imported using the `id`, e.g.
+ * Linked AWS GovCloud accounts can be imported using the `id`, e.g.
  *
  * bash
  *
@@ -72,7 +72,7 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The access key of the AwsGovCloud.
+     * The Access Key used to programmatically access the AWS GovCloud account.
      */
     public readonly accessKeyId!: pulumi.Output<string>;
     /**
@@ -80,19 +80,20 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The AwsGovCloud account ID.
+     * The ID of the AWS GovCloud account.
      */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
-     * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
+     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
+     * - Note: Altering the `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      */
     public readonly metricCollectionMode!: pulumi.Output<string | undefined>;
     /**
-     * The linked account name
+     * The name/identifier of the AWS GovCloud - New Relic 'linked' account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The secret key of the AwsGovCloud.
+     * The Secret Access Key used to programmatically access the AWS GovCloud account.
      */
     public readonly secretAccessKey!: pulumi.Output<string>;
 
@@ -145,7 +146,7 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
  */
 export interface AwsGovcloudLinkAccountState {
     /**
-     * The access key of the AwsGovCloud.
+     * The Access Key used to programmatically access the AWS GovCloud account.
      */
     accessKeyId?: pulumi.Input<string>;
     /**
@@ -153,19 +154,20 @@ export interface AwsGovcloudLinkAccountState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The AwsGovCloud account ID.
+     * The ID of the AWS GovCloud account.
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
+     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
+     * - Note: Altering the `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The linked account name
+     * The name/identifier of the AWS GovCloud - New Relic 'linked' account.
      */
     name?: pulumi.Input<string>;
     /**
-     * The secret key of the AwsGovCloud.
+     * The Secret Access Key used to programmatically access the AWS GovCloud account.
      */
     secretAccessKey?: pulumi.Input<string>;
 }
@@ -175,7 +177,7 @@ export interface AwsGovcloudLinkAccountState {
  */
 export interface AwsGovcloudLinkAccountArgs {
     /**
-     * The access key of the AwsGovCloud.
+     * The Access Key used to programmatically access the AWS GovCloud account.
      */
     accessKeyId: pulumi.Input<string>;
     /**
@@ -183,19 +185,20 @@ export interface AwsGovcloudLinkAccountArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The AwsGovCloud account ID.
+     * The ID of the AWS GovCloud account.
      */
     awsAccountId: pulumi.Input<string>;
     /**
-     * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
+     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
+     * - Note: Altering the `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The linked account name
+     * The name/identifier of the AWS GovCloud - New Relic 'linked' account.
      */
     name?: pulumi.Input<string>;
     /**
-     * The secret key of the AwsGovCloud.
+     * The Secret Access Key used to programmatically access the AWS GovCloud account.
      */
     secretAccessKey: pulumi.Input<string>;
 }
