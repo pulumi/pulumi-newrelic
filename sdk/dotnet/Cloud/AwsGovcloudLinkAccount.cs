@@ -10,17 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
-    /// &gt; **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
-    /// 
     /// Use this resource to link an AWS GovCloud account to New Relic.
     /// 
     /// ## Prerequisite
     /// 
-    /// Obtain the AwsGovCloud account designed to address the specific regulatory needs of United States (federal, state, and local agencies), education institutions, and the supporting ecosystem.
+    /// To link an AWS GovCloud account to New Relic, you need an AWS GovCloud account. AWS GovCloud is designed to address the specific regulatory needs of United States federal, state, and local agencies, educational institutions, and their supporting ecosystem. It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
     /// 
-    /// It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
-    /// 
-    /// To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-govcloud-new-relic).
+    /// To pull data from AWS GovCloud, follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-govcloud-new-relic).
     /// 
     /// ## Example Usage
     /// 
@@ -37,9 +33,7 @@ namespace Pulumi.NewRelic.Cloud
     ///         AccountId = "1234567",
     ///         Name = "My New Relic - AWS GovCloud Linked Account",
     ///         MetricCollectionMode = "PUSH",
-    ///         AwsAccountId = "&lt;Your AWS GovCloud Account's ID&gt;",
-    ///         AccessKeyId = "&lt;Your AWS GovCloud Account's Access Key ID&gt;",
-    ///         SecretAccessKey = "&lt;Your AWS GovCloud Account's Secret Access Key&gt;",
+    ///         Arn = "arn:aws:service:region:account-id:resource-id",
     ///     });
     /// 
     /// });
@@ -59,26 +53,22 @@ namespace Pulumi.NewRelic.Cloud
     public partial class AwsGovcloudLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Access Key used to programmatically access the AWS GovCloud account.
-        /// </summary>
-        [Output("accessKeyId")]
-        public Output<string> AccessKeyId { get; private set; } = null!;
-
-        /// <summary>
-        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS GovCloud account.
+        /// The Amazon Resource Name (ARN) of the IAM role.
+        /// 
+        /// &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
         /// </summary>
-        [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-        /// - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+        /// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+        /// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
         /// </summary>
         [Output("metricCollectionMode")]
         public Output<string?> MetricCollectionMode { get; private set; } = null!;
@@ -88,12 +78,6 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The Secret Access Key used to programmatically access the AWS GovCloud account.
-        /// </summary>
-        [Output("secretAccessKey")]
-        public Output<string> SecretAccessKey { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,11 +102,6 @@ namespace Pulumi.NewRelic.Cloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "accessKeyId",
-                    "secretAccessKey",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -146,37 +125,23 @@ namespace Pulumi.NewRelic.Cloud
 
     public sealed class AwsGovcloudLinkAccountArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accessKeyId", required: true)]
-        private Input<string>? _accessKeyId;
-
         /// <summary>
-        /// The Access Key used to programmatically access the AWS GovCloud account.
-        /// </summary>
-        public Input<string>? AccessKeyId
-        {
-            get => _accessKeyId;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _accessKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        /// <summary>
-        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ID of the AWS GovCloud account.
+        /// The Amazon Resource Name (ARN) of the IAM role.
+        /// 
+        /// &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
         /// </summary>
-        [Input("awsAccountId", required: true)]
-        public Input<string> AwsAccountId { get; set; } = null!;
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-        /// - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+        /// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+        /// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
         /// </summary>
         [Input("metricCollectionMode")]
         public Input<string>? MetricCollectionMode { get; set; }
@@ -186,22 +151,6 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("secretAccessKey", required: true)]
-        private Input<string>? _secretAccessKey;
-
-        /// <summary>
-        /// The Secret Access Key used to programmatically access the AWS GovCloud account.
-        /// </summary>
-        public Input<string>? SecretAccessKey
-        {
-            get => _secretAccessKey;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
 
         public AwsGovcloudLinkAccountArgs()
         {
@@ -211,37 +160,23 @@ namespace Pulumi.NewRelic.Cloud
 
     public sealed class AwsGovcloudLinkAccountState : global::Pulumi.ResourceArgs
     {
-        [Input("accessKeyId")]
-        private Input<string>? _accessKeyId;
-
         /// <summary>
-        /// The Access Key used to programmatically access the AWS GovCloud account.
-        /// </summary>
-        public Input<string>? AccessKeyId
-        {
-            get => _accessKeyId;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _accessKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        /// <summary>
-        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ID of the AWS GovCloud account.
+        /// The Amazon Resource Name (ARN) of the IAM role.
+        /// 
+        /// &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
         /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-        /// - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+        /// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+        /// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
         /// </summary>
         [Input("metricCollectionMode")]
         public Input<string>? MetricCollectionMode { get; set; }
@@ -251,22 +186,6 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("secretAccessKey")]
-        private Input<string>? _secretAccessKey;
-
-        /// <summary>
-        /// The Secret Access Key used to programmatically access the AWS GovCloud account.
-        /// </summary>
-        public Input<string>? SecretAccessKey
-        {
-            get => _secretAccessKey;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
 
         public AwsGovcloudLinkAccountState()
         {
