@@ -11,22 +11,17 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.AwsGovcloudLinkAccountArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsGovcloudLinkAccountState;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
- * 
  * Use this resource to link an AWS GovCloud account to New Relic.
  * 
  * ## Prerequisite
  * 
- * Obtain the AwsGovCloud account designed to address the specific regulatory needs of United States (federal, state, and local agencies), education institutions, and the supporting ecosystem.
+ * To link an AWS GovCloud account to New Relic, you need an AWS GovCloud account. AWS GovCloud is designed to address the specific regulatory needs of United States federal, state, and local agencies, educational institutions, and their supporting ecosystem. It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
  * 
- * It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
- * 
- * To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-govcloud-new-relic).
+ * To pull data from AWS GovCloud, follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-govcloud-new-relic).
  * 
  * ## Example Usage
  * 
@@ -57,9 +52,7 @@ import javax.annotation.Nullable;
  *             .accountId(1234567)
  *             .name("My New Relic - AWS GovCloud Linked Account")
  *             .metricCollectionMode("PUSH")
- *             .awsAccountId("<Your AWS GovCloud Account's ID>")
- *             .accessKeyId("<Your AWS GovCloud Account's Access Key ID>")
- *             .secretAccessKey("<Your AWS GovCloud Account's Secret Access Key>")
+ *             .arn("arn:aws:service:region:account-id:resource-id")
  *             .build());
  * 
  *     }
@@ -82,58 +75,48 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount")
 public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    @Export(name="accessKeyId", refs={String.class}, tree="[0]")
-    private Output<String> accessKeyId;
-
-    /**
-     * @return The Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    public Output<String> accessKeyId() {
-        return this.accessKeyId;
-    }
-    /**
-     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The ID of the AWS GovCloud account.
+     * The Amazon Resource Name (ARN) of the IAM role.
+     * 
+     * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      * 
      */
-    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
 
     /**
-     * @return The ID of the AWS GovCloud account.
+     * @return The Amazon Resource Name (ARN) of the IAM role.
+     * 
+     * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
-     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-     * - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+     * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      * 
      */
     @Export(name="metricCollectionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricCollectionMode;
 
     /**
-     * @return The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-     * - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+     * @return The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+     * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      * 
      */
     public Output<Optional<String>> metricCollectionMode() {
@@ -152,20 +135,6 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
      */
     public Output<String> name() {
         return this.name;
-    }
-    /**
-     * The Secret Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
-    private Output<String> secretAccessKey;
-
-    /**
-     * @return The Secret Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    public Output<String> secretAccessKey() {
-        return this.secretAccessKey;
     }
 
     /**
@@ -207,10 +176,6 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "accessKeyId",
-                "secretAccessKey"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

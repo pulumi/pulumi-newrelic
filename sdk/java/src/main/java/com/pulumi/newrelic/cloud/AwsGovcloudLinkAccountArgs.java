@@ -17,29 +17,14 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
     public static final AwsGovcloudLinkAccountArgs Empty = new AwsGovcloudLinkAccountArgs();
 
     /**
-     * The Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    @Import(name="accessKeyId", required=true)
-    private Output<String> accessKeyId;
-
-    /**
-     * @return The Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    public Output<String> accessKeyId() {
-        return this.accessKeyId;
-    }
-
-    /**
-     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -47,31 +32,35 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the AWS GovCloud account.
+     * The Amazon Resource Name (ARN) of the IAM role.
+     * 
+     * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      * 
      */
-    @Import(name="awsAccountId", required=true)
-    private Output<String> awsAccountId;
+    @Import(name="arn", required=true)
+    private Output<String> arn;
 
     /**
-     * @return The ID of the AWS GovCloud account.
+     * @return The Amazon Resource Name (ARN) of the IAM role.
+     * 
+     * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<String> arn() {
+        return this.arn;
     }
 
     /**
-     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-     * - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+     * The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+     * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      * 
      */
     @Import(name="metricCollectionMode")
     private @Nullable Output<String> metricCollectionMode;
 
     /**
-     * @return The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-     * - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+     * @return The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+     * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      * 
      */
     public Optional<Output<String>> metricCollectionMode() {
@@ -93,30 +82,13 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The Secret Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    @Import(name="secretAccessKey", required=true)
-    private Output<String> secretAccessKey;
-
-    /**
-     * @return The Secret Access Key used to programmatically access the AWS GovCloud account.
-     * 
-     */
-    public Output<String> secretAccessKey() {
-        return this.secretAccessKey;
-    }
-
     private AwsGovcloudLinkAccountArgs() {}
 
     private AwsGovcloudLinkAccountArgs(AwsGovcloudLinkAccountArgs $) {
-        this.accessKeyId = $.accessKeyId;
         this.accountId = $.accountId;
-        this.awsAccountId = $.awsAccountId;
+        this.arn = $.arn;
         this.metricCollectionMode = $.metricCollectionMode;
         this.name = $.name;
-        this.secretAccessKey = $.secretAccessKey;
     }
 
     public static Builder builder() {
@@ -138,28 +110,7 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accessKeyId The Access Key used to programmatically access the AWS GovCloud account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accessKeyId(Output<String> accessKeyId) {
-            $.accessKeyId = accessKeyId;
-            return this;
-        }
-
-        /**
-         * @param accessKeyId The Access Key used to programmatically access the AWS GovCloud account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accessKeyId(String accessKeyId) {
-            return accessKeyId(Output.of(accessKeyId));
-        }
-
-        /**
-         * @param accountId The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
          * 
          * @return builder
          * 
@@ -170,7 +121,7 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
          * 
          * @return builder
          * 
@@ -180,29 +131,33 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param awsAccountId The ID of the AWS GovCloud account.
+         * @param arn The Amazon Resource Name (ARN) of the IAM role.
+         * 
+         * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
          * 
          * @return builder
          * 
          */
-        public Builder awsAccountId(Output<String> awsAccountId) {
-            $.awsAccountId = awsAccountId;
+        public Builder arn(Output<String> arn) {
+            $.arn = arn;
             return this;
         }
 
         /**
-         * @param awsAccountId The ID of the AWS GovCloud account.
+         * @param arn The Amazon Resource Name (ARN) of the IAM role.
+         * 
+         * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
          * 
          * @return builder
          * 
          */
-        public Builder awsAccountId(String awsAccountId) {
-            return awsAccountId(Output.of(awsAccountId));
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
-         * @param metricCollectionMode The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-         * - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+         * @param metricCollectionMode The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+         * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
          * 
          * @return builder
          * 
@@ -213,8 +168,8 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metricCollectionMode The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-         * - Note: Altering the `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+         * @param metricCollectionMode The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+         * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
          * 
          * @return builder
          * 
@@ -244,36 +199,9 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
             return name(Output.of(name));
         }
 
-        /**
-         * @param secretAccessKey The Secret Access Key used to programmatically access the AWS GovCloud account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder secretAccessKey(Output<String> secretAccessKey) {
-            $.secretAccessKey = secretAccessKey;
-            return this;
-        }
-
-        /**
-         * @param secretAccessKey The Secret Access Key used to programmatically access the AWS GovCloud account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder secretAccessKey(String secretAccessKey) {
-            return secretAccessKey(Output.of(secretAccessKey));
-        }
-
         public AwsGovcloudLinkAccountArgs build() {
-            if ($.accessKeyId == null) {
-                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "accessKeyId");
-            }
-            if ($.awsAccountId == null) {
-                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "awsAccountId");
-            }
-            if ($.secretAccessKey == null) {
-                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "secretAccessKey");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("AwsGovcloudLinkAccountArgs", "arn");
             }
             return $;
         }

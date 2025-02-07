@@ -12,17 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.
-//
 // Use this resource to link an AWS GovCloud account to New Relic.
 //
 // ## Prerequisite
 //
-// Obtain the AwsGovCloud account designed to address the specific regulatory needs of United States (federal, state, and local agencies), education institutions, and the supporting ecosystem.
+// To link an AWS GovCloud account to New Relic, you need an AWS GovCloud account. AWS GovCloud is designed to address the specific regulatory needs of United States federal, state, and local agencies, educational institutions, and their supporting ecosystem. It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
 //
-// It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
-//
-// To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-govcloud-new-relic).
+// To pull data from AWS GovCloud, follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-govcloud-new-relic).
 //
 // ## Example Usage
 //
@@ -42,9 +38,7 @@ import (
 //				AccountId:            pulumi.String("1234567"),
 //				Name:                 pulumi.String("My New Relic - AWS GovCloud Linked Account"),
 //				MetricCollectionMode: pulumi.String("PUSH"),
-//				AwsAccountId:         pulumi.String("<Your AWS GovCloud Account's ID>"),
-//				AccessKeyId:          pulumi.String("<Your AWS GovCloud Account's Access Key ID>"),
-//				SecretAccessKey:      pulumi.String("<Your AWS GovCloud Account's Secret Access Key>"),
+//				Arn:                  pulumi.String("arn:aws:service:region:account-id:resource-id"),
 //			})
 //			if err != nil {
 //				return err
@@ -67,19 +61,17 @@ import (
 type AwsGovcloudLinkAccount struct {
 	pulumi.CustomResourceState
 
-	// The Access Key used to programmatically access the AWS GovCloud account.
-	AccessKeyId pulumi.StringOutput `pulumi:"accessKeyId"`
-	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The ID of the AWS GovCloud account.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-	// - Note: Altering the `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	// The Amazon Resource Name (ARN) of the IAM role.
+	//
+	// > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+	// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
 	MetricCollectionMode pulumi.StringPtrOutput `pulumi:"metricCollectionMode"`
 	// The name/identifier of the AWS GovCloud - New Relic 'linked' account.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Secret Access Key used to programmatically access the AWS GovCloud account.
-	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
 }
 
 // NewAwsGovcloudLinkAccount registers a new resource with the given unique name, arguments, and options.
@@ -89,26 +81,9 @@ func NewAwsGovcloudLinkAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccessKeyId == nil {
-		return nil, errors.New("invalid value for required argument 'AccessKeyId'")
+	if args.Arn == nil {
+		return nil, errors.New("invalid value for required argument 'Arn'")
 	}
-	if args.AwsAccountId == nil {
-		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
-	}
-	if args.SecretAccessKey == nil {
-		return nil, errors.New("invalid value for required argument 'SecretAccessKey'")
-	}
-	if args.AccessKeyId != nil {
-		args.AccessKeyId = pulumi.ToSecret(args.AccessKeyId).(pulumi.StringInput)
-	}
-	if args.SecretAccessKey != nil {
-		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringInput)
-	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"accessKeyId",
-		"secretAccessKey",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AwsGovcloudLinkAccount
 	err := ctx.RegisterResource("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, args, &resource, opts...)
@@ -132,35 +107,31 @@ func GetAwsGovcloudLinkAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AwsGovcloudLinkAccount resources.
 type awsGovcloudLinkAccountState struct {
-	// The Access Key used to programmatically access the AWS GovCloud account.
-	AccessKeyId *string `pulumi:"accessKeyId"`
-	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 	AccountId *string `pulumi:"accountId"`
-	// The ID of the AWS GovCloud account.
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-	// - Note: Altering the `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	// The Amazon Resource Name (ARN) of the IAM role.
+	//
+	// > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	Arn *string `pulumi:"arn"`
+	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+	// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
 	// The name/identifier of the AWS GovCloud - New Relic 'linked' account.
 	Name *string `pulumi:"name"`
-	// The Secret Access Key used to programmatically access the AWS GovCloud account.
-	SecretAccessKey *string `pulumi:"secretAccessKey"`
 }
 
 type AwsGovcloudLinkAccountState struct {
-	// The Access Key used to programmatically access the AWS GovCloud account.
-	AccessKeyId pulumi.StringPtrInput
-	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 	AccountId pulumi.StringPtrInput
-	// The ID of the AWS GovCloud account.
-	AwsAccountId pulumi.StringPtrInput
-	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-	// - Note: Altering the `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	// The Amazon Resource Name (ARN) of the IAM role.
+	//
+	// > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	Arn pulumi.StringPtrInput
+	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+	// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
 	MetricCollectionMode pulumi.StringPtrInput
 	// The name/identifier of the AWS GovCloud - New Relic 'linked' account.
 	Name pulumi.StringPtrInput
-	// The Secret Access Key used to programmatically access the AWS GovCloud account.
-	SecretAccessKey pulumi.StringPtrInput
 }
 
 func (AwsGovcloudLinkAccountState) ElementType() reflect.Type {
@@ -168,36 +139,32 @@ func (AwsGovcloudLinkAccountState) ElementType() reflect.Type {
 }
 
 type awsGovcloudLinkAccountArgs struct {
-	// The Access Key used to programmatically access the AWS GovCloud account.
-	AccessKeyId string `pulumi:"accessKeyId"`
-	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 	AccountId *string `pulumi:"accountId"`
-	// The ID of the AWS GovCloud account.
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-	// - Note: Altering the `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	// The Amazon Resource Name (ARN) of the IAM role.
+	//
+	// > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	Arn string `pulumi:"arn"`
+	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+	// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
 	// The name/identifier of the AWS GovCloud - New Relic 'linked' account.
 	Name *string `pulumi:"name"`
-	// The Secret Access Key used to programmatically access the AWS GovCloud account.
-	SecretAccessKey string `pulumi:"secretAccessKey"`
 }
 
 // The set of arguments for constructing a AwsGovcloudLinkAccount resource.
 type AwsGovcloudLinkAccountArgs struct {
-	// The Access Key used to programmatically access the AWS GovCloud account.
-	AccessKeyId pulumi.StringInput
-	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 	AccountId pulumi.StringPtrInput
-	// The ID of the AWS GovCloud account.
-	AwsAccountId pulumi.StringInput
-	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-	// - Note: Altering the `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	// The Amazon Resource Name (ARN) of the IAM role.
+	//
+	// > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+	Arn pulumi.StringInput
+	// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+	// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
 	MetricCollectionMode pulumi.StringPtrInput
 	// The name/identifier of the AWS GovCloud - New Relic 'linked' account.
 	Name pulumi.StringPtrInput
-	// The Secret Access Key used to programmatically access the AWS GovCloud account.
-	SecretAccessKey pulumi.StringInput
 }
 
 func (AwsGovcloudLinkAccountArgs) ElementType() reflect.Type {
@@ -287,23 +254,20 @@ func (o AwsGovcloudLinkAccountOutput) ToAwsGovcloudLinkAccountOutputWithContext(
 	return o
 }
 
-// The Access Key used to programmatically access the AWS GovCloud account.
-func (o AwsGovcloudLinkAccountOutput) AccessKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.AccessKeyId }).(pulumi.StringOutput)
-}
-
-// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
 func (o AwsGovcloudLinkAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS GovCloud account.
-func (o AwsGovcloudLinkAccountOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+// The Amazon Resource Name (ARN) of the IAM role.
+//
+// > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+func (o AwsGovcloudLinkAccountOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The mode by which metric data is to be collected from the linked AWS GovCloud account. Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
-// - Note: Altering the `metricCollectionMode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+// The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
+// - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
 func (o AwsGovcloudLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringPtrOutput { return v.MetricCollectionMode }).(pulumi.StringPtrOutput)
 }
@@ -311,11 +275,6 @@ func (o AwsGovcloudLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOut
 // The name/identifier of the AWS GovCloud - New Relic 'linked' account.
 func (o AwsGovcloudLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Secret Access Key used to programmatically access the AWS GovCloud account.
-func (o AwsGovcloudLinkAccountOutput) SecretAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
 }
 
 type AwsGovcloudLinkAccountArrayOutput struct{ *pulumi.OutputState }
