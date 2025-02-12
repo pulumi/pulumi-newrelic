@@ -77,14 +77,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a policy to track
-//			_, err := newrelic.NewAlertPolicy(ctx, "my-policy", &newrelic.AlertPolicyArgs{
+//			my_policy, err := newrelic.NewAlertPolicy(ctx, "my-policy", &newrelic.AlertPolicyArgs{
 //				Name: pulumi.String("my_policy"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Create a reusable notification destination
-//			_, err = newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
+//			webhook_destination, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
 //				Name: pulumi.String("destination-webhook"),
 //				Type: pulumi.String("WEBHOOK"),
 //				Properties: newrelic.NotificationDestinationPropertyArray{
@@ -102,7 +102,7 @@ import (
 //				return err
 //			}
 //			// Create a notification channel to use in the workflow
-//			_, err = newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
+//			webhook_channel, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
 //				Name:          pulumi.String("channel-webhook"),
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: webhook_destination.ID(),
