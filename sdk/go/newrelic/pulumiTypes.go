@@ -2924,6 +2924,8 @@ type NrqlAlertConditionCritical struct {
 	Duration *int `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator *string `pulumi:"operator"`
+	// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+	Prediction *NrqlAlertConditionCriticalPrediction `pulumi:"prediction"`
 	// For baseline conditions must be in range [1, 1000].
 	Threshold float64 `pulumi:"threshold"`
 	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
@@ -2954,6 +2956,8 @@ type NrqlAlertConditionCriticalArgs struct {
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+	Prediction NrqlAlertConditionCriticalPredictionPtrInput `pulumi:"prediction"`
 	// For baseline conditions must be in range [1, 1000].
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
@@ -3055,6 +3059,11 @@ func (o NrqlAlertConditionCriticalOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+func (o NrqlAlertConditionCriticalOutput) Prediction() NrqlAlertConditionCriticalPredictionPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *NrqlAlertConditionCriticalPrediction { return v.Prediction }).(NrqlAlertConditionCriticalPredictionPtrOutput)
+}
+
 // For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionCriticalOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) float64 { return v.Threshold }).(pulumi.Float64Output)
@@ -3123,6 +3132,16 @@ func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+func (o NrqlAlertConditionCriticalPtrOutput) Prediction() NrqlAlertConditionCriticalPredictionPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *NrqlAlertConditionCriticalPrediction {
+		if v == nil {
+			return nil
+		}
+		return v.Prediction
+	}).(NrqlAlertConditionCriticalPredictionPtrOutput)
+}
+
 // For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *float64 {
@@ -3163,6 +3182,162 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 		}
 		return v.TimeFunction
 	}).(pulumi.StringPtrOutput)
+}
+
+type NrqlAlertConditionCriticalPrediction struct {
+	// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+	PredictBy *int `pulumi:"predictBy"`
+	// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+	PreferPredictionViolation *bool `pulumi:"preferPredictionViolation"`
+}
+
+// NrqlAlertConditionCriticalPredictionInput is an input type that accepts NrqlAlertConditionCriticalPredictionArgs and NrqlAlertConditionCriticalPredictionOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionCriticalPredictionInput` via:
+//
+//	NrqlAlertConditionCriticalPredictionArgs{...}
+type NrqlAlertConditionCriticalPredictionInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionCriticalPredictionOutput() NrqlAlertConditionCriticalPredictionOutput
+	ToNrqlAlertConditionCriticalPredictionOutputWithContext(context.Context) NrqlAlertConditionCriticalPredictionOutput
+}
+
+type NrqlAlertConditionCriticalPredictionArgs struct {
+	// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+	PredictBy pulumi.IntPtrInput `pulumi:"predictBy"`
+	// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+	PreferPredictionViolation pulumi.BoolPtrInput `pulumi:"preferPredictionViolation"`
+}
+
+func (NrqlAlertConditionCriticalPredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionCriticalPrediction)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionCriticalPredictionArgs) ToNrqlAlertConditionCriticalPredictionOutput() NrqlAlertConditionCriticalPredictionOutput {
+	return i.ToNrqlAlertConditionCriticalPredictionOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionCriticalPredictionArgs) ToNrqlAlertConditionCriticalPredictionOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalPredictionOutput)
+}
+
+func (i NrqlAlertConditionCriticalPredictionArgs) ToNrqlAlertConditionCriticalPredictionPtrOutput() NrqlAlertConditionCriticalPredictionPtrOutput {
+	return i.ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionCriticalPredictionArgs) ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalPredictionOutput).ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionCriticalPredictionPtrInput is an input type that accepts NrqlAlertConditionCriticalPredictionArgs, NrqlAlertConditionCriticalPredictionPtr and NrqlAlertConditionCriticalPredictionPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionCriticalPredictionPtrInput` via:
+//
+//	        NrqlAlertConditionCriticalPredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type NrqlAlertConditionCriticalPredictionPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionCriticalPredictionPtrOutput() NrqlAlertConditionCriticalPredictionPtrOutput
+	ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(context.Context) NrqlAlertConditionCriticalPredictionPtrOutput
+}
+
+type nrqlAlertConditionCriticalPredictionPtrType NrqlAlertConditionCriticalPredictionArgs
+
+func NrqlAlertConditionCriticalPredictionPtr(v *NrqlAlertConditionCriticalPredictionArgs) NrqlAlertConditionCriticalPredictionPtrInput {
+	return (*nrqlAlertConditionCriticalPredictionPtrType)(v)
+}
+
+func (*nrqlAlertConditionCriticalPredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionCriticalPrediction)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionCriticalPredictionPtrType) ToNrqlAlertConditionCriticalPredictionPtrOutput() NrqlAlertConditionCriticalPredictionPtrOutput {
+	return i.ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionCriticalPredictionPtrType) ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalPredictionPtrOutput)
+}
+
+type NrqlAlertConditionCriticalPredictionOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionCriticalPredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionCriticalPrediction)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionCriticalPredictionOutput) ToNrqlAlertConditionCriticalPredictionOutput() NrqlAlertConditionCriticalPredictionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalPredictionOutput) ToNrqlAlertConditionCriticalPredictionOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPredictionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalPredictionOutput) ToNrqlAlertConditionCriticalPredictionPtrOutput() NrqlAlertConditionCriticalPredictionPtrOutput {
+	return o.ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionCriticalPredictionOutput) ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionCriticalPrediction) *NrqlAlertConditionCriticalPrediction {
+		return &v
+	}).(NrqlAlertConditionCriticalPredictionPtrOutput)
+}
+
+// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+func (o NrqlAlertConditionCriticalPredictionOutput) PredictBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCriticalPrediction) *int { return v.PredictBy }).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+func (o NrqlAlertConditionCriticalPredictionOutput) PreferPredictionViolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCriticalPrediction) *bool { return v.PreferPredictionViolation }).(pulumi.BoolPtrOutput)
+}
+
+type NrqlAlertConditionCriticalPredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionCriticalPredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionCriticalPrediction)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionCriticalPredictionPtrOutput) ToNrqlAlertConditionCriticalPredictionPtrOutput() NrqlAlertConditionCriticalPredictionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalPredictionPtrOutput) ToNrqlAlertConditionCriticalPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPredictionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalPredictionPtrOutput) Elem() NrqlAlertConditionCriticalPredictionOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCriticalPrediction) NrqlAlertConditionCriticalPrediction {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionCriticalPrediction
+		return ret
+	}).(NrqlAlertConditionCriticalPredictionOutput)
+}
+
+// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+func (o NrqlAlertConditionCriticalPredictionPtrOutput) PredictBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCriticalPrediction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PredictBy
+	}).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+func (o NrqlAlertConditionCriticalPredictionPtrOutput) PreferPredictionViolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCriticalPrediction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreferPredictionViolation
+	}).(pulumi.BoolPtrOutput)
 }
 
 type NrqlAlertConditionNrql struct {
@@ -3378,6 +3553,8 @@ type NrqlAlertConditionTerm struct {
 	Duration *int `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator *string `pulumi:"operator"`
+	// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+	Prediction *NrqlAlertConditionTermPrediction `pulumi:"prediction"`
 	// One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
 	Priority *string `pulumi:"priority"`
 	// For baseline conditions must be in range [1, 1000].
@@ -3410,6 +3587,8 @@ type NrqlAlertConditionTermArgs struct {
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+	Prediction NrqlAlertConditionTermPredictionPtrInput `pulumi:"prediction"`
 	// One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
 	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// For baseline conditions must be in range [1, 1000].
@@ -3487,6 +3666,11 @@ func (o NrqlAlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+func (o NrqlAlertConditionTermOutput) Prediction() NrqlAlertConditionTermPredictionPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *NrqlAlertConditionTermPrediction { return v.Prediction }).(NrqlAlertConditionTermPredictionPtrOutput)
+}
+
 // One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
 func (o NrqlAlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
@@ -3534,6 +3718,162 @@ func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertCon
 	}).(NrqlAlertConditionTermOutput)
 }
 
+type NrqlAlertConditionTermPrediction struct {
+	// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+	PredictBy *int `pulumi:"predictBy"`
+	// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+	PreferPredictionViolation *bool `pulumi:"preferPredictionViolation"`
+}
+
+// NrqlAlertConditionTermPredictionInput is an input type that accepts NrqlAlertConditionTermPredictionArgs and NrqlAlertConditionTermPredictionOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionTermPredictionInput` via:
+//
+//	NrqlAlertConditionTermPredictionArgs{...}
+type NrqlAlertConditionTermPredictionInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionTermPredictionOutput() NrqlAlertConditionTermPredictionOutput
+	ToNrqlAlertConditionTermPredictionOutputWithContext(context.Context) NrqlAlertConditionTermPredictionOutput
+}
+
+type NrqlAlertConditionTermPredictionArgs struct {
+	// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+	PredictBy pulumi.IntPtrInput `pulumi:"predictBy"`
+	// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+	PreferPredictionViolation pulumi.BoolPtrInput `pulumi:"preferPredictionViolation"`
+}
+
+func (NrqlAlertConditionTermPredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionTermPrediction)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionTermPredictionArgs) ToNrqlAlertConditionTermPredictionOutput() NrqlAlertConditionTermPredictionOutput {
+	return i.ToNrqlAlertConditionTermPredictionOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionTermPredictionArgs) ToNrqlAlertConditionTermPredictionOutputWithContext(ctx context.Context) NrqlAlertConditionTermPredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionTermPredictionOutput)
+}
+
+func (i NrqlAlertConditionTermPredictionArgs) ToNrqlAlertConditionTermPredictionPtrOutput() NrqlAlertConditionTermPredictionPtrOutput {
+	return i.ToNrqlAlertConditionTermPredictionPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionTermPredictionArgs) ToNrqlAlertConditionTermPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionTermPredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionTermPredictionOutput).ToNrqlAlertConditionTermPredictionPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionTermPredictionPtrInput is an input type that accepts NrqlAlertConditionTermPredictionArgs, NrqlAlertConditionTermPredictionPtr and NrqlAlertConditionTermPredictionPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionTermPredictionPtrInput` via:
+//
+//	        NrqlAlertConditionTermPredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type NrqlAlertConditionTermPredictionPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionTermPredictionPtrOutput() NrqlAlertConditionTermPredictionPtrOutput
+	ToNrqlAlertConditionTermPredictionPtrOutputWithContext(context.Context) NrqlAlertConditionTermPredictionPtrOutput
+}
+
+type nrqlAlertConditionTermPredictionPtrType NrqlAlertConditionTermPredictionArgs
+
+func NrqlAlertConditionTermPredictionPtr(v *NrqlAlertConditionTermPredictionArgs) NrqlAlertConditionTermPredictionPtrInput {
+	return (*nrqlAlertConditionTermPredictionPtrType)(v)
+}
+
+func (*nrqlAlertConditionTermPredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionTermPrediction)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionTermPredictionPtrType) ToNrqlAlertConditionTermPredictionPtrOutput() NrqlAlertConditionTermPredictionPtrOutput {
+	return i.ToNrqlAlertConditionTermPredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionTermPredictionPtrType) ToNrqlAlertConditionTermPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionTermPredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionTermPredictionPtrOutput)
+}
+
+type NrqlAlertConditionTermPredictionOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionTermPredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionTermPrediction)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionTermPredictionOutput) ToNrqlAlertConditionTermPredictionOutput() NrqlAlertConditionTermPredictionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionTermPredictionOutput) ToNrqlAlertConditionTermPredictionOutputWithContext(ctx context.Context) NrqlAlertConditionTermPredictionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionTermPredictionOutput) ToNrqlAlertConditionTermPredictionPtrOutput() NrqlAlertConditionTermPredictionPtrOutput {
+	return o.ToNrqlAlertConditionTermPredictionPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionTermPredictionOutput) ToNrqlAlertConditionTermPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionTermPredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionTermPrediction) *NrqlAlertConditionTermPrediction {
+		return &v
+	}).(NrqlAlertConditionTermPredictionPtrOutput)
+}
+
+// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+func (o NrqlAlertConditionTermPredictionOutput) PredictBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTermPrediction) *int { return v.PredictBy }).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+func (o NrqlAlertConditionTermPredictionOutput) PreferPredictionViolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTermPrediction) *bool { return v.PreferPredictionViolation }).(pulumi.BoolPtrOutput)
+}
+
+type NrqlAlertConditionTermPredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionTermPredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionTermPrediction)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionTermPredictionPtrOutput) ToNrqlAlertConditionTermPredictionPtrOutput() NrqlAlertConditionTermPredictionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionTermPredictionPtrOutput) ToNrqlAlertConditionTermPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionTermPredictionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionTermPredictionPtrOutput) Elem() NrqlAlertConditionTermPredictionOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionTermPrediction) NrqlAlertConditionTermPrediction {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionTermPrediction
+		return ret
+	}).(NrqlAlertConditionTermPredictionOutput)
+}
+
+// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+func (o NrqlAlertConditionTermPredictionPtrOutput) PredictBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionTermPrediction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PredictBy
+	}).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+func (o NrqlAlertConditionTermPredictionPtrOutput) PreferPredictionViolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionTermPrediction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreferPredictionViolation
+	}).(pulumi.BoolPtrOutput)
+}
+
 type NrqlAlertConditionWarning struct {
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
@@ -3541,6 +3881,8 @@ type NrqlAlertConditionWarning struct {
 	Duration *int `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator *string `pulumi:"operator"`
+	// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+	Prediction *NrqlAlertConditionWarningPrediction `pulumi:"prediction"`
 	// For baseline conditions must be in range [1, 1000].
 	Threshold float64 `pulumi:"threshold"`
 	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
@@ -3571,6 +3913,8 @@ type NrqlAlertConditionWarningArgs struct {
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
 	// One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+	Prediction NrqlAlertConditionWarningPredictionPtrInput `pulumi:"prediction"`
 	// For baseline conditions must be in range [1, 1000].
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
@@ -3672,6 +4016,11 @@ func (o NrqlAlertConditionWarningOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+func (o NrqlAlertConditionWarningOutput) Prediction() NrqlAlertConditionWarningPredictionPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *NrqlAlertConditionWarningPrediction { return v.Prediction }).(NrqlAlertConditionWarningPredictionPtrOutput)
+}
+
 // For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionWarningOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) float64 { return v.Threshold }).(pulumi.Float64Output)
@@ -3740,6 +4089,16 @@ func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+func (o NrqlAlertConditionWarningPtrOutput) Prediction() NrqlAlertConditionWarningPredictionPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *NrqlAlertConditionWarningPrediction {
+		if v == nil {
+			return nil
+		}
+		return v.Prediction
+	}).(NrqlAlertConditionWarningPredictionPtrOutput)
+}
+
 // For baseline conditions must be in range [1, 1000].
 func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *float64 {
@@ -3780,6 +4139,162 @@ func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutpu
 		}
 		return v.TimeFunction
 	}).(pulumi.StringPtrOutput)
+}
+
+type NrqlAlertConditionWarningPrediction struct {
+	// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+	PredictBy *int `pulumi:"predictBy"`
+	// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+	PreferPredictionViolation *bool `pulumi:"preferPredictionViolation"`
+}
+
+// NrqlAlertConditionWarningPredictionInput is an input type that accepts NrqlAlertConditionWarningPredictionArgs and NrqlAlertConditionWarningPredictionOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionWarningPredictionInput` via:
+//
+//	NrqlAlertConditionWarningPredictionArgs{...}
+type NrqlAlertConditionWarningPredictionInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionWarningPredictionOutput() NrqlAlertConditionWarningPredictionOutput
+	ToNrqlAlertConditionWarningPredictionOutputWithContext(context.Context) NrqlAlertConditionWarningPredictionOutput
+}
+
+type NrqlAlertConditionWarningPredictionArgs struct {
+	// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+	PredictBy pulumi.IntPtrInput `pulumi:"predictBy"`
+	// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+	PreferPredictionViolation pulumi.BoolPtrInput `pulumi:"preferPredictionViolation"`
+}
+
+func (NrqlAlertConditionWarningPredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionWarningPrediction)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionWarningPredictionArgs) ToNrqlAlertConditionWarningPredictionOutput() NrqlAlertConditionWarningPredictionOutput {
+	return i.ToNrqlAlertConditionWarningPredictionOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionWarningPredictionArgs) ToNrqlAlertConditionWarningPredictionOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningPredictionOutput)
+}
+
+func (i NrqlAlertConditionWarningPredictionArgs) ToNrqlAlertConditionWarningPredictionPtrOutput() NrqlAlertConditionWarningPredictionPtrOutput {
+	return i.ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionWarningPredictionArgs) ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningPredictionOutput).ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionWarningPredictionPtrInput is an input type that accepts NrqlAlertConditionWarningPredictionArgs, NrqlAlertConditionWarningPredictionPtr and NrqlAlertConditionWarningPredictionPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionWarningPredictionPtrInput` via:
+//
+//	        NrqlAlertConditionWarningPredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type NrqlAlertConditionWarningPredictionPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionWarningPredictionPtrOutput() NrqlAlertConditionWarningPredictionPtrOutput
+	ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(context.Context) NrqlAlertConditionWarningPredictionPtrOutput
+}
+
+type nrqlAlertConditionWarningPredictionPtrType NrqlAlertConditionWarningPredictionArgs
+
+func NrqlAlertConditionWarningPredictionPtr(v *NrqlAlertConditionWarningPredictionArgs) NrqlAlertConditionWarningPredictionPtrInput {
+	return (*nrqlAlertConditionWarningPredictionPtrType)(v)
+}
+
+func (*nrqlAlertConditionWarningPredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionWarningPrediction)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionWarningPredictionPtrType) ToNrqlAlertConditionWarningPredictionPtrOutput() NrqlAlertConditionWarningPredictionPtrOutput {
+	return i.ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionWarningPredictionPtrType) ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningPredictionPtrOutput)
+}
+
+type NrqlAlertConditionWarningPredictionOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionWarningPredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionWarningPrediction)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionWarningPredictionOutput) ToNrqlAlertConditionWarningPredictionOutput() NrqlAlertConditionWarningPredictionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningPredictionOutput) ToNrqlAlertConditionWarningPredictionOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPredictionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningPredictionOutput) ToNrqlAlertConditionWarningPredictionPtrOutput() NrqlAlertConditionWarningPredictionPtrOutput {
+	return o.ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionWarningPredictionOutput) ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionWarningPrediction) *NrqlAlertConditionWarningPrediction {
+		return &v
+	}).(NrqlAlertConditionWarningPredictionPtrOutput)
+}
+
+// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+func (o NrqlAlertConditionWarningPredictionOutput) PredictBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarningPrediction) *int { return v.PredictBy }).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+func (o NrqlAlertConditionWarningPredictionOutput) PreferPredictionViolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarningPrediction) *bool { return v.PreferPredictionViolation }).(pulumi.BoolPtrOutput)
+}
+
+type NrqlAlertConditionWarningPredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionWarningPredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionWarningPrediction)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionWarningPredictionPtrOutput) ToNrqlAlertConditionWarningPredictionPtrOutput() NrqlAlertConditionWarningPredictionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningPredictionPtrOutput) ToNrqlAlertConditionWarningPredictionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPredictionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningPredictionPtrOutput) Elem() NrqlAlertConditionWarningPredictionOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarningPrediction) NrqlAlertConditionWarningPrediction {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionWarningPrediction
+		return ret
+	}).(NrqlAlertConditionWarningPredictionOutput)
+}
+
+// BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+func (o NrqlAlertConditionWarningPredictionPtrOutput) PredictBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarningPrediction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PredictBy
+	}).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+func (o NrqlAlertConditionWarningPredictionPtrOutput) PreferPredictionViolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarningPrediction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreferPredictionViolation
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ObfuscationRuleAction struct {
@@ -26635,12 +27150,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlPtrInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPredictionInput)(nil)).Elem(), NrqlAlertConditionCriticalPredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPredictionPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalPredictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlPtrInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermInput)(nil)).Elem(), NrqlAlertConditionTermArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermArrayInput)(nil)).Elem(), NrqlAlertConditionTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermPredictionInput)(nil)).Elem(), NrqlAlertConditionTermPredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermPredictionPtrInput)(nil)).Elem(), NrqlAlertConditionTermPredictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningInput)(nil)).Elem(), NrqlAlertConditionWarningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningPtrInput)(nil)).Elem(), NrqlAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningPredictionInput)(nil)).Elem(), NrqlAlertConditionWarningPredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningPredictionPtrInput)(nil)).Elem(), NrqlAlertConditionWarningPredictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObfuscationRuleActionInput)(nil)).Elem(), ObfuscationRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObfuscationRuleActionArrayInput)(nil)).Elem(), ObfuscationRuleActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageInput)(nil)).Elem(), OneDashboardPageArgs{})
@@ -27020,12 +27541,18 @@ func init() {
 	pulumi.RegisterOutputType(NotificationDestinationSecureUrlPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPtrOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPredictionOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPredictionPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermArrayOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionTermPredictionOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionTermPredictionPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionWarningPredictionOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionWarningPredictionPtrOutput{})
 	pulumi.RegisterOutputType(ObfuscationRuleActionOutput{})
 	pulumi.RegisterOutputType(ObfuscationRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageOutput{})

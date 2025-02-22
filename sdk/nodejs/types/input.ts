@@ -355,6 +355,10 @@ export interface NrqlAlertConditionCritical {
      */
     operator?: pulumi.Input<string>;
     /**
+     * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     */
+    prediction?: pulumi.Input<inputs.NrqlAlertConditionCriticalPrediction>;
+    /**
      * For baseline conditions must be in range [1, 1000].
      */
     threshold: pulumi.Input<number>;
@@ -372,6 +376,17 @@ export interface NrqlAlertConditionCritical {
      * @deprecated use `thresholdOccurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
+}
+
+export interface NrqlAlertConditionCriticalPrediction {
+    /**
+     * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     */
+    predictBy?: pulumi.Input<number>;
+    /**
+     * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     */
+    preferPredictionViolation?: pulumi.Input<boolean>;
 }
 
 export interface NrqlAlertConditionNrql {
@@ -406,6 +421,10 @@ export interface NrqlAlertConditionTerm {
      */
     operator?: pulumi.Input<string>;
     /**
+     * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     */
+    prediction?: pulumi.Input<inputs.NrqlAlertConditionTermPrediction>;
+    /**
      * One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
      */
     priority?: pulumi.Input<string>;
@@ -429,6 +448,17 @@ export interface NrqlAlertConditionTerm {
     timeFunction?: pulumi.Input<string>;
 }
 
+export interface NrqlAlertConditionTermPrediction {
+    /**
+     * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     */
+    predictBy?: pulumi.Input<number>;
+    /**
+     * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     */
+    preferPredictionViolation?: pulumi.Input<boolean>;
+}
+
 export interface NrqlAlertConditionWarning {
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
@@ -440,6 +470,10 @@ export interface NrqlAlertConditionWarning {
      * One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
      */
     operator?: pulumi.Input<string>;
+    /**
+     * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     */
+    prediction?: pulumi.Input<inputs.NrqlAlertConditionWarningPrediction>;
     /**
      * For baseline conditions must be in range [1, 1000].
      */
@@ -458,6 +492,17 @@ export interface NrqlAlertConditionWarning {
      * @deprecated use `thresholdOccurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
+}
+
+export interface NrqlAlertConditionWarningPrediction {
+    /**
+     * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     */
+    predictBy?: pulumi.Input<number>;
+    /**
+     * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     */
+    preferPredictionViolation?: pulumi.Input<boolean>;
 }
 
 export interface ObfuscationRuleAction {

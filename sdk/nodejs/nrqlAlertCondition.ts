@@ -84,10 +84,22 @@ import * as utilities from "./utilities";
  * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
  * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+ * - `prediction` - (Optional) **BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis.** Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for _static_ NRQL alert conditions. See Prediction below for details.
  *
  * > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `thresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
  *
  * > **NOTE:** When a `critical` or `warning` block is added to this resource, using either `timeFunction` or `thresholdOccurrences` (one of the two) is mandatory. Both of these should not be specified.
+ *
+ * ### Prediction
+ *
+ * > **BETA PREVIEW:** The `prediction` block is in limited release and only enabled for preview on a per-account basis.
+ *
+ * > **NOTE:** The `prediction` block is only available for _static_ NRQL alert conditions.
+ *
+ * The `prediction` block supports the following arguments:
+ *
+ * - `predictBy` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
+ * - `preferPredictionViolation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
  *
  * ## Additional Examples
  *

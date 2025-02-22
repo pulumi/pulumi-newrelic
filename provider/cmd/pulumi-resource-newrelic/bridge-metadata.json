@@ -1329,16 +1329,37 @@
                 "majorVersion": 5,
                 "fields": {
                     "critical": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "prediction": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "nrql": {
                         "maxItemsOne": true
                     },
                     "term": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "prediction": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "warning": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "prediction": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },
