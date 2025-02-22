@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.NrqlAlertConditionTermPrediction;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -28,6 +29,11 @@ public final class NrqlAlertConditionTerm {
      * 
      */
     private @Nullable String operator;
+    /**
+     * @return BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     * 
+     */
+    private @Nullable NrqlAlertConditionTermPrediction prediction;
     /**
      * @return One of (critical, warning). Defaults to &#39;critical&#39;. At least one condition term must have priority set to &#39;critical&#39;.
      * 
@@ -76,6 +82,13 @@ public final class NrqlAlertConditionTerm {
      */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
+    }
+    /**
+     * @return BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     * 
+     */
+    public Optional<NrqlAlertConditionTermPrediction> prediction() {
+        return Optional.ofNullable(this.prediction);
     }
     /**
      * @return One of (critical, warning). Defaults to &#39;critical&#39;. At least one condition term must have priority set to &#39;critical&#39;.
@@ -128,6 +141,7 @@ public final class NrqlAlertConditionTerm {
     public static final class Builder {
         private @Nullable Integer duration;
         private @Nullable String operator;
+        private @Nullable NrqlAlertConditionTermPrediction prediction;
         private @Nullable String priority;
         private Double threshold;
         private @Nullable Integer thresholdDuration;
@@ -138,6 +152,7 @@ public final class NrqlAlertConditionTerm {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
     	      this.operator = defaults.operator;
+    	      this.prediction = defaults.prediction;
     	      this.priority = defaults.priority;
     	      this.threshold = defaults.threshold;
     	      this.thresholdDuration = defaults.thresholdDuration;
@@ -155,6 +170,12 @@ public final class NrqlAlertConditionTerm {
         public Builder operator(@Nullable String operator) {
 
             this.operator = operator;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder prediction(@Nullable NrqlAlertConditionTermPrediction prediction) {
+
+            this.prediction = prediction;
             return this;
         }
         @CustomType.Setter
@@ -193,6 +214,7 @@ public final class NrqlAlertConditionTerm {
             final var _resultValue = new NrqlAlertConditionTerm();
             _resultValue.duration = duration;
             _resultValue.operator = operator;
+            _resultValue.prediction = prediction;
             _resultValue.priority = priority;
             _resultValue.threshold = threshold;
             _resultValue.thresholdDuration = thresholdDuration;

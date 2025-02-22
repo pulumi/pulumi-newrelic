@@ -34,9 +34,12 @@ __all__ = [
     'NotificationDestinationProperty',
     'NotificationDestinationSecureUrl',
     'NrqlAlertConditionCritical',
+    'NrqlAlertConditionCriticalPrediction',
     'NrqlAlertConditionNrql',
     'NrqlAlertConditionTerm',
+    'NrqlAlertConditionTermPrediction',
     'NrqlAlertConditionWarning',
+    'NrqlAlertConditionWarningPrediction',
     'ObfuscationRuleAction',
     'OneDashboardPage',
     'OneDashboardPageWidgetArea',
@@ -1350,6 +1353,7 @@ class NrqlAlertConditionCritical(dict):
                  threshold: float,
                  duration: Optional[int] = None,
                  operator: Optional[str] = None,
+                 prediction: Optional['outputs.NrqlAlertConditionCriticalPrediction'] = None,
                  threshold_duration: Optional[int] = None,
                  threshold_occurrences: Optional[str] = None,
                  time_function: Optional[str] = None):
@@ -1357,6 +1361,7 @@ class NrqlAlertConditionCritical(dict):
         :param float threshold: For baseline conditions must be in range [1, 1000].
         :param int duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param str operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        :param 'NrqlAlertConditionCriticalPredictionArgs' prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
         :param int threshold_duration: The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
         :param str threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
         :param str time_function: Valid values are: 'all' or 'any'
@@ -1366,6 +1371,8 @@ class NrqlAlertConditionCritical(dict):
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
+        if prediction is not None:
+            pulumi.set(__self__, "prediction", prediction)
         if threshold_duration is not None:
             pulumi.set(__self__, "threshold_duration", threshold_duration)
         if threshold_occurrences is not None:
@@ -1399,6 +1406,14 @@ class NrqlAlertConditionCritical(dict):
         return pulumi.get(self, "operator")
 
     @property
+    @pulumi.getter
+    def prediction(self) -> Optional['outputs.NrqlAlertConditionCriticalPrediction']:
+        """
+        BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+        """
+        return pulumi.get(self, "prediction")
+
+    @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[int]:
         """
@@ -1422,6 +1437,56 @@ class NrqlAlertConditionCritical(dict):
         Valid values are: 'all' or 'any'
         """
         return pulumi.get(self, "time_function")
+
+
+@pulumi.output_type
+class NrqlAlertConditionCriticalPrediction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predictBy":
+            suggest = "predict_by"
+        elif key == "preferPredictionViolation":
+            suggest = "prefer_prediction_violation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionCriticalPrediction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionCriticalPrediction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionCriticalPrediction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predict_by: Optional[int] = None,
+                 prefer_prediction_violation: Optional[bool] = None):
+        """
+        :param int predict_by: BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+        :param bool prefer_prediction_violation: BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+        """
+        if predict_by is not None:
+            pulumi.set(__self__, "predict_by", predict_by)
+        if prefer_prediction_violation is not None:
+            pulumi.set(__self__, "prefer_prediction_violation", prefer_prediction_violation)
+
+    @property
+    @pulumi.getter(name="predictBy")
+    def predict_by(self) -> Optional[int]:
+        """
+        BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+        """
+        return pulumi.get(self, "predict_by")
+
+    @property
+    @pulumi.getter(name="preferPredictionViolation")
+    def prefer_prediction_violation(self) -> Optional[bool]:
+        """
+        BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+        """
+        return pulumi.get(self, "prefer_prediction_violation")
 
 
 @pulumi.output_type
@@ -1524,6 +1589,7 @@ class NrqlAlertConditionTerm(dict):
                  threshold: float,
                  duration: Optional[int] = None,
                  operator: Optional[str] = None,
+                 prediction: Optional['outputs.NrqlAlertConditionTermPrediction'] = None,
                  priority: Optional[str] = None,
                  threshold_duration: Optional[int] = None,
                  threshold_occurrences: Optional[str] = None,
@@ -1532,6 +1598,7 @@ class NrqlAlertConditionTerm(dict):
         :param float threshold: For baseline conditions must be in range [1, 1000].
         :param int duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param str operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        :param 'NrqlAlertConditionTermPredictionArgs' prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
         :param str priority: One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
         :param int threshold_duration: The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
         :param str threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
@@ -1542,6 +1609,8 @@ class NrqlAlertConditionTerm(dict):
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
+        if prediction is not None:
+            pulumi.set(__self__, "prediction", prediction)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if threshold_duration is not None:
@@ -1578,6 +1647,14 @@ class NrqlAlertConditionTerm(dict):
 
     @property
     @pulumi.getter
+    def prediction(self) -> Optional['outputs.NrqlAlertConditionTermPrediction']:
+        """
+        BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+        """
+        return pulumi.get(self, "prediction")
+
+    @property
+    @pulumi.getter
     def priority(self) -> Optional[str]:
         """
         One of (critical, warning). Defaults to 'critical'. At least one condition term must have priority set to 'critical'.
@@ -1611,6 +1688,56 @@ class NrqlAlertConditionTerm(dict):
 
 
 @pulumi.output_type
+class NrqlAlertConditionTermPrediction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predictBy":
+            suggest = "predict_by"
+        elif key == "preferPredictionViolation":
+            suggest = "prefer_prediction_violation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionTermPrediction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionTermPrediction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionTermPrediction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predict_by: Optional[int] = None,
+                 prefer_prediction_violation: Optional[bool] = None):
+        """
+        :param int predict_by: BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+        :param bool prefer_prediction_violation: BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+        """
+        if predict_by is not None:
+            pulumi.set(__self__, "predict_by", predict_by)
+        if prefer_prediction_violation is not None:
+            pulumi.set(__self__, "prefer_prediction_violation", prefer_prediction_violation)
+
+    @property
+    @pulumi.getter(name="predictBy")
+    def predict_by(self) -> Optional[int]:
+        """
+        BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+        """
+        return pulumi.get(self, "predict_by")
+
+    @property
+    @pulumi.getter(name="preferPredictionViolation")
+    def prefer_prediction_violation(self) -> Optional[bool]:
+        """
+        BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+        """
+        return pulumi.get(self, "prefer_prediction_violation")
+
+
+@pulumi.output_type
 class NrqlAlertConditionWarning(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1637,6 +1764,7 @@ class NrqlAlertConditionWarning(dict):
                  threshold: float,
                  duration: Optional[int] = None,
                  operator: Optional[str] = None,
+                 prediction: Optional['outputs.NrqlAlertConditionWarningPrediction'] = None,
                  threshold_duration: Optional[int] = None,
                  threshold_occurrences: Optional[str] = None,
                  time_function: Optional[str] = None):
@@ -1644,6 +1772,7 @@ class NrqlAlertConditionWarning(dict):
         :param float threshold: For baseline conditions must be in range [1, 1000].
         :param int duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param str operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
+        :param 'NrqlAlertConditionWarningPredictionArgs' prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
         :param int threshold_duration: The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the 'aggregation_window' (which has a default of 60 seconds). Value must be within 120-86400 seconds for baseline conditions, and within 60-86400 seconds for static conditions
         :param str threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: 'ALL' or 'AT_LEAST_ONCE' (case insensitive).
         :param str time_function: Valid values are: 'all' or 'any'
@@ -1653,6 +1782,8 @@ class NrqlAlertConditionWarning(dict):
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
+        if prediction is not None:
+            pulumi.set(__self__, "prediction", prediction)
         if threshold_duration is not None:
             pulumi.set(__self__, "threshold_duration", threshold_duration)
         if threshold_occurrences is not None:
@@ -1686,6 +1817,14 @@ class NrqlAlertConditionWarning(dict):
         return pulumi.get(self, "operator")
 
     @property
+    @pulumi.getter
+    def prediction(self) -> Optional['outputs.NrqlAlertConditionWarningPrediction']:
+        """
+        BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+        """
+        return pulumi.get(self, "prediction")
+
+    @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[int]:
         """
@@ -1709,6 +1848,56 @@ class NrqlAlertConditionWarning(dict):
         Valid values are: 'all' or 'any'
         """
         return pulumi.get(self, "time_function")
+
+
+@pulumi.output_type
+class NrqlAlertConditionWarningPrediction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predictBy":
+            suggest = "predict_by"
+        elif key == "preferPredictionViolation":
+            suggest = "prefer_prediction_violation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionWarningPrediction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionWarningPrediction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionWarningPrediction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predict_by: Optional[int] = None,
+                 prefer_prediction_violation: Optional[bool] = None):
+        """
+        :param int predict_by: BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+        :param bool prefer_prediction_violation: BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+        """
+        if predict_by is not None:
+            pulumi.set(__self__, "predict_by", predict_by)
+        if prefer_prediction_violation is not None:
+            pulumi.set(__self__, "prefer_prediction_violation", prefer_prediction_violation)
+
+    @property
+    @pulumi.getter(name="predictBy")
+    def predict_by(self) -> Optional[int]:
+        """
+        BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+        """
+        return pulumi.get(self, "predict_by")
+
+    @property
+    @pulumi.getter(name="preferPredictionViolation")
+    def prefer_prediction_violation(self) -> Optional[bool]:
+        """
+        BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+        """
+        return pulumi.get(self, "prefer_prediction_violation")
 
 
 @pulumi.output_type

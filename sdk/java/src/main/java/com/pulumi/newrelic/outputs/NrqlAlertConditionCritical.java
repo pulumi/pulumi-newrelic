@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.NrqlAlertConditionCriticalPrediction;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -28,6 +29,11 @@ public final class NrqlAlertConditionCritical {
      * 
      */
     private @Nullable String operator;
+    /**
+     * @return BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     * 
+     */
+    private @Nullable NrqlAlertConditionCriticalPrediction prediction;
     /**
      * @return For baseline conditions must be in range [1, 1000].
      * 
@@ -73,6 +79,13 @@ public final class NrqlAlertConditionCritical {
         return Optional.ofNullable(this.operator);
     }
     /**
+     * @return BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     * 
+     */
+    public Optional<NrqlAlertConditionCriticalPrediction> prediction() {
+        return Optional.ofNullable(this.prediction);
+    }
+    /**
      * @return For baseline conditions must be in range [1, 1000].
      * 
      */
@@ -116,6 +129,7 @@ public final class NrqlAlertConditionCritical {
     public static final class Builder {
         private @Nullable Integer duration;
         private @Nullable String operator;
+        private @Nullable NrqlAlertConditionCriticalPrediction prediction;
         private Double threshold;
         private @Nullable Integer thresholdDuration;
         private @Nullable String thresholdOccurrences;
@@ -125,6 +139,7 @@ public final class NrqlAlertConditionCritical {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
     	      this.operator = defaults.operator;
+    	      this.prediction = defaults.prediction;
     	      this.threshold = defaults.threshold;
     	      this.thresholdDuration = defaults.thresholdDuration;
     	      this.thresholdOccurrences = defaults.thresholdOccurrences;
@@ -141,6 +156,12 @@ public final class NrqlAlertConditionCritical {
         public Builder operator(@Nullable String operator) {
 
             this.operator = operator;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder prediction(@Nullable NrqlAlertConditionCriticalPrediction prediction) {
+
+            this.prediction = prediction;
             return this;
         }
         @CustomType.Setter
@@ -173,6 +194,7 @@ public final class NrqlAlertConditionCritical {
             final var _resultValue = new NrqlAlertConditionCritical();
             _resultValue.duration = duration;
             _resultValue.operator = operator;
+            _resultValue.prediction = prediction;
             _resultValue.threshold = threshold;
             _resultValue.thresholdDuration = thresholdDuration;
             _resultValue.thresholdOccurrences = thresholdOccurrences;

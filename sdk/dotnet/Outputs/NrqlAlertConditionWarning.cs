@@ -22,6 +22,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Operator;
         /// <summary>
+        /// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+        /// </summary>
+        public readonly Outputs.NrqlAlertConditionWarningPrediction? Prediction;
+        /// <summary>
         /// For baseline conditions must be in range [1, 1000].
         /// </summary>
         public readonly double Threshold;
@@ -44,6 +48,8 @@ namespace Pulumi.NewRelic.Outputs
 
             string? @operator,
 
+            Outputs.NrqlAlertConditionWarningPrediction? prediction,
+
             double threshold,
 
             int? thresholdDuration,
@@ -54,6 +60,7 @@ namespace Pulumi.NewRelic.Outputs
         {
             Duration = duration;
             Operator = @operator;
+            Prediction = prediction;
             Threshold = threshold;
             ThresholdDuration = thresholdDuration;
             ThresholdOccurrences = thresholdOccurrences;

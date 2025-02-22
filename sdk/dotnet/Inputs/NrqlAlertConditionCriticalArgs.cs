@@ -25,6 +25,12 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Operator { get; set; }
 
         /// <summary>
+        /// BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+        /// </summary>
+        [Input("prediction")]
+        public Input<Inputs.NrqlAlertConditionCriticalPredictionArgs>? Prediction { get; set; }
+
+        /// <summary>
         /// For baseline conditions must be in range [1, 1000].
         /// </summary>
         [Input("threshold", required: true)]

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.NrqlAlertConditionTermPredictionArgs;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -54,6 +55,21 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<String>> operator() {
         return Optional.ofNullable(this.operator);
+    }
+
+    /**
+     * BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     * 
+     */
+    @Import(name="prediction")
+    private @Nullable Output<NrqlAlertConditionTermPredictionArgs> prediction;
+
+    /**
+     * @return BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+     * 
+     */
+    public Optional<Output<NrqlAlertConditionTermPredictionArgs>> prediction() {
+        return Optional.ofNullable(this.prediction);
     }
 
     /**
@@ -144,6 +160,7 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
     private NrqlAlertConditionTermArgs(NrqlAlertConditionTermArgs $) {
         this.duration = $.duration;
         this.operator = $.operator;
+        this.prediction = $.prediction;
         this.priority = $.priority;
         this.threshold = $.threshold;
         this.thresholdDuration = $.thresholdDuration;
@@ -217,6 +234,27 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
          */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
+        }
+
+        /**
+         * @param prediction BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prediction(@Nullable Output<NrqlAlertConditionTermPredictionArgs> prediction) {
+            $.prediction = prediction;
+            return this;
+        }
+
+        /**
+         * @param prediction BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prediction(NrqlAlertConditionTermPredictionArgs prediction) {
+            return prediction(Output.of(prediction));
         }
 
         /**
