@@ -42,7 +42,7 @@ import (
 //				Type:                        pulumi.String("static"),
 //				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
-//				TitleTemplate:               pulumi.String("Issue in environment: {{ json accumulations.tag.environment }}"),
+//				TitleTemplate:               pulumi.String("Issue in environment: {{ tags.environment }}"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
 //				ViolationTimeLimitSeconds:   pulumi.Int(3600),

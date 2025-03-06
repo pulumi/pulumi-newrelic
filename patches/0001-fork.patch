@@ -399,7 +399,7 @@ index d19049a5..d6522327 100644
  ## Example Usage
  
 diff --git a/website/docs/r/nrql_alert_condition.html.markdown b/website/docs/r/nrql_alert_condition.html.markdown
-index 948bdaf8..72c06dca 100644
+index 6a9d1f32..13446512 100644
 --- a/website/docs/r/nrql_alert_condition.html.markdown
 +++ b/website/docs/r/nrql_alert_condition.html.markdown
 @@ -10,13 +10,10 @@ description: |-

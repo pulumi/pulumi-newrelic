@@ -36,7 +36,7 @@ namespace Pulumi.NewRelic
     ///         Type = "static",
     ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
-    ///         TitleTemplate = "Issue in environment: {{ json accumulations.tag.environment }}",
+    ///         TitleTemplate = "Issue in environment: {{ tags.environment }}",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
