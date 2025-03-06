@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     type: "static",
  *     name: "foo",
  *     description: "Alert when transactions are taking too long",
- *     titleTemplate: "Issue in environment: {{ json accumulations.tag.environment }}",
+ *     titleTemplate: "Issue in environment: {{ tags.environment }}",
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
  *     violationTimeLimitSeconds: 3600,
