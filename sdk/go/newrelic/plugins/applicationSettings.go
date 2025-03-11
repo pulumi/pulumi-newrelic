@@ -7,87 +7,52 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **NOTE:** Applications are not created by this resource, but are created by
-// a reporting agent.
-//
-// Use this resource to manage configuration for an application that already
-// exists in New Relic.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := plugins.NewApplicationSettings(ctx, "app", &plugins.ApplicationSettingsArgs{
-//				Name:                     pulumi.String("my-app"),
-//				AppApdexThreshold:        pulumi.Float64(0.7),
-//				EndUserApdexThreshold:    pulumi.Float64(0.8),
-//				EnableRealUserMonitoring: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Notes
-//
-// > **NOTE:** Applications that have reported data in the last twelve hours
-// cannot be deleted.
-//
 // ## Import
 //
-// Applications can be imported using notation `application_id`, e.g.
+// Applications can be imported using notation `application_guid`, e.g.
 //
 // ```sh
-// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
 // ```
 type ApplicationSettings struct {
 	pulumi.CustomResourceState
 
-	// The apdex threshold for the New Relic application.
-	AppApdexThreshold pulumi.Float64Output `pulumi:"appApdexThreshold"`
-	// Enable or disable real user monitoring for the New Relic application.
-	EnableRealUserMonitoring pulumi.BoolOutput `pulumi:"enableRealUserMonitoring"`
-	// The user's apdex threshold for the New Relic application.
-	EndUserApdexThreshold pulumi.Float64Output `pulumi:"endUserApdexThreshold"`
-	// The name of the application in New Relic APM.
+	// The acceptable response time limit (Apdex threshold) for the application.
+	AppApdexThreshold pulumi.Float64PtrOutput `pulumi:"appApdexThreshold"`
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+	EnableRealUserMonitoring pulumi.BoolPtrOutput `pulumi:"enableRealUserMonitoring"`
+	// Enable or disable the collection of slowest database queries in your traces.
+	EnableSlowSql pulumi.BoolPtrOutput `pulumi:"enableSlowSql"`
+	// Enable or disable the collection of thread profiling data.
+	EnableThreadProfiler pulumi.BoolPtrOutput `pulumi:"enableThreadProfiler"`
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+	EndUserApdexThreshold pulumi.Float64PtrOutput `pulumi:"endUserApdexThreshold"`
+	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+	ErrorCollectors ApplicationSettingsErrorCollectorArrayOutput `pulumi:"errorCollectors"`
+	// The GUID of the application in New Relic APM.
+	Guid       pulumi.StringOutput `pulumi:"guid"`
+	IsImported pulumi.BoolOutput   `pulumi:"isImported"`
+	// A custom name or alias you can give the application in New Relic APM.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+	TracerType pulumi.StringPtrOutput `pulumi:"tracerType"`
+	// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+	TransactionTracers ApplicationSettingsTransactionTracerArrayOutput `pulumi:"transactionTracers"`
+	// Enable or disable server side monitoring for the New Relic application.
+	UseServerSideConfig pulumi.BoolPtrOutput `pulumi:"useServerSideConfig"`
 }
 
 // NewApplicationSettings registers a new resource with the given unique name, arguments, and options.
 func NewApplicationSettings(ctx *pulumi.Context,
 	name string, args *ApplicationSettingsArgs, opts ...pulumi.ResourceOption) (*ApplicationSettings, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ApplicationSettingsArgs{}
 	}
 
-	if args.AppApdexThreshold == nil {
-		return nil, errors.New("invalid value for required argument 'AppApdexThreshold'")
-	}
-	if args.EnableRealUserMonitoring == nil {
-		return nil, errors.New("invalid value for required argument 'EnableRealUserMonitoring'")
-	}
-	if args.EndUserApdexThreshold == nil {
-		return nil, errors.New("invalid value for required argument 'EndUserApdexThreshold'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationSettings
 	err := ctx.RegisterResource("newrelic:plugins/applicationSettings:ApplicationSettings", name, args, &resource, opts...)
@@ -111,25 +76,55 @@ func GetApplicationSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationSettings resources.
 type applicationSettingsState struct {
-	// The apdex threshold for the New Relic application.
+	// The acceptable response time limit (Apdex threshold) for the application.
 	AppApdexThreshold *float64 `pulumi:"appApdexThreshold"`
-	// Enable or disable real user monitoring for the New Relic application.
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
 	EnableRealUserMonitoring *bool `pulumi:"enableRealUserMonitoring"`
-	// The user's apdex threshold for the New Relic application.
+	// Enable or disable the collection of slowest database queries in your traces.
+	EnableSlowSql *bool `pulumi:"enableSlowSql"`
+	// Enable or disable the collection of thread profiling data.
+	EnableThreadProfiler *bool `pulumi:"enableThreadProfiler"`
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
 	EndUserApdexThreshold *float64 `pulumi:"endUserApdexThreshold"`
-	// The name of the application in New Relic APM.
+	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+	ErrorCollectors []ApplicationSettingsErrorCollector `pulumi:"errorCollectors"`
+	// The GUID of the application in New Relic APM.
+	Guid       *string `pulumi:"guid"`
+	IsImported *bool   `pulumi:"isImported"`
+	// A custom name or alias you can give the application in New Relic APM.
 	Name *string `pulumi:"name"`
+	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+	TracerType *string `pulumi:"tracerType"`
+	// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+	TransactionTracers []ApplicationSettingsTransactionTracer `pulumi:"transactionTracers"`
+	// Enable or disable server side monitoring for the New Relic application.
+	UseServerSideConfig *bool `pulumi:"useServerSideConfig"`
 }
 
 type ApplicationSettingsState struct {
-	// The apdex threshold for the New Relic application.
+	// The acceptable response time limit (Apdex threshold) for the application.
 	AppApdexThreshold pulumi.Float64PtrInput
-	// Enable or disable real user monitoring for the New Relic application.
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
 	EnableRealUserMonitoring pulumi.BoolPtrInput
-	// The user's apdex threshold for the New Relic application.
+	// Enable or disable the collection of slowest database queries in your traces.
+	EnableSlowSql pulumi.BoolPtrInput
+	// Enable or disable the collection of thread profiling data.
+	EnableThreadProfiler pulumi.BoolPtrInput
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
 	EndUserApdexThreshold pulumi.Float64PtrInput
-	// The name of the application in New Relic APM.
+	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+	ErrorCollectors ApplicationSettingsErrorCollectorArrayInput
+	// The GUID of the application in New Relic APM.
+	Guid       pulumi.StringPtrInput
+	IsImported pulumi.BoolPtrInput
+	// A custom name or alias you can give the application in New Relic APM.
 	Name pulumi.StringPtrInput
+	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+	TracerType pulumi.StringPtrInput
+	// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+	TransactionTracers ApplicationSettingsTransactionTracerArrayInput
+	// Enable or disable server side monitoring for the New Relic application.
+	UseServerSideConfig pulumi.BoolPtrInput
 }
 
 func (ApplicationSettingsState) ElementType() reflect.Type {
@@ -137,26 +132,54 @@ func (ApplicationSettingsState) ElementType() reflect.Type {
 }
 
 type applicationSettingsArgs struct {
-	// The apdex threshold for the New Relic application.
-	AppApdexThreshold float64 `pulumi:"appApdexThreshold"`
-	// Enable or disable real user monitoring for the New Relic application.
-	EnableRealUserMonitoring bool `pulumi:"enableRealUserMonitoring"`
-	// The user's apdex threshold for the New Relic application.
-	EndUserApdexThreshold float64 `pulumi:"endUserApdexThreshold"`
-	// The name of the application in New Relic APM.
+	// The acceptable response time limit (Apdex threshold) for the application.
+	AppApdexThreshold *float64 `pulumi:"appApdexThreshold"`
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+	EnableRealUserMonitoring *bool `pulumi:"enableRealUserMonitoring"`
+	// Enable or disable the collection of slowest database queries in your traces.
+	EnableSlowSql *bool `pulumi:"enableSlowSql"`
+	// Enable or disable the collection of thread profiling data.
+	EnableThreadProfiler *bool `pulumi:"enableThreadProfiler"`
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+	EndUserApdexThreshold *float64 `pulumi:"endUserApdexThreshold"`
+	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+	ErrorCollectors []ApplicationSettingsErrorCollector `pulumi:"errorCollectors"`
+	// The GUID of the application in New Relic APM.
+	Guid *string `pulumi:"guid"`
+	// A custom name or alias you can give the application in New Relic APM.
 	Name *string `pulumi:"name"`
+	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+	TracerType *string `pulumi:"tracerType"`
+	// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+	TransactionTracers []ApplicationSettingsTransactionTracer `pulumi:"transactionTracers"`
+	// Enable or disable server side monitoring for the New Relic application.
+	UseServerSideConfig *bool `pulumi:"useServerSideConfig"`
 }
 
 // The set of arguments for constructing a ApplicationSettings resource.
 type ApplicationSettingsArgs struct {
-	// The apdex threshold for the New Relic application.
-	AppApdexThreshold pulumi.Float64Input
-	// Enable or disable real user monitoring for the New Relic application.
-	EnableRealUserMonitoring pulumi.BoolInput
-	// The user's apdex threshold for the New Relic application.
-	EndUserApdexThreshold pulumi.Float64Input
-	// The name of the application in New Relic APM.
+	// The acceptable response time limit (Apdex threshold) for the application.
+	AppApdexThreshold pulumi.Float64PtrInput
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+	EnableRealUserMonitoring pulumi.BoolPtrInput
+	// Enable or disable the collection of slowest database queries in your traces.
+	EnableSlowSql pulumi.BoolPtrInput
+	// Enable or disable the collection of thread profiling data.
+	EnableThreadProfiler pulumi.BoolPtrInput
+	// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+	EndUserApdexThreshold pulumi.Float64PtrInput
+	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+	ErrorCollectors ApplicationSettingsErrorCollectorArrayInput
+	// The GUID of the application in New Relic APM.
+	Guid pulumi.StringPtrInput
+	// A custom name or alias you can give the application in New Relic APM.
 	Name pulumi.StringPtrInput
+	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+	TracerType pulumi.StringPtrInput
+	// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+	TransactionTracers ApplicationSettingsTransactionTracerArrayInput
+	// Enable or disable server side monitoring for the New Relic application.
+	UseServerSideConfig pulumi.BoolPtrInput
 }
 
 func (ApplicationSettingsArgs) ElementType() reflect.Type {
@@ -246,24 +269,65 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx co
 	return o
 }
 
-// The apdex threshold for the New Relic application.
-func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64Output {
-	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64Output { return v.AppApdexThreshold }).(pulumi.Float64Output)
+// The acceptable response time limit (Apdex threshold) for the application.
+func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64PtrOutput { return v.AppApdexThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// Enable or disable real user monitoring for the New Relic application.
-func (o ApplicationSettingsOutput) EnableRealUserMonitoring() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.EnableRealUserMonitoring }).(pulumi.BoolOutput)
+// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+func (o ApplicationSettingsOutput) EnableRealUserMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolPtrOutput { return v.EnableRealUserMonitoring }).(pulumi.BoolPtrOutput)
 }
 
-// The user's apdex threshold for the New Relic application.
-func (o ApplicationSettingsOutput) EndUserApdexThreshold() pulumi.Float64Output {
-	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64Output { return v.EndUserApdexThreshold }).(pulumi.Float64Output)
+// Enable or disable the collection of slowest database queries in your traces.
+func (o ApplicationSettingsOutput) EnableSlowSql() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolPtrOutput { return v.EnableSlowSql }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the application in New Relic APM.
+// Enable or disable the collection of thread profiling data.
+func (o ApplicationSettingsOutput) EnableThreadProfiler() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolPtrOutput { return v.EnableThreadProfiler }).(pulumi.BoolPtrOutput)
+}
+
+// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+func (o ApplicationSettingsOutput) EndUserApdexThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64PtrOutput { return v.EndUserApdexThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+func (o ApplicationSettingsOutput) ErrorCollectors() ApplicationSettingsErrorCollectorArrayOutput {
+	return o.ApplyT(func(v *ApplicationSettings) ApplicationSettingsErrorCollectorArrayOutput { return v.ErrorCollectors }).(ApplicationSettingsErrorCollectorArrayOutput)
+}
+
+// The GUID of the application in New Relic APM.
+func (o ApplicationSettingsOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+func (o ApplicationSettingsOutput) IsImported() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.IsImported }).(pulumi.BoolOutput)
+}
+
+// A custom name or alias you can give the application in New Relic APM.
 func (o ApplicationSettingsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+func (o ApplicationSettingsOutput) TracerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringPtrOutput { return v.TracerType }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+func (o ApplicationSettingsOutput) TransactionTracers() ApplicationSettingsTransactionTracerArrayOutput {
+	return o.ApplyT(func(v *ApplicationSettings) ApplicationSettingsTransactionTracerArrayOutput {
+		return v.TransactionTracers
+	}).(ApplicationSettingsTransactionTracerArrayOutput)
+}
+
+// Enable or disable server side monitoring for the New Relic application.
+func (o ApplicationSettingsOutput) UseServerSideConfig() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolPtrOutput { return v.UseServerSideConfig }).(pulumi.BoolPtrOutput)
 }
 
 type ApplicationSettingsArrayOutput struct{ *pulumi.OutputState }

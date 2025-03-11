@@ -10,127 +10,186 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.plugins.ApplicationSettingsArgs;
 import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsState;
+import com.pulumi.newrelic.plugins.outputs.ApplicationSettingsErrorCollector;
+import com.pulumi.newrelic.plugins.outputs.ApplicationSettingsTransactionTracer;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **NOTE:** Applications are not created by this resource, but are created by
- * a reporting agent.
- * 
- * Use this resource to manage configuration for an application that already
- * exists in New Relic.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.plugins.ApplicationSettings;
- * import com.pulumi.newrelic.plugins.ApplicationSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new ApplicationSettings("app", ApplicationSettingsArgs.builder()
- *             .name("my-app")
- *             .appApdexThreshold("0.7")
- *             .endUserApdexThreshold("0.8")
- *             .enableRealUserMonitoring(false)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Notes
- * 
- * &gt; **NOTE:** Applications that have reported data in the last twelve hours
- * cannot be deleted.
- * 
  * ## Import
  * 
- * Applications can be imported using notation `application_id`, e.g.
+ * Applications can be imported using notation `application_guid`, e.g.
  * 
  * ```sh
- * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+ * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
  * ```
  * 
  */
 @ResourceType(type="newrelic:plugins/applicationSettings:ApplicationSettings")
 public class ApplicationSettings extends com.pulumi.resources.CustomResource {
     /**
-     * The apdex threshold for the New Relic application.
+     * The acceptable response time limit (Apdex threshold) for the application.
      * 
      */
     @Export(name="appApdexThreshold", refs={Double.class}, tree="[0]")
-    private Output<Double> appApdexThreshold;
+    private Output</* @Nullable */ Double> appApdexThreshold;
 
     /**
-     * @return The apdex threshold for the New Relic application.
+     * @return The acceptable response time limit (Apdex threshold) for the application.
      * 
      */
-    public Output<Double> appApdexThreshold() {
-        return this.appApdexThreshold;
+    public Output<Optional<Double>> appApdexThreshold() {
+        return Codegen.optional(this.appApdexThreshold);
     }
     /**
-     * Enable or disable real user monitoring for the New Relic application.
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
     @Export(name="enableRealUserMonitoring", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableRealUserMonitoring;
+    private Output</* @Nullable */ Boolean> enableRealUserMonitoring;
 
     /**
-     * @return Enable or disable real user monitoring for the New Relic application.
+     * @return Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
-    public Output<Boolean> enableRealUserMonitoring() {
-        return this.enableRealUserMonitoring;
+    public Output<Optional<Boolean>> enableRealUserMonitoring() {
+        return Codegen.optional(this.enableRealUserMonitoring);
     }
     /**
-     * The user&#39;s apdex threshold for the New Relic application.
+     * Enable or disable the collection of slowest database queries in your traces.
+     * 
+     */
+    @Export(name="enableSlowSql", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableSlowSql;
+
+    /**
+     * @return Enable or disable the collection of slowest database queries in your traces.
+     * 
+     */
+    public Output<Optional<Boolean>> enableSlowSql() {
+        return Codegen.optional(this.enableSlowSql);
+    }
+    /**
+     * Enable or disable the collection of thread profiling data.
+     * 
+     */
+    @Export(name="enableThreadProfiler", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableThreadProfiler;
+
+    /**
+     * @return Enable or disable the collection of thread profiling data.
+     * 
+     */
+    public Output<Optional<Boolean>> enableThreadProfiler() {
+        return Codegen.optional(this.enableThreadProfiler);
+    }
+    /**
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
     @Export(name="endUserApdexThreshold", refs={Double.class}, tree="[0]")
-    private Output<Double> endUserApdexThreshold;
+    private Output</* @Nullable */ Double> endUserApdexThreshold;
 
     /**
-     * @return The user&#39;s apdex threshold for the New Relic application.
+     * @return Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
-    public Output<Double> endUserApdexThreshold() {
-        return this.endUserApdexThreshold;
+    public Output<Optional<Double>> endUserApdexThreshold() {
+        return Codegen.optional(this.endUserApdexThreshold);
     }
     /**
-     * The name of the application in New Relic APM.
+     * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     * 
+     */
+    @Export(name="errorCollectors", refs={List.class,ApplicationSettingsErrorCollector.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ApplicationSettingsErrorCollector>> errorCollectors;
+
+    /**
+     * @return Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     * 
+     */
+    public Output<Optional<List<ApplicationSettingsErrorCollector>>> errorCollectors() {
+        return Codegen.optional(this.errorCollectors);
+    }
+    /**
+     * The GUID of the application in New Relic APM.
+     * 
+     */
+    @Export(name="guid", refs={String.class}, tree="[0]")
+    private Output<String> guid;
+
+    /**
+     * @return The GUID of the application in New Relic APM.
+     * 
+     */
+    public Output<String> guid() {
+        return this.guid;
+    }
+    @Export(name="isImported", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isImported;
+
+    public Output<Boolean> isImported() {
+        return this.isImported;
+    }
+    /**
+     * A custom name or alias you can give the application in New Relic APM.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the application in New Relic APM.
+     * @return A custom name or alias you can give the application in New Relic APM.
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     * 
+     */
+    @Export(name="tracerType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tracerType;
+
+    /**
+     * @return Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     * 
+     */
+    public Output<Optional<String>> tracerType() {
+        return Codegen.optional(this.tracerType);
+    }
+    /**
+     * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     * 
+     */
+    @Export(name="transactionTracers", refs={List.class,ApplicationSettingsTransactionTracer.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ApplicationSettingsTransactionTracer>> transactionTracers;
+
+    /**
+     * @return Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     * 
+     */
+    public Output<Optional<List<ApplicationSettingsTransactionTracer>>> transactionTracers() {
+        return Codegen.optional(this.transactionTracers);
+    }
+    /**
+     * Enable or disable server side monitoring for the New Relic application.
+     * 
+     */
+    @Export(name="useServerSideConfig", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useServerSideConfig;
+
+    /**
+     * @return Enable or disable server side monitoring for the New Relic application.
+     * 
+     */
+    public Output<Optional<Boolean>> useServerSideConfig() {
+        return Codegen.optional(this.useServerSideConfig);
     }
 
     /**
@@ -145,7 +204,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApplicationSettings(java.lang.String name, ApplicationSettingsArgs args) {
+    public ApplicationSettings(java.lang.String name, @Nullable ApplicationSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,7 +213,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApplicationSettings(java.lang.String name, ApplicationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ApplicationSettings(java.lang.String name, @Nullable ApplicationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic:plugins/applicationSettings:ApplicationSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -162,7 +221,7 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
         super("newrelic:plugins/applicationSettings:ApplicationSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ApplicationSettingsArgs makeArgs(ApplicationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ApplicationSettingsArgs makeArgs(@Nullable ApplicationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -13,118 +13,67 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ApplicationSettingsArgs', 'ApplicationSettings']
 
 @pulumi.input_type
 class ApplicationSettingsArgs:
     def __init__(__self__, *,
-                 app_apdex_threshold: pulumi.Input[float],
-                 enable_real_user_monitoring: pulumi.Input[bool],
-                 end_user_apdex_threshold: pulumi.Input[float],
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        The set of arguments for constructing a ApplicationSettings resource.
-        :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
-        :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
-               
-               ```
-               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-               ```
-        :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
-        :param pulumi.Input[str] name: The name of the application in New Relic APM.
-        """
-        pulumi.set(__self__, "app_apdex_threshold", app_apdex_threshold)
-        pulumi.set(__self__, "enable_real_user_monitoring", enable_real_user_monitoring)
-        pulumi.set(__self__, "end_user_apdex_threshold", end_user_apdex_threshold)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="appApdexThreshold")
-    def app_apdex_threshold(self) -> pulumi.Input[float]:
-        """
-        The apdex threshold for the New Relic application.
-        """
-        return pulumi.get(self, "app_apdex_threshold")
-
-    @app_apdex_threshold.setter
-    def app_apdex_threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "app_apdex_threshold", value)
-
-    @property
-    @pulumi.getter(name="enableRealUserMonitoring")
-    def enable_real_user_monitoring(self) -> pulumi.Input[bool]:
-        """
-        Enable or disable real user monitoring for the New Relic application.
-
-        ```
-        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        ```
-        """
-        return pulumi.get(self, "enable_real_user_monitoring")
-
-    @enable_real_user_monitoring.setter
-    def enable_real_user_monitoring(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enable_real_user_monitoring", value)
-
-    @property
-    @pulumi.getter(name="endUserApdexThreshold")
-    def end_user_apdex_threshold(self) -> pulumi.Input[float]:
-        """
-        The user's apdex threshold for the New Relic application.
-        """
-        return pulumi.get(self, "end_user_apdex_threshold")
-
-    @end_user_apdex_threshold.setter
-    def end_user_apdex_threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "end_user_apdex_threshold", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the application in New Relic APM.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class _ApplicationSettingsState:
-    def __init__(__self__, *,
                  app_apdex_threshold: Optional[pulumi.Input[float]] = None,
                  enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+                 enable_slow_sql: Optional[pulumi.Input[bool]] = None,
+                 enable_thread_profiler: Optional[pulumi.Input[bool]] = None,
                  end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tracer_type: Optional[pulumi.Input[str]] = None,
+                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]] = None,
+                 use_server_side_config: Optional[pulumi.Input[bool]] = None):
         """
-        Input properties used for looking up and filtering ApplicationSettings resources.
-        :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
-        :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
-               
-               ```
-               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-               ```
-        :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
-        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        The set of arguments for constructing a ApplicationSettings resource.
+        :param pulumi.Input[float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
+        :param pulumi.Input[bool] enable_real_user_monitoring: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
+        :param pulumi.Input[bool] enable_thread_profiler: Enable or disable the collection of thread profiling data.
+        :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
+        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+        :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
         """
         if app_apdex_threshold is not None:
             pulumi.set(__self__, "app_apdex_threshold", app_apdex_threshold)
         if enable_real_user_monitoring is not None:
             pulumi.set(__self__, "enable_real_user_monitoring", enable_real_user_monitoring)
+        if enable_slow_sql is not None:
+            pulumi.set(__self__, "enable_slow_sql", enable_slow_sql)
+        if enable_thread_profiler is not None:
+            pulumi.set(__self__, "enable_thread_profiler", enable_thread_profiler)
         if end_user_apdex_threshold is not None:
             pulumi.set(__self__, "end_user_apdex_threshold", end_user_apdex_threshold)
+        if error_collectors is not None:
+            pulumi.set(__self__, "error_collectors", error_collectors)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tracer_type is not None:
+            pulumi.set(__self__, "tracer_type", tracer_type)
+        if transaction_tracers is not None:
+            pulumi.set(__self__, "transaction_tracers", transaction_tracers)
+        if use_server_side_config is not None:
+            pulumi.set(__self__, "use_server_side_config", use_server_side_config)
 
     @property
     @pulumi.getter(name="appApdexThreshold")
     def app_apdex_threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The apdex threshold for the New Relic application.
+        The acceptable response time limit (Apdex threshold) for the application.
         """
         return pulumi.get(self, "app_apdex_threshold")
 
@@ -136,11 +85,7 @@ class _ApplicationSettingsState:
     @pulumi.getter(name="enableRealUserMonitoring")
     def enable_real_user_monitoring(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable real user monitoring for the New Relic application.
-
-        ```
-        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        ```
+        Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
@@ -149,10 +94,34 @@ class _ApplicationSettingsState:
         pulumi.set(self, "enable_real_user_monitoring", value)
 
     @property
+    @pulumi.getter(name="enableSlowSql")
+    def enable_slow_sql(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the collection of slowest database queries in your traces.
+        """
+        return pulumi.get(self, "enable_slow_sql")
+
+    @enable_slow_sql.setter
+    def enable_slow_sql(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_slow_sql", value)
+
+    @property
+    @pulumi.getter(name="enableThreadProfiler")
+    def enable_thread_profiler(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the collection of thread profiling data.
+        """
+        return pulumi.get(self, "enable_thread_profiler")
+
+    @enable_thread_profiler.setter
+    def enable_thread_profiler(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_thread_profiler", value)
+
+    @property
     @pulumi.getter(name="endUserApdexThreshold")
     def end_user_apdex_threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The user's apdex threshold for the New Relic application.
+        Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "end_user_apdex_threshold")
 
@@ -161,16 +130,272 @@ class _ApplicationSettingsState:
         pulumi.set(self, "end_user_apdex_threshold", value)
 
     @property
+    @pulumi.getter(name="errorCollectors")
+    def error_collectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]:
+        """
+        Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        """
+        return pulumi.get(self, "error_collectors")
+
+    @error_collectors.setter
+    def error_collectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]):
+        pulumi.set(self, "error_collectors", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID of the application in New Relic APM.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the application in New Relic APM.
+        A custom name or alias you can give the application in New Relic APM.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tracerType")
+    def tracer_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        """
+        return pulumi.get(self, "tracer_type")
+
+    @tracer_type.setter
+    def tracer_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tracer_type", value)
+
+    @property
+    @pulumi.getter(name="transactionTracers")
+    def transaction_tracers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]:
+        """
+        Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        """
+        return pulumi.get(self, "transaction_tracers")
+
+    @transaction_tracers.setter
+    def transaction_tracers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]):
+        pulumi.set(self, "transaction_tracers", value)
+
+    @property
+    @pulumi.getter(name="useServerSideConfig")
+    def use_server_side_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable server side monitoring for the New Relic application.
+        """
+        return pulumi.get(self, "use_server_side_config")
+
+    @use_server_side_config.setter
+    def use_server_side_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_server_side_config", value)
+
+
+@pulumi.input_type
+class _ApplicationSettingsState:
+    def __init__(__self__, *,
+                 app_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+                 enable_slow_sql: Optional[pulumi.Input[bool]] = None,
+                 enable_thread_profiler: Optional[pulumi.Input[bool]] = None,
+                 end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 is_imported: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tracer_type: Optional[pulumi.Input[str]] = None,
+                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]] = None,
+                 use_server_side_config: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering ApplicationSettings resources.
+        :param pulumi.Input[float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
+        :param pulumi.Input[bool] enable_real_user_monitoring: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
+        :param pulumi.Input[bool] enable_thread_profiler: Enable or disable the collection of thread profiling data.
+        :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
+        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+        :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
+        """
+        if app_apdex_threshold is not None:
+            pulumi.set(__self__, "app_apdex_threshold", app_apdex_threshold)
+        if enable_real_user_monitoring is not None:
+            pulumi.set(__self__, "enable_real_user_monitoring", enable_real_user_monitoring)
+        if enable_slow_sql is not None:
+            pulumi.set(__self__, "enable_slow_sql", enable_slow_sql)
+        if enable_thread_profiler is not None:
+            pulumi.set(__self__, "enable_thread_profiler", enable_thread_profiler)
+        if end_user_apdex_threshold is not None:
+            pulumi.set(__self__, "end_user_apdex_threshold", end_user_apdex_threshold)
+        if error_collectors is not None:
+            pulumi.set(__self__, "error_collectors", error_collectors)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
+        if is_imported is not None:
+            pulumi.set(__self__, "is_imported", is_imported)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tracer_type is not None:
+            pulumi.set(__self__, "tracer_type", tracer_type)
+        if transaction_tracers is not None:
+            pulumi.set(__self__, "transaction_tracers", transaction_tracers)
+        if use_server_side_config is not None:
+            pulumi.set(__self__, "use_server_side_config", use_server_side_config)
+
+    @property
+    @pulumi.getter(name="appApdexThreshold")
+    def app_apdex_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The acceptable response time limit (Apdex threshold) for the application.
+        """
+        return pulumi.get(self, "app_apdex_threshold")
+
+    @app_apdex_threshold.setter
+    def app_apdex_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "app_apdex_threshold", value)
+
+    @property
+    @pulumi.getter(name="enableRealUserMonitoring")
+    def enable_real_user_monitoring(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        """
+        return pulumi.get(self, "enable_real_user_monitoring")
+
+    @enable_real_user_monitoring.setter
+    def enable_real_user_monitoring(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_real_user_monitoring", value)
+
+    @property
+    @pulumi.getter(name="enableSlowSql")
+    def enable_slow_sql(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the collection of slowest database queries in your traces.
+        """
+        return pulumi.get(self, "enable_slow_sql")
+
+    @enable_slow_sql.setter
+    def enable_slow_sql(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_slow_sql", value)
+
+    @property
+    @pulumi.getter(name="enableThreadProfiler")
+    def enable_thread_profiler(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the collection of thread profiling data.
+        """
+        return pulumi.get(self, "enable_thread_profiler")
+
+    @enable_thread_profiler.setter
+    def enable_thread_profiler(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_thread_profiler", value)
+
+    @property
+    @pulumi.getter(name="endUserApdexThreshold")
+    def end_user_apdex_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        """
+        return pulumi.get(self, "end_user_apdex_threshold")
+
+    @end_user_apdex_threshold.setter
+    def end_user_apdex_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "end_user_apdex_threshold", value)
+
+    @property
+    @pulumi.getter(name="errorCollectors")
+    def error_collectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]:
+        """
+        Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        """
+        return pulumi.get(self, "error_collectors")
+
+    @error_collectors.setter
+    def error_collectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]]]):
+        pulumi.set(self, "error_collectors", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID of the application in New Relic APM.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter(name="isImported")
+    def is_imported(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_imported")
+
+    @is_imported.setter
+    def is_imported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_imported", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name or alias you can give the application in New Relic APM.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tracerType")
+    def tracer_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        """
+        return pulumi.get(self, "tracer_type")
+
+    @tracer_type.setter
+    def tracer_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tracer_type", value)
+
+    @property
+    @pulumi.getter(name="transactionTracers")
+    def transaction_tracers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]:
+        """
+        Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        """
+        return pulumi.get(self, "transaction_tracers")
+
+    @transaction_tracers.setter
+    def transaction_tracers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]]]):
+        pulumi.set(self, "transaction_tracers", value)
+
+    @property
+    @pulumi.getter(name="useServerSideConfig")
+    def use_server_side_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable server side monitoring for the New Relic application.
+        """
+        return pulumi.get(self, "use_server_side_config")
+
+    @use_server_side_config.setter
+    def use_server_side_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_server_side_config", value)
 
 
 class ApplicationSettings(pulumi.CustomResource):
@@ -180,90 +405,52 @@ class ApplicationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_apdex_threshold: Optional[pulumi.Input[float]] = None,
                  enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+                 enable_slow_sql: Optional[pulumi.Input[bool]] = None,
+                 enable_thread_profiler: Optional[pulumi.Input[bool]] = None,
                  end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tracer_type: Optional[pulumi.Input[str]] = None,
+                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+                 use_server_side_config: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        > **NOTE:** Applications are not created by this resource, but are created by
-        a reporting agent.
-
-        Use this resource to manage configuration for an application that already
-        exists in New Relic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        app = newrelic.plugins.ApplicationSettings("app",
-            name="my-app",
-            app_apdex_threshold=0.7,
-            end_user_apdex_threshold=0.8,
-            enable_real_user_monitoring=False)
-        ```
-
-        ## Notes
-
-        > **NOTE:** Applications that have reported data in the last twelve hours
-        cannot be deleted.
-
         ## Import
 
-        Applications can be imported using notation `application_id`, e.g.
+        Applications can be imported using notation `application_guid`, e.g.
 
         ```sh
-        $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+        $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
-        :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
-               
-               ```
-               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-               ```
-        :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
-        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        :param pulumi.Input[float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
+        :param pulumi.Input[bool] enable_real_user_monitoring: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
+        :param pulumi.Input[bool] enable_thread_profiler: Enable or disable the collection of thread profiling data.
+        :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
+        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+        :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationSettingsArgs,
+                 args: Optional[ApplicationSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** Applications are not created by this resource, but are created by
-        a reporting agent.
-
-        Use this resource to manage configuration for an application that already
-        exists in New Relic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        app = newrelic.plugins.ApplicationSettings("app",
-            name="my-app",
-            app_apdex_threshold=0.7,
-            end_user_apdex_threshold=0.8,
-            enable_real_user_monitoring=False)
-        ```
-
-        ## Notes
-
-        > **NOTE:** Applications that have reported data in the last twelve hours
-        cannot be deleted.
-
         ## Import
 
-        Applications can be imported using notation `application_id`, e.g.
+        Applications can be imported using notation `application_guid`, e.g.
 
         ```sh
-        $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+        $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,8 +470,15 @@ class ApplicationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_apdex_threshold: Optional[pulumi.Input[float]] = None,
                  enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+                 enable_slow_sql: Optional[pulumi.Input[bool]] = None,
+                 enable_thread_profiler: Optional[pulumi.Input[bool]] = None,
                  end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tracer_type: Optional[pulumi.Input[str]] = None,
+                 transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+                 use_server_side_config: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,16 +488,18 @@ class ApplicationSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationSettingsArgs.__new__(ApplicationSettingsArgs)
 
-            if app_apdex_threshold is None and not opts.urn:
-                raise TypeError("Missing required property 'app_apdex_threshold'")
             __props__.__dict__["app_apdex_threshold"] = app_apdex_threshold
-            if enable_real_user_monitoring is None and not opts.urn:
-                raise TypeError("Missing required property 'enable_real_user_monitoring'")
             __props__.__dict__["enable_real_user_monitoring"] = enable_real_user_monitoring
-            if end_user_apdex_threshold is None and not opts.urn:
-                raise TypeError("Missing required property 'end_user_apdex_threshold'")
+            __props__.__dict__["enable_slow_sql"] = enable_slow_sql
+            __props__.__dict__["enable_thread_profiler"] = enable_thread_profiler
             __props__.__dict__["end_user_apdex_threshold"] = end_user_apdex_threshold
+            __props__.__dict__["error_collectors"] = error_collectors
+            __props__.__dict__["guid"] = guid
             __props__.__dict__["name"] = name
+            __props__.__dict__["tracer_type"] = tracer_type
+            __props__.__dict__["transaction_tracers"] = transaction_tracers
+            __props__.__dict__["use_server_side_config"] = use_server_side_config
+            __props__.__dict__["is_imported"] = None
         super(ApplicationSettings, __self__).__init__(
             'newrelic:plugins/applicationSettings:ApplicationSettings',
             resource_name,
@@ -316,8 +512,16 @@ class ApplicationSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_apdex_threshold: Optional[pulumi.Input[float]] = None,
             enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+            enable_slow_sql: Optional[pulumi.Input[bool]] = None,
+            enable_thread_profiler: Optional[pulumi.Input[bool]] = None,
             end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'ApplicationSettings':
+            error_collectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]]] = None,
+            guid: Optional[pulumi.Input[str]] = None,
+            is_imported: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            tracer_type: Optional[pulumi.Input[str]] = None,
+            transaction_tracers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]]] = None,
+            use_server_side_config: Optional[pulumi.Input[bool]] = None) -> 'ApplicationSettings':
         """
         Get an existing ApplicationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -325,14 +529,17 @@ class ApplicationSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] app_apdex_threshold: The apdex threshold for the New Relic application.
-        :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
-               
-               ```
-               Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-               ```
-        :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
-        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        :param pulumi.Input[float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
+        :param pulumi.Input[bool] enable_real_user_monitoring: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
+        :param pulumi.Input[bool] enable_thread_profiler: Enable or disable the collection of thread profiling data.
+        :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
+        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+        :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,43 +547,108 @@ class ApplicationSettings(pulumi.CustomResource):
 
         __props__.__dict__["app_apdex_threshold"] = app_apdex_threshold
         __props__.__dict__["enable_real_user_monitoring"] = enable_real_user_monitoring
+        __props__.__dict__["enable_slow_sql"] = enable_slow_sql
+        __props__.__dict__["enable_thread_profiler"] = enable_thread_profiler
         __props__.__dict__["end_user_apdex_threshold"] = end_user_apdex_threshold
+        __props__.__dict__["error_collectors"] = error_collectors
+        __props__.__dict__["guid"] = guid
+        __props__.__dict__["is_imported"] = is_imported
         __props__.__dict__["name"] = name
+        __props__.__dict__["tracer_type"] = tracer_type
+        __props__.__dict__["transaction_tracers"] = transaction_tracers
+        __props__.__dict__["use_server_side_config"] = use_server_side_config
         return ApplicationSettings(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="appApdexThreshold")
-    def app_apdex_threshold(self) -> pulumi.Output[float]:
+    def app_apdex_threshold(self) -> pulumi.Output[Optional[float]]:
         """
-        The apdex threshold for the New Relic application.
+        The acceptable response time limit (Apdex threshold) for the application.
         """
         return pulumi.get(self, "app_apdex_threshold")
 
     @property
     @pulumi.getter(name="enableRealUserMonitoring")
-    def enable_real_user_monitoring(self) -> pulumi.Output[bool]:
+    def enable_real_user_monitoring(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable or disable real user monitoring for the New Relic application.
-
-        ```
-        Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        ```
+        Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "enable_real_user_monitoring")
 
     @property
-    @pulumi.getter(name="endUserApdexThreshold")
-    def end_user_apdex_threshold(self) -> pulumi.Output[float]:
+    @pulumi.getter(name="enableSlowSql")
+    def enable_slow_sql(self) -> pulumi.Output[Optional[bool]]:
         """
-        The user's apdex threshold for the New Relic application.
+        Enable or disable the collection of slowest database queries in your traces.
+        """
+        return pulumi.get(self, "enable_slow_sql")
+
+    @property
+    @pulumi.getter(name="enableThreadProfiler")
+    def enable_thread_profiler(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable the collection of thread profiling data.
+        """
+        return pulumi.get(self, "enable_thread_profiler")
+
+    @property
+    @pulumi.getter(name="endUserApdexThreshold")
+    def end_user_apdex_threshold(self) -> pulumi.Output[Optional[float]]:
+        """
+        Dummy field to support backward compatibility of previous version.should be removed with next major version.
         """
         return pulumi.get(self, "end_user_apdex_threshold")
+
+    @property
+    @pulumi.getter(name="errorCollectors")
+    def error_collectors(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationSettingsErrorCollector']]]:
+        """
+        Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        """
+        return pulumi.get(self, "error_collectors")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> pulumi.Output[str]:
+        """
+        The GUID of the application in New Relic APM.
+        """
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter(name="isImported")
+    def is_imported(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "is_imported")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the application in New Relic APM.
+        A custom name or alias you can give the application in New Relic APM.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tracerType")
+    def tracer_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        """
+        return pulumi.get(self, "tracer_type")
+
+    @property
+    @pulumi.getter(name="transactionTracers")
+    def transaction_tracers(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationSettingsTransactionTracer']]]:
+        """
+        Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        """
+        return pulumi.get(self, "transaction_tracers")
+
+    @property
+    @pulumi.getter(name="useServerSideConfig")
+    def use_server_side_config(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable server side monitoring for the New Relic application.
+        """
+        return pulumi.get(self, "use_server_side_config")
 

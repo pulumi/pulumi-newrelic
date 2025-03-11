@@ -10,76 +10,85 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Plugins
 {
     /// <summary>
-    /// &gt; **NOTE:** Applications are not created by this resource, but are created by
-    /// a reporting agent.
-    /// 
-    /// Use this resource to manage configuration for an application that already
-    /// exists in New Relic.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new NewRelic.Plugins.ApplicationSettings("app", new()
-    ///     {
-    ///         Name = "my-app",
-    ///         AppApdexThreshold = 0.7,
-    ///         EndUserApdexThreshold = 0.8,
-    ///         EnableRealUserMonitoring = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Notes
-    /// 
-    /// &gt; **NOTE:** Applications that have reported data in the last twelve hours
-    /// cannot be deleted.
-    /// 
     /// ## Import
     /// 
-    /// Applications can be imported using notation `application_id`, e.g.
+    /// Applications can be imported using notation `application_guid`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+    /// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/applicationSettings:ApplicationSettings")]
     public partial class ApplicationSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The apdex threshold for the New Relic application.
+        /// The acceptable response time limit (Apdex threshold) for the application.
         /// </summary>
         [Output("appApdexThreshold")]
-        public Output<double> AppApdexThreshold { get; private set; } = null!;
+        public Output<double?> AppApdexThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable real user monitoring for the New Relic application.
-        /// 
-        /// ```
-        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        /// ```
+        /// Dummy field to support backward compatibility of previous version.should be removed with next major version.
         /// </summary>
         [Output("enableRealUserMonitoring")]
-        public Output<bool> EnableRealUserMonitoring { get; private set; } = null!;
+        public Output<bool?> EnableRealUserMonitoring { get; private set; } = null!;
 
         /// <summary>
-        /// The user's apdex threshold for the New Relic application.
+        /// Enable or disable the collection of slowest database queries in your traces.
+        /// </summary>
+        [Output("enableSlowSql")]
+        public Output<bool?> EnableSlowSql { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or disable the collection of thread profiling data.
+        /// </summary>
+        [Output("enableThreadProfiler")]
+        public Output<bool?> EnableThreadProfiler { get; private set; } = null!;
+
+        /// <summary>
+        /// Dummy field to support backward compatibility of previous version.should be removed with next major version.
         /// </summary>
         [Output("endUserApdexThreshold")]
-        public Output<double> EndUserApdexThreshold { get; private set; } = null!;
+        public Output<double?> EndUserApdexThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application in New Relic APM.
+        /// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        /// </summary>
+        [Output("errorCollectors")]
+        public Output<ImmutableArray<Outputs.ApplicationSettingsErrorCollector>> ErrorCollectors { get; private set; } = null!;
+
+        /// <summary>
+        /// The GUID of the application in New Relic APM.
+        /// </summary>
+        [Output("guid")]
+        public Output<string> Guid { get; private set; } = null!;
+
+        [Output("isImported")]
+        public Output<bool> IsImported { get; private set; } = null!;
+
+        /// <summary>
+        /// A custom name or alias you can give the application in New Relic APM.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        /// </summary>
+        [Output("tracerType")]
+        public Output<string?> TracerType { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        /// </summary>
+        [Output("transactionTracers")]
+        public Output<ImmutableArray<Outputs.ApplicationSettingsTransactionTracer>> TransactionTracers { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or disable server side monitoring for the New Relic application.
+        /// </summary>
+        [Output("useServerSideConfig")]
+        public Output<bool?> UseServerSideConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,7 +98,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ApplicationSettings(string name, ApplicationSettingsArgs args, CustomResourceOptions? options = null)
+        public ApplicationSettings(string name, ApplicationSettingsArgs? args = null, CustomResourceOptions? options = null)
             : base("newrelic:plugins/applicationSettings:ApplicationSettings", name, args ?? new ApplicationSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -128,32 +137,82 @@ namespace Pulumi.NewRelic.Plugins
     public sealed class ApplicationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The apdex threshold for the New Relic application.
+        /// The acceptable response time limit (Apdex threshold) for the application.
         /// </summary>
-        [Input("appApdexThreshold", required: true)]
-        public Input<double> AppApdexThreshold { get; set; } = null!;
+        [Input("appApdexThreshold")]
+        public Input<double>? AppApdexThreshold { get; set; }
 
         /// <summary>
-        /// Enable or disable real user monitoring for the New Relic application.
-        /// 
-        /// ```
-        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        /// ```
+        /// Dummy field to support backward compatibility of previous version.should be removed with next major version.
         /// </summary>
-        [Input("enableRealUserMonitoring", required: true)]
-        public Input<bool> EnableRealUserMonitoring { get; set; } = null!;
+        [Input("enableRealUserMonitoring")]
+        public Input<bool>? EnableRealUserMonitoring { get; set; }
 
         /// <summary>
-        /// The user's apdex threshold for the New Relic application.
+        /// Enable or disable the collection of slowest database queries in your traces.
         /// </summary>
-        [Input("endUserApdexThreshold", required: true)]
-        public Input<double> EndUserApdexThreshold { get; set; } = null!;
+        [Input("enableSlowSql")]
+        public Input<bool>? EnableSlowSql { get; set; }
 
         /// <summary>
-        /// The name of the application in New Relic APM.
+        /// Enable or disable the collection of thread profiling data.
+        /// </summary>
+        [Input("enableThreadProfiler")]
+        public Input<bool>? EnableThreadProfiler { get; set; }
+
+        /// <summary>
+        /// Dummy field to support backward compatibility of previous version.should be removed with next major version.
+        /// </summary>
+        [Input("endUserApdexThreshold")]
+        public Input<double>? EndUserApdexThreshold { get; set; }
+
+        [Input("errorCollectors")]
+        private InputList<Inputs.ApplicationSettingsErrorCollectorArgs>? _errorCollectors;
+
+        /// <summary>
+        /// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        /// </summary>
+        public InputList<Inputs.ApplicationSettingsErrorCollectorArgs> ErrorCollectors
+        {
+            get => _errorCollectors ?? (_errorCollectors = new InputList<Inputs.ApplicationSettingsErrorCollectorArgs>());
+            set => _errorCollectors = value;
+        }
+
+        /// <summary>
+        /// The GUID of the application in New Relic APM.
+        /// </summary>
+        [Input("guid")]
+        public Input<string>? Guid { get; set; }
+
+        /// <summary>
+        /// A custom name or alias you can give the application in New Relic APM.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        /// </summary>
+        [Input("tracerType")]
+        public Input<string>? TracerType { get; set; }
+
+        [Input("transactionTracers")]
+        private InputList<Inputs.ApplicationSettingsTransactionTracerArgs>? _transactionTracers;
+
+        /// <summary>
+        /// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        /// </summary>
+        public InputList<Inputs.ApplicationSettingsTransactionTracerArgs> TransactionTracers
+        {
+            get => _transactionTracers ?? (_transactionTracers = new InputList<Inputs.ApplicationSettingsTransactionTracerArgs>());
+            set => _transactionTracers = value;
+        }
+
+        /// <summary>
+        /// Enable or disable server side monitoring for the New Relic application.
+        /// </summary>
+        [Input("useServerSideConfig")]
+        public Input<bool>? UseServerSideConfig { get; set; }
 
         public ApplicationSettingsArgs()
         {
@@ -164,32 +223,85 @@ namespace Pulumi.NewRelic.Plugins
     public sealed class ApplicationSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The apdex threshold for the New Relic application.
+        /// The acceptable response time limit (Apdex threshold) for the application.
         /// </summary>
         [Input("appApdexThreshold")]
         public Input<double>? AppApdexThreshold { get; set; }
 
         /// <summary>
-        /// Enable or disable real user monitoring for the New Relic application.
-        /// 
-        /// ```
-        /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-        /// ```
+        /// Dummy field to support backward compatibility of previous version.should be removed with next major version.
         /// </summary>
         [Input("enableRealUserMonitoring")]
         public Input<bool>? EnableRealUserMonitoring { get; set; }
 
         /// <summary>
-        /// The user's apdex threshold for the New Relic application.
+        /// Enable or disable the collection of slowest database queries in your traces.
+        /// </summary>
+        [Input("enableSlowSql")]
+        public Input<bool>? EnableSlowSql { get; set; }
+
+        /// <summary>
+        /// Enable or disable the collection of thread profiling data.
+        /// </summary>
+        [Input("enableThreadProfiler")]
+        public Input<bool>? EnableThreadProfiler { get; set; }
+
+        /// <summary>
+        /// Dummy field to support backward compatibility of previous version.should be removed with next major version.
         /// </summary>
         [Input("endUserApdexThreshold")]
         public Input<double>? EndUserApdexThreshold { get; set; }
 
+        [Input("errorCollectors")]
+        private InputList<Inputs.ApplicationSettingsErrorCollectorGetArgs>? _errorCollectors;
+
         /// <summary>
-        /// The name of the application in New Relic APM.
+        /// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+        /// </summary>
+        public InputList<Inputs.ApplicationSettingsErrorCollectorGetArgs> ErrorCollectors
+        {
+            get => _errorCollectors ?? (_errorCollectors = new InputList<Inputs.ApplicationSettingsErrorCollectorGetArgs>());
+            set => _errorCollectors = value;
+        }
+
+        /// <summary>
+        /// The GUID of the application in New Relic APM.
+        /// </summary>
+        [Input("guid")]
+        public Input<string>? Guid { get; set; }
+
+        [Input("isImported")]
+        public Input<bool>? IsImported { get; set; }
+
+        /// <summary>
+        /// A custom name or alias you can give the application in New Relic APM.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+        /// </summary>
+        [Input("tracerType")]
+        public Input<string>? TracerType { get; set; }
+
+        [Input("transactionTracers")]
+        private InputList<Inputs.ApplicationSettingsTransactionTracerGetArgs>? _transactionTracers;
+
+        /// <summary>
+        /// Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+        /// </summary>
+        public InputList<Inputs.ApplicationSettingsTransactionTracerGetArgs> TransactionTracers
+        {
+            get => _transactionTracers ?? (_transactionTracers = new InputList<Inputs.ApplicationSettingsTransactionTracerGetArgs>());
+            set => _transactionTracers = value;
+        }
+
+        /// <summary>
+        /// Enable or disable server side monitoring for the New Relic application.
+        /// </summary>
+        [Input("useServerSideConfig")]
+        public Input<bool>? UseServerSideConfig { get; set; }
 
         public ApplicationSettingsState()
         {

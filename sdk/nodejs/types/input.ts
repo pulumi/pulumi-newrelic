@@ -5412,6 +5412,66 @@ export namespace insights {
 }
 
 export namespace plugins {
+    export interface ApplicationSettingsErrorCollector {
+        /**
+         * A list of expected error classes.
+         */
+        expectedErrorClasses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of expected error codes(any status code between 100-900).
+         */
+        expectedErrorCodes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of ignored error classes.
+         */
+        ignoredErrorClasses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of ignored error codes(any status code between 100-900).
+         */
+        ignoredErrorCodes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApplicationSettingsTransactionTracer {
+        /**
+         * Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+         */
+        explainQueryPlans?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracerExplainQueryPlan>[]>;
+        /**
+         * Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+         */
+        sql?: pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracerSql>;
+        /**
+         * The response time threshold for collecting stack traces.
+         */
+        stackTraceThresholdValue?: pulumi.Input<number>;
+        /**
+         * The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+         */
+        transactionThresholdType?: pulumi.Input<string>;
+        /**
+         * The threshold value for transactions(in seconds).
+         */
+        transactionThresholdValue?: pulumi.Input<number>;
+    }
+
+    export interface ApplicationSettingsTransactionTracerExplainQueryPlan {
+        /**
+         * The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+         */
+        queryPlanThresholdType?: pulumi.Input<string>;
+        /**
+         * The response time threshold for capturing query plans(in seconds).
+         */
+        queryPlanThresholdValue?: pulumi.Input<number>;
+    }
+
+    export interface ApplicationSettingsTransactionTracerSql {
+        /**
+         * The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+         */
+        recordSql: pulumi.Input<string>;
+    }
+
     export interface WorkloadEntitySearchQuery {
         /**
          * A valid entity search query; empty, and null values are considered invalid.

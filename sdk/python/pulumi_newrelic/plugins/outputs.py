@@ -16,6 +16,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ApplicationSettingsErrorCollector',
+    'ApplicationSettingsTransactionTracer',
+    'ApplicationSettingsTransactionTracerExplainQueryPlan',
+    'ApplicationSettingsTransactionTracerSql',
     'WorkloadEntitySearchQuery',
     'WorkloadStatusConfigAutomatic',
     'WorkloadStatusConfigAutomaticRemainingEntitiesRule',
@@ -25,6 +29,259 @@ __all__ = [
     'WorkloadStatusConfigAutomaticRuleRollup',
     'WorkloadStatusConfigStatic',
 ]
+
+@pulumi.output_type
+class ApplicationSettingsErrorCollector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedErrorClasses":
+            suggest = "expected_error_classes"
+        elif key == "expectedErrorCodes":
+            suggest = "expected_error_codes"
+        elif key == "ignoredErrorClasses":
+            suggest = "ignored_error_classes"
+        elif key == "ignoredErrorCodes":
+            suggest = "ignored_error_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSettingsErrorCollector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSettingsErrorCollector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSettingsErrorCollector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expected_error_classes: Optional[Sequence[str]] = None,
+                 expected_error_codes: Optional[Sequence[str]] = None,
+                 ignored_error_classes: Optional[Sequence[str]] = None,
+                 ignored_error_codes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] expected_error_classes: A list of expected error classes.
+        :param Sequence[str] expected_error_codes: A list of expected error codes(any status code between 100-900).
+        :param Sequence[str] ignored_error_classes: A list of ignored error classes.
+        :param Sequence[str] ignored_error_codes: A list of ignored error codes(any status code between 100-900).
+        """
+        if expected_error_classes is not None:
+            pulumi.set(__self__, "expected_error_classes", expected_error_classes)
+        if expected_error_codes is not None:
+            pulumi.set(__self__, "expected_error_codes", expected_error_codes)
+        if ignored_error_classes is not None:
+            pulumi.set(__self__, "ignored_error_classes", ignored_error_classes)
+        if ignored_error_codes is not None:
+            pulumi.set(__self__, "ignored_error_codes", ignored_error_codes)
+
+    @property
+    @pulumi.getter(name="expectedErrorClasses")
+    def expected_error_classes(self) -> Optional[Sequence[str]]:
+        """
+        A list of expected error classes.
+        """
+        return pulumi.get(self, "expected_error_classes")
+
+    @property
+    @pulumi.getter(name="expectedErrorCodes")
+    def expected_error_codes(self) -> Optional[Sequence[str]]:
+        """
+        A list of expected error codes(any status code between 100-900).
+        """
+        return pulumi.get(self, "expected_error_codes")
+
+    @property
+    @pulumi.getter(name="ignoredErrorClasses")
+    def ignored_error_classes(self) -> Optional[Sequence[str]]:
+        """
+        A list of ignored error classes.
+        """
+        return pulumi.get(self, "ignored_error_classes")
+
+    @property
+    @pulumi.getter(name="ignoredErrorCodes")
+    def ignored_error_codes(self) -> Optional[Sequence[str]]:
+        """
+        A list of ignored error codes(any status code between 100-900).
+        """
+        return pulumi.get(self, "ignored_error_codes")
+
+
+@pulumi.output_type
+class ApplicationSettingsTransactionTracer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "explainQueryPlans":
+            suggest = "explain_query_plans"
+        elif key == "stackTraceThresholdValue":
+            suggest = "stack_trace_threshold_value"
+        elif key == "transactionThresholdType":
+            suggest = "transaction_threshold_type"
+        elif key == "transactionThresholdValue":
+            suggest = "transaction_threshold_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSettingsTransactionTracer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSettingsTransactionTracer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSettingsTransactionTracer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 explain_query_plans: Optional[Sequence['outputs.ApplicationSettingsTransactionTracerExplainQueryPlan']] = None,
+                 sql: Optional['outputs.ApplicationSettingsTransactionTracerSql'] = None,
+                 stack_trace_threshold_value: Optional[float] = None,
+                 transaction_threshold_type: Optional[str] = None,
+                 transaction_threshold_value: Optional[float] = None):
+        """
+        :param Sequence['ApplicationSettingsTransactionTracerExplainQueryPlanArgs'] explain_query_plans: Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+        :param 'ApplicationSettingsTransactionTracerSqlArgs' sql: Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+        :param float stack_trace_threshold_value: The response time threshold for collecting stack traces.
+        :param str transaction_threshold_type: The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        :param float transaction_threshold_value: The threshold value for transactions(in seconds).
+        """
+        if explain_query_plans is not None:
+            pulumi.set(__self__, "explain_query_plans", explain_query_plans)
+        if sql is not None:
+            pulumi.set(__self__, "sql", sql)
+        if stack_trace_threshold_value is not None:
+            pulumi.set(__self__, "stack_trace_threshold_value", stack_trace_threshold_value)
+        if transaction_threshold_type is not None:
+            pulumi.set(__self__, "transaction_threshold_type", transaction_threshold_type)
+        if transaction_threshold_value is not None:
+            pulumi.set(__self__, "transaction_threshold_value", transaction_threshold_value)
+
+    @property
+    @pulumi.getter(name="explainQueryPlans")
+    def explain_query_plans(self) -> Optional[Sequence['outputs.ApplicationSettingsTransactionTracerExplainQueryPlan']]:
+        """
+        Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+        """
+        return pulumi.get(self, "explain_query_plans")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> Optional['outputs.ApplicationSettingsTransactionTracerSql']:
+        """
+        Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+        """
+        return pulumi.get(self, "sql")
+
+    @property
+    @pulumi.getter(name="stackTraceThresholdValue")
+    def stack_trace_threshold_value(self) -> Optional[float]:
+        """
+        The response time threshold for collecting stack traces.
+        """
+        return pulumi.get(self, "stack_trace_threshold_value")
+
+    @property
+    @pulumi.getter(name="transactionThresholdType")
+    def transaction_threshold_type(self) -> Optional[str]:
+        """
+        The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        """
+        return pulumi.get(self, "transaction_threshold_type")
+
+    @property
+    @pulumi.getter(name="transactionThresholdValue")
+    def transaction_threshold_value(self) -> Optional[float]:
+        """
+        The threshold value for transactions(in seconds).
+        """
+        return pulumi.get(self, "transaction_threshold_value")
+
+
+@pulumi.output_type
+class ApplicationSettingsTransactionTracerExplainQueryPlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryPlanThresholdType":
+            suggest = "query_plan_threshold_type"
+        elif key == "queryPlanThresholdValue":
+            suggest = "query_plan_threshold_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSettingsTransactionTracerExplainQueryPlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSettingsTransactionTracerExplainQueryPlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSettingsTransactionTracerExplainQueryPlan.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_plan_threshold_type: Optional[str] = None,
+                 query_plan_threshold_value: Optional[float] = None):
+        """
+        :param str query_plan_threshold_type: The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        :param float query_plan_threshold_value: The response time threshold for capturing query plans(in seconds).
+        """
+        if query_plan_threshold_type is not None:
+            pulumi.set(__self__, "query_plan_threshold_type", query_plan_threshold_type)
+        if query_plan_threshold_value is not None:
+            pulumi.set(__self__, "query_plan_threshold_value", query_plan_threshold_value)
+
+    @property
+    @pulumi.getter(name="queryPlanThresholdType")
+    def query_plan_threshold_type(self) -> Optional[str]:
+        """
+        The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        """
+        return pulumi.get(self, "query_plan_threshold_type")
+
+    @property
+    @pulumi.getter(name="queryPlanThresholdValue")
+    def query_plan_threshold_value(self) -> Optional[float]:
+        """
+        The response time threshold for capturing query plans(in seconds).
+        """
+        return pulumi.get(self, "query_plan_threshold_value")
+
+
+@pulumi.output_type
+class ApplicationSettingsTransactionTracerSql(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordSql":
+            suggest = "record_sql"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSettingsTransactionTracerSql. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSettingsTransactionTracerSql.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSettingsTransactionTracerSql.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_sql: str):
+        """
+        :param str record_sql: The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        """
+        pulumi.set(__self__, "record_sql", record_sql)
+
+    @property
+    @pulumi.getter(name="recordSql")
+    def record_sql(self) -> str:
+        """
+        The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        """
+        return pulumi.get(self, "record_sql")
+
 
 @pulumi.output_type
 class WorkloadEntitySearchQuery(dict):
