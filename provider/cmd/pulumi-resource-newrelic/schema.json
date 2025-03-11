@@ -7890,6 +7890,92 @@
                 "value"
             ]
         },
+        "newrelic:plugins/ApplicationSettingsErrorCollector:ApplicationSettingsErrorCollector": {
+            "properties": {
+                "expectedErrorClasses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of expected error classes.\n"
+                },
+                "expectedErrorCodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of expected error codes(any status code between 100-900).\n"
+                },
+                "ignoredErrorClasses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of ignored error classes.\n"
+                },
+                "ignoredErrorCodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of ignored error codes(any status code between 100-900).\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:plugins/ApplicationSettingsTransactionTracer:ApplicationSettingsTransactionTracer": {
+            "properties": {
+                "explainQueryPlans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/ApplicationSettingsTransactionTracerExplainQueryPlan:ApplicationSettingsTransactionTracerExplainQueryPlan"
+                    },
+                    "description": "Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:\n"
+                },
+                "sql": {
+                    "$ref": "#/types/newrelic:plugins/ApplicationSettingsTransactionTracerSql:ApplicationSettingsTransactionTracerSql",
+                    "description": "Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:\n"
+                },
+                "stackTraceThresholdValue": {
+                    "type": "number",
+                    "description": "The response time threshold for collecting stack traces.\n"
+                },
+                "transactionThresholdType": {
+                    "type": "string",
+                    "description": "The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)\n"
+                },
+                "transactionThresholdValue": {
+                    "type": "number",
+                    "description": "The threshold value for transactions(in seconds).\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:plugins/ApplicationSettingsTransactionTracerExplainQueryPlan:ApplicationSettingsTransactionTracerExplainQueryPlan": {
+            "properties": {
+                "queryPlanThresholdType": {
+                    "type": "string",
+                    "description": "The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)\n"
+                },
+                "queryPlanThresholdValue": {
+                    "type": "number",
+                    "description": "The response time threshold for capturing query plans(in seconds).\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:plugins/ApplicationSettingsTransactionTracerSql:ApplicationSettingsTransactionTracerSql": {
+            "properties": {
+                "recordSql": {
+                    "type": "string",
+                    "description": "The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "recordSql"
+            ]
+        },
         "newrelic:plugins/WorkloadEntitySearchQuery:WorkloadEntitySearchQuery": {
             "properties": {
                 "query": {
@@ -13875,72 +13961,176 @@
             }
         },
         "newrelic:plugins/applicationSettings:ApplicationSettings": {
-            "description": "\u003e **NOTE:** Applications are not created by this resource, but are created by\na reporting agent.\n\nUse this resource to manage configuration for an application that already\nexists in New Relic.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst app = new newrelic.plugins.ApplicationSettings(\"app\", {\n    name: \"my-app\",\n    appApdexThreshold: 0.7,\n    endUserApdexThreshold: 0.8,\n    enableRealUserMonitoring: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\napp = newrelic.plugins.ApplicationSettings(\"app\",\n    name=\"my-app\",\n    app_apdex_threshold=0.7,\n    end_user_apdex_threshold=0.8,\n    enable_real_user_monitoring=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var app = new NewRelic.Plugins.ApplicationSettings(\"app\", new()\n    {\n        Name = \"my-app\",\n        AppApdexThreshold = 0.7,\n        EndUserApdexThreshold = 0.8,\n        EnableRealUserMonitoring = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := plugins.NewApplicationSettings(ctx, \"app\", \u0026plugins.ApplicationSettingsArgs{\n\t\t\tName:                     pulumi.String(\"my-app\"),\n\t\t\tAppApdexThreshold:        pulumi.Float64(0.7),\n\t\t\tEndUserApdexThreshold:    pulumi.Float64(0.8),\n\t\t\tEnableRealUserMonitoring: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.plugins.ApplicationSettings;\nimport com.pulumi.newrelic.plugins.ApplicationSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var app = new ApplicationSettings(\"app\", ApplicationSettingsArgs.builder()\n            .name(\"my-app\")\n            .appApdexThreshold(\"0.7\")\n            .endUserApdexThreshold(\"0.8\")\n            .enableRealUserMonitoring(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  app:\n    type: newrelic:plugins:ApplicationSettings\n    properties:\n      name: my-app\n      appApdexThreshold: '0.7'\n      endUserApdexThreshold: '0.8'\n      enableRealUserMonitoring: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Notes\n\n\u003e **NOTE:** Applications that have reported data in the last twelve hours\ncannot be deleted.\n\n## Import\n\nApplications can be imported using notation `application_id`, e.g.\n\n```sh\n$ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345\n```\n",
+            "description": "\n\n## Import\n\nApplications can be imported using notation `application_guid`, e.g.\n\n```sh\n$ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx\n```\n",
             "properties": {
                 "appApdexThreshold": {
                     "type": "number",
-                    "description": "The apdex threshold for the New Relic application.\n"
+                    "description": "The acceptable response time limit (Apdex threshold) for the application.\n"
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
-                    "description": "Enable or disable real user monitoring for the New Relic application.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                },
+                "enableSlowSql": {
+                    "type": "boolean",
+                    "description": "Enable or disable the collection of slowest database queries in your traces.\n"
+                },
+                "enableThreadProfiler": {
+                    "type": "boolean",
+                    "description": "Enable or disable the collection of thread profiling data.\n"
                 },
                 "endUserApdexThreshold": {
                     "type": "number",
-                    "description": "The user's apdex threshold for the New Relic application.\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                },
+                "errorCollectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/ApplicationSettingsErrorCollector:ApplicationSettingsErrorCollector"
+                    },
+                    "description": "Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:\n"
+                },
+                "guid": {
+                    "type": "string",
+                    "description": "The GUID of the application in New Relic APM.\n"
+                },
+                "isImported": {
+                    "type": "boolean"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the application in New Relic APM.\n"
+                    "description": "A custom name or alias you can give the application in New Relic APM.\n"
+                },
+                "tracerType": {
+                    "type": "string",
+                    "description": "Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.\n"
+                },
+                "transactionTracers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/ApplicationSettingsTransactionTracer:ApplicationSettingsTransactionTracer"
+                    },
+                    "description": "Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:\n"
+                },
+                "useServerSideConfig": {
+                    "type": "boolean",
+                    "description": "Enable or disable server side monitoring for the New Relic application.\n"
                 }
             },
             "required": [
-                "appApdexThreshold",
-                "enableRealUserMonitoring",
-                "endUserApdexThreshold",
+                "guid",
+                "isImported",
                 "name"
             ],
             "inputProperties": {
                 "appApdexThreshold": {
                     "type": "number",
-                    "description": "The apdex threshold for the New Relic application.\n"
+                    "description": "The acceptable response time limit (Apdex threshold) for the application.\n"
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
-                    "description": "Enable or disable real user monitoring for the New Relic application.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                },
+                "enableSlowSql": {
+                    "type": "boolean",
+                    "description": "Enable or disable the collection of slowest database queries in your traces.\n"
+                },
+                "enableThreadProfiler": {
+                    "type": "boolean",
+                    "description": "Enable or disable the collection of thread profiling data.\n"
                 },
                 "endUserApdexThreshold": {
                     "type": "number",
-                    "description": "The user's apdex threshold for the New Relic application.\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                },
+                "errorCollectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/ApplicationSettingsErrorCollector:ApplicationSettingsErrorCollector"
+                    },
+                    "description": "Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:\n"
+                },
+                "guid": {
+                    "type": "string",
+                    "description": "The GUID of the application in New Relic APM.\n",
+                    "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the application in New Relic APM.\n"
+                    "description": "A custom name or alias you can give the application in New Relic APM.\n"
+                },
+                "tracerType": {
+                    "type": "string",
+                    "description": "Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.\n"
+                },
+                "transactionTracers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/ApplicationSettingsTransactionTracer:ApplicationSettingsTransactionTracer"
+                    },
+                    "description": "Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:\n"
+                },
+                "useServerSideConfig": {
+                    "type": "boolean",
+                    "description": "Enable or disable server side monitoring for the New Relic application.\n"
                 }
             },
-            "requiredInputs": [
-                "appApdexThreshold",
-                "enableRealUserMonitoring",
-                "endUserApdexThreshold"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ApplicationSettings resources.\n",
                 "properties": {
                     "appApdexThreshold": {
                         "type": "number",
-                        "description": "The apdex threshold for the New Relic application.\n"
+                        "description": "The acceptable response time limit (Apdex threshold) for the application.\n"
                     },
                     "enableRealUserMonitoring": {
                         "type": "boolean",
-                        "description": "Enable or disable real user monitoring for the New Relic application.\n\n```\nWarning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.\n```\n"
+                        "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                    },
+                    "enableSlowSql": {
+                        "type": "boolean",
+                        "description": "Enable or disable the collection of slowest database queries in your traces.\n"
+                    },
+                    "enableThreadProfiler": {
+                        "type": "boolean",
+                        "description": "Enable or disable the collection of thread profiling data.\n"
                     },
                     "endUserApdexThreshold": {
                         "type": "number",
-                        "description": "The user's apdex threshold for the New Relic application.\n"
+                        "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                    },
+                    "errorCollectors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:plugins/ApplicationSettingsErrorCollector:ApplicationSettingsErrorCollector"
+                        },
+                        "description": "Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:\n"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "The GUID of the application in New Relic APM.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "isImported": {
+                        "type": "boolean"
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the application in New Relic APM.\n"
+                        "description": "A custom name or alias you can give the application in New Relic APM.\n"
+                    },
+                    "tracerType": {
+                        "type": "string",
+                        "description": "Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.\n"
+                    },
+                    "transactionTracers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:plugins/ApplicationSettingsTransactionTracer:ApplicationSettingsTransactionTracer"
+                        },
+                        "description": "Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:\n"
+                    },
+                    "useServerSideConfig": {
+                        "type": "boolean",
+                        "description": "Enable or disable server side monitoring for the New Relic application.\n"
                     }
                 },
                 "type": "object"

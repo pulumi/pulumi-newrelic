@@ -13,6 +13,510 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationSettingsErrorCollector struct {
+	// A list of expected error classes.
+	ExpectedErrorClasses []string `pulumi:"expectedErrorClasses"`
+	// A list of expected error codes(any status code between 100-900).
+	ExpectedErrorCodes []string `pulumi:"expectedErrorCodes"`
+	// A list of ignored error classes.
+	IgnoredErrorClasses []string `pulumi:"ignoredErrorClasses"`
+	// A list of ignored error codes(any status code between 100-900).
+	IgnoredErrorCodes []string `pulumi:"ignoredErrorCodes"`
+}
+
+// ApplicationSettingsErrorCollectorInput is an input type that accepts ApplicationSettingsErrorCollectorArgs and ApplicationSettingsErrorCollectorOutput values.
+// You can construct a concrete instance of `ApplicationSettingsErrorCollectorInput` via:
+//
+//	ApplicationSettingsErrorCollectorArgs{...}
+type ApplicationSettingsErrorCollectorInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsErrorCollectorOutput() ApplicationSettingsErrorCollectorOutput
+	ToApplicationSettingsErrorCollectorOutputWithContext(context.Context) ApplicationSettingsErrorCollectorOutput
+}
+
+type ApplicationSettingsErrorCollectorArgs struct {
+	// A list of expected error classes.
+	ExpectedErrorClasses pulumi.StringArrayInput `pulumi:"expectedErrorClasses"`
+	// A list of expected error codes(any status code between 100-900).
+	ExpectedErrorCodes pulumi.StringArrayInput `pulumi:"expectedErrorCodes"`
+	// A list of ignored error classes.
+	IgnoredErrorClasses pulumi.StringArrayInput `pulumi:"ignoredErrorClasses"`
+	// A list of ignored error codes(any status code between 100-900).
+	IgnoredErrorCodes pulumi.StringArrayInput `pulumi:"ignoredErrorCodes"`
+}
+
+func (ApplicationSettingsErrorCollectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsErrorCollector)(nil)).Elem()
+}
+
+func (i ApplicationSettingsErrorCollectorArgs) ToApplicationSettingsErrorCollectorOutput() ApplicationSettingsErrorCollectorOutput {
+	return i.ToApplicationSettingsErrorCollectorOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsErrorCollectorArgs) ToApplicationSettingsErrorCollectorOutputWithContext(ctx context.Context) ApplicationSettingsErrorCollectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsErrorCollectorOutput)
+}
+
+// ApplicationSettingsErrorCollectorArrayInput is an input type that accepts ApplicationSettingsErrorCollectorArray and ApplicationSettingsErrorCollectorArrayOutput values.
+// You can construct a concrete instance of `ApplicationSettingsErrorCollectorArrayInput` via:
+//
+//	ApplicationSettingsErrorCollectorArray{ ApplicationSettingsErrorCollectorArgs{...} }
+type ApplicationSettingsErrorCollectorArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsErrorCollectorArrayOutput() ApplicationSettingsErrorCollectorArrayOutput
+	ToApplicationSettingsErrorCollectorArrayOutputWithContext(context.Context) ApplicationSettingsErrorCollectorArrayOutput
+}
+
+type ApplicationSettingsErrorCollectorArray []ApplicationSettingsErrorCollectorInput
+
+func (ApplicationSettingsErrorCollectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSettingsErrorCollector)(nil)).Elem()
+}
+
+func (i ApplicationSettingsErrorCollectorArray) ToApplicationSettingsErrorCollectorArrayOutput() ApplicationSettingsErrorCollectorArrayOutput {
+	return i.ToApplicationSettingsErrorCollectorArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsErrorCollectorArray) ToApplicationSettingsErrorCollectorArrayOutputWithContext(ctx context.Context) ApplicationSettingsErrorCollectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsErrorCollectorArrayOutput)
+}
+
+type ApplicationSettingsErrorCollectorOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsErrorCollectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsErrorCollector)(nil)).Elem()
+}
+
+func (o ApplicationSettingsErrorCollectorOutput) ToApplicationSettingsErrorCollectorOutput() ApplicationSettingsErrorCollectorOutput {
+	return o
+}
+
+func (o ApplicationSettingsErrorCollectorOutput) ToApplicationSettingsErrorCollectorOutputWithContext(ctx context.Context) ApplicationSettingsErrorCollectorOutput {
+	return o
+}
+
+// A list of expected error classes.
+func (o ApplicationSettingsErrorCollectorOutput) ExpectedErrorClasses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSettingsErrorCollector) []string { return v.ExpectedErrorClasses }).(pulumi.StringArrayOutput)
+}
+
+// A list of expected error codes(any status code between 100-900).
+func (o ApplicationSettingsErrorCollectorOutput) ExpectedErrorCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSettingsErrorCollector) []string { return v.ExpectedErrorCodes }).(pulumi.StringArrayOutput)
+}
+
+// A list of ignored error classes.
+func (o ApplicationSettingsErrorCollectorOutput) IgnoredErrorClasses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSettingsErrorCollector) []string { return v.IgnoredErrorClasses }).(pulumi.StringArrayOutput)
+}
+
+// A list of ignored error codes(any status code between 100-900).
+func (o ApplicationSettingsErrorCollectorOutput) IgnoredErrorCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationSettingsErrorCollector) []string { return v.IgnoredErrorCodes }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationSettingsErrorCollectorArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsErrorCollectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSettingsErrorCollector)(nil)).Elem()
+}
+
+func (o ApplicationSettingsErrorCollectorArrayOutput) ToApplicationSettingsErrorCollectorArrayOutput() ApplicationSettingsErrorCollectorArrayOutput {
+	return o
+}
+
+func (o ApplicationSettingsErrorCollectorArrayOutput) ToApplicationSettingsErrorCollectorArrayOutputWithContext(ctx context.Context) ApplicationSettingsErrorCollectorArrayOutput {
+	return o
+}
+
+func (o ApplicationSettingsErrorCollectorArrayOutput) Index(i pulumi.IntInput) ApplicationSettingsErrorCollectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSettingsErrorCollector {
+		return vs[0].([]ApplicationSettingsErrorCollector)[vs[1].(int)]
+	}).(ApplicationSettingsErrorCollectorOutput)
+}
+
+type ApplicationSettingsTransactionTracer struct {
+	// Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+	ExplainQueryPlans []ApplicationSettingsTransactionTracerExplainQueryPlan `pulumi:"explainQueryPlans"`
+	// Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+	Sql *ApplicationSettingsTransactionTracerSql `pulumi:"sql"`
+	// The response time threshold for collecting stack traces.
+	StackTraceThresholdValue *float64 `pulumi:"stackTraceThresholdValue"`
+	// The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+	TransactionThresholdType *string `pulumi:"transactionThresholdType"`
+	// The threshold value for transactions(in seconds).
+	TransactionThresholdValue *float64 `pulumi:"transactionThresholdValue"`
+}
+
+// ApplicationSettingsTransactionTracerInput is an input type that accepts ApplicationSettingsTransactionTracerArgs and ApplicationSettingsTransactionTracerOutput values.
+// You can construct a concrete instance of `ApplicationSettingsTransactionTracerInput` via:
+//
+//	ApplicationSettingsTransactionTracerArgs{...}
+type ApplicationSettingsTransactionTracerInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsTransactionTracerOutput() ApplicationSettingsTransactionTracerOutput
+	ToApplicationSettingsTransactionTracerOutputWithContext(context.Context) ApplicationSettingsTransactionTracerOutput
+}
+
+type ApplicationSettingsTransactionTracerArgs struct {
+	// Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+	ExplainQueryPlans ApplicationSettingsTransactionTracerExplainQueryPlanArrayInput `pulumi:"explainQueryPlans"`
+	// Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+	Sql ApplicationSettingsTransactionTracerSqlPtrInput `pulumi:"sql"`
+	// The response time threshold for collecting stack traces.
+	StackTraceThresholdValue pulumi.Float64PtrInput `pulumi:"stackTraceThresholdValue"`
+	// The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+	TransactionThresholdType pulumi.StringPtrInput `pulumi:"transactionThresholdType"`
+	// The threshold value for transactions(in seconds).
+	TransactionThresholdValue pulumi.Float64PtrInput `pulumi:"transactionThresholdValue"`
+}
+
+func (ApplicationSettingsTransactionTracerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsTransactionTracer)(nil)).Elem()
+}
+
+func (i ApplicationSettingsTransactionTracerArgs) ToApplicationSettingsTransactionTracerOutput() ApplicationSettingsTransactionTracerOutput {
+	return i.ToApplicationSettingsTransactionTracerOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsTransactionTracerArgs) ToApplicationSettingsTransactionTracerOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerOutput)
+}
+
+// ApplicationSettingsTransactionTracerArrayInput is an input type that accepts ApplicationSettingsTransactionTracerArray and ApplicationSettingsTransactionTracerArrayOutput values.
+// You can construct a concrete instance of `ApplicationSettingsTransactionTracerArrayInput` via:
+//
+//	ApplicationSettingsTransactionTracerArray{ ApplicationSettingsTransactionTracerArgs{...} }
+type ApplicationSettingsTransactionTracerArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsTransactionTracerArrayOutput() ApplicationSettingsTransactionTracerArrayOutput
+	ToApplicationSettingsTransactionTracerArrayOutputWithContext(context.Context) ApplicationSettingsTransactionTracerArrayOutput
+}
+
+type ApplicationSettingsTransactionTracerArray []ApplicationSettingsTransactionTracerInput
+
+func (ApplicationSettingsTransactionTracerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSettingsTransactionTracer)(nil)).Elem()
+}
+
+func (i ApplicationSettingsTransactionTracerArray) ToApplicationSettingsTransactionTracerArrayOutput() ApplicationSettingsTransactionTracerArrayOutput {
+	return i.ToApplicationSettingsTransactionTracerArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsTransactionTracerArray) ToApplicationSettingsTransactionTracerArrayOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerArrayOutput)
+}
+
+type ApplicationSettingsTransactionTracerOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsTransactionTracerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsTransactionTracer)(nil)).Elem()
+}
+
+func (o ApplicationSettingsTransactionTracerOutput) ToApplicationSettingsTransactionTracerOutput() ApplicationSettingsTransactionTracerOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerOutput) ToApplicationSettingsTransactionTracerOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerOutput {
+	return o
+}
+
+// Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+func (o ApplicationSettingsTransactionTracerOutput) ExplainQueryPlans() ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracer) []ApplicationSettingsTransactionTracerExplainQueryPlan {
+		return v.ExplainQueryPlans
+	}).(ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput)
+}
+
+// Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+func (o ApplicationSettingsTransactionTracerOutput) Sql() ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracer) *ApplicationSettingsTransactionTracerSql { return v.Sql }).(ApplicationSettingsTransactionTracerSqlPtrOutput)
+}
+
+// The response time threshold for collecting stack traces.
+func (o ApplicationSettingsTransactionTracerOutput) StackTraceThresholdValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracer) *float64 { return v.StackTraceThresholdValue }).(pulumi.Float64PtrOutput)
+}
+
+// The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+func (o ApplicationSettingsTransactionTracerOutput) TransactionThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracer) *string { return v.TransactionThresholdType }).(pulumi.StringPtrOutput)
+}
+
+// The threshold value for transactions(in seconds).
+func (o ApplicationSettingsTransactionTracerOutput) TransactionThresholdValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracer) *float64 { return v.TransactionThresholdValue }).(pulumi.Float64PtrOutput)
+}
+
+type ApplicationSettingsTransactionTracerArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsTransactionTracerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSettingsTransactionTracer)(nil)).Elem()
+}
+
+func (o ApplicationSettingsTransactionTracerArrayOutput) ToApplicationSettingsTransactionTracerArrayOutput() ApplicationSettingsTransactionTracerArrayOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerArrayOutput) ToApplicationSettingsTransactionTracerArrayOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerArrayOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerArrayOutput) Index(i pulumi.IntInput) ApplicationSettingsTransactionTracerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSettingsTransactionTracer {
+		return vs[0].([]ApplicationSettingsTransactionTracer)[vs[1].(int)]
+	}).(ApplicationSettingsTransactionTracerOutput)
+}
+
+type ApplicationSettingsTransactionTracerExplainQueryPlan struct {
+	// The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+	QueryPlanThresholdType *string `pulumi:"queryPlanThresholdType"`
+	// The response time threshold for capturing query plans(in seconds).
+	QueryPlanThresholdValue *float64 `pulumi:"queryPlanThresholdValue"`
+}
+
+// ApplicationSettingsTransactionTracerExplainQueryPlanInput is an input type that accepts ApplicationSettingsTransactionTracerExplainQueryPlanArgs and ApplicationSettingsTransactionTracerExplainQueryPlanOutput values.
+// You can construct a concrete instance of `ApplicationSettingsTransactionTracerExplainQueryPlanInput` via:
+//
+//	ApplicationSettingsTransactionTracerExplainQueryPlanArgs{...}
+type ApplicationSettingsTransactionTracerExplainQueryPlanInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsTransactionTracerExplainQueryPlanOutput() ApplicationSettingsTransactionTracerExplainQueryPlanOutput
+	ToApplicationSettingsTransactionTracerExplainQueryPlanOutputWithContext(context.Context) ApplicationSettingsTransactionTracerExplainQueryPlanOutput
+}
+
+type ApplicationSettingsTransactionTracerExplainQueryPlanArgs struct {
+	// The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+	QueryPlanThresholdType pulumi.StringPtrInput `pulumi:"queryPlanThresholdType"`
+	// The response time threshold for capturing query plans(in seconds).
+	QueryPlanThresholdValue pulumi.Float64PtrInput `pulumi:"queryPlanThresholdValue"`
+}
+
+func (ApplicationSettingsTransactionTracerExplainQueryPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsTransactionTracerExplainQueryPlan)(nil)).Elem()
+}
+
+func (i ApplicationSettingsTransactionTracerExplainQueryPlanArgs) ToApplicationSettingsTransactionTracerExplainQueryPlanOutput() ApplicationSettingsTransactionTracerExplainQueryPlanOutput {
+	return i.ToApplicationSettingsTransactionTracerExplainQueryPlanOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsTransactionTracerExplainQueryPlanArgs) ToApplicationSettingsTransactionTracerExplainQueryPlanOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerExplainQueryPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerExplainQueryPlanOutput)
+}
+
+// ApplicationSettingsTransactionTracerExplainQueryPlanArrayInput is an input type that accepts ApplicationSettingsTransactionTracerExplainQueryPlanArray and ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput values.
+// You can construct a concrete instance of `ApplicationSettingsTransactionTracerExplainQueryPlanArrayInput` via:
+//
+//	ApplicationSettingsTransactionTracerExplainQueryPlanArray{ ApplicationSettingsTransactionTracerExplainQueryPlanArgs{...} }
+type ApplicationSettingsTransactionTracerExplainQueryPlanArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput() ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput
+	ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutputWithContext(context.Context) ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput
+}
+
+type ApplicationSettingsTransactionTracerExplainQueryPlanArray []ApplicationSettingsTransactionTracerExplainQueryPlanInput
+
+func (ApplicationSettingsTransactionTracerExplainQueryPlanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSettingsTransactionTracerExplainQueryPlan)(nil)).Elem()
+}
+
+func (i ApplicationSettingsTransactionTracerExplainQueryPlanArray) ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput() ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput {
+	return i.ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsTransactionTracerExplainQueryPlanArray) ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput)
+}
+
+type ApplicationSettingsTransactionTracerExplainQueryPlanOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsTransactionTracerExplainQueryPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsTransactionTracerExplainQueryPlan)(nil)).Elem()
+}
+
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanOutput) ToApplicationSettingsTransactionTracerExplainQueryPlanOutput() ApplicationSettingsTransactionTracerExplainQueryPlanOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanOutput) ToApplicationSettingsTransactionTracerExplainQueryPlanOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerExplainQueryPlanOutput {
+	return o
+}
+
+// The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanOutput) QueryPlanThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracerExplainQueryPlan) *string { return v.QueryPlanThresholdType }).(pulumi.StringPtrOutput)
+}
+
+// The response time threshold for capturing query plans(in seconds).
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanOutput) QueryPlanThresholdValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracerExplainQueryPlan) *float64 {
+		return v.QueryPlanThresholdValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationSettingsTransactionTracerExplainQueryPlan)(nil)).Elem()
+}
+
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput) ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput() ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput) ToApplicationSettingsTransactionTracerExplainQueryPlanArrayOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput) Index(i pulumi.IntInput) ApplicationSettingsTransactionTracerExplainQueryPlanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSettingsTransactionTracerExplainQueryPlan {
+		return vs[0].([]ApplicationSettingsTransactionTracerExplainQueryPlan)[vs[1].(int)]
+	}).(ApplicationSettingsTransactionTracerExplainQueryPlanOutput)
+}
+
+type ApplicationSettingsTransactionTracerSql struct {
+	// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+	RecordSql string `pulumi:"recordSql"`
+}
+
+// ApplicationSettingsTransactionTracerSqlInput is an input type that accepts ApplicationSettingsTransactionTracerSqlArgs and ApplicationSettingsTransactionTracerSqlOutput values.
+// You can construct a concrete instance of `ApplicationSettingsTransactionTracerSqlInput` via:
+//
+//	ApplicationSettingsTransactionTracerSqlArgs{...}
+type ApplicationSettingsTransactionTracerSqlInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsTransactionTracerSqlOutput() ApplicationSettingsTransactionTracerSqlOutput
+	ToApplicationSettingsTransactionTracerSqlOutputWithContext(context.Context) ApplicationSettingsTransactionTracerSqlOutput
+}
+
+type ApplicationSettingsTransactionTracerSqlArgs struct {
+	// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+	RecordSql pulumi.StringInput `pulumi:"recordSql"`
+}
+
+func (ApplicationSettingsTransactionTracerSqlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsTransactionTracerSql)(nil)).Elem()
+}
+
+func (i ApplicationSettingsTransactionTracerSqlArgs) ToApplicationSettingsTransactionTracerSqlOutput() ApplicationSettingsTransactionTracerSqlOutput {
+	return i.ToApplicationSettingsTransactionTracerSqlOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsTransactionTracerSqlArgs) ToApplicationSettingsTransactionTracerSqlOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerSqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerSqlOutput)
+}
+
+func (i ApplicationSettingsTransactionTracerSqlArgs) ToApplicationSettingsTransactionTracerSqlPtrOutput() ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return i.ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettingsTransactionTracerSqlArgs) ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerSqlOutput).ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(ctx)
+}
+
+// ApplicationSettingsTransactionTracerSqlPtrInput is an input type that accepts ApplicationSettingsTransactionTracerSqlArgs, ApplicationSettingsTransactionTracerSqlPtr and ApplicationSettingsTransactionTracerSqlPtrOutput values.
+// You can construct a concrete instance of `ApplicationSettingsTransactionTracerSqlPtrInput` via:
+//
+//	        ApplicationSettingsTransactionTracerSqlArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSettingsTransactionTracerSqlPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsTransactionTracerSqlPtrOutput() ApplicationSettingsTransactionTracerSqlPtrOutput
+	ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(context.Context) ApplicationSettingsTransactionTracerSqlPtrOutput
+}
+
+type applicationSettingsTransactionTracerSqlPtrType ApplicationSettingsTransactionTracerSqlArgs
+
+func ApplicationSettingsTransactionTracerSqlPtr(v *ApplicationSettingsTransactionTracerSqlArgs) ApplicationSettingsTransactionTracerSqlPtrInput {
+	return (*applicationSettingsTransactionTracerSqlPtrType)(v)
+}
+
+func (*applicationSettingsTransactionTracerSqlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSettingsTransactionTracerSql)(nil)).Elem()
+}
+
+func (i *applicationSettingsTransactionTracerSqlPtrType) ToApplicationSettingsTransactionTracerSqlPtrOutput() ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return i.ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSettingsTransactionTracerSqlPtrType) ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsTransactionTracerSqlPtrOutput)
+}
+
+type ApplicationSettingsTransactionTracerSqlOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsTransactionTracerSqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsTransactionTracerSql)(nil)).Elem()
+}
+
+func (o ApplicationSettingsTransactionTracerSqlOutput) ToApplicationSettingsTransactionTracerSqlOutput() ApplicationSettingsTransactionTracerSqlOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerSqlOutput) ToApplicationSettingsTransactionTracerSqlOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerSqlOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerSqlOutput) ToApplicationSettingsTransactionTracerSqlPtrOutput() ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return o.ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSettingsTransactionTracerSqlOutput) ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSettingsTransactionTracerSql) *ApplicationSettingsTransactionTracerSql {
+		return &v
+	}).(ApplicationSettingsTransactionTracerSqlPtrOutput)
+}
+
+// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+func (o ApplicationSettingsTransactionTracerSqlOutput) RecordSql() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationSettingsTransactionTracerSql) string { return v.RecordSql }).(pulumi.StringOutput)
+}
+
+type ApplicationSettingsTransactionTracerSqlPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSettingsTransactionTracerSqlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSettingsTransactionTracerSql)(nil)).Elem()
+}
+
+func (o ApplicationSettingsTransactionTracerSqlPtrOutput) ToApplicationSettingsTransactionTracerSqlPtrOutput() ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerSqlPtrOutput) ToApplicationSettingsTransactionTracerSqlPtrOutputWithContext(ctx context.Context) ApplicationSettingsTransactionTracerSqlPtrOutput {
+	return o
+}
+
+func (o ApplicationSettingsTransactionTracerSqlPtrOutput) Elem() ApplicationSettingsTransactionTracerSqlOutput {
+	return o.ApplyT(func(v *ApplicationSettingsTransactionTracerSql) ApplicationSettingsTransactionTracerSql {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSettingsTransactionTracerSql
+		return ret
+	}).(ApplicationSettingsTransactionTracerSqlOutput)
+}
+
+// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+func (o ApplicationSettingsTransactionTracerSqlPtrOutput) RecordSql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSettingsTransactionTracerSql) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordSql
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkloadEntitySearchQuery struct {
 	// A valid entity search query; empty, and null values are considered invalid.
 	Query string `pulumi:"query"`
@@ -1107,6 +1611,14 @@ func (o WorkloadStatusConfigStaticPtrOutput) Summary() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsErrorCollectorInput)(nil)).Elem(), ApplicationSettingsErrorCollectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsErrorCollectorArrayInput)(nil)).Elem(), ApplicationSettingsErrorCollectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerInput)(nil)).Elem(), ApplicationSettingsTransactionTracerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerArrayInput)(nil)).Elem(), ApplicationSettingsTransactionTracerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerExplainQueryPlanInput)(nil)).Elem(), ApplicationSettingsTransactionTracerExplainQueryPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerExplainQueryPlanArrayInput)(nil)).Elem(), ApplicationSettingsTransactionTracerExplainQueryPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerSqlInput)(nil)).Elem(), ApplicationSettingsTransactionTracerSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsTransactionTracerSqlPtrInput)(nil)).Elem(), ApplicationSettingsTransactionTracerSqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryInput)(nil)).Elem(), WorkloadEntitySearchQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryArrayInput)(nil)).Elem(), WorkloadEntitySearchQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticInput)(nil)).Elem(), WorkloadStatusConfigAutomaticArgs{})
@@ -1122,6 +1634,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleRollupInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRuleRollupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigStaticInput)(nil)).Elem(), WorkloadStatusConfigStaticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigStaticPtrInput)(nil)).Elem(), WorkloadStatusConfigStaticArgs{})
+	pulumi.RegisterOutputType(ApplicationSettingsErrorCollectorOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsErrorCollectorArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerExplainQueryPlanOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerExplainQueryPlanArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerSqlOutput{})
+	pulumi.RegisterOutputType(ApplicationSettingsTransactionTracerSqlPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryOutput{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticOutput{})

@@ -5,9 +5,12 @@ package com.pulumi.newrelic.plugins.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsErrorCollectorArgs;
+import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsTransactionTracerArgs;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,14 +21,14 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     public static final ApplicationSettingsState Empty = new ApplicationSettingsState();
 
     /**
-     * The apdex threshold for the New Relic application.
+     * The acceptable response time limit (Apdex threshold) for the application.
      * 
      */
     @Import(name="appApdexThreshold")
     private @Nullable Output<Double> appApdexThreshold;
 
     /**
-     * @return The apdex threshold for the New Relic application.
+     * @return The acceptable response time limit (Apdex threshold) for the application.
      * 
      */
     public Optional<Output<Double>> appApdexThreshold() {
@@ -33,14 +36,14 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Enable or disable real user monitoring for the New Relic application.
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
     @Import(name="enableRealUserMonitoring")
     private @Nullable Output<Boolean> enableRealUserMonitoring;
 
     /**
-     * @return Enable or disable real user monitoring for the New Relic application.
+     * @return Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
     public Optional<Output<Boolean>> enableRealUserMonitoring() {
@@ -48,14 +51,44 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The user&#39;s apdex threshold for the New Relic application.
+     * Enable or disable the collection of slowest database queries in your traces.
+     * 
+     */
+    @Import(name="enableSlowSql")
+    private @Nullable Output<Boolean> enableSlowSql;
+
+    /**
+     * @return Enable or disable the collection of slowest database queries in your traces.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSlowSql() {
+        return Optional.ofNullable(this.enableSlowSql);
+    }
+
+    /**
+     * Enable or disable the collection of thread profiling data.
+     * 
+     */
+    @Import(name="enableThreadProfiler")
+    private @Nullable Output<Boolean> enableThreadProfiler;
+
+    /**
+     * @return Enable or disable the collection of thread profiling data.
+     * 
+     */
+    public Optional<Output<Boolean>> enableThreadProfiler() {
+        return Optional.ofNullable(this.enableThreadProfiler);
+    }
+
+    /**
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
     @Import(name="endUserApdexThreshold")
     private @Nullable Output<Double> endUserApdexThreshold;
 
     /**
-     * @return The user&#39;s apdex threshold for the New Relic application.
+     * @return Dummy field to support backward compatibility of previous version.should be removed with next major version.
      * 
      */
     public Optional<Output<Double>> endUserApdexThreshold() {
@@ -63,18 +96,100 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the application in New Relic APM.
+     * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     * 
+     */
+    @Import(name="errorCollectors")
+    private @Nullable Output<List<ApplicationSettingsErrorCollectorArgs>> errorCollectors;
+
+    /**
+     * @return Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     * 
+     */
+    public Optional<Output<List<ApplicationSettingsErrorCollectorArgs>>> errorCollectors() {
+        return Optional.ofNullable(this.errorCollectors);
+    }
+
+    /**
+     * The GUID of the application in New Relic APM.
+     * 
+     */
+    @Import(name="guid")
+    private @Nullable Output<String> guid;
+
+    /**
+     * @return The GUID of the application in New Relic APM.
+     * 
+     */
+    public Optional<Output<String>> guid() {
+        return Optional.ofNullable(this.guid);
+    }
+
+    @Import(name="isImported")
+    private @Nullable Output<Boolean> isImported;
+
+    public Optional<Output<Boolean>> isImported() {
+        return Optional.ofNullable(this.isImported);
+    }
+
+    /**
+     * A custom name or alias you can give the application in New Relic APM.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the application in New Relic APM.
+     * @return A custom name or alias you can give the application in New Relic APM.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     * 
+     */
+    @Import(name="tracerType")
+    private @Nullable Output<String> tracerType;
+
+    /**
+     * @return Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     * 
+     */
+    public Optional<Output<String>> tracerType() {
+        return Optional.ofNullable(this.tracerType);
+    }
+
+    /**
+     * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     * 
+     */
+    @Import(name="transactionTracers")
+    private @Nullable Output<List<ApplicationSettingsTransactionTracerArgs>> transactionTracers;
+
+    /**
+     * @return Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     * 
+     */
+    public Optional<Output<List<ApplicationSettingsTransactionTracerArgs>>> transactionTracers() {
+        return Optional.ofNullable(this.transactionTracers);
+    }
+
+    /**
+     * Enable or disable server side monitoring for the New Relic application.
+     * 
+     */
+    @Import(name="useServerSideConfig")
+    private @Nullable Output<Boolean> useServerSideConfig;
+
+    /**
+     * @return Enable or disable server side monitoring for the New Relic application.
+     * 
+     */
+    public Optional<Output<Boolean>> useServerSideConfig() {
+        return Optional.ofNullable(this.useServerSideConfig);
     }
 
     private ApplicationSettingsState() {}
@@ -82,8 +197,16 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     private ApplicationSettingsState(ApplicationSettingsState $) {
         this.appApdexThreshold = $.appApdexThreshold;
         this.enableRealUserMonitoring = $.enableRealUserMonitoring;
+        this.enableSlowSql = $.enableSlowSql;
+        this.enableThreadProfiler = $.enableThreadProfiler;
         this.endUserApdexThreshold = $.endUserApdexThreshold;
+        this.errorCollectors = $.errorCollectors;
+        this.guid = $.guid;
+        this.isImported = $.isImported;
         this.name = $.name;
+        this.tracerType = $.tracerType;
+        this.transactionTracers = $.transactionTracers;
+        this.useServerSideConfig = $.useServerSideConfig;
     }
 
     public static Builder builder() {
@@ -105,7 +228,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appApdexThreshold The apdex threshold for the New Relic application.
+         * @param appApdexThreshold The acceptable response time limit (Apdex threshold) for the application.
          * 
          * @return builder
          * 
@@ -116,7 +239,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appApdexThreshold The apdex threshold for the New Relic application.
+         * @param appApdexThreshold The acceptable response time limit (Apdex threshold) for the application.
          * 
          * @return builder
          * 
@@ -126,7 +249,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enableRealUserMonitoring Enable or disable real user monitoring for the New Relic application.
+         * @param enableRealUserMonitoring Dummy field to support backward compatibility of previous version.should be removed with next major version.
          * 
          * @return builder
          * 
@@ -137,7 +260,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enableRealUserMonitoring Enable or disable real user monitoring for the New Relic application.
+         * @param enableRealUserMonitoring Dummy field to support backward compatibility of previous version.should be removed with next major version.
          * 
          * @return builder
          * 
@@ -147,7 +270,49 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param endUserApdexThreshold The user&#39;s apdex threshold for the New Relic application.
+         * @param enableSlowSql Enable or disable the collection of slowest database queries in your traces.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSlowSql(@Nullable Output<Boolean> enableSlowSql) {
+            $.enableSlowSql = enableSlowSql;
+            return this;
+        }
+
+        /**
+         * @param enableSlowSql Enable or disable the collection of slowest database queries in your traces.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSlowSql(Boolean enableSlowSql) {
+            return enableSlowSql(Output.of(enableSlowSql));
+        }
+
+        /**
+         * @param enableThreadProfiler Enable or disable the collection of thread profiling data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableThreadProfiler(@Nullable Output<Boolean> enableThreadProfiler) {
+            $.enableThreadProfiler = enableThreadProfiler;
+            return this;
+        }
+
+        /**
+         * @param enableThreadProfiler Enable or disable the collection of thread profiling data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableThreadProfiler(Boolean enableThreadProfiler) {
+            return enableThreadProfiler(Output.of(enableThreadProfiler));
+        }
+
+        /**
+         * @param endUserApdexThreshold Dummy field to support backward compatibility of previous version.should be removed with next major version.
          * 
          * @return builder
          * 
@@ -158,7 +323,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param endUserApdexThreshold The user&#39;s apdex threshold for the New Relic application.
+         * @param endUserApdexThreshold Dummy field to support backward compatibility of previous version.should be removed with next major version.
          * 
          * @return builder
          * 
@@ -168,7 +333,68 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the application in New Relic APM.
+         * @param errorCollectors Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorCollectors(@Nullable Output<List<ApplicationSettingsErrorCollectorArgs>> errorCollectors) {
+            $.errorCollectors = errorCollectors;
+            return this;
+        }
+
+        /**
+         * @param errorCollectors Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorCollectors(List<ApplicationSettingsErrorCollectorArgs> errorCollectors) {
+            return errorCollectors(Output.of(errorCollectors));
+        }
+
+        /**
+         * @param errorCollectors Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorCollectors(ApplicationSettingsErrorCollectorArgs... errorCollectors) {
+            return errorCollectors(List.of(errorCollectors));
+        }
+
+        /**
+         * @param guid The GUID of the application in New Relic APM.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(@Nullable Output<String> guid) {
+            $.guid = guid;
+            return this;
+        }
+
+        /**
+         * @param guid The GUID of the application in New Relic APM.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(String guid) {
+            return guid(Output.of(guid));
+        }
+
+        public Builder isImported(@Nullable Output<Boolean> isImported) {
+            $.isImported = isImported;
+            return this;
+        }
+
+        public Builder isImported(Boolean isImported) {
+            return isImported(Output.of(isImported));
+        }
+
+        /**
+         * @param name A custom name or alias you can give the application in New Relic APM.
          * 
          * @return builder
          * 
@@ -179,13 +405,86 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the application in New Relic APM.
+         * @param name A custom name or alias you can give the application in New Relic APM.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param tracerType Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tracerType(@Nullable Output<String> tracerType) {
+            $.tracerType = tracerType;
+            return this;
+        }
+
+        /**
+         * @param tracerType Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tracerType(String tracerType) {
+            return tracerType(Output.of(tracerType));
+        }
+
+        /**
+         * @param transactionTracers Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transactionTracers(@Nullable Output<List<ApplicationSettingsTransactionTracerArgs>> transactionTracers) {
+            $.transactionTracers = transactionTracers;
+            return this;
+        }
+
+        /**
+         * @param transactionTracers Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transactionTracers(List<ApplicationSettingsTransactionTracerArgs> transactionTracers) {
+            return transactionTracers(Output.of(transactionTracers));
+        }
+
+        /**
+         * @param transactionTracers Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transactionTracers(ApplicationSettingsTransactionTracerArgs... transactionTracers) {
+            return transactionTracers(List.of(transactionTracers));
+        }
+
+        /**
+         * @param useServerSideConfig Enable or disable server side monitoring for the New Relic application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useServerSideConfig(@Nullable Output<Boolean> useServerSideConfig) {
+            $.useServerSideConfig = useServerSideConfig;
+            return this;
+        }
+
+        /**
+         * @param useServerSideConfig Enable or disable server side monitoring for the New Relic application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useServerSideConfig(Boolean useServerSideConfig) {
+            return useServerSideConfig(Output.of(useServerSideConfig));
         }
 
         public ApplicationSettingsState build() {

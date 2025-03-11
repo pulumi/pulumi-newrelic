@@ -2,40 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * > **NOTE:** Applications are not created by this resource, but are created by
- * a reporting agent.
- *
- * Use this resource to manage configuration for an application that already
- * exists in New Relic.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = new newrelic.plugins.ApplicationSettings("app", {
- *     name: "my-app",
- *     appApdexThreshold: 0.7,
- *     endUserApdexThreshold: 0.8,
- *     enableRealUserMonitoring: false,
- * });
- * ```
- *
- * ## Notes
- *
- * > **NOTE:** Applications that have reported data in the last twelve hours
- * cannot be deleted.
- *
  * ## Import
  *
- * Applications can be imported using notation `application_id`, e.g.
+ * Applications can be imported using notation `application_guid`, e.g.
  *
  * ```sh
- * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+ * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
  * ```
  */
 export class ApplicationSettings extends pulumi.CustomResource {
@@ -67,25 +44,50 @@ export class ApplicationSettings extends pulumi.CustomResource {
     }
 
     /**
-     * The apdex threshold for the New Relic application.
+     * The acceptable response time limit (Apdex threshold) for the application.
      */
-    public readonly appApdexThreshold!: pulumi.Output<number>;
+    public readonly appApdexThreshold!: pulumi.Output<number | undefined>;
     /**
-     * Enable or disable real user monitoring for the New Relic application.
-     *
-     * ```
-     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-     * ```
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    public readonly enableRealUserMonitoring!: pulumi.Output<boolean>;
+    public readonly enableRealUserMonitoring!: pulumi.Output<boolean | undefined>;
     /**
-     * The user's apdex threshold for the New Relic application.
+     * Enable or disable the collection of slowest database queries in your traces.
      */
-    public readonly endUserApdexThreshold!: pulumi.Output<number>;
+    public readonly enableSlowSql!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the application in New Relic APM.
+     * Enable or disable the collection of thread profiling data.
+     */
+    public readonly enableThreadProfiler!: pulumi.Output<boolean | undefined>;
+    /**
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
+     */
+    public readonly endUserApdexThreshold!: pulumi.Output<number | undefined>;
+    /**
+     * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     */
+    public readonly errorCollectors!: pulumi.Output<outputs.plugins.ApplicationSettingsErrorCollector[] | undefined>;
+    /**
+     * The GUID of the application in New Relic APM.
+     */
+    public readonly guid!: pulumi.Output<string>;
+    public /*out*/ readonly isImported!: pulumi.Output<boolean>;
+    /**
+     * A custom name or alias you can give the application in New Relic APM.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     */
+    public readonly tracerType!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     */
+    public readonly transactionTracers!: pulumi.Output<outputs.plugins.ApplicationSettingsTransactionTracer[] | undefined>;
+    /**
+     * Enable or disable server side monitoring for the New Relic application.
+     */
+    public readonly useServerSideConfig!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ApplicationSettings resource with the given unique name, arguments, and options.
@@ -94,7 +96,7 @@ export class ApplicationSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ApplicationSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationSettingsArgs | ApplicationSettingsState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -102,23 +104,30 @@ export class ApplicationSettings extends pulumi.CustomResource {
             const state = argsOrState as ApplicationSettingsState | undefined;
             resourceInputs["appApdexThreshold"] = state ? state.appApdexThreshold : undefined;
             resourceInputs["enableRealUserMonitoring"] = state ? state.enableRealUserMonitoring : undefined;
+            resourceInputs["enableSlowSql"] = state ? state.enableSlowSql : undefined;
+            resourceInputs["enableThreadProfiler"] = state ? state.enableThreadProfiler : undefined;
             resourceInputs["endUserApdexThreshold"] = state ? state.endUserApdexThreshold : undefined;
+            resourceInputs["errorCollectors"] = state ? state.errorCollectors : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["isImported"] = state ? state.isImported : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tracerType"] = state ? state.tracerType : undefined;
+            resourceInputs["transactionTracers"] = state ? state.transactionTracers : undefined;
+            resourceInputs["useServerSideConfig"] = state ? state.useServerSideConfig : undefined;
         } else {
             const args = argsOrState as ApplicationSettingsArgs | undefined;
-            if ((!args || args.appApdexThreshold === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'appApdexThreshold'");
-            }
-            if ((!args || args.enableRealUserMonitoring === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'enableRealUserMonitoring'");
-            }
-            if ((!args || args.endUserApdexThreshold === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endUserApdexThreshold'");
-            }
             resourceInputs["appApdexThreshold"] = args ? args.appApdexThreshold : undefined;
             resourceInputs["enableRealUserMonitoring"] = args ? args.enableRealUserMonitoring : undefined;
+            resourceInputs["enableSlowSql"] = args ? args.enableSlowSql : undefined;
+            resourceInputs["enableThreadProfiler"] = args ? args.enableThreadProfiler : undefined;
             resourceInputs["endUserApdexThreshold"] = args ? args.endUserApdexThreshold : undefined;
+            resourceInputs["errorCollectors"] = args ? args.errorCollectors : undefined;
+            resourceInputs["guid"] = args ? args.guid : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tracerType"] = args ? args.tracerType : undefined;
+            resourceInputs["transactionTracers"] = args ? args.transactionTracers : undefined;
+            resourceInputs["useServerSideConfig"] = args ? args.useServerSideConfig : undefined;
+            resourceInputs["isImported"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationSettings.__pulumiType, name, resourceInputs, opts);
@@ -130,25 +139,50 @@ export class ApplicationSettings extends pulumi.CustomResource {
  */
 export interface ApplicationSettingsState {
     /**
-     * The apdex threshold for the New Relic application.
+     * The acceptable response time limit (Apdex threshold) for the application.
      */
     appApdexThreshold?: pulumi.Input<number>;
     /**
-     * Enable or disable real user monitoring for the New Relic application.
-     *
-     * ```
-     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-     * ```
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
     enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
-     * The user's apdex threshold for the New Relic application.
+     * Enable or disable the collection of slowest database queries in your traces.
+     */
+    enableSlowSql?: pulumi.Input<boolean>;
+    /**
+     * Enable or disable the collection of thread profiling data.
+     */
+    enableThreadProfiler?: pulumi.Input<boolean>;
+    /**
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
     endUserApdexThreshold?: pulumi.Input<number>;
     /**
-     * The name of the application in New Relic APM.
+     * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     */
+    errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[]>;
+    /**
+     * The GUID of the application in New Relic APM.
+     */
+    guid?: pulumi.Input<string>;
+    isImported?: pulumi.Input<boolean>;
+    /**
+     * A custom name or alias you can give the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     */
+    tracerType?: pulumi.Input<string>;
+    /**
+     * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     */
+    transactionTracers?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracer>[]>;
+    /**
+     * Enable or disable server side monitoring for the New Relic application.
+     */
+    useServerSideConfig?: pulumi.Input<boolean>;
 }
 
 /**
@@ -156,23 +190,47 @@ export interface ApplicationSettingsState {
  */
 export interface ApplicationSettingsArgs {
     /**
-     * The apdex threshold for the New Relic application.
+     * The acceptable response time limit (Apdex threshold) for the application.
      */
-    appApdexThreshold: pulumi.Input<number>;
+    appApdexThreshold?: pulumi.Input<number>;
     /**
-     * Enable or disable real user monitoring for the New Relic application.
-     *
-     * ```
-     * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
-     * ```
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    enableRealUserMonitoring: pulumi.Input<boolean>;
+    enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
-     * The user's apdex threshold for the New Relic application.
+     * Enable or disable the collection of slowest database queries in your traces.
      */
-    endUserApdexThreshold: pulumi.Input<number>;
+    enableSlowSql?: pulumi.Input<boolean>;
     /**
-     * The name of the application in New Relic APM.
+     * Enable or disable the collection of thread profiling data.
+     */
+    enableThreadProfiler?: pulumi.Input<boolean>;
+    /**
+     * Dummy field to support backward compatibility of previous version.should be removed with next major version.
+     */
+    endUserApdexThreshold?: pulumi.Input<number>;
+    /**
+     * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
+     */
+    errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[]>;
+    /**
+     * The GUID of the application in New Relic APM.
+     */
+    guid?: pulumi.Input<string>;
+    /**
+     * A custom name or alias you can give the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
+     */
+    tracerType?: pulumi.Input<string>;
+    /**
+     * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
+     */
+    transactionTracers?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsTransactionTracer>[]>;
+    /**
+     * Enable or disable server side monitoring for the New Relic application.
+     */
+    useServerSideConfig?: pulumi.Input<boolean>;
 }

@@ -15,6 +15,14 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ApplicationSettingsErrorCollectorArgs',
+    'ApplicationSettingsErrorCollectorArgsDict',
+    'ApplicationSettingsTransactionTracerArgs',
+    'ApplicationSettingsTransactionTracerArgsDict',
+    'ApplicationSettingsTransactionTracerExplainQueryPlanArgs',
+    'ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict',
+    'ApplicationSettingsTransactionTracerSqlArgs',
+    'ApplicationSettingsTransactionTracerSqlArgsDict',
     'WorkloadEntitySearchQueryArgs',
     'WorkloadEntitySearchQueryArgsDict',
     'WorkloadStatusConfigAutomaticArgs',
@@ -34,6 +42,293 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApplicationSettingsErrorCollectorArgsDict(TypedDict):
+        expected_error_classes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of expected error classes.
+        """
+        expected_error_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of expected error codes(any status code between 100-900).
+        """
+        ignored_error_classes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of ignored error classes.
+        """
+        ignored_error_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of ignored error codes(any status code between 100-900).
+        """
+elif False:
+    ApplicationSettingsErrorCollectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationSettingsErrorCollectorArgs:
+    def __init__(__self__, *,
+                 expected_error_classes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 expected_error_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ignored_error_classes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ignored_error_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expected_error_classes: A list of expected error classes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expected_error_codes: A list of expected error codes(any status code between 100-900).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignored_error_classes: A list of ignored error classes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignored_error_codes: A list of ignored error codes(any status code between 100-900).
+        """
+        if expected_error_classes is not None:
+            pulumi.set(__self__, "expected_error_classes", expected_error_classes)
+        if expected_error_codes is not None:
+            pulumi.set(__self__, "expected_error_codes", expected_error_codes)
+        if ignored_error_classes is not None:
+            pulumi.set(__self__, "ignored_error_classes", ignored_error_classes)
+        if ignored_error_codes is not None:
+            pulumi.set(__self__, "ignored_error_codes", ignored_error_codes)
+
+    @property
+    @pulumi.getter(name="expectedErrorClasses")
+    def expected_error_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of expected error classes.
+        """
+        return pulumi.get(self, "expected_error_classes")
+
+    @expected_error_classes.setter
+    def expected_error_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "expected_error_classes", value)
+
+    @property
+    @pulumi.getter(name="expectedErrorCodes")
+    def expected_error_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of expected error codes(any status code between 100-900).
+        """
+        return pulumi.get(self, "expected_error_codes")
+
+    @expected_error_codes.setter
+    def expected_error_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "expected_error_codes", value)
+
+    @property
+    @pulumi.getter(name="ignoredErrorClasses")
+    def ignored_error_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of ignored error classes.
+        """
+        return pulumi.get(self, "ignored_error_classes")
+
+    @ignored_error_classes.setter
+    def ignored_error_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ignored_error_classes", value)
+
+    @property
+    @pulumi.getter(name="ignoredErrorCodes")
+    def ignored_error_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of ignored error codes(any status code between 100-900).
+        """
+        return pulumi.get(self, "ignored_error_codes")
+
+    @ignored_error_codes.setter
+    def ignored_error_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ignored_error_codes", value)
+
+
+if not MYPY:
+    class ApplicationSettingsTransactionTracerArgsDict(TypedDict):
+        explain_query_plans: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict']]]]
+        """
+        Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+        """
+        sql: NotRequired[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgsDict']]
+        """
+        Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+        """
+        stack_trace_threshold_value: NotRequired[pulumi.Input[float]]
+        """
+        The response time threshold for collecting stack traces.
+        """
+        transaction_threshold_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        """
+        transaction_threshold_value: NotRequired[pulumi.Input[float]]
+        """
+        The threshold value for transactions(in seconds).
+        """
+elif False:
+    ApplicationSettingsTransactionTracerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationSettingsTransactionTracerArgs:
+    def __init__(__self__, *,
+                 explain_query_plans: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]] = None,
+                 sql: Optional[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs']] = None,
+                 stack_trace_threshold_value: Optional[pulumi.Input[float]] = None,
+                 transaction_threshold_type: Optional[pulumi.Input[str]] = None,
+                 transaction_threshold_value: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]] explain_query_plans: Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+        :param pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs'] sql: Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+        :param pulumi.Input[float] stack_trace_threshold_value: The response time threshold for collecting stack traces.
+        :param pulumi.Input[str] transaction_threshold_type: The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        :param pulumi.Input[float] transaction_threshold_value: The threshold value for transactions(in seconds).
+        """
+        if explain_query_plans is not None:
+            pulumi.set(__self__, "explain_query_plans", explain_query_plans)
+        if sql is not None:
+            pulumi.set(__self__, "sql", sql)
+        if stack_trace_threshold_value is not None:
+            pulumi.set(__self__, "stack_trace_threshold_value", stack_trace_threshold_value)
+        if transaction_threshold_type is not None:
+            pulumi.set(__self__, "transaction_threshold_type", transaction_threshold_type)
+        if transaction_threshold_value is not None:
+            pulumi.set(__self__, "transaction_threshold_value", transaction_threshold_value)
+
+    @property
+    @pulumi.getter(name="explainQueryPlans")
+    def explain_query_plans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]:
+        """
+        Configuration block for query plans. Including this block enables the capture of query plans. The following arguments are supported:
+        """
+        return pulumi.get(self, "explain_query_plans")
+
+    @explain_query_plans.setter
+    def explain_query_plans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerExplainQueryPlanArgs']]]]):
+        pulumi.set(self, "explain_query_plans", value)
+
+    @property
+    @pulumi.getter
+    def sql(self) -> Optional[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs']]:
+        """
+        Configuration block for SQL logging.  Including this block enables SQL logging. The following arguments are supported:
+        """
+        return pulumi.get(self, "sql")
+
+    @sql.setter
+    def sql(self, value: Optional[pulumi.Input['ApplicationSettingsTransactionTracerSqlArgs']]):
+        pulumi.set(self, "sql", value)
+
+    @property
+    @pulumi.getter(name="stackTraceThresholdValue")
+    def stack_trace_threshold_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The response time threshold for collecting stack traces.
+        """
+        return pulumi.get(self, "stack_trace_threshold_value")
+
+    @stack_trace_threshold_value.setter
+    def stack_trace_threshold_value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "stack_trace_threshold_value", value)
+
+    @property
+    @pulumi.getter(name="transactionThresholdType")
+    def transaction_threshold_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of threshold for transactions. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        """
+        return pulumi.get(self, "transaction_threshold_type")
+
+    @transaction_threshold_type.setter
+    def transaction_threshold_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transaction_threshold_type", value)
+
+    @property
+    @pulumi.getter(name="transactionThresholdValue")
+    def transaction_threshold_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold value for transactions(in seconds).
+        """
+        return pulumi.get(self, "transaction_threshold_value")
+
+    @transaction_threshold_value.setter
+    def transaction_threshold_value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "transaction_threshold_value", value)
+
+
+if not MYPY:
+    class ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict(TypedDict):
+        query_plan_threshold_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        """
+        query_plan_threshold_value: NotRequired[pulumi.Input[float]]
+        """
+        The response time threshold for capturing query plans(in seconds).
+        """
+elif False:
+    ApplicationSettingsTransactionTracerExplainQueryPlanArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationSettingsTransactionTracerExplainQueryPlanArgs:
+    def __init__(__self__, *,
+                 query_plan_threshold_type: Optional[pulumi.Input[str]] = None,
+                 query_plan_threshold_value: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] query_plan_threshold_type: The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        :param pulumi.Input[float] query_plan_threshold_value: The response time threshold for capturing query plans(in seconds).
+        """
+        if query_plan_threshold_type is not None:
+            pulumi.set(__self__, "query_plan_threshold_type", query_plan_threshold_type)
+        if query_plan_threshold_value is not None:
+            pulumi.set(__self__, "query_plan_threshold_value", query_plan_threshold_value)
+
+    @property
+    @pulumi.getter(name="queryPlanThresholdType")
+    def query_plan_threshold_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of threshold for query plans. Valid values are `VALUE`,`APDEX_F`(4 times your apdex target)
+        """
+        return pulumi.get(self, "query_plan_threshold_type")
+
+    @query_plan_threshold_type.setter
+    def query_plan_threshold_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_plan_threshold_type", value)
+
+    @property
+    @pulumi.getter(name="queryPlanThresholdValue")
+    def query_plan_threshold_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The response time threshold for capturing query plans(in seconds).
+        """
+        return pulumi.get(self, "query_plan_threshold_value")
+
+    @query_plan_threshold_value.setter
+    def query_plan_threshold_value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "query_plan_threshold_value", value)
+
+
+if not MYPY:
+    class ApplicationSettingsTransactionTracerSqlArgsDict(TypedDict):
+        record_sql: pulumi.Input[str]
+        """
+        The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        """
+elif False:
+    ApplicationSettingsTransactionTracerSqlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationSettingsTransactionTracerSqlArgs:
+    def __init__(__self__, *,
+                 record_sql: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] record_sql: The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        """
+        pulumi.set(__self__, "record_sql", record_sql)
+
+    @property
+    @pulumi.getter(name="recordSql")
+    def record_sql(self) -> pulumi.Input[str]:
+        """
+        The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        """
+        return pulumi.get(self, "record_sql")
+
+    @record_sql.setter
+    def record_sql(self, value: pulumi.Input[str]):
+        pulumi.set(self, "record_sql", value)
+
 
 if not MYPY:
     class WorkloadEntitySearchQueryArgsDict(TypedDict):

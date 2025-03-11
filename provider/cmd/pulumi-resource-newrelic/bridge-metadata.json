@@ -83,7 +83,41 @@
             },
             "newrelic_application_settings": {
                 "current": "newrelic:plugins/applicationSettings:ApplicationSettings",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "error_collector": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expected_error_classes": {
+                                    "maxItemsOne": false
+                                },
+                                "expected_error_codes": {
+                                    "maxItemsOne": false
+                                },
+                                "ignored_error_classes": {
+                                    "maxItemsOne": false
+                                },
+                                "ignored_error_codes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "transaction_tracer": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "explain_query_plans": {
+                                    "maxItemsOne": false
+                                },
+                                "sql": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "newrelic_browser_application": {
                 "current": "newrelic:index/browserApplication:BrowserApplication",
