@@ -13992,14 +13992,14 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The GUID of the application in New Relic APM.\n"
+                    "description": "The GUID of the application in New Relic APM.\n\n\u003e **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.\n"
                 },
                 "isImported": {
                     "type": "boolean"
                 },
                 "name": {
                     "type": "string",
-                    "description": "A custom name or alias you can give the application in New Relic APM.\n"
+                    "description": "The name of the application in New Relic.\n"
                 },
                 "tracerType": {
                     "type": "string",
@@ -14052,12 +14052,12 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The GUID of the application in New Relic APM.\n",
+                    "description": "The GUID of the application in New Relic APM.\n\n\u003e **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "A custom name or alias you can give the application in New Relic APM.\n"
+                    "description": "The name of the application in New Relic.\n"
                 },
                 "tracerType": {
                     "type": "string",
@@ -14107,7 +14107,7 @@
                     },
                     "guid": {
                         "type": "string",
-                        "description": "The GUID of the application in New Relic APM.\n",
+                        "description": "The GUID of the application in New Relic APM.\n\n\u003e **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.\n",
                         "willReplaceOnChanges": true
                     },
                     "isImported": {
@@ -14115,7 +14115,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "A custom name or alias you can give the application in New Relic APM.\n"
+                        "description": "The name of the application in New Relic.\n"
                     },
                     "tracerType": {
                         "type": "string",
