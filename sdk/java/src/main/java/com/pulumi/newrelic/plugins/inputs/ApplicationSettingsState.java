@@ -113,12 +113,16 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     /**
      * The GUID of the application in New Relic APM.
      * 
+     * &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+     * 
      */
     @Import(name="guid")
     private @Nullable Output<String> guid;
 
     /**
      * @return The GUID of the application in New Relic APM.
+     * 
+     * &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      * 
      */
     public Optional<Output<String>> guid() {
@@ -133,14 +137,14 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A custom name or alias you can give the application in New Relic APM.
+     * The name of the application in New Relic.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A custom name or alias you can give the application in New Relic APM.
+     * @return The name of the application in New Relic.
      * 
      */
     public Optional<Output<String>> name() {
@@ -366,6 +370,8 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         /**
          * @param guid The GUID of the application in New Relic APM.
          * 
+         * &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+         * 
          * @return builder
          * 
          */
@@ -376,6 +382,8 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
 
         /**
          * @param guid The GUID of the application in New Relic APM.
+         * 
+         * &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
          * 
          * @return builder
          * 
@@ -394,7 +402,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A custom name or alias you can give the application in New Relic APM.
+         * @param name The name of the application in New Relic.
          * 
          * @return builder
          * 
@@ -405,7 +413,7 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A custom name or alias you can give the application in New Relic APM.
+         * @param name The name of the application in New Relic.
          * 
          * @return builder
          * 

@@ -69,11 +69,13 @@ export class ApplicationSettings extends pulumi.CustomResource {
     public readonly errorCollectors!: pulumi.Output<outputs.plugins.ApplicationSettingsErrorCollector[] | undefined>;
     /**
      * The GUID of the application in New Relic APM.
+     *
+     * > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      */
     public readonly guid!: pulumi.Output<string>;
     public /*out*/ readonly isImported!: pulumi.Output<boolean>;
     /**
-     * A custom name or alias you can give the application in New Relic APM.
+     * The name of the application in New Relic.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -164,11 +166,13 @@ export interface ApplicationSettingsState {
     errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[]>;
     /**
      * The GUID of the application in New Relic APM.
+     *
+     * > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      */
     guid?: pulumi.Input<string>;
     isImported?: pulumi.Input<boolean>;
     /**
-     * A custom name or alias you can give the application in New Relic APM.
+     * The name of the application in New Relic.
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,10 +219,12 @@ export interface ApplicationSettingsArgs {
     errorCollectors?: pulumi.Input<pulumi.Input<inputs.plugins.ApplicationSettingsErrorCollector>[]>;
     /**
      * The GUID of the application in New Relic APM.
+     *
+     * > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      */
     guid?: pulumi.Input<string>;
     /**
-     * A custom name or alias you can give the application in New Relic APM.
+     * The name of the application in New Relic.
      */
     name?: pulumi.Input<string>;
     /**
