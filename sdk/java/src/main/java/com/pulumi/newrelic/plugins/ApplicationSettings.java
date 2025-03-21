@@ -118,12 +118,16 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
     /**
      * The GUID of the application in New Relic APM.
      * 
+     * &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+     * 
      */
     @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
      * @return The GUID of the application in New Relic APM.
+     * 
+     * &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      * 
      */
     public Output<String> guid() {
@@ -136,14 +140,14 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
         return this.isImported;
     }
     /**
-     * A custom name or alias you can give the application in New Relic APM.
+     * The name of the application in New Relic.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A custom name or alias you can give the application in New Relic APM.
+     * @return The name of the application in New Relic.
      * 
      */
     public Output<String> name() {

@@ -41,7 +41,9 @@ class ApplicationSettingsArgs:
         :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
-        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        :param pulumi.Input[str] name: The name of the application in New Relic.
         :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -146,6 +148,8 @@ class ApplicationSettingsArgs:
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
         The GUID of the application in New Relic APM.
+
+        > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
         """
         return pulumi.get(self, "guid")
 
@@ -157,7 +161,7 @@ class ApplicationSettingsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A custom name or alias you can give the application in New Relic APM.
+        The name of the application in New Relic.
         """
         return pulumi.get(self, "name")
 
@@ -226,7 +230,9 @@ class _ApplicationSettingsState:
         :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsErrorCollectorArgs']]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
-        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        :param pulumi.Input[str] name: The name of the application in New Relic.
         :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -333,6 +339,8 @@ class _ApplicationSettingsState:
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
         The GUID of the application in New Relic APM.
+
+        > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
         """
         return pulumi.get(self, "guid")
 
@@ -353,7 +361,7 @@ class _ApplicationSettingsState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A custom name or alias you can give the application in New Relic APM.
+        The name of the application in New Relic.
         """
         return pulumi.get(self, "name")
 
@@ -433,7 +441,9 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
-        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        :param pulumi.Input[str] name: The name of the application in New Relic.
         :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -536,7 +546,9 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] end_user_apdex_threshold: Dummy field to support backward compatibility of previous version.should be removed with next major version.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsErrorCollectorArgs', 'ApplicationSettingsErrorCollectorArgsDict']]]] error_collectors: Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
         :param pulumi.Input[str] guid: The GUID of the application in New Relic APM.
-        :param pulumi.Input[str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        :param pulumi.Input[str] name: The name of the application in New Relic.
         :param pulumi.Input[str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -612,6 +624,8 @@ class ApplicationSettings(pulumi.CustomResource):
     def guid(self) -> pulumi.Output[str]:
         """
         The GUID of the application in New Relic APM.
+
+        > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
         """
         return pulumi.get(self, "guid")
 
@@ -624,7 +638,7 @@ class ApplicationSettings(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A custom name or alias you can give the application in New Relic APM.
+        The name of the application in New Relic.
         """
         return pulumi.get(self, "name")
 

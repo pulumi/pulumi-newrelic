@@ -59,6 +59,8 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// The GUID of the application in New Relic APM.
+        /// 
+        /// &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -67,7 +69,7 @@ namespace Pulumi.NewRelic.Plugins
         public Output<bool> IsImported { get; private set; } = null!;
 
         /// <summary>
-        /// A custom name or alias you can give the application in New Relic APM.
+        /// The name of the application in New Relic.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -180,12 +182,14 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// The GUID of the application in New Relic APM.
+        /// 
+        /// &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// A custom name or alias you can give the application in New Relic APM.
+        /// The name of the application in New Relic.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -266,6 +270,8 @@ namespace Pulumi.NewRelic.Plugins
 
         /// <summary>
         /// The GUID of the application in New Relic APM.
+        /// 
+        /// &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
@@ -274,7 +280,7 @@ namespace Pulumi.NewRelic.Plugins
         public Input<bool>? IsImported { get; set; }
 
         /// <summary>
-        /// A custom name or alias you can give the application in New Relic APM.
+        /// The name of the application in New Relic.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -34,9 +34,11 @@ type ApplicationSettings struct {
 	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
 	ErrorCollectors ApplicationSettingsErrorCollectorArrayOutput `pulumi:"errorCollectors"`
 	// The GUID of the application in New Relic APM.
+	//
+	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid       pulumi.StringOutput `pulumi:"guid"`
 	IsImported pulumi.BoolOutput   `pulumi:"isImported"`
-	// A custom name or alias you can give the application in New Relic APM.
+	// The name of the application in New Relic.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType pulumi.StringPtrOutput `pulumi:"tracerType"`
@@ -89,9 +91,11 @@ type applicationSettingsState struct {
 	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
 	ErrorCollectors []ApplicationSettingsErrorCollector `pulumi:"errorCollectors"`
 	// The GUID of the application in New Relic APM.
+	//
+	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid       *string `pulumi:"guid"`
 	IsImported *bool   `pulumi:"isImported"`
-	// A custom name or alias you can give the application in New Relic APM.
+	// The name of the application in New Relic.
 	Name *string `pulumi:"name"`
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType *string `pulumi:"tracerType"`
@@ -115,9 +119,11 @@ type ApplicationSettingsState struct {
 	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
 	ErrorCollectors ApplicationSettingsErrorCollectorArrayInput
 	// The GUID of the application in New Relic APM.
+	//
+	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid       pulumi.StringPtrInput
 	IsImported pulumi.BoolPtrInput
-	// A custom name or alias you can give the application in New Relic APM.
+	// The name of the application in New Relic.
 	Name pulumi.StringPtrInput
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType pulumi.StringPtrInput
@@ -145,8 +151,10 @@ type applicationSettingsArgs struct {
 	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
 	ErrorCollectors []ApplicationSettingsErrorCollector `pulumi:"errorCollectors"`
 	// The GUID of the application in New Relic APM.
+	//
+	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid *string `pulumi:"guid"`
-	// A custom name or alias you can give the application in New Relic APM.
+	// The name of the application in New Relic.
 	Name *string `pulumi:"name"`
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType *string `pulumi:"tracerType"`
@@ -171,8 +179,10 @@ type ApplicationSettingsArgs struct {
 	// Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
 	ErrorCollectors ApplicationSettingsErrorCollectorArrayInput
 	// The GUID of the application in New Relic APM.
+	//
+	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid pulumi.StringPtrInput
-	// A custom name or alias you can give the application in New Relic APM.
+	// The name of the application in New Relic.
 	Name pulumi.StringPtrInput
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType pulumi.StringPtrInput
@@ -300,6 +310,8 @@ func (o ApplicationSettingsOutput) ErrorCollectors() ApplicationSettingsErrorCol
 }
 
 // The GUID of the application in New Relic APM.
+//
+// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 func (o ApplicationSettingsOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
@@ -308,7 +320,7 @@ func (o ApplicationSettingsOutput) IsImported() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.IsImported }).(pulumi.BoolOutput)
 }
 
-// A custom name or alias you can give the application in New Relic APM.
+// The name of the application in New Relic.
 func (o ApplicationSettingsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
