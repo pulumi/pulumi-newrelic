@@ -63,7 +63,7 @@ import (
 // bash
 //
 // ```sh
-// $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
+// $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
 // ```
 type GcpLinkAccount struct {
 	pulumi.CustomResourceState

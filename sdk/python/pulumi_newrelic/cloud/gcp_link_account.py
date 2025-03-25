@@ -172,7 +172,7 @@ class GcpLinkAccount(pulumi.CustomResource):
         bash
 
         ```sh
-        $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
+        $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -223,7 +223,7 @@ class GcpLinkAccount(pulumi.CustomResource):
         bash
 
         ```sh
-        $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
+        $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
         ```
 
         :param str resource_name: The name of the resource.
