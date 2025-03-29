@@ -33,7 +33,7 @@ class NotificationChannelArgs:
         :param pulumi.Input[str] destination_id: The id of the destination.
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         :param pulumi.Input[str] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] name: The name of the channel.
@@ -89,7 +89,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         """
         return pulumi.get(self, "type")
 
@@ -154,7 +154,7 @@ class _NotificationChannelState:
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[str] status: The status of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -261,7 +261,7 @@ class _NotificationChannelState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         """
         return pulumi.get(self, "type")
 
@@ -546,6 +546,33 @@ class NotificationChannel(pulumi.CustomResource):
             ])
         ```
 
+        #### [MICROSOFT_TEAMS]
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id="12345678",
+            name="ms-teams-example",
+            type="MICROSOFT_TEAMS",
+            destination_id="52d36b54-3d68-4ac4-9d0a-581febb91f2c",
+            product="IINT",
+            properties=[
+                {
+                    "key": "teamId",
+                    "value": "906379b4-f5ac-40fd-b242-d4faaa4d3963",
+                },
+                {
+                    "key": "channelId",
+                    "value": "19:wk9tU4tSr335Y1cNiXOynredbi3lFoeabu0kybfmbBA1@thread.tacv2",
+                },
+                {
+                    "key": "customDetails",
+                    "value": "{{ nrAccountId }}",
+                },
+            ])
+        ```
+
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
         ## Full Scenario Example
@@ -619,7 +646,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         """
         ...
     @overload
@@ -890,6 +917,33 @@ class NotificationChannel(pulumi.CustomResource):
             ])
         ```
 
+        #### [MICROSOFT_TEAMS]
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id="12345678",
+            name="ms-teams-example",
+            type="MICROSOFT_TEAMS",
+            destination_id="52d36b54-3d68-4ac4-9d0a-581febb91f2c",
+            product="IINT",
+            properties=[
+                {
+                    "key": "teamId",
+                    "value": "906379b4-f5ac-40fd-b242-d4faaa4d3963",
+                },
+                {
+                    "key": "channelId",
+                    "value": "19:wk9tU4tSr335Y1cNiXOynredbi3lFoeabu0kybfmbBA1@thread.tacv2",
+                },
+                {
+                    "key": "customDetails",
+                    "value": "{{ nrAccountId }}",
+                },
+            ])
+        ```
+
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
         ## Full Scenario Example
@@ -1034,7 +1088,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationChannelPropertyArgs', 'NotificationChannelPropertyArgsDict']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[str] status: The status of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1110,7 +1164,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
         """
         return pulumi.get(self, "type")
 

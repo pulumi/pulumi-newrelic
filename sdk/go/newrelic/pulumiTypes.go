@@ -25603,7 +25603,7 @@ type WorkflowDestination struct {
 	Name *string `pulumi:"name"`
 	// List of triggers to notify about in this destination configuration.
 	NotificationTriggers []string `pulumi:"notificationTriggers"`
-	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS).
 	Type *string `pulumi:"type"`
 	// Update original notification message (Slack channels only)
 	UpdateOriginalMessage *bool `pulumi:"updateOriginalMessage"`
@@ -25627,7 +25627,7 @@ type WorkflowDestinationArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of triggers to notify about in this destination configuration.
 	NotificationTriggers pulumi.StringArrayInput `pulumi:"notificationTriggers"`
-	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+	// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Update original notification message (Slack channels only)
 	UpdateOriginalMessage pulumi.BoolPtrInput `pulumi:"updateOriginalMessage"`
@@ -25699,7 +25699,7 @@ func (o WorkflowDestinationOutput) NotificationTriggers() pulumi.StringArrayOutp
 	return o.ApplyT(func(v WorkflowDestination) []string { return v.NotificationTriggers }).(pulumi.StringArrayOutput)
 }
 
-// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA).
+// (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS).
 func (o WorkflowDestinationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

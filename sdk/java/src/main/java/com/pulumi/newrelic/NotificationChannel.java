@@ -533,6 +533,58 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * #### [MICROSOFT_TEAMS]
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationChannel;
+ * import com.pulumi.newrelic.NotificationChannelArgs;
+ * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var foo = new NotificationChannel("foo", NotificationChannelArgs.builder()
+ *             .accountId(12345678)
+ *             .name("ms-teams-example")
+ *             .type("MICROSOFT_TEAMS")
+ *             .destinationId("52d36b54-3d68-4ac4-9d0a-581febb91f2c")
+ *             .product("IINT")
+ *             .properties(            
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key("teamId")
+ *                     .value("906379b4-f5ac-40fd-b242-d4faaa4d3963")
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key("channelId")
+ *                     .value("19:wk9tU4tSr335Y1cNiXOynredbi3lFoeabu0kybfmbBA1}{@literal @}{@code thread.tacv2")
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key("customDetails")
+ *                     .value("}{{{@code  nrAccountId }}}{@code ")
+ *                     .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
  * 
  * ## Full Scenario Example
@@ -753,14 +805,14 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * @return The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
      * 
      */
     public Output<String> type() {
