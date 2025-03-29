@@ -150,7 +150,7 @@ export class NotificationDestination extends pulumi.CustomResource {
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -256,7 +256,7 @@ export interface NotificationDestinationState {
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      */
     type?: pulumi.Input<string>;
 }
@@ -300,7 +300,7 @@ export interface NotificationDestinationArgs {
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      */
     type: pulumi.Input<string>;
 }

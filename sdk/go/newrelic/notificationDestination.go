@@ -106,7 +106,7 @@ type NotificationDestination struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -170,7 +170,7 @@ type notificationDestinationState struct {
 	Status *string `pulumi:"status"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
 	Type *string `pulumi:"type"`
 }
 
@@ -199,7 +199,7 @@ type NotificationDestinationState struct {
 	Status pulumi.StringPtrInput
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
 	Type pulumi.StringPtrInput
 }
 
@@ -226,7 +226,7 @@ type notificationDestinationArgs struct {
 	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
 	Type string `pulumi:"type"`
 }
 
@@ -250,7 +250,7 @@ type NotificationDestinationArgs struct {
 	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
 	Type pulumi.StringInput
 }
 
@@ -400,7 +400,7 @@ func (o NotificationDestinationOutput) Status() pulumi.StringOutput {
 
 // (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 // PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-// MOBILE_PUSH, EVENT_BRIDGE).
+// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
 func (o NotificationDestinationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationDestination) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

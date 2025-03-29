@@ -146,7 +146,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      * 
      */
     @Import(name="type", required=true)
@@ -155,7 +155,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     /**
      * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      * 
      */
     public Output<String> type() {
@@ -385,7 +385,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         /**
          * @param type (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
          * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-         * MOBILE_PUSH, EVENT_BRIDGE).
+         * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         /**
          * @param type (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
          * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-         * MOBILE_PUSH, EVENT_BRIDGE).
+         * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
          * 
          * @return builder
          * 

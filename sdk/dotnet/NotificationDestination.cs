@@ -150,7 +150,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        /// MOBILE_PUSH, EVENT_BRIDGE).
+        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        /// MOBILE_PUSH, EVENT_BRIDGE).
+        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        /// MOBILE_PUSH, EVENT_BRIDGE).
+        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

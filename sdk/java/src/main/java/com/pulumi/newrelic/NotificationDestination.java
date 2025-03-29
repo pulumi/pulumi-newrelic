@@ -250,7 +250,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -259,7 +259,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
     /**
      * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
      * 
      */
     public Output<String> type() {
