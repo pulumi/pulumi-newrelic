@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var fooUser = new User("fooUser", UserArgs.builder()
  *             .name("Test New User")
  *             .emailId("test_user}{@literal @}{@code test.com")
- *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+ *             .authenticationDomainId(foo.id())
  *             .userType("CORE_USER_TIER")
  *             .build());
  * 
