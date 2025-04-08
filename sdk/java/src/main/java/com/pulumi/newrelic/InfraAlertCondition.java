@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  *             .where("(hostname LIKE '%frontend%')")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(25)
- *                 .value(90)
+ *                 .value(90.0)
  *                 .timeFunction("all")
  *                 .build())
  *             .warning(InfraAlertConditionWarningArgs.builder()
  *                 .duration(10)
- *                 .value(80)
+ *                 .value(80.0)
  *                 .timeFunction("all")
  *                 .build())
  *             .build());
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .integrationProvider("RdsDbInstance")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(25)
- *                 .value(90)
+ *                 .value(90.0)
  *                 .timeFunction("all")
  *                 .build())
  *             .build());
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .processWhere("commandName = '/usr/bin/ruby'")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(5)
- *                 .value(0)
+ *                 .value(0.0)
  *                 .build())
  *             .build());
  * 
@@ -182,12 +182,12 @@ import javax.annotation.Nullable;
  *             .where("(hostname LIKE '%frontend%')")
  *             .critical(InfraAlertConditionCriticalArgs.builder()
  *                 .duration(25)
- *                 .value(90)
+ *                 .value(90.0)
  *                 .timeFunction("all")
  *                 .build())
  *             .warning(InfraAlertConditionWarningArgs.builder()
  *                 .duration(10)
- *                 .value(80)
+ *                 .value(80.0)
  *                 .timeFunction("all")
  *                 .build())
  *             .build());

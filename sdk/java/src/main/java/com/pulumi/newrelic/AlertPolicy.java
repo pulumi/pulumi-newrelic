@@ -173,8 +173,8 @@ import javax.annotation.Nullable;
  *             .name("example-with-channels")
  *             .incidentPreference("PER_CONDITION")
  *             .channelIds(            
- *                 slackChannel.applyValue(getAlertChannelResult -> getAlertChannelResult.id()),
- *                 emailChannel.applyValue(getAlertChannelResult -> getAlertChannelResult.id()))
+ *                 slackChannel.id(),
+ *                 emailChannel.id())
  *             .build());
  * 
  *     }}{@code

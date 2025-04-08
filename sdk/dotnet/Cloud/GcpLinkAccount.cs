@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic.Cloud
     /// bash
     /// 
     /// ```sh
-    /// $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo &lt;id&gt;
+    /// $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo &lt;id&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/gcpLinkAccount:GcpLinkAccount")]
