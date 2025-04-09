@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *         // Applies the created channels above to the alert policy
  *         // referenced at the top of the config.
  *         var foo = new AlertPolicyChannel("foo", AlertPolicyChannelArgs.builder()
- *             .policyId(examplePolicy.applyValue(getAlertPolicyResult -> getAlertPolicyResult.id()))
+ *             .policyId(examplePolicy.id())
  *             .channelIds(            
  *                 emailChannel.id(),
  *                 slackChannel.id())

@@ -539,14 +539,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
-     *             .entities(app.applyValue(getApplicationResult -> getApplicationResult.id()))
+     *             .entities(app.id())
      *             .metric("apdex")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -608,14 +608,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
-     *             .entities(app.applyValue(getApplicationResult -> getApplicationResult.id()))
+     *             .entities(app.id())
      *             .metric("apdex")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -677,14 +677,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
-     *             .entities(app.applyValue(getApplicationResult -> getApplicationResult.id()))
+     *             .entities(app.id())
      *             .metric("apdex")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -746,14 +746,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
-     *             .entities(app.applyValue(getApplicationResult -> getApplicationResult.id()))
+     *             .entities(app.id())
      *             .metric("apdex")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -815,14 +815,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_app_metric")
-     *             .entities(app.applyValue(getApplicationResult -> getApplicationResult.id()))
+     *             .entities(app.id())
      *             .metric("apdex")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -869,7 +869,7 @@ public final class NewrelicFunctions {
      *             .name("Test Authentication Domain")
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()));
+     *         ctx.export("foo", foo.id());
      *     }
      * }
      * }
@@ -912,7 +912,7 @@ public final class NewrelicFunctions {
      *             .name("Test Authentication Domain")
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()));
+     *         ctx.export("foo", foo.id());
      *     }
      * }
      * }
@@ -955,7 +955,7 @@ public final class NewrelicFunctions {
      *             .name("Test Authentication Domain")
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()));
+     *         ctx.export("foo", foo.id());
      *     }
      * }
      * }
@@ -998,7 +998,7 @@ public final class NewrelicFunctions {
      *             .name("Test Authentication Domain")
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()));
+     *         ctx.export("foo", foo.id());
      *     }
      * }
      * }
@@ -1041,7 +1041,7 @@ public final class NewrelicFunctions {
      *             .name("Test Authentication Domain")
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()));
+     *         ctx.export("foo", foo.id());
      *     }
      * }
      * }
@@ -1082,7 +1082,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
-     *             .accountId(12345)
+     *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
      *             .build());
@@ -1127,7 +1127,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
-     *             .accountId(12345)
+     *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
      *             .build());
@@ -1172,7 +1172,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
-     *             .accountId(12345)
+     *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
      *             .build());
@@ -1217,7 +1217,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
-     *             .accountId(12345)
+     *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
      *             .build());
@@ -1262,7 +1262,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = NewrelicFunctions.getCloudAccount(GetCloudAccountArgs.builder()
-     *             .accountId(12345)
+     *             .accountId("12345")
      *             .cloudProvider("aws")
      *             .name("my aws account")
      *             .build());
@@ -1328,7 +1328,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
@@ -1355,6 +1355,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1373,15 +1375,15 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
-     *         final var id = fooGetGroup.applyValue(getGroupResult -> getGroupResult.id());
+     *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()).length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
-     *             .input(fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()))
+     *             .input(fooGetGroup.userIds())
      *             .build()).result() : "";
      * 
      *     }
@@ -1430,7 +1432,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
@@ -1457,6 +1459,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1475,15 +1479,15 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
-     *         final var id = fooGetGroup.applyValue(getGroupResult -> getGroupResult.id());
+     *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()).length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
-     *             .input(fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()))
+     *             .input(fooGetGroup.userIds())
      *             .build()).result() : "";
      * 
      *     }
@@ -1532,7 +1536,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
@@ -1559,6 +1563,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1577,15 +1583,15 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
-     *         final var id = fooGetGroup.applyValue(getGroupResult -> getGroupResult.id());
+     *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()).length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
-     *             .input(fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()))
+     *             .input(fooGetGroup.userIds())
      *             .build()).result() : "";
      * 
      *     }
@@ -1634,7 +1640,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
@@ -1661,6 +1667,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1679,15 +1687,15 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
-     *         final var id = fooGetGroup.applyValue(getGroupResult -> getGroupResult.id());
+     *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()).length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
-     *             .input(fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()))
+     *             .input(fooGetGroup.userIds())
      *             .build()).result() : "";
      * 
      *     }
@@ -1736,7 +1744,7 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
@@ -1763,6 +1771,8 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.NewrelicFunctions;
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1781,15 +1791,15 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var fooGetGroup = NewrelicFunctions.getGroup(GetGroupArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test Group")
      *             .build());
      * 
-     *         final var id = fooGetGroup.applyValue(getGroupResult -> getGroupResult.id());
+     *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()).length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
-     *             .input(fooGetGroup.applyValue(getGroupResult -> getGroupResult.userIds()))
+     *             .input(fooGetGroup.userIds())
      *             .build()).result() : "";
      * 
      *     }
@@ -1847,14 +1857,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
-     *             .entities(txn.applyValue(getKeyTransactionResult -> getKeyTransactionResult.id()))
+     *             .entities(txn.id())
      *             .metric("error_percentage")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -1914,14 +1924,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
-     *             .entities(txn.applyValue(getKeyTransactionResult -> getKeyTransactionResult.id()))
+     *             .entities(txn.id())
      *             .metric("error_percentage")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -1981,14 +1991,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
-     *             .entities(txn.applyValue(getKeyTransactionResult -> getKeyTransactionResult.id()))
+     *             .entities(txn.id())
      *             .metric("error_percentage")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -2048,14 +2058,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
-     *             .entities(txn.applyValue(getKeyTransactionResult -> getKeyTransactionResult.id()))
+     *             .entities(txn.id())
      *             .metric("error_percentage")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -2115,14 +2125,14 @@ public final class NewrelicFunctions {
      *             .policyId(foo.id())
      *             .name("foo")
      *             .type("apm_kt_metric")
-     *             .entities(txn.applyValue(getKeyTransactionResult -> getKeyTransactionResult.id()))
+     *             .entities(txn.id())
      *             .metric("error_percentage")
      *             .runbookUrl("https://www.example.com")
      *             .terms(AlertConditionTermArgs.builder()
      *                 .duration(5)
      *                 .operator("below")
      *                 .priority("critical")
-     *                 .threshold("0.75")
+     *                 .threshold(0.75)
      *                 .timeFunction("all")
      *                 .build())
      *             .build());
@@ -2190,7 +2200,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
-     *             .accountId(123456)
+     *             .accountId("123456")
      *             .name("The expression")
      *             .build());
      * 
@@ -2201,7 +2211,7 @@ public final class NewrelicFunctions {
      *             .enabled(true)
      *             .actions(ObfuscationRuleActionArgs.builder()
      *                 .attributes("message")
-     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -> getObfuscationExpressionResult.id()))
+     *                 .expressionId(expression.id())
      *                 .method("MASK")
      *                 .build())
      *             .build());
@@ -2248,7 +2258,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
-     *             .accountId(123456)
+     *             .accountId("123456")
      *             .name("The expression")
      *             .build());
      * 
@@ -2259,7 +2269,7 @@ public final class NewrelicFunctions {
      *             .enabled(true)
      *             .actions(ObfuscationRuleActionArgs.builder()
      *                 .attributes("message")
-     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -> getObfuscationExpressionResult.id()))
+     *                 .expressionId(expression.id())
      *                 .method("MASK")
      *                 .build())
      *             .build());
@@ -2306,7 +2316,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
-     *             .accountId(123456)
+     *             .accountId("123456")
      *             .name("The expression")
      *             .build());
      * 
@@ -2317,7 +2327,7 @@ public final class NewrelicFunctions {
      *             .enabled(true)
      *             .actions(ObfuscationRuleActionArgs.builder()
      *                 .attributes("message")
-     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -> getObfuscationExpressionResult.id()))
+     *                 .expressionId(expression.id())
      *                 .method("MASK")
      *                 .build())
      *             .build());
@@ -2364,7 +2374,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
-     *             .accountId(123456)
+     *             .accountId("123456")
      *             .name("The expression")
      *             .build());
      * 
@@ -2375,7 +2385,7 @@ public final class NewrelicFunctions {
      *             .enabled(true)
      *             .actions(ObfuscationRuleActionArgs.builder()
      *                 .attributes("message")
-     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -> getObfuscationExpressionResult.id()))
+     *                 .expressionId(expression.id())
      *                 .method("MASK")
      *                 .build())
      *             .build());
@@ -2422,7 +2432,7 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
-     *             .accountId(123456)
+     *             .accountId("123456")
      *             .name("The expression")
      *             .build());
      * 
@@ -2433,7 +2443,7 @@ public final class NewrelicFunctions {
      *             .enabled(true)
      *             .actions(ObfuscationRuleActionArgs.builder()
      *                 .attributes("message")
-     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -> getObfuscationExpressionResult.id()))
+     *                 .expressionId(expression.id())
      *                 .method("MASK")
      *                 .build())
      *             .build());
@@ -2493,7 +2503,7 @@ public final class NewrelicFunctions {
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
      *             .events(ServiceLevelEventsArgs.builder()
-     *                 .accountId(12345678)
+     *                 .accountId("12345678")
      *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
      *                     .from("Transaction")
      *                     .where("appName = 'Example application' AND (transactionType='Web')")
@@ -2561,25 +2571,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Slow burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooSlowBurn.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooSlowBurn.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooSlowBurn.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(900)
      *             .build());
      * 
@@ -2629,25 +2639,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Custom burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooCustom.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooCustom.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooCustom.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(60)
      *             .build());
      * 
@@ -2706,7 +2716,7 @@ public final class NewrelicFunctions {
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
      *             .events(ServiceLevelEventsArgs.builder()
-     *                 .accountId(12345678)
+     *                 .accountId("12345678")
      *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
      *                     .from("Transaction")
      *                     .where("appName = 'Example application' AND (transactionType='Web')")
@@ -2774,25 +2784,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Slow burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooSlowBurn.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooSlowBurn.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooSlowBurn.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(900)
      *             .build());
      * 
@@ -2842,25 +2852,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Custom burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooCustom.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooCustom.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooCustom.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(60)
      *             .build());
      * 
@@ -2919,7 +2929,7 @@ public final class NewrelicFunctions {
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
      *             .events(ServiceLevelEventsArgs.builder()
-     *                 .accountId(12345678)
+     *                 .accountId("12345678")
      *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
      *                     .from("Transaction")
      *                     .where("appName = 'Example application' AND (transactionType='Web')")
@@ -2987,25 +2997,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Slow burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooSlowBurn.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooSlowBurn.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooSlowBurn.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(900)
      *             .build());
      * 
@@ -3055,25 +3065,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Custom burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooCustom.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooCustom.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooCustom.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(60)
      *             .build());
      * 
@@ -3132,7 +3142,7 @@ public final class NewrelicFunctions {
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
      *             .events(ServiceLevelEventsArgs.builder()
-     *                 .accountId(12345678)
+     *                 .accountId("12345678")
      *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
      *                     .from("Transaction")
      *                     .where("appName = 'Example application' AND (transactionType='Web')")
@@ -3200,25 +3210,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Slow burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooSlowBurn.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooSlowBurn.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooSlowBurn.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(900)
      *             .build());
      * 
@@ -3268,25 +3278,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Custom burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooCustom.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooCustom.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooCustom.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(60)
      *             .build());
      * 
@@ -3345,7 +3355,7 @@ public final class NewrelicFunctions {
      *             .name("Latency")
      *             .description("Proportion of requests that are served faster than a threshold.")
      *             .events(ServiceLevelEventsArgs.builder()
-     *                 .accountId(12345678)
+     *                 .accountId("12345678")
      *                 .validEvents(ServiceLevelEventsValidEventsArgs.builder()
      *                     .from("Transaction")
      *                     .where("appName = 'Example application' AND (transactionType='Web')")
@@ -3413,25 +3423,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Slow burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooSlowBurn.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooSlowBurn.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooSlowBurn.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooSlowBurn.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(900)
      *             .build());
      * 
@@ -3481,25 +3491,25 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         var yourCondition = new NrqlAlertCondition("yourCondition", NrqlAlertConditionArgs.builder()
-     *             .accountId(12345678)
-     *             .policyId(67890)
+     *             .accountId("12345678")
+     *             .policyId("67890")
      *             .type("static")
      *             .name("Custom burn alert")
      *             .enabled(true)
      *             .violationTimeLimitSeconds(259200)
      *             .nrql(NrqlAlertConditionNrqlArgs.builder()
-     *                 .query(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.nrql()))
+     *                 .query(fooCustom.nrql())
      *                 .build())
      *             .critical(NrqlAlertConditionCriticalArgs.builder()
      *                 .operator("above_or_equals")
-     *                 .threshold(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.threshold()))
+     *                 .threshold(fooCustom.threshold())
      *                 .thresholdDuration(900)
      *                 .thresholdOccurrences("at_least_once")
      *                 .build())
      *             .fillOption("none")
-     *             .aggregationWindow(fooCustom.applyValue(getServiceLevelAlertHelperResult -> getServiceLevelAlertHelperResult.evaluationPeriod()))
+     *             .aggregationWindow(fooCustom.evaluationPeriod())
      *             .aggregationMethod("event_flow")
-     *             .aggregationDelay(120)
+     *             .aggregationDelay("120")
      *             .slideBy(60)
      *             .build());
      * 
@@ -3768,12 +3778,12 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test User")
      *             .build());
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
@@ -3822,12 +3832,12 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test User")
      *             .build());
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
@@ -3876,12 +3886,12 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test User")
      *             .build());
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
@@ -3930,12 +3940,12 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test User")
      *             .build());
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 
@@ -3984,12 +3994,12 @@ public final class NewrelicFunctions {
      *             .build());
      * 
      *         final var userOne = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .name("Test User")
      *             .build());
      * 
      *         final var userTwo = NewrelicFunctions.getUser(GetUserArgs.builder()
-     *             .authenticationDomainId(foo.applyValue(getAuthenticationDomainResult -> getAuthenticationDomainResult.id()))
+     *             .authenticationDomainId(foo.id())
      *             .emailId("test_user}{@literal @}{@code random.com")
      *             .build());
      * 

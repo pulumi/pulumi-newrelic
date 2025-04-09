@@ -97,10 +97,10 @@ import javax.annotation.Nullable;
  *             .name("log_parse_rule")
  *             .attribute("message")
  *             .enabled(true)
- *             .grok(grok.applyValue(getTestGrokPatternResult -> getTestGrokPatternResult.grok()))
+ *             .grok(grok.grok())
  *             .lucene("logtype:linux_messages")
  *             .nrql("SELECT * FROM Log WHERE logtype = 'linux_messages'")
- *             .matched(grok.applyValue(getTestGrokPatternResult -> getTestGrokPatternResult.testGroks()[0].matched()))
+ *             .matched(grok.testGroks()[0].matched())
  *             .build());
  * 
  *     }

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooEntityTags = new EntityTags("fooEntityTags", EntityTagsArgs.builder()
- *             .guid(foo.applyValue(getEntityResult -> getEntityResult.guid()))
+ *             .guid(foo.guid())
  *             .tags(            
  *                 EntityTagsTagArgs.builder()
  *                     .key("my-key")
