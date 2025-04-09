@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new AwsGovcloudLinkAccount("foo", AwsGovcloudLinkAccountArgs.builder()
- *             .accountId(1234567)
+ *             .accountId("1234567")
  *             .name("My New Relic - AWS GovCloud Linked Account")
  *             .metricCollectionMode("PUSH")
  *             .arn("arn:aws:service:region:account-id:resource-id")

@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * bash
  *
  * ```sh
- * $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
+ * $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
  * ```
  */
 export class GcpLinkAccount extends pulumi.CustomResource {

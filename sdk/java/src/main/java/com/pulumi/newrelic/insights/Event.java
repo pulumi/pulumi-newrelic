@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     EventEventAttributeArgs.builder()
  *                         .key("an_integer_attribute")
- *                         .value(42)
+ *                         .value("42")
  *                         .type("int")
  *                         .build(),
  *                     EventEventAttributeArgs.builder()
  *                         .key("a_float_attribute")
- *                         .value(101.1)
+ *                         .value("101.1")
  *                         .type("float")
  *                         .build())
  *                 .build())

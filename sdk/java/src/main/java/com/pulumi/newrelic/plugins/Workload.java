@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
- *             .accountId(12345678)
+ *             .accountId("12345678")
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query("name like '%Example application%'")
  *                 .build())
- *             .scopeAccountIds(12345678)
+ *             .scopeAccountIds("12345678")
  *             .build());
  * 
  *     }
@@ -95,12 +95,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload with tags")
- *             .accountId(12345678)
+ *             .accountId("12345678")
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'")
  *                 .build())
- *             .scopeAccountIds(12345678)
+ *             .scopeAccountIds("12345678")
  *             .build());
  * 
  *     }
@@ -136,12 +136,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload with tags")
- *             .accountId(12345678)
+ *             .accountId("12345678")
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'")
  *                 .build())
- *             .scopeAccountIds(12345678)
+ *             .scopeAccountIds("12345678")
  *             .build());
  * 
  *     }
@@ -183,12 +183,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
- *             .accountId(12345678)
+ *             .accountId("12345678")
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query("name like '%Example application%'")
  *                 .build())
- *             .scopeAccountIds(12345678)
+ *             .scopeAccountIds("12345678")
  *             .description("Description")
  *             .statusConfigAutomatic(WorkloadStatusConfigAutomaticArgs.builder()
  *                 .enabled(true)
@@ -251,12 +251,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Workload("foo", WorkloadArgs.builder()
  *             .name("Example workload")
- *             .accountId(12345678)
+ *             .accountId("12345678")
  *             .entityGuids("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1")
  *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
  *                 .query("name like '%Example application%'")
  *                 .build())
- *             .scopeAccountIds(12345678)
+ *             .scopeAccountIds("12345678")
  *             .description("Description")
  *             .statusConfigStatic(WorkloadStatusConfigStaticArgs.builder()
  *                 .description("test")
