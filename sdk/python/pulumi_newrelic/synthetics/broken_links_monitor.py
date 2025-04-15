@@ -203,6 +203,7 @@ class _BrokenLinksMonitorState:
                  guid: Optional[pulumi.Input[builtins.str]] = None,
                  locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 monitor_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.str]] = None,
                  period_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
@@ -218,6 +219,7 @@ class _BrokenLinksMonitorState:
         :param pulumi.Input[builtins.str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[builtins.str] monitor_id: The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
         :param pulumi.Input[builtins.str] name: The name for the monitor.
         :param pulumi.Input[builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[builtins.int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
@@ -235,6 +237,8 @@ class _BrokenLinksMonitorState:
             pulumi.set(__self__, "locations_privates", locations_privates)
         if locations_publics is not None:
             pulumi.set(__self__, "locations_publics", locations_publics)
+        if monitor_id is not None:
+            pulumi.set(__self__, "monitor_id", monitor_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if period is not None:
@@ -301,6 +305,18 @@ class _BrokenLinksMonitorState:
     @locations_publics.setter
     def locations_publics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "locations_publics", value)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @monitor_id.setter
+    def monitor_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "monitor_id", value)
 
     @property
     @pulumi.getter
@@ -617,6 +633,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             __props__.__dict__["uri"] = uri
             __props__.__dict__["use_unsupported_legacy_runtime"] = use_unsupported_legacy_runtime
             __props__.__dict__["guid"] = None
+            __props__.__dict__["monitor_id"] = None
             __props__.__dict__["period_in_minutes"] = None
         super(BrokenLinksMonitor, __self__).__init__(
             'newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor',
@@ -632,6 +649,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             guid: Optional[pulumi.Input[builtins.str]] = None,
             locations_privates: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             locations_publics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            monitor_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             period: Optional[pulumi.Input[builtins.str]] = None,
             period_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
@@ -652,6 +670,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] guid: The unique entity identifier of the monitor in New Relic.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations_publics: The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[builtins.str] monitor_id: The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
         :param pulumi.Input[builtins.str] name: The name for the monitor.
         :param pulumi.Input[builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[builtins.int] period_in_minutes: The interval in minutes at which Synthetic monitor should run.
@@ -669,6 +688,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         __props__.__dict__["guid"] = guid
         __props__.__dict__["locations_privates"] = locations_privates
         __props__.__dict__["locations_publics"] = locations_publics
+        __props__.__dict__["monitor_id"] = monitor_id
         __props__.__dict__["name"] = name
         __props__.__dict__["period"] = period
         __props__.__dict__["period_in_minutes"] = period_in_minutes
@@ -711,6 +731,14 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+        """
+        return pulumi.get(self, "monitor_id")
 
     @property
     @pulumi.getter

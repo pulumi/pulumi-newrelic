@@ -129,6 +129,8 @@ type BrokenLinksMonitor struct {
 	LocationsPrivates pulumi.StringArrayOutput `pulumi:"locationsPrivates"`
 	// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayOutput `pulumi:"locationsPublics"`
+	// The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
 	// The name for the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -195,6 +197,8 @@ type brokenLinksMonitorState struct {
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
 	// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
+	// The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+	MonitorId *string `pulumi:"monitorId"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -223,6 +227,8 @@ type BrokenLinksMonitorState struct {
 	LocationsPrivates pulumi.StringArrayInput
 	// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
+	// The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+	MonitorId pulumi.StringPtrInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
 	// The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -400,6 +406,11 @@ func (o BrokenLinksMonitorOutput) LocationsPrivates() pulumi.StringArrayOutput {
 // The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 func (o BrokenLinksMonitorOutput) LocationsPublics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringArrayOutput { return v.LocationsPublics }).(pulumi.StringArrayOutput)
+}
+
+// The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+func (o BrokenLinksMonitorOutput) MonitorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.MonitorId }).(pulumi.StringOutput)
 }
 
 // The name for the monitor.

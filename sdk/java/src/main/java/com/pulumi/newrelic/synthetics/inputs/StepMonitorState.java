@@ -127,6 +127,21 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).
+     * 
+     */
+    @Import(name="monitorId")
+    private @Nullable Output<String> monitorId;
+
+    /**
+     * @return The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).
+     * 
+     */
+    public Optional<Output<String>> monitorId() {
+        return Optional.ofNullable(this.monitorId);
+    }
+
+    /**
      * The name for the monitor.
      * 
      */
@@ -263,6 +278,7 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
         this.guid = $.guid;
         this.locationPrivates = $.locationPrivates;
         this.locationsPublics = $.locationsPublics;
+        this.monitorId = $.monitorId;
         this.name = $.name;
         this.period = $.period;
         this.periodInMinutes = $.periodInMinutes;
@@ -477,6 +493,27 @@ public final class StepMonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder locationsPublics(String... locationsPublics) {
             return locationsPublics(List.of(locationsPublics));
+        }
+
+        /**
+         * @param monitorId The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorId(@Nullable Output<String> monitorId) {
+            $.monitorId = monitorId;
+            return this;
+        }
+
+        /**
+         * @param monitorId The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorId(String monitorId) {
+            return monitorId(Output.of(monitorId));
         }
 
         /**
