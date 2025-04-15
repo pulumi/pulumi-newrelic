@@ -219,6 +219,10 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
     /**
+     * The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
+     */
+    public /*out*/ readonly monitorId!: pulumi.Output<string>;
+    /**
      * The name for the monitor.
      */
     public readonly name!: pulumi.Output<string>;
@@ -284,6 +288,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["locationPrivates"] = state ? state.locationPrivates : undefined;
             resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
+            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
@@ -325,6 +330,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
             resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["monitorId"] = undefined /*out*/;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -372,6 +378,10 @@ export interface ScriptMonitorState {
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
+     */
+    monitorId?: pulumi.Input<string>;
     /**
      * The name for the monitor.
      */

@@ -401,6 +401,20 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locationsPublics);
     }
     /**
+     * The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
+     * 
+     */
+    @Export(name="monitorId", refs={String.class}, tree="[0]")
+    private Output<String> monitorId;
+
+    /**
+     * @return The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).
+     * 
+     */
+    public Output<String> monitorId() {
+        return this.monitorId;
+    }
+    /**
      * The name for the monitor.
      * 
      */

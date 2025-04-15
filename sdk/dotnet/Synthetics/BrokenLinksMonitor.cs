@@ -136,6 +136,12 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<string>> LocationsPublics { get; private set; } = null!;
 
         /// <summary>
+        /// The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+        /// </summary>
+        [Output("monitorId")]
+        public Output<string> MonitorId { get; private set; } = null!;
+
+        /// <summary>
         /// The name for the monitor.
         /// </summary>
         [Output("name")]
@@ -356,6 +362,12 @@ namespace Pulumi.NewRelic.Synthetics
             get => _locationsPublics ?? (_locationsPublics = new InputList<string>());
             set => _locationsPublics = value;
         }
+
+        /// <summary>
+        /// The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
+        /// </summary>
+        [Input("monitorId")]
+        public Input<string>? MonitorId { get; set; }
 
         /// <summary>
         /// The name for the monitor.
