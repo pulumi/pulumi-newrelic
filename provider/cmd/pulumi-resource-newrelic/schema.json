@@ -14432,6 +14432,10 @@
                     },
                     "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
                 },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name for the monitor.\n"
@@ -14474,6 +14478,7 @@
             "required": [
                 "accountId",
                 "guid",
+                "monitorId",
                 "name",
                 "period",
                 "periodInMinutes",
@@ -14566,6 +14571,10 @@
                         },
                         "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
                     },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name for the monitor.\n"
@@ -14637,6 +14646,10 @@
                     },
                     "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
                 },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The monitor id of the certificate check synthetics monitor (not to be confused with the GUID of the monitor).\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name for the monitor.\n"
@@ -14676,6 +14689,7 @@
                 "accountId",
                 "certificateExpiration",
                 "domain",
+                "monitorId",
                 "name",
                 "period",
                 "periodInMinutes",
@@ -14774,6 +14788,10 @@
                         },
                         "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
                     },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The monitor id of the certificate check synthetics monitor (not to be confused with the GUID of the monitor).\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name for the monitor.\n"
@@ -14870,6 +14888,10 @@
                     },
                     "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
                 },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The monitor id of the Synthetics monitor (not to be confused with the GUID of the monitor).\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The human-readable identifier for the monitor.\n"
@@ -14931,6 +14953,7 @@
             },
             "required": [
                 "accountId",
+                "monitorId",
                 "name",
                 "period",
                 "periodInMinutes",
@@ -15110,6 +15133,10 @@
                             "type": "string"
                         },
                         "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
+                    },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The monitor id of the Synthetics monitor (not to be confused with the GUID of the monitor).\n"
                     },
                     "name": {
                         "type": "string",
@@ -15474,6 +15501,10 @@
                     },
                     "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.\n"
                 },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name for the monitor.\n"
@@ -15524,6 +15555,7 @@
             "required": [
                 "accountId",
                 "guid",
+                "monitorId",
                 "name",
                 "period",
                 "periodInMinutes",
@@ -15676,6 +15708,10 @@
                             "type": "string"
                         },
                         "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.\n"
+                    },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The monitor id of the Synthetics script monitor (not to be confused with the GUID of the monitor).\n"
                     },
                     "name": {
                         "type": "string",
@@ -15861,6 +15897,10 @@
                     },
                     "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
                 },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name for the monitor.\n"
@@ -15906,6 +15946,7 @@
             "required": [
                 "accountId",
                 "guid",
+                "monitorId",
                 "name",
                 "period",
                 "periodInMinutes",
@@ -16036,6 +16077,10 @@
                             "type": "string"
                         },
                         "description": "The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.\n"
+                    },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The monitor id of the synthetics step monitor (not to be confused with the GUID of the monitor).\n"
                     },
                     "name": {
                         "type": "string",

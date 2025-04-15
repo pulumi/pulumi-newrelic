@@ -4505,13 +4505,16 @@
                 "policy_id"
             ],
             "newrelic_synthetics_broken_links_monitor": [
-                "account_id"
+                "account_id",
+                "monitor_id"
             ],
             "newrelic_synthetics_cert_check_monitor": [
-                "account_id"
+                "account_id",
+                "monitor_id"
             ],
             "newrelic_synthetics_monitor": [
-                "account_id"
+                "account_id",
+                "monitor_id"
             ],
             "newrelic_synthetics_multilocation_alert_condition": [
                 "entities",
@@ -4523,13 +4526,15 @@
                 "location_id"
             ],
             "newrelic_synthetics_script_monitor": [
-                "account_id"
+                "account_id",
+                "monitor_id"
             ],
             "newrelic_synthetics_secure_credential": [
                 "account_id"
             ],
             "newrelic_synthetics_step_monitor": [
-                "account_id"
+                "account_id",
+                "monitor_id"
             ],
             "newrelic_user": [
                 "authentication_domain_id",
