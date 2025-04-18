@@ -398,6 +398,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
+     * Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     */
+    public readonly signalSeasonality!: pulumi.Output<string | undefined>;
+    /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
     public readonly slideBy!: pulumi.Output<number | undefined>;
@@ -466,6 +470,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["openViolationOnExpiration"] = state ? state.openViolationOnExpiration : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["signalSeasonality"] = state ? state.signalSeasonality : undefined;
             resourceInputs["slideBy"] = state ? state.slideBy : undefined;
             resourceInputs["terms"] = state ? state.terms : undefined;
             resourceInputs["titleTemplate"] = state ? state.titleTemplate : undefined;
@@ -501,6 +506,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["openViolationOnExpiration"] = args ? args.openViolationOnExpiration : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["signalSeasonality"] = args ? args.signalSeasonality : undefined;
             resourceInputs["slideBy"] = args ? args.slideBy : undefined;
             resourceInputs["terms"] = args ? args.terms : undefined;
             resourceInputs["titleTemplate"] = args ? args.titleTemplate : undefined;
@@ -603,6 +609,10 @@ export interface NrqlAlertConditionState {
      * Runbook URL to display in notifications.
      */
     runbookUrl?: pulumi.Input<string>;
+    /**
+     * Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     */
+    signalSeasonality?: pulumi.Input<string>;
     /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
@@ -723,6 +733,10 @@ export interface NrqlAlertConditionArgs {
      * Runbook URL to display in notifications.
      */
     runbookUrl?: pulumi.Input<string>;
+    /**
+     * Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     */
+    signalSeasonality?: pulumi.Input<string>;
     /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */

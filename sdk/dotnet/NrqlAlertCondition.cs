@@ -490,6 +490,12 @@ namespace Pulumi.NewRelic
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+        /// </summary>
+        [Output("signalSeasonality")]
+        public Output<string?> SignalSeasonality { get; private set; } = null!;
+
+        /// <summary>
         /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         /// </summary>
         [Output("slideBy")]
@@ -700,6 +706,12 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
+        /// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+        /// </summary>
+        [Input("signalSeasonality")]
+        public Input<string>? SignalSeasonality { get; set; }
+
+        /// <summary>
         /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         /// </summary>
         [Input("slideBy")]
@@ -883,6 +895,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
+
+        /// <summary>
+        /// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+        /// </summary>
+        [Input("signalSeasonality")]
+        public Input<string>? SignalSeasonality { get; set; }
 
         /// <summary>
         /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.

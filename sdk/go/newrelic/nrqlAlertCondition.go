@@ -431,6 +431,8 @@ type NrqlAlertCondition struct {
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
+	// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+	SignalSeasonality pulumi.StringPtrOutput `pulumi:"signalSeasonality"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrOutput `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -531,6 +533,8 @@ type nrqlAlertConditionState struct {
 	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
+	// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+	SignalSeasonality *string `pulumi:"signalSeasonality"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -596,6 +600,8 @@ type NrqlAlertConditionState struct {
 	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
+	// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+	SignalSeasonality pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -663,6 +669,8 @@ type nrqlAlertConditionArgs struct {
 	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
+	// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+	SignalSeasonality *string `pulumi:"signalSeasonality"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -727,6 +735,8 @@ type NrqlAlertConditionArgs struct {
 	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
+	// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+	SignalSeasonality pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
@@ -939,6 +949,11 @@ func (o NrqlAlertConditionOutput) PolicyId() pulumi.StringOutput {
 // Runbook URL to display in notifications.
 func (o NrqlAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
+// Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+func (o NrqlAlertConditionOutput) SignalSeasonality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.SignalSeasonality }).(pulumi.StringPtrOutput)
 }
 
 // Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.

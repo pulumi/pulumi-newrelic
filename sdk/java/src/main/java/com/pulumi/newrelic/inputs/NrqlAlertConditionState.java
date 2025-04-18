@@ -339,6 +339,21 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Seasonality under which a condition&#39;s signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     * 
+     */
+    @Import(name="signalSeasonality")
+    private @Nullable Output<String> signalSeasonality;
+
+    /**
+     * @return Seasonality under which a condition&#39;s signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     * 
+     */
+    public Optional<Output<String>> signalSeasonality() {
+        return Optional.ofNullable(this.signalSeasonality);
+    }
+
+    /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
@@ -487,6 +502,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         this.openViolationOnExpiration = $.openViolationOnExpiration;
         this.policyId = $.policyId;
         this.runbookUrl = $.runbookUrl;
+        this.signalSeasonality = $.signalSeasonality;
         this.slideBy = $.slideBy;
         this.terms = $.terms;
         this.titleTemplate = $.titleTemplate;
@@ -953,6 +969,27 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
          */
         public Builder runbookUrl(String runbookUrl) {
             return runbookUrl(Output.of(runbookUrl));
+        }
+
+        /**
+         * @param signalSeasonality Seasonality under which a condition&#39;s signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signalSeasonality(@Nullable Output<String> signalSeasonality) {
+            $.signalSeasonality = signalSeasonality;
+            return this;
+        }
+
+        /**
+         * @param signalSeasonality Seasonality under which a condition&#39;s signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signalSeasonality(String signalSeasonality) {
+            return signalSeasonality(Output.of(signalSeasonality));
         }
 
         /**

@@ -749,6 +749,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runbookUrl);
     }
     /**
+     * Seasonality under which a condition&#39;s signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     * 
+     */
+    @Export(name="signalSeasonality", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> signalSeasonality;
+
+    /**
+     * @return Seasonality under which a condition&#39;s signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
+     * 
+     */
+    public Output<Optional<String>> signalSeasonality() {
+        return Codegen.optional(this.signalSeasonality);
+    }
+    /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
