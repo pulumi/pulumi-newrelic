@@ -12710,6 +12710,10 @@
                     "type": "string",
                     "description": "Runbook URL to display in notifications.\n"
                 },
+                "signalSeasonality": {
+                    "type": "string",
+                    "description": "Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.\n"
+                },
                 "slideBy": {
                     "type": "integer",
                     "description": "Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.\n"
@@ -12834,6 +12838,10 @@
                 "runbookUrl": {
                     "type": "string",
                     "description": "Runbook URL to display in notifications.\n"
+                },
+                "signalSeasonality": {
+                    "type": "string",
+                    "description": "Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.\n"
                 },
                 "slideBy": {
                     "type": "integer",
@@ -12961,6 +12969,10 @@
                     "runbookUrl": {
                         "type": "string",
                         "description": "Runbook URL to display in notifications.\n"
+                    },
+                    "signalSeasonality": {
+                        "type": "string",
+                        "description": "Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.\n"
                     },
                     "slideBy": {
                         "type": "integer",
