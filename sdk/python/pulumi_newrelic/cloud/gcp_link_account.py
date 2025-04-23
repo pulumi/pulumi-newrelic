@@ -129,6 +129,9 @@ class _GcpLinkAccountState:
 
 
 class GcpLinkAccount(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:cloud/gcpLinkAccount:GcpLinkAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

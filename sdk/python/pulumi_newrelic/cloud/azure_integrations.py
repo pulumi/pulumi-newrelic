@@ -1159,6 +1159,9 @@ class _AzureIntegrationsState:
 
 
 class AzureIntegrations(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:cloud/azureIntegrations:AzureIntegrations"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

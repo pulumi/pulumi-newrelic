@@ -939,6 +939,9 @@ class _GcpIntegrationsState:
 
 
 class GcpIntegrations(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:cloud/gcpIntegrations:GcpIntegrations"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

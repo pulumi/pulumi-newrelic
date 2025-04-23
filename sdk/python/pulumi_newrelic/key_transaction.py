@@ -230,6 +230,9 @@ class _KeyTransactionState:
 
 
 class KeyTransaction(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/keyTransaction:KeyTransaction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

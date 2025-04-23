@@ -1381,10 +1381,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "";
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -1485,10 +1485,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "";
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -1589,10 +1589,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "";
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -1693,10 +1693,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "";
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -1797,10 +1797,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length() > 0 ? StdFunctions.join(JoinArgs.builder()
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
      *             .separator(", ")
      *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "";
+     *             .build()).result() : "");
      * 
      *     }
      * }

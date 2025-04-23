@@ -97,6 +97,9 @@ class _AccountManagementState:
 
 
 class AccountManagement(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/accountManagement:AccountManagement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

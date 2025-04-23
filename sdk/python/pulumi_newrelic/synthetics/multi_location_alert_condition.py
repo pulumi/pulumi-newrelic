@@ -317,6 +317,9 @@ class _MultiLocationAlertConditionState:
 
 
 class MultiLocationAlertCondition(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
