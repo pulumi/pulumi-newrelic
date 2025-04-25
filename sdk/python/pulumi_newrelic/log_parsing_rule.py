@@ -302,6 +302,9 @@ class _LogParsingRuleState:
 
 
 class LogParsingRule(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/logParsingRule:LogParsingRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

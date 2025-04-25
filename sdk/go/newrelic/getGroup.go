@@ -82,15 +82,17 @@ import (
 //			}
 //			_ := fooGetGroup.Id
 //			var tmp0 *string
-//			if pulumi.Float64(len(fooGetGroup.UserIds)) > 0 {
-//				tmp0 = std.Join(ctx, &std.JoinArgs{
-//					Separator: ", ",
-//					Input:     fooGetGroup.UserIds,
+//			if length > 0 {
+//				tmp0 = std.Join(ctx, map[string]interface{}{
+//					"separator": ", ",
+//					"input":     fooGetGroup.UserIds,
 //				}, nil).Result
 //			} else {
 //				tmp0 = ""
 //			}
-//			_ := tmp0
+//			_ = len(fooGetGroup.UserIds).ApplyT(func(length int) (*string, error) {
+//				return &tmp0, nil
+//			}).(pulumi.StringPtrOutput)
 //			return nil
 //		})
 //	}

@@ -114,8 +114,8 @@ def get_group(authentication_domain_id: Optional[builtins.str] = None,
     foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
         name="Test Group")
     id = foo_get_group.id
-    user_ids = std.join(separator=", ",
-        input=foo_get_group.user_ids).result if len(foo_get_group.user_ids) > 0 else ""
+    user_ids = len(foo_get_group.user_ids).apply(lambda length: std.join(separator=", ",
+        input=foo_get_group.user_ids).result if length > 0 else "")
     ```
 
 
@@ -169,8 +169,8 @@ def get_group_output(authentication_domain_id: Optional[pulumi.Input[builtins.st
     foo_get_group = newrelic.get_group(authentication_domain_id=foo.id,
         name="Test Group")
     id = foo_get_group.id
-    user_ids = std.join(separator=", ",
-        input=foo_get_group.user_ids).result if len(foo_get_group.user_ids) > 0 else ""
+    user_ids = len(foo_get_group.user_ids).apply(lambda length: std.join(separator=", ",
+        input=foo_get_group.user_ids).result if length > 0 else "")
     ```
 
 

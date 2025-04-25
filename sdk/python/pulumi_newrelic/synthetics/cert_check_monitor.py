@@ -440,6 +440,9 @@ class _CertCheckMonitorState:
 
 
 class CertCheckMonitor(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:synthetics/certCheckMonitor:CertCheckMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

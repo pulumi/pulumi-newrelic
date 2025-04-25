@@ -222,6 +222,9 @@ class _AzureLinkAccountState:
 
 
 class AzureLinkAccount(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:cloud/azureLinkAccount:AzureLinkAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
