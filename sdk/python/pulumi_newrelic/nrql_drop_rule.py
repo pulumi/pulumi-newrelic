@@ -176,6 +176,9 @@ class _NrqlDropRuleState:
 
 
 class NrqlDropRule(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/nrqlDropRule:NrqlDropRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

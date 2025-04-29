@@ -161,6 +161,9 @@ class _AwsLinkAccountState:
 
 
 class AwsLinkAccount(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:cloud/awsLinkAccount:AwsLinkAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -521,6 +521,9 @@ class _StepMonitorState:
 
 
 class StepMonitor(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:synthetics/stepMonitor:StepMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

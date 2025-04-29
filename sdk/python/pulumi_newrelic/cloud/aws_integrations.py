@@ -1763,6 +1763,9 @@ class _AwsIntegrationsState:
 
 
 class AwsIntegrations(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:cloud/awsIntegrations:AwsIntegrations"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

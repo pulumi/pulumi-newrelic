@@ -224,6 +224,9 @@ class _AlertConditionState:
 
 
 class AlertCondition(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:synthetics/alertCondition:AlertCondition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

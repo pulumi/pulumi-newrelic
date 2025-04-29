@@ -225,6 +225,9 @@ class _PrivateLocationState:
 
 
 class PrivateLocation(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:synthetics/privateLocation:PrivateLocation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

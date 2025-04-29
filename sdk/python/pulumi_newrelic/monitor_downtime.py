@@ -356,6 +356,9 @@ class _MonitorDowntimeState:
 
 
 class MonitorDowntime(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/monitorDowntime:MonitorDowntime"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

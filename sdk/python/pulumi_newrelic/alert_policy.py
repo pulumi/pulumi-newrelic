@@ -170,6 +170,9 @@ class _AlertPolicyState:
 
 
 class AlertPolicy(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/alertPolicy:AlertPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

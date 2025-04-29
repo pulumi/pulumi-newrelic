@@ -378,6 +378,9 @@ class _NotificationDestinationState:
 
 
 class NotificationDestination(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/notificationDestination:NotificationDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
