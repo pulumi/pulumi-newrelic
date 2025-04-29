@@ -313,7 +313,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
         ## Import
 
-        Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
+        Alert Muting Rules can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
 
         ```sh
         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
@@ -378,7 +378,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
         ## Import
 
-        Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
+        Alert Muting Rules can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
 
         ```sh
         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
