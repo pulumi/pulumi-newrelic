@@ -72,7 +72,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// Alert conditions can be imported using a composite ID of `&lt;account_id&gt;:&lt;muting_rule_id&gt;`, e.g.
+    /// Alert Muting Rules can be imported using a composite ID of `&lt;account_id&gt;:&lt;muting_rule_id&gt;`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
