@@ -145,6 +145,9 @@ class _OneDashboardJsonState:
 
 
 class OneDashboardJson(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/oneDashboardJson:OneDashboardJson"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

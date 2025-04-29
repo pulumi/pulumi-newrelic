@@ -408,6 +408,9 @@ class _ApplicationSettingsState:
 
 
 class ApplicationSettings(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:plugins/applicationSettings:ApplicationSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -240,6 +240,9 @@ class _ApiAccessKeyState:
 
 
 class ApiAccessKey(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/apiAccessKey:ApiAccessKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

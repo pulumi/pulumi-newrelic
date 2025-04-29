@@ -43,10 +43,10 @@ import * as utilities from "./utilities";
  *     name: "Test Group",
  * }));
  * const id = fooGetGroup.then(fooGetGroup => fooGetGroup.id);
- * const userIds = Promise.all([fooGetGroup.then(fooGetGroup => fooGetGroup.userIds).length, fooGetGroup.then(fooGetGroup => std.join({
+ * const userIds = pulumi.all([fooGetGroup.then(fooGetGroup => fooGetGroup.userIds).length, fooGetGroup.then(fooGetGroup => std.join({
  *     separator: ", ",
  *     input: fooGetGroup.userIds,
- * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
+ * }))]).apply(([length, invoke]) => length > 0 ? invoke.result : "");
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -127,10 +127,10 @@ export interface GetGroupResult {
  *     name: "Test Group",
  * }));
  * const id = fooGetGroup.then(fooGetGroup => fooGetGroup.id);
- * const userIds = Promise.all([fooGetGroup.then(fooGetGroup => fooGetGroup.userIds).length, fooGetGroup.then(fooGetGroup => std.join({
+ * const userIds = pulumi.all([fooGetGroup.then(fooGetGroup => fooGetGroup.userIds).length, fooGetGroup.then(fooGetGroup => std.join({
  *     separator: ", ",
  *     input: fooGetGroup.userIds,
- * }))]).then(([length, invoke]) => length > 0 ? invoke.result : "");
+ * }))]).apply(([length, invoke]) => length > 0 ? invoke.result : "");
  * ```
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {

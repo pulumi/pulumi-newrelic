@@ -425,6 +425,9 @@ class _BrokenLinksMonitorState:
 
 
 class BrokenLinksMonitor(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

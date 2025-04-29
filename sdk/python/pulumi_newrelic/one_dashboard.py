@@ -259,6 +259,9 @@ class _OneDashboardState:
 
 
 class OneDashboard(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/oneDashboard:OneDashboard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -242,6 +242,9 @@ class _BrowserApplicationState:
 
 
 class BrowserApplication(pulumi.CustomResource):
+
+    pulumi_type = "newrelic:index/browserApplication:BrowserApplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
