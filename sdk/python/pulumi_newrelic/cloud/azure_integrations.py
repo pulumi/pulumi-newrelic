@@ -1158,10 +1158,8 @@ class _AzureIntegrationsState:
         pulumi.set(self, "vpn_gateway", value)
 
 
+@pulumi.type_token("newrelic:cloud/azureIntegrations:AzureIntegrations")
 class AzureIntegrations(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:cloud/azureIntegrations:AzureIntegrations"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

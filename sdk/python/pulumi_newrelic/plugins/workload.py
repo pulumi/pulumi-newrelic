@@ -355,10 +355,8 @@ class _WorkloadState:
         pulumi.set(self, "workload_id", value)
 
 
+@pulumi.type_token("newrelic:plugins/workload:Workload")
 class Workload(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:plugins/workload:Workload"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

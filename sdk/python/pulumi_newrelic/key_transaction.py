@@ -229,10 +229,8 @@ class _KeyTransactionState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("newrelic:index/keyTransaction:KeyTransaction")
 class KeyTransaction(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/keyTransaction:KeyTransaction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -817,10 +817,8 @@ class _MonitorState:
         pulumi.set(self, "verify_ssl", value)
 
 
+@pulumi.type_token("newrelic:synthetics/monitor:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:synthetics/monitor:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

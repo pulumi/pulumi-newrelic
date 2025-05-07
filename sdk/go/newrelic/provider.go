@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +20,7 @@ type Provider struct {
 
 	AccountId   pulumi.StringPtrOutput `pulumi:"accountId"`
 	AdminApiKey pulumi.StringPtrOutput `pulumi:"adminApiKey"`
-	ApiKey      pulumi.StringOutput    `pulumi:"apiKey"`
+	ApiKey      pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	ApiUrl     pulumi.StringPtrOutput `pulumi:"apiUrl"`
 	CacertFile pulumi.StringPtrOutput `pulumi:"cacertFile"`
@@ -42,12 +41,9 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProviderArgs{}
 	}
 
-	if args.ApiKey == nil {
-		return nil, errors.New("invalid value for required argument 'ApiKey'")
-	}
 	if args.AccountId == nil {
 		if d := internal.GetEnvOrDefault(nil, nil, "NEW_RELIC_ACCOUNT_ID"); d != nil {
 			args.AccountId = pulumi.StringPtr(d.(string))
@@ -65,7 +61,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.AdminApiKey = pulumi.ToSecret(args.AdminApiKey).(pulumi.StringPtrInput)
 	}
 	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
 	if args.InsightsInsertKey != nil {
 		args.InsightsInsertKey = pulumi.ToSecret(args.InsightsInsertKey).(pulumi.StringPtrInput)
@@ -89,7 +85,7 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	AccountId   *string `pulumi:"accountId"`
 	AdminApiKey *string `pulumi:"adminApiKey"`
-	ApiKey      string  `pulumi:"apiKey"`
+	ApiKey      *string `pulumi:"apiKey"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	ApiUrl     *string `pulumi:"apiUrl"`
 	CacertFile *string `pulumi:"cacertFile"`
@@ -111,7 +107,7 @@ type providerArgs struct {
 type ProviderArgs struct {
 	AccountId   pulumi.StringPtrInput
 	AdminApiKey pulumi.StringPtrInput
-	ApiKey      pulumi.StringInput
+	ApiKey      pulumi.StringPtrInput
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	ApiUrl     pulumi.StringPtrInput
 	CacertFile pulumi.StringPtrInput
@@ -131,6 +127,29 @@ type ProviderArgs struct {
 
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
+}
+
+// This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+func (r *Provider) TerraformConfig(ctx *pulumi.Context) (ProviderTerraformConfigResultOutput, error) {
+	out, err := ctx.Call("pulumi:providers:newrelic/terraformConfig", nil, ProviderTerraformConfigResultOutput{}, r)
+	if err != nil {
+		return ProviderTerraformConfigResultOutput{}, err
+	}
+	return out.(ProviderTerraformConfigResultOutput), nil
+}
+
+type ProviderTerraformConfigResult struct {
+	Result map[string]interface{} `pulumi:"result"`
+}
+
+type ProviderTerraformConfigResultOutput struct{ *pulumi.OutputState }
+
+func (ProviderTerraformConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderTerraformConfigResult)(nil)).Elem()
+}
+
+func (o ProviderTerraformConfigResultOutput) Result() pulumi.MapOutput {
+	return o.ApplyT(func(v ProviderTerraformConfigResult) map[string]interface{} { return v.Result }).(pulumi.MapOutput)
 }
 
 type ProviderInput interface {
@@ -174,8 +193,8 @@ func (o ProviderOutput) AdminApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AdminApiKey }).(pulumi.StringPtrOutput)
 }
 
-func (o ProviderOutput) ApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
@@ -222,4 +241,5 @@ func (o ProviderOutput) SyntheticsApiUrl() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})
+	pulumi.RegisterOutputType(ProviderTerraformConfigResultOutput{})
 }

@@ -520,10 +520,8 @@ class _StepMonitorState:
         pulumi.set(self, "use_unsupported_legacy_runtime", value)
 
 
+@pulumi.type_token("newrelic:synthetics/stepMonitor:StepMonitor")
 class StepMonitor(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:synthetics/stepMonitor:StepMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

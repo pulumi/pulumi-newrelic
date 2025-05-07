@@ -97,10 +97,8 @@ class _EntityTagsState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("newrelic:index/entityTags:EntityTags")
 class EntityTags(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/entityTags:EntityTags"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

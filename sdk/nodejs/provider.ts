@@ -27,7 +27,7 @@ export class Provider extends pulumi.ProviderResource {
 
     public readonly accountId!: pulumi.Output<string | undefined>;
     public readonly adminApiKey!: pulumi.Output<string | undefined>;
-    public readonly apiKey!: pulumi.Output<string>;
+    public readonly apiKey!: pulumi.Output<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
@@ -60,13 +60,10 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'apiKey'");
-            }
             resourceInputs["accountId"] = (args?.accountId ? pulumi.secret(args.accountId) : undefined) ?? utilities.getEnv("NEW_RELIC_ACCOUNT_ID");
             resourceInputs["adminApiKey"] = args?.adminApiKey ? pulumi.secret(args.adminApiKey) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
@@ -86,6 +83,15 @@ export class Provider extends pulumi.ProviderResource {
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
+
+    /**
+     * This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+     */
+    terraformConfig(): pulumi.Output<Provider.TerraformConfigResult> {
+        return pulumi.runtime.call("pulumi:providers:newrelic/terraformConfig", {
+            "__self__": this,
+        }, this);
+    }
 }
 
 /**
@@ -94,7 +100,7 @@ export class Provider extends pulumi.ProviderResource {
 export interface ProviderArgs {
     accountId?: pulumi.Input<string>;
     adminApiKey?: pulumi.Input<string>;
-    apiKey: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
@@ -120,4 +126,14 @@ export interface ProviderArgs {
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
     syntheticsApiUrl?: pulumi.Input<string>;
+}
+
+export namespace Provider {
+    /**
+     * The results of the Provider.terraformConfig method.
+     */
+    export interface TerraformConfigResult {
+        readonly result: {[key: string]: any};
+    }
+
 }

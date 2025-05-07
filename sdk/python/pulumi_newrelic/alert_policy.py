@@ -169,10 +169,8 @@ class _AlertPolicyState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("newrelic:index/alertPolicy:AlertPolicy")
 class AlertPolicy(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/alertPolicy:AlertPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

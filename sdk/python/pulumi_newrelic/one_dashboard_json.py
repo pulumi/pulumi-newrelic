@@ -144,10 +144,8 @@ class _OneDashboardJsonState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("newrelic:index/oneDashboardJson:OneDashboardJson")
 class OneDashboardJson(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/oneDashboardJson:OneDashboardJson"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

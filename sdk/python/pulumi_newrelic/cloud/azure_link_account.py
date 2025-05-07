@@ -221,10 +221,8 @@ class _AzureLinkAccountState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("newrelic:cloud/azureLinkAccount:AzureLinkAccount")
 class AzureLinkAccount(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:cloud/azureLinkAccount:AzureLinkAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

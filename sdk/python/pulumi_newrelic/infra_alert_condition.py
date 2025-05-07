@@ -577,10 +577,8 @@ class _InfraAlertConditionState:
         pulumi.set(self, "where", value)
 
 
+@pulumi.type_token("newrelic:index/infraAlertCondition:InfraAlertCondition")
 class InfraAlertCondition(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/infraAlertCondition:InfraAlertCondition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
