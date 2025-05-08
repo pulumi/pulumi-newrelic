@@ -66,10 +66,8 @@ class _EventState:
         pulumi.set(self, "events", value)
 
 
+@pulumi.type_token("newrelic:insights/event:Event")
 class Event(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:insights/event:Event"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

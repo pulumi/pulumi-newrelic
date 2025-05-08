@@ -424,10 +424,8 @@ class _BrokenLinksMonitorState:
         pulumi.set(self, "use_unsupported_legacy_runtime", value)
 
 
+@pulumi.type_token("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor")
 class BrokenLinksMonitor(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

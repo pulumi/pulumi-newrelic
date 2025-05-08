@@ -160,10 +160,8 @@ class _ObfuscationExpressionState:
         pulumi.set(self, "regex", value)
 
 
+@pulumi.type_token("newrelic:index/obfuscationExpression:ObfuscationExpression")
 class ObfuscationExpression(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/obfuscationExpression:ObfuscationExpression"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

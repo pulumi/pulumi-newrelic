@@ -355,10 +355,8 @@ class _MonitorDowntimeState:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("newrelic:index/monitorDowntime:MonitorDowntime")
 class MonitorDowntime(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/monitorDowntime:MonitorDowntime"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

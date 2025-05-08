@@ -200,10 +200,8 @@ export type OneDashboardRaw = import("./oneDashboardRaw").OneDashboardRaw;
 export const OneDashboardRaw: typeof import("./oneDashboardRaw").OneDashboardRaw = null as any;
 utilities.lazyLoad(exports, ["OneDashboardRaw"], () => require("./oneDashboardRaw"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { ServiceLevelArgs, ServiceLevelState } from "./serviceLevel";
 export type ServiceLevel = import("./serviceLevel").ServiceLevel;

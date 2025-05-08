@@ -938,10 +938,8 @@ class _GcpIntegrationsState:
         pulumi.set(self, "vpc_access", value)
 
 
+@pulumi.type_token("newrelic:cloud/gcpIntegrations:GcpIntegrations")
 class GcpIntegrations(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:cloud/gcpIntegrations:GcpIntegrations"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

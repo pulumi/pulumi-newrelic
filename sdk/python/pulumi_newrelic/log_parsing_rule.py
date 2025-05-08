@@ -301,10 +301,8 @@ class _LogParsingRuleState:
         pulumi.set(self, "nrql", value)
 
 
+@pulumi.type_token("newrelic:index/logParsingRule:LogParsingRule")
 class LogParsingRule(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/logParsingRule:LogParsingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

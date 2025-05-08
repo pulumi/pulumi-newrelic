@@ -96,10 +96,8 @@ class _AccountManagementState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("newrelic:index/accountManagement:AccountManagement")
 class AccountManagement(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/accountManagement:AccountManagement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

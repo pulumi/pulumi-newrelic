@@ -969,10 +969,8 @@ class _NrqlAlertConditionState:
         pulumi.set(self, "warning", value)
 
 
+@pulumi.type_token("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")
 class NrqlAlertCondition(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/nrqlAlertCondition:NrqlAlertCondition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

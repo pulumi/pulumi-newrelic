@@ -237,10 +237,8 @@ class _DataPartitionRuleState:
         pulumi.set(self, "target_data_partition", value)
 
 
+@pulumi.type_token("newrelic:index/dataPartitionRule:DataPartitionRule")
 class DataPartitionRule(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/dataPartitionRule:DataPartitionRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

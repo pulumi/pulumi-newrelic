@@ -127,10 +127,8 @@ class _AlertPolicyChannelState:
         pulumi.set(self, "policy_id", value)
 
 
+@pulumi.type_token("newrelic:index/alertPolicyChannel:AlertPolicyChannel")
 class AlertPolicyChannel(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/alertPolicyChannel:AlertPolicyChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
