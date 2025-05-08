@@ -1762,10 +1762,8 @@ class _AwsIntegrationsState:
         pulumi.set(self, "x_ray", value)
 
 
+@pulumi.type_token("newrelic:cloud/awsIntegrations:AwsIntegrations")
 class AwsIntegrations(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:cloud/awsIntegrations:AwsIntegrations"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

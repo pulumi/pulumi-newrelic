@@ -232,10 +232,8 @@ class _ServiceLevelState:
         pulumi.set(self, "sli_id", value)
 
 
+@pulumi.type_token("newrelic:index/serviceLevel:ServiceLevel")
 class ServiceLevel(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/serviceLevel:ServiceLevel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

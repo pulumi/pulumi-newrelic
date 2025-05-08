@@ -407,10 +407,8 @@ class _ApplicationSettingsState:
         pulumi.set(self, "use_server_side_config", value)
 
 
+@pulumi.type_token("newrelic:plugins/applicationSettings:ApplicationSettings")
 class ApplicationSettings(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:plugins/applicationSettings:ApplicationSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

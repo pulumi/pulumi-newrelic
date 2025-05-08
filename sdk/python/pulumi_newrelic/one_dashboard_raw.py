@@ -226,10 +226,8 @@ class _OneDashboardRawState:
         pulumi.set(self, "permissions", value)
 
 
+@pulumi.type_token("newrelic:index/oneDashboardRaw:OneDashboardRaw")
 class OneDashboardRaw(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/oneDashboardRaw:OneDashboardRaw"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

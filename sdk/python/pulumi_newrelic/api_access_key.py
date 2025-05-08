@@ -239,10 +239,8 @@ class _ApiAccessKeyState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("newrelic:index/apiAccessKey:ApiAccessKey")
 class ApiAccessKey(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/apiAccessKey:ApiAccessKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

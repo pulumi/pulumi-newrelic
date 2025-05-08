@@ -439,10 +439,8 @@ class _CertCheckMonitorState:
         pulumi.set(self, "use_unsupported_legacy_runtime", value)
 
 
+@pulumi.type_token("newrelic:synthetics/certCheckMonitor:CertCheckMonitor")
 class CertCheckMonitor(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:synthetics/certCheckMonitor:CertCheckMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

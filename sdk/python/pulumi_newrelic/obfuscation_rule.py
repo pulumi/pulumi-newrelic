@@ -224,10 +224,8 @@ class _ObfuscationRuleState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("newrelic:index/obfuscationRule:ObfuscationRule")
 class ObfuscationRule(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/obfuscationRule:ObfuscationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

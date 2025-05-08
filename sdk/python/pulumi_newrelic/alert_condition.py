@@ -494,10 +494,8 @@ class _AlertConditionState:
         pulumi.set(self, "violation_close_timer", value)
 
 
+@pulumi.type_token("newrelic:index/alertCondition:AlertCondition")
 class AlertCondition(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/alertCondition:AlertCondition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

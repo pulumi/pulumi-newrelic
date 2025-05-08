@@ -144,10 +144,8 @@ class _GroupState:
         pulumi.set(self, "user_ids", value)
 
 
+@pulumi.type_token("newrelic:index/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -224,10 +224,8 @@ class _PrivateLocationState:
         pulumi.set(self, "verified_script_execution", value)
 
 
+@pulumi.type_token("newrelic:synthetics/privateLocation:PrivateLocation")
 class PrivateLocation(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:synthetics/privateLocation:PrivateLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -208,10 +208,8 @@ class _EventsToMetricsRuleState:
         pulumi.set(self, "rule_id", value)
 
 
+@pulumi.type_token("newrelic:index/eventsToMetricsRule:EventsToMetricsRule")
 class EventsToMetricsRule(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/eventsToMetricsRule:EventsToMetricsRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

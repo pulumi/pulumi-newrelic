@@ -172,10 +172,8 @@ class _AwsGovcloudLinkAccountState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount")
 class AwsGovcloudLinkAccount(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

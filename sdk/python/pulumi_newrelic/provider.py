@@ -204,10 +204,8 @@ class ProviderArgs:
         pulumi.set(self, "synthetics_api_url", value)
 
 
+@pulumi.type_token("pulumi:providers:newrelic")
 class Provider(pulumi.ProviderResource):
-
-    pulumi_type = "pulumi:providers:newrelic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -378,4 +376,24 @@ class Provider(pulumi.ProviderResource):
     @_utilities.deprecated("""New Relic internal use only. API URLs are now configured based on the configured region.""")
     def synthetics_api_url(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "synthetics_api_url")
+
+    @pulumi.output_type
+    class TerraformConfigResult:
+        def __init__(__self__, result=None):
+            if result and not isinstance(result, dict):
+                raise TypeError("Expected argument 'result' to be a dict")
+            pulumi.set(__self__, "result", result)
+
+        @property
+        @pulumi.getter
+        def result(self) -> Mapping[str, Any]:
+            return pulumi.get(self, "result")
+
+    def terraform_config(__self__) -> pulumi.Output['Provider.TerraformConfigResult']:
+        """
+        This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+        """
+        __args__ = dict()
+        __args__['__self__'] = __self__
+        return pulumi.runtime.call('pulumi:providers:newrelic/terraformConfig', __args__, res=__self__, typ=Provider.TerraformConfigResult)
 

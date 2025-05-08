@@ -738,10 +738,8 @@ class _AwsGovcloudIntegrationsState:
         pulumi.set(self, "sqs", value)
 
 
+@pulumi.type_token("newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations")
 class AwsGovcloudIntegrations(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

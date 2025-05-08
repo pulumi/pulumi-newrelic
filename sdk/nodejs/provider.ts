@@ -86,6 +86,15 @@ export class Provider extends pulumi.ProviderResource {
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
+
+    /**
+     * This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+     */
+    terraformConfig(): pulumi.Output<Provider.TerraformConfigResult> {
+        return pulumi.runtime.call("pulumi:providers:newrelic/terraformConfig", {
+            "__self__": this,
+        }, this);
+    }
 }
 
 /**
@@ -120,4 +129,14 @@ export interface ProviderArgs {
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
     syntheticsApiUrl?: pulumi.Input<string>;
+}
+
+export namespace Provider {
+    /**
+     * The results of the Provider.terraformConfig method.
+     */
+    export interface TerraformConfigResult {
+        readonly result: {[key: string]: any};
+    }
+
 }

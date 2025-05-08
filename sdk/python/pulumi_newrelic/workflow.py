@@ -380,10 +380,8 @@ class _WorkflowState:
         pulumi.set(self, "workflow_id", value)
 
 
+@pulumi.type_token("newrelic:index/workflow:Workflow")
 class Workflow(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/workflow:Workflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

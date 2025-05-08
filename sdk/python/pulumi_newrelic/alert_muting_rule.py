@@ -257,10 +257,8 @@ class _AlertMutingRuleState:
         pulumi.set(self, "schedule", value)
 
 
+@pulumi.type_token("newrelic:index/alertMutingRule:AlertMutingRule")
 class AlertMutingRule(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:index/alertMutingRule:AlertMutingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

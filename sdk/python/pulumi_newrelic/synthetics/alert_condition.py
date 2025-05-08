@@ -223,10 +223,8 @@ class _AlertConditionState:
         pulumi.set(self, "runbook_url", value)
 
 
+@pulumi.type_token("newrelic:synthetics/alertCondition:AlertCondition")
 class AlertCondition(pulumi.CustomResource):
-
-    pulumi_type = "newrelic:synthetics/alertCondition:AlertCondition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
