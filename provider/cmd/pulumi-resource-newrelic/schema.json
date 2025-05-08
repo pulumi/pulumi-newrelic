@@ -8453,7 +8453,10 @@
         },
         "requiredInputs": [
             "apiKey"
-        ]
+        ],
+        "methods": {
+            "terraformConfig": "pulumi:providers:newrelic/terraformConfig"
+        }
     },
     "resources": {
         "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations": {
@@ -17087,6 +17090,35 @@
                     "key",
                     "lastUpdated",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:newrelic/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:newrelic"
+                    }
+                },
+                "type": "pulumi:providers:newrelic/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }
