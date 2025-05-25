@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionTermPredictionArgs;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NrqlAlertConditionTermArgs Empty = new NrqlAlertConditionTermArgs();
+
+    /**
+     * Violations will not change system health status for this term.
+     * 
+     */
+    @Import(name="disableHealthStatusReporting")
+    private @Nullable Output<Boolean> disableHealthStatusReporting;
+
+    /**
+     * @return Violations will not change system health status for this term.
+     * 
+     */
+    public Optional<Output<Boolean>> disableHealthStatusReporting() {
+        return Optional.ofNullable(this.disableHealthStatusReporting);
+    }
 
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
@@ -158,6 +174,7 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
     private NrqlAlertConditionTermArgs() {}
 
     private NrqlAlertConditionTermArgs(NrqlAlertConditionTermArgs $) {
+        this.disableHealthStatusReporting = $.disableHealthStatusReporting;
         this.duration = $.duration;
         this.operator = $.operator;
         this.prediction = $.prediction;
@@ -184,6 +201,27 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
 
         public Builder(NrqlAlertConditionTermArgs defaults) {
             $ = new NrqlAlertConditionTermArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param disableHealthStatusReporting Violations will not change system health status for this term.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableHealthStatusReporting(@Nullable Output<Boolean> disableHealthStatusReporting) {
+            $.disableHealthStatusReporting = disableHealthStatusReporting;
+            return this;
+        }
+
+        /**
+         * @param disableHealthStatusReporting Violations will not change system health status for this term.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableHealthStatusReporting(Boolean disableHealthStatusReporting) {
+            return disableHealthStatusReporting(Output.of(disableHealthStatusReporting));
         }
 
         /**

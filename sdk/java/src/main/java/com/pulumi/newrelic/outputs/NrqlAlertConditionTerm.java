@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.NrqlAlertConditionTermPrediction;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NrqlAlertConditionTerm {
+    /**
+     * @return Violations will not change system health status for this term.
+     * 
+     */
+    private @Nullable Boolean disableHealthStatusReporting;
     /**
      * @return In minutes, must be in the range of 1 to 120 (inclusive).
      * 
@@ -65,6 +71,13 @@ public final class NrqlAlertConditionTerm {
     private @Nullable String timeFunction;
 
     private NrqlAlertConditionTerm() {}
+    /**
+     * @return Violations will not change system health status for this term.
+     * 
+     */
+    public Optional<Boolean> disableHealthStatusReporting() {
+        return Optional.ofNullable(this.disableHealthStatusReporting);
+    }
     /**
      * @return In minutes, must be in the range of 1 to 120 (inclusive).
      * 
@@ -139,6 +152,7 @@ public final class NrqlAlertConditionTerm {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean disableHealthStatusReporting;
         private @Nullable Integer duration;
         private @Nullable String operator;
         private @Nullable NrqlAlertConditionTermPrediction prediction;
@@ -150,6 +164,7 @@ public final class NrqlAlertConditionTerm {
         public Builder() {}
         public Builder(NrqlAlertConditionTerm defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.disableHealthStatusReporting = defaults.disableHealthStatusReporting;
     	      this.duration = defaults.duration;
     	      this.operator = defaults.operator;
     	      this.prediction = defaults.prediction;
@@ -160,6 +175,12 @@ public final class NrqlAlertConditionTerm {
     	      this.timeFunction = defaults.timeFunction;
         }
 
+        @CustomType.Setter
+        public Builder disableHealthStatusReporting(@Nullable Boolean disableHealthStatusReporting) {
+
+            this.disableHealthStatusReporting = disableHealthStatusReporting;
+            return this;
+        }
         @CustomType.Setter
         public Builder duration(@Nullable Integer duration) {
 
@@ -212,6 +233,7 @@ public final class NrqlAlertConditionTerm {
         }
         public NrqlAlertConditionTerm build() {
             final var _resultValue = new NrqlAlertConditionTerm();
+            _resultValue.disableHealthStatusReporting = disableHealthStatusReporting;
             _resultValue.duration = duration;
             _resultValue.operator = operator;
             _resultValue.prediction = prediction;

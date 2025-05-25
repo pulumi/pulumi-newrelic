@@ -13,6 +13,12 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class NrqlAlertConditionCriticalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Violations will not change system health status for this term.
+        /// </summary>
+        [Input("disableHealthStatusReporting")]
+        public Input<bool>? DisableHealthStatusReporting { get; set; }
+
+        /// <summary>
         /// In minutes, must be in the range of 1 to 120 (inclusive).
         /// </summary>
         [Input("duration")]

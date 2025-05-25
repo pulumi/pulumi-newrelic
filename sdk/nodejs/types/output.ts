@@ -398,6 +398,10 @@ export interface NotificationDestinationSecureUrl {
 
 export interface NrqlAlertConditionCritical {
     /**
+     * Violations will not change system health status for this term.
+     */
+    disableHealthStatusReporting?: boolean;
+    /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
      * @deprecated use `thresholdDuration` attribute instead
@@ -464,6 +468,10 @@ export interface NrqlAlertConditionNrql {
 
 export interface NrqlAlertConditionTerm {
     /**
+     * Violations will not change system health status for this term.
+     */
+    disableHealthStatusReporting?: boolean;
+    /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *
      * @deprecated use `thresholdDuration` attribute instead
@@ -513,6 +521,10 @@ export interface NrqlAlertConditionTermPrediction {
 }
 
 export interface NrqlAlertConditionWarning {
+    /**
+     * Violations will not change system health status for this term.
+     */
+    disableHealthStatusReporting?: boolean;
     /**
      * In minutes, must be in the range of 1 to 120 (inclusive).
      *

@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class NrqlAlertConditionTerm
     {
         /// <summary>
+        /// Violations will not change system health status for this term.
+        /// </summary>
+        public readonly bool? DisableHealthStatusReporting;
+        /// <summary>
         /// In minutes, must be in the range of 1 to 120 (inclusive).
         /// </summary>
         public readonly int? Duration;
@@ -48,6 +52,8 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private NrqlAlertConditionTerm(
+            bool? disableHealthStatusReporting,
+
             int? duration,
 
             string? @operator,
@@ -64,6 +70,7 @@ namespace Pulumi.NewRelic.Outputs
 
             string? timeFunction)
         {
+            DisableHealthStatusReporting = disableHealthStatusReporting;
             Duration = duration;
             Operator = @operator;
             Prediction = prediction;

@@ -1332,7 +1332,9 @@ class NrqlAlertConditionCritical(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "thresholdDuration":
+        if key == "disableHealthStatusReporting":
+            suggest = "disable_health_status_reporting"
+        elif key == "thresholdDuration":
             suggest = "threshold_duration"
         elif key == "thresholdOccurrences":
             suggest = "threshold_occurrences"
@@ -1352,6 +1354,7 @@ class NrqlAlertConditionCritical(dict):
 
     def __init__(__self__, *,
                  threshold: builtins.float,
+                 disable_health_status_reporting: Optional[builtins.bool] = None,
                  duration: Optional[builtins.int] = None,
                  operator: Optional[builtins.str] = None,
                  prediction: Optional['outputs.NrqlAlertConditionCriticalPrediction'] = None,
@@ -1360,6 +1363,7 @@ class NrqlAlertConditionCritical(dict):
                  time_function: Optional[builtins.str] = None):
         """
         :param builtins.float threshold: For baseline conditions must be in range [1, 1000].
+        :param builtins.bool disable_health_status_reporting: Violations will not change system health status for this term.
         :param builtins.int duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param builtins.str operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
         :param 'NrqlAlertConditionCriticalPredictionArgs' prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
@@ -1368,6 +1372,8 @@ class NrqlAlertConditionCritical(dict):
         :param builtins.str time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_health_status_reporting is not None:
+            pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
@@ -1388,6 +1394,14 @@ class NrqlAlertConditionCritical(dict):
         For baseline conditions must be in range [1, 1000].
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="disableHealthStatusReporting")
+    def disable_health_status_reporting(self) -> Optional[builtins.bool]:
+        """
+        Violations will not change system health status for this term.
+        """
+        return pulumi.get(self, "disable_health_status_reporting")
 
     @property
     @pulumi.getter
@@ -1568,7 +1582,9 @@ class NrqlAlertConditionTerm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "thresholdDuration":
+        if key == "disableHealthStatusReporting":
+            suggest = "disable_health_status_reporting"
+        elif key == "thresholdDuration":
             suggest = "threshold_duration"
         elif key == "thresholdOccurrences":
             suggest = "threshold_occurrences"
@@ -1588,6 +1604,7 @@ class NrqlAlertConditionTerm(dict):
 
     def __init__(__self__, *,
                  threshold: builtins.float,
+                 disable_health_status_reporting: Optional[builtins.bool] = None,
                  duration: Optional[builtins.int] = None,
                  operator: Optional[builtins.str] = None,
                  prediction: Optional['outputs.NrqlAlertConditionTermPrediction'] = None,
@@ -1597,6 +1614,7 @@ class NrqlAlertConditionTerm(dict):
                  time_function: Optional[builtins.str] = None):
         """
         :param builtins.float threshold: For baseline conditions must be in range [1, 1000].
+        :param builtins.bool disable_health_status_reporting: Violations will not change system health status for this term.
         :param builtins.int duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param builtins.str operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
         :param 'NrqlAlertConditionTermPredictionArgs' prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
@@ -1606,6 +1624,8 @@ class NrqlAlertConditionTerm(dict):
         :param builtins.str time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_health_status_reporting is not None:
+            pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
@@ -1628,6 +1648,14 @@ class NrqlAlertConditionTerm(dict):
         For baseline conditions must be in range [1, 1000].
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="disableHealthStatusReporting")
+    def disable_health_status_reporting(self) -> Optional[builtins.bool]:
+        """
+        Violations will not change system health status for this term.
+        """
+        return pulumi.get(self, "disable_health_status_reporting")
 
     @property
     @pulumi.getter
@@ -1743,7 +1771,9 @@ class NrqlAlertConditionWarning(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "thresholdDuration":
+        if key == "disableHealthStatusReporting":
+            suggest = "disable_health_status_reporting"
+        elif key == "thresholdDuration":
             suggest = "threshold_duration"
         elif key == "thresholdOccurrences":
             suggest = "threshold_occurrences"
@@ -1763,6 +1793,7 @@ class NrqlAlertConditionWarning(dict):
 
     def __init__(__self__, *,
                  threshold: builtins.float,
+                 disable_health_status_reporting: Optional[builtins.bool] = None,
                  duration: Optional[builtins.int] = None,
                  operator: Optional[builtins.str] = None,
                  prediction: Optional['outputs.NrqlAlertConditionWarningPrediction'] = None,
@@ -1771,6 +1802,7 @@ class NrqlAlertConditionWarning(dict):
                  time_function: Optional[builtins.str] = None):
         """
         :param builtins.float threshold: For baseline conditions must be in range [1, 1000].
+        :param builtins.bool disable_health_status_reporting: Violations will not change system health status for this term.
         :param builtins.int duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param builtins.str operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
         :param 'NrqlAlertConditionWarningPredictionArgs' prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
@@ -1779,6 +1811,8 @@ class NrqlAlertConditionWarning(dict):
         :param builtins.str time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_health_status_reporting is not None:
+            pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
@@ -1799,6 +1833,14 @@ class NrqlAlertConditionWarning(dict):
         For baseline conditions must be in range [1, 1000].
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="disableHealthStatusReporting")
+    def disable_health_status_reporting(self) -> Optional[builtins.bool]:
+        """
+        Violations will not change system health status for this term.
+        """
+        return pulumi.get(self, "disable_health_status_reporting")
 
     @property
     @pulumi.getter
