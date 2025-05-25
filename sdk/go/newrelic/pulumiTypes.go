@@ -2918,6 +2918,8 @@ func (o NotificationDestinationSecureUrlPtrOutput) SecureSuffix() pulumi.StringP
 }
 
 type NrqlAlertConditionCritical struct {
+	// Violations will not change system health status for this term.
+	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
 	// Deprecated: use `thresholdDuration` attribute instead
@@ -2950,6 +2952,8 @@ type NrqlAlertConditionCriticalInput interface {
 }
 
 type NrqlAlertConditionCriticalArgs struct {
+	// Violations will not change system health status for this term.
+	DisableHealthStatusReporting pulumi.BoolPtrInput `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
 	// Deprecated: use `thresholdDuration` attribute instead
@@ -3047,6 +3051,11 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 	}).(NrqlAlertConditionCriticalPtrOutput)
 }
 
+// Violations will not change system health status for this term.
+func (o NrqlAlertConditionCriticalOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *bool { return v.DisableHealthStatusReporting }).(pulumi.BoolPtrOutput)
+}
+
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
 // Deprecated: use `thresholdDuration` attribute instead
@@ -3108,6 +3117,16 @@ func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOu
 		var ret NrqlAlertConditionCritical
 		return ret
 	}).(NrqlAlertConditionCriticalOutput)
+}
+
+// Violations will not change system health status for this term.
+func (o NrqlAlertConditionCriticalPtrOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableHealthStatusReporting
+	}).(pulumi.BoolPtrOutput)
 }
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
@@ -3547,6 +3566,8 @@ func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 }
 
 type NrqlAlertConditionTerm struct {
+	// Violations will not change system health status for this term.
+	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
 	// Deprecated: use `thresholdDuration` attribute instead
@@ -3581,6 +3602,8 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
+	// Violations will not change system health status for this term.
+	DisableHealthStatusReporting pulumi.BoolPtrInput `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
 	// Deprecated: use `thresholdDuration` attribute instead
@@ -3652,6 +3675,11 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutput() NrqlAlert
 
 func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(ctx context.Context) NrqlAlertConditionTermOutput {
 	return o
+}
+
+// Violations will not change system health status for this term.
+func (o NrqlAlertConditionTermOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *bool { return v.DisableHealthStatusReporting }).(pulumi.BoolPtrOutput)
 }
 
 // In minutes, must be in the range of 1 to 120 (inclusive).
@@ -3875,6 +3903,8 @@ func (o NrqlAlertConditionTermPredictionPtrOutput) PreferPredictionViolation() p
 }
 
 type NrqlAlertConditionWarning struct {
+	// Violations will not change system health status for this term.
+	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
 	// Deprecated: use `thresholdDuration` attribute instead
@@ -3907,6 +3937,8 @@ type NrqlAlertConditionWarningInput interface {
 }
 
 type NrqlAlertConditionWarningArgs struct {
+	// Violations will not change system health status for this term.
+	DisableHealthStatusReporting pulumi.BoolPtrInput `pulumi:"disableHealthStatusReporting"`
 	// In minutes, must be in the range of 1 to 120 (inclusive).
 	//
 	// Deprecated: use `thresholdDuration` attribute instead
@@ -4004,6 +4036,11 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 	}).(NrqlAlertConditionWarningPtrOutput)
 }
 
+// Violations will not change system health status for this term.
+func (o NrqlAlertConditionWarningOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *bool { return v.DisableHealthStatusReporting }).(pulumi.BoolPtrOutput)
+}
+
 // In minutes, must be in the range of 1 to 120 (inclusive).
 //
 // Deprecated: use `thresholdDuration` attribute instead
@@ -4065,6 +4102,16 @@ func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutp
 		var ret NrqlAlertConditionWarning
 		return ret
 	}).(NrqlAlertConditionWarningOutput)
+}
+
+// Violations will not change system health status for this term.
+func (o NrqlAlertConditionWarningPtrOutput) DisableHealthStatusReporting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableHealthStatusReporting
+	}).(pulumi.BoolPtrOutput)
 }
 
 // In minutes, must be in the range of 1 to 120 (inclusive).

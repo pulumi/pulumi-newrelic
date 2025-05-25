@@ -1911,6 +1911,10 @@ if not MYPY:
         """
         For baseline conditions must be in range [1, 1000].
         """
+        disable_health_status_reporting: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Violations will not change system health status for this term.
+        """
         duration: NotRequired[pulumi.Input[builtins.int]]
         """
         In minutes, must be in the range of 1 to 120 (inclusive).
@@ -1942,6 +1946,7 @@ elif False:
 class NrqlAlertConditionCriticalArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[builtins.float],
+                 disable_health_status_reporting: Optional[pulumi.Input[builtins.bool]] = None,
                  duration: Optional[pulumi.Input[builtins.int]] = None,
                  operator: Optional[pulumi.Input[builtins.str]] = None,
                  prediction: Optional[pulumi.Input['NrqlAlertConditionCriticalPredictionArgs']] = None,
@@ -1950,6 +1955,7 @@ class NrqlAlertConditionCriticalArgs:
                  time_function: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[builtins.bool] disable_health_status_reporting: Violations will not change system health status for this term.
         :param pulumi.Input[builtins.int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param pulumi.Input[builtins.str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
         :param pulumi.Input['NrqlAlertConditionCriticalPredictionArgs'] prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
@@ -1958,6 +1964,8 @@ class NrqlAlertConditionCriticalArgs:
         :param pulumi.Input[builtins.str] time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_health_status_reporting is not None:
+            pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
@@ -1988,6 +1996,18 @@ class NrqlAlertConditionCriticalArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="disableHealthStatusReporting")
+    def disable_health_status_reporting(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Violations will not change system health status for this term.
+        """
+        return pulumi.get(self, "disable_health_status_reporting")
+
+    @disable_health_status_reporting.setter
+    def disable_health_status_reporting(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_health_status_reporting", value)
 
     @property
     @pulumi.getter
@@ -2214,6 +2234,10 @@ if not MYPY:
         """
         For baseline conditions must be in range [1, 1000].
         """
+        disable_health_status_reporting: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Violations will not change system health status for this term.
+        """
         duration: NotRequired[pulumi.Input[builtins.int]]
         """
         In minutes, must be in the range of 1 to 120 (inclusive).
@@ -2249,6 +2273,7 @@ elif False:
 class NrqlAlertConditionTermArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[builtins.float],
+                 disable_health_status_reporting: Optional[pulumi.Input[builtins.bool]] = None,
                  duration: Optional[pulumi.Input[builtins.int]] = None,
                  operator: Optional[pulumi.Input[builtins.str]] = None,
                  prediction: Optional[pulumi.Input['NrqlAlertConditionTermPredictionArgs']] = None,
@@ -2258,6 +2283,7 @@ class NrqlAlertConditionTermArgs:
                  time_function: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[builtins.bool] disable_health_status_reporting: Violations will not change system health status for this term.
         :param pulumi.Input[builtins.int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param pulumi.Input[builtins.str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
         :param pulumi.Input['NrqlAlertConditionTermPredictionArgs'] prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
@@ -2267,6 +2293,8 @@ class NrqlAlertConditionTermArgs:
         :param pulumi.Input[builtins.str] time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_health_status_reporting is not None:
+            pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
@@ -2299,6 +2327,18 @@ class NrqlAlertConditionTermArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="disableHealthStatusReporting")
+    def disable_health_status_reporting(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Violations will not change system health status for this term.
+        """
+        return pulumi.get(self, "disable_health_status_reporting")
+
+    @disable_health_status_reporting.setter
+    def disable_health_status_reporting(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_health_status_reporting", value)
 
     @property
     @pulumi.getter
@@ -2445,6 +2485,10 @@ if not MYPY:
         """
         For baseline conditions must be in range [1, 1000].
         """
+        disable_health_status_reporting: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Violations will not change system health status for this term.
+        """
         duration: NotRequired[pulumi.Input[builtins.int]]
         """
         In minutes, must be in the range of 1 to 120 (inclusive).
@@ -2476,6 +2520,7 @@ elif False:
 class NrqlAlertConditionWarningArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[builtins.float],
+                 disable_health_status_reporting: Optional[pulumi.Input[builtins.bool]] = None,
                  duration: Optional[pulumi.Input[builtins.int]] = None,
                  operator: Optional[pulumi.Input[builtins.str]] = None,
                  prediction: Optional[pulumi.Input['NrqlAlertConditionWarningPredictionArgs']] = None,
@@ -2484,6 +2529,7 @@ class NrqlAlertConditionWarningArgs:
                  time_function: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.float] threshold: For baseline conditions must be in range [1, 1000].
+        :param pulumi.Input[builtins.bool] disable_health_status_reporting: Violations will not change system health status for this term.
         :param pulumi.Input[builtins.int] duration: In minutes, must be in the range of 1 to 120 (inclusive).
         :param pulumi.Input[builtins.str] operator: One of (above, above_or_equals, below, below_or_equals, equals, not_equals). Defaults to 'equals'.
         :param pulumi.Input['NrqlAlertConditionWarningPredictionArgs'] prediction: BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis. - Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for static conditions.
@@ -2492,6 +2538,8 @@ class NrqlAlertConditionWarningArgs:
         :param pulumi.Input[builtins.str] time_function: Valid values are: 'all' or 'any'
         """
         pulumi.set(__self__, "threshold", threshold)
+        if disable_health_status_reporting is not None:
+            pulumi.set(__self__, "disable_health_status_reporting", disable_health_status_reporting)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
@@ -2522,6 +2570,18 @@ class NrqlAlertConditionWarningArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[builtins.float]):
         pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="disableHealthStatusReporting")
+    def disable_health_status_reporting(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Violations will not change system health status for this term.
+        """
+        return pulumi.get(self, "disable_health_status_reporting")
+
+    @disable_health_status_reporting.setter
+    def disable_health_status_reporting(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_health_status_reporting", value)
 
     @property
     @pulumi.getter
