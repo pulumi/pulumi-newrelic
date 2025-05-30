@@ -6,7 +6,6 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -32,11 +31,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.adminApiKey);
     }
 
-    @Import(name="apiKey", required=true)
-    private Output<String> apiKey;
+    @Import(name="apiKey")
+    private @Nullable Output<String> apiKey;
 
-    public Output<String> apiKey() {
-        return this.apiKey;
+    public Optional<Output<String>> apiKey() {
+        return Optional.ofNullable(this.apiKey);
     }
 
     /**
@@ -219,7 +218,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return adminApiKey(Output.of(adminApiKey));
         }
 
-        public Builder apiKey(Output<String> apiKey) {
+        public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
@@ -396,9 +395,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public ProviderArgs build() {
             $.accountId = Codegen.stringProp("accountId").secret().arg($.accountId).env("NEW_RELIC_ACCOUNT_ID").getNullable();
-            if ($.apiKey == null) {
-                throw new MissingRequiredPropertyException("ProviderArgs", "apiKey");
-            }
             $.region = Codegen.stringProp("region").output().arg($.region).env("NEW_RELIC_REGION").def("US").getNullable();
             return $;
         }
