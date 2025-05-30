@@ -8399,9 +8399,6 @@
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             }
         },
-        "required": [
-            "apiKey"
-        ],
         "inputProperties": {
             "accountId": {
                 "type": "string",
@@ -8463,9 +8460,6 @@
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             }
         },
-        "requiredInputs": [
-            "apiKey"
-        ],
         "methods": {
             "terraformConfig": "pulumi:providers:newrelic/terraformConfig"
         }
