@@ -253,30 +253,6 @@ class ApiAccessKey(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Use this resource to programmatically create and manage the following types of keys:
-        - [User API keys](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)
-        - License (or ingest) keys, including:
-            - General [license key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM
-            - [Browser license key](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)
-
-        Please visit the New Relic article ['Use NerdGraph to manage license keys and User API keys'](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys)
-        for more information.
-
-        > **IMPORTANT!**
-        Please be very careful when updating existing `ApiAccessKey` resources as only `newrelic_api_access_key.name`
-        and `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will
-        invalidate the previous API key(s).
-
-        ## Example Usage
-
-        > **WARNING:** Creating 'Ingest - License' and 'Ingest - Browser' keys using this resource is restricted to 'core' or 'full platform' New Relic user accounts. If you've signed up as a 'basic' user with New Relic, or have been added as a 'basic' user to your organization on New Relic, you would not be able to use your account to create 'Ingest' keys. If you see the message `"You do not have permission to create this key"` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
-
-        ## Extended Usage
-
-        This module may be used to create a user or ingest key using the `create_access_keys_service` resource, and fetch the created key using `fetch_access_keys_service`, by performing a NerdGraph query under the hood, using the ID of the key created via the resource to fetch the created key.
-        Please refer\\
-        create access keys and fetch access keys for more info.
-
         ## Import
 
         Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>`
@@ -304,30 +280,6 @@ class ApiAccessKey(pulumi.CustomResource):
                  args: ApiAccessKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to programmatically create and manage the following types of keys:
-        - [User API keys](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)
-        - License (or ingest) keys, including:
-            - General [license key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM
-            - [Browser license key](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)
-
-        Please visit the New Relic article ['Use NerdGraph to manage license keys and User API keys'](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys)
-        for more information.
-
-        > **IMPORTANT!**
-        Please be very careful when updating existing `ApiAccessKey` resources as only `newrelic_api_access_key.name`
-        and `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will
-        invalidate the previous API key(s).
-
-        ## Example Usage
-
-        > **WARNING:** Creating 'Ingest - License' and 'Ingest - Browser' keys using this resource is restricted to 'core' or 'full platform' New Relic user accounts. If you've signed up as a 'basic' user with New Relic, or have been added as a 'basic' user to your organization on New Relic, you would not be able to use your account to create 'Ingest' keys. If you see the message `"You do not have permission to create this key"` in the response of the API called by this resource, it could be owing to the aforementioned. For more insights into user account types on New Relic and associated privileges, please check out this [page](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
-
-        ## Extended Usage
-
-        This module may be used to create a user or ingest key using the `create_access_keys_service` resource, and fetch the created key using `fetch_access_keys_service`, by performing a NerdGraph query under the hood, using the ID of the key created via the resource to fetch the created key.
-        Please refer\\
-        create access keys and fetch access keys for more info.
-
         ## Import
 
         Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>`
