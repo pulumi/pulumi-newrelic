@@ -88,7 +88,7 @@ type NotificationDestination struct {
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrOutput `pulumi:"authBasic"`
-	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayOutput `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrOutput `pulumi:"authToken"`
@@ -106,7 +106,7 @@ type NotificationDestination struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -152,7 +152,7 @@ type notificationDestinationState struct {
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
-	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders []NotificationDestinationAuthCustomHeader `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
@@ -170,7 +170,7 @@ type notificationDestinationState struct {
 	Status *string `pulumi:"status"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
 	Type *string `pulumi:"type"`
 }
 
@@ -181,7 +181,7 @@ type NotificationDestinationState struct {
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrInput
-	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
@@ -199,7 +199,7 @@ type NotificationDestinationState struct {
 	Status pulumi.StringPtrInput
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
 	Type pulumi.StringPtrInput
 }
 
@@ -214,7 +214,7 @@ type notificationDestinationArgs struct {
 	Active *bool `pulumi:"active"`
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic *NotificationDestinationAuthBasic `pulumi:"authBasic"`
-	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders []NotificationDestinationAuthCustomHeader `pulumi:"authCustomHeaders"`
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken *NotificationDestinationAuthToken `pulumi:"authToken"`
@@ -226,7 +226,7 @@ type notificationDestinationArgs struct {
 	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
 	Type string `pulumi:"type"`
 }
 
@@ -238,7 +238,7 @@ type NotificationDestinationArgs struct {
 	Active pulumi.BoolPtrInput
 	// A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
 	AuthBasic NotificationDestinationAuthBasicPtrInput
-	// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+	// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
 	AuthCustomHeaders NotificationDestinationAuthCustomHeaderArrayInput
 	// A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
 	AuthToken NotificationDestinationAuthTokenPtrInput
@@ -250,7 +250,7 @@ type NotificationDestinationArgs struct {
 	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 	// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+	// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
 	Type pulumi.StringInput
 }
 
@@ -356,7 +356,7 @@ func (o NotificationDestinationOutput) AuthBasic() NotificationDestinationAuthBa
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthBasicPtrOutput { return v.AuthBasic }).(NotificationDestinationAuthBasicPtrOutput)
 }
 
-// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
+// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
 func (o NotificationDestinationOutput) AuthCustomHeaders() NotificationDestinationAuthCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationAuthCustomHeaderArrayOutput {
 		return v.AuthCustomHeaders
@@ -400,7 +400,7 @@ func (o NotificationDestinationOutput) Status() pulumi.StringOutput {
 
 // (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
 // PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
 func (o NotificationDestinationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationDestination) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

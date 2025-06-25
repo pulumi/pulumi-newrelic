@@ -66,6 +66,8 @@ __all__ = [
     'AwsIntegrationsAwsAppSyncArgsDict',
     'AwsIntegrationsAwsAthenaArgs',
     'AwsIntegrationsAwsAthenaArgsDict',
+    'AwsIntegrationsAwsAutoDiscoveryArgs',
+    'AwsIntegrationsAwsAutoDiscoveryArgsDict',
     'AwsIntegrationsAwsCognitoArgs',
     'AwsIntegrationsAwsCognitoArgsDict',
     'AwsIntegrationsAwsConnectArgs',
@@ -2583,6 +2585,58 @@ elif False:
 
 @pulumi.input_type
 class AwsIntegrationsAwsAthenaArgs:
+    def __init__(__self__, *,
+                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 metrics_polling_interval: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param pulumi.Input[builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if aws_regions is not None:
+            pulumi.set(__self__, "aws_regions", aws_regions)
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @property
+    @pulumi.getter(name="awsRegions")
+    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        return pulumi.get(self, "aws_regions")
+
+    @aws_regions.setter
+    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "aws_regions", value)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+if not MYPY:
+    class AwsIntegrationsAwsAutoDiscoveryArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsAwsAutoDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AwsIntegrationsAwsAutoDiscoveryArgs:
     def __init__(__self__, *,
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  metrics_polling_interval: Optional[pulumi.Input[builtins.int]] = None):

@@ -374,6 +374,16 @@
                             }
                         }
                     },
+                    "aws_auto_discovery": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws_regions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "aws_cognito": {
                         "maxItemsOne": true,
                         "elem": {

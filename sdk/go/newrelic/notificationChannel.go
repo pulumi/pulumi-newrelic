@@ -440,7 +440,7 @@ import (
 //
 // ```
 //
-// #### [MICROSOFT_TEAMS]
+// #### [MICROSOFT_TEAMS](https://docs.newrelic.com/docs/alerts/get-notified/microsoft-teams-integrations/)
 // ```go
 // package main
 //
@@ -600,7 +600,7 @@ type NotificationChannel struct {
 	Properties NotificationChannelPropertyArrayOutput `pulumi:"properties"`
 	// The status of the channel.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -660,7 +660,7 @@ type notificationChannelState struct {
 	Properties []NotificationChannelProperty `pulumi:"properties"`
 	// The status of the channel.
 	Status *string `pulumi:"status"`
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
 	Type *string `pulumi:"type"`
 }
 
@@ -679,7 +679,7 @@ type NotificationChannelState struct {
 	Properties NotificationChannelPropertyArrayInput
 	// The status of the channel.
 	Status pulumi.StringPtrInput
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
 	Type pulumi.StringPtrInput
 }
 
@@ -700,7 +700,7 @@ type notificationChannelArgs struct {
 	Product string `pulumi:"product"`
 	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties []NotificationChannelProperty `pulumi:"properties"`
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
 	Type string `pulumi:"type"`
 }
 
@@ -718,7 +718,7 @@ type NotificationChannelArgs struct {
 	Product pulumi.StringInput
 	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties NotificationChannelPropertyArrayInput
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
 	Type pulumi.StringInput
 }
 
@@ -844,7 +844,7 @@ func (o NotificationChannelOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION` or `MICROSOFT_TEAMS`.
+// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
 func (o NotificationChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

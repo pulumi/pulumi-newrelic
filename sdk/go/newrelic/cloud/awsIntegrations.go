@@ -36,6 +36,8 @@ type AwsIntegrations struct {
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrOutput `pulumi:"awsAppSync"`
 	// Aws Athena integration
 	AwsAthena AwsIntegrationsAwsAthenaPtrOutput `pulumi:"awsAthena"`
+	// Aws Auto Discovery Integration
+	AwsAutoDiscovery AwsIntegrationsAwsAutoDiscoveryPtrOutput `pulumi:"awsAutoDiscovery"`
 	// Aws Cognito integration
 	AwsCognito AwsIntegrationsAwsCognitoPtrOutput `pulumi:"awsCognito"`
 	// Aws Connect integration
@@ -179,6 +181,8 @@ type awsIntegrationsState struct {
 	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
 	// Aws Athena integration
 	AwsAthena *AwsIntegrationsAwsAthena `pulumi:"awsAthena"`
+	// Aws Auto Discovery Integration
+	AwsAutoDiscovery *AwsIntegrationsAwsAutoDiscovery `pulumi:"awsAutoDiscovery"`
 	// Aws Cognito integration
 	AwsCognito *AwsIntegrationsAwsCognito `pulumi:"awsCognito"`
 	// Aws Connect integration
@@ -290,6 +294,8 @@ type AwsIntegrationsState struct {
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
 	// Aws Athena integration
 	AwsAthena AwsIntegrationsAwsAthenaPtrInput
+	// Aws Auto Discovery Integration
+	AwsAutoDiscovery AwsIntegrationsAwsAutoDiscoveryPtrInput
 	// Aws Cognito integration
 	AwsCognito AwsIntegrationsAwsCognitoPtrInput
 	// Aws Connect integration
@@ -405,6 +411,8 @@ type awsIntegrationsArgs struct {
 	AwsAppSync *AwsIntegrationsAwsAppSync `pulumi:"awsAppSync"`
 	// Aws Athena integration
 	AwsAthena *AwsIntegrationsAwsAthena `pulumi:"awsAthena"`
+	// Aws Auto Discovery Integration
+	AwsAutoDiscovery *AwsIntegrationsAwsAutoDiscovery `pulumi:"awsAutoDiscovery"`
 	// Aws Cognito integration
 	AwsCognito *AwsIntegrationsAwsCognito `pulumi:"awsCognito"`
 	// Aws Connect integration
@@ -517,6 +525,8 @@ type AwsIntegrationsArgs struct {
 	AwsAppSync AwsIntegrationsAwsAppSyncPtrInput
 	// Aws Athena integration
 	AwsAthena AwsIntegrationsAwsAthenaPtrInput
+	// Aws Auto Discovery Integration
+	AwsAutoDiscovery AwsIntegrationsAwsAutoDiscoveryPtrInput
 	// Aws Cognito integration
 	AwsCognito AwsIntegrationsAwsCognitoPtrInput
 	// Aws Connect integration
@@ -730,6 +740,11 @@ func (o AwsIntegrationsOutput) AwsAppSync() AwsIntegrationsAwsAppSyncPtrOutput {
 // Aws Athena integration
 func (o AwsIntegrationsOutput) AwsAthena() AwsIntegrationsAwsAthenaPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsAthenaPtrOutput { return v.AwsAthena }).(AwsIntegrationsAwsAthenaPtrOutput)
+}
+
+// Aws Auto Discovery Integration
+func (o AwsIntegrationsOutput) AwsAutoDiscovery() AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsAwsAutoDiscoveryPtrOutput { return v.AwsAutoDiscovery }).(AwsIntegrationsAwsAutoDiscoveryPtrOutput)
 }
 
 // Aws Cognito integration

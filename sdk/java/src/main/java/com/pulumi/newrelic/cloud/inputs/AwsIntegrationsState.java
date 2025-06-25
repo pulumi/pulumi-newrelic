@@ -10,6 +10,7 @@ import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsApiGatewayArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAutoScalingArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAppSyncArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAthenaArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsAutoDiscoveryArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsCognitoArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsConnectArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsAwsDirectConnectArgs;
@@ -155,6 +156,21 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<AwsIntegrationsAwsAthenaArgs>> awsAthena() {
         return Optional.ofNullable(this.awsAthena);
+    }
+
+    /**
+     * Aws Auto Discovery Integration
+     * 
+     */
+    @Import(name="awsAutoDiscovery")
+    private @Nullable Output<AwsIntegrationsAwsAutoDiscoveryArgs> awsAutoDiscovery;
+
+    /**
+     * @return Aws Auto Discovery Integration
+     * 
+     */
+    public Optional<Output<AwsIntegrationsAwsAutoDiscoveryArgs>> awsAutoDiscovery() {
+        return Optional.ofNullable(this.awsAutoDiscovery);
     }
 
     /**
@@ -886,6 +902,7 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         this.autoScaling = $.autoScaling;
         this.awsAppSync = $.awsAppSync;
         this.awsAthena = $.awsAthena;
+        this.awsAutoDiscovery = $.awsAutoDiscovery;
         this.awsCognito = $.awsCognito;
         this.awsConnect = $.awsConnect;
         this.awsDirectConnect = $.awsDirectConnect;
@@ -1078,6 +1095,27 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder awsAthena(AwsIntegrationsAwsAthenaArgs awsAthena) {
             return awsAthena(Output.of(awsAthena));
+        }
+
+        /**
+         * @param awsAutoDiscovery Aws Auto Discovery Integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAutoDiscovery(@Nullable Output<AwsIntegrationsAwsAutoDiscoveryArgs> awsAutoDiscovery) {
+            $.awsAutoDiscovery = awsAutoDiscovery;
+            return this;
+        }
+
+        /**
+         * @param awsAutoDiscovery Aws Auto Discovery Integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAutoDiscovery(AwsIntegrationsAwsAutoDiscoveryArgs awsAutoDiscovery) {
+            return awsAutoDiscovery(Output.of(awsAutoDiscovery));
         }
 
         /**

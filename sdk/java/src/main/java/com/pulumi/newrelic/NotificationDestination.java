@@ -136,14 +136,14 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.authBasic);
     }
     /**
-     * A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
      * 
      */
     @Export(name="authCustomHeaders", refs={List.class,NotificationDestinationAuthCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotificationDestinationAuthCustomHeader>> authCustomHeaders;
 
     /**
-     * @return A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * @return A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
      * 
      */
     public Output<Optional<List<NotificationDestinationAuthCustomHeader>>> authCustomHeaders() {
@@ -250,7 +250,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
     /**
      * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -259,7 +259,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
     /**
      * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
      * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      * 
      */
     public Output<String> type() {
