@@ -36,11 +36,11 @@ class NotificationDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
         :param pulumi.Input[builtins.str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
                PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         :param pulumi.Input[builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[builtins.bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[builtins.str] name: The name of the destination.
         :param pulumi.Input['NotificationDestinationSecureUrlArgs'] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
@@ -80,7 +80,7 @@ class NotificationDestinationArgs:
         """
         (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+        MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         return pulumi.get(self, "type")
 
@@ -128,7 +128,7 @@ class NotificationDestinationArgs:
     @pulumi.getter(name="authCustomHeaders")
     def auth_custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]]:
         """
-        A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         """
         return pulumi.get(self, "auth_custom_headers")
 
@@ -193,7 +193,7 @@ class _NotificationDestinationState:
         :param pulumi.Input[builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[builtins.bool] active: Indicates whether the destination is active.
         :param pulumi.Input['NotificationDestinationAuthBasicArgs'] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[builtins.str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[builtins.str] last_sent: The last time a notification was sent.
@@ -203,7 +203,7 @@ class _NotificationDestinationState:
         :param pulumi.Input[builtins.str] status: The status of the destination.
         :param pulumi.Input[builtins.str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
                PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -270,7 +270,7 @@ class _NotificationDestinationState:
     @pulumi.getter(name="authCustomHeaders")
     def auth_custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]]:
         """
-        A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         """
         return pulumi.get(self, "auth_custom_headers")
 
@@ -368,7 +368,7 @@ class _NotificationDestinationState:
         """
         (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+        MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         return pulumi.get(self, "type")
 
@@ -467,14 +467,14 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[builtins.bool] active: Indicates whether the destination is active.
         :param pulumi.Input[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[builtins.str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
         :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[builtins.str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
                PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         ...
     @overload
@@ -632,7 +632,7 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[builtins.bool] active: Indicates whether the destination is active.
         :param pulumi.Input[Union['NotificationDestinationAuthBasicArgs', 'NotificationDestinationAuthBasicArgsDict']] auth_basic: A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationAuthCustomHeaderArgs', 'NotificationDestinationAuthCustomHeaderArgsDict']]]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[builtins.str] guid: The unique entity identifier of the destination in New Relic.
         :param pulumi.Input[builtins.str] last_sent: The last time a notification was sent.
@@ -642,7 +642,7 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] status: The status of the destination.
         :param pulumi.Input[builtins.str] type: (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
                PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+               MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -690,7 +690,7 @@ class NotificationDestination(pulumi.CustomResource):
     @pulumi.getter(name="authCustomHeaders")
     def auth_custom_headers(self) -> pulumi.Output[Optional[Sequence['outputs.NotificationDestinationAuthCustomHeader']]]:
         """
-        A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         """
         return pulumi.get(self, "auth_custom_headers")
 
@@ -756,7 +756,7 @@ class NotificationDestination(pulumi.CustomResource):
         """
         (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+        MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         return pulumi.get(self, "type")
 

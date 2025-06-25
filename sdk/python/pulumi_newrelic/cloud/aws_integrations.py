@@ -29,6 +29,7 @@ class AwsIntegrationsArgs:
                  auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
                  aws_app_sync: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']] = None,
                  aws_athena: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']] = None,
+                 aws_auto_discovery: Optional[pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs']] = None,
                  aws_cognito: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']] = None,
                  aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
                  aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
@@ -85,6 +86,7 @@ class AwsIntegrationsArgs:
         :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: AutoScaling integration
         :param pulumi.Input['AwsIntegrationsAwsAppSyncArgs'] aws_app_sync: Aws Appsync integration
         :param pulumi.Input['AwsIntegrationsAwsAthenaArgs'] aws_athena: Aws Athena integration
+        :param pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs'] aws_auto_discovery: Aws Auto Discovery Integration
         :param pulumi.Input['AwsIntegrationsAwsCognitoArgs'] aws_cognito: Aws Cognito integration
         :param pulumi.Input['AwsIntegrationsAwsConnectArgs'] aws_connect: Aws Connect integration
         :param pulumi.Input['AwsIntegrationsAwsDirectConnectArgs'] aws_direct_connect: Aws Direct Connect integration
@@ -146,6 +148,8 @@ class AwsIntegrationsArgs:
             pulumi.set(__self__, "aws_app_sync", aws_app_sync)
         if aws_athena is not None:
             pulumi.set(__self__, "aws_athena", aws_athena)
+        if aws_auto_discovery is not None:
+            pulumi.set(__self__, "aws_auto_discovery", aws_auto_discovery)
         if aws_cognito is not None:
             pulumi.set(__self__, "aws_cognito", aws_cognito)
         if aws_connect is not None:
@@ -324,6 +328,18 @@ class AwsIntegrationsArgs:
     @aws_athena.setter
     def aws_athena(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']]):
         pulumi.set(self, "aws_athena", value)
+
+    @property
+    @pulumi.getter(name="awsAutoDiscovery")
+    def aws_auto_discovery(self) -> Optional[pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs']]:
+        """
+        Aws Auto Discovery Integration
+        """
+        return pulumi.get(self, "aws_auto_discovery")
+
+    @aws_auto_discovery.setter
+    def aws_auto_discovery(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs']]):
+        pulumi.set(self, "aws_auto_discovery", value)
 
     @property
     @pulumi.getter(name="awsCognito")
@@ -899,6 +915,7 @@ class _AwsIntegrationsState:
                  auto_scaling: Optional[pulumi.Input['AwsIntegrationsAutoScalingArgs']] = None,
                  aws_app_sync: Optional[pulumi.Input['AwsIntegrationsAwsAppSyncArgs']] = None,
                  aws_athena: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']] = None,
+                 aws_auto_discovery: Optional[pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs']] = None,
                  aws_cognito: Optional[pulumi.Input['AwsIntegrationsAwsCognitoArgs']] = None,
                  aws_connect: Optional[pulumi.Input['AwsIntegrationsAwsConnectArgs']] = None,
                  aws_direct_connect: Optional[pulumi.Input['AwsIntegrationsAwsDirectConnectArgs']] = None,
@@ -955,6 +972,7 @@ class _AwsIntegrationsState:
         :param pulumi.Input['AwsIntegrationsAutoScalingArgs'] auto_scaling: AutoScaling integration
         :param pulumi.Input['AwsIntegrationsAwsAppSyncArgs'] aws_app_sync: Aws Appsync integration
         :param pulumi.Input['AwsIntegrationsAwsAthenaArgs'] aws_athena: Aws Athena integration
+        :param pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs'] aws_auto_discovery: Aws Auto Discovery Integration
         :param pulumi.Input['AwsIntegrationsAwsCognitoArgs'] aws_cognito: Aws Cognito integration
         :param pulumi.Input['AwsIntegrationsAwsConnectArgs'] aws_connect: Aws Connect integration
         :param pulumi.Input['AwsIntegrationsAwsDirectConnectArgs'] aws_direct_connect: Aws Direct Connect integration
@@ -1016,6 +1034,8 @@ class _AwsIntegrationsState:
             pulumi.set(__self__, "aws_app_sync", aws_app_sync)
         if aws_athena is not None:
             pulumi.set(__self__, "aws_athena", aws_athena)
+        if aws_auto_discovery is not None:
+            pulumi.set(__self__, "aws_auto_discovery", aws_auto_discovery)
         if aws_cognito is not None:
             pulumi.set(__self__, "aws_cognito", aws_cognito)
         if aws_connect is not None:
@@ -1184,6 +1204,18 @@ class _AwsIntegrationsState:
     @aws_athena.setter
     def aws_athena(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAthenaArgs']]):
         pulumi.set(self, "aws_athena", value)
+
+    @property
+    @pulumi.getter(name="awsAutoDiscovery")
+    def aws_auto_discovery(self) -> Optional[pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs']]:
+        """
+        Aws Auto Discovery Integration
+        """
+        return pulumi.get(self, "aws_auto_discovery")
+
+    @aws_auto_discovery.setter
+    def aws_auto_discovery(self, value: Optional[pulumi.Input['AwsIntegrationsAwsAutoDiscoveryArgs']]):
+        pulumi.set(self, "aws_auto_discovery", value)
 
     @property
     @pulumi.getter(name="awsCognito")
@@ -1774,6 +1806,7 @@ class AwsIntegrations(pulumi.CustomResource):
                  auto_scaling: Optional[pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
                  aws_app_sync: Optional[pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
                  aws_athena: Optional[pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
+                 aws_auto_discovery: Optional[pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']]] = None,
                  aws_cognito: Optional[pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
                  aws_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
                  aws_direct_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
@@ -1842,6 +1875,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']] auto_scaling: AutoScaling integration
         :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']] aws_app_sync: Aws Appsync integration
         :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']] aws_athena: Aws Athena integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']] aws_auto_discovery: Aws Auto Discovery Integration
         :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']] aws_cognito: Aws Cognito integration
         :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']] aws_connect: Aws Connect integration
         :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: Aws Direct Connect integration
@@ -1929,6 +1963,7 @@ class AwsIntegrations(pulumi.CustomResource):
                  auto_scaling: Optional[pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
                  aws_app_sync: Optional[pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
                  aws_athena: Optional[pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
+                 aws_auto_discovery: Optional[pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']]] = None,
                  aws_cognito: Optional[pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
                  aws_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
                  aws_direct_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
@@ -1992,6 +2027,7 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__.__dict__["auto_scaling"] = auto_scaling
             __props__.__dict__["aws_app_sync"] = aws_app_sync
             __props__.__dict__["aws_athena"] = aws_athena
+            __props__.__dict__["aws_auto_discovery"] = aws_auto_discovery
             __props__.__dict__["aws_cognito"] = aws_cognito
             __props__.__dict__["aws_connect"] = aws_connect
             __props__.__dict__["aws_direct_connect"] = aws_direct_connect
@@ -2058,6 +2094,7 @@ class AwsIntegrations(pulumi.CustomResource):
             auto_scaling: Optional[pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']]] = None,
             aws_app_sync: Optional[pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']]] = None,
             aws_athena: Optional[pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']]] = None,
+            aws_auto_discovery: Optional[pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']]] = None,
             aws_cognito: Optional[pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']]] = None,
             aws_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']]] = None,
             aws_direct_connect: Optional[pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']]] = None,
@@ -2119,6 +2156,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AwsIntegrationsAutoScalingArgs', 'AwsIntegrationsAutoScalingArgsDict']] auto_scaling: AutoScaling integration
         :param pulumi.Input[Union['AwsIntegrationsAwsAppSyncArgs', 'AwsIntegrationsAwsAppSyncArgsDict']] aws_app_sync: Aws Appsync integration
         :param pulumi.Input[Union['AwsIntegrationsAwsAthenaArgs', 'AwsIntegrationsAwsAthenaArgsDict']] aws_athena: Aws Athena integration
+        :param pulumi.Input[Union['AwsIntegrationsAwsAutoDiscoveryArgs', 'AwsIntegrationsAwsAutoDiscoveryArgsDict']] aws_auto_discovery: Aws Auto Discovery Integration
         :param pulumi.Input[Union['AwsIntegrationsAwsCognitoArgs', 'AwsIntegrationsAwsCognitoArgsDict']] aws_cognito: Aws Cognito integration
         :param pulumi.Input[Union['AwsIntegrationsAwsConnectArgs', 'AwsIntegrationsAwsConnectArgsDict']] aws_connect: Aws Connect integration
         :param pulumi.Input[Union['AwsIntegrationsAwsDirectConnectArgs', 'AwsIntegrationsAwsDirectConnectArgsDict']] aws_direct_connect: Aws Direct Connect integration
@@ -2178,6 +2216,7 @@ class AwsIntegrations(pulumi.CustomResource):
         __props__.__dict__["auto_scaling"] = auto_scaling
         __props__.__dict__["aws_app_sync"] = aws_app_sync
         __props__.__dict__["aws_athena"] = aws_athena
+        __props__.__dict__["aws_auto_discovery"] = aws_auto_discovery
         __props__.__dict__["aws_cognito"] = aws_cognito
         __props__.__dict__["aws_connect"] = aws_connect
         __props__.__dict__["aws_direct_connect"] = aws_direct_connect
@@ -2275,6 +2314,14 @@ class AwsIntegrations(pulumi.CustomResource):
         Aws Athena integration
         """
         return pulumi.get(self, "aws_athena")
+
+    @property
+    @pulumi.getter(name="awsAutoDiscovery")
+    def aws_auto_discovery(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsAwsAutoDiscovery']]:
+        """
+        Aws Auto Discovery Integration
+        """
+        return pulumi.get(self, "aws_auto_discovery")
 
     @property
     @pulumi.getter(name="awsCognito")

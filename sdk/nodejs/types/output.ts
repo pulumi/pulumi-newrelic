@@ -3565,7 +3565,7 @@ export interface WorkflowDestination {
      */
     notificationTriggers: string[];
     /**
-     * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS).
+     * (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      */
     type: string;
     /**
@@ -4119,6 +4119,17 @@ export namespace cloud {
     }
 
     export interface AwsIntegrationsAwsAthena {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsIntegrationsAwsAutoDiscovery {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
          */

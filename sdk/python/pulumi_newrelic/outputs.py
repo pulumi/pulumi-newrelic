@@ -13012,7 +13012,7 @@ class WorkflowDestination(dict):
         :param builtins.str channel_id: (Required) Destination's channel id.
         :param builtins.str name: The name of the workflow.
         :param Sequence[builtins.str] notification_triggers: List of triggers to notify about in this destination configuration.
-        :param builtins.str type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS).
+        :param builtins.str type: (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         :param builtins.bool update_original_message: Update original notification message (Slack channels only)
         """
         pulumi.set(__self__, "channel_id", channel_id)
@@ -13053,7 +13053,7 @@ class WorkflowDestination(dict):
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
         """
-        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS).
+        (Required) The type of the destination. One of: (EMAIL, EVENT_BRIDGE, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, SERVICE_NOW, SERVICE_NOW_APP, WEBHOOK, MOBILE_PUSH, SLACK, JIRA, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         """
         return pulumi.get(self, "type")
 

@@ -60,6 +60,12 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsAwsAthena?> AwsAthena { get; private set; } = null!;
 
         /// <summary>
+        /// Aws Auto Discovery Integration
+        /// </summary>
+        [Output("awsAutoDiscovery")]
+        public Output<Outputs.AwsIntegrationsAwsAutoDiscovery?> AwsAutoDiscovery { get; private set; } = null!;
+
+        /// <summary>
         /// Aws Cognito integration
         /// </summary>
         [Output("awsCognito")]
@@ -430,6 +436,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsAwsAthenaArgs>? AwsAthena { get; set; }
 
         /// <summary>
+        /// Aws Auto Discovery Integration
+        /// </summary>
+        [Input("awsAutoDiscovery")]
+        public Input<Inputs.AwsIntegrationsAwsAutoDiscoveryArgs>? AwsAutoDiscovery { get; set; }
+
+        /// <summary>
         /// Aws Cognito integration
         /// </summary>
         [Input("awsCognito")]
@@ -760,6 +772,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("awsAthena")]
         public Input<Inputs.AwsIntegrationsAwsAthenaGetArgs>? AwsAthena { get; set; }
+
+        /// <summary>
+        /// Aws Auto Discovery Integration
+        /// </summary>
+        [Input("awsAutoDiscovery")]
+        public Input<Inputs.AwsIntegrationsAwsAutoDiscoveryGetArgs>? AwsAutoDiscovery { get; set; }
 
         /// <summary>
         /// Aws Cognito integration

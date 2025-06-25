@@ -100,7 +100,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NotificationDestinationAuthBasic?> AuthBasic { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         /// </summary>
         [Output("authCustomHeaders")]
         public Output<ImmutableArray<Outputs.NotificationDestinationAuthCustomHeader>> AuthCustomHeaders { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs>? _authCustomHeaders;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs> AuthCustomHeaders
         {
@@ -264,7 +264,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs>? _authCustomHeaders;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs> AuthCustomHeaders
         {
@@ -358,7 +358,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
         /// PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS).
+        /// MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

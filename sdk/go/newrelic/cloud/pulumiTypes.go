@@ -4901,6 +4901,162 @@ func (o AwsIntegrationsAwsAthenaPtrOutput) MetricsPollingInterval() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+type AwsIntegrationsAwsAutoDiscovery struct {
+	// Specify each AWS region that includes the resources that you want to monitor.
+	AwsRegions []string `pulumi:"awsRegions"`
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsIntegrationsAwsAutoDiscoveryInput is an input type that accepts AwsIntegrationsAwsAutoDiscoveryArgs and AwsIntegrationsAwsAutoDiscoveryOutput values.
+// You can construct a concrete instance of `AwsIntegrationsAwsAutoDiscoveryInput` via:
+//
+//	AwsIntegrationsAwsAutoDiscoveryArgs{...}
+type AwsIntegrationsAwsAutoDiscoveryInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsAwsAutoDiscoveryOutput() AwsIntegrationsAwsAutoDiscoveryOutput
+	ToAwsIntegrationsAwsAutoDiscoveryOutputWithContext(context.Context) AwsIntegrationsAwsAutoDiscoveryOutput
+}
+
+type AwsIntegrationsAwsAutoDiscoveryArgs struct {
+	// Specify each AWS region that includes the resources that you want to monitor.
+	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsIntegrationsAwsAutoDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsAwsAutoDiscovery)(nil)).Elem()
+}
+
+func (i AwsIntegrationsAwsAutoDiscoveryArgs) ToAwsIntegrationsAwsAutoDiscoveryOutput() AwsIntegrationsAwsAutoDiscoveryOutput {
+	return i.ToAwsIntegrationsAwsAutoDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsAwsAutoDiscoveryArgs) ToAwsIntegrationsAwsAutoDiscoveryOutputWithContext(ctx context.Context) AwsIntegrationsAwsAutoDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAutoDiscoveryOutput)
+}
+
+func (i AwsIntegrationsAwsAutoDiscoveryArgs) ToAwsIntegrationsAwsAutoDiscoveryPtrOutput() AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return i.ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsAwsAutoDiscoveryArgs) ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAutoDiscoveryOutput).ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(ctx)
+}
+
+// AwsIntegrationsAwsAutoDiscoveryPtrInput is an input type that accepts AwsIntegrationsAwsAutoDiscoveryArgs, AwsIntegrationsAwsAutoDiscoveryPtr and AwsIntegrationsAwsAutoDiscoveryPtrOutput values.
+// You can construct a concrete instance of `AwsIntegrationsAwsAutoDiscoveryPtrInput` via:
+//
+//	        AwsIntegrationsAwsAutoDiscoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsIntegrationsAwsAutoDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsAwsAutoDiscoveryPtrOutput() AwsIntegrationsAwsAutoDiscoveryPtrOutput
+	ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(context.Context) AwsIntegrationsAwsAutoDiscoveryPtrOutput
+}
+
+type awsIntegrationsAwsAutoDiscoveryPtrType AwsIntegrationsAwsAutoDiscoveryArgs
+
+func AwsIntegrationsAwsAutoDiscoveryPtr(v *AwsIntegrationsAwsAutoDiscoveryArgs) AwsIntegrationsAwsAutoDiscoveryPtrInput {
+	return (*awsIntegrationsAwsAutoDiscoveryPtrType)(v)
+}
+
+func (*awsIntegrationsAwsAutoDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsAwsAutoDiscovery)(nil)).Elem()
+}
+
+func (i *awsIntegrationsAwsAutoDiscoveryPtrType) ToAwsIntegrationsAwsAutoDiscoveryPtrOutput() AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return i.ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *awsIntegrationsAwsAutoDiscoveryPtrType) ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsAwsAutoDiscoveryPtrOutput)
+}
+
+type AwsIntegrationsAwsAutoDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsAwsAutoDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsAwsAutoDiscovery)(nil)).Elem()
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryOutput) ToAwsIntegrationsAwsAutoDiscoveryOutput() AwsIntegrationsAwsAutoDiscoveryOutput {
+	return o
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryOutput) ToAwsIntegrationsAwsAutoDiscoveryOutputWithContext(ctx context.Context) AwsIntegrationsAwsAutoDiscoveryOutput {
+	return o
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryOutput) ToAwsIntegrationsAwsAutoDiscoveryPtrOutput() AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return o.ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryOutput) ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsAwsAutoDiscovery) *AwsIntegrationsAwsAutoDiscovery {
+		return &v
+	}).(AwsIntegrationsAwsAutoDiscoveryPtrOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor.
+func (o AwsIntegrationsAwsAutoDiscoveryOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsIntegrationsAwsAutoDiscovery) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsAwsAutoDiscoveryOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsIntegrationsAwsAutoDiscovery) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsIntegrationsAwsAutoDiscoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsAwsAutoDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsAwsAutoDiscovery)(nil)).Elem()
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryPtrOutput) ToAwsIntegrationsAwsAutoDiscoveryPtrOutput() AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryPtrOutput) ToAwsIntegrationsAwsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AwsIntegrationsAwsAutoDiscoveryPtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsAwsAutoDiscoveryPtrOutput) Elem() AwsIntegrationsAwsAutoDiscoveryOutput {
+	return o.ApplyT(func(v *AwsIntegrationsAwsAutoDiscovery) AwsIntegrationsAwsAutoDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret AwsIntegrationsAwsAutoDiscovery
+		return ret
+	}).(AwsIntegrationsAwsAutoDiscoveryOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor.
+func (o AwsIntegrationsAwsAutoDiscoveryPtrOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsIntegrationsAwsAutoDiscovery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsAwsAutoDiscoveryPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrationsAwsAutoDiscovery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type AwsIntegrationsAwsCognito struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
 	AwsRegions []string `pulumi:"awsRegions"`
@@ -22092,6 +22248,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsAppSyncPtrInput)(nil)).Elem(), AwsIntegrationsAwsAppSyncArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsAthenaInput)(nil)).Elem(), AwsIntegrationsAwsAthenaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsAthenaPtrInput)(nil)).Elem(), AwsIntegrationsAwsAthenaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsAutoDiscoveryInput)(nil)).Elem(), AwsIntegrationsAwsAutoDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsAutoDiscoveryPtrInput)(nil)).Elem(), AwsIntegrationsAwsAutoDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsCognitoInput)(nil)).Elem(), AwsIntegrationsAwsCognitoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsCognitoPtrInput)(nil)).Elem(), AwsIntegrationsAwsCognitoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsAwsConnectInput)(nil)).Elem(), AwsIntegrationsAwsConnectArgs{})
@@ -22352,6 +22510,8 @@ func init() {
 	pulumi.RegisterOutputType(AwsIntegrationsAwsAppSyncPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsAwsAthenaOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsAwsAthenaPtrOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsAwsAutoDiscoveryOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsAwsAutoDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsAwsCognitoOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsAwsCognitoPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsAwsConnectOutput{})

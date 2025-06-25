@@ -70,6 +70,10 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly awsAthena!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAthena | undefined>;
     /**
+     * Aws Auto Discovery Integration
+     */
+    public readonly awsAutoDiscovery!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAutoDiscovery | undefined>;
+    /**
      * Aws Cognito integration
      */
     public readonly awsCognito!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsCognito | undefined>;
@@ -281,6 +285,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["autoScaling"] = state ? state.autoScaling : undefined;
             resourceInputs["awsAppSync"] = state ? state.awsAppSync : undefined;
             resourceInputs["awsAthena"] = state ? state.awsAthena : undefined;
+            resourceInputs["awsAutoDiscovery"] = state ? state.awsAutoDiscovery : undefined;
             resourceInputs["awsCognito"] = state ? state.awsCognito : undefined;
             resourceInputs["awsConnect"] = state ? state.awsConnect : undefined;
             resourceInputs["awsDirectConnect"] = state ? state.awsDirectConnect : undefined;
@@ -340,6 +345,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["autoScaling"] = args ? args.autoScaling : undefined;
             resourceInputs["awsAppSync"] = args ? args.awsAppSync : undefined;
             resourceInputs["awsAthena"] = args ? args.awsAthena : undefined;
+            resourceInputs["awsAutoDiscovery"] = args ? args.awsAutoDiscovery : undefined;
             resourceInputs["awsCognito"] = args ? args.awsCognito : undefined;
             resourceInputs["awsConnect"] = args ? args.awsConnect : undefined;
             resourceInputs["awsDirectConnect"] = args ? args.awsDirectConnect : undefined;
@@ -422,6 +428,10 @@ export interface AwsIntegrationsState {
      * Aws Athena integration
      */
     awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena>;
+    /**
+     * Aws Auto Discovery Integration
+     */
+    awsAutoDiscovery?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAutoDiscovery>;
     /**
      * Aws Cognito integration
      */
@@ -644,6 +654,10 @@ export interface AwsIntegrationsArgs {
      * Aws Athena integration
      */
     awsAthena?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAthena>;
+    /**
+     * Aws Auto Discovery Integration
+     */
+    awsAutoDiscovery?: pulumi.Input<inputs.cloud.AwsIntegrationsAwsAutoDiscovery>;
     /**
      * Aws Cognito integration
      */

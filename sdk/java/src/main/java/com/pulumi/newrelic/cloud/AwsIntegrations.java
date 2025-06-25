@@ -15,6 +15,7 @@ import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsApiGateway;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAutoScaling;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsAppSync;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsAthena;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsAutoDiscovery;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsCognito;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsConnect;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsAwsDirectConnect;
@@ -163,6 +164,20 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AwsIntegrationsAwsAthena>> awsAthena() {
         return Codegen.optional(this.awsAthena);
+    }
+    /**
+     * Aws Auto Discovery Integration
+     * 
+     */
+    @Export(name="awsAutoDiscovery", refs={AwsIntegrationsAwsAutoDiscovery.class}, tree="[0]")
+    private Output</* @Nullable */ AwsIntegrationsAwsAutoDiscovery> awsAutoDiscovery;
+
+    /**
+     * @return Aws Auto Discovery Integration
+     * 
+     */
+    public Output<Optional<AwsIntegrationsAwsAutoDiscovery>> awsAutoDiscovery() {
+        return Codegen.optional(this.awsAutoDiscovery);
     }
     /**
      * Aws Cognito integration
