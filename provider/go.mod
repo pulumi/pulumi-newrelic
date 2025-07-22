@@ -132,7 +132,7 @@ require (
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-agent/v3 v3.30.0 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go/v2 v2.63.0 // indirect
+	github.com/newrelic/newrelic-client-go/v2 v2.66.0 // indirect
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
@@ -154,6 +154,7 @@ require (
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
+	github.com/robertkrimen/otto v0.5.1 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -207,6 +208,7 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250218202821-56aae31c358a // indirect
 	google.golang.org/grpc v1.72.1 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
+	gopkg.in/sourcemap.v1 v1.0.5 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
