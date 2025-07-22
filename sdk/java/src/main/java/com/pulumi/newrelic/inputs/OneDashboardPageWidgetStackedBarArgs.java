@@ -11,6 +11,7 @@ import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarDataFormatArgs
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarInitialSortingArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarNrqlQueryArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarNullValueArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarTooltipArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarUnitArgs;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -237,6 +238,21 @@ public final class OneDashboardPageWidgetStackedBarArgs extends com.pulumi.resou
     }
 
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    @Import(name="tooltip")
+    private @Nullable Output<OneDashboardPageWidgetStackedBarTooltipArgs> tooltip;
+
+    /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetStackedBarTooltipArgs>> tooltip() {
+        return Optional.ofNullable(this.tooltip);
+    }
+
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
      */
@@ -305,6 +321,7 @@ public final class OneDashboardPageWidgetStackedBarArgs extends com.pulumi.resou
         this.refreshRate = $.refreshRate;
         this.row = $.row;
         this.title = $.title;
+        this.tooltip = $.tooltip;
         this.units = $.units;
         this.width = $.width;
         this.yAxisLeftMax = $.yAxisLeftMax;
@@ -661,6 +678,27 @@ public final class OneDashboardPageWidgetStackedBarArgs extends com.pulumi.resou
          */
         public Builder title(String title) {
             return title(Output.of(title));
+        }
+
+        /**
+         * @param tooltip (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tooltip(@Nullable Output<OneDashboardPageWidgetStackedBarTooltipArgs> tooltip) {
+            $.tooltip = tooltip;
+            return this;
+        }
+
+        /**
+         * @param tooltip (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tooltip(OneDashboardPageWidgetStackedBarTooltipArgs tooltip) {
+            return tooltip(Output.of(tooltip));
         }
 
         /**

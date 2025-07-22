@@ -4729,6 +4729,8 @@ type OneDashboardPageWidgetArea struct {
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+	Tooltip *OneDashboardPageWidgetAreaTooltip `pulumi:"tooltip"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
 	Units []OneDashboardPageWidgetAreaUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -4778,6 +4780,8 @@ type OneDashboardPageWidgetAreaArgs struct {
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+	Tooltip OneDashboardPageWidgetAreaTooltipPtrInput `pulumi:"tooltip"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
 	Units OneDashboardPageWidgetAreaUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -4906,6 +4910,11 @@ func (o OneDashboardPageWidgetAreaOutput) Row() pulumi.IntOutput {
 // (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetAreaOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) Tooltip() OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *OneDashboardPageWidgetAreaTooltip { return v.Tooltip }).(OneDashboardPageWidgetAreaTooltipPtrOutput)
 }
 
 // (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -5759,6 +5768,143 @@ func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaNullValueSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetAreaNullValueSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetAreaTooltip struct {
+	// (Required) The tooltip display mode. Valid values are:
+	Mode string `pulumi:"mode"`
+}
+
+// OneDashboardPageWidgetAreaTooltipInput is an input type that accepts OneDashboardPageWidgetAreaTooltipArgs and OneDashboardPageWidgetAreaTooltipOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaTooltipInput` via:
+//
+//	OneDashboardPageWidgetAreaTooltipArgs{...}
+type OneDashboardPageWidgetAreaTooltipInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaTooltipOutput() OneDashboardPageWidgetAreaTooltipOutput
+	ToOneDashboardPageWidgetAreaTooltipOutputWithContext(context.Context) OneDashboardPageWidgetAreaTooltipOutput
+}
+
+type OneDashboardPageWidgetAreaTooltipArgs struct {
+	// (Required) The tooltip display mode. Valid values are:
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (OneDashboardPageWidgetAreaTooltipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaTooltip)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaTooltipArgs) ToOneDashboardPageWidgetAreaTooltipOutput() OneDashboardPageWidgetAreaTooltipOutput {
+	return i.ToOneDashboardPageWidgetAreaTooltipOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaTooltipArgs) ToOneDashboardPageWidgetAreaTooltipOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaTooltipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaTooltipOutput)
+}
+
+func (i OneDashboardPageWidgetAreaTooltipArgs) ToOneDashboardPageWidgetAreaTooltipPtrOutput() OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaTooltipArgs) ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaTooltipOutput).ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetAreaTooltipPtrInput is an input type that accepts OneDashboardPageWidgetAreaTooltipArgs, OneDashboardPageWidgetAreaTooltipPtr and OneDashboardPageWidgetAreaTooltipPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaTooltipPtrInput` via:
+//
+//	        OneDashboardPageWidgetAreaTooltipArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetAreaTooltipPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaTooltipPtrOutput() OneDashboardPageWidgetAreaTooltipPtrOutput
+	ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(context.Context) OneDashboardPageWidgetAreaTooltipPtrOutput
+}
+
+type oneDashboardPageWidgetAreaTooltipPtrType OneDashboardPageWidgetAreaTooltipArgs
+
+func OneDashboardPageWidgetAreaTooltipPtr(v *OneDashboardPageWidgetAreaTooltipArgs) OneDashboardPageWidgetAreaTooltipPtrInput {
+	return (*oneDashboardPageWidgetAreaTooltipPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetAreaTooltipPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaTooltip)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetAreaTooltipPtrType) ToOneDashboardPageWidgetAreaTooltipPtrOutput() OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetAreaTooltipPtrType) ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaTooltipPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaTooltipOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaTooltipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaTooltip)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaTooltipOutput) ToOneDashboardPageWidgetAreaTooltipOutput() OneDashboardPageWidgetAreaTooltipOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaTooltipOutput) ToOneDashboardPageWidgetAreaTooltipOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaTooltipOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaTooltipOutput) ToOneDashboardPageWidgetAreaTooltipPtrOutput() OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return o.ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetAreaTooltipOutput) ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetAreaTooltip) *OneDashboardPageWidgetAreaTooltip {
+		return &v
+	}).(OneDashboardPageWidgetAreaTooltipPtrOutput)
+}
+
+// (Required) The tooltip display mode. Valid values are:
+func (o OneDashboardPageWidgetAreaTooltipOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaTooltip) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetAreaTooltipPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaTooltipPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaTooltip)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaTooltipPtrOutput) ToOneDashboardPageWidgetAreaTooltipPtrOutput() OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaTooltipPtrOutput) ToOneDashboardPageWidgetAreaTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaTooltipPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaTooltipPtrOutput) Elem() OneDashboardPageWidgetAreaTooltipOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaTooltip) OneDashboardPageWidgetAreaTooltip {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetAreaTooltip
+		return ret
+	}).(OneDashboardPageWidgetAreaTooltipOutput)
+}
+
+// (Required) The tooltip display mode. Valid values are:
+func (o OneDashboardPageWidgetAreaTooltipPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaTooltip) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetAreaUnit struct {
@@ -15018,6 +15164,8 @@ type OneDashboardPageWidgetLine struct {
 	Thresholds []OneDashboardPageWidgetLineThreshold `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+	Tooltip *OneDashboardPageWidgetLineTooltip `pulumi:"tooltip"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
 	Units []OneDashboardPageWidgetLineUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -15075,6 +15223,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	Thresholds OneDashboardPageWidgetLineThresholdArrayInput `pulumi:"thresholds"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+	Tooltip OneDashboardPageWidgetLineTooltipPtrInput `pulumi:"tooltip"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
 	Units OneDashboardPageWidgetLineUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -15217,6 +15367,11 @@ func (o OneDashboardPageWidgetLineOutput) Thresholds() OneDashboardPageWidgetLin
 // (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetLineOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) Tooltip() OneDashboardPageWidgetLineTooltipPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *OneDashboardPageWidgetLineTooltip { return v.Tooltip }).(OneDashboardPageWidgetLineTooltipPtrOutput)
 }
 
 // (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -16204,6 +16359,143 @@ func (o OneDashboardPageWidgetLineThresholdArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineThreshold {
 		return vs[0].([]OneDashboardPageWidgetLineThreshold)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineThresholdOutput)
+}
+
+type OneDashboardPageWidgetLineTooltip struct {
+	// (Required) The tooltip display mode. Valid values are:
+	Mode string `pulumi:"mode"`
+}
+
+// OneDashboardPageWidgetLineTooltipInput is an input type that accepts OneDashboardPageWidgetLineTooltipArgs and OneDashboardPageWidgetLineTooltipOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineTooltipInput` via:
+//
+//	OneDashboardPageWidgetLineTooltipArgs{...}
+type OneDashboardPageWidgetLineTooltipInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineTooltipOutput() OneDashboardPageWidgetLineTooltipOutput
+	ToOneDashboardPageWidgetLineTooltipOutputWithContext(context.Context) OneDashboardPageWidgetLineTooltipOutput
+}
+
+type OneDashboardPageWidgetLineTooltipArgs struct {
+	// (Required) The tooltip display mode. Valid values are:
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (OneDashboardPageWidgetLineTooltipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineTooltip)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineTooltipArgs) ToOneDashboardPageWidgetLineTooltipOutput() OneDashboardPageWidgetLineTooltipOutput {
+	return i.ToOneDashboardPageWidgetLineTooltipOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineTooltipArgs) ToOneDashboardPageWidgetLineTooltipOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineTooltipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineTooltipOutput)
+}
+
+func (i OneDashboardPageWidgetLineTooltipArgs) ToOneDashboardPageWidgetLineTooltipPtrOutput() OneDashboardPageWidgetLineTooltipPtrOutput {
+	return i.ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineTooltipArgs) ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineTooltipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineTooltipOutput).ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLineTooltipPtrInput is an input type that accepts OneDashboardPageWidgetLineTooltipArgs, OneDashboardPageWidgetLineTooltipPtr and OneDashboardPageWidgetLineTooltipPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineTooltipPtrInput` via:
+//
+//	        OneDashboardPageWidgetLineTooltipArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLineTooltipPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineTooltipPtrOutput() OneDashboardPageWidgetLineTooltipPtrOutput
+	ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(context.Context) OneDashboardPageWidgetLineTooltipPtrOutput
+}
+
+type oneDashboardPageWidgetLineTooltipPtrType OneDashboardPageWidgetLineTooltipArgs
+
+func OneDashboardPageWidgetLineTooltipPtr(v *OneDashboardPageWidgetLineTooltipArgs) OneDashboardPageWidgetLineTooltipPtrInput {
+	return (*oneDashboardPageWidgetLineTooltipPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLineTooltipPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineTooltip)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLineTooltipPtrType) ToOneDashboardPageWidgetLineTooltipPtrOutput() OneDashboardPageWidgetLineTooltipPtrOutput {
+	return i.ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLineTooltipPtrType) ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineTooltipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineTooltipPtrOutput)
+}
+
+type OneDashboardPageWidgetLineTooltipOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineTooltipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineTooltip)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineTooltipOutput) ToOneDashboardPageWidgetLineTooltipOutput() OneDashboardPageWidgetLineTooltipOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineTooltipOutput) ToOneDashboardPageWidgetLineTooltipOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineTooltipOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineTooltipOutput) ToOneDashboardPageWidgetLineTooltipPtrOutput() OneDashboardPageWidgetLineTooltipPtrOutput {
+	return o.ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLineTooltipOutput) ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineTooltipPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLineTooltip) *OneDashboardPageWidgetLineTooltip {
+		return &v
+	}).(OneDashboardPageWidgetLineTooltipPtrOutput)
+}
+
+// (Required) The tooltip display mode. Valid values are:
+func (o OneDashboardPageWidgetLineTooltipOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineTooltip) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLineTooltipPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineTooltipPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineTooltip)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineTooltipPtrOutput) ToOneDashboardPageWidgetLineTooltipPtrOutput() OneDashboardPageWidgetLineTooltipPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineTooltipPtrOutput) ToOneDashboardPageWidgetLineTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineTooltipPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineTooltipPtrOutput) Elem() OneDashboardPageWidgetLineTooltipOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineTooltip) OneDashboardPageWidgetLineTooltip {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLineTooltip
+		return ret
+	}).(OneDashboardPageWidgetLineTooltipOutput)
+}
+
+// (Required) The tooltip display mode. Valid values are:
+func (o OneDashboardPageWidgetLineTooltipPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineTooltip) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetLineUnit struct {
@@ -20388,6 +20680,8 @@ type OneDashboardPageWidgetStackedBar struct {
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+	Tooltip *OneDashboardPageWidgetStackedBarTooltip `pulumi:"tooltip"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
 	Units []OneDashboardPageWidgetStackedBarUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -20437,6 +20731,8 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+	Tooltip OneDashboardPageWidgetStackedBarTooltipPtrInput `pulumi:"tooltip"`
 	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
 	Units OneDashboardPageWidgetStackedBarUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -20573,6 +20869,11 @@ func (o OneDashboardPageWidgetStackedBarOutput) Row() pulumi.IntOutput {
 // (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetStackedBarOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+func (o OneDashboardPageWidgetStackedBarOutput) Tooltip() OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *OneDashboardPageWidgetStackedBarTooltip { return v.Tooltip }).(OneDashboardPageWidgetStackedBarTooltipPtrOutput)
 }
 
 // (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -21426,6 +21727,143 @@ func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) Inde
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
 		return vs[0].([]OneDashboardPageWidgetStackedBarNullValueSeriesOverride)[vs[1].(int)]
 	}).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetStackedBarTooltip struct {
+	// (Required) The tooltip display mode. Valid values are:
+	Mode string `pulumi:"mode"`
+}
+
+// OneDashboardPageWidgetStackedBarTooltipInput is an input type that accepts OneDashboardPageWidgetStackedBarTooltipArgs and OneDashboardPageWidgetStackedBarTooltipOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarTooltipInput` via:
+//
+//	OneDashboardPageWidgetStackedBarTooltipArgs{...}
+type OneDashboardPageWidgetStackedBarTooltipInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarTooltipOutput() OneDashboardPageWidgetStackedBarTooltipOutput
+	ToOneDashboardPageWidgetStackedBarTooltipOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarTooltipOutput
+}
+
+type OneDashboardPageWidgetStackedBarTooltipArgs struct {
+	// (Required) The tooltip display mode. Valid values are:
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (OneDashboardPageWidgetStackedBarTooltipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarTooltip)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarTooltipArgs) ToOneDashboardPageWidgetStackedBarTooltipOutput() OneDashboardPageWidgetStackedBarTooltipOutput {
+	return i.ToOneDashboardPageWidgetStackedBarTooltipOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarTooltipArgs) ToOneDashboardPageWidgetStackedBarTooltipOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarTooltipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarTooltipOutput)
+}
+
+func (i OneDashboardPageWidgetStackedBarTooltipArgs) ToOneDashboardPageWidgetStackedBarTooltipPtrOutput() OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarTooltipArgs) ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarTooltipOutput).ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetStackedBarTooltipPtrInput is an input type that accepts OneDashboardPageWidgetStackedBarTooltipArgs, OneDashboardPageWidgetStackedBarTooltipPtr and OneDashboardPageWidgetStackedBarTooltipPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarTooltipPtrInput` via:
+//
+//	        OneDashboardPageWidgetStackedBarTooltipArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetStackedBarTooltipPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarTooltipPtrOutput() OneDashboardPageWidgetStackedBarTooltipPtrOutput
+	ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarTooltipPtrOutput
+}
+
+type oneDashboardPageWidgetStackedBarTooltipPtrType OneDashboardPageWidgetStackedBarTooltipArgs
+
+func OneDashboardPageWidgetStackedBarTooltipPtr(v *OneDashboardPageWidgetStackedBarTooltipArgs) OneDashboardPageWidgetStackedBarTooltipPtrInput {
+	return (*oneDashboardPageWidgetStackedBarTooltipPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetStackedBarTooltipPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarTooltip)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetStackedBarTooltipPtrType) ToOneDashboardPageWidgetStackedBarTooltipPtrOutput() OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetStackedBarTooltipPtrType) ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarTooltipPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarTooltipOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarTooltipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarTooltip)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipOutput) ToOneDashboardPageWidgetStackedBarTooltipOutput() OneDashboardPageWidgetStackedBarTooltipOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipOutput) ToOneDashboardPageWidgetStackedBarTooltipOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarTooltipOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipOutput) ToOneDashboardPageWidgetStackedBarTooltipPtrOutput() OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return o.ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipOutput) ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetStackedBarTooltip) *OneDashboardPageWidgetStackedBarTooltip {
+		return &v
+	}).(OneDashboardPageWidgetStackedBarTooltipPtrOutput)
+}
+
+// (Required) The tooltip display mode. Valid values are:
+func (o OneDashboardPageWidgetStackedBarTooltipOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarTooltip) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetStackedBarTooltipPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarTooltipPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarTooltip)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipPtrOutput) ToOneDashboardPageWidgetStackedBarTooltipPtrOutput() OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipPtrOutput) ToOneDashboardPageWidgetStackedBarTooltipPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarTooltipPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarTooltipPtrOutput) Elem() OneDashboardPageWidgetStackedBarTooltipOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarTooltip) OneDashboardPageWidgetStackedBarTooltip {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetStackedBarTooltip
+		return ret
+	}).(OneDashboardPageWidgetStackedBarTooltipOutput)
+}
+
+// (Required) The tooltip display mode. Valid values are:
+func (o OneDashboardPageWidgetStackedBarTooltipPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarTooltip) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetStackedBarUnit struct {
@@ -27229,6 +27667,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaTooltipInput)(nil)).Elem(), OneDashboardPageWidgetAreaTooltipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaTooltipPtrInput)(nil)).Elem(), OneDashboardPageWidgetAreaTooltipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitSeriesOverrideArgs{})
@@ -27391,6 +27831,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineThresholdInput)(nil)).Elem(), OneDashboardPageWidgetLineThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineThresholdArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineThresholdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineTooltipInput)(nil)).Elem(), OneDashboardPageWidgetLineTooltipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineTooltipPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineTooltipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArgs{})
@@ -27471,6 +27913,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarTooltipInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarTooltipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarTooltipPtrInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarTooltipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs{})
@@ -27620,6 +28064,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaTooltipOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaTooltipPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitSeriesOverrideOutput{})
@@ -27782,6 +28228,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineThresholdOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineThresholdArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineTooltipOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineTooltipPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideOutput{})
@@ -27862,6 +28310,8 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarTooltipOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarTooltipPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput{})

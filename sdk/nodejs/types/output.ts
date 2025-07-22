@@ -714,6 +714,10 @@ export interface OneDashboardPageWidgetArea {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     */
+    tooltip?: outputs.OneDashboardPageWidgetAreaTooltip;
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
     units?: outputs.OneDashboardPageWidgetAreaUnit[];
@@ -811,6 +815,13 @@ export interface OneDashboardPageWidgetAreaNullValueSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetAreaTooltip {
+    /**
+     * (Required) The tooltip display mode. Valid values are:
+     */
+    mode: string;
 }
 
 export interface OneDashboardPageWidgetAreaUnit {
@@ -2182,6 +2193,10 @@ export interface OneDashboardPageWidgetLine {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     */
+    tooltip?: outputs.OneDashboardPageWidgetLineTooltip;
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
     units?: outputs.OneDashboardPageWidgetLineUnit[];
@@ -2306,6 +2321,13 @@ export interface OneDashboardPageWidgetLineThreshold {
      * The value until which the threshold would need to be applied.
      */
     to?: string;
+}
+
+export interface OneDashboardPageWidgetLineTooltip {
+    /**
+     * (Required) The tooltip display mode. Valid values are:
+     */
+    mode: string;
 }
 
 export interface OneDashboardPageWidgetLineUnit {
@@ -2941,6 +2963,10 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     */
+    tooltip?: outputs.OneDashboardPageWidgetStackedBarTooltip;
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
     units?: outputs.OneDashboardPageWidgetStackedBarUnit[];
@@ -3038,6 +3064,13 @@ export interface OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
      * Series name
      */
     seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetStackedBarTooltip {
+    /**
+     * (Required) The tooltip display mode. Valid values are:
+     */
+    mode: string;
 }
 
 export interface OneDashboardPageWidgetStackedBarUnit {

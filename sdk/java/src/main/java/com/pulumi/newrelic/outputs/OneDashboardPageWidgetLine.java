@@ -11,6 +11,7 @@ import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineNullValue;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineThreshold;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineTooltip;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineUnit;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineYAxisRight;
 import java.lang.Boolean;
@@ -104,6 +105,11 @@ public final class OneDashboardPageWidgetLine {
      * 
      */
     private String title;
+    /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetLineTooltip tooltip;
     /**
      * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
@@ -245,6 +251,13 @@ public final class OneDashboardPageWidgetLine {
         return this.title;
     }
     /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetLineTooltip> tooltip() {
+        return Optional.ofNullable(this.tooltip);
+    }
+    /**
      * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
      */
@@ -308,6 +321,7 @@ public final class OneDashboardPageWidgetLine {
         private Integer row;
         private @Nullable List<OneDashboardPageWidgetLineThreshold> thresholds;
         private String title;
+        private @Nullable OneDashboardPageWidgetLineTooltip tooltip;
         private @Nullable List<OneDashboardPageWidgetLineUnit> units;
         private @Nullable Integer width;
         private @Nullable Double yAxisLeftMax;
@@ -333,6 +347,7 @@ public final class OneDashboardPageWidgetLine {
     	      this.row = defaults.row;
     	      this.thresholds = defaults.thresholds;
     	      this.title = defaults.title;
+    	      this.tooltip = defaults.tooltip;
     	      this.units = defaults.units;
     	      this.width = defaults.width;
     	      this.yAxisLeftMax = defaults.yAxisLeftMax;
@@ -461,6 +476,12 @@ public final class OneDashboardPageWidgetLine {
             return this;
         }
         @CustomType.Setter
+        public Builder tooltip(@Nullable OneDashboardPageWidgetLineTooltip tooltip) {
+
+            this.tooltip = tooltip;
+            return this;
+        }
+        @CustomType.Setter
         public Builder units(@Nullable List<OneDashboardPageWidgetLineUnit> units) {
 
             this.units = units;
@@ -517,6 +538,7 @@ public final class OneDashboardPageWidgetLine {
             _resultValue.row = row;
             _resultValue.thresholds = thresholds;
             _resultValue.title = title;
+            _resultValue.tooltip = tooltip;
             _resultValue.units = units;
             _resultValue.width = width;
             _resultValue.yAxisLeftMax = yAxisLeftMax;

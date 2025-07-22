@@ -51,6 +51,7 @@ __all__ = [
     'OneDashboardPageWidgetAreaNrqlQuery',
     'OneDashboardPageWidgetAreaNullValue',
     'OneDashboardPageWidgetAreaNullValueSeriesOverride',
+    'OneDashboardPageWidgetAreaTooltip',
     'OneDashboardPageWidgetAreaUnit',
     'OneDashboardPageWidgetAreaUnitSeriesOverride',
     'OneDashboardPageWidgetBar',
@@ -132,6 +133,7 @@ __all__ = [
     'OneDashboardPageWidgetLineNullValue',
     'OneDashboardPageWidgetLineNullValueSeriesOverride',
     'OneDashboardPageWidgetLineThreshold',
+    'OneDashboardPageWidgetLineTooltip',
     'OneDashboardPageWidgetLineUnit',
     'OneDashboardPageWidgetLineUnitSeriesOverride',
     'OneDashboardPageWidgetLineYAxisRight',
@@ -172,6 +174,7 @@ __all__ = [
     'OneDashboardPageWidgetStackedBarNrqlQuery',
     'OneDashboardPageWidgetStackedBarNullValue',
     'OneDashboardPageWidgetStackedBarNullValueSeriesOverride',
+    'OneDashboardPageWidgetStackedBarTooltip',
     'OneDashboardPageWidgetStackedBarUnit',
     'OneDashboardPageWidgetStackedBarUnitSeriesOverride',
     'OneDashboardPageWidgetTable',
@@ -2305,6 +2308,7 @@ class OneDashboardPageWidgetArea(dict):
                  legend_enabled: Optional[builtins.bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValue']] = None,
                  refresh_rate: Optional[builtins.str] = None,
+                 tooltip: Optional['outputs.OneDashboardPageWidgetAreaTooltip'] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnit']] = None,
                  width: Optional[builtins.int] = None,
                  y_axis_left_max: Optional[builtins.float] = None,
@@ -2324,6 +2328,7 @@ class OneDashboardPageWidgetArea(dict):
         :param builtins.bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetAreaNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param builtins.str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        :param 'OneDashboardPageWidgetAreaTooltipArgs' tooltip: (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
         :param Sequence['OneDashboardPageWidgetAreaUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param builtins.int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param builtins.float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -2352,6 +2357,8 @@ class OneDashboardPageWidgetArea(dict):
             pulumi.set(__self__, "null_values", null_values)
         if refresh_rate is not None:
             pulumi.set(__self__, "refresh_rate", refresh_rate)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -2472,6 +2479,14 @@ class OneDashboardPageWidgetArea(dict):
         (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         """
         return pulumi.get(self, "refresh_rate")
+
+    @property
+    @pulumi.getter
+    def tooltip(self) -> Optional['outputs.OneDashboardPageWidgetAreaTooltip']:
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
+        return pulumi.get(self, "tooltip")
 
     @property
     @pulumi.getter
@@ -2826,6 +2841,24 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaTooltip(dict):
+    def __init__(__self__, *,
+                 mode: builtins.str):
+        """
+        :param builtins.str mode: (Required) The tooltip display mode. Valid values are:
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> builtins.str:
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -7772,6 +7805,7 @@ class OneDashboardPageWidgetLine(dict):
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValue']] = None,
                  refresh_rate: Optional[builtins.str] = None,
                  thresholds: Optional[Sequence['outputs.OneDashboardPageWidgetLineThreshold']] = None,
+                 tooltip: Optional['outputs.OneDashboardPageWidgetLineTooltip'] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetLineUnit']] = None,
                  width: Optional[builtins.int] = None,
                  y_axis_left_max: Optional[builtins.float] = None,
@@ -7795,6 +7829,7 @@ class OneDashboardPageWidgetLine(dict):
         :param Sequence['OneDashboardPageWidgetLineNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param builtins.str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param Sequence['OneDashboardPageWidgetLineThresholdArgs'] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        :param 'OneDashboardPageWidgetLineTooltipArgs' tooltip: (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
         :param Sequence['OneDashboardPageWidgetLineUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param builtins.int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param builtins.float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -7829,6 +7864,8 @@ class OneDashboardPageWidgetLine(dict):
             pulumi.set(__self__, "refresh_rate", refresh_rate)
         if thresholds is not None:
             pulumi.set(__self__, "thresholds", thresholds)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -7969,6 +8006,14 @@ class OneDashboardPageWidgetLine(dict):
         (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         """
         return pulumi.get(self, "thresholds")
+
+    @property
+    @pulumi.getter
+    def tooltip(self) -> Optional['outputs.OneDashboardPageWidgetLineTooltip']:
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
+        return pulumi.get(self, "tooltip")
 
     @property
     @pulumi.getter
@@ -8411,6 +8456,24 @@ class OneDashboardPageWidgetLineThreshold(dict):
         The value until which the threshold would need to be applied.
         """
         return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineTooltip(dict):
+    def __init__(__self__, *,
+                 mode: builtins.str):
+        """
+        :param builtins.str mode: (Required) The tooltip display mode. Valid values are:
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> builtins.str:
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -10631,6 +10694,7 @@ class OneDashboardPageWidgetStackedBar(dict):
                  legend_enabled: Optional[builtins.bool] = None,
                  null_values: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValue']] = None,
                  refresh_rate: Optional[builtins.str] = None,
+                 tooltip: Optional['outputs.OneDashboardPageWidgetStackedBarTooltip'] = None,
                  units: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnit']] = None,
                  width: Optional[builtins.int] = None,
                  y_axis_left_max: Optional[builtins.float] = None,
@@ -10650,6 +10714,7 @@ class OneDashboardPageWidgetStackedBar(dict):
         :param builtins.bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence['OneDashboardPageWidgetStackedBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param builtins.str refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        :param 'OneDashboardPageWidgetStackedBarTooltipArgs' tooltip: (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
         :param Sequence['OneDashboardPageWidgetStackedBarUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param builtins.int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param builtins.float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -10678,6 +10743,8 @@ class OneDashboardPageWidgetStackedBar(dict):
             pulumi.set(__self__, "null_values", null_values)
         if refresh_rate is not None:
             pulumi.set(__self__, "refresh_rate", refresh_rate)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -10798,6 +10865,14 @@ class OneDashboardPageWidgetStackedBar(dict):
         (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         """
         return pulumi.get(self, "refresh_rate")
+
+    @property
+    @pulumi.getter
+    def tooltip(self) -> Optional['outputs.OneDashboardPageWidgetStackedBarTooltip']:
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
+        return pulumi.get(self, "tooltip")
 
     @property
     @pulumi.getter
@@ -11152,6 +11227,24 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverride(dict):
         Series name
         """
         return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarTooltip(dict):
+    def __init__(__self__, *,
+                 mode: builtins.str):
+        """
+        :param builtins.str mode: (Required) The tooltip display mode. Valid values are:
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> builtins.str:
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

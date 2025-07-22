@@ -661,6 +661,10 @@ export interface OneDashboardPageWidgetArea {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     */
+    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetAreaTooltip>;
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
     units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnit>[]>;
@@ -758,6 +762,13 @@ export interface OneDashboardPageWidgetAreaNullValueSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetAreaTooltip {
+    /**
+     * (Required) The tooltip display mode. Valid values are:
+     */
+    mode: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetAreaUnit {
@@ -2129,6 +2140,10 @@ export interface OneDashboardPageWidgetLine {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     */
+    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetLineTooltip>;
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
     units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnit>[]>;
@@ -2253,6 +2268,13 @@ export interface OneDashboardPageWidgetLineThreshold {
      * The value until which the threshold would need to be applied.
      */
     to?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLineTooltip {
+    /**
+     * (Required) The tooltip display mode. Valid values are:
+     */
+    mode: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLineUnit {
@@ -2888,6 +2910,10 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     */
+    tooltip?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarTooltip>;
+    /**
      * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      */
     units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnit>[]>;
@@ -2985,6 +3011,13 @@ export interface OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
      * Series name
      */
     seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetStackedBarTooltip {
+    /**
+     * (Required) The tooltip display mode. Valid values are:
+     */
+    mode: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetStackedBarUnit {

@@ -84,6 +84,8 @@ __all__ = [
     'OneDashboardPageWidgetAreaNullValueArgsDict',
     'OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs',
     'OneDashboardPageWidgetAreaNullValueSeriesOverrideArgsDict',
+    'OneDashboardPageWidgetAreaTooltipArgs',
+    'OneDashboardPageWidgetAreaTooltipArgsDict',
     'OneDashboardPageWidgetAreaUnitArgs',
     'OneDashboardPageWidgetAreaUnitArgsDict',
     'OneDashboardPageWidgetAreaUnitSeriesOverrideArgs',
@@ -246,6 +248,8 @@ __all__ = [
     'OneDashboardPageWidgetLineNullValueSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLineThresholdArgs',
     'OneDashboardPageWidgetLineThresholdArgsDict',
+    'OneDashboardPageWidgetLineTooltipArgs',
+    'OneDashboardPageWidgetLineTooltipArgsDict',
     'OneDashboardPageWidgetLineUnitArgs',
     'OneDashboardPageWidgetLineUnitArgsDict',
     'OneDashboardPageWidgetLineUnitSeriesOverrideArgs',
@@ -326,6 +330,8 @@ __all__ = [
     'OneDashboardPageWidgetStackedBarNullValueArgsDict',
     'OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs',
     'OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgsDict',
+    'OneDashboardPageWidgetStackedBarTooltipArgs',
+    'OneDashboardPageWidgetStackedBarTooltipArgsDict',
     'OneDashboardPageWidgetStackedBarUnitArgs',
     'OneDashboardPageWidgetStackedBarUnitArgsDict',
     'OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs',
@@ -3188,6 +3194,10 @@ if not MYPY:
         """
         (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         """
+        tooltip: NotRequired[pulumi.Input['OneDashboardPageWidgetAreaTooltipArgsDict']]
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
         units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitArgsDict']]]]
         """
         (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -3221,6 +3231,7 @@ class OneDashboardPageWidgetAreaArgs:
                  legend_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  null_values: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueArgs']]]] = None,
                  refresh_rate: Optional[pulumi.Input[builtins.str]] = None,
+                 tooltip: Optional[pulumi.Input['OneDashboardPageWidgetAreaTooltipArgs']] = None,
                  units: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitArgs']]]] = None,
                  width: Optional[pulumi.Input[builtins.int]] = None,
                  y_axis_left_max: Optional[pulumi.Input[builtins.float]] = None,
@@ -3240,6 +3251,7 @@ class OneDashboardPageWidgetAreaArgs:
         :param pulumi.Input[builtins.bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param pulumi.Input[builtins.str] refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        :param pulumi.Input['OneDashboardPageWidgetAreaTooltipArgs'] tooltip: (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaUnitArgs']]] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param pulumi.Input[builtins.int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param pulumi.Input[builtins.float] y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -3268,6 +3280,8 @@ class OneDashboardPageWidgetAreaArgs:
             pulumi.set(__self__, "null_values", null_values)
         if refresh_rate is not None:
             pulumi.set(__self__, "refresh_rate", refresh_rate)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -3444,6 +3458,18 @@ class OneDashboardPageWidgetAreaArgs:
     @refresh_rate.setter
     def refresh_rate(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "refresh_rate", value)
+
+    @property
+    @pulumi.getter
+    def tooltip(self) -> Optional[pulumi.Input['OneDashboardPageWidgetAreaTooltipArgs']]:
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
+        return pulumi.get(self, "tooltip")
+
+    @tooltip.setter
+    def tooltip(self, value: Optional[pulumi.Input['OneDashboardPageWidgetAreaTooltipArgs']]):
+        pulumi.set(self, "tooltip", value)
 
     @property
     @pulumi.getter
@@ -3888,6 +3914,37 @@ class OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs:
     @series_name.setter
     def series_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "series_name", value)
+
+
+if not MYPY:
+    class OneDashboardPageWidgetAreaTooltipArgsDict(TypedDict):
+        mode: pulumi.Input[builtins.str]
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+elif False:
+    OneDashboardPageWidgetAreaTooltipArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OneDashboardPageWidgetAreaTooltipArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] mode: (Required) The tooltip display mode. Valid values are:
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[builtins.str]:
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:
@@ -10247,6 +10304,10 @@ if not MYPY:
         """
         (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
         """
+        tooltip: NotRequired[pulumi.Input['OneDashboardPageWidgetLineTooltipArgsDict']]
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
         units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgsDict']]]]
         """
         (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -10290,6 +10351,7 @@ class OneDashboardPageWidgetLineArgs:
                  null_values: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]]] = None,
                  refresh_rate: Optional[pulumi.Input[builtins.str]] = None,
                  thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]]] = None,
+                 tooltip: Optional[pulumi.Input['OneDashboardPageWidgetLineTooltipArgs']] = None,
                  units: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]]] = None,
                  width: Optional[pulumi.Input[builtins.int]] = None,
                  y_axis_left_max: Optional[pulumi.Input[builtins.float]] = None,
@@ -10313,6 +10375,7 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param pulumi.Input[builtins.str] refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]] thresholds: (Optional) An attribute that helps specify multiple thresholds, each inclusive of a range of values between which the threshold would need to function, the name of the threshold and its severity. Multiple thresholds can be defined in a table widget. The `threshold` attribute requires specifying the following attributes in a nested block -
+        :param pulumi.Input['OneDashboardPageWidgetLineTooltipArgs'] tooltip: (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineUnitArgs']]] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param pulumi.Input[builtins.int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param pulumi.Input[builtins.float] y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -10347,6 +10410,8 @@ class OneDashboardPageWidgetLineArgs:
             pulumi.set(__self__, "refresh_rate", refresh_rate)
         if thresholds is not None:
             pulumi.set(__self__, "thresholds", thresholds)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -10551,6 +10616,18 @@ class OneDashboardPageWidgetLineArgs:
     @thresholds.setter
     def thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineThresholdArgs']]]]):
         pulumi.set(self, "thresholds", value)
+
+    @property
+    @pulumi.getter
+    def tooltip(self) -> Optional[pulumi.Input['OneDashboardPageWidgetLineTooltipArgs']]:
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
+        return pulumi.get(self, "tooltip")
+
+    @tooltip.setter
+    def tooltip(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLineTooltipArgs']]):
+        pulumi.set(self, "tooltip", value)
 
     @property
     @pulumi.getter
@@ -11111,6 +11188,37 @@ class OneDashboardPageWidgetLineThresholdArgs:
     @to.setter
     def to(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "to", value)
+
+
+if not MYPY:
+    class OneDashboardPageWidgetLineTooltipArgsDict(TypedDict):
+        mode: pulumi.Input[builtins.str]
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+elif False:
+    OneDashboardPageWidgetLineTooltipArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OneDashboardPageWidgetLineTooltipArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] mode: (Required) The tooltip display mode. Valid values are:
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[builtins.str]:
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:
@@ -13948,6 +14056,10 @@ if not MYPY:
         """
         (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
         """
+        tooltip: NotRequired[pulumi.Input['OneDashboardPageWidgetStackedBarTooltipArgsDict']]
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
         units: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitArgsDict']]]]
         """
         (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
@@ -13981,6 +14093,7 @@ class OneDashboardPageWidgetStackedBarArgs:
                  legend_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  null_values: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueArgs']]]] = None,
                  refresh_rate: Optional[pulumi.Input[builtins.str]] = None,
+                 tooltip: Optional[pulumi.Input['OneDashboardPageWidgetStackedBarTooltipArgs']] = None,
                  units: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitArgs']]]] = None,
                  width: Optional[pulumi.Input[builtins.int]] = None,
                  y_axis_left_max: Optional[pulumi.Input[builtins.float]] = None,
@@ -14000,6 +14113,7 @@ class OneDashboardPageWidgetStackedBarArgs:
         :param pulumi.Input[builtins.bool] legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNullValueArgs']]] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param pulumi.Input[builtins.str] refresh_rate: (Optional) This attribute determines the frequency for data refresh specified in milliseconds. Accepted values are `auto` for default value, `0` for no refresh, `5000` for 5 seconds, `30000` for 30 seconds, `60000` for 60 seconds, `300000` for 5 minutes, `1800000` for 30 minutes, `3600000` for 60 minute, `10800000` for 3 hours, `43200000` for 12 hours and `86400000` for 24 hours.
+        :param pulumi.Input['OneDashboardPageWidgetStackedBarTooltipArgs'] tooltip: (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarUnitArgs']]] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param pulumi.Input[builtins.int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         :param pulumi.Input[builtins.float] y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
@@ -14028,6 +14142,8 @@ class OneDashboardPageWidgetStackedBarArgs:
             pulumi.set(__self__, "null_values", null_values)
         if refresh_rate is not None:
             pulumi.set(__self__, "refresh_rate", refresh_rate)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
         if units is not None:
             pulumi.set(__self__, "units", units)
         if width is not None:
@@ -14204,6 +14320,18 @@ class OneDashboardPageWidgetStackedBarArgs:
     @refresh_rate.setter
     def refresh_rate(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "refresh_rate", value)
+
+    @property
+    @pulumi.getter
+    def tooltip(self) -> Optional[pulumi.Input['OneDashboardPageWidgetStackedBarTooltipArgs']]:
+        """
+        (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        """
+        return pulumi.get(self, "tooltip")
+
+    @tooltip.setter
+    def tooltip(self, value: Optional[pulumi.Input['OneDashboardPageWidgetStackedBarTooltipArgs']]):
+        pulumi.set(self, "tooltip", value)
 
     @property
     @pulumi.getter
@@ -14648,6 +14776,37 @@ class OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs:
     @series_name.setter
     def series_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "series_name", value)
+
+
+if not MYPY:
+    class OneDashboardPageWidgetStackedBarTooltipArgsDict(TypedDict):
+        mode: pulumi.Input[builtins.str]
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+elif False:
+    OneDashboardPageWidgetStackedBarTooltipArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OneDashboardPageWidgetStackedBarTooltipArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] mode: (Required) The tooltip display mode. Valid values are:
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[builtins.str]:
+        """
+        (Required) The tooltip display mode. Valid values are:
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:

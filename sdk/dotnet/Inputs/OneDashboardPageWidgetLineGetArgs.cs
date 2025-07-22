@@ -138,6 +138,12 @@ namespace Pulumi.NewRelic.Inputs
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        /// </summary>
+        [Input("tooltip")]
+        public Input<Inputs.OneDashboardPageWidgetLineTooltipGetArgs>? Tooltip { get; set; }
+
         [Input("units")]
         private InputList<Inputs.OneDashboardPageWidgetLineUnitGetArgs>? _units;
 
