@@ -1472,6 +1472,9 @@
                                                     }
                                                 }
                                             },
+                                            "tooltip": {
+                                                "maxItemsOne": true
+                                            },
                                             "units": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1849,6 +1852,9 @@
                                             "threshold": {
                                                 "maxItemsOne": false
                                             },
+                                            "tooltip": {
+                                                "maxItemsOne": true
+                                            },
                                             "units": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -2042,6 +2048,9 @@
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "tooltip": {
+                                                "maxItemsOne": true
                                             },
                                             "units": {
                                                 "maxItemsOne": false,

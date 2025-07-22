@@ -10,6 +10,7 @@ import com.pulumi.newrelic.outputs.OneDashboardPageWidgetStackedBarDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetStackedBarInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetStackedBarNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetStackedBarNullValue;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetStackedBarTooltip;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetStackedBarUnit;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -92,6 +93,11 @@ public final class OneDashboardPageWidgetStackedBar {
      * 
      */
     private String title;
+    /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetStackedBarTooltip tooltip;
     /**
      * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
@@ -209,6 +215,13 @@ public final class OneDashboardPageWidgetStackedBar {
         return this.title;
     }
     /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetStackedBarTooltip> tooltip() {
+        return Optional.ofNullable(this.tooltip);
+    }
+    /**
      * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
      */
@@ -256,6 +269,7 @@ public final class OneDashboardPageWidgetStackedBar {
         private @Nullable String refreshRate;
         private Integer row;
         private String title;
+        private @Nullable OneDashboardPageWidgetStackedBarTooltip tooltip;
         private @Nullable List<OneDashboardPageWidgetStackedBarUnit> units;
         private @Nullable Integer width;
         private @Nullable Double yAxisLeftMax;
@@ -277,6 +291,7 @@ public final class OneDashboardPageWidgetStackedBar {
     	      this.refreshRate = defaults.refreshRate;
     	      this.row = defaults.row;
     	      this.title = defaults.title;
+    	      this.tooltip = defaults.tooltip;
     	      this.units = defaults.units;
     	      this.width = defaults.width;
     	      this.yAxisLeftMax = defaults.yAxisLeftMax;
@@ -388,6 +403,12 @@ public final class OneDashboardPageWidgetStackedBar {
             return this;
         }
         @CustomType.Setter
+        public Builder tooltip(@Nullable OneDashboardPageWidgetStackedBarTooltip tooltip) {
+
+            this.tooltip = tooltip;
+            return this;
+        }
+        @CustomType.Setter
         public Builder units(@Nullable List<OneDashboardPageWidgetStackedBarUnit> units) {
 
             this.units = units;
@@ -430,6 +451,7 @@ public final class OneDashboardPageWidgetStackedBar {
             _resultValue.refreshRate = refreshRate;
             _resultValue.row = row;
             _resultValue.title = title;
+            _resultValue.tooltip = tooltip;
             _resultValue.units = units;
             _resultValue.width = width;
             _resultValue.yAxisLeftMax = yAxisLeftMax;

@@ -78,6 +78,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Title;
         /// <summary>
+        /// (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetLineTooltip? Tooltip;
+        /// <summary>
         /// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLineUnit> Units;
@@ -133,6 +137,8 @@ namespace Pulumi.NewRelic.Outputs
 
             string title,
 
+            Outputs.OneDashboardPageWidgetLineTooltip? tooltip,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetLineUnit> units,
 
             int? width,
@@ -161,6 +167,7 @@ namespace Pulumi.NewRelic.Outputs
             Row = row;
             Thresholds = thresholds;
             Title = title;
+            Tooltip = tooltip;
             Units = units;
             Width = width;
             YAxisLeftMax = yAxisLeftMax;

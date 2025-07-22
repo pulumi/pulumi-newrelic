@@ -3388,6 +3388,10 @@
                     "type": "string",
                     "description": "(Optional) A human-friendly display string for this value.\n"
                 },
+                "tooltip": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaTooltip:OneDashboardPageWidgetAreaTooltip",
+                    "description": "(Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.\n"
+                },
                 "units": {
                     "type": "array",
                     "items": {
@@ -3549,6 +3553,18 @@
                 }
             },
             "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetAreaTooltip:OneDashboardPageWidgetAreaTooltip": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "(Required) The tooltip display mode. Valid values are:\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetAreaUnit:OneDashboardPageWidgetAreaUnit": {
             "properties": {
@@ -5525,6 +5541,10 @@
                     "type": "string",
                     "description": "(Optional) A human-friendly display string for this value.\n"
                 },
+                "tooltip": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineTooltip:OneDashboardPageWidgetLineTooltip",
+                    "description": "(Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.\n"
+                },
                 "units": {
                     "type": "array",
                     "items": {
@@ -5715,6 +5735,18 @@
                 }
             },
             "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetLineTooltip:OneDashboardPageWidgetLineTooltip": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "(Required) The tooltip display mode. Valid values are:\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetLineUnit:OneDashboardPageWidgetLineUnit": {
             "properties": {
@@ -6607,6 +6639,10 @@
                     "type": "string",
                     "description": "(Optional) A human-friendly display string for this value.\n"
                 },
+                "tooltip": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBarTooltip:OneDashboardPageWidgetStackedBarTooltip",
+                    "description": "(Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.\n"
+                },
                 "units": {
                     "type": "array",
                     "items": {
@@ -6768,6 +6804,18 @@
                 }
             },
             "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetStackedBarTooltip:OneDashboardPageWidgetStackedBarTooltip": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "(Required) The tooltip display mode. Valid values are:\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mode"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetStackedBarUnit:OneDashboardPageWidgetStackedBarUnit": {
             "properties": {

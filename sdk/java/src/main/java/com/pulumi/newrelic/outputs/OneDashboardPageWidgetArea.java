@@ -10,6 +10,7 @@ import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaInitialSorting;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaNrqlQuery;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaNullValue;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaTooltip;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaUnit;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -92,6 +93,11 @@ public final class OneDashboardPageWidgetArea {
      * 
      */
     private String title;
+    /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetAreaTooltip tooltip;
     /**
      * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
@@ -209,6 +215,13 @@ public final class OneDashboardPageWidgetArea {
         return this.title;
     }
     /**
+     * @return (Optional) A nested block that describes tooltip configuration for area, line, and stacked bar widgets. See Nested tooltip blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetAreaTooltip> tooltip() {
+        return Optional.ofNullable(this.tooltip);
+    }
+    /**
      * @return (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
      * 
      */
@@ -256,6 +269,7 @@ public final class OneDashboardPageWidgetArea {
         private @Nullable String refreshRate;
         private Integer row;
         private String title;
+        private @Nullable OneDashboardPageWidgetAreaTooltip tooltip;
         private @Nullable List<OneDashboardPageWidgetAreaUnit> units;
         private @Nullable Integer width;
         private @Nullable Double yAxisLeftMax;
@@ -277,6 +291,7 @@ public final class OneDashboardPageWidgetArea {
     	      this.refreshRate = defaults.refreshRate;
     	      this.row = defaults.row;
     	      this.title = defaults.title;
+    	      this.tooltip = defaults.tooltip;
     	      this.units = defaults.units;
     	      this.width = defaults.width;
     	      this.yAxisLeftMax = defaults.yAxisLeftMax;
@@ -388,6 +403,12 @@ public final class OneDashboardPageWidgetArea {
             return this;
         }
         @CustomType.Setter
+        public Builder tooltip(@Nullable OneDashboardPageWidgetAreaTooltip tooltip) {
+
+            this.tooltip = tooltip;
+            return this;
+        }
+        @CustomType.Setter
         public Builder units(@Nullable List<OneDashboardPageWidgetAreaUnit> units) {
 
             this.units = units;
@@ -430,6 +451,7 @@ public final class OneDashboardPageWidgetArea {
             _resultValue.refreshRate = refreshRate;
             _resultValue.row = row;
             _resultValue.title = title;
+            _resultValue.tooltip = tooltip;
             _resultValue.units = units;
             _resultValue.width = width;
             _resultValue.yAxisLeftMax = yAxisLeftMax;
