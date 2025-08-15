@@ -7,7 +7,6 @@ on:
     inputs: {}
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
   NEW_RELIC_API_KEY: ${{ secrets.NEW_RELIC_API_KEY }}
   PULUMI_API: https://api.pulumi-staging.io
@@ -31,6 +30,8 @@ jobs:
           cache-go: false
       - run: make prepare_local_workspace
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: pulumi/license-check-action@main
         with:
           module-path: provider
