@@ -37,7 +37,6 @@ on:
         required: false
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
   NEW_RELIC_API_KEY: ${{ secrets.NEW_RELIC_API_KEY }}
   PULUMI_API: https://api.pulumi-staging.io

@@ -12,7 +12,6 @@ on:
 
 env:
   PR_COMMIT_SHA: ${{ github.event.client_payload.pull_request.head.sha }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
   NEW_RELIC_API_KEY: ${{ secrets.NEW_RELIC_API_KEY }}
   PULUMI_API: https://api.pulumi-staging.io
@@ -46,6 +45,8 @@ jobs:
         tools: pulumictl, pulumicli, ${{ matrix.language }}
     - name: Prepare local workspace
       run: make prepare_local_workspace
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Download bin
       uses: ./.github/actions/download-provider
     - name: Download SDK
