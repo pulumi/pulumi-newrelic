@@ -7,7 +7,7 @@ toolchain go1.23.8
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
 	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.1-0.20250819181416-c8dddd79384e
 	github.com/pulumi/pulumi/sdk/v3 v3.185.0
 	github.com/stretchr/testify v1.10.0
 )
