@@ -67,31 +67,31 @@ export class DataPartitionRule extends pulumi.CustomResource {
     /**
      * The account id associated with the data partition rule.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
      */
-    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly deleted: pulumi.Output<boolean>;
     /**
      * The description of the data partition rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether or not this data partition rule is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
      */
-    public readonly nrql!: pulumi.Output<string>;
+    declare public readonly nrql: pulumi.Output<string>;
     /**
      * The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
      */
-    public readonly retentionPolicy!: pulumi.Output<string>;
+    declare public readonly retentionPolicy: pulumi.Output<string>;
     /**
      * The name of the data partition where logs will be allocated once the rule is enabled.
      */
-    public readonly targetDataPartition!: pulumi.Output<string>;
+    declare public readonly targetDataPartition: pulumi.Output<string>;
 
     /**
      * Create a DataPartitionRule resource with the given unique name, arguments, and options.
@@ -106,33 +106,33 @@ export class DataPartitionRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataPartitionRuleState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["deleted"] = state ? state.deleted : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["nrql"] = state ? state.nrql : undefined;
-            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            resourceInputs["targetDataPartition"] = state ? state.targetDataPartition : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["deleted"] = state?.deleted;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["nrql"] = state?.nrql;
+            resourceInputs["retentionPolicy"] = state?.retentionPolicy;
+            resourceInputs["targetDataPartition"] = state?.targetDataPartition;
         } else {
             const args = argsOrState as DataPartitionRuleArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.nrql === undefined) && !opts.urn) {
+            if (args?.nrql === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
+            if (args?.retentionPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
-            if ((!args || args.targetDataPartition === undefined) && !opts.urn) {
+            if (args?.targetDataPartition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDataPartition'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["nrql"] = args ? args.nrql : undefined;
-            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            resourceInputs["targetDataPartition"] = args ? args.targetDataPartition : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["nrql"] = args?.nrql;
+            resourceInputs["retentionPolicy"] = args?.retentionPolicy;
+            resourceInputs["targetDataPartition"] = args?.targetDataPartition;
             resourceInputs["deleted"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

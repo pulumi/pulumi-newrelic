@@ -135,21 +135,21 @@ export class AlertPolicy extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
-    public readonly channelIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly channelIds: pulumi.Output<string[] | undefined>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
-    public readonly incidentPreference!: pulumi.Output<string | undefined>;
+    declare public readonly incidentPreference: pulumi.Output<string | undefined>;
     /**
      * The name of the policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AlertPolicy resource with the given unique name, arguments, and options.
@@ -164,16 +164,16 @@ export class AlertPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["channelIds"] = state ? state.channelIds : undefined;
-            resourceInputs["incidentPreference"] = state ? state.incidentPreference : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["channelIds"] = state?.channelIds;
+            resourceInputs["incidentPreference"] = state?.incidentPreference;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["channelIds"] = args ? args.channelIds : undefined;
-            resourceInputs["incidentPreference"] = args ? args.incidentPreference : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["channelIds"] = args?.channelIds;
+            resourceInputs["incidentPreference"] = args?.incidentPreference;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertPolicy.__pulumiType, name, resourceInputs, opts);

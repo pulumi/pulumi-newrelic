@@ -317,125 +317,125 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
-    public readonly aggregationDelay!: pulumi.Output<string | undefined>;
+    declare public readonly aggregationDelay: pulumi.Output<string | undefined>;
     /**
      * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      */
-    public readonly aggregationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly aggregationMethod: pulumi.Output<string | undefined>;
     /**
      * How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      */
-    public readonly aggregationTimer!: pulumi.Output<string | undefined>;
+    declare public readonly aggregationTimer: pulumi.Output<string | undefined>;
     /**
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 21600 seconds (6 hours). Default is 60 seconds.
      */
-    public readonly aggregationWindow!: pulumi.Output<number>;
+    declare public readonly aggregationWindow: pulumi.Output<number>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
-    public readonly baselineDirection!: pulumi.Output<string | undefined>;
+    declare public readonly baselineDirection: pulumi.Output<string | undefined>;
     /**
      * Whether to close all open incidents when the signal expires.
      */
-    public readonly closeViolationsOnExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly closeViolationsOnExpiration: pulumi.Output<boolean | undefined>;
     /**
      * A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
-    public readonly critical!: pulumi.Output<outputs.NrqlAlertConditionCritical | undefined>;
+    declare public readonly critical: pulumi.Output<outputs.NrqlAlertConditionCritical | undefined>;
     /**
      * The description of the NRQL alert condition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The unique entity identifier of the NRQL Condition in New Relic.
      */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
     /**
      * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
      */
-    public readonly evaluationDelay!: pulumi.Output<number | undefined>;
+    declare public readonly evaluationDelay: pulumi.Output<number | undefined>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
-    public readonly expirationDuration!: pulumi.Output<number | undefined>;
+    declare public readonly expirationDuration: pulumi.Output<number | undefined>;
     /**
      * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
-    public readonly fillOption!: pulumi.Output<string | undefined>;
+    declare public readonly fillOption: pulumi.Output<string | undefined>;
     /**
      * This value will be used for filling gaps in the signal.
      */
-    public readonly fillValue!: pulumi.Output<number | undefined>;
+    declare public readonly fillValue: pulumi.Output<number | undefined>;
     /**
      * Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
      */
-    public readonly ignoreOnExpectedTermination!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreOnExpectedTermination: pulumi.Output<boolean | undefined>;
     /**
      * The title of the condition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A NRQL query. See NRQL below for details.
      */
-    public readonly nrql!: pulumi.Output<outputs.NrqlAlertConditionNrql>;
+    declare public readonly nrql: pulumi.Output<outputs.NrqlAlertConditionNrql>;
     /**
      * Whether to create a new incident to capture that the signal expired.
      */
-    public readonly openViolationOnExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly openViolationOnExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    declare public readonly runbookUrl: pulumi.Output<string | undefined>;
     /**
      * Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
      */
-    public readonly signalSeasonality!: pulumi.Output<string | undefined>;
+    declare public readonly signalSeasonality: pulumi.Output<string | undefined>;
     /**
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
-    public readonly slideBy!: pulumi.Output<number | undefined>;
+    declare public readonly slideBy: pulumi.Output<number | undefined>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
-    public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[] | undefined>;
+    declare public readonly terms: pulumi.Output<outputs.NrqlAlertConditionTerm[] | undefined>;
     /**
      * The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
      */
-    public readonly titleTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly titleTemplate: pulumi.Output<string | undefined>;
     /**
      * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violationTimeLimitSeconds` attribute instead
      */
-    public readonly violationTimeLimit!: pulumi.Output<string>;
+    declare public readonly violationTimeLimit: pulumi.Output<string>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
-    public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly violationTimeLimitSeconds: pulumi.Output<number | undefined>;
     /**
      * A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
      */
-    public readonly warning!: pulumi.Output<outputs.NrqlAlertConditionWarning | undefined>;
+    declare public readonly warning: pulumi.Output<outputs.NrqlAlertConditionWarning | undefined>;
 
     /**
      * Create a NrqlAlertCondition resource with the given unique name, arguments, and options.
@@ -450,71 +450,71 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NrqlAlertConditionState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["aggregationDelay"] = state ? state.aggregationDelay : undefined;
-            resourceInputs["aggregationMethod"] = state ? state.aggregationMethod : undefined;
-            resourceInputs["aggregationTimer"] = state ? state.aggregationTimer : undefined;
-            resourceInputs["aggregationWindow"] = state ? state.aggregationWindow : undefined;
-            resourceInputs["baselineDirection"] = state ? state.baselineDirection : undefined;
-            resourceInputs["closeViolationsOnExpiration"] = state ? state.closeViolationsOnExpiration : undefined;
-            resourceInputs["critical"] = state ? state.critical : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
-            resourceInputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
-            resourceInputs["expirationDuration"] = state ? state.expirationDuration : undefined;
-            resourceInputs["fillOption"] = state ? state.fillOption : undefined;
-            resourceInputs["fillValue"] = state ? state.fillValue : undefined;
-            resourceInputs["ignoreOnExpectedTermination"] = state ? state.ignoreOnExpectedTermination : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nrql"] = state ? state.nrql : undefined;
-            resourceInputs["openViolationOnExpiration"] = state ? state.openViolationOnExpiration : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            resourceInputs["signalSeasonality"] = state ? state.signalSeasonality : undefined;
-            resourceInputs["slideBy"] = state ? state.slideBy : undefined;
-            resourceInputs["terms"] = state ? state.terms : undefined;
-            resourceInputs["titleTemplate"] = state ? state.titleTemplate : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["violationTimeLimit"] = state ? state.violationTimeLimit : undefined;
-            resourceInputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
-            resourceInputs["warning"] = state ? state.warning : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["aggregationDelay"] = state?.aggregationDelay;
+            resourceInputs["aggregationMethod"] = state?.aggregationMethod;
+            resourceInputs["aggregationTimer"] = state?.aggregationTimer;
+            resourceInputs["aggregationWindow"] = state?.aggregationWindow;
+            resourceInputs["baselineDirection"] = state?.baselineDirection;
+            resourceInputs["closeViolationsOnExpiration"] = state?.closeViolationsOnExpiration;
+            resourceInputs["critical"] = state?.critical;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entityGuid"] = state?.entityGuid;
+            resourceInputs["evaluationDelay"] = state?.evaluationDelay;
+            resourceInputs["expirationDuration"] = state?.expirationDuration;
+            resourceInputs["fillOption"] = state?.fillOption;
+            resourceInputs["fillValue"] = state?.fillValue;
+            resourceInputs["ignoreOnExpectedTermination"] = state?.ignoreOnExpectedTermination;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nrql"] = state?.nrql;
+            resourceInputs["openViolationOnExpiration"] = state?.openViolationOnExpiration;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["runbookUrl"] = state?.runbookUrl;
+            resourceInputs["signalSeasonality"] = state?.signalSeasonality;
+            resourceInputs["slideBy"] = state?.slideBy;
+            resourceInputs["terms"] = state?.terms;
+            resourceInputs["titleTemplate"] = state?.titleTemplate;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["violationTimeLimit"] = state?.violationTimeLimit;
+            resourceInputs["violationTimeLimitSeconds"] = state?.violationTimeLimitSeconds;
+            resourceInputs["warning"] = state?.warning;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
-            if ((!args || args.nrql === undefined) && !opts.urn) {
+            if (args?.nrql === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["aggregationDelay"] = args ? args.aggregationDelay : undefined;
-            resourceInputs["aggregationMethod"] = args ? args.aggregationMethod : undefined;
-            resourceInputs["aggregationTimer"] = args ? args.aggregationTimer : undefined;
-            resourceInputs["aggregationWindow"] = args ? args.aggregationWindow : undefined;
-            resourceInputs["baselineDirection"] = args ? args.baselineDirection : undefined;
-            resourceInputs["closeViolationsOnExpiration"] = args ? args.closeViolationsOnExpiration : undefined;
-            resourceInputs["critical"] = args ? args.critical : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
-            resourceInputs["expirationDuration"] = args ? args.expirationDuration : undefined;
-            resourceInputs["fillOption"] = args ? args.fillOption : undefined;
-            resourceInputs["fillValue"] = args ? args.fillValue : undefined;
-            resourceInputs["ignoreOnExpectedTermination"] = args ? args.ignoreOnExpectedTermination : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nrql"] = args ? args.nrql : undefined;
-            resourceInputs["openViolationOnExpiration"] = args ? args.openViolationOnExpiration : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            resourceInputs["signalSeasonality"] = args ? args.signalSeasonality : undefined;
-            resourceInputs["slideBy"] = args ? args.slideBy : undefined;
-            resourceInputs["terms"] = args ? args.terms : undefined;
-            resourceInputs["titleTemplate"] = args ? args.titleTemplate : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["violationTimeLimit"] = args ? args.violationTimeLimit : undefined;
-            resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
-            resourceInputs["warning"] = args ? args.warning : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["aggregationDelay"] = args?.aggregationDelay;
+            resourceInputs["aggregationMethod"] = args?.aggregationMethod;
+            resourceInputs["aggregationTimer"] = args?.aggregationTimer;
+            resourceInputs["aggregationWindow"] = args?.aggregationWindow;
+            resourceInputs["baselineDirection"] = args?.baselineDirection;
+            resourceInputs["closeViolationsOnExpiration"] = args?.closeViolationsOnExpiration;
+            resourceInputs["critical"] = args?.critical;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["evaluationDelay"] = args?.evaluationDelay;
+            resourceInputs["expirationDuration"] = args?.expirationDuration;
+            resourceInputs["fillOption"] = args?.fillOption;
+            resourceInputs["fillValue"] = args?.fillValue;
+            resourceInputs["ignoreOnExpectedTermination"] = args?.ignoreOnExpectedTermination;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nrql"] = args?.nrql;
+            resourceInputs["openViolationOnExpiration"] = args?.openViolationOnExpiration;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["runbookUrl"] = args?.runbookUrl;
+            resourceInputs["signalSeasonality"] = args?.signalSeasonality;
+            resourceInputs["slideBy"] = args?.slideBy;
+            resourceInputs["terms"] = args?.terms;
+            resourceInputs["titleTemplate"] = args?.titleTemplate;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["violationTimeLimit"] = args?.violationTimeLimit;
+            resourceInputs["violationTimeLimitSeconds"] = args?.violationTimeLimitSeconds;
+            resourceInputs["warning"] = args?.warning;
             resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

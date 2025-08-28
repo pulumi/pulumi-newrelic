@@ -44,11 +44,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ID of the authentication domain to which the group to be created would belong.
      */
-    public readonly authenticationDomainId!: pulumi.Output<string>;
+    declare public readonly authenticationDomainId: pulumi.Output<string>;
     /**
      * The name of the group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of IDs of users to be included in the group to be created.
      *
@@ -56,7 +56,7 @@ export class Group extends pulumi.CustomResource {
      *
      * > **WARNING:** Changing the `authenticationDomainId` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing group is not supported.
      */
-    public readonly userIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly userIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -71,17 +71,17 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["authenticationDomainId"] = state ? state.authenticationDomainId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["userIds"] = state ? state.userIds : undefined;
+            resourceInputs["authenticationDomainId"] = state?.authenticationDomainId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["userIds"] = state?.userIds;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if ((!args || args.authenticationDomainId === undefined) && !opts.urn) {
+            if (args?.authenticationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationDomainId'");
             }
-            resourceInputs["authenticationDomainId"] = args ? args.authenticationDomainId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["userIds"] = args ? args.userIds : undefined;
+            resourceInputs["authenticationDomainId"] = args?.authenticationDomainId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["userIds"] = args?.userIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Group.__pulumiType, name, resourceInputs, opts);

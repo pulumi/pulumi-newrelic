@@ -211,46 +211,45 @@ export class MonitorDowntime extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
-     * provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
      */
-    public readonly endRepeat!: pulumi.Output<outputs.MonitorDowntimeEndRepeat | undefined>;
+    declare public readonly endRepeat: pulumi.Output<outputs.MonitorDowntimeEndRepeat | undefined>;
     /**
      * A datetime stamp signifying the end of the Monitor Downtime.
      */
-    public readonly endTime!: pulumi.Output<string>;
+    declare public readonly endTime: pulumi.Output<string>;
     /**
      * Configuration options for which days of the month a monitor downtime will occur
      */
-    public readonly frequency!: pulumi.Output<outputs.MonitorDowntimeFrequency | undefined>;
+    declare public readonly frequency: pulumi.Output<outputs.MonitorDowntimeFrequency | undefined>;
     /**
      * A list of maintenance days to be included with the created weekly Monitor Downtime.
      */
-    public readonly maintenanceDays!: pulumi.Output<string[] | undefined>;
+    declare public readonly maintenanceDays: pulumi.Output<string[] | undefined>;
     /**
      * An identifier of the type of Monitor Downtime to be created.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.
      */
-    public readonly monitorGuids!: pulumi.Output<string[] | undefined>;
+    declare public readonly monitorGuids: pulumi.Output<string[] | undefined>;
     /**
      * A name to identify the Monitor Downtime to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A datetime stamp signifying the start of the Monitor Downtime.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * The timezone that applies to the Monitor Downtime schedule.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a MonitorDowntime resource with the given unique name, arguments, and options.
@@ -265,40 +264,40 @@ export class MonitorDowntime extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorDowntimeState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["endRepeat"] = state ? state.endRepeat : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["maintenanceDays"] = state ? state.maintenanceDays : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["monitorGuids"] = state ? state.monitorGuids : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["endRepeat"] = state?.endRepeat;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["maintenanceDays"] = state?.maintenanceDays;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["monitorGuids"] = state?.monitorGuids;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as MonitorDowntimeArgs | undefined;
-            if ((!args || args.endTime === undefined) && !opts.urn) {
+            if (args?.endTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endTime'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["endRepeat"] = args ? args.endRepeat : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["maintenanceDays"] = args ? args.maintenanceDays : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["monitorGuids"] = args ? args.monitorGuids : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["endRepeat"] = args?.endRepeat;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["maintenanceDays"] = args?.maintenanceDays;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["monitorGuids"] = args?.monitorGuids;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorDowntime.__pulumiType, name, resourceInputs, opts);
@@ -310,8 +309,7 @@ export class MonitorDowntime extends pulumi.CustomResource {
  */
 export interface MonitorDowntimeState {
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
-     * provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -357,8 +355,7 @@ export interface MonitorDowntimeState {
  */
 export interface MonitorDowntimeArgs {
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the
-     * provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      */
     accountId?: pulumi.Input<string>;
     /**

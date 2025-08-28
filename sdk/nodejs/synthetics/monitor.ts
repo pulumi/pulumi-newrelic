@@ -193,106 +193,106 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
      */
-    public readonly browsers!: pulumi.Output<string[] | undefined>;
+    declare public readonly browsers: pulumi.Output<string[] | undefined>;
     /**
      * Monitor should skip default HEAD request and instead use GET verb in check.
      *
      * The `BROWSER` monitor type supports the following additional arguments:
      */
-    public readonly bypassHeadRequest!: pulumi.Output<boolean | undefined>;
+    declare public readonly bypassHeadRequest: pulumi.Output<boolean | undefined>;
     /**
      * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      */
-    public readonly customHeaders!: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
+    declare public readonly customHeaders: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
-    public readonly deviceOrientation!: pulumi.Output<string | undefined>;
+    declare public readonly deviceOrientation: pulumi.Output<string | undefined>;
     /**
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
      * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      */
-    public readonly deviceType!: pulumi.Output<string | undefined>;
+    declare public readonly deviceType: pulumi.Output<string | undefined>;
     /**
      * The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
      */
-    public readonly devices!: pulumi.Output<string[] | undefined>;
+    declare public readonly devices: pulumi.Output<string[] | undefined>;
     /**
      * Capture a screenshot during job execution.
      */
-    public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableScreenshotOnFailureAndScript: pulumi.Output<boolean | undefined>;
     /**
      * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
-    public readonly locationsPrivates!: pulumi.Output<string[] | undefined>;
+    declare public readonly locationsPrivates: pulumi.Output<string[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
-    public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
+    declare public readonly locationsPublics: pulumi.Output<string[] | undefined>;
     /**
      * The monitor id of the Synthetics monitor (not to be confused with the GUID of the monitor).
      */
-    public /*out*/ readonly monitorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitorId: pulumi.Output<string>;
     /**
      * The human-readable identifier for the monitor.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
-    public readonly period!: pulumi.Output<string>;
+    declare public readonly period: pulumi.Output<string>;
     /**
      * The interval in minutes at which Synthetic monitor should run.
      */
-    public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
+    declare public /*out*/ readonly periodInMinutes: pulumi.Output<number>;
     /**
      * The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
      */
-    public readonly runtimeType!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeType: pulumi.Output<string | undefined>;
     /**
      * The specific version of the runtime type selected (`100`).
      */
-    public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeTypeVersion: pulumi.Output<string | undefined>;
     /**
      * The programing language that should execute the script.
      */
-    public readonly scriptLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly scriptLanguage: pulumi.Output<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details.
      *
      * The `SIMPLE` monitor type supports the following additional arguments:
      */
-    public readonly tags!: pulumi.Output<outputs.synthetics.MonitorTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.synthetics.MonitorTag[] | undefined>;
     /**
      * Categorize redirects during a monitor job as a failure.
      */
-    public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
+    declare public readonly treatRedirectAsFailure: pulumi.Output<boolean | undefined>;
     /**
      * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The URI the monitor runs against.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
-    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
+    declare public readonly uri: pulumi.Output<string | undefined>;
+    declare public readonly useUnsupportedLegacyRuntime: pulumi.Output<boolean | undefined>;
     /**
      * Validation text for monitor to search for at given URI.
      */
-    public readonly validationString!: pulumi.Output<string | undefined>;
+    declare public readonly validationString: pulumi.Output<string | undefined>;
     /**
      * Monitor should validate SSL certificate chain.
      */
-    public readonly verifySsl!: pulumi.Output<boolean | undefined>;
+    declare public readonly verifySsl: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -307,62 +307,62 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["browsers"] = state ? state.browsers : undefined;
-            resourceInputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
-            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
-            resourceInputs["deviceOrientation"] = state ? state.deviceOrientation : undefined;
-            resourceInputs["deviceType"] = state ? state.deviceType : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["enableScreenshotOnFailureAndScript"] = state ? state.enableScreenshotOnFailureAndScript : undefined;
-            resourceInputs["locationsPrivates"] = state ? state.locationsPrivates : undefined;
-            resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["period"] = state ? state.period : undefined;
-            resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
-            resourceInputs["runtimeType"] = state ? state.runtimeType : undefined;
-            resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
-            resourceInputs["scriptLanguage"] = state ? state.scriptLanguage : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["treatRedirectAsFailure"] = state ? state.treatRedirectAsFailure : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
-            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
-            resourceInputs["validationString"] = state ? state.validationString : undefined;
-            resourceInputs["verifySsl"] = state ? state.verifySsl : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["browsers"] = state?.browsers;
+            resourceInputs["bypassHeadRequest"] = state?.bypassHeadRequest;
+            resourceInputs["customHeaders"] = state?.customHeaders;
+            resourceInputs["deviceOrientation"] = state?.deviceOrientation;
+            resourceInputs["deviceType"] = state?.deviceType;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["enableScreenshotOnFailureAndScript"] = state?.enableScreenshotOnFailureAndScript;
+            resourceInputs["locationsPrivates"] = state?.locationsPrivates;
+            resourceInputs["locationsPublics"] = state?.locationsPublics;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["period"] = state?.period;
+            resourceInputs["periodInMinutes"] = state?.periodInMinutes;
+            resourceInputs["runtimeType"] = state?.runtimeType;
+            resourceInputs["runtimeTypeVersion"] = state?.runtimeTypeVersion;
+            resourceInputs["scriptLanguage"] = state?.scriptLanguage;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["treatRedirectAsFailure"] = state?.treatRedirectAsFailure;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["uri"] = state?.uri;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state?.useUnsupportedLegacyRuntime;
+            resourceInputs["validationString"] = state?.validationString;
+            resourceInputs["verifySsl"] = state?.verifySsl;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["browsers"] = args ? args.browsers : undefined;
-            resourceInputs["bypassHeadRequest"] = args ? args.bypassHeadRequest : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["deviceOrientation"] = args ? args.deviceOrientation : undefined;
-            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["enableScreenshotOnFailureAndScript"] = args ? args.enableScreenshotOnFailureAndScript : undefined;
-            resourceInputs["locationsPrivates"] = args ? args.locationsPrivates : undefined;
-            resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["runtimeType"] = args ? args.runtimeType : undefined;
-            resourceInputs["runtimeTypeVersion"] = args ? args.runtimeTypeVersion : undefined;
-            resourceInputs["scriptLanguage"] = args ? args.scriptLanguage : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["treatRedirectAsFailure"] = args ? args.treatRedirectAsFailure : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
-            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
-            resourceInputs["validationString"] = args ? args.validationString : undefined;
-            resourceInputs["verifySsl"] = args ? args.verifySsl : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["browsers"] = args?.browsers;
+            resourceInputs["bypassHeadRequest"] = args?.bypassHeadRequest;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["deviceOrientation"] = args?.deviceOrientation;
+            resourceInputs["deviceType"] = args?.deviceType;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["enableScreenshotOnFailureAndScript"] = args?.enableScreenshotOnFailureAndScript;
+            resourceInputs["locationsPrivates"] = args?.locationsPrivates;
+            resourceInputs["locationsPublics"] = args?.locationsPublics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["runtimeType"] = args?.runtimeType;
+            resourceInputs["runtimeTypeVersion"] = args?.runtimeTypeVersion;
+            resourceInputs["scriptLanguage"] = args?.scriptLanguage;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["treatRedirectAsFailure"] = args?.treatRedirectAsFailure;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["uri"] = args?.uri;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args?.useUnsupportedLegacyRuntime;
+            resourceInputs["validationString"] = args?.validationString;
+            resourceInputs["verifySsl"] = args?.verifySsl;
             resourceInputs["monitorId"] = undefined /*out*/;
             resourceInputs["periodInMinutes"] = undefined /*out*/;
         }

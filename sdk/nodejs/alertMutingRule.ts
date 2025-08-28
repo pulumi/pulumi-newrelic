@@ -87,31 +87,31 @@ export class AlertMutingRule extends pulumi.CustomResource {
     /**
      * The account id of the MutingRule.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
      */
-    public readonly actionOnMutingRuleWindowEnded!: pulumi.Output<string>;
+    declare public readonly actionOnMutingRuleWindowEnded: pulumi.Output<string>;
     /**
      * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
-    public readonly condition!: pulumi.Output<outputs.AlertMutingRuleCondition>;
+    declare public readonly condition: pulumi.Output<outputs.AlertMutingRuleCondition>;
     /**
      * The description of the MutingRule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether the MutingRule is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The name of the MutingRule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
-    public readonly schedule!: pulumi.Output<outputs.AlertMutingRuleSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.AlertMutingRuleSchedule | undefined>;
 
     /**
      * Create a AlertMutingRule resource with the given unique name, arguments, and options.
@@ -126,28 +126,28 @@ export class AlertMutingRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertMutingRuleState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["actionOnMutingRuleWindowEnded"] = state ? state.actionOnMutingRuleWindowEnded : undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["actionOnMutingRuleWindowEnded"] = state?.actionOnMutingRuleWindowEnded;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schedule"] = state?.schedule;
         } else {
             const args = argsOrState as AlertMutingRuleArgs | undefined;
-            if ((!args || args.condition === undefined) && !opts.urn) {
+            if (args?.condition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'condition'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["actionOnMutingRuleWindowEnded"] = args ? args.actionOnMutingRuleWindowEnded : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["actionOnMutingRuleWindowEnded"] = args?.actionOnMutingRuleWindowEnded;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schedule"] = args?.schedule;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertMutingRule.__pulumiType, name, resourceInputs, opts);

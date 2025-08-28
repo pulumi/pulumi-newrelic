@@ -46,35 +46,35 @@ export class BrowserApplication extends pulumi.CustomResource {
     /**
      * The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The application ID of the browser application (not to be confused with GUID).
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
      * Configures cookies. Defaults to `true`, if not specified.
      */
-    public readonly cookiesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cookiesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
      */
-    public readonly distributedTracingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly distributedTracingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The GUID of the browser application.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The JavaScript configuration of the browser application, encoded into a string.
      */
-    public /*out*/ readonly jsConfig!: pulumi.Output<string>;
+    declare public /*out*/ readonly jsConfig: pulumi.Output<string>;
     /**
      * Determines the browser loader configured. Valid values are `SPA`, `PRO`, and `LITE`. The default is `SPA`. Refer to the [browser agent loader documentation](https://docs.newrelic.com/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for more information on valid loader types.
      */
-    public readonly loaderType!: pulumi.Output<string | undefined>;
+    declare public readonly loaderType: pulumi.Output<string | undefined>;
     /**
      * The name of the browser application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a BrowserApplication resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class BrowserApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrowserApplicationState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["cookiesEnabled"] = state ? state.cookiesEnabled : undefined;
-            resourceInputs["distributedTracingEnabled"] = state ? state.distributedTracingEnabled : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["jsConfig"] = state ? state.jsConfig : undefined;
-            resourceInputs["loaderType"] = state ? state.loaderType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["cookiesEnabled"] = state?.cookiesEnabled;
+            resourceInputs["distributedTracingEnabled"] = state?.distributedTracingEnabled;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["jsConfig"] = state?.jsConfig;
+            resourceInputs["loaderType"] = state?.loaderType;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as BrowserApplicationArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["cookiesEnabled"] = args ? args.cookiesEnabled : undefined;
-            resourceInputs["distributedTracingEnabled"] = args ? args.distributedTracingEnabled : undefined;
-            resourceInputs["loaderType"] = args ? args.loaderType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["cookiesEnabled"] = args?.cookiesEnabled;
+            resourceInputs["distributedTracingEnabled"] = args?.distributedTracingEnabled;
+            resourceInputs["loaderType"] = args?.loaderType;
+            resourceInputs["name"] = args?.name;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["jsConfig"] = undefined /*out*/;

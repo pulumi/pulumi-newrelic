@@ -247,8 +247,7 @@ namespace Pulumi.NewRelic
     public partial class MonitorDowntime : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-        /// provider{} configuration if not specified.
+        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -354,8 +353,7 @@ namespace Pulumi.NewRelic
     public sealed class MonitorDowntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-        /// provider{} configuration if not specified.
+        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -435,8 +433,7 @@ namespace Pulumi.NewRelic
     public sealed class MonitorDowntimeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-        /// provider{} configuration if not specified.
+        /// The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

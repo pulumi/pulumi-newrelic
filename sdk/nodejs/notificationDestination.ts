@@ -106,53 +106,51 @@ export class NotificationDestination extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Indicates whether the destination is active.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
      */
-    public readonly authBasic!: pulumi.Output<outputs.NotificationDestinationAuthBasic | undefined>;
+    declare public readonly authBasic: pulumi.Output<outputs.NotificationDestinationAuthBasic | undefined>;
     /**
      * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
      */
-    public readonly authCustomHeaders!: pulumi.Output<outputs.NotificationDestinationAuthCustomHeader[] | undefined>;
+    declare public readonly authCustomHeaders: pulumi.Output<outputs.NotificationDestinationAuthCustomHeader[] | undefined>;
     /**
      * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      */
-    public readonly authToken!: pulumi.Output<outputs.NotificationDestinationAuthToken | undefined>;
+    declare public readonly authToken: pulumi.Output<outputs.NotificationDestinationAuthToken | undefined>;
     /**
      * The unique entity identifier of the destination in New Relic.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The last time a notification was sent.
      */
-    public /*out*/ readonly lastSent!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSent: pulumi.Output<string>;
     /**
      * The name of the destination.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
      */
-    public readonly properties!: pulumi.Output<outputs.NotificationDestinationProperty[]>;
+    declare public readonly properties: pulumi.Output<outputs.NotificationDestinationProperty[]>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */
-    public readonly secureUrl!: pulumi.Output<outputs.NotificationDestinationSecureUrl | undefined>;
+    declare public readonly secureUrl: pulumi.Output<outputs.NotificationDestinationSecureUrl | undefined>;
     /**
      * The status of the destination.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
-     * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a NotificationDestination resource with the given unique name, arguments, and options.
@@ -167,35 +165,35 @@ export class NotificationDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationDestinationState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["authBasic"] = state ? state.authBasic : undefined;
-            resourceInputs["authCustomHeaders"] = state ? state.authCustomHeaders : undefined;
-            resourceInputs["authToken"] = state ? state.authToken : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["lastSent"] = state ? state.lastSent : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["secureUrl"] = state ? state.secureUrl : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["authBasic"] = state?.authBasic;
+            resourceInputs["authCustomHeaders"] = state?.authCustomHeaders;
+            resourceInputs["authToken"] = state?.authToken;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["lastSent"] = state?.lastSent;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["secureUrl"] = state?.secureUrl;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as NotificationDestinationArgs | undefined;
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["authBasic"] = args ? args.authBasic : undefined;
-            resourceInputs["authCustomHeaders"] = args ? args.authCustomHeaders : undefined;
-            resourceInputs["authToken"] = args ? args.authToken : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["secureUrl"] = args ? args.secureUrl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["authBasic"] = args?.authBasic;
+            resourceInputs["authCustomHeaders"] = args?.authCustomHeaders;
+            resourceInputs["authToken"] = args?.authToken;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["secureUrl"] = args?.secureUrl;
+            resourceInputs["type"] = args?.type;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["lastSent"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -254,9 +252,7 @@ export interface NotificationDestinationState {
      */
     status?: pulumi.Input<string>;
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
-     * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      */
     type?: pulumi.Input<string>;
 }
@@ -298,9 +294,7 @@ export interface NotificationDestinationArgs {
      */
     secureUrl?: pulumi.Input<inputs.NotificationDestinationSecureUrl>;
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,
-     * PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,
-     * MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
      */
     type: pulumi.Input<string>;
 }
