@@ -103,7 +103,7 @@
             },
             "region": {
                 "type": "string",
-                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n",
+                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.",
                 "default": "US",
                 "defaultInfo": {
                     "environment": [
@@ -8456,7 +8456,7 @@
             },
             "region": {
                 "type": "string",
-                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n"
+                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted."
             },
             "syntheticsApiUrl": {
                 "type": "string",
@@ -8511,7 +8511,7 @@
             },
             "region": {
                 "type": "string",
-                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n",
+                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.",
                 "default": "US",
                 "defaultInfo": {
                     "environment": [
@@ -8610,7 +8610,7 @@
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsS3:AwsGovcloudIntegrationsS3",
-                    "description": "The s3 integration\n"
+                    "description": "The s3 integration"
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSns:AwsGovcloudIntegrationsSns",
@@ -8704,7 +8704,7 @@
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsS3:AwsGovcloudIntegrationsS3",
-                    "description": "The s3 integration\n"
+                    "description": "The s3 integration"
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSns:AwsGovcloudIntegrationsSns",
@@ -8799,7 +8799,7 @@
                     },
                     "s3": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsS3:AwsGovcloudIntegrationsS3",
-                        "description": "The s3 integration\n"
+                        "description": "The s3 integration"
                     },
                     "sns": {
                         "$ref": "#/types/newrelic:cloud/AwsGovcloudIntegrationsSns:AwsGovcloudIntegrationsSns",
@@ -8895,175 +8895,175 @@
                 },
                 "alb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAlb:AwsIntegrationsAlb",
-                    "description": "ALB integration\n"
+                    "description": "ALB integration"
                 },
                 "apiGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsApiGateway:AwsIntegrationsApiGateway",
-                    "description": "API Gateway integration\n"
+                    "description": "API Gateway integration"
                 },
                 "autoScaling": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAutoScaling:AwsIntegrationsAutoScaling",
-                    "description": "AutoScaling integration\n"
+                    "description": "AutoScaling integration"
                 },
                 "awsAppSync": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAppSync:AwsIntegrationsAwsAppSync",
-                    "description": "Aws Appsync integration\n"
+                    "description": "Aws Appsync integration"
                 },
                 "awsAthena": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAthena:AwsIntegrationsAwsAthena",
-                    "description": "Aws Athena integration\n"
+                    "description": "Aws Athena integration"
                 },
                 "awsAutoDiscovery": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAutoDiscovery:AwsIntegrationsAwsAutoDiscovery",
-                    "description": "Aws Auto Discovery Integration\n"
+                    "description": "Aws Auto Discovery Integration"
                 },
                 "awsCognito": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsCognito:AwsIntegrationsAwsCognito",
-                    "description": "Aws Cognito integration\n"
+                    "description": "Aws Cognito integration"
                 },
                 "awsConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsConnect:AwsIntegrationsAwsConnect",
-                    "description": "Aws Connect integration\n"
+                    "description": "Aws Connect integration"
                 },
                 "awsDirectConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsDirectConnect:AwsIntegrationsAwsDirectConnect",
-                    "description": "Aws Direct Connect integration\n"
+                    "description": "Aws Direct Connect integration"
                 },
                 "awsFsx": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsFsx:AwsIntegrationsAwsFsx",
-                    "description": "Aws Fsx integration\n"
+                    "description": "Aws Fsx integration"
                 },
                 "awsGlue": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsGlue:AwsIntegrationsAwsGlue",
-                    "description": "Aws Glue integration\n"
+                    "description": "Aws Glue integration"
                 },
                 "awsKinesisAnalytics": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsKinesisAnalytics:AwsIntegrationsAwsKinesisAnalytics",
-                    "description": "Aws Kinesis Analytics integration\n"
+                    "description": "Aws Kinesis Analytics integration"
                 },
                 "awsMediaConvert": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaConvert:AwsIntegrationsAwsMediaConvert",
-                    "description": "Aws Media Convert integration\n"
+                    "description": "Aws Media Convert integration"
                 },
                 "awsMediaPackageVod": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaPackageVod:AwsIntegrationsAwsMediaPackageVod",
-                    "description": "Aws Media PackageVod integration\n"
+                    "description": "Aws Media PackageVod integration"
                 },
                 "awsMq": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMq:AwsIntegrationsAwsMq",
-                    "description": "Aws Mq integration\n"
+                    "description": "Aws Mq integration"
                 },
                 "awsMsk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMsk:AwsIntegrationsAwsMsk",
-                    "description": "Aws Msk integration\n"
+                    "description": "Aws Msk integration"
                 },
                 "awsNeptune": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsNeptune:AwsIntegrationsAwsNeptune",
-                    "description": "Aws Neptune integration\n"
+                    "description": "Aws Neptune integration"
                 },
                 "awsQldb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsQldb:AwsIntegrationsAwsQldb",
-                    "description": "Aws Qldb integration\n"
+                    "description": "Aws Qldb integration"
                 },
                 "awsRoute53resolver": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsRoute53resolver:AwsIntegrationsAwsRoute53resolver",
-                    "description": "Aws Route53resolver integration\n"
+                    "description": "Aws Route53resolver integration"
                 },
                 "awsStates": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsStates:AwsIntegrationsAwsStates",
-                    "description": "Aws states integration\n"
+                    "description": "Aws states integration"
                 },
                 "awsTransitGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsTransitGateway:AwsIntegrationsAwsTransitGateway",
-                    "description": "Aws Transit Gateway integration\n"
+                    "description": "Aws Transit Gateway integration"
                 },
                 "awsWaf": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWaf:AwsIntegrationsAwsWaf",
-                    "description": "Aws Waf integration\n"
+                    "description": "Aws Waf integration"
                 },
                 "awsWafv2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWafv2:AwsIntegrationsAwsWafv2",
-                    "description": "Aws Wafv2 integration\n"
+                    "description": "Aws Wafv2 integration"
                 },
                 "billing": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsBilling:AwsIntegrationsBilling",
-                    "description": "Billing integration\n"
+                    "description": "Billing integration"
                 },
                 "cloudfront": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront",
-                    "description": "Cloudfront integration\n"
+                    "description": "Cloudfront integration"
                 },
                 "cloudtrail": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudtrail:AwsIntegrationsCloudtrail",
-                    "description": "CloudTrail integration\n"
+                    "description": "CloudTrail integration"
                 },
                 "docDb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDocDb:AwsIntegrationsDocDb",
-                    "description": "Doc DB integration\n"
+                    "description": "Doc DB integration"
                 },
                 "dynamodb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDynamodb:AwsIntegrationsDynamodb",
-                    "description": "Dynamo DB integration\n"
+                    "description": "Dynamo DB integration"
                 },
                 "ebs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEbs:AwsIntegrationsEbs",
-                    "description": "EBS integration\n"
+                    "description": "EBS integration"
                 },
                 "ec2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEc2:AwsIntegrationsEc2",
-                    "description": "Ec2 integration\n"
+                    "description": "Ec2 integration"
                 },
                 "ecs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEcs:AwsIntegrationsEcs",
-                    "description": "Ecs integration\n"
+                    "description": "Ecs integration"
                 },
                 "efs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEfs:AwsIntegrationsEfs",
-                    "description": "Efs integration\n"
+                    "description": "Efs integration"
                 },
                 "elasticache": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticache:AwsIntegrationsElasticache",
-                    "description": "Elasticache integration\n"
+                    "description": "Elasticache integration"
                 },
                 "elasticbeanstalk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticbeanstalk:AwsIntegrationsElasticbeanstalk",
-                    "description": "Elastic Bean Stalk integration\n"
+                    "description": "Elastic Bean Stalk integration"
                 },
                 "elasticsearch": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticsearch:AwsIntegrationsElasticsearch",
-                    "description": "Elastic Search integration\n"
+                    "description": "Elastic Search integration"
                 },
                 "elb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElb:AwsIntegrationsElb",
-                    "description": "Elb integration\n"
+                    "description": "Elb integration"
                 },
                 "emr": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEmr:AwsIntegrationsEmr",
-                    "description": "Emr integration\n"
+                    "description": "Emr integration"
                 },
                 "health": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsHealth:AwsIntegrationsHealth",
-                    "description": "Health integration\n"
+                    "description": "Health integration"
                 },
                 "iam": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIam:AwsIntegrationsIam",
-                    "description": "Iam integration\n"
+                    "description": "Iam integration"
                 },
                 "iot": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIot:AwsIntegrationsIot",
-                    "description": "Iot integration\n"
+                    "description": "Iot integration"
                 },
                 "kinesis": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesis:AwsIntegrationsKinesis",
-                    "description": "Kinesis integration\n"
+                    "description": "Kinesis integration"
                 },
                 "kinesisFirehose": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesisFirehose:AwsIntegrationsKinesisFirehose",
-                    "description": "Kinesis Firehose integration\n"
+                    "description": "Kinesis Firehose integration"
                 },
                 "lambda": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsLambda:AwsIntegrationsLambda",
-                    "description": "Lambda integration\n"
+                    "description": "Lambda integration"
                 },
                 "linkedAccountId": {
                     "type": "string",
@@ -9071,43 +9071,43 @@
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
-                    "description": "Rds integration\n"
+                    "description": "Rds integration"
                 },
                 "redshift": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRedshift:AwsIntegrationsRedshift",
-                    "description": "Redshift integration\n"
+                    "description": "Redshift integration"
                 },
                 "route53": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53",
-                    "description": "Route53 integration\n"
+                    "description": "Route53 integration"
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3",
-                    "description": "S3 integration\n"
+                    "description": "S3 integration"
                 },
                 "ses": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSes:AwsIntegrationsSes",
-                    "description": "Ses integration\n"
+                    "description": "Ses integration"
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSns:AwsIntegrationsSns",
-                    "description": "Sns integration\n"
+                    "description": "Sns integration"
                 },
                 "sqs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSqs:AwsIntegrationsSqs",
-                    "description": "SQS integration\n"
+                    "description": "SQS integration"
                 },
                 "trustedAdvisor": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsTrustedAdvisor:AwsIntegrationsTrustedAdvisor",
-                    "description": "Trusted Advisor integration\n"
+                    "description": "Trusted Advisor integration"
                 },
                 "vpc": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsVpc:AwsIntegrationsVpc",
-                    "description": "VPC integration\n"
+                    "description": "VPC integration"
                 },
                 "xRay": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsXRay:AwsIntegrationsXRay",
-                    "description": "X-Ray integration\n"
+                    "description": "X-Ray integration"
                 }
             },
             "required": [
@@ -9121,175 +9121,175 @@
                 },
                 "alb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAlb:AwsIntegrationsAlb",
-                    "description": "ALB integration\n"
+                    "description": "ALB integration"
                 },
                 "apiGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsApiGateway:AwsIntegrationsApiGateway",
-                    "description": "API Gateway integration\n"
+                    "description": "API Gateway integration"
                 },
                 "autoScaling": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAutoScaling:AwsIntegrationsAutoScaling",
-                    "description": "AutoScaling integration\n"
+                    "description": "AutoScaling integration"
                 },
                 "awsAppSync": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAppSync:AwsIntegrationsAwsAppSync",
-                    "description": "Aws Appsync integration\n"
+                    "description": "Aws Appsync integration"
                 },
                 "awsAthena": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAthena:AwsIntegrationsAwsAthena",
-                    "description": "Aws Athena integration\n"
+                    "description": "Aws Athena integration"
                 },
                 "awsAutoDiscovery": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAutoDiscovery:AwsIntegrationsAwsAutoDiscovery",
-                    "description": "Aws Auto Discovery Integration\n"
+                    "description": "Aws Auto Discovery Integration"
                 },
                 "awsCognito": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsCognito:AwsIntegrationsAwsCognito",
-                    "description": "Aws Cognito integration\n"
+                    "description": "Aws Cognito integration"
                 },
                 "awsConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsConnect:AwsIntegrationsAwsConnect",
-                    "description": "Aws Connect integration\n"
+                    "description": "Aws Connect integration"
                 },
                 "awsDirectConnect": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsDirectConnect:AwsIntegrationsAwsDirectConnect",
-                    "description": "Aws Direct Connect integration\n"
+                    "description": "Aws Direct Connect integration"
                 },
                 "awsFsx": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsFsx:AwsIntegrationsAwsFsx",
-                    "description": "Aws Fsx integration\n"
+                    "description": "Aws Fsx integration"
                 },
                 "awsGlue": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsGlue:AwsIntegrationsAwsGlue",
-                    "description": "Aws Glue integration\n"
+                    "description": "Aws Glue integration"
                 },
                 "awsKinesisAnalytics": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsKinesisAnalytics:AwsIntegrationsAwsKinesisAnalytics",
-                    "description": "Aws Kinesis Analytics integration\n"
+                    "description": "Aws Kinesis Analytics integration"
                 },
                 "awsMediaConvert": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaConvert:AwsIntegrationsAwsMediaConvert",
-                    "description": "Aws Media Convert integration\n"
+                    "description": "Aws Media Convert integration"
                 },
                 "awsMediaPackageVod": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaPackageVod:AwsIntegrationsAwsMediaPackageVod",
-                    "description": "Aws Media PackageVod integration\n"
+                    "description": "Aws Media PackageVod integration"
                 },
                 "awsMq": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMq:AwsIntegrationsAwsMq",
-                    "description": "Aws Mq integration\n"
+                    "description": "Aws Mq integration"
                 },
                 "awsMsk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMsk:AwsIntegrationsAwsMsk",
-                    "description": "Aws Msk integration\n"
+                    "description": "Aws Msk integration"
                 },
                 "awsNeptune": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsNeptune:AwsIntegrationsAwsNeptune",
-                    "description": "Aws Neptune integration\n"
+                    "description": "Aws Neptune integration"
                 },
                 "awsQldb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsQldb:AwsIntegrationsAwsQldb",
-                    "description": "Aws Qldb integration\n"
+                    "description": "Aws Qldb integration"
                 },
                 "awsRoute53resolver": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsRoute53resolver:AwsIntegrationsAwsRoute53resolver",
-                    "description": "Aws Route53resolver integration\n"
+                    "description": "Aws Route53resolver integration"
                 },
                 "awsStates": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsStates:AwsIntegrationsAwsStates",
-                    "description": "Aws states integration\n"
+                    "description": "Aws states integration"
                 },
                 "awsTransitGateway": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsTransitGateway:AwsIntegrationsAwsTransitGateway",
-                    "description": "Aws Transit Gateway integration\n"
+                    "description": "Aws Transit Gateway integration"
                 },
                 "awsWaf": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWaf:AwsIntegrationsAwsWaf",
-                    "description": "Aws Waf integration\n"
+                    "description": "Aws Waf integration"
                 },
                 "awsWafv2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWafv2:AwsIntegrationsAwsWafv2",
-                    "description": "Aws Wafv2 integration\n"
+                    "description": "Aws Wafv2 integration"
                 },
                 "billing": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsBilling:AwsIntegrationsBilling",
-                    "description": "Billing integration\n"
+                    "description": "Billing integration"
                 },
                 "cloudfront": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront",
-                    "description": "Cloudfront integration\n"
+                    "description": "Cloudfront integration"
                 },
                 "cloudtrail": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudtrail:AwsIntegrationsCloudtrail",
-                    "description": "CloudTrail integration\n"
+                    "description": "CloudTrail integration"
                 },
                 "docDb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDocDb:AwsIntegrationsDocDb",
-                    "description": "Doc DB integration\n"
+                    "description": "Doc DB integration"
                 },
                 "dynamodb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsDynamodb:AwsIntegrationsDynamodb",
-                    "description": "Dynamo DB integration\n"
+                    "description": "Dynamo DB integration"
                 },
                 "ebs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEbs:AwsIntegrationsEbs",
-                    "description": "EBS integration\n"
+                    "description": "EBS integration"
                 },
                 "ec2": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEc2:AwsIntegrationsEc2",
-                    "description": "Ec2 integration\n"
+                    "description": "Ec2 integration"
                 },
                 "ecs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEcs:AwsIntegrationsEcs",
-                    "description": "Ecs integration\n"
+                    "description": "Ecs integration"
                 },
                 "efs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEfs:AwsIntegrationsEfs",
-                    "description": "Efs integration\n"
+                    "description": "Efs integration"
                 },
                 "elasticache": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticache:AwsIntegrationsElasticache",
-                    "description": "Elasticache integration\n"
+                    "description": "Elasticache integration"
                 },
                 "elasticbeanstalk": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticbeanstalk:AwsIntegrationsElasticbeanstalk",
-                    "description": "Elastic Bean Stalk integration\n"
+                    "description": "Elastic Bean Stalk integration"
                 },
                 "elasticsearch": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticsearch:AwsIntegrationsElasticsearch",
-                    "description": "Elastic Search integration\n"
+                    "description": "Elastic Search integration"
                 },
                 "elb": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsElb:AwsIntegrationsElb",
-                    "description": "Elb integration\n"
+                    "description": "Elb integration"
                 },
                 "emr": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsEmr:AwsIntegrationsEmr",
-                    "description": "Emr integration\n"
+                    "description": "Emr integration"
                 },
                 "health": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsHealth:AwsIntegrationsHealth",
-                    "description": "Health integration\n"
+                    "description": "Health integration"
                 },
                 "iam": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIam:AwsIntegrationsIam",
-                    "description": "Iam integration\n"
+                    "description": "Iam integration"
                 },
                 "iot": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsIot:AwsIntegrationsIot",
-                    "description": "Iot integration\n"
+                    "description": "Iot integration"
                 },
                 "kinesis": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesis:AwsIntegrationsKinesis",
-                    "description": "Kinesis integration\n"
+                    "description": "Kinesis integration"
                 },
                 "kinesisFirehose": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesisFirehose:AwsIntegrationsKinesisFirehose",
-                    "description": "Kinesis Firehose integration\n"
+                    "description": "Kinesis Firehose integration"
                 },
                 "lambda": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsLambda:AwsIntegrationsLambda",
-                    "description": "Lambda integration\n"
+                    "description": "Lambda integration"
                 },
                 "linkedAccountId": {
                     "type": "string",
@@ -9298,43 +9298,43 @@
                 },
                 "rds": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
-                    "description": "Rds integration\n"
+                    "description": "Rds integration"
                 },
                 "redshift": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRedshift:AwsIntegrationsRedshift",
-                    "description": "Redshift integration\n"
+                    "description": "Redshift integration"
                 },
                 "route53": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53",
-                    "description": "Route53 integration\n"
+                    "description": "Route53 integration"
                 },
                 "s3": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3",
-                    "description": "S3 integration\n"
+                    "description": "S3 integration"
                 },
                 "ses": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSes:AwsIntegrationsSes",
-                    "description": "Ses integration\n"
+                    "description": "Ses integration"
                 },
                 "sns": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSns:AwsIntegrationsSns",
-                    "description": "Sns integration\n"
+                    "description": "Sns integration"
                 },
                 "sqs": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsSqs:AwsIntegrationsSqs",
-                    "description": "SQS integration\n"
+                    "description": "SQS integration"
                 },
                 "trustedAdvisor": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsTrustedAdvisor:AwsIntegrationsTrustedAdvisor",
-                    "description": "Trusted Advisor integration\n"
+                    "description": "Trusted Advisor integration"
                 },
                 "vpc": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsVpc:AwsIntegrationsVpc",
-                    "description": "VPC integration\n"
+                    "description": "VPC integration"
                 },
                 "xRay": {
                     "$ref": "#/types/newrelic:cloud/AwsIntegrationsXRay:AwsIntegrationsXRay",
-                    "description": "X-Ray integration\n"
+                    "description": "X-Ray integration"
                 }
             },
             "requiredInputs": [
@@ -9349,175 +9349,175 @@
                     },
                     "alb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAlb:AwsIntegrationsAlb",
-                        "description": "ALB integration\n"
+                        "description": "ALB integration"
                     },
                     "apiGateway": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsApiGateway:AwsIntegrationsApiGateway",
-                        "description": "API Gateway integration\n"
+                        "description": "API Gateway integration"
                     },
                     "autoScaling": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAutoScaling:AwsIntegrationsAutoScaling",
-                        "description": "AutoScaling integration\n"
+                        "description": "AutoScaling integration"
                     },
                     "awsAppSync": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAppSync:AwsIntegrationsAwsAppSync",
-                        "description": "Aws Appsync integration\n"
+                        "description": "Aws Appsync integration"
                     },
                     "awsAthena": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAthena:AwsIntegrationsAwsAthena",
-                        "description": "Aws Athena integration\n"
+                        "description": "Aws Athena integration"
                     },
                     "awsAutoDiscovery": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsAutoDiscovery:AwsIntegrationsAwsAutoDiscovery",
-                        "description": "Aws Auto Discovery Integration\n"
+                        "description": "Aws Auto Discovery Integration"
                     },
                     "awsCognito": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsCognito:AwsIntegrationsAwsCognito",
-                        "description": "Aws Cognito integration\n"
+                        "description": "Aws Cognito integration"
                     },
                     "awsConnect": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsConnect:AwsIntegrationsAwsConnect",
-                        "description": "Aws Connect integration\n"
+                        "description": "Aws Connect integration"
                     },
                     "awsDirectConnect": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsDirectConnect:AwsIntegrationsAwsDirectConnect",
-                        "description": "Aws Direct Connect integration\n"
+                        "description": "Aws Direct Connect integration"
                     },
                     "awsFsx": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsFsx:AwsIntegrationsAwsFsx",
-                        "description": "Aws Fsx integration\n"
+                        "description": "Aws Fsx integration"
                     },
                     "awsGlue": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsGlue:AwsIntegrationsAwsGlue",
-                        "description": "Aws Glue integration\n"
+                        "description": "Aws Glue integration"
                     },
                     "awsKinesisAnalytics": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsKinesisAnalytics:AwsIntegrationsAwsKinesisAnalytics",
-                        "description": "Aws Kinesis Analytics integration\n"
+                        "description": "Aws Kinesis Analytics integration"
                     },
                     "awsMediaConvert": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaConvert:AwsIntegrationsAwsMediaConvert",
-                        "description": "Aws Media Convert integration\n"
+                        "description": "Aws Media Convert integration"
                     },
                     "awsMediaPackageVod": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMediaPackageVod:AwsIntegrationsAwsMediaPackageVod",
-                        "description": "Aws Media PackageVod integration\n"
+                        "description": "Aws Media PackageVod integration"
                     },
                     "awsMq": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMq:AwsIntegrationsAwsMq",
-                        "description": "Aws Mq integration\n"
+                        "description": "Aws Mq integration"
                     },
                     "awsMsk": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsMsk:AwsIntegrationsAwsMsk",
-                        "description": "Aws Msk integration\n"
+                        "description": "Aws Msk integration"
                     },
                     "awsNeptune": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsNeptune:AwsIntegrationsAwsNeptune",
-                        "description": "Aws Neptune integration\n"
+                        "description": "Aws Neptune integration"
                     },
                     "awsQldb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsQldb:AwsIntegrationsAwsQldb",
-                        "description": "Aws Qldb integration\n"
+                        "description": "Aws Qldb integration"
                     },
                     "awsRoute53resolver": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsRoute53resolver:AwsIntegrationsAwsRoute53resolver",
-                        "description": "Aws Route53resolver integration\n"
+                        "description": "Aws Route53resolver integration"
                     },
                     "awsStates": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsStates:AwsIntegrationsAwsStates",
-                        "description": "Aws states integration\n"
+                        "description": "Aws states integration"
                     },
                     "awsTransitGateway": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsTransitGateway:AwsIntegrationsAwsTransitGateway",
-                        "description": "Aws Transit Gateway integration\n"
+                        "description": "Aws Transit Gateway integration"
                     },
                     "awsWaf": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWaf:AwsIntegrationsAwsWaf",
-                        "description": "Aws Waf integration\n"
+                        "description": "Aws Waf integration"
                     },
                     "awsWafv2": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsAwsWafv2:AwsIntegrationsAwsWafv2",
-                        "description": "Aws Wafv2 integration\n"
+                        "description": "Aws Wafv2 integration"
                     },
                     "billing": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsBilling:AwsIntegrationsBilling",
-                        "description": "Billing integration\n"
+                        "description": "Billing integration"
                     },
                     "cloudfront": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudfront:AwsIntegrationsCloudfront",
-                        "description": "Cloudfront integration\n"
+                        "description": "Cloudfront integration"
                     },
                     "cloudtrail": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsCloudtrail:AwsIntegrationsCloudtrail",
-                        "description": "CloudTrail integration\n"
+                        "description": "CloudTrail integration"
                     },
                     "docDb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsDocDb:AwsIntegrationsDocDb",
-                        "description": "Doc DB integration\n"
+                        "description": "Doc DB integration"
                     },
                     "dynamodb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsDynamodb:AwsIntegrationsDynamodb",
-                        "description": "Dynamo DB integration\n"
+                        "description": "Dynamo DB integration"
                     },
                     "ebs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEbs:AwsIntegrationsEbs",
-                        "description": "EBS integration\n"
+                        "description": "EBS integration"
                     },
                     "ec2": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEc2:AwsIntegrationsEc2",
-                        "description": "Ec2 integration\n"
+                        "description": "Ec2 integration"
                     },
                     "ecs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEcs:AwsIntegrationsEcs",
-                        "description": "Ecs integration\n"
+                        "description": "Ecs integration"
                     },
                     "efs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEfs:AwsIntegrationsEfs",
-                        "description": "Efs integration\n"
+                        "description": "Efs integration"
                     },
                     "elasticache": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticache:AwsIntegrationsElasticache",
-                        "description": "Elasticache integration\n"
+                        "description": "Elasticache integration"
                     },
                     "elasticbeanstalk": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticbeanstalk:AwsIntegrationsElasticbeanstalk",
-                        "description": "Elastic Bean Stalk integration\n"
+                        "description": "Elastic Bean Stalk integration"
                     },
                     "elasticsearch": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElasticsearch:AwsIntegrationsElasticsearch",
-                        "description": "Elastic Search integration\n"
+                        "description": "Elastic Search integration"
                     },
                     "elb": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsElb:AwsIntegrationsElb",
-                        "description": "Elb integration\n"
+                        "description": "Elb integration"
                     },
                     "emr": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsEmr:AwsIntegrationsEmr",
-                        "description": "Emr integration\n"
+                        "description": "Emr integration"
                     },
                     "health": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsHealth:AwsIntegrationsHealth",
-                        "description": "Health integration\n"
+                        "description": "Health integration"
                     },
                     "iam": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsIam:AwsIntegrationsIam",
-                        "description": "Iam integration\n"
+                        "description": "Iam integration"
                     },
                     "iot": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsIot:AwsIntegrationsIot",
-                        "description": "Iot integration\n"
+                        "description": "Iot integration"
                     },
                     "kinesis": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesis:AwsIntegrationsKinesis",
-                        "description": "Kinesis integration\n"
+                        "description": "Kinesis integration"
                     },
                     "kinesisFirehose": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsKinesisFirehose:AwsIntegrationsKinesisFirehose",
-                        "description": "Kinesis Firehose integration\n"
+                        "description": "Kinesis Firehose integration"
                     },
                     "lambda": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsLambda:AwsIntegrationsLambda",
-                        "description": "Lambda integration\n"
+                        "description": "Lambda integration"
                     },
                     "linkedAccountId": {
                         "type": "string",
@@ -9526,43 +9526,43 @@
                     },
                     "rds": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRds:AwsIntegrationsRds",
-                        "description": "Rds integration\n"
+                        "description": "Rds integration"
                     },
                     "redshift": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRedshift:AwsIntegrationsRedshift",
-                        "description": "Redshift integration\n"
+                        "description": "Redshift integration"
                     },
                     "route53": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsRoute53:AwsIntegrationsRoute53",
-                        "description": "Route53 integration\n"
+                        "description": "Route53 integration"
                     },
                     "s3": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsS3:AwsIntegrationsS3",
-                        "description": "S3 integration\n"
+                        "description": "S3 integration"
                     },
                     "ses": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsSes:AwsIntegrationsSes",
-                        "description": "Ses integration\n"
+                        "description": "Ses integration"
                     },
                     "sns": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsSns:AwsIntegrationsSns",
-                        "description": "Sns integration\n"
+                        "description": "Sns integration"
                     },
                     "sqs": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsSqs:AwsIntegrationsSqs",
-                        "description": "SQS integration\n"
+                        "description": "SQS integration"
                     },
                     "trustedAdvisor": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsTrustedAdvisor:AwsIntegrationsTrustedAdvisor",
-                        "description": "Trusted Advisor integration\n"
+                        "description": "Trusted Advisor integration"
                     },
                     "vpc": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsVpc:AwsIntegrationsVpc",
-                        "description": "VPC integration\n"
+                        "description": "VPC integration"
                     },
                     "xRay": {
                         "$ref": "#/types/newrelic:cloud/AwsIntegrationsXRay:AwsIntegrationsXRay",
-                        "description": "X-Ray integration\n"
+                        "description": "X-Ray integration"
                     }
                 },
                 "type": "object"
@@ -9585,7 +9585,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the linked account.\n"
+                    "description": "The name of the linked account."
                 }
             },
             "required": [
@@ -9611,7 +9611,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the linked account.\n"
+                    "description": "The name of the linked account."
                 }
             },
             "requiredInputs": [
@@ -9637,7 +9637,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the linked account.\n"
+                        "description": "The name of the linked account."
                     }
                 },
                 "type": "object"
@@ -10553,7 +10553,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "name of the linked account\n"
+                    "description": "name of the linked account"
                 },
                 "projectId": {
                     "type": "string",
@@ -10573,7 +10573,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "name of the linked account\n"
+                    "description": "name of the linked account"
                 },
                 "projectId": {
                     "type": "string",
@@ -10594,7 +10594,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "name of the linked account\n"
+                        "description": "name of the linked account"
                     },
                     "projectId": {
                         "type": "string",
@@ -11334,7 +11334,7 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The GUID of the browser application.\n"
+                    "description": "The GUID of the browser application."
                 },
                 "jsConfig": {
                     "type": "string",
@@ -11399,7 +11399,7 @@
                     },
                     "guid": {
                         "type": "string",
-                        "description": "The GUID of the browser application.\n"
+                        "description": "The GUID of the browser application."
                     },
                     "jsConfig": {
                         "type": "string",
@@ -12100,11 +12100,11 @@
                 },
                 "attribute": {
                     "type": "string",
-                    "description": "The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.\n"
+                    "description": "The parsing rule will apply to value of this attribute. If field is not provided, value will default to message."
                 },
                 "deleted": {
                     "type": "boolean",
-                    "description": "Whether or not this rule is deleted.\n"
+                    "description": "Whether or not this rule is deleted."
                 },
                 "enabled": {
                     "type": "boolean",
@@ -12148,7 +12148,7 @@
                 },
                 "attribute": {
                     "type": "string",
-                    "description": "The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.\n"
+                    "description": "The parsing rule will apply to value of this attribute. If field is not provided, value will default to message."
                 },
                 "enabled": {
                     "type": "boolean",
@@ -12190,11 +12190,11 @@
                     },
                     "attribute": {
                         "type": "string",
-                        "description": "The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.\n"
+                        "description": "The parsing rule will apply to value of this attribute. If field is not provided, value will default to message."
                     },
                     "deleted": {
                         "type": "boolean",
-                        "description": "Whether or not this rule is deleted.\n"
+                        "description": "Whether or not this rule is deleted."
                     },
                     "enabled": {
                         "type": "boolean",
@@ -12229,49 +12229,49 @@
             "properties": {
                 "accountId": {
                     "type": "string",
-                    "description": "The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the\nprovider{} configuration if not specified.\n"
+                    "description": "The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified."
                 },
                 "endRepeat": {
                     "$ref": "#/types/newrelic:index/MonitorDowntimeEndRepeat:MonitorDowntimeEndRepeat",
-                    "description": "A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.\n"
+                    "description": "A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date."
                 },
                 "endTime": {
                     "type": "string",
-                    "description": "A datetime stamp signifying the end of the Monitor Downtime.\n"
+                    "description": "A datetime stamp signifying the end of the Monitor Downtime."
                 },
                 "frequency": {
                     "$ref": "#/types/newrelic:index/MonitorDowntimeFrequency:MonitorDowntimeFrequency",
-                    "description": "Configuration options for which days of the month a monitor downtime will occur\n"
+                    "description": "Configuration options for which days of the month a monitor downtime will occur"
                 },
                 "maintenanceDays": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of maintenance days to be included with the created weekly Monitor Downtime.\n"
+                    "description": "A list of maintenance days to be included with the created weekly Monitor Downtime."
                 },
                 "mode": {
                     "type": "string",
-                    "description": "An identifier of the type of Monitor Downtime to be created.\n"
+                    "description": "An identifier of the type of Monitor Downtime to be created."
                 },
                 "monitorGuids": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.\n"
+                    "description": "A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied."
                 },
                 "name": {
                     "type": "string",
-                    "description": "A name to identify the Monitor Downtime to be created.\n"
+                    "description": "A name to identify the Monitor Downtime to be created."
                 },
                 "startTime": {
                     "type": "string",
-                    "description": "A datetime stamp signifying the start of the Monitor Downtime.\n"
+                    "description": "A datetime stamp signifying the start of the Monitor Downtime."
                 },
                 "timeZone": {
                     "type": "string",
-                    "description": "The timezone that applies to the Monitor Downtime schedule.\n"
+                    "description": "The timezone that applies to the Monitor Downtime schedule."
                 }
             },
             "required": [
@@ -12285,30 +12285,30 @@
             "inputProperties": {
                 "accountId": {
                     "type": "string",
-                    "description": "The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the\nprovider{} configuration if not specified.\n"
+                    "description": "The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified."
                 },
                 "endRepeat": {
                     "$ref": "#/types/newrelic:index/MonitorDowntimeEndRepeat:MonitorDowntimeEndRepeat",
-                    "description": "A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.\n"
+                    "description": "A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date."
                 },
                 "endTime": {
                     "type": "string",
-                    "description": "A datetime stamp signifying the end of the Monitor Downtime.\n"
+                    "description": "A datetime stamp signifying the end of the Monitor Downtime."
                 },
                 "frequency": {
                     "$ref": "#/types/newrelic:index/MonitorDowntimeFrequency:MonitorDowntimeFrequency",
-                    "description": "Configuration options for which days of the month a monitor downtime will occur\n"
+                    "description": "Configuration options for which days of the month a monitor downtime will occur"
                 },
                 "maintenanceDays": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of maintenance days to be included with the created weekly Monitor Downtime.\n"
+                    "description": "A list of maintenance days to be included with the created weekly Monitor Downtime."
                 },
                 "mode": {
                     "type": "string",
-                    "description": "An identifier of the type of Monitor Downtime to be created.\n",
+                    "description": "An identifier of the type of Monitor Downtime to be created.",
                     "willReplaceOnChanges": true
                 },
                 "monitorGuids": {
@@ -12316,19 +12316,19 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.\n"
+                    "description": "A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied."
                 },
                 "name": {
                     "type": "string",
-                    "description": "A name to identify the Monitor Downtime to be created.\n"
+                    "description": "A name to identify the Monitor Downtime to be created."
                 },
                 "startTime": {
                     "type": "string",
-                    "description": "A datetime stamp signifying the start of the Monitor Downtime.\n"
+                    "description": "A datetime stamp signifying the start of the Monitor Downtime."
                 },
                 "timeZone": {
                     "type": "string",
-                    "description": "The timezone that applies to the Monitor Downtime schedule.\n"
+                    "description": "The timezone that applies to the Monitor Downtime schedule."
                 }
             },
             "requiredInputs": [
@@ -12342,30 +12342,30 @@
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the\nprovider{} configuration if not specified.\n"
+                        "description": "The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified."
                     },
                     "endRepeat": {
                         "$ref": "#/types/newrelic:index/MonitorDowntimeEndRepeat:MonitorDowntimeEndRepeat",
-                        "description": "A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.\n"
+                        "description": "A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date."
                     },
                     "endTime": {
                         "type": "string",
-                        "description": "A datetime stamp signifying the end of the Monitor Downtime.\n"
+                        "description": "A datetime stamp signifying the end of the Monitor Downtime."
                     },
                     "frequency": {
                         "$ref": "#/types/newrelic:index/MonitorDowntimeFrequency:MonitorDowntimeFrequency",
-                        "description": "Configuration options for which days of the month a monitor downtime will occur\n"
+                        "description": "Configuration options for which days of the month a monitor downtime will occur"
                     },
                     "maintenanceDays": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of maintenance days to be included with the created weekly Monitor Downtime.\n"
+                        "description": "A list of maintenance days to be included with the created weekly Monitor Downtime."
                     },
                     "mode": {
                         "type": "string",
-                        "description": "An identifier of the type of Monitor Downtime to be created.\n",
+                        "description": "An identifier of the type of Monitor Downtime to be created.",
                         "willReplaceOnChanges": true
                     },
                     "monitorGuids": {
@@ -12373,19 +12373,19 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied.\n"
+                        "description": "A list of GUIDs of monitors, to which the created Monitor Downtime shall be applied."
                     },
                     "name": {
                         "type": "string",
-                        "description": "A name to identify the Monitor Downtime to be created.\n"
+                        "description": "A name to identify the Monitor Downtime to be created."
                     },
                     "startTime": {
                         "type": "string",
-                        "description": "A datetime stamp signifying the start of the Monitor Downtime.\n"
+                        "description": "A datetime stamp signifying the start of the Monitor Downtime."
                     },
                     "timeZone": {
                         "type": "string",
-                        "description": "The timezone that applies to the Monitor Downtime schedule.\n"
+                        "description": "The timezone that applies to the Monitor Downtime schedule."
                     }
                 },
                 "type": "object"
@@ -12400,7 +12400,7 @@
                 },
                 "active": {
                     "type": "boolean",
-                    "description": "Indicates whether the channel is active.\n"
+                    "description": "Indicates whether the channel is active."
                 },
                 "destinationId": {
                     "type": "string",
@@ -12423,7 +12423,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The status of the channel.\n"
+                    "description": "The status of the channel."
                 },
                 "type": {
                     "type": "string",
@@ -12447,7 +12447,7 @@
                 },
                 "active": {
                     "type": "boolean",
-                    "description": "Indicates whether the channel is active.\n"
+                    "description": "Indicates whether the channel is active."
                 },
                 "destinationId": {
                     "type": "string",
@@ -12492,7 +12492,7 @@
                     },
                     "active": {
                         "type": "boolean",
-                        "description": "Indicates whether the channel is active.\n"
+                        "description": "Indicates whether the channel is active."
                     },
                     "destinationId": {
                         "type": "string",
@@ -12517,7 +12517,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The status of the channel.\n"
+                        "description": "The status of the channel."
                     },
                     "type": {
                         "type": "string",
@@ -12537,7 +12537,7 @@
                 },
                 "active": {
                     "type": "boolean",
-                    "description": "Indicates whether the destination is active.\n"
+                    "description": "Indicates whether the destination is active."
                 },
                 "authBasic": {
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthBasic:NotificationDestinationAuthBasic",
@@ -12560,7 +12560,7 @@
                 },
                 "lastSent": {
                     "type": "string",
-                    "description": "The last time a notification was sent.\n"
+                    "description": "The last time a notification was sent."
                 },
                 "name": {
                     "type": "string",
@@ -12579,11 +12579,11 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The status of the destination.\n"
+                    "description": "The status of the destination."
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,\nPAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,\nMOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).\n"
+                    "description": "(Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION)."
                 }
             },
             "required": [
@@ -12603,7 +12603,7 @@
                 },
                 "active": {
                     "type": "boolean",
-                    "description": "Indicates whether the destination is active.\n"
+                    "description": "Indicates whether the destination is active."
                 },
                 "authBasic": {
                     "$ref": "#/types/newrelic:index/NotificationDestinationAuthBasic:NotificationDestinationAuthBasic",
@@ -12637,7 +12637,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,\nPAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,\nMOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).\n",
+                    "description": "(Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).",
                     "willReplaceOnChanges": true
                 }
             },
@@ -12655,7 +12655,7 @@
                     },
                     "active": {
                         "type": "boolean",
-                        "description": "Indicates whether the destination is active.\n"
+                        "description": "Indicates whether the destination is active."
                     },
                     "authBasic": {
                         "$ref": "#/types/newrelic:index/NotificationDestinationAuthBasic:NotificationDestinationAuthBasic",
@@ -12678,7 +12678,7 @@
                     },
                     "lastSent": {
                         "type": "string",
-                        "description": "The last time a notification was sent.\n"
+                        "description": "The last time a notification was sent."
                     },
                     "name": {
                         "type": "string",
@@ -12697,11 +12697,11 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "The status of the destination.\n"
+                        "description": "The status of the destination."
                     },
                     "type": {
                         "type": "string",
-                        "description": "(Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP,\nPAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY,\nMOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).\n",
+                        "description": "(Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -13874,7 +13874,7 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "Workflow entity GUID\n"
+                    "description": "Workflow entity GUID"
                 },
                 "issuesFilter": {
                     "$ref": "#/types/newrelic:index/WorkflowIssuesFilter:WorkflowIssuesFilter",
@@ -13882,7 +13882,7 @@
                 },
                 "lastRun": {
                     "type": "string",
-                    "description": "The last time notification was sent for this workflow.\n"
+                    "description": "The last time notification was sent for this workflow."
                 },
                 "mutingRulesHandling": {
                     "type": "string",
@@ -13894,7 +13894,7 @@
                 },
                 "workflowId": {
                     "type": "string",
-                    "description": "The id of the workflow.\n"
+                    "description": "The id of the workflow."
                 }
             },
             "required": [
@@ -13989,7 +13989,7 @@
                     },
                     "guid": {
                         "type": "string",
-                        "description": "Workflow entity GUID\n"
+                        "description": "Workflow entity GUID"
                     },
                     "issuesFilter": {
                         "$ref": "#/types/newrelic:index/WorkflowIssuesFilter:WorkflowIssuesFilter",
@@ -13997,7 +13997,7 @@
                     },
                     "lastRun": {
                         "type": "string",
-                        "description": "The last time notification was sent for this workflow.\n"
+                        "description": "The last time notification was sent for this workflow."
                     },
                     "mutingRulesHandling": {
                         "type": "string",
@@ -14009,7 +14009,7 @@
                     },
                     "workflowId": {
                         "type": "string",
-                        "description": "The id of the workflow.\n"
+                        "description": "The id of the workflow."
                     }
                 },
                 "type": "object"
@@ -14066,7 +14066,7 @@
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
-                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version."
                 },
                 "enableSlowSql": {
                     "type": "boolean",
@@ -14078,7 +14078,7 @@
                 },
                 "endUserApdexThreshold": {
                     "type": "number",
-                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version."
                 },
                 "errorCollectors": {
                     "type": "array",
@@ -14096,7 +14096,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the application in New Relic.\n"
+                    "description": "The name of the application in New Relic."
                 },
                 "tracerType": {
                     "type": "string",
@@ -14126,7 +14126,7 @@
                 },
                 "enableRealUserMonitoring": {
                     "type": "boolean",
-                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version."
                 },
                 "enableSlowSql": {
                     "type": "boolean",
@@ -14138,7 +14138,7 @@
                 },
                 "endUserApdexThreshold": {
                     "type": "number",
-                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                    "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version."
                 },
                 "errorCollectors": {
                     "type": "array",
@@ -14154,7 +14154,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the application in New Relic.\n"
+                    "description": "The name of the application in New Relic."
                 },
                 "tracerType": {
                     "type": "string",
@@ -14181,7 +14181,7 @@
                     },
                     "enableRealUserMonitoring": {
                         "type": "boolean",
-                        "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                        "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version."
                     },
                     "enableSlowSql": {
                         "type": "boolean",
@@ -14193,7 +14193,7 @@
                     },
                     "endUserApdexThreshold": {
                         "type": "number",
-                        "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version.\n"
+                        "description": "Dummy field to support backward compatibility of previous version.should be removed with next major version."
                     },
                     "errorCollectors": {
                         "type": "array",
@@ -14212,7 +14212,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the application in New Relic.\n"
+                        "description": "The name of the application in New Relic."
                     },
                     "tracerType": {
                         "type": "string",
@@ -14513,7 +14513,7 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The unique entity identifier of the monitor in New Relic.\n"
+                    "description": "The unique entity identifier of the monitor in New Relic."
                 },
                 "locationsPrivates": {
                     "type": "array",
@@ -14551,7 +14551,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific semver version of the runtime type.\n"
+                    "description": "The specific semver version of the runtime type."
                 },
                 "status": {
                     "type": "string",
@@ -14616,7 +14616,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific semver version of the runtime type.\n"
+                    "description": "The specific semver version of the runtime type."
                 },
                 "status": {
                     "type": "string",
@@ -14652,7 +14652,7 @@
                     },
                     "guid": {
                         "type": "string",
-                        "description": "The unique entity identifier of the monitor in New Relic.\n"
+                        "description": "The unique entity identifier of the monitor in New Relic."
                     },
                     "locationsPrivates": {
                         "type": "array",
@@ -14690,7 +14690,7 @@
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
-                        "description": "The specific semver version of the runtime type.\n"
+                        "description": "The specific semver version of the runtime type."
                     },
                     "status": {
                         "type": "string",
@@ -14765,7 +14765,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific semver version of the runtime type.\n"
+                    "description": "The specific semver version of the runtime type."
                 },
                 "status": {
                     "type": "string",
@@ -14833,7 +14833,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific semver version of the runtime type.\n"
+                    "description": "The specific semver version of the runtime type."
                 },
                 "status": {
                     "type": "string",
@@ -14907,7 +14907,7 @@
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
-                        "description": "The specific semver version of the runtime type.\n"
+                        "description": "The specific semver version of the runtime type."
                     },
                     "status": {
                         "type": "string",
@@ -15582,7 +15582,7 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The unique entity identifier of the monitor in New Relic.\n"
+                    "description": "The unique entity identifier of the monitor in New Relic."
                 },
                 "locationPrivates": {
                     "type": "array",
@@ -15790,7 +15790,7 @@
                     },
                     "guid": {
                         "type": "string",
-                        "description": "The unique entity identifier of the monitor in New Relic.\n"
+                        "description": "The unique entity identifier of the monitor in New Relic."
                     },
                     "locationPrivates": {
                         "type": "array",
@@ -15974,11 +15974,11 @@
                 },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
-                    "description": "Capture a screenshot during job execution.\n"
+                    "description": "Capture a screenshot during job execution."
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The unique entity identifier of the monitor in New Relic.\n"
+                    "description": "The unique entity identifier of the monitor in New Relic."
                 },
                 "locationPrivates": {
                     "type": "array",
@@ -16016,7 +16016,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific semver version of the runtime type.\n"
+                    "description": "The specific semver version of the runtime type."
                 },
                 "status": {
                     "type": "string",
@@ -16072,7 +16072,7 @@
                 },
                 "enableScreenshotOnFailureAndScript": {
                     "type": "boolean",
-                    "description": "Capture a screenshot during job execution.\n"
+                    "description": "Capture a screenshot during job execution."
                 },
                 "locationPrivates": {
                     "type": "array",
@@ -16102,7 +16102,7 @@
                 },
                 "runtimeTypeVersion": {
                     "type": "string",
-                    "description": "The specific semver version of the runtime type.\n"
+                    "description": "The specific semver version of the runtime type."
                 },
                 "status": {
                     "type": "string",
@@ -16155,11 +16155,11 @@
                     },
                     "enableScreenshotOnFailureAndScript": {
                         "type": "boolean",
-                        "description": "Capture a screenshot during job execution.\n"
+                        "description": "Capture a screenshot during job execution."
                     },
                     "guid": {
                         "type": "string",
-                        "description": "The unique entity identifier of the monitor in New Relic.\n"
+                        "description": "The unique entity identifier of the monitor in New Relic."
                     },
                     "locationPrivates": {
                         "type": "array",
@@ -16197,7 +16197,7 @@
                     },
                     "runtimeTypeVersion": {
                         "type": "string",
-                        "description": "The specific semver version of the runtime type.\n"
+                        "description": "The specific semver version of the runtime type."
                     },
                     "status": {
                         "type": "string",
@@ -16253,7 +16253,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16299,7 +16299,7 @@
                         "description": "Alert channel configuration.\n"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16362,7 +16362,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "incidentPreference": {
@@ -16413,7 +16413,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "instanceIds": {
@@ -16503,7 +16503,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16585,7 +16585,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ignoreCase": {
@@ -16713,7 +16713,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16843,7 +16843,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -16916,7 +16916,7 @@
                         "type": "integer"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "isBadEvents": {
@@ -16995,7 +16995,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "logLines": {
@@ -17103,7 +17103,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "keys": {
@@ -17155,7 +17155,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "key": {
