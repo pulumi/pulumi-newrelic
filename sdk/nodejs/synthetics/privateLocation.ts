@@ -58,35 +58,35 @@ export class PrivateLocation extends pulumi.CustomResource {
     /**
      * The account in which the private location will be created.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The private location description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The private location globally unique identifier.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The unique client identifier for the private location in New Relic. Same as `id`.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The private locations key.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
      * An alternate identifier based on name.
      */
-    public /*out*/ readonly locationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationId: pulumi.Output<string>;
     /**
      * The name of the private location.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The private location requires a password to edit if value is true. Defaults to `false`
      */
-    public readonly verifiedScriptExecution!: pulumi.Output<boolean | undefined>;
+    declare public readonly verifiedScriptExecution: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a PrivateLocation resource with the given unique name, arguments, and options.
@@ -101,23 +101,23 @@ export class PrivateLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLocationState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["domainId"] = state ? state.domainId : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["locationId"] = state ? state.locationId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["verifiedScriptExecution"] = state ? state.verifiedScriptExecution : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["domainId"] = state?.domainId;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["locationId"] = state?.locationId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["verifiedScriptExecution"] = state?.verifiedScriptExecution;
         } else {
             const args = argsOrState as PrivateLocationArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["verifiedScriptExecution"] = args ? args.verifiedScriptExecution : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["verifiedScriptExecution"] = args?.verifiedScriptExecution;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;

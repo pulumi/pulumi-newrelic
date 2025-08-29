@@ -215,148 +215,148 @@ export class AzureIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Azure API Management. See Integration blocks below for details.
      */
-    public readonly apiManagement!: pulumi.Output<outputs.cloud.AzureIntegrationsApiManagement | undefined>;
+    declare public readonly apiManagement: pulumi.Output<outputs.cloud.AzureIntegrationsApiManagement | undefined>;
     /**
      * Azure App Gateway. See Integration blocks below for details.
      */
-    public readonly appGateway!: pulumi.Output<outputs.cloud.AzureIntegrationsAppGateway | undefined>;
+    declare public readonly appGateway: pulumi.Output<outputs.cloud.AzureIntegrationsAppGateway | undefined>;
     /**
      * Azure App Service. See Integration blocks below for details.
      */
-    public readonly appService!: pulumi.Output<outputs.cloud.AzureIntegrationsAppService | undefined>;
+    declare public readonly appService: pulumi.Output<outputs.cloud.AzureIntegrationsAppService | undefined>;
     /**
      * Azure Containers. See Integration blocks below for details.
      */
-    public readonly containers!: pulumi.Output<outputs.cloud.AzureIntegrationsContainers | undefined>;
+    declare public readonly containers: pulumi.Output<outputs.cloud.AzureIntegrationsContainers | undefined>;
     /**
      * Azure CosmosDB. See Integration blocks below for details.
      */
-    public readonly cosmosDb!: pulumi.Output<outputs.cloud.AzureIntegrationsCosmosDb | undefined>;
+    declare public readonly cosmosDb: pulumi.Output<outputs.cloud.AzureIntegrationsCosmosDb | undefined>;
     /**
      * Azure Cost Management. See Integration blocks below for details.
      */
-    public readonly costManagement!: pulumi.Output<outputs.cloud.AzureIntegrationsCostManagement | undefined>;
+    declare public readonly costManagement: pulumi.Output<outputs.cloud.AzureIntegrationsCostManagement | undefined>;
     /**
      * Azure Data Factory. See Integration blocks below for details.
      */
-    public readonly dataFactory!: pulumi.Output<outputs.cloud.AzureIntegrationsDataFactory | undefined>;
+    declare public readonly dataFactory: pulumi.Output<outputs.cloud.AzureIntegrationsDataFactory | undefined>;
     /**
      * Azure Event Hub. See Integration blocks below for details.
      */
-    public readonly eventHub!: pulumi.Output<outputs.cloud.AzureIntegrationsEventHub | undefined>;
+    declare public readonly eventHub: pulumi.Output<outputs.cloud.AzureIntegrationsEventHub | undefined>;
     /**
      * Azure Express Route. See Integration blocks below for details.
      */
-    public readonly expressRoute!: pulumi.Output<outputs.cloud.AzureIntegrationsExpressRoute | undefined>;
+    declare public readonly expressRoute: pulumi.Output<outputs.cloud.AzureIntegrationsExpressRoute | undefined>;
     /**
      * Azure Firewalls. See Integration blocks below for details.
      */
-    public readonly firewalls!: pulumi.Output<outputs.cloud.AzureIntegrationsFirewalls | undefined>;
+    declare public readonly firewalls: pulumi.Output<outputs.cloud.AzureIntegrationsFirewalls | undefined>;
     /**
      * Azure Front Door. See Integration blocks below for details.
      */
-    public readonly frontDoor!: pulumi.Output<outputs.cloud.AzureIntegrationsFrontDoor | undefined>;
+    declare public readonly frontDoor: pulumi.Output<outputs.cloud.AzureIntegrationsFrontDoor | undefined>;
     /**
      * Azure Functions. See Integration blocks below for details.
      */
-    public readonly functions!: pulumi.Output<outputs.cloud.AzureIntegrationsFunctions | undefined>;
+    declare public readonly functions: pulumi.Output<outputs.cloud.AzureIntegrationsFunctions | undefined>;
     /**
      * Azure Key Vault. See Integration blocks below for details.
      */
-    public readonly keyVault!: pulumi.Output<outputs.cloud.AzureIntegrationsKeyVault | undefined>;
+    declare public readonly keyVault: pulumi.Output<outputs.cloud.AzureIntegrationsKeyVault | undefined>;
     /**
      * The ID of the linked Azure account in New Relic.
      *
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      */
-    public readonly linkedAccountId!: pulumi.Output<string>;
+    declare public readonly linkedAccountId: pulumi.Output<string>;
     /**
      * Azure Load Balancer. See Integration blocks below for details.
      */
-    public readonly loadBalancer!: pulumi.Output<outputs.cloud.AzureIntegrationsLoadBalancer | undefined>;
+    declare public readonly loadBalancer: pulumi.Output<outputs.cloud.AzureIntegrationsLoadBalancer | undefined>;
     /**
      * Azure Logic Apps. See Integration blocks below for details.
      */
-    public readonly logicApps!: pulumi.Output<outputs.cloud.AzureIntegrationsLogicApps | undefined>;
+    declare public readonly logicApps: pulumi.Output<outputs.cloud.AzureIntegrationsLogicApps | undefined>;
     /**
      * Azure Machine Learning. See Integration blocks below for details.
      */
-    public readonly machineLearning!: pulumi.Output<outputs.cloud.AzureIntegrationsMachineLearning | undefined>;
+    declare public readonly machineLearning: pulumi.Output<outputs.cloud.AzureIntegrationsMachineLearning | undefined>;
     /**
      * Azure MariaDB. See Integration blocks below for details.
      */
-    public readonly mariaDb!: pulumi.Output<outputs.cloud.AzureIntegrationsMariaDb | undefined>;
+    declare public readonly mariaDb: pulumi.Output<outputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
      * Azure Monitor. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    public readonly monitor!: pulumi.Output<outputs.cloud.AzureIntegrationsMonitor | undefined>;
+    declare public readonly monitor: pulumi.Output<outputs.cloud.AzureIntegrationsMonitor | undefined>;
     /**
      * Azure MySQL. See Integration blocks below for details.
      */
-    public readonly mysql!: pulumi.Output<outputs.cloud.AzureIntegrationsMysql | undefined>;
+    declare public readonly mysql: pulumi.Output<outputs.cloud.AzureIntegrationsMysql | undefined>;
     /**
      * Azure MySQL Flexible Server. See Integration blocks below for details.
      */
-    public readonly mysqlFlexible!: pulumi.Output<outputs.cloud.AzureIntegrationsMysqlFlexible | undefined>;
+    declare public readonly mysqlFlexible: pulumi.Output<outputs.cloud.AzureIntegrationsMysqlFlexible | undefined>;
     /**
      * Azure PostgreSQL. See Integration blocks below for details.
      */
-    public readonly postgresql!: pulumi.Output<outputs.cloud.AzureIntegrationsPostgresql | undefined>;
+    declare public readonly postgresql: pulumi.Output<outputs.cloud.AzureIntegrationsPostgresql | undefined>;
     /**
      * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
      */
-    public readonly postgresqlFlexible!: pulumi.Output<outputs.cloud.AzureIntegrationsPostgresqlFlexible | undefined>;
+    declare public readonly postgresqlFlexible: pulumi.Output<outputs.cloud.AzureIntegrationsPostgresqlFlexible | undefined>;
     /**
      * Azure Power BI Dedicated. See Integration blocks below for details.
      */
-    public readonly powerBiDedicated!: pulumi.Output<outputs.cloud.AzureIntegrationsPowerBiDedicated | undefined>;
+    declare public readonly powerBiDedicated: pulumi.Output<outputs.cloud.AzureIntegrationsPowerBiDedicated | undefined>;
     /**
      * Azure Redis Cache. See Integration blocks below for details.
      */
-    public readonly redisCache!: pulumi.Output<outputs.cloud.AzureIntegrationsRedisCache | undefined>;
+    declare public readonly redisCache: pulumi.Output<outputs.cloud.AzureIntegrationsRedisCache | undefined>;
     /**
      * Azure Service Bus. See Integration blocks below for details.
      */
-    public readonly serviceBus!: pulumi.Output<outputs.cloud.AzureIntegrationsServiceBus | undefined>;
+    declare public readonly serviceBus: pulumi.Output<outputs.cloud.AzureIntegrationsServiceBus | undefined>;
     /**
      * Azure SQL. See Integration blocks below for details.
      */
-    public readonly sql!: pulumi.Output<outputs.cloud.AzureIntegrationsSql | undefined>;
+    declare public readonly sql: pulumi.Output<outputs.cloud.AzureIntegrationsSql | undefined>;
     /**
      * Azure SQL Managed. See Integration blocks below for details.
      */
-    public readonly sqlManaged!: pulumi.Output<outputs.cloud.AzureIntegrationsSqlManaged | undefined>;
+    declare public readonly sqlManaged: pulumi.Output<outputs.cloud.AzureIntegrationsSqlManaged | undefined>;
     /**
      * for Azure Storage. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      */
-    public readonly storage!: pulumi.Output<outputs.cloud.AzureIntegrationsStorage | undefined>;
+    declare public readonly storage: pulumi.Output<outputs.cloud.AzureIntegrationsStorage | undefined>;
     /**
      * Azure Virtual machine. See Integration blocks below for details.
      */
-    public readonly virtualMachine!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
+    declare public readonly virtualMachine: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
     /**
      * for Azure Virtual networks. See Integration blocks below for details.
      */
-    public readonly virtualNetworks!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
+    declare public readonly virtualNetworks: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
     /**
      * Azure VMs. See Integration blocks below for details.
      */
-    public readonly vms!: pulumi.Output<outputs.cloud.AzureIntegrationsVms | undefined>;
+    declare public readonly vms: pulumi.Output<outputs.cloud.AzureIntegrationsVms | undefined>;
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      */
-    public readonly vpnGateway!: pulumi.Output<outputs.cloud.AzureIntegrationsVpnGateway | undefined>;
+    declare public readonly vpnGateway: pulumi.Output<outputs.cloud.AzureIntegrationsVpnGateway | undefined>;
 
     /**
      * Create a AzureIntegrations resource with the given unique name, arguments, and options.
@@ -371,79 +371,79 @@ export class AzureIntegrations extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AzureIntegrationsState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["apiManagement"] = state ? state.apiManagement : undefined;
-            resourceInputs["appGateway"] = state ? state.appGateway : undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["containers"] = state ? state.containers : undefined;
-            resourceInputs["cosmosDb"] = state ? state.cosmosDb : undefined;
-            resourceInputs["costManagement"] = state ? state.costManagement : undefined;
-            resourceInputs["dataFactory"] = state ? state.dataFactory : undefined;
-            resourceInputs["eventHub"] = state ? state.eventHub : undefined;
-            resourceInputs["expressRoute"] = state ? state.expressRoute : undefined;
-            resourceInputs["firewalls"] = state ? state.firewalls : undefined;
-            resourceInputs["frontDoor"] = state ? state.frontDoor : undefined;
-            resourceInputs["functions"] = state ? state.functions : undefined;
-            resourceInputs["keyVault"] = state ? state.keyVault : undefined;
-            resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
-            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            resourceInputs["logicApps"] = state ? state.logicApps : undefined;
-            resourceInputs["machineLearning"] = state ? state.machineLearning : undefined;
-            resourceInputs["mariaDb"] = state ? state.mariaDb : undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["mysql"] = state ? state.mysql : undefined;
-            resourceInputs["mysqlFlexible"] = state ? state.mysqlFlexible : undefined;
-            resourceInputs["postgresql"] = state ? state.postgresql : undefined;
-            resourceInputs["postgresqlFlexible"] = state ? state.postgresqlFlexible : undefined;
-            resourceInputs["powerBiDedicated"] = state ? state.powerBiDedicated : undefined;
-            resourceInputs["redisCache"] = state ? state.redisCache : undefined;
-            resourceInputs["serviceBus"] = state ? state.serviceBus : undefined;
-            resourceInputs["sql"] = state ? state.sql : undefined;
-            resourceInputs["sqlManaged"] = state ? state.sqlManaged : undefined;
-            resourceInputs["storage"] = state ? state.storage : undefined;
-            resourceInputs["virtualMachine"] = state ? state.virtualMachine : undefined;
-            resourceInputs["virtualNetworks"] = state ? state.virtualNetworks : undefined;
-            resourceInputs["vms"] = state ? state.vms : undefined;
-            resourceInputs["vpnGateway"] = state ? state.vpnGateway : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["apiManagement"] = state?.apiManagement;
+            resourceInputs["appGateway"] = state?.appGateway;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["containers"] = state?.containers;
+            resourceInputs["cosmosDb"] = state?.cosmosDb;
+            resourceInputs["costManagement"] = state?.costManagement;
+            resourceInputs["dataFactory"] = state?.dataFactory;
+            resourceInputs["eventHub"] = state?.eventHub;
+            resourceInputs["expressRoute"] = state?.expressRoute;
+            resourceInputs["firewalls"] = state?.firewalls;
+            resourceInputs["frontDoor"] = state?.frontDoor;
+            resourceInputs["functions"] = state?.functions;
+            resourceInputs["keyVault"] = state?.keyVault;
+            resourceInputs["linkedAccountId"] = state?.linkedAccountId;
+            resourceInputs["loadBalancer"] = state?.loadBalancer;
+            resourceInputs["logicApps"] = state?.logicApps;
+            resourceInputs["machineLearning"] = state?.machineLearning;
+            resourceInputs["mariaDb"] = state?.mariaDb;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["mysql"] = state?.mysql;
+            resourceInputs["mysqlFlexible"] = state?.mysqlFlexible;
+            resourceInputs["postgresql"] = state?.postgresql;
+            resourceInputs["postgresqlFlexible"] = state?.postgresqlFlexible;
+            resourceInputs["powerBiDedicated"] = state?.powerBiDedicated;
+            resourceInputs["redisCache"] = state?.redisCache;
+            resourceInputs["serviceBus"] = state?.serviceBus;
+            resourceInputs["sql"] = state?.sql;
+            resourceInputs["sqlManaged"] = state?.sqlManaged;
+            resourceInputs["storage"] = state?.storage;
+            resourceInputs["virtualMachine"] = state?.virtualMachine;
+            resourceInputs["virtualNetworks"] = state?.virtualNetworks;
+            resourceInputs["vms"] = state?.vms;
+            resourceInputs["vpnGateway"] = state?.vpnGateway;
         } else {
             const args = argsOrState as AzureIntegrationsArgs | undefined;
-            if ((!args || args.linkedAccountId === undefined) && !opts.urn) {
+            if (args?.linkedAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedAccountId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["apiManagement"] = args ? args.apiManagement : undefined;
-            resourceInputs["appGateway"] = args ? args.appGateway : undefined;
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["cosmosDb"] = args ? args.cosmosDb : undefined;
-            resourceInputs["costManagement"] = args ? args.costManagement : undefined;
-            resourceInputs["dataFactory"] = args ? args.dataFactory : undefined;
-            resourceInputs["eventHub"] = args ? args.eventHub : undefined;
-            resourceInputs["expressRoute"] = args ? args.expressRoute : undefined;
-            resourceInputs["firewalls"] = args ? args.firewalls : undefined;
-            resourceInputs["frontDoor"] = args ? args.frontDoor : undefined;
-            resourceInputs["functions"] = args ? args.functions : undefined;
-            resourceInputs["keyVault"] = args ? args.keyVault : undefined;
-            resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
-            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            resourceInputs["logicApps"] = args ? args.logicApps : undefined;
-            resourceInputs["machineLearning"] = args ? args.machineLearning : undefined;
-            resourceInputs["mariaDb"] = args ? args.mariaDb : undefined;
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["mysql"] = args ? args.mysql : undefined;
-            resourceInputs["mysqlFlexible"] = args ? args.mysqlFlexible : undefined;
-            resourceInputs["postgresql"] = args ? args.postgresql : undefined;
-            resourceInputs["postgresqlFlexible"] = args ? args.postgresqlFlexible : undefined;
-            resourceInputs["powerBiDedicated"] = args ? args.powerBiDedicated : undefined;
-            resourceInputs["redisCache"] = args ? args.redisCache : undefined;
-            resourceInputs["serviceBus"] = args ? args.serviceBus : undefined;
-            resourceInputs["sql"] = args ? args.sql : undefined;
-            resourceInputs["sqlManaged"] = args ? args.sqlManaged : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
-            resourceInputs["virtualMachine"] = args ? args.virtualMachine : undefined;
-            resourceInputs["virtualNetworks"] = args ? args.virtualNetworks : undefined;
-            resourceInputs["vms"] = args ? args.vms : undefined;
-            resourceInputs["vpnGateway"] = args ? args.vpnGateway : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["apiManagement"] = args?.apiManagement;
+            resourceInputs["appGateway"] = args?.appGateway;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["cosmosDb"] = args?.cosmosDb;
+            resourceInputs["costManagement"] = args?.costManagement;
+            resourceInputs["dataFactory"] = args?.dataFactory;
+            resourceInputs["eventHub"] = args?.eventHub;
+            resourceInputs["expressRoute"] = args?.expressRoute;
+            resourceInputs["firewalls"] = args?.firewalls;
+            resourceInputs["frontDoor"] = args?.frontDoor;
+            resourceInputs["functions"] = args?.functions;
+            resourceInputs["keyVault"] = args?.keyVault;
+            resourceInputs["linkedAccountId"] = args?.linkedAccountId;
+            resourceInputs["loadBalancer"] = args?.loadBalancer;
+            resourceInputs["logicApps"] = args?.logicApps;
+            resourceInputs["machineLearning"] = args?.machineLearning;
+            resourceInputs["mariaDb"] = args?.mariaDb;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["mysql"] = args?.mysql;
+            resourceInputs["mysqlFlexible"] = args?.mysqlFlexible;
+            resourceInputs["postgresql"] = args?.postgresql;
+            resourceInputs["postgresqlFlexible"] = args?.postgresqlFlexible;
+            resourceInputs["powerBiDedicated"] = args?.powerBiDedicated;
+            resourceInputs["redisCache"] = args?.redisCache;
+            resourceInputs["serviceBus"] = args?.serviceBus;
+            resourceInputs["sql"] = args?.sql;
+            resourceInputs["sqlManaged"] = args?.sqlManaged;
+            resourceInputs["storage"] = args?.storage;
+            resourceInputs["virtualMachine"] = args?.virtualMachine;
+            resourceInputs["virtualNetworks"] = args?.virtualNetworks;
+            resourceInputs["vms"] = args?.vms;
+            resourceInputs["vpnGateway"] = args?.vpnGateway;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AzureIntegrations.__pulumiType, name, resourceInputs, opts);

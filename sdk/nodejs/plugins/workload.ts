@@ -174,51 +174,51 @@ export class Workload extends pulumi.CustomResource {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The composite query used to compose a dynamic workload.
      */
-    public /*out*/ readonly compositeEntitySearchQuery!: pulumi.Output<string>;
+    declare public /*out*/ readonly compositeEntitySearchQuery: pulumi.Output<string>;
     /**
      * Relevant information about the workload.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      */
-    public readonly entityGuids!: pulumi.Output<string[]>;
+    declare public readonly entityGuids: pulumi.Output<string[]>;
     /**
      * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      */
-    public readonly entitySearchQueries!: pulumi.Output<outputs.plugins.WorkloadEntitySearchQuery[] | undefined>;
+    declare public readonly entitySearchQueries: pulumi.Output<outputs.plugins.WorkloadEntitySearchQuery[] | undefined>;
     /**
      * The unique entity identifier of the workload in New Relic.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The workload's name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The URL of the workload.
      */
-    public /*out*/ readonly permalink!: pulumi.Output<string>;
+    declare public /*out*/ readonly permalink: pulumi.Output<string>;
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    public readonly scopeAccountIds!: pulumi.Output<string[]>;
+    declare public readonly scopeAccountIds: pulumi.Output<string[]>;
     /**
      * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      */
-    public readonly statusConfigAutomatic!: pulumi.Output<outputs.plugins.WorkloadStatusConfigAutomatic | undefined>;
+    declare public readonly statusConfigAutomatic: pulumi.Output<outputs.plugins.WorkloadStatusConfigAutomatic | undefined>;
     /**
      * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
      */
-    public readonly statusConfigStatic!: pulumi.Output<outputs.plugins.WorkloadStatusConfigStatic | undefined>;
+    declare public readonly statusConfigStatic: pulumi.Output<outputs.plugins.WorkloadStatusConfigStatic | undefined>;
     /**
      * The unique entity identifier of the workload.
      */
-    public /*out*/ readonly workloadId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadId: pulumi.Output<string>;
 
     /**
      * Create a Workload resource with the given unique name, arguments, and options.
@@ -233,28 +233,28 @@ export class Workload extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkloadState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["compositeEntitySearchQuery"] = state ? state.compositeEntitySearchQuery : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["entityGuids"] = state ? state.entityGuids : undefined;
-            resourceInputs["entitySearchQueries"] = state ? state.entitySearchQueries : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permalink"] = state ? state.permalink : undefined;
-            resourceInputs["scopeAccountIds"] = state ? state.scopeAccountIds : undefined;
-            resourceInputs["statusConfigAutomatic"] = state ? state.statusConfigAutomatic : undefined;
-            resourceInputs["statusConfigStatic"] = state ? state.statusConfigStatic : undefined;
-            resourceInputs["workloadId"] = state ? state.workloadId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["compositeEntitySearchQuery"] = state?.compositeEntitySearchQuery;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["entityGuids"] = state?.entityGuids;
+            resourceInputs["entitySearchQueries"] = state?.entitySearchQueries;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permalink"] = state?.permalink;
+            resourceInputs["scopeAccountIds"] = state?.scopeAccountIds;
+            resourceInputs["statusConfigAutomatic"] = state?.statusConfigAutomatic;
+            resourceInputs["statusConfigStatic"] = state?.statusConfigStatic;
+            resourceInputs["workloadId"] = state?.workloadId;
         } else {
             const args = argsOrState as WorkloadArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entityGuids"] = args ? args.entityGuids : undefined;
-            resourceInputs["entitySearchQueries"] = args ? args.entitySearchQueries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scopeAccountIds"] = args ? args.scopeAccountIds : undefined;
-            resourceInputs["statusConfigAutomatic"] = args ? args.statusConfigAutomatic : undefined;
-            resourceInputs["statusConfigStatic"] = args ? args.statusConfigStatic : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entityGuids"] = args?.entityGuids;
+            resourceInputs["entitySearchQueries"] = args?.entitySearchQueries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scopeAccountIds"] = args?.scopeAccountIds;
+            resourceInputs["statusConfigAutomatic"] = args?.statusConfigAutomatic;
+            resourceInputs["statusConfigStatic"] = args?.statusConfigStatic;
             resourceInputs["compositeEntitySearchQuery"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["permalink"] = undefined /*out*/;

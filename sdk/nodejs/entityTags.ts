@@ -81,11 +81,11 @@ export class EntityTags extends pulumi.CustomResource {
     /**
      * The guid of the entity to tag.
      */
-    public readonly guid!: pulumi.Output<string>;
+    declare public readonly guid: pulumi.Output<string>;
     /**
      * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
-    public readonly tags!: pulumi.Output<outputs.EntityTagsTag[]>;
+    declare public readonly tags: pulumi.Output<outputs.EntityTagsTag[]>;
 
     /**
      * Create a EntityTags resource with the given unique name, arguments, and options.
@@ -100,18 +100,18 @@ export class EntityTags extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EntityTagsState | undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EntityTagsArgs | undefined;
-            if ((!args || args.guid === undefined) && !opts.urn) {
+            if (args?.guid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guid'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["guid"] = args ? args.guid : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["guid"] = args?.guid;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EntityTags.__pulumiType, name, resourceInputs, opts);

@@ -48,223 +48,223 @@ export class AwsIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * ALB integration
      */
-    public readonly alb!: pulumi.Output<outputs.cloud.AwsIntegrationsAlb | undefined>;
+    declare public readonly alb: pulumi.Output<outputs.cloud.AwsIntegrationsAlb | undefined>;
     /**
      * API Gateway integration
      */
-    public readonly apiGateway!: pulumi.Output<outputs.cloud.AwsIntegrationsApiGateway | undefined>;
+    declare public readonly apiGateway: pulumi.Output<outputs.cloud.AwsIntegrationsApiGateway | undefined>;
     /**
      * AutoScaling integration
      */
-    public readonly autoScaling!: pulumi.Output<outputs.cloud.AwsIntegrationsAutoScaling | undefined>;
+    declare public readonly autoScaling: pulumi.Output<outputs.cloud.AwsIntegrationsAutoScaling | undefined>;
     /**
      * Aws Appsync integration
      */
-    public readonly awsAppSync!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAppSync | undefined>;
+    declare public readonly awsAppSync: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAppSync | undefined>;
     /**
      * Aws Athena integration
      */
-    public readonly awsAthena!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAthena | undefined>;
+    declare public readonly awsAthena: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAthena | undefined>;
     /**
      * Aws Auto Discovery Integration
      */
-    public readonly awsAutoDiscovery!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAutoDiscovery | undefined>;
+    declare public readonly awsAutoDiscovery: pulumi.Output<outputs.cloud.AwsIntegrationsAwsAutoDiscovery | undefined>;
     /**
      * Aws Cognito integration
      */
-    public readonly awsCognito!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsCognito | undefined>;
+    declare public readonly awsCognito: pulumi.Output<outputs.cloud.AwsIntegrationsAwsCognito | undefined>;
     /**
      * Aws Connect integration
      */
-    public readonly awsConnect!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsConnect | undefined>;
+    declare public readonly awsConnect: pulumi.Output<outputs.cloud.AwsIntegrationsAwsConnect | undefined>;
     /**
      * Aws Direct Connect integration
      */
-    public readonly awsDirectConnect!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsDirectConnect | undefined>;
+    declare public readonly awsDirectConnect: pulumi.Output<outputs.cloud.AwsIntegrationsAwsDirectConnect | undefined>;
     /**
      * Aws Fsx integration
      */
-    public readonly awsFsx!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsFsx | undefined>;
+    declare public readonly awsFsx: pulumi.Output<outputs.cloud.AwsIntegrationsAwsFsx | undefined>;
     /**
      * Aws Glue integration
      */
-    public readonly awsGlue!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsGlue | undefined>;
+    declare public readonly awsGlue: pulumi.Output<outputs.cloud.AwsIntegrationsAwsGlue | undefined>;
     /**
      * Aws Kinesis Analytics integration
      */
-    public readonly awsKinesisAnalytics!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsKinesisAnalytics | undefined>;
+    declare public readonly awsKinesisAnalytics: pulumi.Output<outputs.cloud.AwsIntegrationsAwsKinesisAnalytics | undefined>;
     /**
      * Aws Media Convert integration
      */
-    public readonly awsMediaConvert!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMediaConvert | undefined>;
+    declare public readonly awsMediaConvert: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMediaConvert | undefined>;
     /**
      * Aws Media PackageVod integration
      */
-    public readonly awsMediaPackageVod!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMediaPackageVod | undefined>;
+    declare public readonly awsMediaPackageVod: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMediaPackageVod | undefined>;
     /**
      * Aws Mq integration
      */
-    public readonly awsMq!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMq | undefined>;
+    declare public readonly awsMq: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMq | undefined>;
     /**
      * Aws Msk integration
      */
-    public readonly awsMsk!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMsk | undefined>;
+    declare public readonly awsMsk: pulumi.Output<outputs.cloud.AwsIntegrationsAwsMsk | undefined>;
     /**
      * Aws Neptune integration
      */
-    public readonly awsNeptune!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsNeptune | undefined>;
+    declare public readonly awsNeptune: pulumi.Output<outputs.cloud.AwsIntegrationsAwsNeptune | undefined>;
     /**
      * Aws Qldb integration
      */
-    public readonly awsQldb!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsQldb | undefined>;
+    declare public readonly awsQldb: pulumi.Output<outputs.cloud.AwsIntegrationsAwsQldb | undefined>;
     /**
      * Aws Route53resolver integration
      */
-    public readonly awsRoute53resolver!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsRoute53resolver | undefined>;
+    declare public readonly awsRoute53resolver: pulumi.Output<outputs.cloud.AwsIntegrationsAwsRoute53resolver | undefined>;
     /**
      * Aws states integration
      */
-    public readonly awsStates!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsStates | undefined>;
+    declare public readonly awsStates: pulumi.Output<outputs.cloud.AwsIntegrationsAwsStates | undefined>;
     /**
      * Aws Transit Gateway integration
      */
-    public readonly awsTransitGateway!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsTransitGateway | undefined>;
+    declare public readonly awsTransitGateway: pulumi.Output<outputs.cloud.AwsIntegrationsAwsTransitGateway | undefined>;
     /**
      * Aws Waf integration
      */
-    public readonly awsWaf!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsWaf | undefined>;
+    declare public readonly awsWaf: pulumi.Output<outputs.cloud.AwsIntegrationsAwsWaf | undefined>;
     /**
      * Aws Wafv2 integration
      */
-    public readonly awsWafv2!: pulumi.Output<outputs.cloud.AwsIntegrationsAwsWafv2 | undefined>;
+    declare public readonly awsWafv2: pulumi.Output<outputs.cloud.AwsIntegrationsAwsWafv2 | undefined>;
     /**
      * Billing integration
      */
-    public readonly billing!: pulumi.Output<outputs.cloud.AwsIntegrationsBilling | undefined>;
+    declare public readonly billing: pulumi.Output<outputs.cloud.AwsIntegrationsBilling | undefined>;
     /**
      * Cloudfront integration
      */
-    public readonly cloudfront!: pulumi.Output<outputs.cloud.AwsIntegrationsCloudfront | undefined>;
+    declare public readonly cloudfront: pulumi.Output<outputs.cloud.AwsIntegrationsCloudfront | undefined>;
     /**
      * CloudTrail integration
      */
-    public readonly cloudtrail!: pulumi.Output<outputs.cloud.AwsIntegrationsCloudtrail | undefined>;
+    declare public readonly cloudtrail: pulumi.Output<outputs.cloud.AwsIntegrationsCloudtrail | undefined>;
     /**
      * Doc DB integration
      */
-    public readonly docDb!: pulumi.Output<outputs.cloud.AwsIntegrationsDocDb | undefined>;
+    declare public readonly docDb: pulumi.Output<outputs.cloud.AwsIntegrationsDocDb | undefined>;
     /**
      * Dynamo DB integration
      */
-    public readonly dynamodb!: pulumi.Output<outputs.cloud.AwsIntegrationsDynamodb | undefined>;
+    declare public readonly dynamodb: pulumi.Output<outputs.cloud.AwsIntegrationsDynamodb | undefined>;
     /**
      * EBS integration
      */
-    public readonly ebs!: pulumi.Output<outputs.cloud.AwsIntegrationsEbs | undefined>;
+    declare public readonly ebs: pulumi.Output<outputs.cloud.AwsIntegrationsEbs | undefined>;
     /**
      * Ec2 integration
      */
-    public readonly ec2!: pulumi.Output<outputs.cloud.AwsIntegrationsEc2 | undefined>;
+    declare public readonly ec2: pulumi.Output<outputs.cloud.AwsIntegrationsEc2 | undefined>;
     /**
      * Ecs integration
      */
-    public readonly ecs!: pulumi.Output<outputs.cloud.AwsIntegrationsEcs | undefined>;
+    declare public readonly ecs: pulumi.Output<outputs.cloud.AwsIntegrationsEcs | undefined>;
     /**
      * Efs integration
      */
-    public readonly efs!: pulumi.Output<outputs.cloud.AwsIntegrationsEfs | undefined>;
+    declare public readonly efs: pulumi.Output<outputs.cloud.AwsIntegrationsEfs | undefined>;
     /**
      * Elasticache integration
      */
-    public readonly elasticache!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticache | undefined>;
+    declare public readonly elasticache: pulumi.Output<outputs.cloud.AwsIntegrationsElasticache | undefined>;
     /**
      * Elastic Bean Stalk integration
      */
-    public readonly elasticbeanstalk!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticbeanstalk | undefined>;
+    declare public readonly elasticbeanstalk: pulumi.Output<outputs.cloud.AwsIntegrationsElasticbeanstalk | undefined>;
     /**
      * Elastic Search integration
      */
-    public readonly elasticsearch!: pulumi.Output<outputs.cloud.AwsIntegrationsElasticsearch | undefined>;
+    declare public readonly elasticsearch: pulumi.Output<outputs.cloud.AwsIntegrationsElasticsearch | undefined>;
     /**
      * Elb integration
      */
-    public readonly elb!: pulumi.Output<outputs.cloud.AwsIntegrationsElb | undefined>;
+    declare public readonly elb: pulumi.Output<outputs.cloud.AwsIntegrationsElb | undefined>;
     /**
      * Emr integration
      */
-    public readonly emr!: pulumi.Output<outputs.cloud.AwsIntegrationsEmr | undefined>;
+    declare public readonly emr: pulumi.Output<outputs.cloud.AwsIntegrationsEmr | undefined>;
     /**
      * Health integration
      */
-    public readonly health!: pulumi.Output<outputs.cloud.AwsIntegrationsHealth | undefined>;
+    declare public readonly health: pulumi.Output<outputs.cloud.AwsIntegrationsHealth | undefined>;
     /**
      * Iam integration
      */
-    public readonly iam!: pulumi.Output<outputs.cloud.AwsIntegrationsIam | undefined>;
+    declare public readonly iam: pulumi.Output<outputs.cloud.AwsIntegrationsIam | undefined>;
     /**
      * Iot integration
      */
-    public readonly iot!: pulumi.Output<outputs.cloud.AwsIntegrationsIot | undefined>;
+    declare public readonly iot: pulumi.Output<outputs.cloud.AwsIntegrationsIot | undefined>;
     /**
      * Kinesis integration
      */
-    public readonly kinesis!: pulumi.Output<outputs.cloud.AwsIntegrationsKinesis | undefined>;
+    declare public readonly kinesis: pulumi.Output<outputs.cloud.AwsIntegrationsKinesis | undefined>;
     /**
      * Kinesis Firehose integration
      */
-    public readonly kinesisFirehose!: pulumi.Output<outputs.cloud.AwsIntegrationsKinesisFirehose | undefined>;
+    declare public readonly kinesisFirehose: pulumi.Output<outputs.cloud.AwsIntegrationsKinesisFirehose | undefined>;
     /**
      * Lambda integration
      */
-    public readonly lambda!: pulumi.Output<outputs.cloud.AwsIntegrationsLambda | undefined>;
+    declare public readonly lambda: pulumi.Output<outputs.cloud.AwsIntegrationsLambda | undefined>;
     /**
      * The ID of the linked AWS account in New Relic.
      */
-    public readonly linkedAccountId!: pulumi.Output<string>;
+    declare public readonly linkedAccountId: pulumi.Output<string>;
     /**
      * Rds integration
      */
-    public readonly rds!: pulumi.Output<outputs.cloud.AwsIntegrationsRds | undefined>;
+    declare public readonly rds: pulumi.Output<outputs.cloud.AwsIntegrationsRds | undefined>;
     /**
      * Redshift integration
      */
-    public readonly redshift!: pulumi.Output<outputs.cloud.AwsIntegrationsRedshift | undefined>;
+    declare public readonly redshift: pulumi.Output<outputs.cloud.AwsIntegrationsRedshift | undefined>;
     /**
      * Route53 integration
      */
-    public readonly route53!: pulumi.Output<outputs.cloud.AwsIntegrationsRoute53 | undefined>;
+    declare public readonly route53: pulumi.Output<outputs.cloud.AwsIntegrationsRoute53 | undefined>;
     /**
      * S3 integration
      */
-    public readonly s3!: pulumi.Output<outputs.cloud.AwsIntegrationsS3 | undefined>;
+    declare public readonly s3: pulumi.Output<outputs.cloud.AwsIntegrationsS3 | undefined>;
     /**
      * Ses integration
      */
-    public readonly ses!: pulumi.Output<outputs.cloud.AwsIntegrationsSes | undefined>;
+    declare public readonly ses: pulumi.Output<outputs.cloud.AwsIntegrationsSes | undefined>;
     /**
      * Sns integration
      */
-    public readonly sns!: pulumi.Output<outputs.cloud.AwsIntegrationsSns | undefined>;
+    declare public readonly sns: pulumi.Output<outputs.cloud.AwsIntegrationsSns | undefined>;
     /**
      * SQS integration
      */
-    public readonly sqs!: pulumi.Output<outputs.cloud.AwsIntegrationsSqs | undefined>;
+    declare public readonly sqs: pulumi.Output<outputs.cloud.AwsIntegrationsSqs | undefined>;
     /**
      * Trusted Advisor integration
      */
-    public readonly trustedAdvisor!: pulumi.Output<outputs.cloud.AwsIntegrationsTrustedAdvisor | undefined>;
+    declare public readonly trustedAdvisor: pulumi.Output<outputs.cloud.AwsIntegrationsTrustedAdvisor | undefined>;
     /**
      * VPC integration
      */
-    public readonly vpc!: pulumi.Output<outputs.cloud.AwsIntegrationsVpc | undefined>;
+    declare public readonly vpc: pulumi.Output<outputs.cloud.AwsIntegrationsVpc | undefined>;
     /**
      * X-Ray integration
      */
-    public readonly xRay!: pulumi.Output<outputs.cloud.AwsIntegrationsXRay | undefined>;
+    declare public readonly xRay: pulumi.Output<outputs.cloud.AwsIntegrationsXRay | undefined>;
 
     /**
      * Create a AwsIntegrations resource with the given unique name, arguments, and options.
@@ -279,121 +279,121 @@ export class AwsIntegrations extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsIntegrationsState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["alb"] = state ? state.alb : undefined;
-            resourceInputs["apiGateway"] = state ? state.apiGateway : undefined;
-            resourceInputs["autoScaling"] = state ? state.autoScaling : undefined;
-            resourceInputs["awsAppSync"] = state ? state.awsAppSync : undefined;
-            resourceInputs["awsAthena"] = state ? state.awsAthena : undefined;
-            resourceInputs["awsAutoDiscovery"] = state ? state.awsAutoDiscovery : undefined;
-            resourceInputs["awsCognito"] = state ? state.awsCognito : undefined;
-            resourceInputs["awsConnect"] = state ? state.awsConnect : undefined;
-            resourceInputs["awsDirectConnect"] = state ? state.awsDirectConnect : undefined;
-            resourceInputs["awsFsx"] = state ? state.awsFsx : undefined;
-            resourceInputs["awsGlue"] = state ? state.awsGlue : undefined;
-            resourceInputs["awsKinesisAnalytics"] = state ? state.awsKinesisAnalytics : undefined;
-            resourceInputs["awsMediaConvert"] = state ? state.awsMediaConvert : undefined;
-            resourceInputs["awsMediaPackageVod"] = state ? state.awsMediaPackageVod : undefined;
-            resourceInputs["awsMq"] = state ? state.awsMq : undefined;
-            resourceInputs["awsMsk"] = state ? state.awsMsk : undefined;
-            resourceInputs["awsNeptune"] = state ? state.awsNeptune : undefined;
-            resourceInputs["awsQldb"] = state ? state.awsQldb : undefined;
-            resourceInputs["awsRoute53resolver"] = state ? state.awsRoute53resolver : undefined;
-            resourceInputs["awsStates"] = state ? state.awsStates : undefined;
-            resourceInputs["awsTransitGateway"] = state ? state.awsTransitGateway : undefined;
-            resourceInputs["awsWaf"] = state ? state.awsWaf : undefined;
-            resourceInputs["awsWafv2"] = state ? state.awsWafv2 : undefined;
-            resourceInputs["billing"] = state ? state.billing : undefined;
-            resourceInputs["cloudfront"] = state ? state.cloudfront : undefined;
-            resourceInputs["cloudtrail"] = state ? state.cloudtrail : undefined;
-            resourceInputs["docDb"] = state ? state.docDb : undefined;
-            resourceInputs["dynamodb"] = state ? state.dynamodb : undefined;
-            resourceInputs["ebs"] = state ? state.ebs : undefined;
-            resourceInputs["ec2"] = state ? state.ec2 : undefined;
-            resourceInputs["ecs"] = state ? state.ecs : undefined;
-            resourceInputs["efs"] = state ? state.efs : undefined;
-            resourceInputs["elasticache"] = state ? state.elasticache : undefined;
-            resourceInputs["elasticbeanstalk"] = state ? state.elasticbeanstalk : undefined;
-            resourceInputs["elasticsearch"] = state ? state.elasticsearch : undefined;
-            resourceInputs["elb"] = state ? state.elb : undefined;
-            resourceInputs["emr"] = state ? state.emr : undefined;
-            resourceInputs["health"] = state ? state.health : undefined;
-            resourceInputs["iam"] = state ? state.iam : undefined;
-            resourceInputs["iot"] = state ? state.iot : undefined;
-            resourceInputs["kinesis"] = state ? state.kinesis : undefined;
-            resourceInputs["kinesisFirehose"] = state ? state.kinesisFirehose : undefined;
-            resourceInputs["lambda"] = state ? state.lambda : undefined;
-            resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
-            resourceInputs["rds"] = state ? state.rds : undefined;
-            resourceInputs["redshift"] = state ? state.redshift : undefined;
-            resourceInputs["route53"] = state ? state.route53 : undefined;
-            resourceInputs["s3"] = state ? state.s3 : undefined;
-            resourceInputs["ses"] = state ? state.ses : undefined;
-            resourceInputs["sns"] = state ? state.sns : undefined;
-            resourceInputs["sqs"] = state ? state.sqs : undefined;
-            resourceInputs["trustedAdvisor"] = state ? state.trustedAdvisor : undefined;
-            resourceInputs["vpc"] = state ? state.vpc : undefined;
-            resourceInputs["xRay"] = state ? state.xRay : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["alb"] = state?.alb;
+            resourceInputs["apiGateway"] = state?.apiGateway;
+            resourceInputs["autoScaling"] = state?.autoScaling;
+            resourceInputs["awsAppSync"] = state?.awsAppSync;
+            resourceInputs["awsAthena"] = state?.awsAthena;
+            resourceInputs["awsAutoDiscovery"] = state?.awsAutoDiscovery;
+            resourceInputs["awsCognito"] = state?.awsCognito;
+            resourceInputs["awsConnect"] = state?.awsConnect;
+            resourceInputs["awsDirectConnect"] = state?.awsDirectConnect;
+            resourceInputs["awsFsx"] = state?.awsFsx;
+            resourceInputs["awsGlue"] = state?.awsGlue;
+            resourceInputs["awsKinesisAnalytics"] = state?.awsKinesisAnalytics;
+            resourceInputs["awsMediaConvert"] = state?.awsMediaConvert;
+            resourceInputs["awsMediaPackageVod"] = state?.awsMediaPackageVod;
+            resourceInputs["awsMq"] = state?.awsMq;
+            resourceInputs["awsMsk"] = state?.awsMsk;
+            resourceInputs["awsNeptune"] = state?.awsNeptune;
+            resourceInputs["awsQldb"] = state?.awsQldb;
+            resourceInputs["awsRoute53resolver"] = state?.awsRoute53resolver;
+            resourceInputs["awsStates"] = state?.awsStates;
+            resourceInputs["awsTransitGateway"] = state?.awsTransitGateway;
+            resourceInputs["awsWaf"] = state?.awsWaf;
+            resourceInputs["awsWafv2"] = state?.awsWafv2;
+            resourceInputs["billing"] = state?.billing;
+            resourceInputs["cloudfront"] = state?.cloudfront;
+            resourceInputs["cloudtrail"] = state?.cloudtrail;
+            resourceInputs["docDb"] = state?.docDb;
+            resourceInputs["dynamodb"] = state?.dynamodb;
+            resourceInputs["ebs"] = state?.ebs;
+            resourceInputs["ec2"] = state?.ec2;
+            resourceInputs["ecs"] = state?.ecs;
+            resourceInputs["efs"] = state?.efs;
+            resourceInputs["elasticache"] = state?.elasticache;
+            resourceInputs["elasticbeanstalk"] = state?.elasticbeanstalk;
+            resourceInputs["elasticsearch"] = state?.elasticsearch;
+            resourceInputs["elb"] = state?.elb;
+            resourceInputs["emr"] = state?.emr;
+            resourceInputs["health"] = state?.health;
+            resourceInputs["iam"] = state?.iam;
+            resourceInputs["iot"] = state?.iot;
+            resourceInputs["kinesis"] = state?.kinesis;
+            resourceInputs["kinesisFirehose"] = state?.kinesisFirehose;
+            resourceInputs["lambda"] = state?.lambda;
+            resourceInputs["linkedAccountId"] = state?.linkedAccountId;
+            resourceInputs["rds"] = state?.rds;
+            resourceInputs["redshift"] = state?.redshift;
+            resourceInputs["route53"] = state?.route53;
+            resourceInputs["s3"] = state?.s3;
+            resourceInputs["ses"] = state?.ses;
+            resourceInputs["sns"] = state?.sns;
+            resourceInputs["sqs"] = state?.sqs;
+            resourceInputs["trustedAdvisor"] = state?.trustedAdvisor;
+            resourceInputs["vpc"] = state?.vpc;
+            resourceInputs["xRay"] = state?.xRay;
         } else {
             const args = argsOrState as AwsIntegrationsArgs | undefined;
-            if ((!args || args.linkedAccountId === undefined) && !opts.urn) {
+            if (args?.linkedAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedAccountId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["alb"] = args ? args.alb : undefined;
-            resourceInputs["apiGateway"] = args ? args.apiGateway : undefined;
-            resourceInputs["autoScaling"] = args ? args.autoScaling : undefined;
-            resourceInputs["awsAppSync"] = args ? args.awsAppSync : undefined;
-            resourceInputs["awsAthena"] = args ? args.awsAthena : undefined;
-            resourceInputs["awsAutoDiscovery"] = args ? args.awsAutoDiscovery : undefined;
-            resourceInputs["awsCognito"] = args ? args.awsCognito : undefined;
-            resourceInputs["awsConnect"] = args ? args.awsConnect : undefined;
-            resourceInputs["awsDirectConnect"] = args ? args.awsDirectConnect : undefined;
-            resourceInputs["awsFsx"] = args ? args.awsFsx : undefined;
-            resourceInputs["awsGlue"] = args ? args.awsGlue : undefined;
-            resourceInputs["awsKinesisAnalytics"] = args ? args.awsKinesisAnalytics : undefined;
-            resourceInputs["awsMediaConvert"] = args ? args.awsMediaConvert : undefined;
-            resourceInputs["awsMediaPackageVod"] = args ? args.awsMediaPackageVod : undefined;
-            resourceInputs["awsMq"] = args ? args.awsMq : undefined;
-            resourceInputs["awsMsk"] = args ? args.awsMsk : undefined;
-            resourceInputs["awsNeptune"] = args ? args.awsNeptune : undefined;
-            resourceInputs["awsQldb"] = args ? args.awsQldb : undefined;
-            resourceInputs["awsRoute53resolver"] = args ? args.awsRoute53resolver : undefined;
-            resourceInputs["awsStates"] = args ? args.awsStates : undefined;
-            resourceInputs["awsTransitGateway"] = args ? args.awsTransitGateway : undefined;
-            resourceInputs["awsWaf"] = args ? args.awsWaf : undefined;
-            resourceInputs["awsWafv2"] = args ? args.awsWafv2 : undefined;
-            resourceInputs["billing"] = args ? args.billing : undefined;
-            resourceInputs["cloudfront"] = args ? args.cloudfront : undefined;
-            resourceInputs["cloudtrail"] = args ? args.cloudtrail : undefined;
-            resourceInputs["docDb"] = args ? args.docDb : undefined;
-            resourceInputs["dynamodb"] = args ? args.dynamodb : undefined;
-            resourceInputs["ebs"] = args ? args.ebs : undefined;
-            resourceInputs["ec2"] = args ? args.ec2 : undefined;
-            resourceInputs["ecs"] = args ? args.ecs : undefined;
-            resourceInputs["efs"] = args ? args.efs : undefined;
-            resourceInputs["elasticache"] = args ? args.elasticache : undefined;
-            resourceInputs["elasticbeanstalk"] = args ? args.elasticbeanstalk : undefined;
-            resourceInputs["elasticsearch"] = args ? args.elasticsearch : undefined;
-            resourceInputs["elb"] = args ? args.elb : undefined;
-            resourceInputs["emr"] = args ? args.emr : undefined;
-            resourceInputs["health"] = args ? args.health : undefined;
-            resourceInputs["iam"] = args ? args.iam : undefined;
-            resourceInputs["iot"] = args ? args.iot : undefined;
-            resourceInputs["kinesis"] = args ? args.kinesis : undefined;
-            resourceInputs["kinesisFirehose"] = args ? args.kinesisFirehose : undefined;
-            resourceInputs["lambda"] = args ? args.lambda : undefined;
-            resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
-            resourceInputs["rds"] = args ? args.rds : undefined;
-            resourceInputs["redshift"] = args ? args.redshift : undefined;
-            resourceInputs["route53"] = args ? args.route53 : undefined;
-            resourceInputs["s3"] = args ? args.s3 : undefined;
-            resourceInputs["ses"] = args ? args.ses : undefined;
-            resourceInputs["sns"] = args ? args.sns : undefined;
-            resourceInputs["sqs"] = args ? args.sqs : undefined;
-            resourceInputs["trustedAdvisor"] = args ? args.trustedAdvisor : undefined;
-            resourceInputs["vpc"] = args ? args.vpc : undefined;
-            resourceInputs["xRay"] = args ? args.xRay : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["alb"] = args?.alb;
+            resourceInputs["apiGateway"] = args?.apiGateway;
+            resourceInputs["autoScaling"] = args?.autoScaling;
+            resourceInputs["awsAppSync"] = args?.awsAppSync;
+            resourceInputs["awsAthena"] = args?.awsAthena;
+            resourceInputs["awsAutoDiscovery"] = args?.awsAutoDiscovery;
+            resourceInputs["awsCognito"] = args?.awsCognito;
+            resourceInputs["awsConnect"] = args?.awsConnect;
+            resourceInputs["awsDirectConnect"] = args?.awsDirectConnect;
+            resourceInputs["awsFsx"] = args?.awsFsx;
+            resourceInputs["awsGlue"] = args?.awsGlue;
+            resourceInputs["awsKinesisAnalytics"] = args?.awsKinesisAnalytics;
+            resourceInputs["awsMediaConvert"] = args?.awsMediaConvert;
+            resourceInputs["awsMediaPackageVod"] = args?.awsMediaPackageVod;
+            resourceInputs["awsMq"] = args?.awsMq;
+            resourceInputs["awsMsk"] = args?.awsMsk;
+            resourceInputs["awsNeptune"] = args?.awsNeptune;
+            resourceInputs["awsQldb"] = args?.awsQldb;
+            resourceInputs["awsRoute53resolver"] = args?.awsRoute53resolver;
+            resourceInputs["awsStates"] = args?.awsStates;
+            resourceInputs["awsTransitGateway"] = args?.awsTransitGateway;
+            resourceInputs["awsWaf"] = args?.awsWaf;
+            resourceInputs["awsWafv2"] = args?.awsWafv2;
+            resourceInputs["billing"] = args?.billing;
+            resourceInputs["cloudfront"] = args?.cloudfront;
+            resourceInputs["cloudtrail"] = args?.cloudtrail;
+            resourceInputs["docDb"] = args?.docDb;
+            resourceInputs["dynamodb"] = args?.dynamodb;
+            resourceInputs["ebs"] = args?.ebs;
+            resourceInputs["ec2"] = args?.ec2;
+            resourceInputs["ecs"] = args?.ecs;
+            resourceInputs["efs"] = args?.efs;
+            resourceInputs["elasticache"] = args?.elasticache;
+            resourceInputs["elasticbeanstalk"] = args?.elasticbeanstalk;
+            resourceInputs["elasticsearch"] = args?.elasticsearch;
+            resourceInputs["elb"] = args?.elb;
+            resourceInputs["emr"] = args?.emr;
+            resourceInputs["health"] = args?.health;
+            resourceInputs["iam"] = args?.iam;
+            resourceInputs["iot"] = args?.iot;
+            resourceInputs["kinesis"] = args?.kinesis;
+            resourceInputs["kinesisFirehose"] = args?.kinesisFirehose;
+            resourceInputs["lambda"] = args?.lambda;
+            resourceInputs["linkedAccountId"] = args?.linkedAccountId;
+            resourceInputs["rds"] = args?.rds;
+            resourceInputs["redshift"] = args?.redshift;
+            resourceInputs["route53"] = args?.route53;
+            resourceInputs["s3"] = args?.s3;
+            resourceInputs["ses"] = args?.ses;
+            resourceInputs["sns"] = args?.sns;
+            resourceInputs["sqs"] = args?.sqs;
+            resourceInputs["trustedAdvisor"] = args?.trustedAdvisor;
+            resourceInputs["vpc"] = args?.vpc;
+            resourceInputs["xRay"] = args?.xRay;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsIntegrations.__pulumiType, name, resourceInputs, opts);

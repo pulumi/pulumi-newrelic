@@ -210,54 +210,54 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Notification configuration. See Nested destination blocks below for details.
      */
-    public readonly destinations!: pulumi.Output<outputs.WorkflowDestination[]>;
+    declare public readonly destinations: pulumi.Output<outputs.WorkflowDestination[]>;
     /**
      * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
      * these two are different flags, but they are functionally identical. Defaults to true.
      *
      * @deprecated Please use 'enabled' instead
      */
-    public readonly destinationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly destinationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether workflow is enabled. Defaults to true.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Workflow's enrichments. See Nested enrichments blocks below for details.
      */
-    public readonly enrichments!: pulumi.Output<outputs.WorkflowEnrichments | undefined>;
+    declare public readonly enrichments: pulumi.Output<outputs.WorkflowEnrichments | undefined>;
     /**
      * Whether enrichments are enabled. Defaults to true.
      */
-    public readonly enrichmentsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enrichmentsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Workflow entity GUID
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
-    public readonly issuesFilter!: pulumi.Output<outputs.WorkflowIssuesFilter>;
+    declare public readonly issuesFilter: pulumi.Output<outputs.WorkflowIssuesFilter>;
     /**
      * The last time notification was sent for this workflow.
      */
-    public /*out*/ readonly lastRun!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastRun: pulumi.Output<string>;
     /**
      * How to handle muted issues. See Muting Rules below for details.
      */
-    public readonly mutingRulesHandling!: pulumi.Output<string>;
+    declare public readonly mutingRulesHandling: pulumi.Output<string>;
     /**
      * The name of the workflow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The id of the workflow.
      */
-    public /*out*/ readonly workflowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workflowId: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -272,38 +272,38 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["destinations"] = state ? state.destinations : undefined;
-            resourceInputs["destinationsEnabled"] = state ? state.destinationsEnabled : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["enrichments"] = state ? state.enrichments : undefined;
-            resourceInputs["enrichmentsEnabled"] = state ? state.enrichmentsEnabled : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["issuesFilter"] = state ? state.issuesFilter : undefined;
-            resourceInputs["lastRun"] = state ? state.lastRun : undefined;
-            resourceInputs["mutingRulesHandling"] = state ? state.mutingRulesHandling : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["workflowId"] = state ? state.workflowId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["destinations"] = state?.destinations;
+            resourceInputs["destinationsEnabled"] = state?.destinationsEnabled;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["enrichments"] = state?.enrichments;
+            resourceInputs["enrichmentsEnabled"] = state?.enrichmentsEnabled;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["issuesFilter"] = state?.issuesFilter;
+            resourceInputs["lastRun"] = state?.lastRun;
+            resourceInputs["mutingRulesHandling"] = state?.mutingRulesHandling;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["workflowId"] = state?.workflowId;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if ((!args || args.destinations === undefined) && !opts.urn) {
+            if (args?.destinations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinations'");
             }
-            if ((!args || args.issuesFilter === undefined) && !opts.urn) {
+            if (args?.issuesFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuesFilter'");
             }
-            if ((!args || args.mutingRulesHandling === undefined) && !opts.urn) {
+            if (args?.mutingRulesHandling === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mutingRulesHandling'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["destinationsEnabled"] = args ? args.destinationsEnabled : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["enrichments"] = args ? args.enrichments : undefined;
-            resourceInputs["enrichmentsEnabled"] = args ? args.enrichmentsEnabled : undefined;
-            resourceInputs["issuesFilter"] = args ? args.issuesFilter : undefined;
-            resourceInputs["mutingRulesHandling"] = args ? args.mutingRulesHandling : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["destinationsEnabled"] = args?.destinationsEnabled;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["enrichments"] = args?.enrichments;
+            resourceInputs["enrichmentsEnabled"] = args?.enrichmentsEnabled;
+            resourceInputs["issuesFilter"] = args?.issuesFilter;
+            resourceInputs["mutingRulesHandling"] = args?.mutingRulesHandling;
+            resourceInputs["name"] = args?.name;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["lastRun"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;

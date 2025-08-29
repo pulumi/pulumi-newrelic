@@ -20,16 +20,14 @@ public final class MonitorDowntimeArgs extends com.pulumi.resources.ResourceArgs
     public static final MonitorDowntimeArgs Empty = new MonitorDowntimeArgs();
 
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-     * provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-     * provider{} configuration if not specified.
+     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -205,8 +203,7 @@ public final class MonitorDowntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-         * provider{} configuration if not specified.
+         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
          * 
          * @return builder
          * 
@@ -217,8 +214,7 @@ public final class MonitorDowntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-         * provider{} configuration if not specified.
+         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
          * 
          * @return builder
          * 

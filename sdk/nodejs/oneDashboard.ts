@@ -48,35 +48,35 @@ export class OneDashboard extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Brief text describing the dashboard.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique entity identifier of the dashboard page in New Relic.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The title of the dashboard.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A nested block that describes a page. See Nested page blocks below for details.
      */
-    public readonly pages!: pulumi.Output<outputs.OneDashboardPage[]>;
+    declare public readonly pages: pulumi.Output<outputs.OneDashboardPage[]>;
     /**
      * The URL for viewing the dashboard.
      */
-    public /*out*/ readonly permalink!: pulumi.Output<string>;
+    declare public /*out*/ readonly permalink: pulumi.Output<string>;
     /**
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
-    public readonly permissions!: pulumi.Output<string | undefined>;
+    declare public readonly permissions: pulumi.Output<string | undefined>;
     /**
      * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
      */
-    public readonly variables!: pulumi.Output<outputs.OneDashboardVariable[] | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.OneDashboardVariable[] | undefined>;
 
     /**
      * Create a OneDashboard resource with the given unique name, arguments, and options.
@@ -91,25 +91,25 @@ export class OneDashboard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OneDashboardState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pages"] = state ? state.pages : undefined;
-            resourceInputs["permalink"] = state ? state.permalink : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pages"] = state?.pages;
+            resourceInputs["permalink"] = state?.permalink;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as OneDashboardArgs | undefined;
-            if ((!args || args.pages === undefined) && !opts.urn) {
+            if (args?.pages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pages'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pages"] = args ? args.pages : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pages"] = args?.pages;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["permalink"] = undefined /*out*/;
         }

@@ -85,23 +85,23 @@ export class NrqlDropRule extends pulumi.CustomResource {
     /**
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or ` dropAttributesFromMetricAggregates`).
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * The description of the drop rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A NRQL string that specifies what data types to drop.
      */
-    public readonly nrql!: pulumi.Output<string>;
+    declare public readonly nrql: pulumi.Output<string>;
     /**
      * The id, uniquely identifying the rule.
      */
-    public /*out*/ readonly ruleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<string>;
 
     /**
      * Create a NrqlDropRule resource with the given unique name, arguments, and options.
@@ -116,23 +116,23 @@ export class NrqlDropRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NrqlDropRuleState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["nrql"] = state ? state.nrql : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["nrql"] = state?.nrql;
+            resourceInputs["ruleId"] = state?.ruleId;
         } else {
             const args = argsOrState as NrqlDropRuleArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.nrql === undefined) && !opts.urn) {
+            if (args?.nrql === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["nrql"] = args ? args.nrql : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["nrql"] = args?.nrql;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

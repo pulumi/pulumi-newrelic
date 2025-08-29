@@ -46,50 +46,50 @@ export class ApplicationSettings extends pulumi.CustomResource {
     /**
      * The acceptable response time limit (Apdex threshold) for the application.
      */
-    public readonly appApdexThreshold!: pulumi.Output<number | undefined>;
+    declare public readonly appApdexThreshold: pulumi.Output<number | undefined>;
     /**
      * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    public readonly enableRealUserMonitoring!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableRealUserMonitoring: pulumi.Output<boolean | undefined>;
     /**
      * Enable or disable the collection of slowest database queries in your traces.
      */
-    public readonly enableSlowSql!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableSlowSql: pulumi.Output<boolean | undefined>;
     /**
      * Enable or disable the collection of thread profiling data.
      */
-    public readonly enableThreadProfiler!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableThreadProfiler: pulumi.Output<boolean | undefined>;
     /**
      * Dummy field to support backward compatibility of previous version.should be removed with next major version.
      */
-    public readonly endUserApdexThreshold!: pulumi.Output<number | undefined>;
+    declare public readonly endUserApdexThreshold: pulumi.Output<number | undefined>;
     /**
      * Configuration block for error collection. Including this block enables the error collector. The following arguments are supported:
      */
-    public readonly errorCollectors!: pulumi.Output<outputs.plugins.ApplicationSettingsErrorCollector[] | undefined>;
+    declare public readonly errorCollectors: pulumi.Output<outputs.plugins.ApplicationSettingsErrorCollector[] | undefined>;
     /**
      * The GUID of the application in New Relic APM.
      *
      * > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
      */
-    public readonly guid!: pulumi.Output<string>;
-    public /*out*/ readonly isImported!: pulumi.Output<boolean>;
+    declare public readonly guid: pulumi.Output<string>;
+    declare public /*out*/ readonly isImported: pulumi.Output<boolean>;
     /**
      * The name of the application in New Relic.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
      */
-    public readonly tracerType!: pulumi.Output<string | undefined>;
+    declare public readonly tracerType: pulumi.Output<string | undefined>;
     /**
      * Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
      */
-    public readonly transactionTracers!: pulumi.Output<outputs.plugins.ApplicationSettingsTransactionTracer[] | undefined>;
+    declare public readonly transactionTracers: pulumi.Output<outputs.plugins.ApplicationSettingsTransactionTracer[] | undefined>;
     /**
      * Enable or disable server side monitoring for the New Relic application.
      */
-    public readonly useServerSideConfig!: pulumi.Output<boolean | undefined>;
+    declare public readonly useServerSideConfig: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ApplicationSettings resource with the given unique name, arguments, and options.
@@ -104,31 +104,31 @@ export class ApplicationSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationSettingsState | undefined;
-            resourceInputs["appApdexThreshold"] = state ? state.appApdexThreshold : undefined;
-            resourceInputs["enableRealUserMonitoring"] = state ? state.enableRealUserMonitoring : undefined;
-            resourceInputs["enableSlowSql"] = state ? state.enableSlowSql : undefined;
-            resourceInputs["enableThreadProfiler"] = state ? state.enableThreadProfiler : undefined;
-            resourceInputs["endUserApdexThreshold"] = state ? state.endUserApdexThreshold : undefined;
-            resourceInputs["errorCollectors"] = state ? state.errorCollectors : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["isImported"] = state ? state.isImported : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tracerType"] = state ? state.tracerType : undefined;
-            resourceInputs["transactionTracers"] = state ? state.transactionTracers : undefined;
-            resourceInputs["useServerSideConfig"] = state ? state.useServerSideConfig : undefined;
+            resourceInputs["appApdexThreshold"] = state?.appApdexThreshold;
+            resourceInputs["enableRealUserMonitoring"] = state?.enableRealUserMonitoring;
+            resourceInputs["enableSlowSql"] = state?.enableSlowSql;
+            resourceInputs["enableThreadProfiler"] = state?.enableThreadProfiler;
+            resourceInputs["endUserApdexThreshold"] = state?.endUserApdexThreshold;
+            resourceInputs["errorCollectors"] = state?.errorCollectors;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["isImported"] = state?.isImported;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tracerType"] = state?.tracerType;
+            resourceInputs["transactionTracers"] = state?.transactionTracers;
+            resourceInputs["useServerSideConfig"] = state?.useServerSideConfig;
         } else {
             const args = argsOrState as ApplicationSettingsArgs | undefined;
-            resourceInputs["appApdexThreshold"] = args ? args.appApdexThreshold : undefined;
-            resourceInputs["enableRealUserMonitoring"] = args ? args.enableRealUserMonitoring : undefined;
-            resourceInputs["enableSlowSql"] = args ? args.enableSlowSql : undefined;
-            resourceInputs["enableThreadProfiler"] = args ? args.enableThreadProfiler : undefined;
-            resourceInputs["endUserApdexThreshold"] = args ? args.endUserApdexThreshold : undefined;
-            resourceInputs["errorCollectors"] = args ? args.errorCollectors : undefined;
-            resourceInputs["guid"] = args ? args.guid : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tracerType"] = args ? args.tracerType : undefined;
-            resourceInputs["transactionTracers"] = args ? args.transactionTracers : undefined;
-            resourceInputs["useServerSideConfig"] = args ? args.useServerSideConfig : undefined;
+            resourceInputs["appApdexThreshold"] = args?.appApdexThreshold;
+            resourceInputs["enableRealUserMonitoring"] = args?.enableRealUserMonitoring;
+            resourceInputs["enableSlowSql"] = args?.enableSlowSql;
+            resourceInputs["enableThreadProfiler"] = args?.enableThreadProfiler;
+            resourceInputs["endUserApdexThreshold"] = args?.endUserApdexThreshold;
+            resourceInputs["errorCollectors"] = args?.errorCollectors;
+            resourceInputs["guid"] = args?.guid;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tracerType"] = args?.tracerType;
+            resourceInputs["transactionTracers"] = args?.transactionTracers;
+            resourceInputs["useServerSideConfig"] = args?.useServerSideConfig;
             resourceInputs["isImported"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -65,33 +65,33 @@ export class KeyTransaction extends pulumi.CustomResource {
     /**
      * A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
      */
-    public readonly apdexIndex!: pulumi.Output<number>;
+    declare public readonly apdexIndex: pulumi.Output<number>;
     /**
      * The GUID of the APM Application comprising transactions, of which one would be made a key transaction.
      */
-    public readonly applicationGuid!: pulumi.Output<string>;
+    declare public readonly applicationGuid: pulumi.Output<string>;
     /**
      * A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
      *
      * > **NOTE:** It may be noted that the `metricName` and `applicationGuid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `applicationGuid` and/or `metricName` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
      */
-    public readonly browserApdexTarget!: pulumi.Output<number>;
+    declare public readonly browserApdexTarget: pulumi.Output<number>;
     /**
      * The domain of the entity monitored by the key transaction.
      */
-    public /*out*/ readonly domain!: pulumi.Output<string>;
+    declare public /*out*/ readonly domain: pulumi.Output<string>;
     /**
      * The name of the underlying metric monitored by the key transaction to be created.
      */
-    public readonly metricName!: pulumi.Output<string>;
+    declare public readonly metricName: pulumi.Output<string>;
     /**
      * The name of the key transaction.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The type of the entity monitored by the key transaction.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KeyTransaction resource with the given unique name, arguments, and options.
@@ -106,32 +106,32 @@ export class KeyTransaction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyTransactionState | undefined;
-            resourceInputs["apdexIndex"] = state ? state.apdexIndex : undefined;
-            resourceInputs["applicationGuid"] = state ? state.applicationGuid : undefined;
-            resourceInputs["browserApdexTarget"] = state ? state.browserApdexTarget : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["metricName"] = state ? state.metricName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["apdexIndex"] = state?.apdexIndex;
+            resourceInputs["applicationGuid"] = state?.applicationGuid;
+            resourceInputs["browserApdexTarget"] = state?.browserApdexTarget;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["metricName"] = state?.metricName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as KeyTransactionArgs | undefined;
-            if ((!args || args.apdexIndex === undefined) && !opts.urn) {
+            if (args?.apdexIndex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apdexIndex'");
             }
-            if ((!args || args.applicationGuid === undefined) && !opts.urn) {
+            if (args?.applicationGuid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationGuid'");
             }
-            if ((!args || args.browserApdexTarget === undefined) && !opts.urn) {
+            if (args?.browserApdexTarget === undefined && !opts.urn) {
                 throw new Error("Missing required property 'browserApdexTarget'");
             }
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            resourceInputs["apdexIndex"] = args ? args.apdexIndex : undefined;
-            resourceInputs["applicationGuid"] = args ? args.applicationGuid : undefined;
-            resourceInputs["browserApdexTarget"] = args ? args.browserApdexTarget : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apdexIndex"] = args?.apdexIndex;
+            resourceInputs["applicationGuid"] = args?.applicationGuid;
+            resourceInputs["browserApdexTarget"] = args?.browserApdexTarget;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["name"] = args?.name;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

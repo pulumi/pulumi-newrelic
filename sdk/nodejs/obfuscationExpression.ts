@@ -62,19 +62,19 @@ export class ObfuscationExpression extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation expression.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Description of expression.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of expression.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
      */
-    public readonly regex!: pulumi.Output<string>;
+    declare public readonly regex: pulumi.Output<string>;
 
     /**
      * Create a ObfuscationExpression resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class ObfuscationExpression extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObfuscationExpressionState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["regex"] = state ? state.regex : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["regex"] = state?.regex;
         } else {
             const args = argsOrState as ObfuscationExpressionArgs | undefined;
-            if ((!args || args.regex === undefined) && !opts.urn) {
+            if (args?.regex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regex'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regex"] = args ? args.regex : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regex"] = args?.regex;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ObfuscationExpression.__pulumiType, name, resourceInputs, opts);

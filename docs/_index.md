@@ -4,6 +4,7 @@ title: Newrelic Provider
 meta_desc: Provides an overview on how to configure the Pulumi Newrelic provider.
 layout: package
 ---
+
 ## Installation
 
 The Newrelic provider is available as a package in all Pulumi languages:
@@ -13,6 +14,7 @@ The Newrelic provider is available as a package in all Pulumi languages:
 * Go: [`github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic`](https://github.com/pulumi/pulumi-newrelic)
 * .NET: [`Pulumi.Newrelic`](https://www.nuget.org/packages/Pulumi.Newrelic)
 * Java: [`com.pulumi/newrelic`](https://central.sonatype.com/artifact/com.pulumi/newrelic)
+
 ## Overview
 
 [New Relic](https://newrelic.com/) offers tools that help you fix problems
@@ -463,8 +465,8 @@ variables:
   # Read an APM application resource
   foo:
     fn::invoke:
-      Function: newrelic:getEntity
-      Arguments:
+      function: newrelic:getEntity
+      arguments:
         name: Your App Name
         domain: APM
         type: APPLICATION
@@ -538,7 +540,7 @@ public class App {
             .enabled(true)
             .violationTimeLimitSeconds(3600)
             .nrql(NrqlAlertConditionNrqlArgs.builder()
-                .query(String.format("SELECT average(duration) FROM Transaction where appName = '%s'", foo.applyValue(getEntityResult -> getEntityResult.name())))
+                .query(String.format("SELECT average(duration) FROM Transaction where appName = '%s'", foo.name()))
                 .build())
             .critical(NrqlAlertConditionCriticalArgs.builder()
                 .operator("above")
