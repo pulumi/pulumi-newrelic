@@ -152,117 +152,117 @@ export class GcpIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Alloy DB integration. See Integration blocks below for details.
      */
-    public readonly alloyDb!: pulumi.Output<outputs.cloud.GcpIntegrationsAlloyDb | undefined>;
+    declare public readonly alloyDb: pulumi.Output<outputs.cloud.GcpIntegrationsAlloyDb | undefined>;
     /**
      * App Engine integration. See Integration blocks below for details.
      */
-    public readonly appEngine!: pulumi.Output<outputs.cloud.GcpIntegrationsAppEngine | undefined>;
+    declare public readonly appEngine: pulumi.Output<outputs.cloud.GcpIntegrationsAppEngine | undefined>;
     /**
      * Biq Query integration. See Integration blocks below for details.
      */
-    public readonly bigQuery!: pulumi.Output<outputs.cloud.GcpIntegrationsBigQuery | undefined>;
+    declare public readonly bigQuery: pulumi.Output<outputs.cloud.GcpIntegrationsBigQuery | undefined>;
     /**
      * Big Table. See Integration blocks below for details.
      */
-    public readonly bigTable!: pulumi.Output<outputs.cloud.GcpIntegrationsBigTable | undefined>;
+    declare public readonly bigTable: pulumi.Output<outputs.cloud.GcpIntegrationsBigTable | undefined>;
     /**
      * Composer integration. See Integration blocks below for details.
      */
-    public readonly composer!: pulumi.Output<outputs.cloud.GcpIntegrationsComposer | undefined>;
+    declare public readonly composer: pulumi.Output<outputs.cloud.GcpIntegrationsComposer | undefined>;
     /**
      * Data Flow integration. See Integration blocks below for details.
      */
-    public readonly dataFlow!: pulumi.Output<outputs.cloud.GcpIntegrationsDataFlow | undefined>;
+    declare public readonly dataFlow: pulumi.Output<outputs.cloud.GcpIntegrationsDataFlow | undefined>;
     /**
      * Data Proc integration. See Integration blocks below for details.
      */
-    public readonly dataProc!: pulumi.Output<outputs.cloud.GcpIntegrationsDataProc | undefined>;
+    declare public readonly dataProc: pulumi.Output<outputs.cloud.GcpIntegrationsDataProc | undefined>;
     /**
      * Data Store integration. See Integration blocks below for details.
      */
-    public readonly dataStore!: pulumi.Output<outputs.cloud.GcpIntegrationsDataStore | undefined>;
+    declare public readonly dataStore: pulumi.Output<outputs.cloud.GcpIntegrationsDataStore | undefined>;
     /**
      * Fire Base Database integration. See Integration blocks below for details.
      */
-    public readonly fireBaseDatabase!: pulumi.Output<outputs.cloud.GcpIntegrationsFireBaseDatabase | undefined>;
+    declare public readonly fireBaseDatabase: pulumi.Output<outputs.cloud.GcpIntegrationsFireBaseDatabase | undefined>;
     /**
      * Fire Base Hosting integration. See Integration blocks below for details.
      */
-    public readonly fireBaseHosting!: pulumi.Output<outputs.cloud.GcpIntegrationsFireBaseHosting | undefined>;
+    declare public readonly fireBaseHosting: pulumi.Output<outputs.cloud.GcpIntegrationsFireBaseHosting | undefined>;
     /**
      * Fire Base Storage integration. See Integration blocks below for details.
      */
-    public readonly fireBaseStorage!: pulumi.Output<outputs.cloud.GcpIntegrationsFireBaseStorage | undefined>;
+    declare public readonly fireBaseStorage: pulumi.Output<outputs.cloud.GcpIntegrationsFireBaseStorage | undefined>;
     /**
      * Fire Store integration. See Integration blocks below for details.
      */
-    public readonly fireStore!: pulumi.Output<outputs.cloud.GcpIntegrationsFireStore | undefined>;
+    declare public readonly fireStore: pulumi.Output<outputs.cloud.GcpIntegrationsFireStore | undefined>;
     /**
      * Functions integration. See Integration blocks below for details.
      */
-    public readonly functions!: pulumi.Output<outputs.cloud.GcpIntegrationsFunctions | undefined>;
+    declare public readonly functions: pulumi.Output<outputs.cloud.GcpIntegrationsFunctions | undefined>;
     /**
      * Interconnect integration. See Integration blocks below for details.
      */
-    public readonly interconnect!: pulumi.Output<outputs.cloud.GcpIntegrationsInterconnect | undefined>;
+    declare public readonly interconnect: pulumi.Output<outputs.cloud.GcpIntegrationsInterconnect | undefined>;
     /**
      * Kubernetes integration. See Integration blocks below for details.
      */
-    public readonly kubernetes!: pulumi.Output<outputs.cloud.GcpIntegrationsKubernetes | undefined>;
+    declare public readonly kubernetes: pulumi.Output<outputs.cloud.GcpIntegrationsKubernetes | undefined>;
     /**
      * The ID of the linked GCP account in New Relic.
      *
      * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      */
-    public readonly linkedAccountId!: pulumi.Output<string>;
+    declare public readonly linkedAccountId: pulumi.Output<string>;
     /**
      * Load Balancing integration. See Integration blocks below for details.
      */
-    public readonly loadBalancing!: pulumi.Output<outputs.cloud.GcpIntegrationsLoadBalancing | undefined>;
+    declare public readonly loadBalancing: pulumi.Output<outputs.cloud.GcpIntegrationsLoadBalancing | undefined>;
     /**
      * Mem cache integration. See Integration blocks below for details.
      */
-    public readonly memCache!: pulumi.Output<outputs.cloud.GcpIntegrationsMemCache | undefined>;
+    declare public readonly memCache: pulumi.Output<outputs.cloud.GcpIntegrationsMemCache | undefined>;
     /**
      * Pub/Sub integration. See Integration blocks below for details.
      */
-    public readonly pubSub!: pulumi.Output<outputs.cloud.GcpIntegrationsPubSub | undefined>;
+    declare public readonly pubSub: pulumi.Output<outputs.cloud.GcpIntegrationsPubSub | undefined>;
     /**
      * Redis integration. See Integration blocks below for details.
      */
-    public readonly redis!: pulumi.Output<outputs.cloud.GcpIntegrationsRedis | undefined>;
+    declare public readonly redis: pulumi.Output<outputs.cloud.GcpIntegrationsRedis | undefined>;
     /**
      * Router integration. See Integration blocks below for details.
      */
-    public readonly router!: pulumi.Output<outputs.cloud.GcpIntegrationsRouter | undefined>;
+    declare public readonly router: pulumi.Output<outputs.cloud.GcpIntegrationsRouter | undefined>;
     /**
      * Run integration. See Integration blocks below for details.
      */
-    public readonly run!: pulumi.Output<outputs.cloud.GcpIntegrationsRun | undefined>;
+    declare public readonly run: pulumi.Output<outputs.cloud.GcpIntegrationsRun | undefined>;
     /**
      * Spanner integration. See Integration blocks below for details.
      */
-    public readonly spanner!: pulumi.Output<outputs.cloud.GcpIntegrationsSpanner | undefined>;
+    declare public readonly spanner: pulumi.Output<outputs.cloud.GcpIntegrationsSpanner | undefined>;
     /**
      * SQL integration. See Integration blocks below for details.
      */
-    public readonly sql!: pulumi.Output<outputs.cloud.GcpIntegrationsSql | undefined>;
+    declare public readonly sql: pulumi.Output<outputs.cloud.GcpIntegrationsSql | undefined>;
     /**
      * Storage integration. See Integration blocks below for details.
      */
-    public readonly storage!: pulumi.Output<outputs.cloud.GcpIntegrationsStorage | undefined>;
+    declare public readonly storage: pulumi.Output<outputs.cloud.GcpIntegrationsStorage | undefined>;
     /**
      * Virtual machines integration. See Integration blocks below for details.
      */
-    public readonly virtualMachines!: pulumi.Output<outputs.cloud.GcpIntegrationsVirtualMachines | undefined>;
+    declare public readonly virtualMachines: pulumi.Output<outputs.cloud.GcpIntegrationsVirtualMachines | undefined>;
     /**
      * VPC Access integration. See Integration blocks below for details.
      */
-    public readonly vpcAccess!: pulumi.Output<outputs.cloud.GcpIntegrationsVpcAccess | undefined>;
+    declare public readonly vpcAccess: pulumi.Output<outputs.cloud.GcpIntegrationsVpcAccess | undefined>;
 
     /**
      * Create a GcpIntegrations resource with the given unique name, arguments, and options.
@@ -277,67 +277,67 @@ export class GcpIntegrations extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GcpIntegrationsState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["alloyDb"] = state ? state.alloyDb : undefined;
-            resourceInputs["appEngine"] = state ? state.appEngine : undefined;
-            resourceInputs["bigQuery"] = state ? state.bigQuery : undefined;
-            resourceInputs["bigTable"] = state ? state.bigTable : undefined;
-            resourceInputs["composer"] = state ? state.composer : undefined;
-            resourceInputs["dataFlow"] = state ? state.dataFlow : undefined;
-            resourceInputs["dataProc"] = state ? state.dataProc : undefined;
-            resourceInputs["dataStore"] = state ? state.dataStore : undefined;
-            resourceInputs["fireBaseDatabase"] = state ? state.fireBaseDatabase : undefined;
-            resourceInputs["fireBaseHosting"] = state ? state.fireBaseHosting : undefined;
-            resourceInputs["fireBaseStorage"] = state ? state.fireBaseStorage : undefined;
-            resourceInputs["fireStore"] = state ? state.fireStore : undefined;
-            resourceInputs["functions"] = state ? state.functions : undefined;
-            resourceInputs["interconnect"] = state ? state.interconnect : undefined;
-            resourceInputs["kubernetes"] = state ? state.kubernetes : undefined;
-            resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
-            resourceInputs["loadBalancing"] = state ? state.loadBalancing : undefined;
-            resourceInputs["memCache"] = state ? state.memCache : undefined;
-            resourceInputs["pubSub"] = state ? state.pubSub : undefined;
-            resourceInputs["redis"] = state ? state.redis : undefined;
-            resourceInputs["router"] = state ? state.router : undefined;
-            resourceInputs["run"] = state ? state.run : undefined;
-            resourceInputs["spanner"] = state ? state.spanner : undefined;
-            resourceInputs["sql"] = state ? state.sql : undefined;
-            resourceInputs["storage"] = state ? state.storage : undefined;
-            resourceInputs["virtualMachines"] = state ? state.virtualMachines : undefined;
-            resourceInputs["vpcAccess"] = state ? state.vpcAccess : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["alloyDb"] = state?.alloyDb;
+            resourceInputs["appEngine"] = state?.appEngine;
+            resourceInputs["bigQuery"] = state?.bigQuery;
+            resourceInputs["bigTable"] = state?.bigTable;
+            resourceInputs["composer"] = state?.composer;
+            resourceInputs["dataFlow"] = state?.dataFlow;
+            resourceInputs["dataProc"] = state?.dataProc;
+            resourceInputs["dataStore"] = state?.dataStore;
+            resourceInputs["fireBaseDatabase"] = state?.fireBaseDatabase;
+            resourceInputs["fireBaseHosting"] = state?.fireBaseHosting;
+            resourceInputs["fireBaseStorage"] = state?.fireBaseStorage;
+            resourceInputs["fireStore"] = state?.fireStore;
+            resourceInputs["functions"] = state?.functions;
+            resourceInputs["interconnect"] = state?.interconnect;
+            resourceInputs["kubernetes"] = state?.kubernetes;
+            resourceInputs["linkedAccountId"] = state?.linkedAccountId;
+            resourceInputs["loadBalancing"] = state?.loadBalancing;
+            resourceInputs["memCache"] = state?.memCache;
+            resourceInputs["pubSub"] = state?.pubSub;
+            resourceInputs["redis"] = state?.redis;
+            resourceInputs["router"] = state?.router;
+            resourceInputs["run"] = state?.run;
+            resourceInputs["spanner"] = state?.spanner;
+            resourceInputs["sql"] = state?.sql;
+            resourceInputs["storage"] = state?.storage;
+            resourceInputs["virtualMachines"] = state?.virtualMachines;
+            resourceInputs["vpcAccess"] = state?.vpcAccess;
         } else {
             const args = argsOrState as GcpIntegrationsArgs | undefined;
-            if ((!args || args.linkedAccountId === undefined) && !opts.urn) {
+            if (args?.linkedAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedAccountId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["alloyDb"] = args ? args.alloyDb : undefined;
-            resourceInputs["appEngine"] = args ? args.appEngine : undefined;
-            resourceInputs["bigQuery"] = args ? args.bigQuery : undefined;
-            resourceInputs["bigTable"] = args ? args.bigTable : undefined;
-            resourceInputs["composer"] = args ? args.composer : undefined;
-            resourceInputs["dataFlow"] = args ? args.dataFlow : undefined;
-            resourceInputs["dataProc"] = args ? args.dataProc : undefined;
-            resourceInputs["dataStore"] = args ? args.dataStore : undefined;
-            resourceInputs["fireBaseDatabase"] = args ? args.fireBaseDatabase : undefined;
-            resourceInputs["fireBaseHosting"] = args ? args.fireBaseHosting : undefined;
-            resourceInputs["fireBaseStorage"] = args ? args.fireBaseStorage : undefined;
-            resourceInputs["fireStore"] = args ? args.fireStore : undefined;
-            resourceInputs["functions"] = args ? args.functions : undefined;
-            resourceInputs["interconnect"] = args ? args.interconnect : undefined;
-            resourceInputs["kubernetes"] = args ? args.kubernetes : undefined;
-            resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
-            resourceInputs["loadBalancing"] = args ? args.loadBalancing : undefined;
-            resourceInputs["memCache"] = args ? args.memCache : undefined;
-            resourceInputs["pubSub"] = args ? args.pubSub : undefined;
-            resourceInputs["redis"] = args ? args.redis : undefined;
-            resourceInputs["router"] = args ? args.router : undefined;
-            resourceInputs["run"] = args ? args.run : undefined;
-            resourceInputs["spanner"] = args ? args.spanner : undefined;
-            resourceInputs["sql"] = args ? args.sql : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
-            resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
-            resourceInputs["vpcAccess"] = args ? args.vpcAccess : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["alloyDb"] = args?.alloyDb;
+            resourceInputs["appEngine"] = args?.appEngine;
+            resourceInputs["bigQuery"] = args?.bigQuery;
+            resourceInputs["bigTable"] = args?.bigTable;
+            resourceInputs["composer"] = args?.composer;
+            resourceInputs["dataFlow"] = args?.dataFlow;
+            resourceInputs["dataProc"] = args?.dataProc;
+            resourceInputs["dataStore"] = args?.dataStore;
+            resourceInputs["fireBaseDatabase"] = args?.fireBaseDatabase;
+            resourceInputs["fireBaseHosting"] = args?.fireBaseHosting;
+            resourceInputs["fireBaseStorage"] = args?.fireBaseStorage;
+            resourceInputs["fireStore"] = args?.fireStore;
+            resourceInputs["functions"] = args?.functions;
+            resourceInputs["interconnect"] = args?.interconnect;
+            resourceInputs["kubernetes"] = args?.kubernetes;
+            resourceInputs["linkedAccountId"] = args?.linkedAccountId;
+            resourceInputs["loadBalancing"] = args?.loadBalancing;
+            resourceInputs["memCache"] = args?.memCache;
+            resourceInputs["pubSub"] = args?.pubSub;
+            resourceInputs["redis"] = args?.redis;
+            resourceInputs["router"] = args?.router;
+            resourceInputs["run"] = args?.run;
+            resourceInputs["spanner"] = args?.spanner;
+            resourceInputs["sql"] = args?.sql;
+            resourceInputs["storage"] = args?.storage;
+            resourceInputs["virtualMachines"] = args?.virtualMachines;
+            resourceInputs["vpcAccess"] = args?.vpcAccess;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GcpIntegrations.__pulumiType, name, resourceInputs, opts);

@@ -63,15 +63,15 @@ export class User extends pulumi.CustomResource {
     /**
      * The ID of the authentication domain to which the user to be created would belong.
      */
-    public readonly authenticationDomainId!: pulumi.Output<string>;
+    declare public readonly authenticationDomainId: pulumi.Output<string>;
     /**
      * The email ID of the user to be created.
      */
-    public readonly emailId!: pulumi.Output<string>;
+    declare public readonly emailId: pulumi.Output<string>;
     /**
      * The name of the user to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tier to which the user to be created would belong. Accepted values for this argument are `BASIC_USER_TIER`, `CORE_USER_TIER`, or `FULL_USER_TIER`. If not specified in the configuration, the argument would default to `BASIC_USER_TIER`.
      *
@@ -79,7 +79,7 @@ export class User extends pulumi.CustomResource {
      *
      * > **WARNING:** Changing the `authenticationDomainId` of a `newrelic.User` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing user is not supported.
      */
-    public readonly userType!: pulumi.Output<string | undefined>;
+    declare public readonly userType: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -94,22 +94,22 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["authenticationDomainId"] = state ? state.authenticationDomainId : undefined;
-            resourceInputs["emailId"] = state ? state.emailId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["userType"] = state ? state.userType : undefined;
+            resourceInputs["authenticationDomainId"] = state?.authenticationDomainId;
+            resourceInputs["emailId"] = state?.emailId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["userType"] = state?.userType;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.authenticationDomainId === undefined) && !opts.urn) {
+            if (args?.authenticationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationDomainId'");
             }
-            if ((!args || args.emailId === undefined) && !opts.urn) {
+            if (args?.emailId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailId'");
             }
-            resourceInputs["authenticationDomainId"] = args ? args.authenticationDomainId : undefined;
-            resourceInputs["emailId"] = args ? args.emailId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["authenticationDomainId"] = args?.authenticationDomainId;
+            resourceInputs["emailId"] = args?.emailId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["userType"] = args?.userType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(User.__pulumiType, name, resourceInputs, opts);

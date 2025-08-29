@@ -405,35 +405,35 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Indicates whether the channel is active.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * The id of the destination.
      */
-    public readonly destinationId!: pulumi.Output<string>;
+    declare public readonly destinationId: pulumi.Output<string>;
     /**
      * The name of the channel.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
      */
-    public readonly product!: pulumi.Output<string>;
+    declare public readonly product: pulumi.Output<string>;
     /**
      * A nested block that describes a notification channel property. See Nested property blocks below for details.
      */
-    public readonly properties!: pulumi.Output<outputs.NotificationChannelProperty[]>;
+    declare public readonly properties: pulumi.Output<outputs.NotificationChannelProperty[]>;
     /**
      * The status of the channel.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION`, `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS` or `WORKFLOW_AUTOMATION`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -448,35 +448,35 @@ export class NotificationChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationChannelState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["destinationId"] = state ? state.destinationId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["product"] = state ? state.product : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["destinationId"] = state?.destinationId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["product"] = state?.product;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as NotificationChannelArgs | undefined;
-            if ((!args || args.destinationId === undefined) && !opts.urn) {
+            if (args?.destinationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationId'");
             }
-            if ((!args || args.product === undefined) && !opts.urn) {
+            if (args?.product === undefined && !opts.urn) {
                 throw new Error("Missing required property 'product'");
             }
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["destinationId"] = args ? args.destinationId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["product"] = args ? args.product : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["destinationId"] = args?.destinationId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["product"] = args?.product;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["type"] = args?.type;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

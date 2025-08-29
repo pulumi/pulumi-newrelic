@@ -59,23 +59,23 @@ export class SecureCredential extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The secure credential's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The time the secure credential was last updated.
      */
-    public readonly lastUpdated!: pulumi.Output<string>;
+    declare public readonly lastUpdated: pulumi.Output<string>;
     /**
      * The secure credential's value.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a SecureCredential resource with the given unique name, arguments, and options.
@@ -90,23 +90,23 @@ export class SecureCredential extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecureCredentialState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["lastUpdated"] = state ? state.lastUpdated : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["lastUpdated"] = state?.lastUpdated;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as SecureCredentialArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["lastUpdated"] = args?.lastUpdated;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

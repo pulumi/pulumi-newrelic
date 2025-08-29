@@ -88,39 +88,39 @@ export class LogParsingRule extends pulumi.CustomResource {
     /**
      * The account id associated with the obfuscation rule.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
      */
-    public readonly attribute!: pulumi.Output<string | undefined>;
+    declare public readonly attribute: pulumi.Output<string | undefined>;
     /**
      * Whether or not this rule is deleted.
      */
-    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly deleted: pulumi.Output<boolean>;
     /**
      * Whether the rule should be applied or not to incoming data.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The Grok of what to parse.
      */
-    public readonly grok!: pulumi.Output<string>;
+    declare public readonly grok: pulumi.Output<string>;
     /**
      * The Lucene to match events to the parsing rule.
      */
-    public readonly lucene!: pulumi.Output<string>;
+    declare public readonly lucene: pulumi.Output<string>;
     /**
      * Whether the Grok pattern matched.
      */
-    public readonly matched!: pulumi.Output<boolean>;
+    declare public readonly matched: pulumi.Output<boolean>;
     /**
      * Name of rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The NRQL to match events to the parsing rule.
      */
-    public readonly nrql!: pulumi.Output<string>;
+    declare public readonly nrql: pulumi.Output<string>;
 
     /**
      * Create a LogParsingRule resource with the given unique name, arguments, and options.
@@ -135,37 +135,37 @@ export class LogParsingRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogParsingRuleState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["attribute"] = state ? state.attribute : undefined;
-            resourceInputs["deleted"] = state ? state.deleted : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["grok"] = state ? state.grok : undefined;
-            resourceInputs["lucene"] = state ? state.lucene : undefined;
-            resourceInputs["matched"] = state ? state.matched : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nrql"] = state ? state.nrql : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["attribute"] = state?.attribute;
+            resourceInputs["deleted"] = state?.deleted;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["grok"] = state?.grok;
+            resourceInputs["lucene"] = state?.lucene;
+            resourceInputs["matched"] = state?.matched;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nrql"] = state?.nrql;
         } else {
             const args = argsOrState as LogParsingRuleArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.grok === undefined) && !opts.urn) {
+            if (args?.grok === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grok'");
             }
-            if ((!args || args.lucene === undefined) && !opts.urn) {
+            if (args?.lucene === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lucene'");
             }
-            if ((!args || args.nrql === undefined) && !opts.urn) {
+            if (args?.nrql === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["attribute"] = args ? args.attribute : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["grok"] = args ? args.grok : undefined;
-            resourceInputs["lucene"] = args ? args.lucene : undefined;
-            resourceInputs["matched"] = args ? args.matched : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nrql"] = args ? args.nrql : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["attribute"] = args?.attribute;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["grok"] = args?.grok;
+            resourceInputs["lucene"] = args?.lucene;
+            resourceInputs["matched"] = args?.matched;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nrql"] = args?.nrql;
             resourceInputs["deleted"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

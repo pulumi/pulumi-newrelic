@@ -68,22 +68,22 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      *
      * > **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * The mode by which metric data is to be collected from the linked AWS GovCloud account. Defaults to `PULL`, if not specified in the configuration.
      * - Use `PUSH` for Metric Streams and `PULL` for API Polling based metric collection respectively.
      */
-    public readonly metricCollectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly metricCollectionMode: pulumi.Output<string | undefined>;
     /**
      * The name/identifier of the AWS GovCloud - New Relic 'linked' account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AwsGovcloudLinkAccount resource with the given unique name, arguments, and options.
@@ -98,19 +98,19 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsGovcloudLinkAccountState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["metricCollectionMode"] = state ? state.metricCollectionMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["metricCollectionMode"] = state?.metricCollectionMode;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AwsGovcloudLinkAccountArgs | undefined;
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["metricCollectionMode"] = args ? args.metricCollectionMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["metricCollectionMode"] = args?.metricCollectionMode;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsGovcloudLinkAccount.__pulumiType, name, resourceInputs, opts);

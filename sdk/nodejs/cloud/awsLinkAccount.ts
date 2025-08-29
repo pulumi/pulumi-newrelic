@@ -71,19 +71,19 @@ export class AwsLinkAccount extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
      */
-    public readonly metricCollectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly metricCollectionMode: pulumi.Output<string | undefined>;
     /**
      * The name of the linked account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AwsLinkAccount resource with the given unique name, arguments, and options.
@@ -98,19 +98,19 @@ export class AwsLinkAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsLinkAccountState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["metricCollectionMode"] = state ? state.metricCollectionMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["arn"] = state?.arn;
+            resourceInputs["metricCollectionMode"] = state?.metricCollectionMode;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AwsLinkAccountArgs | undefined;
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["metricCollectionMode"] = args ? args.metricCollectionMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["metricCollectionMode"] = args?.metricCollectionMode;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsLinkAccount.__pulumiType, name, resourceInputs, opts);

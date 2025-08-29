@@ -46,23 +46,23 @@ export class OneDashboardJson extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The unique entity identifier of the dashboard in New Relic.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */
-    public readonly json!: pulumi.Output<string>;
+    declare public readonly json: pulumi.Output<string>;
     /**
      * The URL for viewing the dashboard.
      */
-    public /*out*/ readonly permalink!: pulumi.Output<string>;
+    declare public /*out*/ readonly permalink: pulumi.Output<string>;
     /**
      * The date and time when the dashboard was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a OneDashboardJson resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class OneDashboardJson extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OneDashboardJsonState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["json"] = state ? state.json : undefined;
-            resourceInputs["permalink"] = state ? state.permalink : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["json"] = state?.json;
+            resourceInputs["permalink"] = state?.permalink;
+            resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as OneDashboardJsonArgs | undefined;
-            if ((!args || args.json === undefined) && !opts.urn) {
+            if (args?.json === undefined && !opts.urn) {
                 throw new Error("Missing required property 'json'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["json"] = args ? args.json : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["json"] = args?.json;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["permalink"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

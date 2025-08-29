@@ -145,42 +145,42 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
     /**
      * A condition term with the priority set to critical.
      */
-    public readonly critical!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionCritical>;
+    declare public readonly critical: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionCritical>;
     /**
      * Set whether to enable the alert condition.  Defaults to true.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The Monitor GUID's of the Synthetics monitors to alert on.
      */
-    public readonly entities!: pulumi.Output<string[]>;
+    declare public readonly entities: pulumi.Output<string[]>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
     /**
      * The title of the condition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the policy where this condition will be used.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    declare public readonly runbookUrl: pulumi.Output<string | undefined>;
     /**
      * The maximum number of seconds a violation can remain open before being closed by the system. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days), both inclusive. Defaults to 259200 seconds (3 days) if this argument is not specified in the configuration, in accordance with the characteristics of this field in NerdGraph, as specified in the [docs](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/alerts-conditions-api-field-names/#violation_time_limit_seconds).
      */
-    public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly violationTimeLimitSeconds: pulumi.Output<number | undefined>;
     /**
      * A condition term with the priority set to warning.
      *
      *
      * > **WARNING:** This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      */
-    public readonly warning!: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
+    declare public readonly warning: pulumi.Output<outputs.synthetics.MultiLocationAlertConditionWarning | undefined>;
 
     /**
      * Create a MultiLocationAlertCondition resource with the given unique name, arguments, and options.
@@ -195,34 +195,34 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiLocationAlertConditionState | undefined;
-            resourceInputs["critical"] = state ? state.critical : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entities"] = state ? state.entities : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            resourceInputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
-            resourceInputs["warning"] = state ? state.warning : undefined;
+            resourceInputs["critical"] = state?.critical;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entities"] = state?.entities;
+            resourceInputs["entityGuid"] = state?.entityGuid;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["runbookUrl"] = state?.runbookUrl;
+            resourceInputs["violationTimeLimitSeconds"] = state?.violationTimeLimitSeconds;
+            resourceInputs["warning"] = state?.warning;
         } else {
             const args = argsOrState as MultiLocationAlertConditionArgs | undefined;
-            if ((!args || args.critical === undefined) && !opts.urn) {
+            if (args?.critical === undefined && !opts.urn) {
                 throw new Error("Missing required property 'critical'");
             }
-            if ((!args || args.entities === undefined) && !opts.urn) {
+            if (args?.entities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entities'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["critical"] = args ? args.critical : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entities"] = args ? args.entities : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
-            resourceInputs["warning"] = args ? args.warning : undefined;
+            resourceInputs["critical"] = args?.critical;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entities"] = args?.entities;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["runbookUrl"] = args?.runbookUrl;
+            resourceInputs["violationTimeLimitSeconds"] = args?.violationTimeLimitSeconds;
+            resourceInputs["warning"] = args?.warning;
             resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

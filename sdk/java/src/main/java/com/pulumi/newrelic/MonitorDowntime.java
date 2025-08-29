@@ -339,16 +339,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/monitorDowntime:MonitorDowntime")
 public class MonitorDowntime extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-     * provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the
-     * provider{} configuration if not specified.
+     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
      * 
      */
     public Output<String> accountId() {

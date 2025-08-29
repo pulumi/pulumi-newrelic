@@ -64,27 +64,27 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
     /**
      * Account with the event and where the metrics will be put.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Provides additional information about the rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * True means this rule is enabled. False means the rule is currently not creating metrics.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Explains how to create metrics from events.
      */
-    public readonly nrql!: pulumi.Output<string>;
+    declare public readonly nrql: pulumi.Output<string>;
     /**
      * The id, uniquely identifying the rule.
      */
-    public /*out*/ readonly ruleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<string>;
 
     /**
      * Create a EventsToMetricsRule resource with the given unique name, arguments, and options.
@@ -99,22 +99,22 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventsToMetricsRuleState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nrql"] = state ? state.nrql : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nrql"] = state?.nrql;
+            resourceInputs["ruleId"] = state?.ruleId;
         } else {
             const args = argsOrState as EventsToMetricsRuleArgs | undefined;
-            if ((!args || args.nrql === undefined) && !opts.urn) {
+            if (args?.nrql === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nrql"] = args ? args.nrql : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nrql"] = args?.nrql;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

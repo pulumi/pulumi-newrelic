@@ -100,56 +100,56 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
     /**
      * The account in which the Synthetics monitor will be created.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The unique entity identifier of the monitor in New Relic.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
-    public readonly locationsPrivates!: pulumi.Output<string[] | undefined>;
+    declare public readonly locationsPrivates: pulumi.Output<string[] | undefined>;
     /**
      * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
-    public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
+    declare public readonly locationsPublics: pulumi.Output<string[] | undefined>;
     /**
      * The monitor id of the synthetics broken links monitor, not to be confused with the GUID of the monitor.
      */
-    public /*out*/ readonly monitorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitorId: pulumi.Output<string>;
     /**
      * The name for the monitor.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
      */
-    public readonly period!: pulumi.Output<string>;
+    declare public readonly period: pulumi.Output<string>;
     /**
      * The interval in minutes at which Synthetic monitor should run.
      */
-    public /*out*/ readonly periodInMinutes!: pulumi.Output<number>;
+    declare public /*out*/ readonly periodInMinutes: pulumi.Output<number>;
     /**
      * The runtime that the monitor will use to run jobs (`NODE_API`).
      */
-    public readonly runtimeType!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeType: pulumi.Output<string | undefined>;
     /**
      * The specific semver version of the runtime type.
      */
-    public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeTypeVersion: pulumi.Output<string | undefined>;
     /**
      * The run state of the monitor. (`ENABLED` or `DISABLED`).
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * The tags that will be associated with the monitor. See Nested tag blocks below for details
      */
-    public readonly tags!: pulumi.Output<outputs.synthetics.BrokenLinksMonitorTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.synthetics.BrokenLinksMonitorTag[] | undefined>;
     /**
      * The URI the monitor runs against.
      */
-    public readonly uri!: pulumi.Output<string>;
-    public readonly useUnsupportedLegacyRuntime!: pulumi.Output<boolean | undefined>;
+    declare public readonly uri: pulumi.Output<string>;
+    declare public readonly useUnsupportedLegacyRuntime: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a BrokenLinksMonitor resource with the given unique name, arguments, and options.
@@ -164,42 +164,42 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrokenLinksMonitorState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["locationsPrivates"] = state ? state.locationsPrivates : undefined;
-            resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["period"] = state ? state.period : undefined;
-            resourceInputs["periodInMinutes"] = state ? state.periodInMinutes : undefined;
-            resourceInputs["runtimeType"] = state ? state.runtimeType : undefined;
-            resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
-            resourceInputs["useUnsupportedLegacyRuntime"] = state ? state.useUnsupportedLegacyRuntime : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["locationsPrivates"] = state?.locationsPrivates;
+            resourceInputs["locationsPublics"] = state?.locationsPublics;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["period"] = state?.period;
+            resourceInputs["periodInMinutes"] = state?.periodInMinutes;
+            resourceInputs["runtimeType"] = state?.runtimeType;
+            resourceInputs["runtimeTypeVersion"] = state?.runtimeTypeVersion;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["uri"] = state?.uri;
+            resourceInputs["useUnsupportedLegacyRuntime"] = state?.useUnsupportedLegacyRuntime;
         } else {
             const args = argsOrState as BrokenLinksMonitorArgs | undefined;
-            if ((!args || args.period === undefined) && !opts.urn) {
+            if (args?.period === undefined && !opts.urn) {
                 throw new Error("Missing required property 'period'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.uri === undefined) && !opts.urn) {
+            if (args?.uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["locationsPrivates"] = args ? args.locationsPrivates : undefined;
-            resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["runtimeType"] = args ? args.runtimeType : undefined;
-            resourceInputs["runtimeTypeVersion"] = args ? args.runtimeTypeVersion : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
-            resourceInputs["useUnsupportedLegacyRuntime"] = args ? args.useUnsupportedLegacyRuntime : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["locationsPrivates"] = args?.locationsPrivates;
+            resourceInputs["locationsPublics"] = args?.locationsPublics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["runtimeType"] = args?.runtimeType;
+            resourceInputs["runtimeTypeVersion"] = args?.runtimeTypeVersion;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
+            resourceInputs["useUnsupportedLegacyRuntime"] = args?.useUnsupportedLegacyRuntime;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["monitorId"] = undefined /*out*/;
             resourceInputs["periodInMinutes"] = undefined /*out*/;

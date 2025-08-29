@@ -25,33 +25,33 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
-    public readonly accountId!: pulumi.Output<string | undefined>;
-    public readonly adminApiKey!: pulumi.Output<string | undefined>;
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
+    declare public readonly adminApiKey: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    public readonly apiUrl!: pulumi.Output<string | undefined>;
-    public readonly cacertFile!: pulumi.Output<string | undefined>;
+    declare public readonly apiUrl: pulumi.Output<string | undefined>;
+    declare public readonly cacertFile: pulumi.Output<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    public readonly infrastructureApiUrl!: pulumi.Output<string | undefined>;
-    public readonly insightsInsertKey!: pulumi.Output<string | undefined>;
-    public readonly insightsInsertUrl!: pulumi.Output<string | undefined>;
-    public readonly insightsQueryUrl!: pulumi.Output<string | undefined>;
+    declare public readonly infrastructureApiUrl: pulumi.Output<string | undefined>;
+    declare public readonly insightsInsertKey: pulumi.Output<string | undefined>;
+    declare public readonly insightsInsertUrl: pulumi.Output<string | undefined>;
+    declare public readonly insightsQueryUrl: pulumi.Output<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    public readonly nerdgraphApiUrl!: pulumi.Output<string | undefined>;
+    declare public readonly nerdgraphApiUrl: pulumi.Output<string | undefined>;
     /**
      * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    public readonly syntheticsApiUrl!: pulumi.Output<string | undefined>;
+    declare public readonly syntheticsApiUrl: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -67,16 +67,16 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["accountId"] = (args?.accountId ? pulumi.secret(args.accountId) : undefined) ?? utilities.getEnv("NEW_RELIC_ACCOUNT_ID");
             resourceInputs["adminApiKey"] = args?.adminApiKey ? pulumi.secret(args.adminApiKey) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
-            resourceInputs["cacertFile"] = args ? args.cacertFile : undefined;
-            resourceInputs["infrastructureApiUrl"] = args ? args.infrastructureApiUrl : undefined;
-            resourceInputs["insecureSkipVerify"] = pulumi.output(args ? args.insecureSkipVerify : undefined).apply(JSON.stringify);
+            resourceInputs["apiUrl"] = args?.apiUrl;
+            resourceInputs["cacertFile"] = args?.cacertFile;
+            resourceInputs["infrastructureApiUrl"] = args?.infrastructureApiUrl;
+            resourceInputs["insecureSkipVerify"] = pulumi.output(args?.insecureSkipVerify).apply(JSON.stringify);
             resourceInputs["insightsInsertKey"] = args?.insightsInsertKey ? pulumi.secret(args.insightsInsertKey) : undefined;
-            resourceInputs["insightsInsertUrl"] = args ? args.insightsInsertUrl : undefined;
-            resourceInputs["insightsQueryUrl"] = args ? args.insightsQueryUrl : undefined;
-            resourceInputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
-            resourceInputs["region"] = (args ? args.region : undefined) ?? (utilities.getEnv("NEW_RELIC_REGION") || "US");
-            resourceInputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
+            resourceInputs["insightsInsertUrl"] = args?.insightsInsertUrl;
+            resourceInputs["insightsQueryUrl"] = args?.insightsQueryUrl;
+            resourceInputs["nerdgraphApiUrl"] = args?.nerdgraphApiUrl;
+            resourceInputs["region"] = (args?.region) ?? (utilities.getEnv("NEW_RELIC_REGION") || "US");
+            resourceInputs["syntheticsApiUrl"] = args?.syntheticsApiUrl;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accountId", "adminApiKey", "apiKey", "insightsInsertKey"] };

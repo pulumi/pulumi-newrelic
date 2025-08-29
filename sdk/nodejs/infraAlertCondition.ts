@@ -173,63 +173,63 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
-    public readonly comparison!: pulumi.Output<string | undefined>;
+    declare public readonly comparison: pulumi.Output<string | undefined>;
     /**
      * The timestamp the alert condition was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<number>;
     /**
      * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      */
-    public readonly critical!: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
+    declare public readonly critical: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
     /**
      * The description of the Infrastructure alert condition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
-    public readonly event!: pulumi.Output<string>;
+    declare public readonly event: pulumi.Output<string>;
     /**
      * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
-    public readonly integrationProvider!: pulumi.Output<string | undefined>;
+    declare public readonly integrationProvider: pulumi.Output<string | undefined>;
     /**
      * The Infrastructure alert condition's name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
-    public readonly processWhere!: pulumi.Output<string | undefined>;
+    declare public readonly processWhere: pulumi.Output<string | undefined>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    declare public readonly runbookUrl: pulumi.Output<string | undefined>;
     /**
      * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
-    public readonly select!: pulumi.Output<string | undefined>;
+    declare public readonly select: pulumi.Output<string | undefined>;
     /**
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The timestamp the alert condition was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<number>;
     /**
      * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      *
@@ -237,15 +237,15 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
+    declare public readonly violationCloseTimer: pulumi.Output<number | undefined>;
     /**
      * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      */
-    public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
+    declare public readonly warning: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
      * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
-    public readonly where!: pulumi.Output<string | undefined>;
+    declare public readonly where: pulumi.Output<string | undefined>;
 
     /**
      * Create a InfraAlertCondition resource with the given unique name, arguments, and options.
@@ -260,47 +260,47 @@ export class InfraAlertCondition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InfraAlertConditionState | undefined;
-            resourceInputs["comparison"] = state ? state.comparison : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["critical"] = state ? state.critical : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
-            resourceInputs["event"] = state ? state.event : undefined;
-            resourceInputs["integrationProvider"] = state ? state.integrationProvider : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["processWhere"] = state ? state.processWhere : undefined;
-            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            resourceInputs["select"] = state ? state.select : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
-            resourceInputs["warning"] = state ? state.warning : undefined;
-            resourceInputs["where"] = state ? state.where : undefined;
+            resourceInputs["comparison"] = state?.comparison;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["critical"] = state?.critical;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entityGuid"] = state?.entityGuid;
+            resourceInputs["event"] = state?.event;
+            resourceInputs["integrationProvider"] = state?.integrationProvider;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["processWhere"] = state?.processWhere;
+            resourceInputs["runbookUrl"] = state?.runbookUrl;
+            resourceInputs["select"] = state?.select;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["violationCloseTimer"] = state?.violationCloseTimer;
+            resourceInputs["warning"] = state?.warning;
+            resourceInputs["where"] = state?.where;
         } else {
             const args = argsOrState as InfraAlertConditionArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["comparison"] = args ? args.comparison : undefined;
-            resourceInputs["critical"] = args ? args.critical : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["event"] = args ? args.event : undefined;
-            resourceInputs["integrationProvider"] = args ? args.integrationProvider : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["processWhere"] = args ? args.processWhere : undefined;
-            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            resourceInputs["select"] = args ? args.select : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
-            resourceInputs["warning"] = args ? args.warning : undefined;
-            resourceInputs["where"] = args ? args.where : undefined;
+            resourceInputs["comparison"] = args?.comparison;
+            resourceInputs["critical"] = args?.critical;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["event"] = args?.event;
+            resourceInputs["integrationProvider"] = args?.integrationProvider;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["processWhere"] = args?.processWhere;
+            resourceInputs["runbookUrl"] = args?.runbookUrl;
+            resourceInputs["select"] = args?.select;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["violationCloseTimer"] = args?.violationCloseTimer;
+            resourceInputs["warning"] = args?.warning;
+            resourceInputs["where"] = args?.where;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["entityGuid"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

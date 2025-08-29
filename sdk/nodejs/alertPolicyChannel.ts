@@ -91,15 +91,15 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     /**
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    public readonly channelIds!: pulumi.Output<string[]>;
+    declare public readonly channelIds: pulumi.Output<string[]>;
     /**
      * The ID of the policy.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
 
     /**
      * Create a AlertPolicyChannel resource with the given unique name, arguments, and options.
@@ -114,20 +114,20 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyChannelState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["channelIds"] = state ? state.channelIds : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["channelIds"] = state?.channelIds;
+            resourceInputs["policyId"] = state?.policyId;
         } else {
             const args = argsOrState as AlertPolicyChannelArgs | undefined;
-            if ((!args || args.channelIds === undefined) && !opts.urn) {
+            if (args?.channelIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelIds'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["channelIds"] = args ? args.channelIds : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["channelIds"] = args?.channelIds;
+            resourceInputs["policyId"] = args?.policyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertPolicyChannel.__pulumiType, name, resourceInputs, opts);

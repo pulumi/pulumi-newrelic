@@ -84,7 +84,7 @@ export class Event extends pulumi.CustomResource {
     /**
      * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
      */
-    public readonly events!: pulumi.Output<outputs.insights.EventEvent[]>;
+    declare public readonly events: pulumi.Output<outputs.insights.EventEvent[]>;
 
     /**
      * Create a Event resource with the given unique name, arguments, and options.
@@ -99,13 +99,13 @@ export class Event extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventState | undefined;
-            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["events"] = state?.events;
         } else {
             const args = argsOrState as EventArgs | undefined;
-            if ((!args || args.events === undefined) && !opts.urn) {
+            if (args?.events === undefined && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["events"] = args?.events;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Event.__pulumiType, name, resourceInputs, opts);

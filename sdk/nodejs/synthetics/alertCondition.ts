@@ -119,27 +119,27 @@ export class AlertCondition extends pulumi.CustomResource {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
     /**
      * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
-    public readonly monitorId!: pulumi.Output<string>;
+    declare public readonly monitorId: pulumi.Output<string>;
     /**
      * The title of this condition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    declare public readonly runbookUrl: pulumi.Output<string | undefined>;
 
     /**
      * Create a AlertCondition resource with the given unique name, arguments, and options.
@@ -154,25 +154,25 @@ export class AlertCondition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entityGuid"] = state?.entityGuid;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["runbookUrl"] = state?.runbookUrl;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if ((!args || args.monitorId === undefined) && !opts.urn) {
+            if (args?.monitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["monitorId"] = args?.monitorId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["runbookUrl"] = args?.runbookUrl;
             resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

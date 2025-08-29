@@ -190,33 +190,33 @@ export class ServiceLevel extends pulumi.CustomResource {
     /**
      * The description of the SLI.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The events that define the NRDB data for the SLI/SLO calculations.
      * See Events below for details.
      */
-    public readonly events!: pulumi.Output<outputs.ServiceLevelEvents>;
+    declare public readonly events: pulumi.Output<outputs.ServiceLevelEvents>;
     /**
      * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
      */
-    public readonly guid!: pulumi.Output<string>;
+    declare public readonly guid: pulumi.Output<string>;
     /**
      * A short name for the SLI that will help anyone understand what it is about.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The objective of the SLI, only one can be defined.
      * See Objective below for details.
      */
-    public readonly objective!: pulumi.Output<outputs.ServiceLevelObjective>;
+    declare public readonly objective: pulumi.Output<outputs.ServiceLevelObjective>;
     /**
      * The unique entity identifier of the Service Level Indicator in New Relic.
      */
-    public /*out*/ readonly sliGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly sliGuid: pulumi.Output<string>;
     /**
      * The unique entity identifier of the Service Level Indicator.
      */
-    public /*out*/ readonly sliId!: pulumi.Output<string>;
+    declare public /*out*/ readonly sliId: pulumi.Output<string>;
 
     /**
      * Create a ServiceLevel resource with the given unique name, arguments, and options.
@@ -231,29 +231,29 @@ export class ServiceLevel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceLevelState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["events"] = state ? state.events : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["objective"] = state ? state.objective : undefined;
-            resourceInputs["sliGuid"] = state ? state.sliGuid : undefined;
-            resourceInputs["sliId"] = state ? state.sliId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["events"] = state?.events;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["objective"] = state?.objective;
+            resourceInputs["sliGuid"] = state?.sliGuid;
+            resourceInputs["sliId"] = state?.sliId;
         } else {
             const args = argsOrState as ServiceLevelArgs | undefined;
-            if ((!args || args.events === undefined) && !opts.urn) {
+            if (args?.events === undefined && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            if ((!args || args.guid === undefined) && !opts.urn) {
+            if (args?.guid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guid'");
             }
-            if ((!args || args.objective === undefined) && !opts.urn) {
+            if (args?.objective === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objective'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["guid"] = args ? args.guid : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objective"] = args ? args.objective : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["guid"] = args?.guid;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objective"] = args?.objective;
             resourceInputs["sliGuid"] = undefined /*out*/;
             resourceInputs["sliId"] = undefined /*out*/;
         }

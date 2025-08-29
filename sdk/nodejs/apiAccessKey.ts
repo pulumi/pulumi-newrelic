@@ -47,31 +47,31 @@ export class ApiAccessKey extends pulumi.CustomResource {
     /**
      * The New Relic account ID of the account you wish to create the API access key.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      */
-    public readonly ingestType!: pulumi.Output<string>;
+    declare public readonly ingestType: pulumi.Output<string>;
     /**
      * The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
      * What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
      */
-    public readonly keyType!: pulumi.Output<string>;
+    declare public readonly keyType: pulumi.Output<string>;
     /**
      * The name of the key.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Any notes about this ingest key.
      */
-    public readonly notes!: pulumi.Output<string>;
+    declare public readonly notes: pulumi.Output<string>;
     /**
      * Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a ApiAccessKey resource with the given unique name, arguments, and options.
@@ -86,27 +86,27 @@ export class ApiAccessKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiAccessKeyState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["ingestType"] = state ? state.ingestType : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["keyType"] = state ? state.keyType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["ingestType"] = state?.ingestType;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["keyType"] = state?.keyType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as ApiAccessKeyArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.keyType === undefined) && !opts.urn) {
+            if (args?.keyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["ingestType"] = args ? args.ingestType : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["ingestType"] = args?.ingestType;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

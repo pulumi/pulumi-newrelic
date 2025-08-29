@@ -60,91 +60,91 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Application load balancer AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly alb!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAlb | undefined>;
+    declare public readonly alb: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAlb | undefined>;
     /**
      * Api Gateway AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly apiGateway!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsApiGateway | undefined>;
+    declare public readonly apiGateway: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsApiGateway | undefined>;
     /**
      * Autoscaling AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly autoScaling!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAutoScaling | undefined>;
+    declare public readonly autoScaling: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAutoScaling | undefined>;
     /**
      * Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly awsDirectConnect!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAwsDirectConnect | undefined>;
+    declare public readonly awsDirectConnect: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAwsDirectConnect | undefined>;
     /**
      * Aws States AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly awsStates!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAwsStates | undefined>;
+    declare public readonly awsStates: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsAwsStates | undefined>;
     /**
      * Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly cloudtrail!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsCloudtrail | undefined>;
+    declare public readonly cloudtrail: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsCloudtrail | undefined>;
     /**
      * Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly dynamoDb!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsDynamoDb | undefined>;
+    declare public readonly dynamoDb: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsDynamoDb | undefined>;
     /**
      * Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly ebs!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEbs | undefined>;
+    declare public readonly ebs: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEbs | undefined>;
     /**
      * EC2 AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly ec2!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEc2 | undefined>;
+    declare public readonly ec2: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEc2 | undefined>;
     /**
      * Elastic search AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly elasticSearch!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsElasticSearch | undefined>;
+    declare public readonly elasticSearch: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsElasticSearch | undefined>;
     /**
      * Elb AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly elb!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsElb | undefined>;
+    declare public readonly elb: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsElb | undefined>;
     /**
      * Emr AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly emr!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEmr | undefined>;
+    declare public readonly emr: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsEmr | undefined>;
     /**
      * IAM AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly iam!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsIam | undefined>;
+    declare public readonly iam: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsIam | undefined>;
     /**
      * Lambda AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly lambda!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsLambda | undefined>;
+    declare public readonly lambda: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsLambda | undefined>;
     /**
      * The access key of the AwsGovCloud.
      */
-    public readonly linkedAccountId!: pulumi.Output<string>;
+    declare public readonly linkedAccountId: pulumi.Output<string>;
     /**
      * RDS AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly rds!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRds | undefined>;
+    declare public readonly rds: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRds | undefined>;
     /**
      * Redshift AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly redShift!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRedShift | undefined>;
+    declare public readonly redShift: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRedShift | undefined>;
     /**
      * Route53 AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly route53!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRoute53 | undefined>;
+    declare public readonly route53: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsRoute53 | undefined>;
     /**
      * The s3 integration
      */
-    public readonly s3!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsS3 | undefined>;
+    declare public readonly s3: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsS3 | undefined>;
     /**
      * SNS AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly sns!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsSns | undefined>;
+    declare public readonly sns: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsSns | undefined>;
     /**
      * SQS AwsGovCloud integration.See Integration blocks below for details.
      */
-    public readonly sqs!: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsSqs | undefined>;
+    declare public readonly sqs: pulumi.Output<outputs.cloud.AwsGovcloudIntegrationsSqs | undefined>;
 
     /**
      * Create a AwsGovcloudIntegrations resource with the given unique name, arguments, and options.
@@ -159,55 +159,55 @@ export class AwsGovcloudIntegrations extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsGovcloudIntegrationsState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["alb"] = state ? state.alb : undefined;
-            resourceInputs["apiGateway"] = state ? state.apiGateway : undefined;
-            resourceInputs["autoScaling"] = state ? state.autoScaling : undefined;
-            resourceInputs["awsDirectConnect"] = state ? state.awsDirectConnect : undefined;
-            resourceInputs["awsStates"] = state ? state.awsStates : undefined;
-            resourceInputs["cloudtrail"] = state ? state.cloudtrail : undefined;
-            resourceInputs["dynamoDb"] = state ? state.dynamoDb : undefined;
-            resourceInputs["ebs"] = state ? state.ebs : undefined;
-            resourceInputs["ec2"] = state ? state.ec2 : undefined;
-            resourceInputs["elasticSearch"] = state ? state.elasticSearch : undefined;
-            resourceInputs["elb"] = state ? state.elb : undefined;
-            resourceInputs["emr"] = state ? state.emr : undefined;
-            resourceInputs["iam"] = state ? state.iam : undefined;
-            resourceInputs["lambda"] = state ? state.lambda : undefined;
-            resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
-            resourceInputs["rds"] = state ? state.rds : undefined;
-            resourceInputs["redShift"] = state ? state.redShift : undefined;
-            resourceInputs["route53"] = state ? state.route53 : undefined;
-            resourceInputs["s3"] = state ? state.s3 : undefined;
-            resourceInputs["sns"] = state ? state.sns : undefined;
-            resourceInputs["sqs"] = state ? state.sqs : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["alb"] = state?.alb;
+            resourceInputs["apiGateway"] = state?.apiGateway;
+            resourceInputs["autoScaling"] = state?.autoScaling;
+            resourceInputs["awsDirectConnect"] = state?.awsDirectConnect;
+            resourceInputs["awsStates"] = state?.awsStates;
+            resourceInputs["cloudtrail"] = state?.cloudtrail;
+            resourceInputs["dynamoDb"] = state?.dynamoDb;
+            resourceInputs["ebs"] = state?.ebs;
+            resourceInputs["ec2"] = state?.ec2;
+            resourceInputs["elasticSearch"] = state?.elasticSearch;
+            resourceInputs["elb"] = state?.elb;
+            resourceInputs["emr"] = state?.emr;
+            resourceInputs["iam"] = state?.iam;
+            resourceInputs["lambda"] = state?.lambda;
+            resourceInputs["linkedAccountId"] = state?.linkedAccountId;
+            resourceInputs["rds"] = state?.rds;
+            resourceInputs["redShift"] = state?.redShift;
+            resourceInputs["route53"] = state?.route53;
+            resourceInputs["s3"] = state?.s3;
+            resourceInputs["sns"] = state?.sns;
+            resourceInputs["sqs"] = state?.sqs;
         } else {
             const args = argsOrState as AwsGovcloudIntegrationsArgs | undefined;
-            if ((!args || args.linkedAccountId === undefined) && !opts.urn) {
+            if (args?.linkedAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedAccountId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["alb"] = args ? args.alb : undefined;
-            resourceInputs["apiGateway"] = args ? args.apiGateway : undefined;
-            resourceInputs["autoScaling"] = args ? args.autoScaling : undefined;
-            resourceInputs["awsDirectConnect"] = args ? args.awsDirectConnect : undefined;
-            resourceInputs["awsStates"] = args ? args.awsStates : undefined;
-            resourceInputs["cloudtrail"] = args ? args.cloudtrail : undefined;
-            resourceInputs["dynamoDb"] = args ? args.dynamoDb : undefined;
-            resourceInputs["ebs"] = args ? args.ebs : undefined;
-            resourceInputs["ec2"] = args ? args.ec2 : undefined;
-            resourceInputs["elasticSearch"] = args ? args.elasticSearch : undefined;
-            resourceInputs["elb"] = args ? args.elb : undefined;
-            resourceInputs["emr"] = args ? args.emr : undefined;
-            resourceInputs["iam"] = args ? args.iam : undefined;
-            resourceInputs["lambda"] = args ? args.lambda : undefined;
-            resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
-            resourceInputs["rds"] = args ? args.rds : undefined;
-            resourceInputs["redShift"] = args ? args.redShift : undefined;
-            resourceInputs["route53"] = args ? args.route53 : undefined;
-            resourceInputs["s3"] = args ? args.s3 : undefined;
-            resourceInputs["sns"] = args ? args.sns : undefined;
-            resourceInputs["sqs"] = args ? args.sqs : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["alb"] = args?.alb;
+            resourceInputs["apiGateway"] = args?.apiGateway;
+            resourceInputs["autoScaling"] = args?.autoScaling;
+            resourceInputs["awsDirectConnect"] = args?.awsDirectConnect;
+            resourceInputs["awsStates"] = args?.awsStates;
+            resourceInputs["cloudtrail"] = args?.cloudtrail;
+            resourceInputs["dynamoDb"] = args?.dynamoDb;
+            resourceInputs["ebs"] = args?.ebs;
+            resourceInputs["ec2"] = args?.ec2;
+            resourceInputs["elasticSearch"] = args?.elasticSearch;
+            resourceInputs["elb"] = args?.elb;
+            resourceInputs["emr"] = args?.emr;
+            resourceInputs["iam"] = args?.iam;
+            resourceInputs["lambda"] = args?.lambda;
+            resourceInputs["linkedAccountId"] = args?.linkedAccountId;
+            resourceInputs["rds"] = args?.rds;
+            resourceInputs["redShift"] = args?.redShift;
+            resourceInputs["route53"] = args?.route53;
+            resourceInputs["s3"] = args?.s3;
+            resourceInputs["sns"] = args?.sns;
+            resourceInputs["sqs"] = args?.sqs;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsGovcloudIntegrations.__pulumiType, name, resourceInputs, opts);

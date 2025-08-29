@@ -136,51 +136,51 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
-    public readonly conditionScope!: pulumi.Output<string | undefined>;
+    declare public readonly conditionScope: pulumi.Output<string | undefined>;
     /**
      * Whether the condition is enabled or not. Defaults to true.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The instance IDs associated with this condition.
      */
-    public readonly entities!: pulumi.Output<string[]>;
+    declare public readonly entities: pulumi.Output<string[]>;
     /**
      * The unique entity identifier of the condition in New Relic.
      */
-    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityGuid: pulumi.Output<string>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
-    public readonly gcMetric!: pulumi.Output<string | undefined>;
+    declare public readonly gcMetric: pulumi.Output<string | undefined>;
     /**
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      */
-    public readonly metric!: pulumi.Output<string>;
+    declare public readonly metric: pulumi.Output<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    declare public readonly runbookUrl: pulumi.Output<string | undefined>;
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
+    declare public readonly terms: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
      * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * A custom metric to be evaluated.
      */
-    public readonly userDefinedMetric!: pulumi.Output<string | undefined>;
+    declare public readonly userDefinedMetric: pulumi.Output<string | undefined>;
     /**
      * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      *
@@ -190,13 +190,13 @@ export class AlertCondition extends pulumi.CustomResource {
      * Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
      * ```
      */
-    public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
+    declare public readonly userDefinedValueFunction: pulumi.Output<string | undefined>;
     /**
      * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
      * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
      * * when `type` = `apmJvmMetric`
      */
-    public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
+    declare public readonly violationCloseTimer: pulumi.Output<number | undefined>;
 
     /**
      * Create a AlertCondition resource with the given unique name, arguments, and options.
@@ -211,50 +211,50 @@ export class AlertCondition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
-            resourceInputs["conditionScope"] = state ? state.conditionScope : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entities"] = state ? state.entities : undefined;
-            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
-            resourceInputs["gcMetric"] = state ? state.gcMetric : undefined;
-            resourceInputs["metric"] = state ? state.metric : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            resourceInputs["terms"] = state ? state.terms : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userDefinedMetric"] = state ? state.userDefinedMetric : undefined;
-            resourceInputs["userDefinedValueFunction"] = state ? state.userDefinedValueFunction : undefined;
-            resourceInputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
+            resourceInputs["conditionScope"] = state?.conditionScope;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entities"] = state?.entities;
+            resourceInputs["entityGuid"] = state?.entityGuid;
+            resourceInputs["gcMetric"] = state?.gcMetric;
+            resourceInputs["metric"] = state?.metric;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["runbookUrl"] = state?.runbookUrl;
+            resourceInputs["terms"] = state?.terms;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userDefinedMetric"] = state?.userDefinedMetric;
+            resourceInputs["userDefinedValueFunction"] = state?.userDefinedValueFunction;
+            resourceInputs["violationCloseTimer"] = state?.violationCloseTimer;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if ((!args || args.entities === undefined) && !opts.urn) {
+            if (args?.entities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entities'");
             }
-            if ((!args || args.metric === undefined) && !opts.urn) {
+            if (args?.metric === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.terms === undefined) && !opts.urn) {
+            if (args?.terms === undefined && !opts.urn) {
                 throw new Error("Missing required property 'terms'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["conditionScope"] = args ? args.conditionScope : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entities"] = args ? args.entities : undefined;
-            resourceInputs["gcMetric"] = args ? args.gcMetric : undefined;
-            resourceInputs["metric"] = args ? args.metric : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            resourceInputs["terms"] = args ? args.terms : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userDefinedMetric"] = args ? args.userDefinedMetric : undefined;
-            resourceInputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
-            resourceInputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
+            resourceInputs["conditionScope"] = args?.conditionScope;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entities"] = args?.entities;
+            resourceInputs["gcMetric"] = args?.gcMetric;
+            resourceInputs["metric"] = args?.metric;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["runbookUrl"] = args?.runbookUrl;
+            resourceInputs["terms"] = args?.terms;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userDefinedMetric"] = args?.userDefinedMetric;
+            resourceInputs["userDefinedValueFunction"] = args?.userDefinedValueFunction;
+            resourceInputs["violationCloseTimer"] = args?.violationCloseTimer;
             resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
