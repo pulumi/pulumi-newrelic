@@ -2175,6 +2175,10 @@
                     }
                 }
             },
+            "newrelic_pipeline_cloud_rule": {
+                "current": "newrelic:index/pipelineCloudRule:PipelineCloudRule",
+                "majorVersion": 5
+            },
             "newrelic_service_level": {
                 "current": "newrelic:index/serviceLevel:ServiceLevel",
                 "majorVersion": 5,
@@ -4514,6 +4518,9 @@
             "newrelic_one_dashboard_raw": [
                 "account_id",
                 "page.$.widget.$.visualization_id"
+            ],
+            "newrelic_pipeline_cloud_rule": [
+                "account_id"
             ],
             "newrelic_service_level": [
                 "events.$.account_id",

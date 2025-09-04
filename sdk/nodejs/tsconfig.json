@@ -66,6 +66,7 @@
         "oneDashboard.ts",
         "oneDashboardJson.ts",
         "oneDashboardRaw.ts",
+        "pipelineCloudRule.ts",
         "plugins/applicationSettings.ts",
         "plugins/index.ts",
         "plugins/workload.ts",
