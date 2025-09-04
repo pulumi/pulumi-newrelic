@@ -200,6 +200,11 @@ export type OneDashboardRaw = import("./oneDashboardRaw").OneDashboardRaw;
 export const OneDashboardRaw: typeof import("./oneDashboardRaw").OneDashboardRaw = null as any;
 utilities.lazyLoad(exports, ["OneDashboardRaw"], () => require("./oneDashboardRaw"));
 
+export { PipelineCloudRuleArgs, PipelineCloudRuleState } from "./pipelineCloudRule";
+export type PipelineCloudRule = import("./pipelineCloudRule").PipelineCloudRule;
+export const PipelineCloudRule: typeof import("./pipelineCloudRule").PipelineCloudRule = null as any;
+utilities.lazyLoad(exports, ["PipelineCloudRule"], () => require("./pipelineCloudRule"));
+
 export * from "./provider";
 import { Provider } from "./provider";
 
@@ -290,6 +295,8 @@ const _module = {
                 return new OneDashboardJson(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
                 return new OneDashboardRaw(name, <any>undefined, { urn })
+            case "newrelic:index/pipelineCloudRule:PipelineCloudRule":
+                return new PipelineCloudRule(name, <any>undefined, { urn })
             case "newrelic:index/serviceLevel:ServiceLevel":
                 return new ServiceLevel(name, <any>undefined, { urn })
             case "newrelic:index/user:User":
@@ -326,6 +333,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/obfuscationRule", _modu
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardJson", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/pipelineCloudRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/user", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)

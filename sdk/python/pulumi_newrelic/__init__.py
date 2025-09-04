@@ -45,6 +45,7 @@ from .obfuscation_rule import *
 from .one_dashboard import *
 from .one_dashboard_json import *
 from .one_dashboard_raw import *
+from .pipeline_cloud_rule import *
 from .provider import *
 from .service_level import *
 from .user import *
@@ -336,6 +337,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/oneDashboardRaw:OneDashboardRaw": "OneDashboardRaw"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/pipelineCloudRule",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/pipelineCloudRule:PipelineCloudRule": "PipelineCloudRule"
   }
  },
  {
