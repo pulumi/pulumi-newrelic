@@ -4486,6 +4486,7 @@
             ],
             "newrelic_nrql_drop_rule": [
                 "account_id",
+                "pipeline_cloud_rule_entity_id",
                 "rule_id"
             ],
             "newrelic_obfuscation_expression": [

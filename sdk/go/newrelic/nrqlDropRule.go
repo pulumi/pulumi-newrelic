@@ -12,64 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlDropRule(ctx, "foo", &newrelic.NrqlDropRuleArgs{
-//				AccountId:   pulumi.String("12345"),
-//				Description: pulumi.String("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it."),
-//				Action:      pulumi.String("drop_data"),
-//				Nrql:        pulumi.String("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewNrqlDropRule(ctx, "bar", &newrelic.NrqlDropRuleArgs{
-//				AccountId:   pulumi.String("12345"),
-//				Description: pulumi.String("Removes the user name and email fields from MyCustomEvent"),
-//				Action:      pulumi.String("drop_attributes"),
-//				Nrql:        pulumi.String("SELECT userEmail, userName FROM MyCustomEvent"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewNrqlDropRule(ctx, "baz", &newrelic.NrqlDropRuleArgs{
-//				AccountId:   pulumi.String("12345"),
-//				Description: pulumi.String("Removes containerId from metric aggregates to reduce metric cardinality."),
-//				Action:      pulumi.String("drop_attributes_from_metric_aggregates"),
-//				Nrql:        pulumi.String("SELECT containerId FROM Metric"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Using `newrelic-cli` to List Out Drop Rules
-//
-// All NRQL Drop Rules associated with a New Relic account may be listed out using the following newrelic-cli command:
-//
-// This would print all drop rules associated with your New Relic account to the terminal.
-// The number of rules to be printed can be customized using the `limit` argument of this command.
-// For instance, the following command limits the number of drop rules printed to two.
-//
-// More details on the command and its arguments (for instance, the format in which the droprules are to be listed in the terminal, which is JSON by default) can be found in the output of the `newrelic nrql droprules --help` command.
-// If you do not have **newrelic-cli** installed on your device already, head over to [this page](https://github.com/newrelic/newrelic-cli#installation--upgrades) for instructions.
-//
 // ## Import
 //
 // New Relic NRQL drop rules can be imported using a concatenated string of the format
@@ -92,6 +34,8 @@ type NrqlDropRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A NRQL string that specifies what data types to drop.
 	Nrql pulumi.StringOutput `pulumi:"nrql"`
+	// The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+	PipelineCloudRuleEntityId pulumi.StringOutput `pulumi:"pipelineCloudRuleEntityId"`
 	// The id, uniquely identifying the rule.
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
 }
@@ -140,6 +84,8 @@ type nrqlDropRuleState struct {
 	Description *string `pulumi:"description"`
 	// A NRQL string that specifies what data types to drop.
 	Nrql *string `pulumi:"nrql"`
+	// The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+	PipelineCloudRuleEntityId *string `pulumi:"pipelineCloudRuleEntityId"`
 	// The id, uniquely identifying the rule.
 	RuleId *string `pulumi:"ruleId"`
 }
@@ -153,6 +99,8 @@ type NrqlDropRuleState struct {
 	Description pulumi.StringPtrInput
 	// A NRQL string that specifies what data types to drop.
 	Nrql pulumi.StringPtrInput
+	// The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+	PipelineCloudRuleEntityId pulumi.StringPtrInput
 	// The id, uniquely identifying the rule.
 	RuleId pulumi.StringPtrInput
 }
@@ -289,6 +237,11 @@ func (o NrqlDropRuleOutput) Description() pulumi.StringPtrOutput {
 // A NRQL string that specifies what data types to drop.
 func (o NrqlDropRuleOutput) Nrql() pulumi.StringOutput {
 	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringOutput { return v.Nrql }).(pulumi.StringOutput)
+}
+
+// The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+func (o NrqlDropRuleOutput) PipelineCloudRuleEntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringOutput { return v.PipelineCloudRuleEntityId }).(pulumi.StringOutput)
 }
 
 // The id, uniquely identifying the rule.
