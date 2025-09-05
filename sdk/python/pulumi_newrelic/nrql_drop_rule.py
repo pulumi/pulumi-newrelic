@@ -93,6 +93,7 @@ class _NrqlDropRuleState:
                  action: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  nrql: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_cloud_rule_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NrqlDropRule resources.
@@ -100,6 +101,7 @@ class _NrqlDropRuleState:
         :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
+        :param pulumi.Input[_builtins.str] pipeline_cloud_rule_entity_id: The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
         :param pulumi.Input[_builtins.str] rule_id: The id, uniquely identifying the rule.
         """
         if account_id is not None:
@@ -110,6 +112,8 @@ class _NrqlDropRuleState:
             pulumi.set(__self__, "description", description)
         if nrql is not None:
             pulumi.set(__self__, "nrql", nrql)
+        if pipeline_cloud_rule_entity_id is not None:
+            pulumi.set(__self__, "pipeline_cloud_rule_entity_id", pipeline_cloud_rule_entity_id)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
 
@@ -162,6 +166,18 @@ class _NrqlDropRuleState:
         pulumi.set(self, "nrql", value)
 
     @_builtins.property
+    @pulumi.getter(name="pipelineCloudRuleEntityId")
+    def pipeline_cloud_rule_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+        """
+        return pulumi.get(self, "pipeline_cloud_rule_entity_id")
+
+    @pipeline_cloud_rule_entity_id.setter
+    def pipeline_cloud_rule_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pipeline_cloud_rule_entity_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -186,40 +202,6 @@ class NrqlDropRule(pulumi.CustomResource):
                  nrql: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NrqlDropRule("foo",
-            account_id="12345",
-            description="Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
-            action="drop_data",
-            nrql="SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'")
-        bar = newrelic.NrqlDropRule("bar",
-            account_id="12345",
-            description="Removes the user name and email fields from MyCustomEvent",
-            action="drop_attributes",
-            nrql="SELECT userEmail, userName FROM MyCustomEvent")
-        baz = newrelic.NrqlDropRule("baz",
-            account_id="12345",
-            description="Removes containerId from metric aggregates to reduce metric cardinality.",
-            action="drop_attributes_from_metric_aggregates",
-            nrql="SELECT containerId FROM Metric")
-        ```
-
-        ## Using `newrelic-cli` to List Out Drop Rules
-
-        All NRQL Drop Rules associated with a New Relic account may be listed out using the following newrelic-cli command:
-
-        This would print all drop rules associated with your New Relic account to the terminal.
-        The number of rules to be printed can be customized using the `limit` argument of this command.
-        For instance, the following command limits the number of drop rules printed to two.
-
-        More details on the command and its arguments (for instance, the format in which the droprules are to be listed in the terminal, which is JSON by default) can be found in the output of the `newrelic nrql droprules --help` command.
-        If you do not have **newrelic-cli** installed on your device already, head over to [this page](https://github.com/newrelic/newrelic-cli#installation--upgrades) for instructions.
-
         ## Import
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format
@@ -246,40 +228,6 @@ class NrqlDropRule(pulumi.CustomResource):
                  args: NrqlDropRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.NrqlDropRule("foo",
-            account_id="12345",
-            description="Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
-            action="drop_data",
-            nrql="SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'")
-        bar = newrelic.NrqlDropRule("bar",
-            account_id="12345",
-            description="Removes the user name and email fields from MyCustomEvent",
-            action="drop_attributes",
-            nrql="SELECT userEmail, userName FROM MyCustomEvent")
-        baz = newrelic.NrqlDropRule("baz",
-            account_id="12345",
-            description="Removes containerId from metric aggregates to reduce metric cardinality.",
-            action="drop_attributes_from_metric_aggregates",
-            nrql="SELECT containerId FROM Metric")
-        ```
-
-        ## Using `newrelic-cli` to List Out Drop Rules
-
-        All NRQL Drop Rules associated with a New Relic account may be listed out using the following newrelic-cli command:
-
-        This would print all drop rules associated with your New Relic account to the terminal.
-        The number of rules to be printed can be customized using the `limit` argument of this command.
-        For instance, the following command limits the number of drop rules printed to two.
-
-        More details on the command and its arguments (for instance, the format in which the droprules are to be listed in the terminal, which is JSON by default) can be found in the output of the `newrelic nrql droprules --help` command.
-        If you do not have **newrelic-cli** installed on your device already, head over to [this page](https://github.com/newrelic/newrelic-cli#installation--upgrades) for instructions.
-
         ## Import
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format
@@ -328,6 +276,7 @@ class NrqlDropRule(pulumi.CustomResource):
             if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
             __props__.__dict__["nrql"] = nrql
+            __props__.__dict__["pipeline_cloud_rule_entity_id"] = None
             __props__.__dict__["rule_id"] = None
         super(NrqlDropRule, __self__).__init__(
             'newrelic:index/nrqlDropRule:NrqlDropRule',
@@ -343,6 +292,7 @@ class NrqlDropRule(pulumi.CustomResource):
             action: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             nrql: Optional[pulumi.Input[_builtins.str]] = None,
+            pipeline_cloud_rule_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
             rule_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NrqlDropRule':
         """
         Get an existing NrqlDropRule resource's state with the given name, id, and optional extra
@@ -355,6 +305,7 @@ class NrqlDropRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
+        :param pulumi.Input[_builtins.str] pipeline_cloud_rule_entity_id: The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
         :param pulumi.Input[_builtins.str] rule_id: The id, uniquely identifying the rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -365,6 +316,7 @@ class NrqlDropRule(pulumi.CustomResource):
         __props__.__dict__["action"] = action
         __props__.__dict__["description"] = description
         __props__.__dict__["nrql"] = nrql
+        __props__.__dict__["pipeline_cloud_rule_entity_id"] = pipeline_cloud_rule_entity_id
         __props__.__dict__["rule_id"] = rule_id
         return NrqlDropRule(resource_name, opts=opts, __props__=__props__)
 
@@ -399,6 +351,14 @@ class NrqlDropRule(pulumi.CustomResource):
         A NRQL string that specifies what data types to drop.
         """
         return pulumi.get(self, "nrql")
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineCloudRuleEntityId")
+    def pipeline_cloud_rule_entity_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+        """
+        return pulumi.get(self, "pipeline_cloud_rule_entity_id")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")

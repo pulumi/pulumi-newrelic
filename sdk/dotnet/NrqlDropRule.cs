@@ -10,54 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NrqlDropRule("foo", new()
-    ///     {
-    ///         AccountId = "12345",
-    ///         Description = "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
-    ///         Action = "drop_data",
-    ///         Nrql = "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
-    ///     });
-    /// 
-    ///     var bar = new NewRelic.NrqlDropRule("bar", new()
-    ///     {
-    ///         AccountId = "12345",
-    ///         Description = "Removes the user name and email fields from MyCustomEvent",
-    ///         Action = "drop_attributes",
-    ///         Nrql = "SELECT userEmail, userName FROM MyCustomEvent",
-    ///     });
-    /// 
-    ///     var baz = new NewRelic.NrqlDropRule("baz", new()
-    ///     {
-    ///         AccountId = "12345",
-    ///         Description = "Removes containerId from metric aggregates to reduce metric cardinality.",
-    ///         Action = "drop_attributes_from_metric_aggregates",
-    ///         Nrql = "SELECT containerId FROM Metric",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Using `newrelic-cli` to List Out Drop Rules
-    /// 
-    /// All NRQL Drop Rules associated with a New Relic account may be listed out using the following newrelic-cli command:
-    /// 
-    /// This would print all drop rules associated with your New Relic account to the terminal.
-    /// The number of rules to be printed can be customized using the `limit` argument of this command.
-    /// For instance, the following command limits the number of drop rules printed to two.
-    /// 
-    /// More details on the command and its arguments (for instance, the format in which the droprules are to be listed in the terminal, which is JSON by default) can be found in the output of the `newrelic nrql droprules --help` command.
-    /// If you do not have **newrelic-cli** installed on your device already, head over to [this page](https://github.com/newrelic/newrelic-cli#installation--upgrades) for instructions.
-    /// 
     /// ## Import
     /// 
     /// New Relic NRQL drop rules can be imported using a concatenated string of the format
@@ -96,6 +48,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("nrql")]
         public Output<string> Nrql { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+        /// </summary>
+        [Output("pipelineCloudRuleEntityId")]
+        public Output<string> PipelineCloudRuleEntityId { get; private set; } = null!;
 
         /// <summary>
         /// The id, uniquely identifying the rule.
@@ -204,6 +162,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("nrql")]
         public Input<string>? Nrql { get; set; }
+
+        /// <summary>
+        /// The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+        /// </summary>
+        [Input("pipelineCloudRuleEntityId")]
+        public Input<string>? PipelineCloudRuleEntityId { get; set; }
 
         /// <summary>
         /// The id, uniquely identifying the rule.

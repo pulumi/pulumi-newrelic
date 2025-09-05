@@ -76,6 +76,21 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+     * 
+     */
+    @Import(name="pipelineCloudRuleEntityId")
+    private @Nullable Output<String> pipelineCloudRuleEntityId;
+
+    /**
+     * @return The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+     * 
+     */
+    public Optional<Output<String>> pipelineCloudRuleEntityId() {
+        return Optional.ofNullable(this.pipelineCloudRuleEntityId);
+    }
+
+    /**
      * The id, uniquely identifying the rule.
      * 
      */
@@ -97,6 +112,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         this.action = $.action;
         this.description = $.description;
         this.nrql = $.nrql;
+        this.pipelineCloudRuleEntityId = $.pipelineCloudRuleEntityId;
         this.ruleId = $.ruleId;
     }
 
@@ -200,6 +216,27 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nrql(String nrql) {
             return nrql(Output.of(nrql));
+        }
+
+        /**
+         * @param pipelineCloudRuleEntityId The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineCloudRuleEntityId(@Nullable Output<String> pipelineCloudRuleEntityId) {
+            $.pipelineCloudRuleEntityId = pipelineCloudRuleEntityId;
+            return this;
+        }
+
+        /**
+         * @param pipelineCloudRuleEntityId The ID (GUID) of the corresponding Pipeline Cloud Rule, (migrated upstream by New Relic, in light of the upcoming EOL, as stated in the Deprecation Warning above). This can be used to import the corresponding Pipeline Cloud Rule as a [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource, as explained in our Drop Rules EOL Migration Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineCloudRuleEntityId(String pipelineCloudRuleEntityId) {
+            return pipelineCloudRuleEntityId(Output.of(pipelineCloudRuleEntityId));
         }
 
         /**
