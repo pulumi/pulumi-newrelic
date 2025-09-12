@@ -1,12 +1,14 @@
 provider: newrelic
 major-version: 5
+esc:
+  enabled: true
 env:
   NEW_RELIC_API_KEY: ${{ secrets.NEW_RELIC_API_KEY }}
   NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
 makeTemplate: bridged
 team: ecosystem
 extra-ld-flags:
-- -X github.com/newrelic/terraform-provider-newrelic/v2/main.UserAgentServiceName=pulumi
+  - -X github.com/newrelic/terraform-provider-newrelic/v2/main.UserAgentServiceName=pulumi
 pulumiConvert: 1
 registryDocs: true
 plugins:
