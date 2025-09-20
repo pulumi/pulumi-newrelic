@@ -12,56 +12,71 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// ## Import
     /// 
-    /// Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;`
-    /// will be either `INGEST` or `USER`.
+    /// Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`, where `&lt;key_type&gt;` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.
     /// 
     /// For example:
     /// 
     /// ```sh
-    /// $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
+    /// $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
     /// ```
+    /// 
+    /// For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=&lt;filename&gt;.tf`, reducing manual effort and ensuring accuracy.
+    /// 
+    /// For example:
+    /// 
+    /// hcl
+    /// 
+    /// import {
+    /// 
+    ///   id = "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
+    /// 
+    ///   to = newrelic_api_access_key.foobar
+    /// 
+    /// }
+    /// 
+    /// This approach simplifies the import process and ensures that the resource configuration aligns with the imported state.
     /// </summary>
     [NewRelicResourceType("newrelic:index/apiAccessKey:ApiAccessKey")]
     public partial class ApiAccessKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID of the account you wish to create the API access key.
+        /// The New Relic account ID where the API access key will be created.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        /// Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Output("ingestType")]
         public Output<string> IngestType { get; private set; } = null!;
 
         /// <summary>
-        /// The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+        /// The actual API key.
+        /// - &lt;span style="color:tomato;"&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        /// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+        /// - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+        /// - If `key_type` is `USER`, then `user_id` must be specified.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the key.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Any notes about this ingest key.
+        /// Additional notes about the API access key.
         /// </summary>
         [Output("notes")]
         public Output<string> Notes { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        /// Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -89,10 +104,6 @@ namespace Pulumi.NewRelic
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "key",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -117,37 +128,36 @@ namespace Pulumi.NewRelic
     public sealed class ApiAccessKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID of the account you wish to create the API access key.
+        /// The New Relic account ID where the API access key will be created.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<string> AccountId { get; set; } = null!;
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        /// Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Input("ingestType")]
         public Input<string>? IngestType { get; set; }
 
         /// <summary>
-        /// What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        /// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+        /// - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+        /// - If `key_type` is `USER`, then `user_id` must be specified.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the key.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Any notes about this ingest key.
+        /// Additional notes about the API access key.
         /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        /// Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
@@ -161,53 +171,43 @@ namespace Pulumi.NewRelic
     public sealed class ApiAccessKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID of the account you wish to create the API access key.
+        /// The New Relic account ID where the API access key will be created.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        /// Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Input("ingestType")]
         public Input<string>? IngestType { get; set; }
 
-        [Input("key")]
-        private Input<string>? _key;
-
         /// <summary>
-        /// The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+        /// The actual API key.
+        /// - &lt;span style="color:tomato;"&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
         /// </summary>
-        public Input<string>? Key
-        {
-            get => _key;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("key")]
+        public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        /// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+        /// - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+        /// - If `key_type` is `USER`, then `user_id` must be specified.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }
 
-        /// <summary>
-        /// The name of the key.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Any notes about this ingest key.
+        /// Additional notes about the API access key.
         /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        /// Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
