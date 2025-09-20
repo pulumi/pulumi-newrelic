@@ -19,23 +19,25 @@ __all__ = ['ApiAccessKeyArgs', 'ApiAccessKey']
 @pulumi.input_type
 class ApiAccessKeyArgs:
     def __init__(__self__, *,
-                 account_id: pulumi.Input[_builtins.str],
                  key_type: pulumi.Input[_builtins.str],
+                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ingest_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  notes: Optional[pulumi.Input[_builtins.str]] = None,
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiAccessKey resource.
-        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the API access key.
-        :param pulumi.Input[_builtins.str] key_type: What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
-        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
-        :param pulumi.Input[_builtins.str] name: The name of the key.
-        :param pulumi.Input[_builtins.str] notes: Any notes about this ingest key.
-        :param pulumi.Input[_builtins.str] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        :param pulumi.Input[_builtins.str] key_type: The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+               - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+               - If `key_type` is `USER`, then `user_id` must be specified.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "key_type", key_type)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if ingest_type is not None:
             pulumi.set(__self__, "ingest_type", ingest_type)
         if name is not None:
@@ -46,22 +48,12 @@ class ApiAccessKeyArgs:
             pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The New Relic account ID of the account you wish to create the API access key.
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "account_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[_builtins.str]:
         """
-        What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+        - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+        - If `key_type` is `USER`, then `user_id` must be specified.
         """
         return pulumi.get(self, "key_type")
 
@@ -70,10 +62,22 @@ class ApiAccessKeyArgs:
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The New Relic account ID where the API access key will be created.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="ingestType")
     def ingest_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         """
         return pulumi.get(self, "ingest_type")
 
@@ -84,9 +88,6 @@ class ApiAccessKeyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the key.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,7 +98,7 @@ class ApiAccessKeyArgs:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Any notes about this ingest key.
+        Additional notes about the API access key.
         """
         return pulumi.get(self, "notes")
 
@@ -109,7 +110,7 @@ class ApiAccessKeyArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         return pulumi.get(self, "user_id")
 
@@ -130,13 +131,15 @@ class _ApiAccessKeyState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiAccessKey resources.
-        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the API access key.
-        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
-        :param pulumi.Input[_builtins.str] key: The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
-        :param pulumi.Input[_builtins.str] key_type: What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
-        :param pulumi.Input[_builtins.str] name: The name of the key.
-        :param pulumi.Input[_builtins.str] notes: Any notes about this ingest key.
-        :param pulumi.Input[_builtins.str] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        :param pulumi.Input[_builtins.str] key: The actual API key.
+               - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
+        :param pulumi.Input[_builtins.str] key_type: The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+               - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+               - If `key_type` is `USER`, then `user_id` must be specified.
+        :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -157,7 +160,7 @@ class _ApiAccessKeyState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The New Relic account ID of the account you wish to create the API access key.
+        The New Relic account ID where the API access key will be created.
         """
         return pulumi.get(self, "account_id")
 
@@ -169,7 +172,7 @@ class _ApiAccessKeyState:
     @pulumi.getter(name="ingestType")
     def ingest_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         """
         return pulumi.get(self, "ingest_type")
 
@@ -181,7 +184,8 @@ class _ApiAccessKeyState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+        The actual API key.
+        - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
         """
         return pulumi.get(self, "key")
 
@@ -193,7 +197,9 @@ class _ApiAccessKeyState:
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+        - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+        - If `key_type` is `USER`, then `user_id` must be specified.
         """
         return pulumi.get(self, "key_type")
 
@@ -204,9 +210,6 @@ class _ApiAccessKeyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the key.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -217,7 +220,7 @@ class _ApiAccessKeyState:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Any notes about this ingest key.
+        Additional notes about the API access key.
         """
         return pulumi.get(self, "notes")
 
@@ -229,7 +232,7 @@ class _ApiAccessKeyState:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         return pulumi.get(self, "user_id")
 
@@ -254,23 +257,39 @@ class ApiAccessKey(pulumi.CustomResource):
         """
         ## Import
 
-        Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>`
-        will be either `INGEST` or `USER`.
+        Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`, where `<key_type>` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.
 
         For example:
 
         ```sh
-        $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
+        $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
         ```
+
+        For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=<filename>.tf`, reducing manual effort and ensuring accuracy.
+
+        For example:
+
+        hcl
+
+        import {
+
+          id = "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
+
+          to = newrelic_api_access_key.foobar
+
+        }
+
+        This approach simplifies the import process and ensures that the resource configuration aligns with the imported state.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the API access key.
-        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
-        :param pulumi.Input[_builtins.str] key_type: What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
-        :param pulumi.Input[_builtins.str] name: The name of the key.
-        :param pulumi.Input[_builtins.str] notes: Any notes about this ingest key.
-        :param pulumi.Input[_builtins.str] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        :param pulumi.Input[_builtins.str] key_type: The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+               - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+               - If `key_type` is `USER`, then `user_id` must be specified.
+        :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         ...
     @overload
@@ -281,14 +300,29 @@ class ApiAccessKey(pulumi.CustomResource):
         """
         ## Import
 
-        Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>`
-        will be either `INGEST` or `USER`.
+        Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`, where `<key_type>` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.
 
         For example:
 
         ```sh
-        $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
+        $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
         ```
+
+        For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=<filename>.tf`, reducing manual effort and ensuring accuracy.
+
+        For example:
+
+        hcl
+
+        import {
+
+          id = "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
+
+          to = newrelic_api_access_key.foobar
+
+        }
+
+        This approach simplifies the import process and ensures that the resource configuration aligns with the imported state.
 
         :param str resource_name: The name of the resource.
         :param ApiAccessKeyArgs args: The arguments to use to populate this resource's properties.
@@ -320,8 +354,6 @@ class ApiAccessKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiAccessKeyArgs.__new__(ApiAccessKeyArgs)
 
-            if account_id is None and not opts.urn:
-                raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["ingest_type"] = ingest_type
             if key_type is None and not opts.urn:
@@ -331,8 +363,6 @@ class ApiAccessKey(pulumi.CustomResource):
             __props__.__dict__["notes"] = notes
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["key"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiAccessKey, __self__).__init__(
             'newrelic:index/apiAccessKey:ApiAccessKey',
             resource_name,
@@ -357,13 +387,15 @@ class ApiAccessKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the API access key.
-        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
-        :param pulumi.Input[_builtins.str] key: The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
-        :param pulumi.Input[_builtins.str] key_type: What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
-        :param pulumi.Input[_builtins.str] name: The name of the key.
-        :param pulumi.Input[_builtins.str] notes: Any notes about this ingest key.
-        :param pulumi.Input[_builtins.str] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
+        :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        :param pulumi.Input[_builtins.str] key: The actual API key.
+               - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
+        :param pulumi.Input[_builtins.str] key_type: The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+               - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+               - If `key_type` is `USER`, then `user_id` must be specified.
+        :param pulumi.Input[_builtins.str] notes: Additional notes about the API access key.
+        :param pulumi.Input[_builtins.str] user_id: Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -380,9 +412,9 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[_builtins.str]:
+    def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The New Relic account ID of the account you wish to create the API access key.
+        The New Relic account ID where the API access key will be created.
         """
         return pulumi.get(self, "account_id")
 
@@ -390,7 +422,7 @@ class ApiAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="ingestType")
     def ingest_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         """
         return pulumi.get(self, "ingest_type")
 
@@ -398,7 +430,8 @@ class ApiAccessKey(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
         """
-        The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+        The actual API key.
+        - <span style="color:tomato;">It is important to exercise caution when exporting the value of `key`, as it is sensitive information</span>. Avoid logging or exposing it inappropriately.
         """
         return pulumi.get(self, "key")
 
@@ -406,23 +439,22 @@ class ApiAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[_builtins.str]:
         """
-        What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+        - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+        - If `key_type` is `USER`, then `user_id` must be specified.
         """
         return pulumi.get(self, "key_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the key.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def notes(self) -> pulumi.Output[_builtins.str]:
         """
-        Any notes about this ingest key.
+        Additional notes about the API access key.
         """
         return pulumi.get(self, "notes")
 
@@ -430,7 +462,7 @@ class ApiAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
         """
         return pulumi.get(self, "user_id")
 
