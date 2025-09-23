@@ -11,117 +11,130 @@ import com.pulumi.newrelic.ApiAccessKeyArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.ApiAccessKeyState;
 import java.lang.String;
-import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * ## Import
  * 
- * Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`. `&lt;key_type&gt;`
- * will be either `INGEST` or `USER`.
+ * Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`, where `&lt;key_type&gt;` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.
  * 
  * For example:
  * 
  * ```sh
- * $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar &#34;1234567:INGEST&#34;
+ * $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar &#34;131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST&#34;
  * ```
+ * 
+ * For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=&lt;filename&gt;.tf`, reducing manual effort and ensuring accuracy.
+ * 
+ * For example:
+ * 
+ * hcl
+ * 
+ * import {
+ * 
+ *   id = &#34;131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST&#34;
+ * 
+ *   to = newrelic_api_access_key.foobar
+ * 
+ * }
+ * 
+ * This approach simplifies the import process and ensures that the resource configuration aligns with the imported state.
  * 
  */
 @ResourceType(type="newrelic:index/apiAccessKey:ApiAccessKey")
 public class ApiAccessKey extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID of the account you wish to create the API access key.
+     * The New Relic account ID where the API access key will be created.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
+    private Output</* @Nullable */ String> accountId;
 
     /**
-     * @return The New Relic account ID of the account you wish to create the API access key.
+     * @return The New Relic account ID where the API access key will be created.
      * 
      */
-    public Output<String> accountId() {
-        return this.accountId;
+    public Output<Optional<String>> accountId() {
+        return Codegen.optional(this.accountId);
     }
     /**
-     * Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+     * Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      * 
      */
     @Export(name="ingestType", refs={String.class}, tree="[0]")
     private Output<String> ingestType;
 
     /**
-     * @return Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+     * @return Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      * 
      */
     public Output<String> ingestType() {
         return this.ingestType;
     }
     /**
-     * The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+     * The actual API key.
+     * - &lt;span style=&#34;color:tomato;&#34;&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+     * @return The actual API key.
+     * - &lt;span style=&#34;color:tomato;&#34;&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+     * The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+     * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+     * - If `key_type` is `USER`, then `user_id` must be specified.
      * 
      */
     @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
     /**
-     * @return What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+     * @return The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+     * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+     * - If `key_type` is `USER`, then `user_id` must be specified.
      * 
      */
     public Output<String> keyType() {
         return this.keyType;
     }
-    /**
-     * The name of the key.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the key.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Any notes about this ingest key.
+     * Additional notes about the API access key.
      * 
      */
     @Export(name="notes", refs={String.class}, tree="[0]")
     private Output<String> notes;
 
     /**
-     * @return Any notes about this ingest key.
+     * @return Additional notes about the API access key.
      * 
      */
     public Output<String> notes() {
         return this.notes;
     }
     /**
-     * Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+     * Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+     * @return Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
     public Output<String> userId() {
@@ -167,9 +180,6 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "key"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

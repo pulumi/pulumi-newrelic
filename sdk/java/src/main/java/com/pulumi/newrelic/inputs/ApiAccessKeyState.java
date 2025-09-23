@@ -16,14 +16,14 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
     public static final ApiAccessKeyState Empty = new ApiAccessKeyState();
 
     /**
-     * The New Relic account ID of the account you wish to create the API access key.
+     * The New Relic account ID where the API access key will be created.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID of the account you wish to create the API access key.
+     * @return The New Relic account ID where the API access key will be created.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -31,14 +31,14 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+     * Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      * 
      */
     @Import(name="ingestType")
     private @Nullable Output<String> ingestType;
 
     /**
-     * @return Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+     * @return Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      * 
      */
     public Optional<Output<String>> ingestType() {
@@ -46,14 +46,16 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+     * The actual API key.
+     * - &lt;span style=&#34;color:tomato;&#34;&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+     * @return The actual API key.
+     * - &lt;span style=&#34;color:tomato;&#34;&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
      * 
      */
     public Optional<Output<String>> key() {
@@ -61,44 +63,40 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+     * The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+     * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+     * - If `key_type` is `USER`, then `user_id` must be specified.
      * 
      */
     @Import(name="keyType")
     private @Nullable Output<String> keyType;
 
     /**
-     * @return What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+     * @return The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+     * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+     * - If `key_type` is `USER`, then `user_id` must be specified.
      * 
      */
     public Optional<Output<String>> keyType() {
         return Optional.ofNullable(this.keyType);
     }
 
-    /**
-     * The name of the key.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the key.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * Any notes about this ingest key.
+     * Additional notes about the API access key.
      * 
      */
     @Import(name="notes")
     private @Nullable Output<String> notes;
 
     /**
-     * @return Any notes about this ingest key.
+     * @return Additional notes about the API access key.
      * 
      */
     public Optional<Output<String>> notes() {
@@ -106,14 +104,14 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+     * Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
-     * @return Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+     * @return Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -151,7 +149,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID of the account you wish to create the API access key.
+         * @param accountId The New Relic account ID where the API access key will be created.
          * 
          * @return builder
          * 
@@ -162,7 +160,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID of the account you wish to create the API access key.
+         * @param accountId The New Relic account ID where the API access key will be created.
          * 
          * @return builder
          * 
@@ -172,7 +170,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ingestType Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+         * @param ingestType Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
          * 
          * @return builder
          * 
@@ -183,7 +181,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ingestType Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+         * @param ingestType Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
          * 
          * @return builder
          * 
@@ -193,7 +191,8 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+         * @param key The actual API key.
+         * - &lt;span style=&#34;color:tomato;&#34;&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
          * 
          * @return builder
          * 
@@ -204,7 +203,8 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+         * @param key The actual API key.
+         * - &lt;span style=&#34;color:tomato;&#34;&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
          * 
          * @return builder
          * 
@@ -214,7 +214,9 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+         * @param keyType The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+         * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+         * - If `key_type` is `USER`, then `user_id` must be specified.
          * 
          * @return builder
          * 
@@ -225,7 +227,9 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+         * @param keyType The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
+         * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
+         * - If `key_type` is `USER`, then `user_id` must be specified.
          * 
          * @return builder
          * 
@@ -234,29 +238,17 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
             return keyType(Output.of(keyType));
         }
 
-        /**
-         * @param name The name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
-         * @param notes Any notes about this ingest key.
+         * @param notes Additional notes about the API access key.
          * 
          * @return builder
          * 
@@ -267,7 +259,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notes Any notes about this ingest key.
+         * @param notes Additional notes about the API access key.
          * 
          * @return builder
          * 
@@ -277,7 +269,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userId Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+         * @param userId Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
          * 
          * @return builder
          * 
@@ -288,7 +280,7 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userId Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+         * @param userId Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
          * 
          * @return builder
          * 

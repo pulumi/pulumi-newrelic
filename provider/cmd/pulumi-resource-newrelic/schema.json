@@ -11198,40 +11198,37 @@
             }
         },
         "newrelic:index/apiAccessKey:ApiAccessKey": {
-            "description": "\n\n## Import\n\nExisting API access keys can be imported using a composite ID of `\u003capi_access_key_id\u003e:\u003ckey_type\u003e`. `\u003ckey_type\u003e`\nwill be either `INGEST` or `USER`.\n\nFor example:\n\n```sh\n$ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar \"1234567:INGEST\"\n```\n",
+            "description": "\n\n## Import\n\nExisting API access keys can be imported using a composite ID of `\u003capi_access_key_id\u003e:\u003ckey_type\u003e`, where `\u003ckey_type\u003e` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.\n\nFor example:\n\n```sh\n$ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar \"131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST\"\n```\n\nFor customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=\u003cfilename\u003e.tf`, reducing manual effort and ensuring accuracy.\n\nFor example:\n\nhcl\n\nimport {\n\n  id = \"131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST\"\n\n  to = newrelic_api_access_key.foobar\n\n}\n\nThis approach simplifies the import process and ensures that the resource configuration aligns with the imported state.\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
-                    "description": "The New Relic account ID of the account you wish to create the API access key.\n"
+                    "description": "The New Relic account ID where the API access key will be created.\n"
                 },
                 "ingestType": {
                     "type": "string",
-                    "description": "Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.\n"
+                    "description": "Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).\n"
                 },
                 "key": {
                     "type": "string",
-                    "description": "The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.\n",
-                    "secret": true
+                    "description": "The actual API key.\n- \u003cspan style=\"color:tomato;\"\u003eIt is important to exercise caution when exporting the value of `key`, as it is sensitive information\u003c/span\u003e. Avoid logging or exposing it inappropriately.\n"
                 },
                 "keyType": {
                     "type": "string",
-                    "description": "What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.\n"
+                    "description": "The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).\n- If `key_type` is `INGEST`, then `ingest_type` must be specified.\n- If `key_type` is `USER`, then `user_id` must be specified.\n"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "The name of the key.\n"
+                    "type": "string"
                 },
                 "notes": {
                     "type": "string",
-                    "description": "Any notes about this ingest key.\n"
+                    "description": "Additional notes about the API access key.\n"
                 },
                 "userId": {
                     "type": "string",
-                    "description": "Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.\n"
+                    "description": "Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.\n"
                 }
             },
             "required": [
-                "accountId",
                 "ingestType",
                 "key",
                 "keyType",
@@ -11242,35 +11239,33 @@
             "inputProperties": {
                 "accountId": {
                     "type": "string",
-                    "description": "The New Relic account ID of the account you wish to create the API access key.\n",
+                    "description": "The New Relic account ID where the API access key will be created.\n",
                     "willReplaceOnChanges": true
                 },
                 "ingestType": {
                     "type": "string",
-                    "description": "Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.\n",
+                    "description": "Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).\n",
                     "willReplaceOnChanges": true
                 },
                 "keyType": {
                     "type": "string",
-                    "description": "What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.\n",
+                    "description": "The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).\n- If `key_type` is `INGEST`, then `ingest_type` must be specified.\n- If `key_type` is `USER`, then `user_id` must be specified.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
-                    "type": "string",
-                    "description": "The name of the key.\n"
+                    "type": "string"
                 },
                 "notes": {
                     "type": "string",
-                    "description": "Any notes about this ingest key.\n"
+                    "description": "Additional notes about the API access key.\n"
                 },
                 "userId": {
                     "type": "string",
-                    "description": "Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.\n",
+                    "description": "Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.\n",
                     "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
-                "accountId",
                 "keyType"
             ],
             "stateInputs": {
@@ -11278,35 +11273,33 @@
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "The New Relic account ID of the account you wish to create the API access key.\n",
+                        "description": "The New Relic account ID where the API access key will be created.\n",
                         "willReplaceOnChanges": true
                     },
                     "ingestType": {
                         "type": "string",
-                        "description": "Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.\n",
+                        "description": "Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).\n",
                         "willReplaceOnChanges": true
                     },
                     "key": {
                         "type": "string",
-                        "description": "The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.\n",
-                        "secret": true
+                        "description": "The actual API key.\n- \u003cspan style=\"color:tomato;\"\u003eIt is important to exercise caution when exporting the value of `key`, as it is sensitive information\u003c/span\u003e. Avoid logging or exposing it inappropriately.\n"
                     },
                     "keyType": {
                         "type": "string",
-                        "description": "What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.\n",
+                        "description": "The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).\n- If `key_type` is `INGEST`, then `ingest_type` must be specified.\n- If `key_type` is `USER`, then `user_id` must be specified.\n",
                         "willReplaceOnChanges": true
                     },
                     "name": {
-                        "type": "string",
-                        "description": "The name of the key.\n"
+                        "type": "string"
                     },
                     "notes": {
                         "type": "string",
-                        "description": "Any notes about this ingest key.\n"
+                        "description": "Additional notes about the API access key.\n"
                     },
                     "userId": {
                         "type": "string",
-                        "description": "Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.\n",
+                        "description": "Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.\n",
                         "willReplaceOnChanges": true
                     }
                 },
