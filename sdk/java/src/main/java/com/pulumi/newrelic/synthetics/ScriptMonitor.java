@@ -253,6 +253,67 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Create a monitor and a secure credential
+ * 
+ * The following example shows how to use `depends_on` to create a monitor that uses a new secure credential.
+ * The `depends_on` creates an explicit dependency between resources to ensure that the secure credential is created before the monitor that uses it.
+ * 
+ * &gt; **NOTE:** Use the `depends_on` when you are creating both monitor and its secure credentials together.
+ * 
+ * ##### Type: `SCRIPT_BROWSER`
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.synthetics.SecureCredential;
+ * import com.pulumi.newrelic.synthetics.SecureCredentialArgs;
+ * import com.pulumi.newrelic.synthetics.ScriptMonitor;
+ * import com.pulumi.newrelic.synthetics.ScriptMonitorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCredential = new SecureCredential("exampleCredential", SecureCredentialArgs.builder()
+ *             .key("TEST_SECURE_CREDENTIAL")
+ *             .value("some_value")
+ *             .build());
+ * 
+ *         var exampleScriptMonitor = new ScriptMonitor("exampleScriptMonitor", ScriptMonitorArgs.builder()
+ *             .name("script_monitor")
+ *             .type("SCRIPT_BROWSER")
+ *             .period("EVERY_HOUR")
+ *             .locationsPublics("US_EAST_1")
+ *             .status("ENABLED")
+ *             .script("""
+ *       var assert = require('assert');
+ *       var secureCredential = $secure.TEST_SECURE_CREDENTIAL;
+ *             """)
+ *             .scriptLanguage("JAVASCRIPT")
+ *             .runtimeType("CHROME_BROWSER")
+ *             .runtimeTypeVersion("100")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleCredential)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Synthetics monitor scripts can be imported using the `guid`, e.g.

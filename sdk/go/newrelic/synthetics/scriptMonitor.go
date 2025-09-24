@@ -239,6 +239,58 @@ import (
 //
 // ```
 //
+// ### Create a monitor and a secure credential
+//
+// The following example shows how to use `dependsOn` to create a monitor that uses a new secure credential.
+// The `dependsOn` creates an explicit dependency between resources to ensure that the secure credential is created before the monitor that uses it.
+//
+// > **NOTE:** Use the `dependsOn` when you are creating both monitor and its secure credentials together.
+//
+// ##### Type: `SCRIPT_BROWSER`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCredential, err := synthetics.NewSecureCredential(ctx, "example_credential", &synthetics.SecureCredentialArgs{
+//				Key:   pulumi.String("TEST_SECURE_CREDENTIAL"),
+//				Value: pulumi.String("some_value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewScriptMonitor(ctx, "example_script_monitor", &synthetics.ScriptMonitorArgs{
+//				Name:   pulumi.String("script_monitor"),
+//				Type:   pulumi.String("SCRIPT_BROWSER"),
+//				Period: pulumi.String("EVERY_HOUR"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("US_EAST_1"),
+//				},
+//				Status:             pulumi.String("ENABLED"),
+//				Script:             pulumi.String("      var assert = require('assert');\n      var secureCredential = $secure.TEST_SECURE_CREDENTIAL;\n"),
+//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
+//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
+//				RuntimeTypeVersion: pulumi.String("100"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleCredential,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Synthetics monitor scripts can be imported using the `guid`, e.g.

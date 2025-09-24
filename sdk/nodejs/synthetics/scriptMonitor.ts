@@ -144,6 +144,40 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Create a monitor and a secure credential
+ *
+ * The following example shows how to use `dependsOn` to create a monitor that uses a new secure credential.
+ * The `dependsOn` creates an explicit dependency between resources to ensure that the secure credential is created before the monitor that uses it.
+ *
+ * > **NOTE:** Use the `dependsOn` when you are creating both monitor and its secure credentials together.
+ *
+ * ##### Type: `SCRIPT_BROWSER`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const exampleCredential = new newrelic.synthetics.SecureCredential("example_credential", {
+ *     key: "TEST_SECURE_CREDENTIAL",
+ *     value: "some_value",
+ * });
+ * const exampleScriptMonitor = new newrelic.synthetics.ScriptMonitor("example_script_monitor", {
+ *     name: "script_monitor",
+ *     type: "SCRIPT_BROWSER",
+ *     period: "EVERY_HOUR",
+ *     locationsPublics: ["US_EAST_1"],
+ *     status: "ENABLED",
+ *     script: `      var assert = require('assert');
+ *       var secureCredential = secure.TEST_SECURE_CREDENTIAL;
+ * `,
+ *     scriptLanguage: "JAVASCRIPT",
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
+ * }, {
+ *     dependsOn: [exampleCredential],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synthetics monitor scripts can be imported using the `guid`, e.g.

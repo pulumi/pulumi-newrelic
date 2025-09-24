@@ -225,6 +225,56 @@ namespace Pulumi.NewRelic.Synthetics
     /// });
     /// ```
     /// 
+    /// ### Create a monitor and a secure credential
+    /// 
+    /// The following example shows how to use `depends_on` to create a monitor that uses a new secure credential.
+    /// The `depends_on` creates an explicit dependency between resources to ensure that the secure credential is created before the monitor that uses it.
+    /// 
+    /// &gt; **NOTE:** Use the `depends_on` when you are creating both monitor and its secure credentials together.
+    /// 
+    /// ##### Type: `SCRIPT_BROWSER`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCredential = new NewRelic.Synthetics.SecureCredential("example_credential", new()
+    ///     {
+    ///         Key = "TEST_SECURE_CREDENTIAL",
+    ///         Value = "some_value",
+    ///     });
+    /// 
+    ///     var exampleScriptMonitor = new NewRelic.Synthetics.ScriptMonitor("example_script_monitor", new()
+    ///     {
+    ///         Name = "script_monitor",
+    ///         Type = "SCRIPT_BROWSER",
+    ///         Period = "EVERY_HOUR",
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "US_EAST_1",
+    ///         },
+    ///         Status = "ENABLED",
+    ///         Script = @"      var assert = require('assert');
+    ///       var secureCredential = $secure.TEST_SECURE_CREDENTIAL;
+    /// ",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleCredential,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synthetics monitor scripts can be imported using the `guid`, e.g.
