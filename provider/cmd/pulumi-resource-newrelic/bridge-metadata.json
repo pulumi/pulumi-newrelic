@@ -1241,6 +1241,10 @@
                 "current": "newrelic:cloud/gcpLinkAccount:GcpLinkAccount",
                 "majorVersion": 5
             },
+            "newrelic_cloud_oci_link_account": {
+                "current": "newrelic:cloud/ociLinkAccount:OciLinkAccount",
+                "majorVersion": 5
+            },
             "newrelic_data_partition_rule": {
                 "current": "newrelic:index/dataPartitionRule:DataPartitionRule",
                 "majorVersion": 5
@@ -4451,6 +4455,11 @@
             "newrelic_cloud_gcp_link_account": [
                 "account_id",
                 "project_id"
+            ],
+            "newrelic_cloud_oci_link_account": [
+                "account_id",
+                "oci_client_id",
+                "tenant_id"
             ],
             "newrelic_data_partition_rule": [
                 "account_id"

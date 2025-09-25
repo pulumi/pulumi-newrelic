@@ -141,6 +141,14 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "cloud/ociLinkAccount",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/ociLinkAccount:OciLinkAccount": "OciLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "index/accountManagement",
   "fqn": "pulumi_newrelic",
   "classes": {

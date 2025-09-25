@@ -45,6 +45,11 @@ export type GcpLinkAccount = import("./gcpLinkAccount").GcpLinkAccount;
 export const GcpLinkAccount: typeof import("./gcpLinkAccount").GcpLinkAccount = null as any;
 utilities.lazyLoad(exports, ["GcpLinkAccount"], () => require("./gcpLinkAccount"));
 
+export { OciLinkAccountArgs, OciLinkAccountState } from "./ociLinkAccount";
+export type OciLinkAccount = import("./ociLinkAccount").OciLinkAccount;
+export const OciLinkAccount: typeof import("./ociLinkAccount").OciLinkAccount = null as any;
+utilities.lazyLoad(exports, ["OciLinkAccount"], () => require("./ociLinkAccount"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -66,6 +71,8 @@ const _module = {
                 return new GcpIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/gcpLinkAccount:GcpLinkAccount":
                 return new GcpLinkAccount(name, <any>undefined, { urn })
+            case "newrelic:cloud/ociLinkAccount:OciLinkAccount":
+                return new OciLinkAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -79,3 +86,4 @@ pulumi.runtime.registerResourceModule("newrelic", "cloud/azureIntegrations", _mo
 pulumi.runtime.registerResourceModule("newrelic", "cloud/azureLinkAccount", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpLinkAccount", _module)
+pulumi.runtime.registerResourceModule("newrelic", "cloud/ociLinkAccount", _module)
