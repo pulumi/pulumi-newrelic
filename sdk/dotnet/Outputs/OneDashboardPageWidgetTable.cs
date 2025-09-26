@@ -58,7 +58,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LinkedEntityGuids;
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTableNrqlQuery> NrqlQueries;
         /// <summary>

@@ -14,5 +14,6 @@ from .azure_integrations import *
 from .azure_link_account import *
 from .gcp_integrations import *
 from .gcp_link_account import *
+from .oci_link_account import *
 from ._inputs import *
 from . import outputs

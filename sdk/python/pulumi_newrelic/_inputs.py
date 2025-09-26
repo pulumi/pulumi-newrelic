@@ -3143,7 +3143,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -3237,7 +3237,7 @@ class OneDashboardPageWidgetAreaArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -3306,7 +3306,7 @@ class OneDashboardPageWidgetAreaArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -4058,7 +4058,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -4157,7 +4157,7 @@ class OneDashboardPageWidgetBarArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -4229,7 +4229,7 @@ class OneDashboardPageWidgetBarArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -4962,7 +4962,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -5061,7 +5061,7 @@ class OneDashboardPageWidgetBillboardArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -5133,7 +5133,7 @@ class OneDashboardPageWidgetBillboardArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -5870,7 +5870,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -5961,7 +5961,7 @@ class OneDashboardPageWidgetBulletArgs:
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.float] limit: (Required) Visualization limit for the widget.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -6040,7 +6040,7 @@ class OneDashboardPageWidgetBulletArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -6749,7 +6749,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -6838,7 +6838,7 @@ class OneDashboardPageWidgetFunnelArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -6904,7 +6904,7 @@ class OneDashboardPageWidgetFunnelArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -7613,7 +7613,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -7712,7 +7712,7 @@ class OneDashboardPageWidgetHeatmapArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -7784,7 +7784,7 @@ class OneDashboardPageWidgetHeatmapArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -8517,7 +8517,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -8606,7 +8606,7 @@ class OneDashboardPageWidgetHistogramArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -8672,7 +8672,7 @@ class OneDashboardPageWidgetHistogramArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -9381,7 +9381,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -9470,7 +9470,7 @@ class OneDashboardPageWidgetJsonArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -9536,7 +9536,7 @@ class OneDashboardPageWidgetJsonArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -10245,7 +10245,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -10359,7 +10359,7 @@ class OneDashboardPageWidgetLineArgs:
                  y_axis_right: Optional[pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -10440,7 +10440,7 @@ class OneDashboardPageWidgetLineArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -11424,7 +11424,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -11513,7 +11513,7 @@ class OneDashboardPageWidgetLogTableArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -11579,7 +11579,7 @@ class OneDashboardPageWidgetLogTableArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -13101,7 +13101,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -13200,7 +13200,7 @@ class OneDashboardPageWidgetPyArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -13272,7 +13272,7 @@ class OneDashboardPageWidgetPyArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -14005,7 +14005,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -14099,7 +14099,7 @@ class OneDashboardPageWidgetStackedBarArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -14168,7 +14168,7 @@ class OneDashboardPageWidgetStackedBarArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -14920,7 +14920,7 @@ if not MYPY:
         """
         nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgsDict']]]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         row: pulumi.Input[_builtins.int]
         """
@@ -15024,7 +15024,7 @@ class OneDashboardPageWidgetTableArgs:
                  y_axis_left_min: Optional[pulumi.Input[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -15099,7 +15099,7 @@ class OneDashboardPageWidgetTableArgs:
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -16238,7 +16238,7 @@ if not MYPY:
         """
         nrql_query: NotRequired[pulumi.Input['OneDashboardVariableNrqlQueryArgsDict']]
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         options: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableOptionArgsDict']]]]
         """
@@ -16267,7 +16267,7 @@ class OneDashboardVariableArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_values: (Optional) A list of default values for this variable. To select **all** default values, the appropriate value to be used with this argument would be `["*"]`.
         :param pulumi.Input[_builtins.bool] is_multi_selection: (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableItemArgs']]] items: (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
-        :param pulumi.Input['OneDashboardVariableNrqlQueryArgs'] nrql_query: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        :param pulumi.Input['OneDashboardVariableNrqlQueryArgs'] nrql_query: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableOptionArgs']]] options: (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
         """
         pulumi.set(__self__, "name", name)
@@ -16373,7 +16373,7 @@ class OneDashboardVariableArgs:
     @pulumi.getter(name="nrqlQuery")
     def nrql_query(self) -> Optional[pulumi.Input['OneDashboardVariableNrqlQueryArgs']]:
         """
-        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         """
         return pulumi.get(self, "nrql_query")
 
@@ -16453,7 +16453,7 @@ if not MYPY:
         """
         account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        New Relic account ID(s) to issue the query against.
+        (Required) List of account IDs such as `[12345, 67890]`.
         """
 elif False:
     OneDashboardVariableNrqlQueryArgsDict: TypeAlias = Mapping[str, Any]
@@ -16465,7 +16465,7 @@ class OneDashboardVariableNrqlQueryArgs:
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: New Relic account ID(s) to issue the query against.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: (Required) List of account IDs such as `[12345, 67890]`.
         """
         pulumi.set(__self__, "query", query)
         if account_ids is not None:
@@ -16487,7 +16487,7 @@ class OneDashboardVariableNrqlQueryArgs:
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        New Relic account ID(s) to issue the query against.
+        (Required) List of account IDs such as `[12345, 67890]`.
         """
         return pulumi.get(self, "account_ids")
 

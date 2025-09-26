@@ -73,7 +73,7 @@ public final class OneDashboardPageWidgetBullet {
      */
     private Double limit;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     private List<OneDashboardPageWidgetBulletNrqlQuery> nrqlQueries;
@@ -186,7 +186,7 @@ public final class OneDashboardPageWidgetBullet {
         return this.limit;
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     public List<OneDashboardPageWidgetBulletNrqlQuery> nrqlQueries() {

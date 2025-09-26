@@ -100,7 +100,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryGetArgs>? _nrqlQueries;
 
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryGetArgs> NrqlQueries
         {

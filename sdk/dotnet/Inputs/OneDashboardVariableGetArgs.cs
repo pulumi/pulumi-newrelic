@@ -49,7 +49,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         [Input("nrqlQuery")]
         public Input<Inputs.OneDashboardVariableNrqlQueryGetArgs>? NrqlQuery { get; set; }

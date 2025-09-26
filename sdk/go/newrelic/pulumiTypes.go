@@ -4719,7 +4719,7 @@ type OneDashboardPageWidgetArea struct {
 	InitialSorting *OneDashboardPageWidgetAreaInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetAreaNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetAreaNullValue `pulumi:"nullValues"`
@@ -4770,7 +4770,7 @@ type OneDashboardPageWidgetAreaArgs struct {
 	InitialSorting OneDashboardPageWidgetAreaInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetAreaNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetAreaNullValueArrayInput `pulumi:"nullValues"`
@@ -4887,7 +4887,7 @@ func (o OneDashboardPageWidgetAreaOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetAreaOutput) NrqlQueries() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
 }
@@ -6144,7 +6144,7 @@ type OneDashboardPageWidgetBar struct {
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetBarNullValue `pulumi:"nullValues"`
@@ -6197,7 +6197,7 @@ type OneDashboardPageWidgetBarArgs struct {
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetBarNullValueArrayInput `pulumi:"nullValues"`
@@ -6322,7 +6322,7 @@ func (o OneDashboardPageWidgetBarOutput) LinkedEntityGuids() pulumi.StringArrayO
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetBarOutput) NrqlQueries() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
 }
@@ -7435,7 +7435,7 @@ type OneDashboardPageWidgetBillboard struct {
 	InitialSorting *OneDashboardPageWidgetBillboardInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetBillboardNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetBillboardNullValue `pulumi:"nullValues"`
@@ -7488,7 +7488,7 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	InitialSorting OneDashboardPageWidgetBillboardInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetBillboardNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetBillboardNullValueArrayInput `pulumi:"nullValues"`
@@ -7614,7 +7614,7 @@ func (o OneDashboardPageWidgetBillboardOutput) LegendEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetBillboardOutput) NrqlQueries() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNrqlQuery {
 		return v.NrqlQueries
@@ -8736,7 +8736,7 @@ type OneDashboardPageWidgetBullet struct {
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Required) Visualization limit for the widget.
 	Limit float64 `pulumi:"limit"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetBulletNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetBulletNullValue `pulumi:"nullValues"`
@@ -8787,7 +8787,7 @@ type OneDashboardPageWidgetBulletArgs struct {
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Required) Visualization limit for the widget.
 	Limit pulumi.Float64Input `pulumi:"limit"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetBulletNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetBulletNullValueArrayInput `pulumi:"nullValues"`
@@ -8909,7 +8909,7 @@ func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64Output {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) float64 { return v.Limit }).(pulumi.Float64Output)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetBulletOutput) NrqlQueries() OneDashboardPageWidgetBulletNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBulletNrqlQueryArrayOutput)
 }
@@ -10020,7 +10020,7 @@ type OneDashboardPageWidgetFunnel struct {
 	InitialSorting *OneDashboardPageWidgetFunnelInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetFunnelNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetFunnelNullValue `pulumi:"nullValues"`
@@ -10069,7 +10069,7 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	InitialSorting OneDashboardPageWidgetFunnelInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetFunnelNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetFunnelNullValueArrayInput `pulumi:"nullValues"`
@@ -10186,7 +10186,7 @@ func (o OneDashboardPageWidgetFunnelOutput) LegendEnabled() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetFunnelOutput) NrqlQueries() OneDashboardPageWidgetFunnelNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput)
 }
@@ -11301,7 +11301,7 @@ type OneDashboardPageWidgetHeatmap struct {
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetHeatmapNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetHeatmapNullValue `pulumi:"nullValues"`
@@ -11354,7 +11354,7 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetHeatmapNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetHeatmapNullValueArrayInput `pulumi:"nullValues"`
@@ -11481,7 +11481,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) LinkedEntityGuids() pulumi.StringAr
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetHeatmapOutput) NrqlQueries() OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput)
 }
@@ -12592,7 +12592,7 @@ type OneDashboardPageWidgetHistogram struct {
 	InitialSorting *OneDashboardPageWidgetHistogramInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetHistogramNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetHistogramNullValue `pulumi:"nullValues"`
@@ -12641,7 +12641,7 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	InitialSorting OneDashboardPageWidgetHistogramInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetHistogramNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetHistogramNullValueArrayInput `pulumi:"nullValues"`
@@ -12760,7 +12760,7 @@ func (o OneDashboardPageWidgetHistogramOutput) LegendEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetHistogramOutput) NrqlQueries() OneDashboardPageWidgetHistogramNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramNrqlQuery {
 		return v.NrqlQueries
@@ -13875,7 +13875,7 @@ type OneDashboardPageWidgetJson struct {
 	InitialSorting *OneDashboardPageWidgetJsonInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetJsonNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetJsonNullValue `pulumi:"nullValues"`
@@ -13924,7 +13924,7 @@ type OneDashboardPageWidgetJsonArgs struct {
 	InitialSorting OneDashboardPageWidgetJsonInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetJsonNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetJsonNullValueArrayInput `pulumi:"nullValues"`
@@ -14039,7 +14039,7 @@ func (o OneDashboardPageWidgetJsonOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetJsonOutput) NrqlQueries() OneDashboardPageWidgetJsonNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetJsonNrqlQueryArrayOutput)
 }
@@ -15152,7 +15152,7 @@ type OneDashboardPageWidgetLine struct {
 	IsLabelVisible *bool `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetLineNullValue `pulumi:"nullValues"`
@@ -15211,7 +15211,7 @@ type OneDashboardPageWidgetLineArgs struct {
 	IsLabelVisible pulumi.BoolPtrInput `pulumi:"isLabelVisible"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetLineNullValueArrayInput `pulumi:"nullValues"`
@@ -15339,7 +15339,7 @@ func (o OneDashboardPageWidgetLineOutput) LegendEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetLineOutput) NrqlQueries() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
 }
@@ -16925,7 +16925,7 @@ type OneDashboardPageWidgetLogTable struct {
 	InitialSorting *OneDashboardPageWidgetLogTableInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetLogTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetLogTableNullValue `pulumi:"nullValues"`
@@ -16974,7 +16974,7 @@ type OneDashboardPageWidgetLogTableArgs struct {
 	InitialSorting OneDashboardPageWidgetLogTableInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetLogTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetLogTableNullValueArrayInput `pulumi:"nullValues"`
@@ -17093,7 +17093,7 @@ func (o OneDashboardPageWidgetLogTableOutput) LegendEnabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetLogTableOutput) NrqlQueries() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput)
 }
@@ -19381,7 +19381,7 @@ type OneDashboardPageWidgetPy struct {
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetPyNullValue `pulumi:"nullValues"`
@@ -19434,7 +19434,7 @@ type OneDashboardPageWidgetPyArgs struct {
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetPyNullValueArrayInput `pulumi:"nullValues"`
@@ -19559,7 +19559,7 @@ func (o OneDashboardPageWidgetPyOutput) LinkedEntityGuids() pulumi.StringArrayOu
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetPyOutput) NrqlQueries() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
 }
@@ -20670,7 +20670,7 @@ type OneDashboardPageWidgetStackedBar struct {
 	InitialSorting *OneDashboardPageWidgetStackedBarInitialSorting `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled *bool `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetStackedBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetStackedBarNullValue `pulumi:"nullValues"`
@@ -20721,7 +20721,7 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	InitialSorting OneDashboardPageWidgetStackedBarInitialSortingPtrInput `pulumi:"initialSorting"`
 	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetStackedBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetStackedBarNullValueArrayInput `pulumi:"nullValues"`
@@ -20842,7 +20842,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) LegendEnabled() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetStackedBarOutput) NrqlQueries() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNrqlQuery {
 		return v.NrqlQueries
@@ -22103,7 +22103,7 @@ type OneDashboardPageWidgetTable struct {
 	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries []OneDashboardPageWidgetTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues []OneDashboardPageWidgetTableNullValue `pulumi:"nullValues"`
@@ -22158,7 +22158,7 @@ type OneDashboardPageWidgetTableArgs struct {
 	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQueries OneDashboardPageWidgetTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
 	NullValues OneDashboardPageWidgetTableNullValueArrayInput `pulumi:"nullValues"`
@@ -22287,7 +22287,7 @@ func (o OneDashboardPageWidgetTableOutput) LinkedEntityGuids() pulumi.StringArra
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardPageWidgetTableOutput) NrqlQueries() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
 }
@@ -23810,7 +23810,7 @@ type OneDashboardVariable struct {
 	Items []OneDashboardVariableItem `pulumi:"items"`
 	// The title of the dashboard.
 	Name string `pulumi:"name"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQuery *OneDashboardVariableNrqlQuery `pulumi:"nrqlQuery"`
 	// (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
 	Options []OneDashboardVariableOption `pulumi:"options"`
@@ -23842,7 +23842,7 @@ type OneDashboardVariableArgs struct {
 	Items OneDashboardVariableItemArrayInput `pulumi:"items"`
 	// The title of the dashboard.
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 	NrqlQuery OneDashboardVariableNrqlQueryPtrInput `pulumi:"nrqlQuery"`
 	// (Optional) Specifies additional options to be added to dashboard variables. Supports the following nested attribute(s) -
 	Options OneDashboardVariableOptionArrayInput `pulumi:"options"`
@@ -23925,7 +23925,7 @@ func (o OneDashboardVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
 func (o OneDashboardVariableOutput) NrqlQuery() OneDashboardVariableNrqlQueryPtrOutput {
 	return o.ApplyT(func(v OneDashboardVariable) *OneDashboardVariableNrqlQuery { return v.NrqlQuery }).(OneDashboardVariableNrqlQueryPtrOutput)
 }
@@ -24077,7 +24077,7 @@ func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboa
 }
 
 type OneDashboardVariableNrqlQuery struct {
-	// New Relic account ID(s) to issue the query against.
+	// (Required) List of account IDs such as `[12345, 67890]`.
 	AccountIds []string `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query string `pulumi:"query"`
@@ -24095,7 +24095,7 @@ type OneDashboardVariableNrqlQueryInput interface {
 }
 
 type OneDashboardVariableNrqlQueryArgs struct {
-	// New Relic account ID(s) to issue the query against.
+	// (Required) List of account IDs such as `[12345, 67890]`.
 	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -24178,7 +24178,7 @@ func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrO
 	}).(OneDashboardVariableNrqlQueryPtrOutput)
 }
 
-// New Relic account ID(s) to issue the query against.
+// (Required) List of account IDs such as `[12345, 67890]`.
 func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
@@ -24212,7 +24212,7 @@ func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQ
 	}).(OneDashboardVariableNrqlQueryOutput)
 }
 
-// New Relic account ID(s) to issue the query against.
+// (Required) List of account IDs such as `[12345, 67890]`.
 func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []string {
 		if v == nil {

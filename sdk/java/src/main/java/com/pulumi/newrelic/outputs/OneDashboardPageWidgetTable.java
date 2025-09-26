@@ -79,7 +79,7 @@ public final class OneDashboardPageWidgetTable {
      */
     private @Nullable List<String> linkedEntityGuids;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     private List<OneDashboardPageWidgetTableNrqlQuery> nrqlQueries;
@@ -204,7 +204,7 @@ public final class OneDashboardPageWidgetTable {
         return this.linkedEntityGuids == null ? List.of() : this.linkedEntityGuids;
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     public List<OneDashboardPageWidgetTableNrqlQuery> nrqlQueries() {

@@ -694,7 +694,7 @@ export interface OneDashboardPageWidgetArea {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetAreaNrqlQuery[];
     /**
@@ -892,7 +892,7 @@ export interface OneDashboardPageWidgetBar {
      */
     linkedEntityGuids: string[];
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBarNrqlQuery[];
     /**
@@ -1075,7 +1075,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBillboardNrqlQuery[];
     /**
@@ -1262,7 +1262,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     limit: number;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBulletNrqlQuery[];
     /**
@@ -1441,7 +1441,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetFunnelNrqlQuery[];
     /**
@@ -1628,7 +1628,7 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     linkedEntityGuids: string[];
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetHeatmapNrqlQuery[];
     /**
@@ -1807,7 +1807,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetHistogramNrqlQuery[];
     /**
@@ -1986,7 +1986,7 @@ export interface OneDashboardPageWidgetJson {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetJsonNrqlQuery[];
     /**
@@ -2169,7 +2169,7 @@ export interface OneDashboardPageWidgetLine {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLineNrqlQuery[];
     /**
@@ -2409,7 +2409,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLogTableNrqlQuery[];
     /**
@@ -2764,7 +2764,7 @@ export interface OneDashboardPageWidgetPy {
      */
     linkedEntityGuids: string[];
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetPyNrqlQuery[];
     /**
@@ -2943,7 +2943,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     legendEnabled?: boolean;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetStackedBarNrqlQuery[];
     /**
@@ -3141,7 +3141,7 @@ export interface OneDashboardPageWidgetTable {
      */
     linkedEntityGuids: string[];
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetTableNrqlQuery[];
     /**
@@ -3381,7 +3381,7 @@ export interface OneDashboardVariable {
      */
     name: string;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQuery?: outputs.OneDashboardVariableNrqlQuery;
     /**
@@ -3415,7 +3415,7 @@ export interface OneDashboardVariableItem {
 
 export interface OneDashboardVariableNrqlQuery {
     /**
-     * New Relic account ID(s) to issue the query against.
+     * (Required) List of account IDs such as `[12345, 67890]`.
      */
     accountIds?: string[];
     /**
