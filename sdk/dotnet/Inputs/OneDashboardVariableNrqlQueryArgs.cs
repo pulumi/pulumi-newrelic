@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<string>? _accountIds;
 
         /// <summary>
-        /// New Relic account ID(s) to issue the query against.
+        /// (Required) List of account IDs such as `[12345, 67890]`.
         /// </summary>
         public InputList<string> AccountIds
         {

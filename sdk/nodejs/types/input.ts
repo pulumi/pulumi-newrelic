@@ -641,7 +641,7 @@ export interface OneDashboardPageWidgetArea {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNrqlQuery>[]>;
     /**
@@ -839,7 +839,7 @@ export interface OneDashboardPageWidgetBar {
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNrqlQuery>[]>;
     /**
@@ -1022,7 +1022,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNrqlQuery>[]>;
     /**
@@ -1209,7 +1209,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     limit: pulumi.Input<number>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNrqlQuery>[]>;
     /**
@@ -1388,7 +1388,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNrqlQuery>[]>;
     /**
@@ -1575,7 +1575,7 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNrqlQuery>[]>;
     /**
@@ -1754,7 +1754,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNrqlQuery>[]>;
     /**
@@ -1933,7 +1933,7 @@ export interface OneDashboardPageWidgetJson {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNrqlQuery>[]>;
     /**
@@ -2116,7 +2116,7 @@ export interface OneDashboardPageWidgetLine {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNrqlQuery>[]>;
     /**
@@ -2356,7 +2356,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNrqlQuery>[]>;
     /**
@@ -2711,7 +2711,7 @@ export interface OneDashboardPageWidgetPy {
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNrqlQuery>[]>;
     /**
@@ -2890,7 +2890,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     legendEnabled?: pulumi.Input<boolean>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNrqlQuery>[]>;
     /**
@@ -3088,7 +3088,7 @@ export interface OneDashboardPageWidgetTable {
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNrqlQuery>[]>;
     /**
@@ -3328,7 +3328,7 @@ export interface OneDashboardVariable {
      */
     name: pulumi.Input<string>;
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      */
     nrqlQuery?: pulumi.Input<inputs.OneDashboardVariableNrqlQuery>;
     /**
@@ -3362,7 +3362,7 @@ export interface OneDashboardVariableItem {
 
 export interface OneDashboardVariableNrqlQuery {
     /**
-     * New Relic account ID(s) to issue the query against.
+     * (Required) List of account IDs such as `[12345, 67890]`.
      */
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

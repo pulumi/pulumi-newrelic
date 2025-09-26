@@ -38,7 +38,7 @@ public final class OneDashboardVariable {
      */
     private String name;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     private @Nullable OneDashboardVariableNrqlQuery nrqlQuery;
@@ -93,7 +93,7 @@ public final class OneDashboardVariable {
         return this.name;
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     public Optional<OneDashboardVariableNrqlQuery> nrqlQuery() {

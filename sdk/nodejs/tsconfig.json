@@ -30,6 +30,7 @@
         "cloud/gcpIntegrations.ts",
         "cloud/gcpLinkAccount.ts",
         "cloud/index.ts",
+        "cloud/ociLinkAccount.ts",
         "config/index.ts",
         "config/vars.ts",
         "dataPartitionRule.ts",

@@ -82,14 +82,14 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     @Import(name="nrqlQuery")
     private @Nullable Output<OneDashboardVariableNrqlQueryArgs> nrqlQuery;
 
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     public Optional<Output<OneDashboardVariableNrqlQueryArgs>> nrqlQuery() {
@@ -293,7 +293,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param nrqlQuery (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+         * @param nrqlQuery (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class OneDashboardVariableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param nrqlQuery (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+         * @param nrqlQuery (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
          * 
          * @return builder
          * 

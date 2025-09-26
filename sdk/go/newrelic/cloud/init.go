@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GcpIntegrations{}
 	case "newrelic:cloud/gcpLinkAccount:GcpLinkAccount":
 		r = &GcpLinkAccount{}
+	case "newrelic:cloud/ociLinkAccount:OciLinkAccount":
+		r = &OciLinkAccount{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"cloud/gcpLinkAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"cloud/ociLinkAccount",
 		&module{version},
 	)
 }

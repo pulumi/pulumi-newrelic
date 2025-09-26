@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly double Limit;
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBulletNrqlQuery> NrqlQueries;
         /// <summary>

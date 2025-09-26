@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         public readonly Outputs.OneDashboardVariableNrqlQuery? NrqlQuery;
         /// <summary>

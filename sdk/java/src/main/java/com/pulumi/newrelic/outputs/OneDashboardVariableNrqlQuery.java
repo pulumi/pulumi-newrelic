@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardVariableNrqlQuery {
     /**
-     * @return New Relic account ID(s) to issue the query against.
+     * @return (Required) List of account IDs such as `[12345, 67890]`.
      * 
      */
     private @Nullable List<String> accountIds;
@@ -25,7 +25,7 @@ public final class OneDashboardVariableNrqlQuery {
 
     private OneDashboardVariableNrqlQuery() {}
     /**
-     * @return New Relic account ID(s) to issue the query against.
+     * @return (Required) List of account IDs such as `[12345, 67890]`.
      * 
      */
     public List<String> accountIds() {

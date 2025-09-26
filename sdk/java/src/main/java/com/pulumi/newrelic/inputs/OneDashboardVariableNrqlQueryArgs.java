@@ -18,14 +18,14 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
     public static final OneDashboardVariableNrqlQueryArgs Empty = new OneDashboardVariableNrqlQueryArgs();
 
     /**
-     * New Relic account ID(s) to issue the query against.
+     * (Required) List of account IDs such as `[12345, 67890]`.
      * 
      */
     @Import(name="accountIds")
     private @Nullable Output<List<String>> accountIds;
 
     /**
-     * @return New Relic account ID(s) to issue the query against.
+     * @return (Required) List of account IDs such as `[12345, 67890]`.
      * 
      */
     public Optional<Output<List<String>>> accountIds() {
@@ -73,7 +73,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountIds New Relic account ID(s) to issue the query against.
+         * @param accountIds (Required) List of account IDs such as `[12345, 67890]`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountIds New Relic account ID(s) to issue the query against.
+         * @param accountIds (Required) List of account IDs such as `[12345, 67890]`.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class OneDashboardVariableNrqlQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountIds New Relic account ID(s) to issue the query against.
+         * @param accountIds (Required) List of account IDs such as `[12345, 67890]`.
          * 
          * @return builder
          * 

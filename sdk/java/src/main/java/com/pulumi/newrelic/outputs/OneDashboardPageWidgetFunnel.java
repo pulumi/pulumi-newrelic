@@ -68,7 +68,7 @@ public final class OneDashboardPageWidgetFunnel {
      */
     private @Nullable Boolean legendEnabled;
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     private List<OneDashboardPageWidgetFunnelNrqlQuery> nrqlQueries;
@@ -174,7 +174,7 @@ public final class OneDashboardPageWidgetFunnel {
         return Optional.ofNullable(this.legendEnabled);
     }
     /**
-     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
      * 
      */
     public List<OneDashboardPageWidgetFunnelNrqlQuery> nrqlQueries() {
