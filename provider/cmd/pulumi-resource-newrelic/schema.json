@@ -3870,6 +3870,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetBillboard:OneDashboardPageWidgetBillboard": {
             "properties": {
+                "billboardSettings": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardBillboardSettings:OneDashboardPageWidgetBillboardBillboardSettings",
+                    "description": "(Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -3983,6 +3987,70 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboardBillboardSettings:OneDashboardPageWidgetBillboardBillboardSettings": {
+            "properties": {
+                "gridOptions": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardBillboardSettingsGridOptions:OneDashboardPageWidgetBillboardBillboardSettingsGridOptions",
+                    "description": "(Optional) A nested block that configures grid layout options for the billboard widget. This block supports:\n"
+                },
+                "link": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardBillboardSettingsLink:OneDashboardPageWidgetBillboardBillboardSettingsLink",
+                    "description": "(Optional) A nested block that configures clickable links for the billboard widget. This block supports:\n"
+                },
+                "visual": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardBillboardSettingsVisual:OneDashboardPageWidgetBillboardBillboardSettingsVisual",
+                    "description": "(Optional) A nested block that configures the visual settings of the billboard widget. This block supports:\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboardBillboardSettingsGridOptions:OneDashboardPageWidgetBillboardBillboardSettingsGridOptions": {
+            "properties": {
+                "columns": {
+                    "type": "integer",
+                    "description": "(Optional) Number of columns to use for the grid layout.\n"
+                },
+                "label": {
+                    "type": "integer",
+                    "description": "(Optional) Grid configuration for label.\n"
+                },
+                "value": {
+                    "type": "integer",
+                    "description": "(Required) A possible variable value\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboardBillboardSettingsLink:OneDashboardPageWidgetBillboardBillboardSettingsLink": {
+            "properties": {
+                "newTab": {
+                    "type": "boolean",
+                    "description": "(Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Optional) A human-friendly display string for this value.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "(Optional) The URL to navigate to when the billboard is clicked.\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboardBillboardSettingsVisual:OneDashboardPageWidgetBillboardBillboardSettingsVisual": {
+            "properties": {
+                "alignment": {
+                    "type": "string",
+                    "description": "(Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.\n"
+                },
+                "display": {
+                    "type": "string",
+                    "description": "(Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.\n"
+                }
+            },
+            "type": "object"
         },
         "newrelic:index/OneDashboardPageWidgetBillboardColor:OneDashboardPageWidgetBillboardColor": {
             "properties": {

@@ -1545,6 +1545,22 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "billboard_settings": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "grid_options": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "link": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "visual": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {

@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetBillboard
     {
         /// <summary>
+        /// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetBillboardBillboardSettings? BillboardSettings;
+        /// <summary>
         /// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboardColor> Colors;
@@ -93,6 +97,8 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private OneDashboardPageWidgetBillboard(
+            Outputs.OneDashboardPageWidgetBillboardBillboardSettings? billboardSettings,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetBillboardColor> colors,
 
             int column,
@@ -133,6 +139,7 @@ namespace Pulumi.NewRelic.Outputs
 
             double? yAxisLeftMin)
         {
+            BillboardSettings = billboardSettings;
             Colors = colors;
             Column = column;
             Critical = critical;
