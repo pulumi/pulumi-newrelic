@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardBillboardSettingsArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardInitialSortingArgs;
@@ -25,6 +26,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetBillboardArgs Empty = new OneDashboardPageWidgetBillboardArgs();
+
+    /**
+     * (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     * 
+     */
+    @Import(name="billboardSettings")
+    private @Nullable Output<OneDashboardPageWidgetBillboardBillboardSettingsArgs> billboardSettings;
+
+    /**
+     * @return (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetBillboardBillboardSettingsArgs>> billboardSettings() {
+        return Optional.ofNullable(this.billboardSettings);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -321,6 +337,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
     private OneDashboardPageWidgetBillboardArgs() {}
 
     private OneDashboardPageWidgetBillboardArgs(OneDashboardPageWidgetBillboardArgs $) {
+        this.billboardSettings = $.billboardSettings;
         this.colors = $.colors;
         this.column = $.column;
         this.critical = $.critical;
@@ -359,6 +376,27 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
 
         public Builder(OneDashboardPageWidgetBillboardArgs defaults) {
             $ = new OneDashboardPageWidgetBillboardArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param billboardSettings (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billboardSettings(@Nullable Output<OneDashboardPageWidgetBillboardBillboardSettingsArgs> billboardSettings) {
+            $.billboardSettings = billboardSettings;
+            return this;
+        }
+
+        /**
+         * @param billboardSettings (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billboardSettings(OneDashboardPageWidgetBillboardBillboardSettingsArgs billboardSettings) {
+            return billboardSettings(Output.of(billboardSettings));
         }
 
         /**

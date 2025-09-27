@@ -982,6 +982,10 @@ export interface OneDashboardPageWidgetBarUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetBillboard {
     /**
+     * (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+     */
+    billboardSettings?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettings>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColor>[]>;
@@ -1058,6 +1062,62 @@ export interface OneDashboardPageWidgetBillboard {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBillboardBillboardSettings {
+    /**
+     * (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+     */
+    gridOptions?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsGridOptions>;
+    /**
+     * (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+     */
+    link?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsLink>;
+    /**
+     * (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+     */
+    visual?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettingsVisual>;
+}
+
+export interface OneDashboardPageWidgetBillboardBillboardSettingsGridOptions {
+    /**
+     * (Optional) Number of columns to use for the grid layout.
+     */
+    columns?: pulumi.Input<number>;
+    /**
+     * (Optional) Grid configuration for label.
+     */
+    label?: pulumi.Input<number>;
+    /**
+     * (Required) A possible variable value
+     */
+    value?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBillboardBillboardSettingsLink {
+    /**
+     * (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+     */
+    newTab?: pulumi.Input<boolean>;
+    /**
+     * (Optional) A human-friendly display string for this value.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * (Optional) The URL to navigate to when the billboard is clicked.
+     */
+    url?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBillboardBillboardSettingsVisual {
+    /**
+     * (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+     */
+    alignment?: pulumi.Input<string>;
+    /**
+     * (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+     */
+    display?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBillboardColor {

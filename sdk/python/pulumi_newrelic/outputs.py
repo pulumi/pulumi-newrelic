@@ -64,6 +64,10 @@ __all__ = [
     'OneDashboardPageWidgetBarUnit',
     'OneDashboardPageWidgetBarUnitSeriesOverride',
     'OneDashboardPageWidgetBillboard',
+    'OneDashboardPageWidgetBillboardBillboardSettings',
+    'OneDashboardPageWidgetBillboardBillboardSettingsGridOptions',
+    'OneDashboardPageWidgetBillboardBillboardSettingsLink',
+    'OneDashboardPageWidgetBillboardBillboardSettingsVisual',
     'OneDashboardPageWidgetBillboardColor',
     'OneDashboardPageWidgetBillboardColorSeriesOverride',
     'OneDashboardPageWidgetBillboardDataFormat',
@@ -3662,6 +3666,8 @@ class OneDashboardPageWidgetBillboard(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "billboardSettings":
+            suggest = "billboard_settings"
         elif key == "dataFormats":
             suggest = "data_formats"
         elif key == "facetShowOtherSeries":
@@ -3697,6 +3703,7 @@ class OneDashboardPageWidgetBillboard(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery'],
                  row: _builtins.int,
                  title: _builtins.str,
+                 billboard_settings: Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettings'] = None,
                  colors: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColor']] = None,
                  critical: Optional[_builtins.str] = None,
                  data_formats: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardDataFormat']] = None,
@@ -3718,6 +3725,7 @@ class OneDashboardPageWidgetBillboard(dict):
         :param Sequence['OneDashboardPageWidgetBillboardNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param _builtins.int row: (Required) Row position of widget from top left, starting at `1`.
         :param _builtins.str title: (Optional) A human-friendly display string for this value.
+        :param 'OneDashboardPageWidgetBillboardBillboardSettingsArgs' billboard_settings: (Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.
         :param Sequence['OneDashboardPageWidgetBillboardColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param _builtins.str critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param Sequence['OneDashboardPageWidgetBillboardDataFormatArgs'] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
@@ -3738,6 +3746,8 @@ class OneDashboardPageWidgetBillboard(dict):
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if billboard_settings is not None:
+            pulumi.set(__self__, "billboard_settings", billboard_settings)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if critical is not None:
@@ -3802,6 +3812,14 @@ class OneDashboardPageWidgetBillboard(dict):
         (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="billboardSettings")
+    def billboard_settings(self) -> Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettings']:
+        """
+        (Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.
+        """
+        return pulumi.get(self, "billboard_settings")
 
     @_builtins.property
     @pulumi.getter
@@ -3927,6 +3945,200 @@ class OneDashboardPageWidgetBillboard(dict):
         , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardBillboardSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gridOptions":
+            suggest = "grid_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardBillboardSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardBillboardSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardBillboardSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grid_options: Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettingsGridOptions'] = None,
+                 link: Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettingsLink'] = None,
+                 visual: Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettingsVisual'] = None):
+        """
+        :param 'OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs' grid_options: (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+        :param 'OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs' link: (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+        :param 'OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs' visual: (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+        """
+        if grid_options is not None:
+            pulumi.set(__self__, "grid_options", grid_options)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if visual is not None:
+            pulumi.set(__self__, "visual", visual)
+
+    @_builtins.property
+    @pulumi.getter(name="gridOptions")
+    def grid_options(self) -> Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettingsGridOptions']:
+        """
+        (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+        """
+        return pulumi.get(self, "grid_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettingsLink']:
+        """
+        (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+        """
+        return pulumi.get(self, "link")
+
+    @_builtins.property
+    @pulumi.getter
+    def visual(self) -> Optional['outputs.OneDashboardPageWidgetBillboardBillboardSettingsVisual']:
+        """
+        (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+        """
+        return pulumi.get(self, "visual")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardBillboardSettingsGridOptions(dict):
+    def __init__(__self__, *,
+                 columns: Optional[_builtins.int] = None,
+                 label: Optional[_builtins.int] = None,
+                 value: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int columns: (Optional) Number of columns to use for the grid layout.
+        :param _builtins.int label: (Optional) Grid configuration for label.
+        :param _builtins.int value: (Required) A possible variable value
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[_builtins.int]:
+        """
+        (Optional) Number of columns to use for the grid layout.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.int]:
+        """
+        (Optional) Grid configuration for label.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.int]:
+        """
+        (Required) A possible variable value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardBillboardSettingsLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "newTab":
+            suggest = "new_tab"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardBillboardSettingsLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardBillboardSettingsLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardBillboardSettingsLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 new_tab: Optional[_builtins.bool] = None,
+                 title: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool new_tab: (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+        :param _builtins.str title: (Optional) A human-friendly display string for this value.
+        :param _builtins.str url: (Optional) The URL to navigate to when the billboard is clicked.
+        """
+        if new_tab is not None:
+            pulumi.set(__self__, "new_tab", new_tab)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="newTab")
+    def new_tab(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+        """
+        return pulumi.get(self, "new_tab")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        """
+        (Optional) The URL to navigate to when the billboard is clicked.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardBillboardSettingsVisual(dict):
+    def __init__(__self__, *,
+                 alignment: Optional[_builtins.str] = None,
+                 display: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str alignment: (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+        :param _builtins.str display: (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+        """
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if display is not None:
+            pulumi.set(__self__, "display", display)
+
+    @_builtins.property
+    @pulumi.getter
+    def alignment(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+        """
+        return pulumi.get(self, "alignment")
+
+    @_builtins.property
+    @pulumi.getter
+    def display(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+        """
+        return pulumi.get(self, "display")
 
 
 @pulumi.output_type

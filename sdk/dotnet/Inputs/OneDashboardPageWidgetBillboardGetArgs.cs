@@ -12,6 +12,12 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class OneDashboardPageWidgetBillboardGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+        /// </summary>
+        [Input("billboardSettings")]
+        public Input<Inputs.OneDashboardPageWidgetBillboardBillboardSettingsGetArgs>? BillboardSettings { get; set; }
+
         [Input("colors")]
         private InputList<Inputs.OneDashboardPageWidgetBillboardColorGetArgs>? _colors;
 

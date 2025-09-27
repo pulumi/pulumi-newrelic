@@ -7415,6 +7415,8 @@ func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) Index(i pulumi.I
 }
 
 type OneDashboardPageWidgetBillboard struct {
+	// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+	BillboardSettings *OneDashboardPageWidgetBillboardBillboardSettings `pulumi:"billboardSettings"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetBillboardColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -7468,6 +7470,8 @@ type OneDashboardPageWidgetBillboardInput interface {
 }
 
 type OneDashboardPageWidgetBillboardArgs struct {
+	// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+	BillboardSettings OneDashboardPageWidgetBillboardBillboardSettingsPtrInput `pulumi:"billboardSettings"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetBillboardColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -7558,6 +7562,13 @@ func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboard
 
 func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboardOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardOutput {
 	return o
+}
+
+// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) BillboardSettings() OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *OneDashboardPageWidgetBillboardBillboardSettings {
+		return v.BillboardSettings
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -7685,6 +7696,693 @@ func (o OneDashboardPageWidgetBillboardArrayOutput) Index(i pulumi.IntInput) One
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboard {
 		return vs[0].([]OneDashboardPageWidgetBillboard)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBillboardOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettings struct {
+	// (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+	GridOptions *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions `pulumi:"gridOptions"`
+	// (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+	Link *OneDashboardPageWidgetBillboardBillboardSettingsLink `pulumi:"link"`
+	// (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+	Visual *OneDashboardPageWidgetBillboardBillboardSettingsVisual `pulumi:"visual"`
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsArgs and OneDashboardPageWidgetBillboardBillboardSettingsOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsInput` via:
+//
+//	OneDashboardPageWidgetBillboardBillboardSettingsArgs{...}
+type OneDashboardPageWidgetBillboardBillboardSettingsInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsOutput() OneDashboardPageWidgetBillboardBillboardSettingsOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsOutput
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsArgs struct {
+	// (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+	GridOptions OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrInput `pulumi:"gridOptions"`
+	// (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+	Link OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput `pulumi:"link"`
+	// (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+	Visual OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput `pulumi:"visual"`
+}
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettings)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsOutput() OneDashboardPageWidgetBillboardBillboardSettingsOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsOutput).ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsPtrInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsArgs, OneDashboardPageWidgetBillboardBillboardSettingsPtr and OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardBillboardSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardBillboardSettingsPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardBillboardSettingsPtrType OneDashboardPageWidgetBillboardBillboardSettingsArgs
+
+func OneDashboardPageWidgetBillboardBillboardSettingsPtr(v *OneDashboardPageWidgetBillboardBillboardSettingsArgs) OneDashboardPageWidgetBillboardBillboardSettingsPtrInput {
+	return (*oneDashboardPageWidgetBillboardBillboardSettingsPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardBillboardSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettings)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettings)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsOutput() OneDashboardPageWidgetBillboardBillboardSettingsOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettings {
+		return &v
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput)
+}
+
+// (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) GridOptions() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions {
+		return v.GridOptions
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput)
+}
+
+// (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) Link() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettingsLink {
+		return v.Link
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput)
+}
+
+// (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+func (o OneDashboardPageWidgetBillboardBillboardSettingsOutput) Visual() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettingsVisual {
+		return v.Visual
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettings)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) Elem() OneDashboardPageWidgetBillboardBillboardSettingsOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettings) OneDashboardPageWidgetBillboardBillboardSettings {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardBillboardSettings
+		return ret
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsOutput)
+}
+
+// (Optional) A nested block that configures grid layout options for the billboard widget. This block supports:
+func (o OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) GridOptions() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions {
+		if v == nil {
+			return nil
+		}
+		return v.GridOptions
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput)
+}
+
+// (Optional) A nested block that configures clickable links for the billboard widget. This block supports:
+func (o OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) Link() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettingsLink {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput)
+}
+
+// (Optional) A nested block that configures the visual settings of the billboard widget. This block supports:
+func (o OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput) Visual() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettings) *OneDashboardPageWidgetBillboardBillboardSettingsVisual {
+		if v == nil {
+			return nil
+		}
+		return v.Visual
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsGridOptions struct {
+	// (Optional) Number of columns to use for the grid layout.
+	Columns *int `pulumi:"columns"`
+	// (Optional) Grid configuration for label.
+	Label *int `pulumi:"label"`
+	// (Required) A possible variable value
+	Value *int `pulumi:"value"`
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs and OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsInput` via:
+//
+//	OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs{...}
+type OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs struct {
+	// (Optional) Number of columns to use for the grid layout.
+	Columns pulumi.IntPtrInput `pulumi:"columns"`
+	// (Optional) Grid configuration for label.
+	Label pulumi.IntPtrInput `pulumi:"label"`
+	// (Required) A possible variable value
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsGridOptions)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput).ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs, OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtr and OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrType OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs
+
+func OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtr(v *OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrInput {
+	return (*oneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettingsGridOptions)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsGridOptions)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions {
+		return &v
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput)
+}
+
+// (Optional) Number of columns to use for the grid layout.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) Columns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *int { return v.Columns }).(pulumi.IntPtrOutput)
+}
+
+// (Optional) Grid configuration for label.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) Label() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *int { return v.Label }).(pulumi.IntPtrOutput)
+}
+
+// (Required) A possible variable value
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettingsGridOptions)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) Elem() OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) OneDashboardPageWidgetBillboardBillboardSettingsGridOptions {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardBillboardSettingsGridOptions
+		return ret
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput)
+}
+
+// (Optional) Number of columns to use for the grid layout.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) Columns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Optional) Grid configuration for label.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) Label() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Required) A possible variable value
+func (o OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsGridOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsLink struct {
+	// (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+	NewTab *bool `pulumi:"newTab"`
+	// (Optional) A human-friendly display string for this value.
+	Title *string `pulumi:"title"`
+	// (Optional) The URL to navigate to when the billboard is clicked.
+	Url *string `pulumi:"url"`
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsLinkInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs and OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsLinkInput` via:
+//
+//	OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs{...}
+type OneDashboardPageWidgetBillboardBillboardSettingsLinkInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs struct {
+	// (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+	NewTab pulumi.BoolPtrInput `pulumi:"newTab"`
+	// (Optional) A human-friendly display string for this value.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// (Optional) The URL to navigate to when the billboard is clicked.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsLink)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput).ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs, OneDashboardPageWidgetBillboardBillboardSettingsLinkPtr and OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardBillboardSettingsLinkPtrType OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs
+
+func OneDashboardPageWidgetBillboardBillboardSettingsLinkPtr(v *OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs) OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput {
+	return (*oneDashboardPageWidgetBillboardBillboardSettingsLinkPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardBillboardSettingsLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettingsLink)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsLinkPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsLinkPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsLink)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardBillboardSettingsLink) *OneDashboardPageWidgetBillboardBillboardSettingsLink {
+		return &v
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput)
+}
+
+// (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) NewTab() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsLink) *bool { return v.NewTab }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) A human-friendly display string for this value.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsLink) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The URL to navigate to when the billboard is clicked.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsLink) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettingsLink)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) Elem() OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsLink) OneDashboardPageWidgetBillboardBillboardSettingsLink {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardBillboardSettingsLink
+		return ret
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput)
+}
+
+// (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) NewTab() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsLink) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NewTab
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) A human-friendly display string for this value.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The URL to navigate to when the billboard is clicked.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsVisual struct {
+	// (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+	Alignment *string `pulumi:"alignment"`
+	// (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+	Display *string `pulumi:"display"`
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsVisualInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs and OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsVisualInput` via:
+//
+//	OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs{...}
+type OneDashboardPageWidgetBillboardBillboardSettingsVisualInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs struct {
+	// (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+	Alignment pulumi.StringPtrInput `pulumi:"alignment"`
+	// (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+	Display pulumi.StringPtrInput `pulumi:"display"`
+}
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsVisual)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput).ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput is an input type that accepts OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs, OneDashboardPageWidgetBillboardBillboardSettingsVisualPtr and OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput
+	ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardBillboardSettingsVisualPtrType OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs
+
+func OneDashboardPageWidgetBillboardBillboardSettingsVisualPtr(v *OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs) OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput {
+	return (*oneDashboardPageWidgetBillboardBillboardSettingsVisualPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardBillboardSettingsVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettingsVisual)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsVisualPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardBillboardSettingsVisualPtrType) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsVisual)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardBillboardSettingsVisual) *OneDashboardPageWidgetBillboardBillboardSettingsVisual {
+		return &v
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput)
+}
+
+// (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsVisual) *string { return v.Alignment }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput) Display() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardBillboardSettingsVisual) *string { return v.Display }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardBillboardSettingsVisual)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput() OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) ToOneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) Elem() OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsVisual) OneDashboardPageWidgetBillboardBillboardSettingsVisual {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardBillboardSettingsVisual
+		return ret
+	}).(OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput)
+}
+
+// (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Alignment
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) Display() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardBillboardSettingsVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Display
+	}).(pulumi.StringPtrOutput)
 }
 
 type OneDashboardPageWidgetBillboardColor struct {
@@ -27695,6 +28393,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInput)(nil)).Elem(), OneDashboardPageWidgetBillboardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsLinkInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsVisualInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{})
@@ -28092,6 +28798,14 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsLinkOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput{})
