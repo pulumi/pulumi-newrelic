@@ -17,14 +17,14 @@ public final class NrqlAlertConditionTermPredictionArgs extends com.pulumi.resou
     public static final NrqlAlertConditionTermPredictionArgs Empty = new NrqlAlertConditionTermPredictionArgs();
 
     /**
-     * BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     * BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      * 
      */
     @Import(name="predictBy")
     private @Nullable Output<Integer> predictBy;
 
     /**
-     * @return BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     * @return BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      * 
      */
     public Optional<Output<Integer>> predictBy() {
@@ -32,14 +32,14 @@ public final class NrqlAlertConditionTermPredictionArgs extends com.pulumi.resou
     }
 
     /**
-     * BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     * BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      * 
      */
     @Import(name="preferPredictionViolation")
     private @Nullable Output<Boolean> preferPredictionViolation;
 
     /**
-     * @return BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     * @return BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      * 
      */
     public Optional<Output<Boolean>> preferPredictionViolation() {
@@ -72,7 +72,7 @@ public final class NrqlAlertConditionTermPredictionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param predictBy BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+         * @param predictBy BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class NrqlAlertConditionTermPredictionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param predictBy BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+         * @param predictBy BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class NrqlAlertConditionTermPredictionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preferPredictionViolation BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+         * @param preferPredictionViolation BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class NrqlAlertConditionTermPredictionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preferPredictionViolation BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+         * @param preferPredictionViolation BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
          * 
          * @return builder
          * 

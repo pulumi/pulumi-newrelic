@@ -59,14 +59,14 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountId);
     }
     /**
-     * Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+     * Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      * 
      */
     @Export(name="ingestType", refs={String.class}, tree="[0]")
     private Output<String> ingestType;
 
     /**
-     * @return Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+     * @return Required if `keyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
      * 
      */
     public Output<String> ingestType() {
@@ -90,8 +90,8 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
     }
     /**
      * The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
-     * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
-     * - If `key_type` is `USER`, then `user_id` must be specified.
+     * - If `keyType` is `INGEST`, then `ingestType` must be specified.
+     * - If `keyType` is `USER`, then `userId` must be specified.
      * 
      */
     @Export(name="keyType", refs={String.class}, tree="[0]")
@@ -99,8 +99,8 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
-     * - If `key_type` is `INGEST`, then `ingest_type` must be specified.
-     * - If `key_type` is `USER`, then `user_id` must be specified.
+     * - If `keyType` is `INGEST`, then `ingestType` must be specified.
+     * - If `keyType` is `USER`, then `userId` must be specified.
      * 
      */
     public Output<String> keyType() {
@@ -127,14 +127,14 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
         return this.notes;
     }
     /**
-     * Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
+     * Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
+     * @return Required if `keyType` is `USER`. The New Relic user ID for which the API access key will be created.
      * 
      */
     public Output<String> userId() {

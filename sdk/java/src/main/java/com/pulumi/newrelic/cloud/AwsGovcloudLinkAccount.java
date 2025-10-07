@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount")
 public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
+     * @return The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     public Output<String> accountId() {
@@ -89,7 +89,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
     /**
      * The Amazon Resource Name (ARN) of the IAM role.
      * 
-     * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+     * &gt; **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -98,7 +98,7 @@ public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource 
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role.
      * 
-     * &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+     * &gt; **NOTE:** Altering the `accountId` (or) `metricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
      * 
      */
     public Output<String> arn() {

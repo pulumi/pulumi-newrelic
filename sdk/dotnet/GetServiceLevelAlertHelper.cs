@@ -12,11 +12,11 @@ namespace Pulumi.NewRelic
     public static class GetServiceLevelAlertHelper
     {
         /// <summary>
-        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `Custom` AlertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `FastBurn` or `SlowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
         /// ## Example Usage
         /// 
-        /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+        /// Firstly set up your service level objective, we recommend using local variables for the `Target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -66,10 +66,10 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-        /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
-        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+        /// Note that the Service Level was set up using bad events, that's why `IsBadEvents` is set to `True`.
+        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `False`.
         /// 
-        /// Here is an example of a `slow_burn` alert.
+        /// Here is an example of a `SlowBurn` alert.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -172,11 +172,11 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `Custom` AlertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `FastBurn` or `SlowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
         /// ## Example Usage
         /// 
-        /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+        /// Firstly set up your service level objective, we recommend using local variables for the `Target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -226,10 +226,10 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-        /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
-        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+        /// Note that the Service Level was set up using bad events, that's why `IsBadEvents` is set to `True`.
+        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `False`.
         /// 
-        /// Here is an example of a `slow_burn` alert.
+        /// Here is an example of a `SlowBurn` alert.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -332,11 +332,11 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelAlertHelperResult>("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", args ?? new GetServiceLevelAlertHelperInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+        /// Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `Custom` AlertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `FastBurn` or `SlowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
         /// 
         /// ## Example Usage
         /// 
-        /// Firstly set up your service level objective, we recommend using local variables for the `target` and `time_window.rolling.count`, as they are also necessary for the helper.
+        /// Firstly set up your service level objective, we recommend using local variables for the `Target` and `time_window.rolling.count`, as they are also necessary for the helper.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -386,10 +386,10 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-        /// Note that the Service Level was set up using bad events, that's why `is_bad_events` is set to `true`.
-        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
+        /// Note that the Service Level was set up using bad events, that's why `IsBadEvents` is set to `True`.
+        /// If the Service Level was configured with good events that would be unnecessary as the field defaults to `False`.
         /// 
-        /// Here is an example of a `slow_burn` alert.
+        /// Here is an example of a `SlowBurn` alert.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -502,19 +502,19 @@ namespace Pulumi.NewRelic
         public string AlertType { get; set; } = null!;
 
         /// <summary>
-        /// Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+        /// Aggregation window taken into consideration in seconds. Mandatory if `AlertType` is `Custom`.
         /// </summary>
         [Input("customEvaluationPeriod")]
         public int? CustomEvaluationPeriod { get; set; }
 
         /// <summary>
-        /// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+        /// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `AlertType` is `Custom`.
         /// </summary>
         [Input("customToleratedBudgetConsumption")]
         public double? CustomToleratedBudgetConsumption { get; set; }
 
         /// <summary>
-        /// If the SLI is defined using bad events. Defaults to `false`
+        /// If the SLI is defined using bad events. Defaults to `False`
         /// </summary>
         [Input("isBadEvents")]
         public bool? IsBadEvents { get; set; }
@@ -552,19 +552,19 @@ namespace Pulumi.NewRelic
         public Input<string> AlertType { get; set; } = null!;
 
         /// <summary>
-        /// Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+        /// Aggregation window taken into consideration in seconds. Mandatory if `AlertType` is `Custom`.
         /// </summary>
         [Input("customEvaluationPeriod")]
         public Input<int>? CustomEvaluationPeriod { get; set; }
 
         /// <summary>
-        /// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+        /// How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `AlertType` is `Custom`.
         /// </summary>
         [Input("customToleratedBudgetConsumption")]
         public Input<double>? CustomToleratedBudgetConsumption { get; set; }
 
         /// <summary>
-        /// If the SLI is defined using bad events. Defaults to `false`
+        /// If the SLI is defined using bad events. Defaults to `False`
         /// </summary>
         [Input("isBadEvents")]
         public Input<bool>? IsBadEvents { get; set; }
@@ -601,7 +601,7 @@ namespace Pulumi.NewRelic
         public readonly int? CustomEvaluationPeriod;
         public readonly double? CustomToleratedBudgetConsumption;
         /// <summary>
-        /// (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alert_type it has the same value as `custom_evaluation_period`.
+        /// (Computed) For non `Custom` alert_type, this is the recommended for that type of alert. For `Custom` AlertType it has the same value as `CustomEvaluationPeriod`.
         /// </summary>
         public readonly int EvaluationPeriod;
         /// <summary>
@@ -621,7 +621,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly double Threshold;
         /// <summary>
-        /// (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alert_type it has the same value as `custom_tolerated_budget_consumption`.
+        /// (Computed) For non `Custom` alert_type, this is the recommended for that type of alert. For `Custom` AlertType it has the same value as `CustomToleratedBudgetConsumption`.
         /// </summary>
         public readonly double ToleratedBudgetConsumption;
 

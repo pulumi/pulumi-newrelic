@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     public sealed class GetNotificationDestinationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -48,7 +48,7 @@ namespace Pulumi.NewRelic
         private List<Inputs.GetNotificationDestinationSecureUrlArgs>? _secureUrls;
 
         /// <summary>
-        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// The URL in secure format, showing only the `Prefix`, as the `SecureSuffix` is a secret.
         /// </summary>
         public List<Inputs.GetNotificationDestinationSecureUrlArgs> SecureUrls
         {
@@ -65,7 +65,7 @@ namespace Pulumi.NewRelic
     public sealed class GetNotificationDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs>? _secureUrls;
 
         /// <summary>
-        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// The URL in secure format, showing only the `Prefix`, as the `SecureSuffix` is a secret.
         /// </summary>
         public InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs> SecureUrls
         {
@@ -125,7 +125,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> Properties;
         /// <summary>
-        /// The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+        /// The URL in secure format, showing only the `Prefix`, as the `SecureSuffix` is a secret.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> SecureUrls;
         /// <summary>

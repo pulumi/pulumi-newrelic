@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Attribute { get; set; } = null!;
 
         /// <summary>
-        /// An operator to use to compare the attribute with the provided `values`, see supported operators below
+        /// An operator to use to compare the attribute with the provided `Values`, see supported operators below
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The `attribute` must match **any** of the values in this list
+        /// The `Attribute` must match **any** of the values in this list
         /// </summary>
         public InputList<string> Values
         {

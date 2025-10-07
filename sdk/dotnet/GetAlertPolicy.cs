@@ -13,18 +13,105 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// Use this data source to get information about a specific alert policy in New Relic that already exists.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     {
+        ///         Name = "foo@example.com",
+        ///     });
+        /// 
+        ///     var fooGetAlertPolicy = NewRelic.GetAlertPolicy.Invoke(new()
+        ///     {
+        ///         Name = "foo policy",
+        ///     });
+        /// 
+        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     {
+        ///         PolicyId = fooGetAlertPolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
+        ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetAlertPolicyResult> InvokeAsync(GetAlertPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific alert policy in New Relic that already exists.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     {
+        ///         Name = "foo@example.com",
+        ///     });
+        /// 
+        ///     var fooGetAlertPolicy = NewRelic.GetAlertPolicy.Invoke(new()
+        ///     {
+        ///         Name = "foo policy",
+        ///     });
+        /// 
+        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     {
+        ///         PolicyId = fooGetAlertPolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
+        ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetAlertPolicyResult> Invoke(GetAlertPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific alert policy in New Relic that already exists.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     {
+        ///         Name = "foo@example.com",
+        ///     });
+        /// 
+        ///     var fooGetAlertPolicy = NewRelic.GetAlertPolicy.Invoke(new()
+        ///     {
+        ///         Name = "foo policy",
+        ///     });
+        /// 
+        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     {
+        ///         PolicyId = fooGetAlertPolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
+        ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetAlertPolicyResult> Invoke(GetAlertPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyInvokeArgs(), options.WithDefaults());
@@ -34,7 +121,7 @@ namespace Pulumi.NewRelic
     public sealed class GetAlertPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -63,7 +150,7 @@ namespace Pulumi.NewRelic
     public sealed class GetAlertPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

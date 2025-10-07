@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageWidgetStackedBarNullValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        /// Choose an option in displaying null values. Accepted values are `Default`, `Remove`, `Preserve`, or `Zero`.
         /// </summary>
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs>? _seriesOverrides;
 
         /// <summary>
-        /// (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        /// (Optional) A Nested block which will take two string attributes `Color` and `SeriesName`. This nested block is used to customize colors of individual.
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs> SeriesOverrides
         {

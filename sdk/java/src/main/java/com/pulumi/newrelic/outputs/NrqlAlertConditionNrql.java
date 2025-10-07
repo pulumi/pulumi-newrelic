@@ -14,46 +14,46 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionNrql {
     /**
-     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `accountId` if unspecified.
      * 
      */
     private @Nullable String dataAccountId;
     /**
-     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     private @Nullable Integer evaluationOffset;
     private String query;
     /**
-     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     private @Nullable String sinceValue;
 
     private NrqlAlertConditionNrql() {}
     /**
-     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `accountId` if unspecified.
      * 
      */
     public Optional<String> dataAccountId() {
         return Optional.ofNullable(this.dataAccountId);
     }
     /**
-     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     public Optional<Integer> evaluationOffset() {
         return Optional.ofNullable(this.evaluationOffset);
     }
@@ -61,13 +61,13 @@ public final class NrqlAlertConditionNrql {
         return this.query;
     }
     /**
-     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     public Optional<String> sinceValue() {
         return Optional.ofNullable(this.sinceValue);
     }
