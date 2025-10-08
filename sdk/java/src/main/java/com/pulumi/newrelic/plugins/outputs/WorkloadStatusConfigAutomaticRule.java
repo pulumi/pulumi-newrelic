@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkloadStatusConfigAutomaticRule {
     /**
-     * @return A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+     * @return A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
      * 
      */
     private @Nullable List<String> entityGuids;
     /**
-     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
      * 
      */
     private @Nullable List<WorkloadStatusConfigAutomaticRuleNrqlQuery> nrqlQueries;
@@ -32,14 +32,14 @@ public final class WorkloadStatusConfigAutomaticRule {
 
     private WorkloadStatusConfigAutomaticRule() {}
     /**
-     * @return A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+     * @return A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
      * 
      */
     public List<String> entityGuids() {
         return this.entityGuids == null ? List.of() : this.entityGuids;
     }
     /**
-     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+     * @return A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
      * 
      */
     public List<WorkloadStatusConfigAutomaticRuleNrqlQuery> nrqlQueries() {

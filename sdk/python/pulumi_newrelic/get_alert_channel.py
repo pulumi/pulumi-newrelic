@@ -112,6 +112,22 @@ def get_alert_channel(account_id: Optional[_builtins.str] = None,
 
     > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    # Data source
+    foo = newrelic.get_alert_channel(name="foo@example.com")
+    # Resource
+    foo_alert_policy = newrelic.AlertPolicy("foo", name="foo")
+    # Using the data source and resource together
+    foo_alert_policy_channel = newrelic.AlertPolicyChannel("foo",
+        policy_id=foo_alert_policy.id,
+        channel_id=foo.id)
+    ```
+
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param _builtins.str name: The name of the alert channel in New Relic.
@@ -136,6 +152,22 @@ def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[_builtin
     Use this data source to get information about a specific alert channel in New Relic that already exists.
 
     > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    # Data source
+    foo = newrelic.get_alert_channel(name="foo@example.com")
+    # Resource
+    foo_alert_policy = newrelic.AlertPolicy("foo", name="foo")
+    # Using the data source and resource together
+    foo_alert_policy_channel = newrelic.AlertPolicyChannel("foo",
+        policy_id=foo_alert_policy.id,
+        channel_id=foo.id)
+    ```
 
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.

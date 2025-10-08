@@ -12,6 +12,45 @@ import (
 )
 
 // Use this data source to get information about a specific alert policy in New Relic that already exists.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
+//				Name: "foo@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooGetAlertPolicy, err := newrelic.LookupAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
+//				Name: "foo policy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
+//				PolicyId:  pulumi.String(fooGetAlertPolicy.Id),
+//				ChannelId: foo.Id,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAlertPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlertPolicyResult

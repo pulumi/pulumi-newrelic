@@ -36,14 +36,14 @@ public final class AwsGovcloudIntegrationsState extends com.pulumi.resources.Res
     public static final AwsGovcloudIntegrationsState Empty = new AwsGovcloudIntegrationsState();
 
     /**
-     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -411,7 +411,7 @@ public final class AwsGovcloudIntegrationsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class AwsGovcloudIntegrationsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 

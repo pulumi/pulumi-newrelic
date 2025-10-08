@@ -48,14 +48,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     public static final AzureIntegrationsState Empty = new AzureIntegrationsState();
 
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -260,7 +260,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * The ID of the linked Azure account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      * 
      */
     @Import(name="linkedAccountId")
@@ -269,7 +269,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the linked Azure account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      * 
      */
     public Optional<Output<String>> linkedAccountId() {
@@ -339,7 +339,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * Azure Monitor. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      * 
      */
     @Import(name="monitor")
@@ -348,7 +348,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * @return Azure Monitor. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      * 
      */
     public Optional<Output<AzureIntegrationsMonitorArgs>> monitor() {
@@ -493,7 +493,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * for Azure Storage. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      * 
      */
     @Import(name="storage")
@@ -502,7 +502,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * @return for Azure Storage. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      * 
      */
     public Optional<Output<AzureIntegrationsStorageArgs>> storage() {
@@ -557,7 +557,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      * 
      */
     @Import(name="vpnGateway")
@@ -566,7 +566,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     /**
      * @return Azure VPN Gateway. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      * 
      */
     public Optional<Output<AzureIntegrationsVpnGatewayArgs>> vpnGateway() {
@@ -631,7 +631,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -927,7 +927,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param linkedAccountId The ID of the linked Azure account in New Relic.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
          * 
          * @return builder
          * 
@@ -940,7 +940,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param linkedAccountId The ID of the linked Azure account in New Relic.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
          * 
          * @return builder
          * 
@@ -1036,7 +1036,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param monitor Azure Monitor. See Integration blocks below for details.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
          * 
          * @return builder
          * 
@@ -1049,7 +1049,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param monitor Azure Monitor. See Integration blocks below for details.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
          * 
          * @return builder
          * 
@@ -1250,7 +1250,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param storage for Azure Storage. See Integration blocks below for details.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
          * 
          * @return builder
          * 
@@ -1263,7 +1263,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param storage for Azure Storage. See Integration blocks below for details.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
          * 
          * @return builder
          * 
@@ -1338,7 +1338,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param vpnGateway Azure VPN Gateway. See Integration blocks below for details.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
          * 
          * @return builder
          * 
@@ -1351,7 +1351,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         /**
          * @param vpnGateway Azure VPN Gateway. See Integration blocks below for details.
          * 
-         * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+         * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
          * 
          * @return builder
          * 

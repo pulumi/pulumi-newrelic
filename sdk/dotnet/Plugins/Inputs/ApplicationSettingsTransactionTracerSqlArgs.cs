@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
     public sealed class ApplicationSettingsTransactionTracerSqlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        /// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `Sql` block is provided).
         /// </summary>
         [Input("recordSql", required: true)]
         public Input<string> RecordSql { get; set; } = null!;

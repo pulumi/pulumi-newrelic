@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
         /// 
-        /// &gt; **NOTE:** It may be noted that the `metric_name` and `application_guid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `application_guid` and/or `metric_name` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
+        /// &gt; **NOTE:** It may be noted that the `MetricName` and `ApplicationGuid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `ApplicationGuid` and/or `MetricName` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
         /// </summary>
         [Output("browserApdexTarget")]
         public Output<double> BrowserApdexTarget { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
         /// 
-        /// &gt; **NOTE:** It may be noted that the `metric_name` and `application_guid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `application_guid` and/or `metric_name` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
+        /// &gt; **NOTE:** It may be noted that the `MetricName` and `ApplicationGuid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `ApplicationGuid` and/or `MetricName` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
         /// </summary>
         [Input("browserApdexTarget", required: true)]
         public Input<double> BrowserApdexTarget { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
         /// 
-        /// &gt; **NOTE:** It may be noted that the `metric_name` and `application_guid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `application_guid` and/or `metric_name` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
+        /// &gt; **NOTE:** It may be noted that the `MetricName` and `ApplicationGuid` of a Key Transaction _cannot_ be updated in a key transaction that has already been created; since this is not supported. As a consequence, altering the values of `ApplicationGuid` and/or `MetricName` of a `newrelic.KeyTransaction` resource created (to try updating these values) would result in `pulumi preview` prompting a forced destruction and re-creation of the resource.
         /// </summary>
         [Input("browserApdexTarget")]
         public Input<double>? BrowserApdexTarget { get; set; }

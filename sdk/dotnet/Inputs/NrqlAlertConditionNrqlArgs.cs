@@ -13,13 +13,13 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class NrqlAlertConditionNrqlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        /// The New Relic account ID to use as the basis for the NRQL alert condition's `Query`; will default to `AccountId` if unspecified.
         /// </summary>
         [Input("dataAccountId")]
         public Input<string>? DataAccountId { get; set; }
 
         /// <summary>
-        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `EvaluationOffset`.
         /// </summary>
         [Input("evaluationOffset")]
         public Input<int>? EvaluationOffset { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `SinceValue`.
         /// </summary>
         [Input("sinceValue")]
         public Input<string>? SinceValue { get; set; }

@@ -57,14 +57,14 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      * 
      */
     @Import(name="dataFormats")
     private @Nullable Output<List<OneDashboardPageWidgetPyDataFormatArgs>> dataFormats;
 
     /**
-     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * @return (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetPyDataFormatArgs>>> dataFormats() {
@@ -304,14 +304,14 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      * 
      */
     @Import(name="yAxisLeftMin")
     private @Nullable Output<Double> yAxisLeftMin;
 
     /**
-     * @return , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     * @return , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      * 
      */
     public Optional<Output<Double>> yAxisLeftMin() {
@@ -414,7 +414,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataFormats (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+         * @param dataFormats (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param yAxisLeftMin , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+         * @param yAxisLeftMin , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param yAxisLeftMin , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+         * @param yAxisLeftMin , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
          * 
          * @return builder
          * 

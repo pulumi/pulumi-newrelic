@@ -12,8 +12,8 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
     /// 
-    /// A New Relic User API key is required to provision this resource.  Set the `api_key`
-    /// attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
+    /// A New Relic User API key is required to provision this resource.  Set the `ApiKey`
+    /// attribute in the `Provider` block or the `NEW_RELIC_API_KEY` environment
     /// variable with your User API key.
     /// 
     /// Important:
@@ -139,7 +139,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// Using `select` for events
+    /// Using `Select` for events
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

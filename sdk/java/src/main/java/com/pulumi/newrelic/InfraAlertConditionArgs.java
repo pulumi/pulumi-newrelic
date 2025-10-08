@@ -21,14 +21,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     public static final InfraAlertConditionArgs Empty = new InfraAlertConditionArgs();
 
     /**
-     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      * 
      */
     @Import(name="comparison")
     private @Nullable Output<String> comparison;
 
     /**
-     * @return The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+     * @return The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      * 
      */
     public Optional<Output<String>> comparison() {
@@ -81,14 +81,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      * 
      */
     @Import(name="event")
     private @Nullable Output<String> event;
 
     /**
-     * @return The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+     * @return The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      * 
      */
     public Optional<Output<String>> event() {
@@ -96,14 +96,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+     * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      * 
      */
     @Import(name="integrationProvider")
     private @Nullable Output<String> integrationProvider;
 
     /**
-     * @return For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+     * @return For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      * 
      */
     public Optional<Output<String>> integrationProvider() {
@@ -141,14 +141,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+     * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infraProcessRunning` condition type.
      * 
      */
     @Import(name="processWhere")
     private @Nullable Output<String> processWhere;
 
     /**
-     * @return Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+     * @return Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infraProcessRunning` condition type.
      * 
      */
     public Optional<Output<String>> processWhere() {
@@ -171,14 +171,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      * 
      */
     @Import(name="select")
     private @Nullable Output<String> select;
 
     /**
-     * @return The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+     * @return The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      * 
      */
     public Optional<Output<String>> select() {
@@ -186,14 +186,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+     * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+     * @return The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      * 
      */
     public Output<String> type() {
@@ -284,7 +284,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comparison The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+         * @param comparison The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comparison The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+         * @param comparison The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param event The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+         * @param event The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param event The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+         * @param event The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationProvider For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+         * @param integrationProvider For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrationProvider For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+         * @param integrationProvider For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param processWhere Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+         * @param processWhere Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infraProcessRunning` condition type.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param processWhere Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+         * @param processWhere Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infraProcessRunning` condition type.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param select The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+         * @param select The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param select The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+         * @param select The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+         * @param type The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+         * @param type The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
          * 
          * @return builder
          * 

@@ -18,11 +18,11 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Attribute;
         /// <summary>
-        /// An operator to use to compare the attribute with the provided `values`, see supported operators below
+        /// An operator to use to compare the attribute with the provided `Values`, see supported operators below
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// The `attribute` must match **any** of the values in this list
+        /// The `Attribute` must match **any** of the values in this list
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
