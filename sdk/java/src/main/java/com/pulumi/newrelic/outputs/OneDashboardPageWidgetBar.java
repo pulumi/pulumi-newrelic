@@ -33,7 +33,7 @@ public final class OneDashboardPageWidgetBar {
      */
     private Integer column;
     /**
-     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * @return (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      * 
      */
     private @Nullable List<OneDashboardPageWidgetBarDataFormat> dataFormats;
@@ -114,7 +114,7 @@ public final class OneDashboardPageWidgetBar {
     private @Nullable Integer width;
     private @Nullable Double yAxisLeftMax;
     /**
-     * @return , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     * @return , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      * 
      */
     private @Nullable Double yAxisLeftMin;
@@ -135,7 +135,7 @@ public final class OneDashboardPageWidgetBar {
         return this.column;
     }
     /**
-     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * @return (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      * 
      */
     public List<OneDashboardPageWidgetBarDataFormat> dataFormats() {
@@ -250,7 +250,7 @@ public final class OneDashboardPageWidgetBar {
         return Optional.ofNullable(this.yAxisLeftMax);
     }
     /**
-     * @return , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     * @return , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      * 
      */
     public Optional<Double> yAxisLeftMin() {

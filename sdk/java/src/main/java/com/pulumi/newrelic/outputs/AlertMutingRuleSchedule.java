@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AlertMutingRuleSchedule {
     /**
-     * @return The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeat_count`
+     * @return The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeatCount`
      * 
      */
     private @Nullable String endRepeat;
@@ -31,7 +31,7 @@ public final class AlertMutingRuleSchedule {
      */
     private @Nullable String repeat;
     /**
-     * @return The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+     * @return The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
      * 
      */
     private @Nullable Integer repeatCount;
@@ -53,7 +53,7 @@ public final class AlertMutingRuleSchedule {
 
     private AlertMutingRuleSchedule() {}
     /**
-     * @return The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeat_count`
+     * @return The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeatCount`
      * 
      */
     public Optional<String> endRepeat() {
@@ -75,7 +75,7 @@ public final class AlertMutingRuleSchedule {
         return Optional.ofNullable(this.repeat);
     }
     /**
-     * @return The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+     * @return The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
      * 
      */
     public Optional<Integer> repeatCount() {

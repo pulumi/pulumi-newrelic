@@ -14,6 +14,8 @@ import (
 // Use this data source to get information about a specific alert channel in New Relic that already exists.
 //
 // > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
+//
+// ## Example Usage
 func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts ...pulumi.InvokeOption) (*LookupAlertChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlertChannelResult

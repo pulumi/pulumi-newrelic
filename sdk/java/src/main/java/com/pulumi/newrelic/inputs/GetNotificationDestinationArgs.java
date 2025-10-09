@@ -18,14 +18,14 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
     public static final GetNotificationDestinationArgs Empty = new GetNotificationDestinationArgs();
 
     /**
-     * The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -67,14 +67,14 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
     @Import(name="secureUrls")
     private @Nullable Output<List<GetNotificationDestinationSecureUrlArgs>> secureUrls;
 
     /**
-     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * @return The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
     public Optional<Output<List<GetNotificationDestinationSecureUrlArgs>>> secureUrls() {
@@ -109,7 +109,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
          * 
          * @return builder
          * 

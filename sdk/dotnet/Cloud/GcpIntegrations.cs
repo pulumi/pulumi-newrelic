@@ -162,7 +162,7 @@ namespace Pulumi.NewRelic.Cloud
     public partial class GcpIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked GCP account in New Relic.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 300 seconds.
         /// </summary>
         [Output("linkedAccountId")]
         public Output<string> LinkedAccountId { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class GcpIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -476,7 +476,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked GCP account in New Relic.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 300 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
         public Input<string> LinkedAccountId { get; set; } = null!;
@@ -556,7 +556,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class GcpIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -654,7 +654,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The ID of the linked GCP account in New Relic.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 300 seconds.
         /// </summary>
         [Input("linkedAccountId")]
         public Input<string>? LinkedAccountId { get; set; }

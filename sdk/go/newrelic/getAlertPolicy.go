@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to get information about a specific alert policy in New Relic that already exists.
+//
+// ## Example Usage
 func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAlertPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlertPolicyResult

@@ -16,7 +16,7 @@ public final class GetKeyTransactionPlainArgs extends com.pulumi.resources.Invok
     public static final GetKeyTransactionPlainArgs Empty = new GetKeyTransactionPlainArgs();
 
     /**
-     * The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
+     * The account ID you would like to search for key transactions in. Defaults to `accountId` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
      * 
      * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
      * 
@@ -25,7 +25,7 @@ public final class GetKeyTransactionPlainArgs extends com.pulumi.resources.Invok
     private @Nullable String accountId;
 
     /**
-     * @return The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
+     * @return The account ID you would like to search for key transactions in. Defaults to `accountId` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
      * 
      * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
      * 
@@ -91,7 +91,7 @@ public final class GetKeyTransactionPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param accountId The account ID you would like to search for key transactions in. Defaults to `account_id` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
+         * @param accountId The account ID you would like to search for key transactions in. Defaults to `accountId` in the `provider{}` (or `NEW_RELIC_ACCOUNT_ID` in your environment) if not specified.
          * 
          * &gt; **NOTE** If the `name` specified in the configuration matches the names of multiple key transactions in the account, the data source will return the first match from the list of all matching key transactions retrieved from the API. However, when using the `guid` argument as the search criterion, only the key transaction with that particular GUID is returned, as each key transaction has a unique GUID.
          * 

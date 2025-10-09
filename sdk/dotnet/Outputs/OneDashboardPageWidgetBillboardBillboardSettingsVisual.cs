@@ -14,11 +14,11 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetBillboardBillboardSettingsVisual
     {
         /// <summary>
-        /// (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+        /// (Optional) Controls the alignment of the billboard content. Accepted values are `Inline` or `Stacked`.
         /// </summary>
         public readonly string? Alignment;
         /// <summary>
-        /// (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+        /// (Optional) Controls how the billboard content is displayed. Accepted values are `Auto`, `All`, `None`, `Label` or `Value`.
         /// </summary>
         public readonly string? Display;
 

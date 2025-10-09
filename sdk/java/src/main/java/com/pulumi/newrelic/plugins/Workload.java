@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create, update, and delete a New Relic One workload.
  * 
- * A New Relic User API key is required to provision this resource.  Set the `api_key`
+ * A New Relic User API key is required to provision this resource.  Set the `apiKey`
  * attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
  * variable with your User API key.
  * 
@@ -320,28 +320,28 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      * 
      */
     @Export(name="entityGuids", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      * 
      */
     public Output<List<String>> entityGuids() {
         return this.entityGuids;
     }
     /**
-     * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      * 
      */
     @Export(name="entitySearchQueries", refs={List.class,WorkloadEntitySearchQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadEntitySearchQuery>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+     * @return A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      * 
      */
     public Output<Optional<List<WorkloadEntitySearchQuery>>> entitySearchQueries() {
@@ -404,28 +404,28 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return this.scopeAccountIds;
     }
     /**
-     * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      * 
      */
     @Export(name="statusConfigAutomatic", refs={WorkloadStatusConfigAutomatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigAutomatic> statusConfigAutomatic;
 
     /**
-     * @return An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * @return An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
      * 
      */
     public Output<Optional<WorkloadStatusConfigAutomatic>> statusConfigAutomatic() {
         return Codegen.optional(this.statusConfigAutomatic);
     }
     /**
-     * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
      * 
      */
     @Export(name="statusConfigStatic", refs={WorkloadStatusConfigStatic.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadStatusConfigStatic> statusConfigStatic;
 
     /**
-     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
      * 
      */
     public Output<Optional<WorkloadStatusConfigStatic>> statusConfigStatic() {

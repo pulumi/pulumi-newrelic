@@ -284,14 +284,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/azureIntegrations:AzureIntegrations")
 public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Output<String> accountId() {
@@ -482,7 +482,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the linked Azure account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      * 
      */
     @Export(name="linkedAccountId", refs={String.class}, tree="[0]")
@@ -491,7 +491,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the linked Azure account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 60 seconds.
      * 
      */
     public Output<String> linkedAccountId() {
@@ -556,7 +556,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * Azure Monitor. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      * 
      */
     @Export(name="monitor", refs={AzureIntegrationsMonitor.class}, tree="[0]")
@@ -565,7 +565,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * @return Azure Monitor. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      * 
      */
     public Output<Optional<AzureIntegrationsMonitor>> monitor() {
@@ -700,7 +700,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * for Azure Storage. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      * 
      */
     @Export(name="storage", refs={AzureIntegrationsStorage.class}, tree="[0]")
@@ -709,7 +709,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * @return for Azure Storage. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 3600 seconds.
      * 
      */
     public Output<Optional<AzureIntegrationsStorage>> storage() {
@@ -760,7 +760,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * Azure VPN Gateway. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      * 
      */
     @Export(name="vpnGateway", refs={AzureIntegrationsVpnGateway.class}, tree="[0]")
@@ -769,7 +769,7 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * @return Azure VPN Gateway. See Integration blocks below for details.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 1800 seconds.
      * 
      */
     public Output<Optional<AzureIntegrationsVpnGateway>> vpnGateway() {

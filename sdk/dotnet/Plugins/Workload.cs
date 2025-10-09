@@ -12,8 +12,8 @@ namespace Pulumi.NewRelic.Plugins
     /// <summary>
     /// Use this resource to create, update, and delete a New Relic One workload.
     /// 
-    /// A New Relic User API key is required to provision this resource.  Set the `api_key`
-    /// attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
+    /// A New Relic User API key is required to provision this resource.  Set the `ApiKey`
+    /// attribute in the `Provider` block or the `NEW_RELIC_API_KEY` environment
     /// variable with your User API key.
     /// 
     /// ## Example Usage
@@ -269,13 +269,13 @@ namespace Pulumi.NewRelic.Plugins
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required.
         /// </summary>
         [Output("entityGuids")]
         public Output<ImmutableArray<string>> EntityGuids { get; private set; } = null!;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required. See Nested EntitySearchQuery blocks below for details.
         /// </summary>
         [Output("entitySearchQueries")]
         public Output<ImmutableArray<Outputs.WorkloadEntitySearchQuery>> EntitySearchQueries { get; private set; } = null!;
@@ -305,13 +305,13 @@ namespace Pulumi.NewRelic.Plugins
         public Output<ImmutableArray<string>> ScopeAccountIds { get; private set; } = null!;
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// An input object used to represent an automatic status configuration.See Nested StatusConfigAutomatic blocks below for details.
         /// </summary>
         [Output("statusConfigAutomatic")]
         public Output<Outputs.WorkloadStatusConfigAutomatic?> StatusConfigAutomatic { get; private set; } = null!;
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload.See Nested StatusConfigStatic blocks below for details.
         /// </summary>
         [Output("statusConfigStatic")]
         public Output<Outputs.WorkloadStatusConfigStatic?> StatusConfigStatic { get; private set; } = null!;
@@ -384,7 +384,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -396,7 +396,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required. See Nested EntitySearchQuery blocks below for details.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryArgs> EntitySearchQueries
         {
@@ -423,13 +423,13 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// An input object used to represent an automatic status configuration.See Nested StatusConfigAutomatic blocks below for details.
         /// </summary>
         [Input("statusConfigAutomatic")]
         public Input<Inputs.WorkloadStatusConfigAutomaticArgs>? StatusConfigAutomatic { get; set; }
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload.See Nested StatusConfigStatic blocks below for details.
         /// </summary>
         [Input("statusConfigStatic")]
         public Input<Inputs.WorkloadStatusConfigStaticArgs>? StatusConfigStatic { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -476,7 +476,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryGetArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of either `EntityGuids` or `EntitySearchQuery` is required. See Nested EntitySearchQuery blocks below for details.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryGetArgs> EntitySearchQueries
         {
@@ -515,13 +515,13 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// An input object used to represent an automatic status configuration.See Nested StatusConfigAutomatic blocks below for details.
         /// </summary>
         [Input("statusConfigAutomatic")]
         public Input<Inputs.WorkloadStatusConfigAutomaticGetArgs>? StatusConfigAutomatic { get; set; }
 
         /// <summary>
-        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// A list of static status configurations. You can only configure one static status for a workload.See Nested StatusConfigStatic blocks below for details.
         /// </summary>
         [Input("statusConfigStatic")]
         public Input<Inputs.WorkloadStatusConfigStaticGetArgs>? StatusConfigStatic { get; set; }

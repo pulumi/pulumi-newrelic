@@ -39,7 +39,7 @@ public final class GetNotificationDestinationResult {
      */
     private List<GetNotificationDestinationProperty> properties;
     /**
-     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * @return The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
     private List<GetNotificationDestinationSecureUrl> secureUrls;
@@ -90,7 +90,7 @@ public final class GetNotificationDestinationResult {
         return this.properties;
     }
     /**
-     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * @return The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
     public List<GetNotificationDestinationSecureUrl> secureUrls() {
