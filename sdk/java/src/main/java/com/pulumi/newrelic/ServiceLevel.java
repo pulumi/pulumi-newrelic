@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
  * 
- * A New Relic User API key is required to provision this resource.  Set the `api_key`
+ * A New Relic User API key is required to provision this resource.  Set the `apiKey`
  * attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
  * variable with your User API key.
  * 

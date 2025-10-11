@@ -270,10 +270,10 @@ namespace Pulumi.NewRelic
     /// 
     /// In version v3.3 we renamed the following arguments:
     /// 
-    /// - `workflow_enabled` changed to `enabled`.
-    /// - `destination_configuration` changed to `destination`.
-    /// - `predicates` changed to `predicate`.
-    /// - Enrichment's `configurations` changed to `configuration`.
+    /// - `WorkflowEnabled` changed to `Enabled`.
+    /// - `DestinationConfiguration` changed to `Destination`.
+    /// - `Predicates` changed to `Predicate`.
+    /// - Enrichment's `Configurations` changed to `Configuration`.
     /// 
     /// ## Import
     /// 
@@ -303,7 +303,7 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<Outputs.WorkflowDestination>> Destinations { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+        /// **DEPRECATED** Whether destinations are enabled. Please use `Enabled` instead:
         /// these two are different flags, but they are functionally identical. Defaults to true.
         /// </summary>
         [Output("destinationsEnabled")]
@@ -334,7 +334,7 @@ namespace Pulumi.NewRelic
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        /// A filter used to identify issues handled by this workflow. See Nested IssuesFilter blocks below for details.
         /// </summary>
         [Output("issuesFilter")]
         public Output<Outputs.WorkflowIssuesFilter> IssuesFilter { get; private set; } = null!;
@@ -428,7 +428,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+        /// **DEPRECATED** Whether destinations are enabled. Please use `Enabled` instead:
         /// these two are different flags, but they are functionally identical. Defaults to true.
         /// </summary>
         [Input("destinationsEnabled")]
@@ -453,7 +453,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? EnrichmentsEnabled { get; set; }
 
         /// <summary>
-        /// A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        /// A filter used to identify issues handled by this workflow. See Nested IssuesFilter blocks below for details.
         /// </summary>
         [Input("issuesFilter", required: true)]
         public Input<Inputs.WorkflowIssuesFilterArgs> IssuesFilter { get; set; } = null!;
@@ -497,7 +497,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+        /// **DEPRECATED** Whether destinations are enabled. Please use `Enabled` instead:
         /// these two are different flags, but they are functionally identical. Defaults to true.
         /// </summary>
         [Input("destinationsEnabled")]
@@ -528,7 +528,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+        /// A filter used to identify issues handled by this workflow. See Nested IssuesFilter blocks below for details.
         /// </summary>
         [Input("issuesFilter")]
         public Input<Inputs.WorkflowIssuesFilterGetArgs>? IssuesFilter { get; set; }

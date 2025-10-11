@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+        /// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `Nrql` or `Enum`.
         /// </summary>
         [Input("isMultiSelection")]
         public Input<bool>? IsMultiSelection { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardVariableItemGetArgs>? _items;
 
         /// <summary>
-        /// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+        /// (Optional) List of possible values for variables of type `Enum`. See Nested item blocks below for details.
         /// </summary>
         public InputList<Inputs.OneDashboardVariableItemGetArgs> Items
         {
@@ -49,7 +49,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+        /// (Optional) Configuration for variables of type `Nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         [Input("nrqlQuery")]
         public Input<Inputs.OneDashboardVariableNrqlQueryGetArgs>? NrqlQuery { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+        /// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `Default`, `Identifier`, `Number` or `String`.
         /// </summary>
         [Input("replacementStrategy", required: true)]
         public Input<string> ReplacementStrategy { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        /// (Required) Specifies the data type of the variable and where its possible values may come from. One of `Enum`, `Nrql` or `String`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -51,14 +51,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceOrientation")
     private @Nullable Output<String> deviceOrientation;
 
     /**
-     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceOrientation() {
@@ -66,14 +66,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceType")
     private @Nullable Output<String> deviceType;
 
     /**
-     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceType() {
@@ -111,14 +111,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     @Import(name="locationPrivates")
     private @Nullable Output<List<ScriptMonitorLocationPrivateArgs>> locationPrivates;
 
     /**
-     * @return The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * @return The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     public Optional<Output<List<ScriptMonitorLocationPrivateArgs>>> locationPrivates() {
@@ -126,14 +126,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     @Import(name="locationsPublics")
     private @Nullable Output<List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     public Optional<Output<List<String>>> locationsPublics() {
@@ -380,7 +380,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationPrivates The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+         * @param locationPrivates The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationPrivates The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+         * @param locationPrivates The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationPrivates The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+         * @param locationPrivates The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
          * 
          * @return builder
          * 

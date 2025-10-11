@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific account in New Relic.
         /// Accounts can be located by ID or name.  At most one of the two attributes can
-        /// be provided. If neither are provided, the provider's `account_id` will be used.
+        /// be provided. If neither are provided, the provider's `AccountId` will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific account in New Relic.
         /// Accounts can be located by ID or name.  At most one of the two attributes can
-        /// be provided. If neither are provided, the provider's `account_id` will be used.
+        /// be provided. If neither are provided, the provider's `AccountId` will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Use this data source to get information about a specific account in New Relic.
         /// Accounts can be located by ID or name.  At most one of the two attributes can
-        /// be provided. If neither are provided, the provider's `account_id` will be used.
+        /// be provided. If neither are provided, the provider's `AccountId` will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -106,7 +106,7 @@ namespace Pulumi.NewRelic
         public string? Name { get; set; }
 
         /// <summary>
-        /// The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
+        /// The scope of the account in New Relic.  Valid values are "global" and "InRegion".  Defaults to "InRegion".
         /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
@@ -132,7 +132,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
+        /// The scope of the account in New Relic.  Valid values are "global" and "InRegion".  Defaults to "InRegion".
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

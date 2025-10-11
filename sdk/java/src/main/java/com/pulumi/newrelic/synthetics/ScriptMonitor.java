@@ -255,10 +255,10 @@ import javax.annotation.Nullable;
  * 
  * ### Create a monitor and a secure credential
  * 
- * The following example shows how to use `depends_on` to create a monitor that uses a new secure credential.
- * The `depends_on` creates an explicit dependency between resources to ensure that the secure credential is created before the monitor that uses it.
+ * The following example shows how to use `dependsOn` to create a monitor that uses a new secure credential.
+ * The `dependsOn` creates an explicit dependency between resources to ensure that the secure credential is created before the monitor that uses it.
  * 
- * &gt; **NOTE:** Use the `depends_on` when you are creating both monitor and its secure credentials together.
+ * &gt; **NOTE:** Use the `dependsOn` when you are creating both monitor and its secure credentials together.
  * 
  * ##### Type: `SCRIPT_BROWSER`
  * 
@@ -356,28 +356,28 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.browsers);
     }
     /**
-     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceOrientation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceOrientation;
 
     /**
-     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceOrientation() {
         return Codegen.optional(this.deviceOrientation);
     }
     /**
-     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceType;
 
     /**
-     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`. We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceType() {
@@ -426,28 +426,28 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     @Export(name="locationPrivates", refs={List.class,ScriptMonitorLocationPrivate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScriptMonitorLocationPrivate>> locationPrivates;
 
     /**
-     * @return The location the monitor will run from. See Nested location_private blocks below for details. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * @return The location the monitor will run from. See Nested locationPrivate blocks below for details. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     public Output<Optional<List<ScriptMonitorLocationPrivate>>> locationPrivates() {
         return Codegen.optional(this.locationPrivates);
     }
     /**
-     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locations_public` **or** `location_private` **is required**.
+     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. The `AWS_` prefix is not needed, as the provider uses NerdGraph. **At least one of either** `locationsPublic` **or** `locationPrivate` **is required**.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {

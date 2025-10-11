@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetMarkdownInitialSorting
     {
         /// <summary>
-        /// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        /// (Required) Defines the sort order. Accepted values are `Asc` for ascending or `Desc` for descending.
         /// </summary>
         public readonly string Direction;
         /// <summary>

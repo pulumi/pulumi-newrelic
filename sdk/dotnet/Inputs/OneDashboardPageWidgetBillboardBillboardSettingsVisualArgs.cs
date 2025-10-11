@@ -13,13 +13,13 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Controls the alignment of the billboard content. Accepted values are `inline` or `stacked`.
+        /// (Optional) Controls the alignment of the billboard content. Accepted values are `Inline` or `Stacked`.
         /// </summary>
         [Input("alignment")]
         public Input<string>? Alignment { get; set; }
 
         /// <summary>
-        /// (Optional) Controls how the billboard content is displayed. Accepted values are `auto`, `all`, `none`, `label` or `value`.
+        /// (Optional) Controls how the billboard content is displayed. Accepted values are `Auto`, `All`, `None`, `Label` or `Value`.
         /// </summary>
         [Input("display")]
         public Input<string>? Display { get; set; }

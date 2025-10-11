@@ -113,6 +113,8 @@ def get_alert_policy(account_id: Optional[_builtins.str] = None,
     """
     Use this data source to get information about a specific alert policy in New Relic that already exists.
 
+    ## Example Usage
+
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param _builtins.str incident_preference: The rollup strategy for the policy, which can have one of the following values:
@@ -141,6 +143,8 @@ def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[_builtins
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertPolicyResult]:
     """
     Use this data source to get information about a specific alert policy in New Relic that already exists.
+
+    ## Example Usage
 
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.

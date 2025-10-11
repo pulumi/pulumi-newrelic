@@ -106,11 +106,11 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Thresholds
     /// 
-    /// The `critical` and `warning` threshold mapping supports the following arguments:
+    /// The `Critical` and `Warning` threshold mapping supports the following arguments:
     /// 
-    ///   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-    ///   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
-    ///   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
+    ///   * `Duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
+    ///   * `Value` - (Optional) Threshold value, computed against the `Comparison` operator. Supported by `InfraMetric` and `InfraProcessRunning` alert condition types.
+    ///   * `TimeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `All` or `Any`. Supported by the `InfraMetric` alert condition type.
     /// 
     /// ## Tags
     /// 
@@ -193,7 +193,7 @@ namespace Pulumi.NewRelic
     public partial class InfraAlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+        /// The operator used to evaluate the threshold value.  Valid values are `Above`, `Below`, and `Equal`.  Supported by the `InfraMetric` and `InfraProcessRunning` condition types.
         /// </summary>
         [Output("comparison")]
         public Output<string?> Comparison { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.NewRelic
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        /// Whether the condition is turned on or off.  Valid values are `True` and `False`.  Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -229,13 +229,13 @@ namespace Pulumi.NewRelic
         public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+        /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Output("event")]
         public Output<string> Event { get; private set; } = null!;
 
         /// <summary>
-        /// For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+        /// For alerts on integrations, use this instead of `Event`.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Output("integrationProvider")]
         public Output<string?> IntegrationProvider { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.NewRelic
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `InfraProcessRunning` condition type.
         /// </summary>
         [Output("processWhere")]
         public Output<string?> ProcessWhere { get; private set; } = null!;
@@ -265,13 +265,13 @@ namespace Pulumi.NewRelic
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Output("select")]
         public Output<string?> Select { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        /// The type of Infrastructure alert condition.  Valid values are  `InfraProcessRunning`, `InfraMetric`, and `InfraHostNotReporting`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.NewRelic
     public sealed class InfraAlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+        /// The operator used to evaluate the threshold value.  Valid values are `Above`, `Below`, and `Equal`.  Supported by the `InfraMetric` and `InfraProcessRunning` condition types.
         /// </summary>
         [Input("comparison")]
         public Input<string>? Comparison { get; set; }
@@ -369,19 +369,19 @@ namespace Pulumi.NewRelic
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        /// Whether the condition is turned on or off.  Valid values are `True` and `False`.  Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+        /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Input("event")]
         public Input<string>? Event { get; set; }
 
         /// <summary>
-        /// For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+        /// For alerts on integrations, use this instead of `Event`.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Input("integrationProvider")]
         public Input<string>? IntegrationProvider { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.NewRelic
         public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
-        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `InfraProcessRunning` condition type.
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
@@ -411,13 +411,13 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Input("select")]
         public Input<string>? Select { get; set; }
 
         /// <summary>
-        /// The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        /// The type of Infrastructure alert condition.  Valid values are  `InfraProcessRunning`, `InfraMetric`, and `InfraHostNotReporting`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -453,7 +453,7 @@ namespace Pulumi.NewRelic
     public sealed class InfraAlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+        /// The operator used to evaluate the threshold value.  Valid values are `Above`, `Below`, and `Equal`.  Supported by the `InfraMetric` and `InfraProcessRunning` condition types.
         /// </summary>
         [Input("comparison")]
         public Input<string>? Comparison { get; set; }
@@ -477,7 +477,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        /// Whether the condition is turned on or off.  Valid values are `True` and `False`.  Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -489,13 +489,13 @@ namespace Pulumi.NewRelic
         public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
-        /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+        /// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Input("event")]
         public Input<string>? Event { get; set; }
 
         /// <summary>
-        /// For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+        /// For alerts on integrations, use this instead of `Event`.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Input("integrationProvider")]
         public Input<string>? IntegrationProvider { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.NewRelic
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `InfraProcessRunning` condition type.
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
@@ -525,13 +525,13 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `InfraMetric` condition type.
         /// </summary>
         [Input("select")]
         public Input<string>? Select { get; set; }
 
         /// <summary>
-        /// The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        /// The type of Infrastructure alert condition.  Valid values are  `InfraProcessRunning`, `InfraMetric`, and `InfraHostNotReporting`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
