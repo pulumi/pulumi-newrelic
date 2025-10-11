@@ -60,7 +60,7 @@ namespace Pulumi.NewRelic
         public Output<string> Permalink { get; private set; } = null!;
 
         /// <summary>
-        /// Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        /// Determines who can see the dashboard in an account. Valid values are `Private`, `PublicReadOnly`, or `PublicReadWrite`.  Defaults to `PublicReadOnly`.
         /// </summary>
         [Output("permissions")]
         public Output<string?> Permissions { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        /// Determines who can see the dashboard in an account. Valid values are `Private`, `PublicReadOnly`, or `PublicReadWrite`.  Defaults to `PublicReadOnly`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Permalink { get; set; }
 
         /// <summary>
-        /// Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        /// Determines who can see the dashboard in an account. Valid values are `Private`, `PublicReadOnly`, or `PublicReadWrite`.  Defaults to `PublicReadOnly`.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }

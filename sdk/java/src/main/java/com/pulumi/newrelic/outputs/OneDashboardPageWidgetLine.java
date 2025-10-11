@@ -36,7 +36,7 @@ public final class OneDashboardPageWidgetLine {
      */
     private Integer column;
     /**
-     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * @return (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      * 
      */
     private @Nullable List<OneDashboardPageWidgetLineDataFormat> dataFormats;
@@ -122,12 +122,12 @@ public final class OneDashboardPageWidgetLine {
     private @Nullable Integer width;
     private @Nullable Double yAxisLeftMax;
     /**
-     * @return , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     * @return , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      * 
      */
     private @Nullable Double yAxisLeftMin;
     /**
-     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
      * 
      */
     private @Nullable Boolean yAxisLeftZero;
@@ -153,7 +153,7 @@ public final class OneDashboardPageWidgetLine {
         return this.column;
     }
     /**
-     * @return (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
+     * @return (Optional) A nested block that describes data format. See Nested dataFormat blocks below for details.
      * 
      */
     public List<OneDashboardPageWidgetLineDataFormat> dataFormats() {
@@ -275,14 +275,14 @@ public final class OneDashboardPageWidgetLine {
         return Optional.ofNullable(this.yAxisLeftMax);
     }
     /**
-     * @return , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     * @return , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      * 
      */
     public Optional<Double> yAxisLeftMin() {
         return Optional.ofNullable(this.yAxisLeftMin);
     }
     /**
-     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_left_min` (or 0 if it is not defined) to `y_axis_left_max`. Use `y_axis_left_zero = true` with a combination of `y_axis_left_min` and `y_axis_left_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_left_zero = false` to fit the graph to scale.
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisLeftMin` (or 0 if it is not defined) to `yAxisLeftMax`. Use `yAxisLeftZero = true` with a combination of `yAxisLeftMin` and `yAxisLeftMax` to render values from 0 or the specified minimum to the maximum, and `yAxisLeftZero = false` to fit the graph to scale.
      * 
      */
     public Optional<Boolean> yAxisLeftZero() {

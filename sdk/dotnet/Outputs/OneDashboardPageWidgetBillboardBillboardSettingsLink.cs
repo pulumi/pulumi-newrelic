@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetBillboardBillboardSettingsLink
     {
         /// <summary>
-        /// (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `false`.
+        /// (Optional) Boolean value indicating whether the link should open in a new tab. Defaults to `False`.
         /// </summary>
         public readonly bool? NewTab;
         /// <summary>

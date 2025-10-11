@@ -14,16 +14,16 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class NrqlAlertConditionNrql
     {
         /// <summary>
-        /// The New Relic account ID to use as the basis for the NRQL alert condition's `query`; will default to `account_id` if unspecified.
+        /// The New Relic account ID to use as the basis for the NRQL alert condition's `Query`; will default to `AccountId` if unspecified.
         /// </summary>
         public readonly string? DataAccountId;
         /// <summary>
-        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `evaluation_offset`.
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `EvaluationOffset`.
         /// </summary>
         public readonly int? EvaluationOffset;
         public readonly string Query;
         /// <summary>
-        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `since_value`.
+        /// NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition's `SinceValue`.
         /// </summary>
         public readonly string? SinceValue;
 

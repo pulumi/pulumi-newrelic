@@ -18,14 +18,14 @@ public final class OneDashboardPageWidgetFunnelUnitArgs extends com.pulumi.resou
     public static final OneDashboardPageWidgetFunnelUnitArgs Empty = new OneDashboardPageWidgetFunnelUnitArgs();
 
     /**
-     * (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     @Import(name="seriesOverrides")
     private @Nullable Output<List<OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs>> seriesOverrides;
 
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs>>> seriesOverrides() {
@@ -73,7 +73,7 @@ public final class OneDashboardPageWidgetFunnelUnitArgs extends com.pulumi.resou
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OneDashboardPageWidgetFunnelUnitArgs extends com.pulumi.resou
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class OneDashboardPageWidgetFunnelUnitArgs extends com.pulumi.resou
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     public static final OciLinkAccountArgs Empty = new OciLinkAccountArgs();
 
     /**
-     * New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+     * New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+     * @return New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -280,7 +280,7 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountId New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountId New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 

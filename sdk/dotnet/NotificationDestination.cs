@@ -94,19 +94,19 @@ namespace Pulumi.NewRelic
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        /// A nested block that describes a basic username and password authentication credentials. Only one AuthBasic block is permitted per notification destination definition.  See Nested AuthBasic blocks below for details.
         /// </summary>
         [Output("authBasic")]
         public Output<Outputs.NotificationDestinationAuthBasic?> AuthBasic { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested AuthCustomHeader blocks below for details.
         /// </summary>
         [Output("authCustomHeaders")]
         public Output<ImmutableArray<Outputs.NotificationDestinationAuthCustomHeader>> AuthCustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        /// A nested block that describes a token authentication credentials. Only one AuthToken block is permitted per notification destination definition.  See Nested AuthToken blocks below for details.
         /// </summary>
         [Output("authToken")]
         public Output<Outputs.NotificationDestinationAuthToken?> AuthToken { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<Outputs.NotificationDestinationProperty>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one SecureUrl block is permitted per notification destination definition. See Nested SecureUrl blocks below for details.
         /// </summary>
         [Output("secureUrl")]
         public Output<Outputs.NotificationDestinationSecureUrl?> SecureUrl { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        /// A nested block that describes a basic username and password authentication credentials. Only one AuthBasic block is permitted per notification destination definition.  See Nested AuthBasic blocks below for details.
         /// </summary>
         [Input("authBasic")]
         public Input<Inputs.NotificationDestinationAuthBasicArgs>? AuthBasic { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs>? _authCustomHeaders;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested AuthCustomHeader blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationAuthCustomHeaderArgs> AuthCustomHeaders
         {
@@ -230,7 +230,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        /// A nested block that describes a token authentication credentials. Only one AuthToken block is permitted per notification destination definition.  See Nested AuthToken blocks below for details.
         /// </summary>
         [Input("authToken")]
         public Input<Inputs.NotificationDestinationAuthTokenArgs>? AuthToken { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one SecureUrl block is permitted per notification destination definition. See Nested SecureUrl blocks below for details.
         /// </summary>
         [Input("secureUrl")]
         public Input<Inputs.NotificationDestinationSecureUrlArgs>? SecureUrl { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+        /// A nested block that describes a basic username and password authentication credentials. Only one AuthBasic block is permitted per notification destination definition.  See Nested AuthBasic blocks below for details.
         /// </summary>
         [Input("authBasic")]
         public Input<Inputs.NotificationDestinationAuthBasicGetArgs>? AuthBasic { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs>? _authCustomHeaders;
 
         /// <summary>
-        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+        /// A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested AuthCustomHeader blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationAuthCustomHeaderGetArgs> AuthCustomHeaders
         {
@@ -304,7 +304,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+        /// A nested block that describes a token authentication credentials. Only one AuthToken block is permitted per notification destination definition.  See Nested AuthToken blocks below for details.
         /// </summary>
         [Input("authToken")]
         public Input<Inputs.NotificationDestinationAuthTokenGetArgs>? AuthToken { get; set; }
@@ -340,7 +340,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+        /// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one SecureUrl block is permitted per notification destination definition. See Nested SecureUrl blocks below for details.
         /// </summary>
         [Input("secureUrl")]
         public Input<Inputs.NotificationDestinationSecureUrlGetArgs>? SecureUrl { get; set; }

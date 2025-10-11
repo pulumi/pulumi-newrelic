@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * 
  * ### Workload Identity Federation (WIF) Attributes
  * 
- * The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `oci_client_id`, `oci_client_secret`, `oci_domain_url`, and `oci_svc_user_name`.
+ * The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret`, `ociDomainUrl`, and `ociSvcUserName`.
  * 
  * To create and retrieve these values, follow Oracle&#39;s guidance for configuring identity propagation / JWT token exchange:
  * 
@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * 
  * WIF configuration steps:
  * 1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
- * 2. Generate / record the client ID (`oci_client_id`) and client secret (`oci_client_secret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingest_vault_ocid` / `user_vault_ocid` if desired).
- * 3. Use the Identity Domain base URL as `oci_domain_url` (format: `https://idcs-&lt;hash&gt;.identity.oraclecloud.com`).
- * 4. Provide / map a service user (or principal) used for workload identity federation as `oci_svc_user_name`.
+ * 2. Generate / record the client ID (`ociClientId`) and client secret (`ociClientSecret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingestVaultOcid` / `userVaultOcid` if desired).
+ * 3. Use the Identity Domain base URL as `ociDomainUrl` (format: `https://idcs-&lt;hash&gt;.identity.oraclecloud.com`).
+ * 4. Provide / map a service user (or principal) used for workload identity federation as `ociSvcUserName`.
  * 5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
  * 
- * &gt; TIP: Rotating the OAuth2 client secret only requires updating `oci_client_secret`; it does not force resource replacement.
+ * &gt; TIP: Rotating the OAuth2 client secret only requires updating `ociClientSecret`; it does not force resource replacement.
  * 
  * ## Example Usage
  * 
@@ -149,14 +149,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/ociLinkAccount:OciLinkAccount")
 public class OciLinkAccount extends com.pulumi.resources.CustomResource {
     /**
-     * New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+     * New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+     * @return New Relic account to operate on. Overrides the provider-level `accountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Output<String> accountId() {

@@ -779,6 +779,8 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
         To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
 
+        ## Example Usage
+
         ## Import
 
         Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
@@ -832,6 +834,8 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         It is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.
 
         To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
+
+        ## Example Usage
 
         ## Import
 

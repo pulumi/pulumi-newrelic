@@ -156,14 +156,14 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+     * @return The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      * 
      */
     public Output<String> type() {
@@ -186,18 +186,18 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      * 
-     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * &gt; **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      * 
      */
     @Import(name="userDefinedValueFunction")
     private @Nullable Output<String> userDefinedValueFunction;
 
     /**
-     * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * @return One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      * 
-     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * &gt; **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      * 
      */
     public Optional<Output<String>> userDefinedValueFunction() {
@@ -206,8 +206,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
-     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
-     * * when `type` = `apm_jvm_metric`
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      * 
      */
     @Import(name="violationCloseTimer")
@@ -215,8 +215,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
-     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
-     * * when `type` = `apm_jvm_metric`
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -469,7 +469,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+         * @param type The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+         * @param type The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
          * 
          * @return builder
          * 
@@ -511,9 +511,9 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
          * 
-         * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+         * &gt; **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
          * 
          * @return builder
          * 
@@ -524,9 +524,9 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
          * 
-         * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+         * &gt; **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
          * 
          * @return builder
          * 
@@ -537,8 +537,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
-         * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
-         * * when `type` = `apm_jvm_metric`
+         * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+         * * when `type` = `apmJvmMetric`
          * 
          * @return builder
          * 
@@ -550,8 +550,8 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
-         * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
-         * * when `type` = `apm_jvm_metric`
+         * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+         * * when `type` = `apmJvmMetric`
          * 
          * @return builder
          * 

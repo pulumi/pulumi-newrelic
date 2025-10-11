@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// ### Workload Identity Federation (WIF) Attributes
     /// 
-    /// The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `oci_client_id`, `oci_client_secret`, `oci_domain_url`, and `oci_svc_user_name`.
+    /// The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `OciClientId`, `OciClientSecret`, `OciDomainUrl`, and `OciSvcUserName`.
     /// 
     /// To create and retrieve these values, follow Oracle's guidance for configuring identity propagation / JWT token exchange:
     /// 
@@ -33,12 +33,12 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// WIF configuration steps:
     /// 1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
-    /// 2. Generate / record the client ID (`oci_client_id`) and client secret (`oci_client_secret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingest_vault_ocid` / `user_vault_ocid` if desired).
-    /// 3. Use the Identity Domain base URL as `oci_domain_url` (format: `https://idcs-&lt;hash&gt;.identity.oraclecloud.com`).
-    /// 4. Provide / map a service user (or principal) used for workload identity federation as `oci_svc_user_name`.
+    /// 2. Generate / record the client ID (`OciClientId`) and client secret (`OciClientSecret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `IngestVaultOcid` / `UserVaultOcid` if desired).
+    /// 3. Use the Identity Domain base URL as `OciDomainUrl` (format: `https://idcs-&lt;hash&gt;.identity.oraclecloud.com`).
+    /// 4. Provide / map a service user (or principal) used for workload identity federation as `OciSvcUserName`.
     /// 5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
     /// 
-    /// &gt; TIP: Rotating the OAuth2 client secret only requires updating `oci_client_secret`; it does not force resource replacement.
+    /// &gt; TIP: Rotating the OAuth2 client secret only requires updating `OciClientSecret`; it does not force resource replacement.
     /// 
     /// ## Example Usage
     /// 
@@ -113,7 +113,7 @@ namespace Pulumi.NewRelic.Cloud
     public partial class OciLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+        /// New Relic account to operate on. Overrides the provider-level `AccountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class OciLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+        /// New Relic account to operate on. Overrides the provider-level `AccountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class OciLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
+        /// New Relic account to operate on. Overrides the provider-level `AccountId`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

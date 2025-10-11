@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *
  * To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Integrate AWSGovCloud accounts can be imported using the `id`, e.g.

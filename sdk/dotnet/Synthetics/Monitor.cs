@@ -285,21 +285,21 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> BypassHeadRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        /// Custom headers to use in monitor job. See Nested CustomHeader blocks below for details.
         /// </summary>
         [Output("customHeaders")]
         public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
-        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceOrientation")]
         public Output<string?> DeviceOrientation { get; private set; } = null!;
 
         /// <summary>
         /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
-        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Output("deviceType")]
         public Output<string?> DeviceType { get; private set; } = null!;
@@ -317,13 +317,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `LocationsPublic` or `LocationsPrivate` is required.
         /// </summary>
         [Output("locationsPrivates")]
         public Output<ImmutableArray<string>> LocationsPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `LocationsPublic` or `LocationPrivate` is required.
         /// </summary>
         [Output("locationsPublics")]
         public Output<ImmutableArray<string>> LocationsPublics { get; private set; } = null!;
@@ -493,7 +493,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.MonitorCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        /// Custom headers to use in monitor job. See Nested CustomHeader blocks below for details.
         /// </summary>
         public InputList<Inputs.MonitorCustomHeaderArgs> CustomHeaders
         {
@@ -503,14 +503,14 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
-        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
         /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
-        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
@@ -537,7 +537,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPrivates;
 
         /// <summary>
-        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `LocationsPublic` or `LocationsPrivate` is required.
         /// </summary>
         public InputList<string> LocationsPrivates
         {
@@ -549,7 +549,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `LocationsPublic` or `LocationPrivate` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {
@@ -678,7 +678,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.MonitorCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
-        /// Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+        /// Custom headers to use in monitor job. See Nested CustomHeader blocks below for details.
         /// </summary>
         public InputList<Inputs.MonitorCustomHeaderGetArgs> CustomHeaders
         {
@@ -688,14 +688,14 @@ namespace Pulumi.NewRelic.Synthetics
 
         /// <summary>
         /// Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. 
-        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceOrientation")]
         public Input<string>? DeviceOrientation { get; set; }
 
         /// <summary>
         /// Device emulation type field. Valid values are `MOBILE` and `TABLET`. 
-        /// * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+        /// * We recommend you to use `Devices` field instead of `DeviceType`,`DeviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
         /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
@@ -722,7 +722,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPrivates;
 
         /// <summary>
-        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `LocationsPublic` or `LocationsPrivate` is required.
         /// </summary>
         public InputList<string> LocationsPrivates
         {
@@ -734,7 +734,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `LocationsPublic` or `LocationPrivate` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {

@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The region code of the account.  One of: `us01`, `eu01`.
+        /// The region code of the account.  One of: `Us01`, `Eu01`.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The region code of the account.  One of: `us01`, `eu01`.
+        /// The region code of the account.  One of: `Us01`, `Eu01`.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The region code of the account.  One of: `us01`, `eu01`.
+        /// The region code of the account.  One of: `Us01`, `Eu01`.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

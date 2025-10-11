@@ -100,7 +100,7 @@ namespace Pulumi.NewRelic
     public sealed class GetTestGrokPatternArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -132,7 +132,7 @@ namespace Pulumi.NewRelic
     public sealed class GetTestGrokPatternInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

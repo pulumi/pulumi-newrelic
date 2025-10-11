@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageWidgetTableDataFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) This attribute is provided when the `name` is that of a column comprising date/time values and the `type` attribute is set to `custom` defining the specific date format to be applied to your data.
+        /// (Optional) This attribute is provided when the `Name` is that of a column comprising date/time values and the `Type` attribute is set to `Custom` defining the specific date format to be applied to your data.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) This attribute is utilized when the `type` attribute is set to `decimal`, stipulating the precise number of digits after the decimal point for your data.
+        /// (Optional) This attribute is utilized when the `Type` attribute is set to `Decimal`, stipulating the precise number of digits after the decimal point for your data.
         /// </summary>
         [Input("precision")]
         public Input<int>? Precision { get; set; }
 
         /// <summary>
-        /// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        /// (Required) Specifies the data type of the variable and where its possible values may come from. One of `Enum`, `Nrql` or `String`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

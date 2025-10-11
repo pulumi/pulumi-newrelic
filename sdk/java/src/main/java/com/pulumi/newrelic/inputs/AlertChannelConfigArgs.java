@@ -167,14 +167,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+     * A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
      * 
      */
     @Import(name="payload")
     private @Nullable Output<Map<String,String>> payload;
 
     /**
-     * @return A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+     * @return A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
      * 
      */
     public Optional<Output<Map<String,String>>> payload() {
@@ -197,14 +197,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+     * Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
      * 
      */
     @Import(name="payloadType")
     private @Nullable Output<String> payloadType;
 
     /**
-     * @return Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+     * @return Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
      * 
      */
     public Optional<Output<String>> payloadType() {
@@ -586,7 +586,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payload A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+         * @param payload A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payload A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+         * @param payload A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payloadType Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+         * @param payloadType Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param payloadType Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+         * @param payloadType Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
          * 
          * @return builder
          * 

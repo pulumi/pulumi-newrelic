@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageWidgetTableNullValueSeriesOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        /// Choose an option in displaying null values. Accepted values are `Default`, `Remove`, `Preserve`, or `Zero`.
         /// </summary>
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }

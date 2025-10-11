@@ -17,14 +17,14 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final AlertPolicyArgs Empty = new AlertPolicyArgs();
 
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -35,10 +35,10 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      * 
      * @deprecated
-     * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      * 
      */
-    @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
+    @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
     @Import(name="channelIds")
     private @Nullable Output<List<String>> channelIds;
 
@@ -46,10 +46,10 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      * 
      * @deprecated
-     * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      * 
      */
-    @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
+    @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
     public Optional<Output<List<String>>> channelIds() {
         return Optional.ofNullable(this.channelIds);
     }
@@ -112,7 +112,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -138,10 +138,10 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+         * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
          * 
          */
-        @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
+        @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(@Nullable Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
@@ -153,10 +153,10 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+         * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
          * 
          */
-        @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
+        @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
@@ -167,10 +167,10 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+         * The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
          * 
          */
-        @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
+        @Deprecated /* The `channelIds` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }

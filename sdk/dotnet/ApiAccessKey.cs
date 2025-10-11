@@ -46,22 +46,22 @@ namespace Pulumi.NewRelic
         public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        /// Required if `KeyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Output("ingestType")]
         public Output<string> IngestType { get; private set; } = null!;
 
         /// <summary>
         /// The actual API key.
-        /// - &lt;span style="color:tomato;"&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
+        /// - &lt;span style="color:tomato;"&gt;It is important to exercise caution when exporting the value of `Key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
         /// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
-        /// - If `key_type` is `INGEST`, then `ingest_type` must be specified.
-        /// - If `key_type` is `USER`, then `user_id` must be specified.
+        /// - If `KeyType` is `INGEST`, then `IngestType` must be specified.
+        /// - If `KeyType` is `USER`, then `UserId` must be specified.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.NewRelic
         public Output<string> Notes { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
+        /// Required if `KeyType` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -134,15 +134,15 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        /// Required if `KeyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Input("ingestType")]
         public Input<string>? IngestType { get; set; }
 
         /// <summary>
         /// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
-        /// - If `key_type` is `INGEST`, then `ingest_type` must be specified.
-        /// - If `key_type` is `USER`, then `user_id` must be specified.
+        /// - If `KeyType` is `INGEST`, then `IngestType` must be specified.
+        /// - If `KeyType` is `USER`, then `UserId` must be specified.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
+        /// Required if `KeyType` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
@@ -177,22 +177,22 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
+        /// Required if `KeyType` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         /// </summary>
         [Input("ingestType")]
         public Input<string>? IngestType { get; set; }
 
         /// <summary>
         /// The actual API key.
-        /// - &lt;span style="color:tomato;"&gt;It is important to exercise caution when exporting the value of `key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
+        /// - &lt;span style="color:tomato;"&gt;It is important to exercise caution when exporting the value of `Key`, as it is sensitive information&lt;/span&gt;. Avoid logging or exposing it inappropriately.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
         /// The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
-        /// - If `key_type` is `INGEST`, then `ingest_type` must be specified.
-        /// - If `key_type` is `USER`, then `user_id` must be specified.
+        /// - If `KeyType` is `INGEST`, then `IngestType` must be specified.
+        /// - If `KeyType` is `USER`, then `UserId` must be specified.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Required if `key_type` is `USER`. The New Relic user ID for which the API access key will be created.
+        /// Required if `KeyType` is `USER`. The New Relic user ID for which the API access key will be created.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

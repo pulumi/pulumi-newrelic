@@ -286,8 +286,8 @@ import javax.annotation.Nullable;
  * 
  * In version v3.3 we renamed the following arguments:
  * 
- * - `workflow_enabled` changed to `enabled`.
- * - `destination_configuration` changed to `destination`.
+ * - `workflowEnabled` changed to `enabled`.
+ * - `destinationConfiguration` changed to `destination`.
  * - `predicates` changed to `predicate`.
  * - Enrichment&#39;s `configurations` changed to `configuration`.
  * 
@@ -411,14 +411,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      * 
      */
     @Export(name="issuesFilter", refs={WorkflowIssuesFilter.class}, tree="[0]")
     private Output<WorkflowIssuesFilter> issuesFilter;
 
     /**
-     * @return A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+     * @return A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      * 
      */
     public Output<WorkflowIssuesFilter> issuesFilter() {

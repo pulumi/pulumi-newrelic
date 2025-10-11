@@ -60,7 +60,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// The GUID of the application in New Relic APM.
         /// 
-        /// &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        /// &gt; **NOTE:** While the attribute `Guid` is not mandatory at a schema level, it is recommended to use `Guid` over `Name`, as support for using `Name` with this resource shall eventually be discontinued. Please see the note under `Name` for more details.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// The GUID of the application in New Relic APM.
         /// 
-        /// &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        /// &gt; **NOTE:** While the attribute `Guid` is not mandatory at a schema level, it is recommended to use `Guid` over `Name`, as support for using `Name` with this resource shall eventually be discontinued. Please see the note under `Name` for more details.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// The GUID of the application in New Relic APM.
         /// 
-        /// &gt; **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
+        /// &gt; **NOTE:** While the attribute `Guid` is not mandatory at a schema level, it is recommended to use `Guid` over `Name`, as support for using `Name` with this resource shall eventually be discontinued. Please see the note under `Name` for more details.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }

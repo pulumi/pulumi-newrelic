@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OneDashboardPageWidgetFunnelUnit {
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     private @Nullable List<OneDashboardPageWidgetFunnelUnitSeriesOverride> seriesOverrides;
@@ -26,7 +26,7 @@ public final class OneDashboardPageWidgetFunnelUnit {
 
     private OneDashboardPageWidgetFunnelUnit() {}
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     public List<OneDashboardPageWidgetFunnelUnitSeriesOverride> seriesOverrides() {

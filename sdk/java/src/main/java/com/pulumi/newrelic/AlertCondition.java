@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
  *   * `threshold` - (Required) Must be 0 or greater.
- *   * `time_function` - (Required) `all` or `any`.
+ *   * `timeFunction` - (Required) `all` or `any`.
  * 
  * ## Tags
  * 
@@ -325,14 +325,14 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return this.terms;
     }
     /**
-     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+     * @return The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      * 
      */
     public Output<String> type() {
@@ -353,18 +353,18 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userDefinedMetric);
     }
     /**
-     * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      * 
-     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * &gt; **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      * 
      */
     @Export(name="userDefinedValueFunction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDefinedValueFunction;
 
     /**
-     * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
+     * @return One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      * 
-     * &gt; **NOTE:** The `user_defined_value_function` can have `rate` or `percent` only when the `type` is `mobile_metric`.
+     * &gt; **NOTE:** The `userDefinedValueFunction` can have `rate` or `percent` only when the `type` is `mobileMetric`.
      * 
      */
     public Output<Optional<String>> userDefinedValueFunction() {
@@ -372,8 +372,8 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
     }
     /**
      * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
-     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
-     * * when `type` = `apm_jvm_metric`
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      * 
      */
     @Export(name="violationCloseTimer", refs={Integer.class}, tree="[0]")
@@ -381,8 +381,8 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be between 1 and 720 hours. Must be specified in the following two cases, to prevent drift:
-     * * when `type` = `apm_app_metric` and `condition_scope` = `instance`
-     * * when `type` = `apm_jvm_metric`
+     * * when `type` = `apmAppMetric` and `conditionScope` = `instance`
+     * * when `type` = `apmJvmMetric`
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {

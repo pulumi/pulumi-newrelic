@@ -31,14 +31,14 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+     * @return An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      * 
      */
     public Optional<Output<String>> action() {
@@ -156,7 +156,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+         * @param action An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class NrqlDropRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+         * @param action An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
          * 
          * @return builder
          * 

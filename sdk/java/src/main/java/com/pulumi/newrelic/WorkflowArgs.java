@@ -122,14 +122,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      * 
      */
     @Import(name="issuesFilter", required=true)
     private Output<WorkflowIssuesFilterArgs> issuesFilter;
 
     /**
-     * @return A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+     * @return A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      * 
      */
     public Output<WorkflowIssuesFilterArgs> issuesFilter() {
@@ -345,7 +345,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuesFilter A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+         * @param issuesFilter A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuesFilter A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
+         * @param issuesFilter A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
          * 
          * @return builder
          * 

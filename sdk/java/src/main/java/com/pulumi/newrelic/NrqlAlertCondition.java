@@ -107,9 +107,9 @@ import javax.annotation.Nullable;
  * The `nrql` block supports the following arguments:
  * 
  * - `query` - (Required) The NRQL query to execute for the condition.
- * - `data_account_id` - (Optional) The account ID to use for the alert condition&#39;s query as specified in the the `query` field. If `data_account_id` is not specified, then the condition&#39;s query will be evaluated against the `account_id`. Note that the `account_id` must have read privileges for the `data_account_id` or else the condition will be invalid.
- * - `evaluation_offset` - (Optional) **DEPRECATED:** Use `aggregation_method` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregation_window` size. The start time depends on this value. It&#39;s recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 windows and an `aggregation_window` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluation_offset` cannot be set with `aggregation_method`, `aggregation_delay`, or `aggregation_timer`.&lt;br&gt;
- * - `since_value` - (Optional)  **DEPRECATED:** Use `aggregation_method` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
+ * - `dataAccountId` - (Optional) The account ID to use for the alert condition&#39;s query as specified in the the `query` field. If `dataAccountId` is not specified, then the condition&#39;s query will be evaluated against the `accountId`. Note that the `accountId` must have read privileges for the `dataAccountId` or else the condition will be invalid.
+ * - `evaluationOffset` - (Optional) **DEPRECATED:** Use `aggregationMethod` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregationWindow` size. The start time depends on this value. It&#39;s recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 windows and an `aggregationWindow` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluationOffset` cannot be set with `aggregationMethod`, `aggregationDelay`, or `aggregationTimer`.&lt;br&gt;
+ * - `sinceValue` - (Optional)  **DEPRECATED:** Use `aggregationMethod` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
  * 
  * ## Terms
  * 
@@ -119,23 +119,23 @@ import javax.annotation.Nullable;
  * 
  * The `term` block supports the following arguments:
  * 
- * - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
+ * - `operator` - (Optional) Valid values are `above`, `aboveOrEquals`, `below`, `belowOrEquals`, `equals`, or `notEquals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
  * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
  * - `threshold` - (Required) The value which will trigger an incident.
  * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
- * - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+ * - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
  * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
  * &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
  * 
- * - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
- * - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
- * - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+ * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+ * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
+ * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
  * - `prediction` - (Optional) **BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis.** Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for _static_ NRQL alert conditions. See Prediction below for details.
- * - `disable_health_status_reporting` - (Optional) `true` or `false`. Defaults to `false` when field not included in TF config. Violations will not change system health status for this term.
+ * - `disableHealthStatusReporting` - (Optional) `true` or `false`. Defaults to `false` when field not included in TF config. Violations will not change system health status for this term.
  * 
- * &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.
+ * &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `thresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
  * 
- * &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.
+ * &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `timeFunction` or `thresholdOccurrences` (one of the two) is mandatory. Both of these should not be specified.
  * 
  * ### Prediction
  * 
@@ -145,8 +145,8 @@ import javax.annotation.Nullable;
  * 
  * The `prediction` block supports the following arguments:
  * 
- * - `predict_by` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
- * - `prefer_prediction_violation` - (Optional) If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
+ * - `predictBy` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
+ * - `preferPredictionViolation` - (Optional) If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
  * 
  * ## Additional Examples
  * 
@@ -460,42 +460,42 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
+     * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     @Export(name="aggregationDelay", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aggregationDelay;
 
     /**
-     * @return How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
+     * @return How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     public Output<Optional<String>> aggregationDelay() {
         return Codegen.optional(this.aggregationDelay);
     }
     /**
-     * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+     * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     @Export(name="aggregationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aggregationMethod;
 
     /**
-     * @return Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+     * @return Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     public Output<Optional<String>> aggregationMethod() {
         return Codegen.optional(this.aggregationMethod);
     }
     /**
-     * How long we wait after each data point arrives to make sure we&#39;ve processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
+     * How long we wait after each data point arrives to make sure we&#39;ve processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     @Export(name="aggregationTimer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aggregationTimer;
 
     /**
-     * @return How long we wait after each data point arrives to make sure we&#39;ve processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
+     * @return How long we wait after each data point arrives to make sure we&#39;ve processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     public Output<Optional<String>> aggregationTimer() {
@@ -516,14 +516,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return this.aggregationWindow;
     }
     /**
-     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      * 
      */
     @Export(name="baselineDirection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> baselineDirection;
 
     /**
-     * @return The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+     * @return The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      * 
      */
     public Output<Optional<String>> baselineDirection() {
@@ -628,14 +628,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.expirationDuration);
     }
     /**
-     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      * 
      */
     @Export(name="fillOption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fillOption;
 
     /**
-     * @return Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+     * @return Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      * 
      */
     public Output<Optional<String>> fillOption() {
@@ -754,14 +754,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.signalSeasonality);
     }
     /**
-     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      * 
      */
     @Export(name="slideBy", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> slideBy;
 
     /**
-     * @return Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+     * @return Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      * 
      */
     public Output<Optional<Integer>> slideBy() {
@@ -814,20 +814,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.type);
     }
     /**
-     * **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      * @deprecated
-     * use `violation_time_limit_seconds` attribute instead
+     * use `violationTimeLimitSeconds` attribute instead
      * 
      */
-    @Deprecated /* use `violation_time_limit_seconds` attribute instead */
+    @Deprecated /* use `violationTimeLimitSeconds` attribute instead */
     @Export(name="violationTimeLimit", refs={String.class}, tree="[0]")
     private Output<String> violationTimeLimit;
 
     /**
-     * @return **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * @return **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     public Output<String> violationTimeLimit() {
@@ -835,7 +835,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     }
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     @Export(name="violationTimeLimitSeconds", refs={Integer.class}, tree="[0]")
@@ -843,7 +843,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+     * &lt;small&gt;\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
      * 
      */
     public Output<Optional<Integer>> violationTimeLimitSeconds() {

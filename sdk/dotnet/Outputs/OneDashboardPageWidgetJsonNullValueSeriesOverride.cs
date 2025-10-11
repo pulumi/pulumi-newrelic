@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetJsonNullValueSeriesOverride
     {
         /// <summary>
-        /// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        /// Choose an option in displaying null values. Accepted values are `Default`, `Remove`, `Preserve`, or `Zero`.
         /// </summary>
         public readonly string? NullValue;
         /// <summary>

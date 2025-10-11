@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+        /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `AccountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -38,21 +38,21 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// A JSON-encoded string, comprising tags associated with the entity fetched.
-        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `Jsondecode` with the attribute `EntityTags`, to get the tags associated with the entity fetched.
         /// </summary>
         [Input("entityTags")]
         public string? EntityTags { get; set; }
 
         /// <summary>
-        /// Ignore case of the `name` when searching for the entity. Defaults to false.
+        /// Ignore case of the `Name` when searching for the entity. Defaults to false.
         /// </summary>
         [Input("ignoreCase")]
         public bool? IgnoreCase { get; set; }
 
         /// <summary>
-        /// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+        /// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `False`.
         /// 
-        /// &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+        /// &gt; **WARNING:** Setting the `IgnoreNotFound` argument to `True` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
         /// </summary>
         [Input("ignoreNotFound")]
         public bool? IgnoreNotFound { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.NewRelic
     public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+        /// The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `AccountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -103,21 +103,21 @@ namespace Pulumi.NewRelic
 
         /// <summary>
         /// A JSON-encoded string, comprising tags associated with the entity fetched.
-        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `Jsondecode` with the attribute `EntityTags`, to get the tags associated with the entity fetched.
         /// </summary>
         [Input("entityTags")]
         public Input<string>? EntityTags { get; set; }
 
         /// <summary>
-        /// Ignore case of the `name` when searching for the entity. Defaults to false.
+        /// Ignore case of the `Name` when searching for the entity. Defaults to false.
         /// </summary>
         [Input("ignoreCase")]
         public Input<bool>? IgnoreCase { get; set; }
 
         /// <summary>
-        /// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
+        /// A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `False`.
         /// 
-        /// &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+        /// &gt; **WARNING:** Setting the `IgnoreNotFound` argument to `True` will display an 'entity not found' warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
         /// </summary>
         [Input("ignoreNotFound")]
         public Input<bool>? IgnoreNotFound { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.NewRelic
         public readonly string Domain;
         /// <summary>
         /// A JSON-encoded string, comprising tags associated with the entity fetched.
-        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+        /// * See the **Additional Examples** section below, for an illustration depicting the usage of `Jsondecode` with the attribute `EntityTags`, to get the tags associated with the entity fetched.
         /// </summary>
         public readonly string EntityTags;
         /// <summary>

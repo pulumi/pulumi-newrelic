@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  * The below example illustrates creating a **daily** monitor downtime.
  * 
- * Note that `end_repeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `end_repeat` specified in the argument reference section above. This example uses the `on_date` nested argument of `end_repeat`, however, the other nested argument, `on_repeat` may also be used _instead_, as you may see in some of the other examples below; though both `on_date` and `on_repeat` cannot be specified together, as they are mutually exclusive.
+ * Note that `endRepeat` has been specified in the configuration; however, this is optional, in accordance with the rules of `endRepeat` specified in the argument reference section above. This example uses the `onDate` nested argument of `endRepeat`, however, the other nested argument, `onRepeat` may also be used _instead_, as you may see in some of the other examples below; though both `onDate` and `onRepeat` cannot be specified together, as they are mutually exclusive.
  * 
  * <pre>
  * {@code
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  * 
  * The below example illustrates creating a **weekly** monitor downtime.
  * 
- * Note that `maintenance_days` has been specified in the configuration as it is required with weekly monitor downtimes; and `end_repeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
+ * Note that `maintenanceDays` has been specified in the configuration as it is required with weekly monitor downtimes; and `endRepeat` has not been specified as it is optional, all in accordance with the rules of these arguments specified in the argument reference section above.
  * 
  * <pre>
  * {@code
@@ -211,7 +211,7 @@ import javax.annotation.Nullable;
  * 
  * The below example illustrates creating a **monthly** monitor downtime.
  * 
- * Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `end_repeat` has been specified too, though it is optional. `frequency` has been specified with `days_of_week` comprising both of its nested arguments, `ordinal_day_of_month` and `week_day`; all in accordance with the rules of these arguments specified in the argument reference section above.
+ * Note that `frequency` has been specified in the configuration as it is required with monthly monitor downtimes, and `endRepeat` has been specified too, though it is optional. `frequency` has been specified with `daysOfWeek` comprising both of its nested arguments, `ordinalDayOfMonth` and `weekDay`; all in accordance with the rules of these arguments specified in the argument reference section above.
  * 
  * <pre>
  * {@code
@@ -262,7 +262,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `days_of_month`, as shown in the example below - though both `days_of_month` and `days_of_week` cannot be specified together, as they are mutually exclusive.
+ * However, the `frequency` block in monthly monitor downtimes may also be specified with its other nested argument, `daysOfMonth`, as shown in the example below - though both `daysOfMonth` and `daysOfWeek` cannot be specified together, as they are mutually exclusive.
  * <pre>
  * {@code
  * package generated_program;
@@ -327,14 +327,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/monitorDowntime:MonitorDowntime")
 public class MonitorDowntime extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
+     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      * 
      */
     public Output<String> accountId() {

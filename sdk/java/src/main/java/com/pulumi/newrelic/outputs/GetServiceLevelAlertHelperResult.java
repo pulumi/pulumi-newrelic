@@ -19,7 +19,7 @@ public final class GetServiceLevelAlertHelperResult {
     private @Nullable Integer customEvaluationPeriod;
     private @Nullable Double customToleratedBudgetConsumption;
     /**
-     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alert_type it has the same value as `custom_evaluation_period`.
+     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alertType it has the same value as `customEvaluationPeriod`.
      * 
      */
     private Integer evaluationPeriod;
@@ -43,7 +43,7 @@ public final class GetServiceLevelAlertHelperResult {
      */
     private Double threshold;
     /**
-     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alert_type it has the same value as `custom_tolerated_budget_consumption`.
+     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alertType it has the same value as `customToleratedBudgetConsumption`.
      * 
      */
     private Double toleratedBudgetConsumption;
@@ -59,7 +59,7 @@ public final class GetServiceLevelAlertHelperResult {
         return Optional.ofNullable(this.customToleratedBudgetConsumption);
     }
     /**
-     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alert_type it has the same value as `custom_evaluation_period`.
+     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alertType it has the same value as `customEvaluationPeriod`.
      * 
      */
     public Integer evaluationPeriod() {
@@ -99,7 +99,7 @@ public final class GetServiceLevelAlertHelperResult {
         return this.threshold;
     }
     /**
-     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alert_type it has the same value as `custom_tolerated_budget_consumption`.
+     * @return (Computed) For non `custom` alert_type, this is the recommended for that type of alert. For `custom` alertType it has the same value as `customToleratedBudgetConsumption`.
      * 
      */
     public Double toleratedBudgetConsumption() {

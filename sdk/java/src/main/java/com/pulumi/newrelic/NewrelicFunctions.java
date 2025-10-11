@@ -57,7 +57,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -99,7 +99,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -141,7 +141,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -183,7 +183,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -225,7 +225,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -267,7 +267,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -309,7 +309,7 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific account in New Relic.
      * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `account_id` will be used.
+     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -353,6 +353,8 @@ public final class NewrelicFunctions {
      * 
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args) {
         return getAlertChannel(args, InvokeOptions.Empty);
@@ -361,6 +363,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific alert channel in New Relic that already exists.
      * 
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args) {
@@ -371,6 +375,8 @@ public final class NewrelicFunctions {
      * 
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
@@ -379,6 +385,8 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific alert channel in New Relic that already exists.
      * 
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args, InvokeOutputOptions options) {
@@ -389,12 +397,16 @@ public final class NewrelicFunctions {
      * 
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
+     * ## Example Usage
+     * 
      */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args) {
@@ -403,12 +415,16 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
      * 
+     * ## Example Usage
+     * 
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args) {
         return getAlertPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOptions options) {
@@ -417,12 +433,16 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args, InvokeOptions options) {
@@ -970,7 +990,7 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific cloud account linked to New Relic.
-     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
+     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
      * 
      * ## Example Usage
      * 
@@ -1013,7 +1033,7 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific cloud account linked to New Relic.
-     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
+     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
      * 
      * ## Example Usage
      * 
@@ -1056,7 +1076,7 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific cloud account linked to New Relic.
-     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
+     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
      * 
      * ## Example Usage
      * 
@@ -1099,7 +1119,7 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific cloud account linked to New Relic.
-     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
+     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
      * 
      * ## Example Usage
      * 
@@ -1142,7 +1162,7 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific cloud account linked to New Relic.
-     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no account_id is specified on the resource the provider level account_id will be used.
+     * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
      * 
      * ## Example Usage
      * 
@@ -1246,7 +1266,7 @@ public final class NewrelicFunctions {
      * 
      * The following example demonstrates utilizing attributes exported by this data source.
      * 
-     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
      * 
      * <pre>
      * {@code
@@ -1346,7 +1366,7 @@ public final class NewrelicFunctions {
      * 
      * The following example demonstrates utilizing attributes exported by this data source.
      * 
-     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
      * 
      * <pre>
      * {@code
@@ -1446,7 +1466,7 @@ public final class NewrelicFunctions {
      * 
      * The following example demonstrates utilizing attributes exported by this data source.
      * 
-     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
      * 
      * <pre>
      * {@code
@@ -1546,7 +1566,7 @@ public final class NewrelicFunctions {
      * 
      * The following example demonstrates utilizing attributes exported by this data source.
      * 
-     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
      * 
      * <pre>
      * {@code
@@ -1646,7 +1666,7 @@ public final class NewrelicFunctions {
      * 
      * The following example demonstrates utilizing attributes exported by this data source.
      * 
-     * In order to directly reference the attributes `id` and `user_ids` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `user_ids` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
+     * In order to directly reference the attributes `id` and `userIds` from this data source, you can use the syntax `data.newrelic_group.foo.id` and `data.newrelic_group.foo.user_ids`, respectively. However, if you need to assign these values to local variables and perform further processing (such as conditionally formatting the `userIds` attribute as shown in the example below), consider using the provided configuration. These variables can then be accessed elsewhere using the syntax `local.id` and `local.user_id`, respectively.
      * 
      * <pre>
      * {@code
@@ -2325,7 +2345,7 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn` or `slowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
      * 
      * ## Example Usage
      * 
@@ -2394,10 +2414,10 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * Note that the Service Level was set up using bad events, that&#39;s why `isBadEvents` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
-     * Here is an example of a `slow_burn` alert.
+     * Here is an example of a `slowBurn` alert.
      * 
      * <pre>
      * {@code
@@ -2532,7 +2552,7 @@ public final class NewrelicFunctions {
         return getServiceLevelAlertHelper(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn` or `slowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
      * 
      * ## Example Usage
      * 
@@ -2601,10 +2621,10 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * Note that the Service Level was set up using bad events, that&#39;s why `isBadEvents` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
-     * Here is an example of a `slow_burn` alert.
+     * Here is an example of a `slowBurn` alert.
      * 
      * <pre>
      * {@code
@@ -2739,7 +2759,7 @@ public final class NewrelicFunctions {
         return getServiceLevelAlertHelperPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn` or `slowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
      * 
      * ## Example Usage
      * 
@@ -2808,10 +2828,10 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * Note that the Service Level was set up using bad events, that&#39;s why `isBadEvents` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
-     * Here is an example of a `slow_burn` alert.
+     * Here is an example of a `slowBurn` alert.
      * 
      * <pre>
      * {@code
@@ -2946,7 +2966,7 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn` or `slowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
      * 
      * ## Example Usage
      * 
@@ -3015,10 +3035,10 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * Note that the Service Level was set up using bad events, that&#39;s why `isBadEvents` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
-     * Here is an example of a `slow_burn` alert.
+     * Here is an example of a `slowBurn` alert.
      * 
      * <pre>
      * {@code
@@ -3153,7 +3173,7 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getServiceLevelAlertHelper:getServiceLevelAlertHelper", TypeShape.of(GetServiceLevelAlertHelperResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alert_type in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fast_burn` or `slow_burn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
+     * Use this data source to obtain the necessary fields to set up alerts on your service levels. It can be used for a `custom` alertType in order to set up an alert with custom tolerated budget consumption and custom evaluation period or for recommended ones like `fastBurn` or `slowBurn`. For more information check [the documentation](https://docs.newrelic.com/docs/service-level-management/alerts-slm/).
      * 
      * ## Example Usage
      * 
@@ -3222,10 +3242,10 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * Then use the helper to obtain the necessary fields to set up an alert on that Service Level.
-     * Note that the Service Level was set up using bad events, that&#39;s why `is_bad_events` is set to `true`.
+     * Note that the Service Level was set up using bad events, that&#39;s why `isBadEvents` is set to `true`.
      * If the Service Level was configured with good events that would be unnecessary as the field defaults to `false`.
      * 
-     * Here is an example of a `slow_burn` alert.
+     * Here is an example of a `slowBurn` alert.
      * 
      * <pre>
      * {@code

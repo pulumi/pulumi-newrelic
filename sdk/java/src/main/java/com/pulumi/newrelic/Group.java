@@ -60,7 +60,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
      * 
-     * &gt; **WARNING:** Changing the `authentication_domain_id` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authentication_domain_id` of an existing group is not supported.
+     * &gt; **WARNING:** Changing the `authenticationDomainId` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing group is not supported.
      * 
      */
     @Export(name="userIds", refs={List.class,String.class}, tree="[0,1]")
@@ -71,7 +71,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE** The ID of an authentication domain can be retrieved using its name, via the data source `newrelic.getAuthenticationDomain`, as shown in the example above. Head over to the documentation of this data source for more details and examples.
      * 
-     * &gt; **WARNING:** Changing the `authentication_domain_id` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authentication_domain_id` of an existing group is not supported.
+     * &gt; **WARNING:** Changing the `authenticationDomainId` of a `newrelic.Group` resource that has already been applied would result in a **replacement** of the resource – destruction of the existing resource, followed by the addition of a new resource with the specified configuration. This is due to the fact that updating the `authenticationDomainId` of an existing group is not supported.
      * 
      */
     public Output<Optional<List<String>>> userIds() {

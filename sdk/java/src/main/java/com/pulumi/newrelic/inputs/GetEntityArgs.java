@@ -20,14 +20,14 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetEntityArgs Empty = new GetEntityArgs();
 
     /**
-     * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+     * The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+     * @return The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -51,7 +51,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * A JSON-encoded string, comprising tags associated with the entity fetched.
-     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
      * 
      */
     @Import(name="entityTags")
@@ -59,7 +59,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return A JSON-encoded string, comprising tags associated with the entity fetched.
-     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
      * 
      */
     public Optional<Output<String>> entityTags() {
@@ -84,7 +84,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
      * 
-     * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+     * &gt; **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
      * 
      */
     @Import(name="ignoreNotFound")
@@ -93,7 +93,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
      * 
-     * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+     * &gt; **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
      * 
      */
     public Optional<Output<Boolean>> ignoreNotFound() {
@@ -177,7 +177,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+         * @param accountId The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountId The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `account_id` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
+         * @param accountId The New Relic account ID the entity to be returned would be associated with, i.e. if specified, the data source would filter matching entities received by `accountId` and return the first match. If not, matching entities are filtered by the account ID specified in the configuration of the provider. See the **Example: Filter By Account ID** section above for more details.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
-         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param entityTags A JSON-encoded string, comprising tags associated with the entity fetched.
-         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+         * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param ignoreNotFound A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
          * 
-         * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+         * &gt; **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param ignoreNotFound A boolean argument that, when set to true, prevents an error from being thrown when the queried entity is not found. Instead, a warning is displayed. Defaults to `false`.
          * 
-         * &gt; **WARNING:** Setting the `ignore_not_found` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
+         * &gt; **WARNING:** Setting the `ignoreNotFound` argument to `true` will display an &#39;entity not found&#39; warning instead of throwing an error. This can lead to downstream errors if the values of attributes exported by this data source are used elsewhere, as all of these values would be null. Please use this argument at your own risk.
          * 
          * @return builder
          * 

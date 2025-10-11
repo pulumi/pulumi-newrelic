@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs>? _seriesOverrides;
 
         /// <summary>
-        /// (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        /// (Optional) A Nested block which will take two string attributes `Color` and `SeriesName`. This nested block is used to customize colors of individual.
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs> SeriesOverrides
         {

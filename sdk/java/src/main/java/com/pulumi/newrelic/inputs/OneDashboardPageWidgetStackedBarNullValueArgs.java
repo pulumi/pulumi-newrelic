@@ -33,14 +33,14 @@ public final class OneDashboardPageWidgetStackedBarNullValueArgs extends com.pul
     }
 
     /**
-     * (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     @Import(name="seriesOverrides")
     private @Nullable Output<List<OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs>> seriesOverrides;
 
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs>>> seriesOverrides() {
@@ -94,7 +94,7 @@ public final class OneDashboardPageWidgetStackedBarNullValueArgs extends com.pul
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class OneDashboardPageWidgetStackedBarNullValueArgs extends com.pul
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class OneDashboardPageWidgetStackedBarNullValueArgs extends com.pul
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 

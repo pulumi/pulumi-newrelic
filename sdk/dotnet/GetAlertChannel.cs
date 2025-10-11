@@ -15,6 +15,9 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific alert channel in New Relic that already exists.
         /// 
         /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+        /// 
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithDefaults());
@@ -23,6 +26,9 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific alert channel in New Relic that already exists.
         /// 
         /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+        /// 
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetAlertChannelResult> Invoke(GetAlertChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());
@@ -31,6 +37,9 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific alert channel in New Relic that already exists.
         /// 
         /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+        /// 
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetAlertChannelResult> Invoke(GetAlertChannelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());
@@ -40,7 +49,7 @@ namespace Pulumi.NewRelic
     public sealed class GetAlertChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -60,7 +69,7 @@ namespace Pulumi.NewRelic
     public sealed class GetAlertChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows you to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -96,7 +105,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly ImmutableArray<string> PolicyIds;
         /// <summary>
-        /// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+        /// Alert channel type, either: `Email`, `Opsgenie`, `Pagerduty`, `Slack`, `Victorops`, or `Webhook`.
         /// </summary>
         public readonly string Type;
 

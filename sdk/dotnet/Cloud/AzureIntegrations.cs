@@ -335,7 +335,7 @@ namespace Pulumi.NewRelic.Cloud
     public partial class AzureIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked Azure account in New Relic.
         /// 
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 60 seconds.
         /// </summary>
         [Output("linkedAccountId")]
         public Output<string> LinkedAccountId { get; private set; } = null!;
@@ -454,7 +454,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure Monitor. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 300 seconds.
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.AzureIntegrationsMonitor?> Monitor { get; private set; } = null!;
@@ -516,7 +516,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// for Azure Storage. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 3600 seconds.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.AzureIntegrationsStorage?> Storage { get; private set; } = null!;
@@ -542,7 +542,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure VPN Gateway. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 1800 seconds.
         /// </summary>
         [Output("vpnGateway")]
         public Output<Outputs.AzureIntegrationsVpnGateway?> VpnGateway { get; private set; } = null!;
@@ -594,7 +594,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AzureIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -681,7 +681,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked Azure account in New Relic.
         /// 
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 60 seconds.
         /// </summary>
         [Input("linkedAccountId", required: true)]
         public Input<string> LinkedAccountId { get; set; } = null!;
@@ -713,7 +713,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure Monitor. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 300 seconds.
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.AzureIntegrationsMonitorArgs>? Monitor { get; set; }
@@ -775,7 +775,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// for Azure Storage. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 3600 seconds.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.AzureIntegrationsStorageArgs>? Storage { get; set; }
@@ -801,7 +801,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure VPN Gateway. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 1800 seconds.
         /// </summary>
         [Input("vpnGateway")]
         public Input<Inputs.AzureIntegrationsVpnGatewayArgs>? VpnGateway { get; set; }
@@ -815,7 +815,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AzureIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -902,7 +902,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The ID of the linked Azure account in New Relic.
         /// 
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 60 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 60 seconds.
         /// </summary>
         [Input("linkedAccountId")]
         public Input<string>? LinkedAccountId { get; set; }
@@ -934,7 +934,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure Monitor. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 300 seconds.
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.AzureIntegrationsMonitorGetArgs>? Monitor { get; set; }
@@ -996,7 +996,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// for Azure Storage. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 3600 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 3600 seconds.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.AzureIntegrationsStorageGetArgs>? Storage { get; set; }
@@ -1022,7 +1022,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// Azure VPN Gateway. See Integration blocks below for details.
         /// 
-        /// The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 1800 seconds.
+        /// The following arguments/integration blocks are intended to be used with a minimum `MetricsPollingInterval` of 1800 seconds.
         /// </summary>
         [Input("vpnGateway")]
         public Input<Inputs.AzureIntegrationsVpnGatewayGetArgs>? VpnGateway { get; set; }

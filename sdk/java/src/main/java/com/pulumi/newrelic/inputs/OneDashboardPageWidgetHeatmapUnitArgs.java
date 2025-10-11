@@ -18,14 +18,14 @@ public final class OneDashboardPageWidgetHeatmapUnitArgs extends com.pulumi.reso
     public static final OneDashboardPageWidgetHeatmapUnitArgs Empty = new OneDashboardPageWidgetHeatmapUnitArgs();
 
     /**
-     * (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     @Import(name="seriesOverrides")
     private @Nullable Output<List<OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs>> seriesOverrides;
 
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs>>> seriesOverrides() {
@@ -73,7 +73,7 @@ public final class OneDashboardPageWidgetHeatmapUnitArgs extends com.pulumi.reso
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OneDashboardPageWidgetHeatmapUnitArgs extends com.pulumi.reso
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class OneDashboardPageWidgetHeatmapUnitArgs extends com.pulumi.reso
         }
 
         /**
-         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+         * @param seriesOverrides (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
          * 
          * @return builder
          * 

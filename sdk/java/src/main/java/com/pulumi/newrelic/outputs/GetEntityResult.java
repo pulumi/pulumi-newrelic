@@ -24,7 +24,7 @@ public final class GetEntityResult {
     private String domain;
     /**
      * @return A JSON-encoded string, comprising tags associated with the entity fetched.
-     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
      * 
      */
     private String entityTags;
@@ -65,7 +65,7 @@ public final class GetEntityResult {
     }
     /**
      * @return A JSON-encoded string, comprising tags associated with the entity fetched.
-     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entity_tags`, to get the tags associated with the entity fetched.
+     * * See the **Additional Examples** section below, for an illustration depicting the usage of `jsondecode` with the attribute `entityTags`, to get the tags associated with the entity fetched.
      * 
      */
     public String entityTags() {

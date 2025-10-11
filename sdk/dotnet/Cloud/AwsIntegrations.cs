@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic.Cloud
     public partial class AwsIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -400,7 +400,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AwsIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -738,7 +738,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AwsIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// The New Relic account ID to operate on.  This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class ApplicationSettingsTransactionTracerSql
     {
         /// <summary>
-        /// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `sql` block is provided).
+        /// The level of SQL recording. Valid values ar `OBFUSCATED`,`OFF`,`RAW` (Mandatory attribute when `Sql` block is provided).
         /// </summary>
         public readonly string RecordSql;
 

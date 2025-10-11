@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
+ *
+ * ## Example Usage
  */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,6 +67,8 @@ export interface GetAlertPolicyResult {
 }
 /**
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
+ *
+ * ## Example Usage
  */
 export function getAlertPolicyOutput(args: GetAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

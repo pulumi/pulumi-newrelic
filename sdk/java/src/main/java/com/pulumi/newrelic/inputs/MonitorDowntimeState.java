@@ -19,14 +19,14 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
     public static final MonitorDowntimeState Empty = new MonitorDowntimeState();
 
     /**
-     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
+     * The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
+     * @return The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -202,7 +202,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
+         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class MonitorDowntimeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
+         * @param accountId The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `accountId` in the provider{} configuration if not specified.
          * 
          * @return builder
          * 

@@ -36,13 +36,13 @@ namespace Pulumi.NewRelic
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Configures cookies. Defaults to `true`, if not specified.
+        /// Configures cookies. Defaults to `True`, if not specified.
         /// </summary>
         [Output("cookiesEnabled")]
         public Output<bool?> CookiesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
+        /// Configures distributed tracing in browser apps. Defaults to `True`, if not specified.
         /// </summary>
         [Output("distributedTracingEnabled")]
         public Output<bool?> DistributedTracingEnabled { get; private set; } = null!;
@@ -124,13 +124,13 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Configures cookies. Defaults to `true`, if not specified.
+        /// Configures cookies. Defaults to `True`, if not specified.
         /// </summary>
         [Input("cookiesEnabled")]
         public Input<bool>? CookiesEnabled { get; set; }
 
         /// <summary>
-        /// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
+        /// Configures distributed tracing in browser apps. Defaults to `True`, if not specified.
         /// </summary>
         [Input("distributedTracingEnabled")]
         public Input<bool>? DistributedTracingEnabled { get; set; }
@@ -168,13 +168,13 @@ namespace Pulumi.NewRelic
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Configures cookies. Defaults to `true`, if not specified.
+        /// Configures cookies. Defaults to `True`, if not specified.
         /// </summary>
         [Input("cookiesEnabled")]
         public Input<bool>? CookiesEnabled { get; set; }
 
         /// <summary>
-        /// Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
+        /// Configures distributed tracing in browser apps. Defaults to `True`, if not specified.
         /// </summary>
         [Input("distributedTracingEnabled")]
         public Input<bool>? DistributedTracingEnabled { get; set; }

@@ -39,10 +39,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
      * In minutes, must be in the range of 1 to 120 (inclusive).
      * 
      * @deprecated
-     * use `threshold_duration` attribute instead
+     * use `thresholdDuration` attribute instead
      * 
      */
-    @Deprecated /* use `threshold_duration` attribute instead */
+    @Deprecated /* use `thresholdDuration` attribute instead */
     @Import(name="duration")
     private @Nullable Output<Integer> duration;
 
@@ -50,10 +50,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
      * @return In minutes, must be in the range of 1 to 120 (inclusive).
      * 
      * @deprecated
-     * use `threshold_duration` attribute instead
+     * use `thresholdDuration` attribute instead
      * 
      */
-    @Deprecated /* use `threshold_duration` attribute instead */
+    @Deprecated /* use `thresholdDuration` attribute instead */
     public Optional<Output<Integer>> duration() {
         return Optional.ofNullable(this.duration);
     }
@@ -152,10 +152,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
      * Valid values are: &#39;all&#39; or &#39;any&#39;
      * 
      * @deprecated
-     * use `threshold_occurrences` attribute instead
+     * use `thresholdOccurrences` attribute instead
      * 
      */
-    @Deprecated /* use `threshold_occurrences` attribute instead */
+    @Deprecated /* use `thresholdOccurrences` attribute instead */
     @Import(name="timeFunction")
     private @Nullable Output<String> timeFunction;
 
@@ -163,10 +163,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
      * @return Valid values are: &#39;all&#39; or &#39;any&#39;
      * 
      * @deprecated
-     * use `threshold_occurrences` attribute instead
+     * use `thresholdOccurrences` attribute instead
      * 
      */
-    @Deprecated /* use `threshold_occurrences` attribute instead */
+    @Deprecated /* use `thresholdOccurrences` attribute instead */
     public Optional<Output<String>> timeFunction() {
         return Optional.ofNullable(this.timeFunction);
     }
@@ -230,10 +230,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          * @deprecated
-         * use `threshold_duration` attribute instead
+         * use `thresholdDuration` attribute instead
          * 
          */
-        @Deprecated /* use `threshold_duration` attribute instead */
+        @Deprecated /* use `thresholdDuration` attribute instead */
         public Builder duration(@Nullable Output<Integer> duration) {
             $.duration = duration;
             return this;
@@ -245,10 +245,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          * @deprecated
-         * use `threshold_duration` attribute instead
+         * use `thresholdDuration` attribute instead
          * 
          */
-        @Deprecated /* use `threshold_duration` attribute instead */
+        @Deprecated /* use `thresholdDuration` attribute instead */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
@@ -385,10 +385,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          * @deprecated
-         * use `threshold_occurrences` attribute instead
+         * use `thresholdOccurrences` attribute instead
          * 
          */
-        @Deprecated /* use `threshold_occurrences` attribute instead */
+        @Deprecated /* use `thresholdOccurrences` attribute instead */
         public Builder timeFunction(@Nullable Output<String> timeFunction) {
             $.timeFunction = timeFunction;
             return this;
@@ -400,10 +400,10 @@ public final class NrqlAlertConditionTermArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          * @deprecated
-         * use `threshold_occurrences` attribute instead
+         * use `thresholdOccurrences` attribute instead
          * 
          */
-        @Deprecated /* use `threshold_occurrences` attribute instead */
+        @Deprecated /* use `thresholdOccurrences` attribute instead */
         public Builder timeFunction(String timeFunction) {
             return timeFunction(Output.of(timeFunction));
         }

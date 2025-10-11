@@ -61,7 +61,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique client identifier for the private location in New Relic. Same as `id`.
+        /// The unique client identifier for the private location in New Relic. Same as `Id`.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The private location requires a password to edit if value is true. Defaults to `false`
+        /// The private location requires a password to edit if value is true. Defaults to `False`
         /// </summary>
         [Output("verifiedScriptExecution")]
         public Output<bool?> VerifiedScriptExecution { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The private location requires a password to edit if value is true. Defaults to `false`
+        /// The private location requires a password to edit if value is true. Defaults to `False`
         /// </summary>
         [Input("verifiedScriptExecution")]
         public Input<bool>? VerifiedScriptExecution { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? DomainId { get; set; }
 
         /// <summary>
-        /// The unique client identifier for the private location in New Relic. Same as `id`.
+        /// The unique client identifier for the private location in New Relic. Same as `Id`.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The private location requires a password to edit if value is true. Defaults to `false`
+        /// The private location requires a password to edit if value is true. Defaults to `False`
         /// </summary>
         [Input("verifiedScriptExecution")]
         public Input<bool>? VerifiedScriptExecution { get; set; }

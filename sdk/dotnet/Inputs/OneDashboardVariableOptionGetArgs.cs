@@ -13,13 +13,13 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardVariableOptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
+        /// (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `False`.
         /// </summary>
         [Input("excluded")]
         public Input<bool>? Excluded { get; set; }
 
         /// <summary>
-        /// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        /// (Optional) An argument with a boolean value that is supported only by variables of `Type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         /// </summary>
         [Input("ignoreTimeRange")]
         public Input<bool>? IgnoreTimeRange { get; set; }

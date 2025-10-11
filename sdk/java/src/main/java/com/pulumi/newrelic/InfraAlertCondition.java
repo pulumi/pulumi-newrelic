@@ -128,8 +128,8 @@ import javax.annotation.Nullable;
  * The `critical` and `warning` threshold mapping supports the following arguments:
  * 
  *   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
- *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
- *   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
+ *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
+ *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
  * 
  * ## Tags
  * 
@@ -221,14 +221,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:index/infraAlertCondition:InfraAlertCondition")
 public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
     /**
-     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      * 
      */
     @Export(name="comparison", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comparison;
 
     /**
-     * @return The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+     * @return The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      * 
      */
     public Output<Optional<String>> comparison() {
@@ -305,28 +305,28 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.entityGuid;
     }
     /**
-     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      * 
      */
     @Export(name="event", refs={String.class}, tree="[0]")
     private Output<String> event;
 
     /**
-     * @return The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+     * @return The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      * 
      */
     public Output<String> event() {
         return this.event;
     }
     /**
-     * For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+     * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      * 
      */
     @Export(name="integrationProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationProvider;
 
     /**
-     * @return For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+     * @return For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      * 
      */
     public Output<Optional<String>> integrationProvider() {
@@ -361,14 +361,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.policyId;
     }
     /**
-     * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+     * Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infraProcessRunning` condition type.
      * 
      */
     @Export(name="processWhere", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> processWhere;
 
     /**
-     * @return Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infra_process_running` condition type.
+     * @return Any filters applied to processes; for example: `commandName = &#39;java&#39;`.  Required by the `infraProcessRunning` condition type.
      * 
      */
     public Output<Optional<String>> processWhere() {
@@ -389,28 +389,28 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runbookUrl);
     }
     /**
-     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      * 
      */
     @Export(name="select", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> select;
 
     /**
-     * @return The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+     * @return The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      * 
      */
     public Output<Optional<String>> select() {
         return Codegen.optional(this.select);
     }
     /**
-     * The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+     * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+     * @return The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      * 
      */
     public Output<String> type() {

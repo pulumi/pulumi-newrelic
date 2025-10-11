@@ -19,14 +19,14 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
     public static final AlertMutingRuleScheduleArgs Empty = new AlertMutingRuleScheduleArgs();
 
     /**
-     * The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeat_count`
+     * The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeatCount`
      * 
      */
     @Import(name="endRepeat")
     private @Nullable Output<String> endRepeat;
 
     /**
-     * @return The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeat_count`
+     * @return The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeatCount`
      * 
      */
     public Optional<Output<String>> endRepeat() {
@@ -66,14 +66,14 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+     * The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
      * 
      */
     @Import(name="repeatCount")
     private @Nullable Output<Integer> repeatCount;
 
     /**
-     * @return The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+     * @return The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
      * 
      */
     public Optional<Output<Integer>> repeatCount() {
@@ -156,7 +156,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param endRepeat The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeat_count`
+         * @param endRepeat The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeatCount`
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param endRepeat The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeat_count`
+         * @param endRepeat The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: &#39;2020-07-10T15:00:00&#39;. Conflicts with `repeatCount`
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repeatCount The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+         * @param repeatCount The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AlertMutingRuleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param repeatCount The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+         * @param repeatCount The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
          * 
          * @return builder
          * 

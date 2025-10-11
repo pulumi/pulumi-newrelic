@@ -63,7 +63,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String key;
     /**
-     * @return A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+     * @return A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
      * 
      */
     private @Nullable Map<String,String> payload;
@@ -73,7 +73,7 @@ public final class AlertChannelConfig {
      */
     private @Nullable String payloadString;
     /**
-     * @return Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+     * @return Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
      * 
      */
     private @Nullable String payloadType;
@@ -190,7 +190,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+     * @return A map of key/value pairs that represents the webhook payload. Must provide payloadType if setting this argument.
      * 
      */
     public Map<String,String> payload() {
@@ -204,7 +204,7 @@ public final class AlertChannelConfig {
         return Optional.ofNullable(this.payloadString);
     }
     /**
-     * @return Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+     * @return Can either be application/json or application/x-www-form-urlencoded. The payloadType argument is required if payload is set.
      * 
      */
     public Optional<String> payloadType() {

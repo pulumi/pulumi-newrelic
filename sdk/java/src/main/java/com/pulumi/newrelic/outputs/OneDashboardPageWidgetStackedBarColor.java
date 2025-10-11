@@ -19,7 +19,7 @@ public final class OneDashboardPageWidgetStackedBarColor {
      */
     private @Nullable String color;
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     private @Nullable List<OneDashboardPageWidgetStackedBarColorSeriesOverride> seriesOverrides;
@@ -33,7 +33,7 @@ public final class OneDashboardPageWidgetStackedBarColor {
         return Optional.ofNullable(this.color);
     }
     /**
-     * @return (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+     * @return (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
      * 
      */
     public List<OneDashboardPageWidgetStackedBarColorSeriesOverride> seriesOverrides() {

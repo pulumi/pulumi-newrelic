@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionCriticalPrediction {
     /**
-     * @return BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     * @return BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      * 
      */
     private @Nullable Integer predictBy;
     /**
-     * @return BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     * @return BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      * 
      */
     private @Nullable Boolean preferPredictionViolation;
 
     private NrqlAlertConditionCriticalPrediction() {}
     /**
-     * @return BETA PREVIEW: the `predict_by` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
+     * @return BETA PREVIEW: the `predictBy` field is in limited release and only enabled for preview on a per-account basis. - The duration, in seconds, that the prediction should look into the future.
      * 
      */
     public Optional<Integer> predictBy() {
         return Optional.ofNullable(this.predictBy);
     }
     /**
-     * @return BETA PREVIEW: the `prefer_prediction_violation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
+     * @return BETA PREVIEW: the `preferPredictionViolation` field is in limited release and only enabled for preview on a per-account basis. - If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening.
      * 
      */
     public Optional<Boolean> preferPredictionViolation() {

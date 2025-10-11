@@ -18,14 +18,14 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     public static final NrqlAlertConditionNrqlArgs Empty = new NrqlAlertConditionNrqlArgs();
 
     /**
-     * The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `accountId` if unspecified.
      * 
      */
     @Import(name="dataAccountId")
     private @Nullable Output<String> dataAccountId;
 
     /**
-     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+     * @return The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `accountId` if unspecified.
      * 
      */
     public Optional<Output<String>> dataAccountId() {
@@ -33,24 +33,24 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     @Import(name="evaluationOffset")
     private @Nullable Output<Integer> evaluationOffset;
 
     /**
-     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     public Optional<Output<Integer>> evaluationOffset() {
         return Optional.ofNullable(this.evaluationOffset);
     }
@@ -63,24 +63,24 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     @Import(name="sinceValue")
     private @Nullable Output<String> sinceValue;
 
     /**
-     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+     * @return NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
      * 
      * @deprecated
-     * use `aggregation_method` attribute instead
+     * use `aggregationMethod` attribute instead
      * 
      */
-    @Deprecated /* use `aggregation_method` attribute instead */
+    @Deprecated /* use `aggregationMethod` attribute instead */
     public Optional<Output<String>> sinceValue() {
         return Optional.ofNullable(this.sinceValue);
     }
@@ -113,7 +113,7 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataAccountId The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+         * @param dataAccountId The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `accountId` if unspecified.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataAccountId The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `account_id` if unspecified.
+         * @param dataAccountId The New Relic account ID to use as the basis for the NRQL alert condition&#39;s `query`; will default to `accountId` if unspecified.
          * 
          * @return builder
          * 
@@ -134,30 +134,30 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param evaluationOffset NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+         * @param evaluationOffset NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
          * 
          * @return builder
          * 
          * @deprecated
-         * use `aggregation_method` attribute instead
+         * use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregation_method` attribute instead */
+        @Deprecated /* use `aggregationMethod` attribute instead */
         public Builder evaluationOffset(@Nullable Output<Integer> evaluationOffset) {
             $.evaluationOffset = evaluationOffset;
             return this;
         }
 
         /**
-         * @param evaluationOffset NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluation_offset`.
+         * @param evaluationOffset NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `evaluationOffset`.
          * 
          * @return builder
          * 
          * @deprecated
-         * use `aggregation_method` attribute instead
+         * use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregation_method` attribute instead */
+        @Deprecated /* use `aggregationMethod` attribute instead */
         public Builder evaluationOffset(Integer evaluationOffset) {
             return evaluationOffset(Output.of(evaluationOffset));
         }
@@ -172,30 +172,30 @@ public final class NrqlAlertConditionNrqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sinceValue NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+         * @param sinceValue NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
          * 
          * @return builder
          * 
          * @deprecated
-         * use `aggregation_method` attribute instead
+         * use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregation_method` attribute instead */
+        @Deprecated /* use `aggregationMethod` attribute instead */
         public Builder sinceValue(@Nullable Output<String> sinceValue) {
             $.sinceValue = sinceValue;
             return this;
         }
 
         /**
-         * @param sinceValue NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `since_value`.
+         * @param sinceValue NRQL queries are evaluated in one-minute time windows. The start time depends on the value you provide in the NRQL condition&#39;s `sinceValue`.
          * 
          * @return builder
          * 
          * @deprecated
-         * use `aggregation_method` attribute instead
+         * use `aggregationMethod` attribute instead
          * 
          */
-        @Deprecated /* use `aggregation_method` attribute instead */
+        @Deprecated /* use `aggregationMethod` attribute instead */
         public Builder sinceValue(String sinceValue) {
             return sinceValue(Output.of(sinceValue));
         }

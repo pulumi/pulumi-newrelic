@@ -136,7 +136,7 @@ namespace Pulumi.NewRelic.Synthetics
     public partial class AlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
+        /// Set whether to enable the alert condition. Defaults to `True`.
         /// 
         /// ```
         /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
@@ -222,7 +222,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class AlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
+        /// Set whether to enable the alert condition. Defaults to `True`.
         /// 
         /// ```
         /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
@@ -264,7 +264,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class AlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
+        /// Set whether to enable the alert condition. Defaults to `True`.
         /// 
         /// ```
         /// Warning: This resource will use the account ID linked to your API key. At the moment it is not possible to dynamically set the account ID.
