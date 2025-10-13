@@ -35,14 +35,14 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
     }
 
     /**
-     * Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+     * Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
      * 
      */
     @Import(name="customEvaluationPeriod")
     private @Nullable Output<Integer> customEvaluationPeriod;
 
     /**
-     * @return Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+     * @return Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
      * 
      */
     public Optional<Output<Integer>> customEvaluationPeriod() {
@@ -50,14 +50,14 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
     }
 
     /**
-     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+     * How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
      * 
      */
     @Import(name="customToleratedBudgetConsumption")
     private @Nullable Output<Double> customToleratedBudgetConsumption;
 
     /**
-     * @return How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+     * @return How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
      * 
      */
     public Optional<Output<Double>> customToleratedBudgetConsumption() {
@@ -176,7 +176,7 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alert_type` is `custom`.
+         * @param customEvaluationPeriod Aggregation window taken into consideration in seconds. Mandatory if `alertType` is `custom`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class GetServiceLevelAlertHelperArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alert_type` is `custom`.
+         * @param customToleratedBudgetConsumption How much budget you tolerate to consume during the custom evaluation period, valid values between `0` and `100`. Mandatory if `alertType` is `custom`.
          * 
          * @return builder
          * 

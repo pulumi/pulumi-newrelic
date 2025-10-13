@@ -325,14 +325,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bypassHeadRequest);
     }
     /**
-     * Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+     * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      * 
      */
     @Export(name="customHeaders", refs={List.class,MonitorCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorCustomHeader>> customHeaders;
 
     /**
-     * @return Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+     * @return Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      * 
      */
     public Output<Optional<List<MonitorCustomHeader>>> customHeaders() {
@@ -340,7 +340,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     }
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceOrientation", refs={String.class}, tree="[0]")
@@ -348,7 +348,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceOrientation() {
@@ -356,7 +356,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     }
     /**
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Export(name="deviceType", refs={String.class}, tree="[0]")
@@ -364,7 +364,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Output<Optional<String>> deviceType() {
@@ -399,28 +399,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableScreenshotOnFailureAndScript);
     }
     /**
-     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      * 
      */
     @Export(name="locationsPrivates", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPrivates;
 
     /**
-     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPrivates() {
         return Codegen.optional(this.locationsPrivates);
     }
     /**
-     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      * 
      */
     @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {

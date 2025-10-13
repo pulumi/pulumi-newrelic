@@ -18,11 +18,11 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultValues;
         /// <summary>
-        /// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+        /// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `Nrql` or `Enum`.
         /// </summary>
         public readonly bool? IsMultiSelection;
         /// <summary>
-        /// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+        /// (Optional) List of possible values for variables of type `Enum`. See Nested item blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardVariableItem> Items;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for Variables for details.
+        /// (Optional) Configuration for variables of type `Nrql`. See Nested nrql\_query blocks for Variables for details.
         /// </summary>
         public readonly Outputs.OneDashboardVariableNrqlQuery? NrqlQuery;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardVariableOption> Options;
         /// <summary>
-        /// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+        /// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `Default`, `Identifier`, `Number` or `String`.
         /// </summary>
         public readonly string ReplacementStrategy;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Title;
         /// <summary>
-        /// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        /// (Required) Specifies the data type of the variable and where its possible values may come from. One of `Enum`, `Nrql` or `String`
         /// </summary>
         public readonly string Type;
 

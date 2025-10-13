@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class AlertMutingRuleSchedule
     {
         /// <summary>
-        /// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
+        /// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `RepeatCount`
         /// </summary>
         public readonly string? EndRepeat;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Repeat;
         /// <summary>
-        /// The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+        /// The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `EndRepeat`
         /// </summary>
         public readonly int? RepeatCount;
         /// <summary>

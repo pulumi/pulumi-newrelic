@@ -209,14 +209,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/gcpIntegrations:GcpIntegrations")
 public class GcpIntegrations extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Output<String> accountId() {
@@ -435,7 +435,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the linked GCP account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      * 
      */
     @Export(name="linkedAccountId", refs={String.class}, tree="[0]")
@@ -444,7 +444,7 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the linked GCP account in New Relic.
      * 
-     * The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
+     * The following arguments/integration blocks are intended to be used with a minimum `metricsPollingInterval` of 300 seconds.
      * 
      */
     public Output<String> linkedAccountId() {

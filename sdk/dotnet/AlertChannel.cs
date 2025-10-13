@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
+    /// &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `Slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
     /// 
     /// ### OpsGenie
     /// ```csharp
@@ -231,7 +231,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// The type of channel.  One of: `Email`, `Slack`, `Opsgenie`, `Pagerduty`, `Victorops`, or `Webhook`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// The type of channel.  One of: `Email`, `Slack`, `Opsgenie`, `Pagerduty`, `Victorops`, or `Webhook`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// The type of channel.  One of: `Email`, `Slack`, `Opsgenie`, `Pagerduty`, `Victorops`, or `Webhook`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

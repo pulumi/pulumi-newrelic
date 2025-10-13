@@ -34,14 +34,14 @@ public final class OneDashboardPageWidgetLineYAxisRightArgs extends com.pulumi.r
     }
 
     /**
-     * , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+     * , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
      * 
      */
     @Import(name="yAxisRightMin")
     private @Nullable Output<Double> yAxisRightMin;
 
     /**
-     * @return , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+     * @return , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
      * 
      */
     public Optional<Output<Double>> yAxisRightMin() {
@@ -64,14 +64,14 @@ public final class OneDashboardPageWidgetLineYAxisRightArgs extends com.pulumi.r
     }
 
     /**
-     * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+     * (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
      * 
      */
     @Import(name="yAxisRightZero")
     private @Nullable Output<Boolean> yAxisRightZero;
 
     /**
-     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
      * 
      */
     public Optional<Output<Boolean>> yAxisRightZero() {
@@ -127,7 +127,7 @@ public final class OneDashboardPageWidgetLineYAxisRightArgs extends com.pulumi.r
         }
 
         /**
-         * @param yAxisRightMin , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+         * @param yAxisRightMin , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class OneDashboardPageWidgetLineYAxisRightArgs extends com.pulumi.r
         }
 
         /**
-         * @param yAxisRightMin , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+         * @param yAxisRightMin , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class OneDashboardPageWidgetLineYAxisRightArgs extends com.pulumi.r
         }
 
         /**
-         * @param yAxisRightZero (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+         * @param yAxisRightZero (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class OneDashboardPageWidgetLineYAxisRightArgs extends com.pulumi.r
         }
 
         /**
-         * @param yAxisRightZero (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+         * @param yAxisRightZero (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
          * 
          * @return builder
          * 

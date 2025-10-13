@@ -54,14 +54,14 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+     * A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
      * 
      */
     @Import(name="authBasic")
     private @Nullable Output<NotificationDestinationAuthBasicArgs> authBasic;
 
     /**
-     * @return A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+     * @return A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
      * 
      */
     public Optional<Output<NotificationDestinationAuthBasicArgs>> authBasic() {
@@ -69,14 +69,14 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
      * 
      */
     @Import(name="authCustomHeaders")
     private @Nullable Output<List<NotificationDestinationAuthCustomHeaderArgs>> authCustomHeaders;
 
     /**
-     * @return A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+     * @return A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
      * 
      */
     public Optional<Output<List<NotificationDestinationAuthCustomHeaderArgs>>> authCustomHeaders() {
@@ -84,14 +84,14 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+     * A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      * 
      */
     @Import(name="authToken")
     private @Nullable Output<NotificationDestinationAuthTokenArgs> authToken;
 
     /**
-     * @return A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+     * @return A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
      * 
      */
     public Optional<Output<NotificationDestinationAuthTokenArgs>> authToken() {
@@ -129,14 +129,14 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+     * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      * 
      */
     @Import(name="secureUrl")
     private @Nullable Output<NotificationDestinationSecureUrlArgs> secureUrl;
 
     /**
-     * @return A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+     * @return A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      * 
      */
     public Optional<Output<NotificationDestinationSecureUrlArgs>> secureUrl() {
@@ -233,7 +233,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authBasic A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+         * @param authBasic A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authBasic A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+         * @param authBasic A nested block that describes a basic username and password authentication credentials. Only one authBasic block is permitted per notification destination definition.  See Nested authBasic blocks below for details.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
+         * @param authCustomHeaders A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested authCustomHeader blocks below for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authToken A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+         * @param authToken A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authToken A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+         * @param authToken A nested block that describes a token authentication credentials. Only one authToken block is permitted per notification destination definition.  See Nested authToken blocks below for details.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secureUrl A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+         * @param secureUrl A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param secureUrl A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
+         * @param secureUrl A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
          * 
          * @return builder
          * 

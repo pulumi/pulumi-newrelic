@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  * 
  * To pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
@@ -61,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations")
 public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource {
     /**
-     * The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Output<String> accountId() {

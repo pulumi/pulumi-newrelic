@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic.Cloud
     public partial class AwsGovcloudLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
+        /// The New Relic account ID to operate on. This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.
         /// 
-        /// &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+        /// &gt; **NOTE:** Altering the `AccountId` (or) `MetricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AwsGovcloudLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
+        /// The New Relic account ID to operate on. This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.
         /// 
-        /// &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+        /// &gt; **NOTE:** Altering the `AccountId` (or) `MetricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AwsGovcloudLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
+        /// The New Relic account ID to operate on. This allows the user to override the `AccountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.
         /// 
-        /// &gt; **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
+        /// &gt; **NOTE:** Altering the `AccountId` (or) `MetricCollectionMode` of an already applied `newrelic.cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

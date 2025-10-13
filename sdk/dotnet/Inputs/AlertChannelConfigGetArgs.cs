@@ -146,7 +146,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputMap<string>? _payload;
 
         /// <summary>
-        /// A map of key/value pairs that represents the webhook payload. Must provide payload_type if setting this argument.
+        /// A map of key/value pairs that represents the webhook payload. Must provide PayloadType if setting this argument.
         /// </summary>
         public InputMap<string> Payload
         {
@@ -175,7 +175,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// Can either be application/json or application/x-www-form-urlencoded. The payload_type argument is required if payload is set.
+        /// Can either be application/json or application/x-www-form-urlencoded. The PayloadType argument is required if payload is set.
         /// </summary>
         [Input("payloadType")]
         public Input<string>? PayloadType { get; set; }
