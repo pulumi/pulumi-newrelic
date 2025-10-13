@@ -14,11 +14,11 @@ namespace Pulumi.NewRelic.Plugins.Outputs
     public sealed class WorkloadStatusConfigAutomaticRule
     {
         /// <summary>
-        /// A list of entity GUIDs composing the rule. At least one of `entity_guids` or `nrql_query` must be defined.
+        /// A list of entity GUIDs composing the rule. At least one of `EntityGuids` or `NrqlQuery` must be defined.
         /// </summary>
         public readonly ImmutableArray<string> EntityGuids;
         /// <summary>
-        /// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrql_query blocks below for details. At least one of `entity_guids` or `nrql_query` must be defined.
+        /// A list of entity search queries used to retrieve the entities that compose the rule. See Nested NrqlQuery blocks below for details. At least one of `EntityGuids` or `NrqlQuery` must be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkloadStatusConfigAutomaticRuleNrqlQuery> NrqlQueries;
         /// <summary>

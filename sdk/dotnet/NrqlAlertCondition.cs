@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// ### Type: `static` (default)
+    /// ### Type: `Static` (default)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -75,53 +75,53 @@ namespace Pulumi.NewRelic
     /// 
     /// ## NRQL
     /// 
-    /// The `nrql` block supports the following arguments:
+    /// The `Nrql` block supports the following arguments:
     /// 
-    /// - `query` - (Required) The NRQL query to execute for the condition.
-    /// - `data_account_id` - (Optional) The account ID to use for the alert condition's query as specified in the the `query` field. If `data_account_id` is not specified, then the condition's query will be evaluated against the `account_id`. Note that the `account_id` must have read privileges for the `data_account_id` or else the condition will be invalid.
-    /// - `evaluation_offset` - (Optional) **DEPRECATED:** Use `aggregation_method` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregation_window` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 windows and an `aggregation_window` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluation_offset` cannot be set with `aggregation_method`, `aggregation_delay`, or `aggregation_timer`.&lt;br&gt;
-    /// - `since_value` - (Optional)  **DEPRECATED:** Use `aggregation_method` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
+    /// - `Query` - (Required) The NRQL query to execute for the condition.
+    /// - `DataAccountId` - (Optional) The account ID to use for the alert condition's query as specified in the the `Query` field. If `DataAccountId` is not specified, then the condition's query will be evaluated against the `AccountId`. Note that the `AccountId` must have read privileges for the `DataAccountId` or else the condition will be invalid.
+    /// - `EvaluationOffset` - (Optional) **DEPRECATED:** Use `AggregationMethod` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `AggregationWindow` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `EvaluationOffset` set to 3 windows and an `AggregationWindow` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `EvaluationOffset` cannot be set with `AggregationMethod`, `AggregationDelay`, or `AggregationTimer`.&lt;br&gt;
+    /// - `SinceValue` - (Optional)  **DEPRECATED:** Use `AggregationMethod` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
     /// 
     /// ## Terms
     /// 
-    /// &gt; **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed. At least one `critical` or `warning` term must be defined.
+    /// &gt; **NOTE:** The direct use of the `Term` has been deprecated, and users should use `Critical` and `Warning` instead.  What follows now applies to the named priority attributes for `Critical` and `Warning`, but for those attributes the priority is not allowed. At least one `Critical` or `Warning` term must be defined.
     /// 
-    /// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
+    /// NRQL alert conditions support up to two terms. At least one `Term` must have `Priority` set to `Critical` and the second optional `Term` must have `Priority` set to `Warning`.
     /// 
-    /// The `term` block supports the following arguments:
+    /// The `Term` block supports the following arguments:
     /// 
-    /// - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
-    /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-    /// - `threshold` - (Required) The value which will trigger an incident.
+    /// - `Operator` - (Optional) Valid values are `Above`, `AboveOrEquals`, `Below`, `BelowOrEquals`, `Equals`, or `NotEquals` (case insensitive). Defaults to `Equals`. Note that when using a `Type` of `Baseline`, the only valid option here is `Above`.
+    /// - `Priority` - (Optional) `Critical` or `Warning`. Defaults to `Critical`.
+    /// - `Threshold` - (Required) The value which will trigger an incident.
     /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
-    /// - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+    /// - `ThresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `AggregationWindow` (which has a default of 60 seconds).
     /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
     /// &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
     /// 
-    /// - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-    /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
-    /// - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-    /// - `prediction` - (Optional) **BETA PREVIEW: the `prediction` field is in limited release and only enabled for preview on a per-account basis.** Use `prediction` to open alerts when your static threshold is predicted to be reached in the future. The `prediction` field is only available for _static_ NRQL alert conditions. See Prediction below for details.
-    /// - `disable_health_status_reporting` - (Optional) `true` or `false`. Defaults to `false` when field not included in TF config. Violations will not change system health status for this term.
+    /// - `ThresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `All` or `AtLeastOnce` (case insensitive).
+    /// - `Duration` - (Optional) **DEPRECATED:** Use `ThresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
+    /// - `TimeFunction` - (Optional) **DEPRECATED:** Use `ThresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `All` or `Any`.
+    /// - `Prediction` - (Optional) **BETA PREVIEW: the `Prediction` field is in limited release and only enabled for preview on a per-account basis.** Use `Prediction` to open alerts when your static threshold is predicted to be reached in the future. The `Prediction` field is only available for _static_ NRQL alert conditions. See Prediction below for details.
+    /// - `DisableHealthStatusReporting` - (Optional) `True` or `False`. Defaults to `False` when field not included in TF config. Violations will not change system health status for this term.
     /// 
-    /// &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `duration` or `threshold_duration` (one of the two) is mandatory. Both of these should not be specified.
+    /// &gt; **NOTE:** When a `Critical` or `Warning` block is added to this resource, using either `Duration` or `ThresholdDuration` (one of the two) is mandatory. Both of these should not be specified.
     /// 
-    /// &gt; **NOTE:** When a `critical` or `warning` block is added to this resource, using either `time_function` or `threshold_occurrences` (one of the two) is mandatory. Both of these should not be specified.
+    /// &gt; **NOTE:** When a `Critical` or `Warning` block is added to this resource, using either `TimeFunction` or `ThresholdOccurrences` (one of the two) is mandatory. Both of these should not be specified.
     /// 
     /// ### Prediction
     /// 
-    /// &gt; **BETA PREVIEW:** The `prediction` block is in limited release and only enabled for preview on a per-account basis.
+    /// &gt; **BETA PREVIEW:** The `Prediction` block is in limited release and only enabled for preview on a per-account basis.
     /// 
-    /// &gt; **NOTE:** The `prediction` block is only available for _static_ NRQL alert conditions.
+    /// &gt; **NOTE:** The `Prediction` block is only available for _static_ NRQL alert conditions.
     /// 
-    /// The `prediction` block supports the following arguments:
+    /// The `Prediction` block supports the following arguments:
     /// 
-    /// - `predict_by` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
-    /// - `prefer_prediction_violation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
+    /// - `PredictBy` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
+    /// - `PreferPredictionViolation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `PreferPredictionViolation` to `True` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
     /// 
     /// ## Additional Examples
     /// 
-    /// ##### Type: `baseline`
+    /// ##### Type: `Baseline`
     /// 
     /// [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
     /// 
@@ -371,19 +371,19 @@ namespace Pulumi.NewRelic
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
+        /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `AggregationDelay` with the `EventFlow` and `Cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `EventFlow` and 3600 seconds (60 minutes) when using `Cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `AggregationDelay` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Output("aggregationDelay")]
         public Output<string?> AggregationDelay { get; private set; } = null!;
 
         /// <summary>
-        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `Cadence`, `EventFlow` or `EventTimer`. Default is `EventFlow`. `AggregationMethod` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Output("aggregationMethod")]
         public Output<string?> AggregationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
+        /// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `AggregationTimer` with the `EventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `AggregationTimer` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Output("aggregationTimer")]
         public Output<string?> AggregationTimer { get; private set; } = null!;
@@ -395,7 +395,7 @@ namespace Pulumi.NewRelic
         public Output<int> AggregationWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `LowerOnly`, `UpperAndLower`, `UpperOnly` (case insensitive).
         /// </summary>
         [Output("baselineDirection")]
         public Output<string?> BaselineDirection { get; private set; } = null!;
@@ -407,7 +407,7 @@ namespace Pulumi.NewRelic
         public Output<bool?> CloseViolationsOnExpiration { get; private set; } = null!;
 
         /// <summary>
-        /// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        /// A list containing the `Critical` threshold values. At least one `Critical` or `Warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Output("critical")]
         public Output<Outputs.NrqlAlertConditionCritical?> Critical { get; private set; } = null!;
@@ -419,7 +419,7 @@ namespace Pulumi.NewRelic
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the alert condition. Valid values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -443,7 +443,7 @@ namespace Pulumi.NewRelic
         public Output<int?> ExpirationDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// Which strategy to use when filling gaps in the signal. Possible values are `None`, `LastValue` or `Static`. If `Static`, the `FillValue` field will be used for filling gaps in the signal.
         /// </summary>
         [Output("fillOption")]
         public Output<string?> FillOption { get; private set; } = null!;
@@ -497,13 +497,13 @@ namespace Pulumi.NewRelic
         public Output<string?> SignalSeasonality { get; private set; } = null!;
 
         /// <summary>
-        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `SlideBy` value is specified in seconds and must be smaller than and a factor of the `AggregationWindow`.
         /// </summary>
         [Output("slideBy")]
         public Output<int?> SlideBy { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        /// **DEPRECATED** Use `Critical`, and `Warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerm>> Terms { get; private set; } = null!;
@@ -515,27 +515,27 @@ namespace Pulumi.NewRelic
         public Output<string?> TitleTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        /// The type of the condition. Valid values are `Static` or `Baseline`. Defaults to `Static`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// **DEPRECATED:** Use `ViolationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+        /// &lt;small&gt;\***Note**: One of `ViolationTimeLimit` _or_ `ViolationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimit")]
         public Output<string> ViolationTimeLimit { get; private set; } = null!;
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `ViolationTimeLimit` _or_ `ViolationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimitSeconds")]
         public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        /// A list containing the `Warning` threshold values. At least one `Critical` or `Warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Output("warning")]
         public Output<Outputs.NrqlAlertConditionWarning?> Warning { get; private set; } = null!;
@@ -593,19 +593,19 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
+        /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `AggregationDelay` with the `EventFlow` and `Cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `EventFlow` and 3600 seconds (60 minutes) when using `Cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `AggregationDelay` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationDelay")]
         public Input<string>? AggregationDelay { get; set; }
 
         /// <summary>
-        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `Cadence`, `EventFlow` or `EventTimer`. Default is `EventFlow`. `AggregationMethod` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationMethod")]
         public Input<string>? AggregationMethod { get; set; }
 
         /// <summary>
-        /// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
+        /// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `AggregationTimer` with the `EventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `AggregationTimer` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationTimer")]
         public Input<string>? AggregationTimer { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AggregationWindow { get; set; }
 
         /// <summary>
-        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `LowerOnly`, `UpperAndLower`, `UpperOnly` (case insensitive).
         /// </summary>
         [Input("baselineDirection")]
         public Input<string>? BaselineDirection { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
 
         /// <summary>
-        /// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        /// A list containing the `Critical` threshold values. At least one `Critical` or `Warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.NrqlAlertConditionCriticalArgs>? Critical { get; set; }
@@ -641,7 +641,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the alert condition. Valid values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -659,7 +659,7 @@ namespace Pulumi.NewRelic
         public Input<int>? ExpirationDuration { get; set; }
 
         /// <summary>
-        /// Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// Which strategy to use when filling gaps in the signal. Possible values are `None`, `LastValue` or `Static`. If `Static`, the `FillValue` field will be used for filling gaps in the signal.
         /// </summary>
         [Input("fillOption")]
         public Input<string>? FillOption { get; set; }
@@ -713,7 +713,7 @@ namespace Pulumi.NewRelic
         public Input<string>? SignalSeasonality { get; set; }
 
         /// <summary>
-        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `SlideBy` value is specified in seconds and must be smaller than and a factor of the `AggregationWindow`.
         /// </summary>
         [Input("slideBy")]
         public Input<int>? SlideBy { get; set; }
@@ -722,9 +722,9 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NrqlAlertConditionTermArgs>? _terms;
 
         /// <summary>
-        /// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        /// **DEPRECATED** Use `Critical`, and `Warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
-        [Obsolete(@"use `critical` and `warning` attributes instead")]
+        [Obsolete(@"use `Critical` and `Warning` attributes instead")]
         public InputList<Inputs.NrqlAlertConditionTermArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermArgs>());
@@ -738,27 +738,27 @@ namespace Pulumi.NewRelic
         public Input<string>? TitleTemplate { get; set; }
 
         /// <summary>
-        /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        /// The type of the condition. Valid values are `Static` or `Baseline`. Defaults to `Static`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// **DEPRECATED:** Use `ViolationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+        /// &lt;small&gt;\***Note**: One of `ViolationTimeLimit` _or_ `ViolationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
         public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `ViolationTimeLimit` _or_ `ViolationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
-        /// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        /// A list containing the `Warning` threshold values. At least one `Critical` or `Warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.NrqlAlertConditionWarningArgs>? Warning { get; set; }
@@ -778,19 +778,19 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
+        /// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `AggregationDelay` with the `EventFlow` and `Cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `EventFlow` and 3600 seconds (60 minutes) when using `Cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `AggregationDelay` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationDelay")]
         public Input<string>? AggregationDelay { get; set; }
 
         /// <summary>
-        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `Cadence`, `EventFlow` or `EventTimer`. Default is `EventFlow`. `AggregationMethod` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationMethod")]
         public Input<string>? AggregationMethod { get; set; }
 
         /// <summary>
-        /// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
+        /// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `AggregationTimer` with the `EventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `AggregationTimer` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationTimer")]
         public Input<string>? AggregationTimer { get; set; }
@@ -802,7 +802,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AggregationWindow { get; set; }
 
         /// <summary>
-        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `LowerOnly`, `UpperAndLower`, `UpperOnly` (case insensitive).
         /// </summary>
         [Input("baselineDirection")]
         public Input<string>? BaselineDirection { get; set; }
@@ -814,7 +814,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
 
         /// <summary>
-        /// A list containing the `critical` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        /// A list containing the `Critical` threshold values. At least one `Critical` or `Warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.NrqlAlertConditionCriticalGetArgs>? Critical { get; set; }
@@ -826,7 +826,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the alert condition. Valid values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -850,7 +850,7 @@ namespace Pulumi.NewRelic
         public Input<int>? ExpirationDuration { get; set; }
 
         /// <summary>
-        /// Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// Which strategy to use when filling gaps in the signal. Possible values are `None`, `LastValue` or `Static`. If `Static`, the `FillValue` field will be used for filling gaps in the signal.
         /// </summary>
         [Input("fillOption")]
         public Input<string>? FillOption { get; set; }
@@ -904,7 +904,7 @@ namespace Pulumi.NewRelic
         public Input<string>? SignalSeasonality { get; set; }
 
         /// <summary>
-        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `SlideBy` value is specified in seconds and must be smaller than and a factor of the `AggregationWindow`.
         /// </summary>
         [Input("slideBy")]
         public Input<int>? SlideBy { get; set; }
@@ -913,9 +913,9 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NrqlAlertConditionTermGetArgs>? _terms;
 
         /// <summary>
-        /// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
+        /// **DEPRECATED** Use `Critical`, and `Warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
-        [Obsolete(@"use `critical` and `warning` attributes instead")]
+        [Obsolete(@"use `Critical` and `Warning` attributes instead")]
         public InputList<Inputs.NrqlAlertConditionTermGetArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermGetArgs>());
@@ -929,27 +929,27 @@ namespace Pulumi.NewRelic
         public Input<string>? TitleTemplate { get; set; }
 
         /// <summary>
-        /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        /// The type of the condition. Valid values are `Static` or `Baseline`. Defaults to `Static`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// **DEPRECATED:** Use `ViolationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+        /// &lt;small&gt;\***Note**: One of `ViolationTimeLimit` _or_ `ViolationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
         public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
-        /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
+        /// &lt;small&gt;\***Note**: One of `ViolationTimeLimit` _or_ `ViolationTimeLimitSeconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         /// <summary>
-        /// A list containing the `warning` threshold values. At least one `critical` or `warning` threshold must be defined. See Terms below for details.
+        /// A list containing the `Warning` threshold values. At least one `Critical` or `Warning` threshold must be defined. See Terms below for details.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.NrqlAlertConditionWarningGetArgs>? Warning { get; set; }

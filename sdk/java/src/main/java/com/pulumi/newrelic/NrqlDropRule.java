@@ -45,14 +45,14 @@ public class NrqlDropRule extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+     * An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or `  drop_attributes_from_metric_aggregates `).
+     * @return An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
      * 
      */
     public Output<String> action() {

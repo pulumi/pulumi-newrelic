@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class OneDashboardPageWidgetTableInitialSortingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) Defines the sort order. Accepted values are `asc` for ascending or `desc` for descending.
+        /// (Required) Defines the sort order. Accepted values are `Asc` for ascending or `Desc` for descending.
         /// </summary>
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;

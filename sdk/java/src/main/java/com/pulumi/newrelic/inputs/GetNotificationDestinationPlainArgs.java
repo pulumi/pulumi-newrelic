@@ -17,14 +17,14 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     public static final GetNotificationDestinationPlainArgs Empty = new GetNotificationDestinationPlainArgs();
 
     /**
-     * The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable String accountId;
 
     /**
-     * @return The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * @return The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<String> accountId() {
@@ -66,14 +66,14 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
     @Import(name="secureUrls")
     private @Nullable List<GetNotificationDestinationSecureUrl> secureUrls;
 
     /**
-     * @return The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+     * @return The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
     public Optional<List<GetNotificationDestinationSecureUrl>> secureUrls() {
@@ -108,7 +108,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param accountId The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * @param accountId The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
+         * @param secureUrls The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
          * 
          * @return builder
          * 

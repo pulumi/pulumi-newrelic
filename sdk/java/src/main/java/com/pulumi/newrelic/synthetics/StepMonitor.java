@@ -235,28 +235,28 @@ public class StepMonitor extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
+     * The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
      * 
      */
     @Export(name="locationPrivates", refs={List.class,StepMonitorLocationPrivate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StepMonitorLocationPrivate>> locationPrivates;
 
     /**
-     * @return The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
+     * @return The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
      * 
      */
     public Output<Optional<List<StepMonitorLocationPrivate>>> locationPrivates() {
         return Codegen.optional(this.locationPrivates);
     }
     /**
-     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      * 
      */
     @Export(name="locationsPublics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {

@@ -45,14 +45,14 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;in_region&#34;.  Defaults to &#34;in_region&#34;.
+     * The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;inRegion&#34;.  Defaults to &#34;inRegion&#34;.
      * 
      */
     @Import(name="scope")
     private @Nullable String scope;
 
     /**
-     * @return The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;in_region&#34;.  Defaults to &#34;in_region&#34;.
+     * @return The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;inRegion&#34;.  Defaults to &#34;inRegion&#34;.
      * 
      */
     public Optional<String> scope() {
@@ -108,7 +108,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param scope The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;in_region&#34;.  Defaults to &#34;in_region&#34;.
+         * @param scope The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;inRegion&#34;.  Defaults to &#34;inRegion&#34;.
          * 
          * @return builder
          * 

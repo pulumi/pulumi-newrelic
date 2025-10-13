@@ -80,14 +80,14 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+     * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<String> permissions;
 
     /**
-     * @return Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+     * @return Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      * 
      */
     public Optional<Output<String>> permissions() {
@@ -233,7 +233,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+         * @param permissions Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+         * @param permissions Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class OneDashboardPageWidgetLineYAxisRight {
      */
     private @Nullable Double yAxisRightMax;
     /**
-     * @return , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+     * @return , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
      * 
      */
     private @Nullable Double yAxisRightMin;
@@ -30,7 +30,7 @@ public final class OneDashboardPageWidgetLineYAxisRight {
      */
     private @Nullable List<String> yAxisRightSeries;
     /**
-     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
      * 
      */
     private @Nullable Boolean yAxisRightZero;
@@ -44,7 +44,7 @@ public final class OneDashboardPageWidgetLineYAxisRight {
         return Optional.ofNullable(this.yAxisRightMax);
     }
     /**
-     * @return , `y_axis_right_max` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
+     * @return , `yAxisRightMax` - (Optional) Attributes which help specify a range of minimum and maximum values, which adjust the right Y axis to display the data within the specified minimum and maximum value for the axis.
      * 
      */
     public Optional<Double> yAxisRightMin() {
@@ -58,7 +58,7 @@ public final class OneDashboardPageWidgetLineYAxisRight {
         return this.yAxisRightSeries == null ? List.of() : this.yAxisRightSeries;
     }
     /**
-     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `y_axis_right_min` (or 0 if it is not defined) to `y_axis_right_max`. Use `y_axis_right_zero = true` with a combination of `y_axis_right_min` and `y_axis_right_max` to render values from 0 or the specified minimum to the maximum, and `y_axis_right_zero = false` to fit the graph to scale.
+     * @return (Optional) An attribute that specifies if the values on the graph to be rendered need to be fit to scale, or printed within the specified range from `yAxisRightMin` (or 0 if it is not defined) to `yAxisRightMax`. Use `yAxisRightZero = true` with a combination of `yAxisRightMin` and `yAxisRightMax` to render values from 0 or the specified minimum to the maximum, and `yAxisRightZero = false` to fit the graph to scale.
      * 
      */
     public Optional<Boolean> yAxisRightZero() {

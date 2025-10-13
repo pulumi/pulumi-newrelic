@@ -70,14 +70,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+     * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<MonitorCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+     * @return Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      * 
      */
     public Optional<Output<List<MonitorCustomHeaderArgs>>> customHeaders() {
@@ -86,7 +86,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceOrientation")
@@ -94,7 +94,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceOrientation() {
@@ -103,7 +103,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Device emulation type field. Valid values are `MOBILE` and `TABLET`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     @Import(name="deviceType")
@@ -111,7 +111,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Device emulation type field. Valid values are `MOBILE` and `TABLET`.
-     * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+     * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
      * 
      */
     public Optional<Output<String>> deviceType() {
@@ -149,14 +149,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      * 
      */
     @Import(name="locationsPrivates")
     private @Nullable Output<List<String>> locationsPrivates;
 
     /**
-     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      * 
      */
     public Optional<Output<List<String>>> locationsPrivates() {
@@ -164,14 +164,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      * 
      */
     @Import(name="locationsPublics")
     private @Nullable Output<List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      * 
      */
     public Optional<Output<List<String>>> locationsPublics() {
@@ -525,7 +525,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customHeaders Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+         * @param customHeaders Custom headers to use in monitor job. See Nested customHeader blocks below for details.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customHeaders Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+         * @param customHeaders Custom headers to use in monitor job. See Nested customHeader blocks below for details.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customHeaders Custom headers to use in monitor job. See Nested custom_header blocks below for details.
+         * @param customHeaders Custom headers to use in monitor job. See Nested customHeader blocks below for details.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
-         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deviceOrientation Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`.
-         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
-         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param deviceType Device emulation type field. Valid values are `MOBILE` and `TABLET`.
-         * * We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
+         * * We recommend you to use `devices` field instead of `deviceType`,`deviceOrientation` fields, as it allows you to select multiple combinations of device types and orientations.
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
          * 
          * @return builder
          * 
@@ -675,7 +675,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPublics The location the monitor will run from. Check out [this page](https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/) for a list of valid public locations. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
          * 
          * @return builder
          * 
