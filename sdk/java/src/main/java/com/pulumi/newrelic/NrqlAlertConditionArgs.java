@@ -355,6 +355,21 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity&#39;s account ID must be either `accountId` or `nrql.data_account_id`.
+     * 
+     */
+    @Import(name="targetEntity")
+    private @Nullable Output<String> targetEntity;
+
+    /**
+     * @return BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity&#39;s account ID must be either `accountId` or `nrql.data_account_id`.
+     * 
+     */
+    public Optional<Output<String>> targetEntity() {
+        return Optional.ofNullable(this.targetEntity);
+    }
+
+    /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      * 
      * @deprecated
@@ -489,6 +504,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         this.runbookUrl = $.runbookUrl;
         this.signalSeasonality = $.signalSeasonality;
         this.slideBy = $.slideBy;
+        this.targetEntity = $.targetEntity;
         this.terms = $.terms;
         this.titleTemplate = $.titleTemplate;
         this.type = $.type;
@@ -975,6 +991,27 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          */
         public Builder slideBy(Integer slideBy) {
             return slideBy(Output.of(slideBy));
+        }
+
+        /**
+         * @param targetEntity BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity&#39;s account ID must be either `accountId` or `nrql.data_account_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetEntity(@Nullable Output<String> targetEntity) {
+            $.targetEntity = targetEntity;
+            return this;
+        }
+
+        /**
+         * @param targetEntity BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity&#39;s account ID must be either `accountId` or `nrql.data_account_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetEntity(String targetEntity) {
+            return targetEntity(Output.of(targetEntity));
         }
 
         /**

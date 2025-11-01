@@ -5,7 +5,7 @@ Subject: [PATCH] fork
 
 
 diff --git a/newrelic/resource_newrelic_nrql_alert_condition.go b/newrelic/resource_newrelic_nrql_alert_condition.go
-index 5052a4d7..36f9ba3f 100644
+index b4eb4778..51d03908 100644
 --- a/newrelic/resource_newrelic_nrql_alert_condition.go
 +++ b/newrelic/resource_newrelic_nrql_alert_condition.go
 @@ -210,14 +210,13 @@ func resourceNewRelicNrqlAlertCondition() *schema.Resource {
@@ -399,7 +399,7 @@ index d19049a5..d6522327 100644
  ## Example Usage
  
 diff --git a/website/docs/r/nrql_alert_condition.html.markdown b/website/docs/r/nrql_alert_condition.html.markdown
-index 158246f8..7147b6fb 100644
+index dbf9dc81..3738ad3d 100644
 --- a/website/docs/r/nrql_alert_condition.html.markdown
 +++ b/website/docs/r/nrql_alert_condition.html.markdown
 @@ -10,13 +10,10 @@ description: |-
@@ -418,7 +418,7 @@ index 158246f8..7147b6fb 100644
  ```hcl
  resource "newrelic_alert_policy" "foo" {
    name = "foo"
-@@ -62,7 +59,6 @@ resource "newrelic_nrql_alert_condition" "foo" {
+@@ -63,7 +60,6 @@ resource "newrelic_nrql_alert_condition" "foo" {
    }
  }
  ```
@@ -426,7 +426,7 @@ index 158246f8..7147b6fb 100644
  
  ## Argument Reference
  
-@@ -154,10 +150,8 @@ In addition to all arguments above, the following attributes are exported:
+@@ -156,10 +152,8 @@ In addition to all arguments above, the following attributes are exported:
  - `id` - The ID of the NRQL alert condition. This is a composite ID with the format `<policy_id>:<condition_id>` - e.g. `538291:6789035`.
  - `entity_guid` - The unique entity identifier of the NRQL Condition in New Relic.
  
@@ -437,7 +437,7 @@ index 158246f8..7147b6fb 100644
  ##### Type: `baseline`
  
  [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-@@ -168,44 +162,44 @@ resource "newrelic_alert_policy" "foo" {
+@@ -170,44 +164,44 @@ resource "newrelic_alert_policy" "foo" {
  }
  
  resource "newrelic_nrql_alert_condition" "foo" {
@@ -502,7 +502,7 @@ index 158246f8..7147b6fb 100644
  ## Import
  
  NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
-@@ -218,14 +212,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
+@@ -220,14 +214,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
  $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:static
  ```
  
@@ -518,7 +518,7 @@ index 158246f8..7147b6fb 100644
  
  ```hcl
  resource "newrelic_alert_policy" "foo" {
-@@ -285,6 +274,7 @@ resource "newrelic_entity_tags" "my_condition_entity_tags" {
+@@ -287,6 +276,7 @@ resource "newrelic_entity_tags" "my_condition_entity_tags" {
  }
  ```
  

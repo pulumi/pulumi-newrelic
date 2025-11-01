@@ -304,17 +304,17 @@ import javax.annotation.Nullable;
  *                     .key("customDetails")
  *                     .value("""
  * }{{@code
- * "id":}{{{@code json issueId}}}{@code ,
- * "IssueURL":}{{{@code json issuePageUrl}}}{@code ,
- * "NewRelic priority":}{{{@code json priority}}}{@code ,
- * "Total Incidents":}{{{@code json totalIncidents}}}{@code ,
- * "Impacted Entities":"}{{{@code #each entitiesData.names}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Runbook":"}{{{@code #each accumulations.runbookUrl}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Description":"}{{{@code #each annotations.description}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "isCorrelated":}{{{@code json isCorrelated}}}{@code ,
- * "Alert Policy Names":"}{{{@code #each accumulations.policyName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Alert Condition Names":"}{{{@code #each accumulations.conditionName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Workflow Name":}{{{@code json workflowName}}}{@code
+ * \"id\":}{{{@code json issueId}}}{@code ,
+ * \"IssueURL\":}{{{@code json issuePageUrl}}}{@code ,
+ * \"NewRelic priority\":}{{{@code json priority}}}{@code ,
+ * \"Total Incidents\":}{{{@code json totalIncidents}}}{@code ,
+ * \"Impacted Entities\":\"}{{{@code #each entitiesData.names}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Runbook\":\"}{{{@code #each accumulations.runbookUrl}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Description\":\"}{{{@code #each annotations.description}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"isCorrelated\":}{{{@code json isCorrelated}}}{@code ,
+ * \"Alert Policy Names\":\"}{{{@code #each accumulations.policyName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Alert Condition Names\":\"}{{{@code #each accumulations.conditionName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Workflow Name\":}{{{@code json workflowName}}}{@code
  * }}{@code
  *                     """)
  *                     .build())
@@ -364,17 +364,17 @@ import javax.annotation.Nullable;
  *                     .key("customDetails")
  *                     .value("""
  * }{{@code
- * "id":}{{{@code json issueId}}}{@code ,
- * "IssueURL":}{{{@code json issuePageUrl}}}{@code ,
- * "NewRelic priority":}{{{@code json priority}}}{@code ,
- * "Total Incidents":}{{{@code json totalIncidents}}}{@code ,
- * "Impacted Entities":"}{{{@code #each entitiesData.names}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Runbook":"}{{{@code #each accumulations.runbookUrl}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Description":"}{{{@code #each annotations.description}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "isCorrelated":}{{{@code json isCorrelated}}}{@code ,
- * "Alert Policy Names":"}{{{@code #each accumulations.policyName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Alert Condition Names":"}{{{@code #each accumulations.conditionName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code ",
- * "Workflow Name":}{{{@code json workflowName}}}{@code
+ * \"id\":}{{{@code json issueId}}}{@code ,
+ * \"IssueURL\":}{{{@code json issuePageUrl}}}{@code ,
+ * \"NewRelic priority\":}{{{@code json priority}}}{@code ,
+ * \"Total Incidents\":}{{{@code json totalIncidents}}}{@code ,
+ * \"Impacted Entities\":\"}{{{@code #each entitiesData.names}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Runbook\":\"}{{{@code #each accumulations.runbookUrl}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Description\":\"}{{{@code #each annotations.description}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"isCorrelated\":}{{{@code json isCorrelated}}}{@code ,
+ * \"Alert Policy Names\":\"}{{{@code #each accumulations.policyName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Alert Condition Names\":\"}{{{@code #each accumulations.conditionName}}}{{{@code this}}}{{{@code #unless }{@literal @}{@code last}}}{@code , }{{{@code /unless}}}{{{@code /each}}}{@code \",
+ * \"Workflow Name\":}{{{@code json workflowName}}}{@code
  * }}{@code
  *                     """)
  *                     .build())

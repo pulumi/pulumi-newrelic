@@ -187,9 +187,9 @@ namespace Pulumi.NewRelic
     ///             BaseUrl = "http://www.test.com",
     ///             PayloadType = "application/json",
     ///             PayloadString = @"{
-    ///   ""my_custom_values"": {
-    ///     ""condition_name"": ""$CONDITION_NAME"",
-    ///     ""policy_name"": ""$POLICY_NAME""
+    ///   \""my_custom_values\"": {
+    ///     \""condition_name\"": \""$CONDITION_NAME\"",
+    ///     \""policy_name\"": \""$POLICY_NAME\""
     ///   }
     /// }
     /// ",

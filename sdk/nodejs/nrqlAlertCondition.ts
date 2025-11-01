@@ -25,6 +25,7 @@ import * as utilities from "./utilities";
  *     name: "foo",
  *     description: "Alert when transactions are taking too long",
  *     titleTemplate: "Issue in environment: {{ tags.environment }}",
+ *     targetEntity: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
  *     violationTimeLimitSeconds: 3600,
@@ -407,6 +408,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     declare public readonly slideBy: pulumi.Output<number | undefined>;
     /**
+     * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+     */
+    declare public readonly targetEntity: pulumi.Output<string | undefined>;
+    /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
@@ -473,6 +478,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["runbookUrl"] = state?.runbookUrl;
             resourceInputs["signalSeasonality"] = state?.signalSeasonality;
             resourceInputs["slideBy"] = state?.slideBy;
+            resourceInputs["targetEntity"] = state?.targetEntity;
             resourceInputs["terms"] = state?.terms;
             resourceInputs["titleTemplate"] = state?.titleTemplate;
             resourceInputs["type"] = state?.type;
@@ -509,6 +515,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["runbookUrl"] = args?.runbookUrl;
             resourceInputs["signalSeasonality"] = args?.signalSeasonality;
             resourceInputs["slideBy"] = args?.slideBy;
+            resourceInputs["targetEntity"] = args?.targetEntity;
             resourceInputs["terms"] = args?.terms;
             resourceInputs["titleTemplate"] = args?.titleTemplate;
             resourceInputs["type"] = args?.type;
@@ -618,6 +625,10 @@ export interface NrqlAlertConditionState {
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
     slideBy?: pulumi.Input<number>;
+    /**
+     * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+     */
+    targetEntity?: pulumi.Input<string>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *
@@ -742,6 +753,10 @@ export interface NrqlAlertConditionArgs {
      * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
      */
     slideBy?: pulumi.Input<number>;
+    /**
+     * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+     */
+    targetEntity?: pulumi.Input<string>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
      *

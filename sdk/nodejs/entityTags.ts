@@ -38,6 +38,42 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Example of applying multiple tags to multiple entities using a nested `dynamic` block
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const apps = (await std.toset({
+ *         input: [
+ *             "Example App Name 1",
+ *             "Example App Name 2",
+ *         ],
+ *     })).result;
+ *     const customTags = {
+ *         "tag-key-1": "tag-value-1",
+ *         "tag-key-2": "tag-value-2",
+ *         "tag-key-3": "tag-value-3",
+ *     };
+ *     const foo = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: await newrelic.getEntity({
+ *         name: __key,
+ *         type: "APPLICATION",
+ *         domain: "APM",
+ *     }) }));
+ *     const fooEntityTags: newrelic.EntityTags[] = [];
+ *     for (const range of apps.map((v, k) => ({key: k, value: v}))) {
+ *         fooEntityTags.push(new newrelic.EntityTags(`foo-${range.key}`, {
+ *             tags: Object.entries(customTags).map(([k, v]) => ({key: k, value: v})).map(entry => ({
+ *                 key: entry.key,
+ *                 values: [entry.value],
+ *             })),
+ *             guid: foo[range.key].guid,
+ *         }));
+ *     }
+ * }
+ * ```
+ *
  * ## Import
  *
  * New Relic One entity tags can be imported using a concatenated string of the format

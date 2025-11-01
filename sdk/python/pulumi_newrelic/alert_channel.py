@@ -288,9 +288,9 @@ class AlertChannel(pulumi.CustomResource):
                 "base_url": "http://www.test.com",
                 "payload_type": "application/json",
                 "payload_string": \"\"\"{
-          "my_custom_values": {
-            "condition_name": "$CONDITION_NAME",
-            "policy_name": "$POLICY_NAME"
+          \\"my_custom_values\\": {
+            \\"condition_name\\": \\"$CONDITION_NAME\\",
+            \\"policy_name\\": \\"$POLICY_NAME\\"
           }
         }
         \"\"\",
@@ -436,9 +436,9 @@ class AlertChannel(pulumi.CustomResource):
                 "base_url": "http://www.test.com",
                 "payload_type": "application/json",
                 "payload_string": \"\"\"{
-          "my_custom_values": {
-            "condition_name": "$CONDITION_NAME",
-            "policy_name": "$POLICY_NAME"
+          \\"my_custom_values\\": {
+            \\"condition_name\\": \\"$CONDITION_NAME\\",
+            \\"policy_name\\": \\"$POLICY_NAME\\"
           }
         }
         \"\"\",

@@ -134,6 +134,34 @@ class EntityTags(pulumi.CustomResource):
             ])
         ```
 
+        ### Example of applying multiple tags to multiple entities using a nested `dynamic` block
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+        import pulumi_std as std
+
+        apps = std.toset(input=[
+            "Example App Name 1",
+            "Example App Name 2",
+        ]).result
+        custom_tags = {
+            "tag-key-1": "tag-value-1",
+            "tag-key-2": "tag-value-2",
+            "tag-key-3": "tag-value-3",
+        }
+        foo = {__key: newrelic.get_entity(name=__key,
+            type="APPLICATION",
+            domain="APM") for __key, __value in apps}
+        foo_entity_tags = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
+            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
+                tags=[{
+                    "key": entry["key"],
+                    "values": [entry["value"]],
+                } for entry in [{"key": k, "value": v} for k, v in custom_tags]],
+                guid=foo[range["key"]].guid))
+        ```
+
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
@@ -184,6 +212,34 @@ class EntityTags(pulumi.CustomResource):
                     "values": ["my-value-2"],
                 },
             ])
+        ```
+
+        ### Example of applying multiple tags to multiple entities using a nested `dynamic` block
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+        import pulumi_std as std
+
+        apps = std.toset(input=[
+            "Example App Name 1",
+            "Example App Name 2",
+        ]).result
+        custom_tags = {
+            "tag-key-1": "tag-value-1",
+            "tag-key-2": "tag-value-2",
+            "tag-key-3": "tag-value-3",
+        }
+        foo = {__key: newrelic.get_entity(name=__key,
+            type="APPLICATION",
+            domain="APM") for __key, __value in apps}
+        foo_entity_tags = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
+            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
+                tags=[{
+                    "key": entry["key"],
+                    "values": [entry["value"]],
+                } for entry in [{"key": k, "value": v} for k, v in custom_tags]],
+                guid=foo[range["key"]].guid))
         ```
 
         ## Import
