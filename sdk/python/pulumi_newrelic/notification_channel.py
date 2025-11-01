@@ -435,17 +435,17 @@ class NotificationChannel(pulumi.CustomResource):
                 {
                     "key": "customDetails",
                     "value": \"\"\"{
-        "id":{{json issueId}},
-        "IssueURL":{{json issuePageUrl}},
-        "NewRelic priority":{{json priority}},
-        "Total Incidents":{{json totalIncidents}},
-        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "isCorrelated":{{json isCorrelated}},
-        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Workflow Name":{{json workflowName}}
+        \\"id\\":{{json issueId}},
+        \\"IssueURL\\":{{json issuePageUrl}},
+        \\"NewRelic priority\\":{{json priority}},
+        \\"Total Incidents\\":{{json totalIncidents}},
+        \\"Impacted Entities\\":\\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Runbook\\":\\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Description\\":\\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"isCorrelated\\":{{json isCorrelated}},
+        \\"Alert Policy Names\\":\\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Alert Condition Names\\":\\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Workflow Name\\":{{json workflowName}}
         }
         \"\"\",
                 },
@@ -471,17 +471,17 @@ class NotificationChannel(pulumi.CustomResource):
                 {
                     "key": "customDetails",
                     "value": \"\"\"{
-        "id":{{json issueId}},
-        "IssueURL":{{json issuePageUrl}},
-        "NewRelic priority":{{json priority}},
-        "Total Incidents":{{json totalIncidents}},
-        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "isCorrelated":{{json isCorrelated}},
-        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Workflow Name":{{json workflowName}}
+        \\"id\\":{{json issueId}},
+        \\"IssueURL\\":{{json issuePageUrl}},
+        \\"NewRelic priority\\":{{json priority}},
+        \\"Total Incidents\\":{{json totalIncidents}},
+        \\"Impacted Entities\\":\\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Runbook\\":\\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Description\\":\\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"isCorrelated\\":{{json isCorrelated}},
+        \\"Alert Policy Names\\":\\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Alert Condition Names\\":\\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Workflow Name\\":{{json workflowName}}
         }
         \"\"\",
                 },
@@ -806,17 +806,17 @@ class NotificationChannel(pulumi.CustomResource):
                 {
                     "key": "customDetails",
                     "value": \"\"\"{
-        "id":{{json issueId}},
-        "IssueURL":{{json issuePageUrl}},
-        "NewRelic priority":{{json priority}},
-        "Total Incidents":{{json totalIncidents}},
-        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "isCorrelated":{{json isCorrelated}},
-        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Workflow Name":{{json workflowName}}
+        \\"id\\":{{json issueId}},
+        \\"IssueURL\\":{{json issuePageUrl}},
+        \\"NewRelic priority\\":{{json priority}},
+        \\"Total Incidents\\":{{json totalIncidents}},
+        \\"Impacted Entities\\":\\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Runbook\\":\\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Description\\":\\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"isCorrelated\\":{{json isCorrelated}},
+        \\"Alert Policy Names\\":\\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Alert Condition Names\\":\\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Workflow Name\\":{{json workflowName}}
         }
         \"\"\",
                 },
@@ -842,17 +842,17 @@ class NotificationChannel(pulumi.CustomResource):
                 {
                     "key": "customDetails",
                     "value": \"\"\"{
-        "id":{{json issueId}},
-        "IssueURL":{{json issuePageUrl}},
-        "NewRelic priority":{{json priority}},
-        "Total Incidents":{{json totalIncidents}},
-        "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "isCorrelated":{{json isCorrelated}},
-        "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
-        "Workflow Name":{{json workflowName}}
+        \\"id\\":{{json issueId}},
+        \\"IssueURL\\":{{json issuePageUrl}},
+        \\"NewRelic priority\\":{{json priority}},
+        \\"Total Incidents\\":{{json totalIncidents}},
+        \\"Impacted Entities\\":\\"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Runbook\\":\\"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Description\\":\\"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"isCorrelated\\":{{json isCorrelated}},
+        \\"Alert Policy Names\\":\\"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Alert Condition Names\\":\\"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\\",
+        \\"Workflow Name\\":{{json workflowName}}
         }
         \"\"\",
                 },

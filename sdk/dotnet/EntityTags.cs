@@ -57,6 +57,57 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
+    /// ### Example of applying multiple tags to multiple entities using a nested `Dynamic` block
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Threading.Tasks;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(async() =&gt; 
+    /// {
+    ///     var apps = (await Std.Toset.InvokeAsync(new()
+    ///     {
+    ///         Input = new[]
+    ///         {
+    ///             "Example App Name 1",
+    ///             "Example App Name 2",
+    ///         },
+    ///     })).Result;
+    /// 
+    ///     var customTags = 
+    ///     {
+    ///         { "tag-key-1", "tag-value-1" },
+    ///         { "tag-key-2", "tag-value-2" },
+    ///         { "tag-key-3", "tag-value-3" },
+    ///     };
+    /// 
+    ///     var foo = ;
+    /// 
+    ///     var fooEntityTags = new List&lt;NewRelic.EntityTags&gt;();
+    ///     foreach (var range in )
+    ///     {
+    ///         fooEntityTags.Add(new NewRelic.EntityTags($"foo-{range.Key}", new()
+    ///         {
+    ///             Tags = customTags.Select(pair =&gt; new { pair.Key, pair.Value }).Select(entry =&gt; 
+    ///             {
+    ///                 return new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 {
+    ///                     Key = entry.Key,
+    ///                     Values = new[]
+    ///                     {
+    ///                         entry.Value,
+    ///                     },
+    ///                 };
+    ///             }).ToList(),
+    ///             Guid = foo[range.Key].Guid,
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic One entity tags can be imported using a concatenated string of the format

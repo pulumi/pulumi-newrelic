@@ -67,6 +67,7 @@ import javax.annotation.Nullable;
  *             .name("foo")
  *             .description("Alert when transactions are taking too long")
  *             .titleTemplate("Issue in environment: {{ tags.environment }}")
+ *             .targetEntity("MXxBUE18QVBQTElDQVRJT058MQ")
  *             .runbookUrl("https://www.example.com")
  *             .enabled(true)
  *             .violationTimeLimitSeconds(3600)
@@ -766,6 +767,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> slideBy() {
         return Codegen.optional(this.slideBy);
+    }
+    /**
+     * BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity&#39;s account ID must be either `accountId` or `nrql.data_account_id`.
+     * 
+     */
+    @Export(name="targetEntity", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> targetEntity;
+
+    /**
+     * @return BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity&#39;s account ID must be either `accountId` or `nrql.data_account_id`.
+     * 
+     */
+    public Output<Optional<String>> targetEntity() {
+        return Codegen.optional(this.targetEntity);
     }
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.

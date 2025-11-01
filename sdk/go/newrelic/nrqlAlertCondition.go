@@ -43,6 +43,7 @@ import (
 //				Name:                        pulumi.String("foo"),
 //				Description:                 pulumi.String("Alert when transactions are taking too long"),
 //				TitleTemplate:               pulumi.String("Issue in environment: {{ tags.environment }}"),
+//				TargetEntity:                pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
 //				RunbookUrl:                  pulumi.String("https://www.example.com"),
 //				Enabled:                     pulumi.Bool(true),
 //				ViolationTimeLimitSeconds:   pulumi.Int(3600),
@@ -436,6 +437,8 @@ type NrqlAlertCondition struct {
 	SignalSeasonality pulumi.StringPtrOutput `pulumi:"signalSeasonality"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrOutput `pulumi:"slideBy"`
+	// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+	TargetEntity pulumi.StringPtrOutput `pulumi:"targetEntity"`
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -538,6 +541,8 @@ type nrqlAlertConditionState struct {
 	SignalSeasonality *string `pulumi:"signalSeasonality"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
+	// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+	TargetEntity *string `pulumi:"targetEntity"`
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -605,6 +610,8 @@ type NrqlAlertConditionState struct {
 	SignalSeasonality pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
+	// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+	TargetEntity pulumi.StringPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -674,6 +681,8 @@ type nrqlAlertConditionArgs struct {
 	SignalSeasonality *string `pulumi:"signalSeasonality"`
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
+	// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+	TargetEntity *string `pulumi:"targetEntity"`
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -740,6 +749,8 @@ type NrqlAlertConditionArgs struct {
 	SignalSeasonality pulumi.StringPtrInput
 	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
+	// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+	TargetEntity pulumi.StringPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -960,6 +971,11 @@ func (o NrqlAlertConditionOutput) SignalSeasonality() pulumi.StringPtrOutput {
 // Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 func (o NrqlAlertConditionOutput) SlideBy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.SlideBy }).(pulumi.IntPtrOutput)
+}
+
+// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `accountId` or `nrql.data_account_id`.
+func (o NrqlAlertConditionOutput) TargetEntity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.TargetEntity }).(pulumi.StringPtrOutput)
 }
 
 // **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.

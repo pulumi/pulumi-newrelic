@@ -63,6 +63,8 @@ import (
 //
 // ```
 //
+// ### Example of applying multiple tags to multiple entities using a nested `dynamic` block
+//
 // ## Import
 //
 // New Relic One entity tags can be imported using a concatenated string of the format

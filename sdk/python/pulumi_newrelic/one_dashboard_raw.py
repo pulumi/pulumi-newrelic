@@ -262,19 +262,19 @@ class OneDashboardRaw(pulumi.CustomResource):
                         "height": 1,
                         "visualization_id": "viz.custom",
                         "configuration": \"\"\"      {
-                "legend": {
-                  "enabled": false
+                \\"legend\\": {
+                  \\"enabled\\": false
                 },
-                "nrqlQueries": [
+                \\"nrqlQueries\\": [
                   {
-                    "accountId": ` + accountID + `,
-                    "query": "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES"
+                    \\"accountId\\": ` + accountID + `,
+                    \\"query\\": \\"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\\"
                   }
                 ],
-                "yAxisLeft": {
-                  "max": 100,
-                  "min": 50,
-                  "zero": false
+                \\"yAxisLeft\\": {
+                  \\"max\\": 100,
+                  \\"min\\": 50,
+                  \\"zero\\": false
                 }
               }
         \"\"\",
@@ -287,10 +287,10 @@ class OneDashboardRaw(pulumi.CustomResource):
                         "height": 1,
                         "visualization_id": "viz.testing",
                         "configuration": \"\"\"      {
-                "nrqlQueries": [
+                \\"nrqlQueries\\": [
                   {
-                    "accountId": ` + accountID + `,
-                    "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400"
+                    \\"accountId\\": ` + accountID + `,
+                    \\"query\\": \\"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\\"
                   }
                 ]
               }
@@ -357,19 +357,19 @@ class OneDashboardRaw(pulumi.CustomResource):
                         "height": 1,
                         "visualization_id": "viz.custom",
                         "configuration": \"\"\"      {
-                "legend": {
-                  "enabled": false
+                \\"legend\\": {
+                  \\"enabled\\": false
                 },
-                "nrqlQueries": [
+                \\"nrqlQueries\\": [
                   {
-                    "accountId": ` + accountID + `,
-                    "query": "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES"
+                    \\"accountId\\": ` + accountID + `,
+                    \\"query\\": \\"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\\"
                   }
                 ],
-                "yAxisLeft": {
-                  "max": 100,
-                  "min": 50,
-                  "zero": false
+                \\"yAxisLeft\\": {
+                  \\"max\\": 100,
+                  \\"min\\": 50,
+                  \\"zero\\": false
                 }
               }
         \"\"\",
@@ -382,10 +382,10 @@ class OneDashboardRaw(pulumi.CustomResource):
                         "height": 1,
                         "visualization_id": "viz.testing",
                         "configuration": \"\"\"      {
-                "nrqlQueries": [
+                \\"nrqlQueries\\": [
                   {
-                    "accountId": ` + accountID + `,
-                    "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400"
+                    \\"accountId\\": ` + accountID + `,
+                    \\"query\\": \\"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\\"
                   }
                 ]
               }

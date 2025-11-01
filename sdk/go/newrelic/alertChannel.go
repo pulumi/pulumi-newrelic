@@ -231,9 +231,9 @@ import (
 //					BaseUrl:     pulumi.String("http://www.test.com"),
 //					PayloadType: pulumi.String("application/json"),
 //					PayloadString: pulumi.String(`{
-//	  "my_custom_values": {
-//	    "condition_name": "$CONDITION_NAME",
-//	    "policy_name": "$POLICY_NAME"
+//	  \"my_custom_values\": {
+//	    \"condition_name\": \"$CONDITION_NAME\",
+//	    \"policy_name\": \"$POLICY_NAME\"
 //	  }
 //	}
 //

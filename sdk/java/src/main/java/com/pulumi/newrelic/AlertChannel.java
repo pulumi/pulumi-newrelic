@@ -295,9 +295,9 @@ import javax.annotation.Nullable;
  *                 .payloadType("application/json")
  *                 .payloadString("""
  * {
- *   "my_custom_values": {
- *     "condition_name": "$CONDITION_NAME",
- *     "policy_name": "$POLICY_NAME"
+ *   \"my_custom_values\": {
+ *     \"condition_name\": \"$CONDITION_NAME\",
+ *     \"policy_name\": \"$POLICY_NAME\"
  *   }
  * }
  *                 """)

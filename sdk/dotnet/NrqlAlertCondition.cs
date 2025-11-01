@@ -37,6 +37,7 @@ namespace Pulumi.NewRelic
     ///         Name = "foo",
     ///         Description = "Alert when transactions are taking too long",
     ///         TitleTemplate = "Issue in environment: {{ tags.environment }}",
+    ///         TargetEntity = "MXxBUE18QVBQTElDQVRJT058MQ",
     ///         RunbookUrl = "https://www.example.com",
     ///         Enabled = true,
     ///         ViolationTimeLimitSeconds = 3600,
@@ -503,6 +504,12 @@ namespace Pulumi.NewRelic
         public Output<int?> SlideBy { get; private set; } = null!;
 
         /// <summary>
+        /// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `AccountId` or `nrql.data_account_id`.
+        /// </summary>
+        [Output("targetEntity")]
+        public Output<string?> TargetEntity { get; private set; } = null!;
+
+        /// <summary>
         /// **DEPRECATED** Use `Critical`, and `Warning` instead. A list of terms for this condition. See Terms below for details.
         /// </summary>
         [Output("terms")]
@@ -718,6 +725,12 @@ namespace Pulumi.NewRelic
         [Input("slideBy")]
         public Input<int>? SlideBy { get; set; }
 
+        /// <summary>
+        /// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `AccountId` or `nrql.data_account_id`.
+        /// </summary>
+        [Input("targetEntity")]
+        public Input<string>? TargetEntity { get; set; }
+
         [Input("terms")]
         private InputList<Inputs.NrqlAlertConditionTermArgs>? _terms;
 
@@ -908,6 +921,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("slideBy")]
         public Input<int>? SlideBy { get; set; }
+
+        /// <summary>
+        /// BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `AccountId` or `nrql.data_account_id`.
+        /// </summary>
+        [Input("targetEntity")]
+        public Input<string>? TargetEntity { get; set; }
 
         [Input("terms")]
         private InputList<Inputs.NrqlAlertConditionTermGetArgs>? _terms;

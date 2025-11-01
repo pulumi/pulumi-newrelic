@@ -43,6 +43,7 @@ class NrqlAlertConditionArgs:
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
                  slide_by: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
                  title_template: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -73,6 +74,7 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         :param pulumi.Input[_builtins.int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
@@ -124,6 +126,8 @@ class NrqlAlertConditionArgs:
             pulumi.set(__self__, "signal_seasonality", signal_seasonality)
         if slide_by is not None:
             pulumi.set(__self__, "slide_by", slide_by)
+        if target_entity is not None:
+            pulumi.set(__self__, "target_entity", target_entity)
         if terms is not None:
             warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
             pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
@@ -408,6 +412,18 @@ class NrqlAlertConditionArgs:
         pulumi.set(self, "slide_by", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetEntity")
+    def target_entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
+        """
+        return pulumi.get(self, "target_entity")
+
+    @target_entity.setter
+    def target_entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_entity", value)
+
+    @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
@@ -510,6 +526,7 @@ class _NrqlAlertConditionState:
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
                  slide_by: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
                  title_template: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -541,6 +558,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         :param pulumi.Input[_builtins.int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
@@ -596,6 +614,8 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "signal_seasonality", signal_seasonality)
         if slide_by is not None:
             pulumi.set(__self__, "slide_by", slide_by)
+        if target_entity is not None:
+            pulumi.set(__self__, "target_entity", target_entity)
         if terms is not None:
             warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
             pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
@@ -892,6 +912,18 @@ class _NrqlAlertConditionState:
         pulumi.set(self, "slide_by", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetEntity")
+    def target_entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
+        """
+        return pulumi.get(self, "target_entity")
+
+    @target_entity.setter
+    def target_entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_entity", value)
+
+    @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""use `critical` and `warning` attributes instead""")
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
@@ -996,6 +1028,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
                  slide_by: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
                  title_template: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1022,6 +1055,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             name="foo",
             description="Alert when transactions are taking too long",
             title_template="Issue in environment: {{ tags.environment }}",
+            target_entity="MXxBUE18QVBQTElDQVRJT058MQ",
             runbook_url="https://www.example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -1301,6 +1335,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         :param pulumi.Input[_builtins.int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
@@ -1335,6 +1370,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             name="foo",
             description="Alert when transactions are taking too long",
             title_template="Issue in environment: {{ tags.environment }}",
+            target_entity="MXxBUE18QVBQTElDQVRJT058MQ",
             runbook_url="https://www.example.com",
             enabled=True,
             violation_time_limit_seconds=3600,
@@ -1627,6 +1663,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
                  slide_by: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_entity: Optional[pulumi.Input[_builtins.str]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
                  title_template: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1668,6 +1705,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["runbook_url"] = runbook_url
             __props__.__dict__["signal_seasonality"] = signal_seasonality
             __props__.__dict__["slide_by"] = slide_by
+            __props__.__dict__["target_entity"] = target_entity
             __props__.__dict__["terms"] = terms
             __props__.__dict__["title_template"] = title_template
             __props__.__dict__["type"] = type
@@ -1708,6 +1746,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
             signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
             slide_by: Optional[pulumi.Input[_builtins.int]] = None,
+            target_entity: Optional[pulumi.Input[_builtins.str]] = None,
             terms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]]] = None,
             title_template: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1744,6 +1783,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         :param pulumi.Input[_builtins.int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
+        :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
         :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
@@ -1780,6 +1820,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["runbook_url"] = runbook_url
         __props__.__dict__["signal_seasonality"] = signal_seasonality
         __props__.__dict__["slide_by"] = slide_by
+        __props__.__dict__["target_entity"] = target_entity
         __props__.__dict__["terms"] = terms
         __props__.__dict__["title_template"] = title_template
         __props__.__dict__["type"] = type
@@ -1971,6 +2012,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         """
         return pulumi.get(self, "slide_by")
+
+    @_builtins.property
+    @pulumi.getter(name="targetEntity")
+    def target_entity(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
+        """
+        return pulumi.get(self, "target_entity")
 
     @_builtins.property
     @pulumi.getter
