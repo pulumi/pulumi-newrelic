@@ -1763,6 +1763,22 @@
             },
             "type": "object"
         },
+        "newrelic:cloud/AzureIntegrationsAutoDiscovery:AzureIntegrationsAutoDiscovery": {
+            "properties": {
+                "metricsPollingInterval": {
+                    "type": "integer",
+                    "description": "The data polling interval in seconds\n"
+                },
+                "resourceGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive\n"
+                }
+            },
+            "type": "object"
+        },
         "newrelic:cloud/AzureIntegrationsContainers:AzureIntegrationsContainers": {
             "properties": {
                 "metricsPollingInterval": {
@@ -9730,6 +9746,10 @@
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsAppService:AzureIntegrationsAppService",
                     "description": "Azure App Service. See Integration blocks below for details.\n"
                 },
+                "autoDiscovery": {
+                    "$ref": "#/types/newrelic:cloud/AzureIntegrationsAutoDiscovery:AzureIntegrationsAutoDiscovery",
+                    "description": "Azure Auto Discovery"
+                },
                 "containers": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsContainers:AzureIntegrationsContainers",
                     "description": "Azure Containers. See Integration blocks below for details.\n"
@@ -9871,6 +9891,10 @@
                 "appService": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsAppService:AzureIntegrationsAppService",
                     "description": "Azure App Service. See Integration blocks below for details.\n"
+                },
+                "autoDiscovery": {
+                    "$ref": "#/types/newrelic:cloud/AzureIntegrationsAutoDiscovery:AzureIntegrationsAutoDiscovery",
+                    "description": "Azure Auto Discovery"
                 },
                 "containers": {
                     "$ref": "#/types/newrelic:cloud/AzureIntegrationsContainers:AzureIntegrationsContainers",
@@ -10015,6 +10039,10 @@
                     "appService": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsAppService:AzureIntegrationsAppService",
                         "description": "Azure App Service. See Integration blocks below for details.\n"
+                    },
+                    "autoDiscovery": {
+                        "$ref": "#/types/newrelic:cloud/AzureIntegrationsAutoDiscovery:AzureIntegrationsAutoDiscovery",
+                        "description": "Azure Auto Discovery"
                     },
                     "containers": {
                         "$ref": "#/types/newrelic:cloud/AzureIntegrationsContainers:AzureIntegrationsContainers",

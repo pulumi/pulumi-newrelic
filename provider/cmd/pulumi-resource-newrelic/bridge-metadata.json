@@ -848,6 +848,16 @@
                             }
                         }
                     },
+                    "auto_discovery": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "resource_groups": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "containers": {
                         "maxItemsOne": true,
                         "elem": {
