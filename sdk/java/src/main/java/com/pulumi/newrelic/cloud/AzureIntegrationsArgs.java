@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsApiManagementArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAppGatewayArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAppServiceArgs;
+import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsAutoDiscoveryArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsContainersArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsCosmosDbArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsCostManagementArgs;
@@ -106,6 +107,21 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<AzureIntegrationsAppServiceArgs>> appService() {
         return Optional.ofNullable(this.appService);
+    }
+
+    /**
+     * Azure Auto Discovery
+     * 
+     */
+    @Import(name="autoDiscovery")
+    private @Nullable Output<AzureIntegrationsAutoDiscoveryArgs> autoDiscovery;
+
+    /**
+     * @return Azure Auto Discovery
+     * 
+     */
+    public Optional<Output<AzureIntegrationsAutoDiscoveryArgs>> autoDiscovery() {
+        return Optional.ofNullable(this.autoDiscovery);
     }
 
     /**
@@ -581,6 +597,7 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
         this.apiManagement = $.apiManagement;
         this.appGateway = $.appGateway;
         this.appService = $.appService;
+        this.autoDiscovery = $.autoDiscovery;
         this.containers = $.containers;
         this.cosmosDb = $.cosmosDb;
         this.costManagement = $.costManagement;
@@ -713,6 +730,27 @@ public final class AzureIntegrationsArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder appService(AzureIntegrationsAppServiceArgs appService) {
             return appService(Output.of(appService));
+        }
+
+        /**
+         * @param autoDiscovery Azure Auto Discovery
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoDiscovery(@Nullable Output<AzureIntegrationsAutoDiscoveryArgs> autoDiscovery) {
+            $.autoDiscovery = autoDiscovery;
+            return this;
+        }
+
+        /**
+         * @param autoDiscovery Azure Auto Discovery
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoDiscovery(AzureIntegrationsAutoDiscoveryArgs autoDiscovery) {
+            return autoDiscovery(Output.of(autoDiscovery));
         }
 
         /**

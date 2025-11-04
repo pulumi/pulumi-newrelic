@@ -285,6 +285,8 @@ type AzureIntegrations struct {
 	AppGateway AzureIntegrationsAppGatewayPtrOutput `pulumi:"appGateway"`
 	// Azure App Service. See Integration blocks below for details.
 	AppService AzureIntegrationsAppServicePtrOutput `pulumi:"appService"`
+	// Azure Auto Discovery
+	AutoDiscovery AzureIntegrationsAutoDiscoveryPtrOutput `pulumi:"autoDiscovery"`
 	// Azure Containers. See Integration blocks below for details.
 	Containers AzureIntegrationsContainersPtrOutput `pulumi:"containers"`
 	// Azure CosmosDB. See Integration blocks below for details.
@@ -396,6 +398,8 @@ type azureIntegrationsState struct {
 	AppGateway *AzureIntegrationsAppGateway `pulumi:"appGateway"`
 	// Azure App Service. See Integration blocks below for details.
 	AppService *AzureIntegrationsAppService `pulumi:"appService"`
+	// Azure Auto Discovery
+	AutoDiscovery *AzureIntegrationsAutoDiscovery `pulumi:"autoDiscovery"`
 	// Azure Containers. See Integration blocks below for details.
 	Containers *AzureIntegrationsContainers `pulumi:"containers"`
 	// Azure CosmosDB. See Integration blocks below for details.
@@ -475,6 +479,8 @@ type AzureIntegrationsState struct {
 	AppGateway AzureIntegrationsAppGatewayPtrInput
 	// Azure App Service. See Integration blocks below for details.
 	AppService AzureIntegrationsAppServicePtrInput
+	// Azure Auto Discovery
+	AutoDiscovery AzureIntegrationsAutoDiscoveryPtrInput
 	// Azure Containers. See Integration blocks below for details.
 	Containers AzureIntegrationsContainersPtrInput
 	// Azure CosmosDB. See Integration blocks below for details.
@@ -558,6 +564,8 @@ type azureIntegrationsArgs struct {
 	AppGateway *AzureIntegrationsAppGateway `pulumi:"appGateway"`
 	// Azure App Service. See Integration blocks below for details.
 	AppService *AzureIntegrationsAppService `pulumi:"appService"`
+	// Azure Auto Discovery
+	AutoDiscovery *AzureIntegrationsAutoDiscovery `pulumi:"autoDiscovery"`
 	// Azure Containers. See Integration blocks below for details.
 	Containers *AzureIntegrationsContainers `pulumi:"containers"`
 	// Azure CosmosDB. See Integration blocks below for details.
@@ -638,6 +646,8 @@ type AzureIntegrationsArgs struct {
 	AppGateway AzureIntegrationsAppGatewayPtrInput
 	// Azure App Service. See Integration blocks below for details.
 	AppService AzureIntegrationsAppServicePtrInput
+	// Azure Auto Discovery
+	AutoDiscovery AzureIntegrationsAutoDiscoveryPtrInput
 	// Azure Containers. See Integration blocks below for details.
 	Containers AzureIntegrationsContainersPtrInput
 	// Azure CosmosDB. See Integration blocks below for details.
@@ -813,6 +823,11 @@ func (o AzureIntegrationsOutput) AppGateway() AzureIntegrationsAppGatewayPtrOutp
 // Azure App Service. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) AppService() AzureIntegrationsAppServicePtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsAppServicePtrOutput { return v.AppService }).(AzureIntegrationsAppServicePtrOutput)
+}
+
+// Azure Auto Discovery
+func (o AzureIntegrationsOutput) AutoDiscovery() AzureIntegrationsAutoDiscoveryPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsAutoDiscoveryPtrOutput { return v.AutoDiscovery }).(AzureIntegrationsAutoDiscoveryPtrOutput)
 }
 
 // Azure Containers. See Integration blocks below for details.
