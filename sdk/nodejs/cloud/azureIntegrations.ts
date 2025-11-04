@@ -229,6 +229,10 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     declare public readonly appService: pulumi.Output<outputs.cloud.AzureIntegrationsAppService | undefined>;
     /**
+     * Azure Auto Discovery
+     */
+    declare public readonly autoDiscovery: pulumi.Output<outputs.cloud.AzureIntegrationsAutoDiscovery | undefined>;
+    /**
      * Azure Containers. See Integration blocks below for details.
      */
     declare public readonly containers: pulumi.Output<outputs.cloud.AzureIntegrationsContainers | undefined>;
@@ -375,6 +379,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
             resourceInputs["apiManagement"] = state?.apiManagement;
             resourceInputs["appGateway"] = state?.appGateway;
             resourceInputs["appService"] = state?.appService;
+            resourceInputs["autoDiscovery"] = state?.autoDiscovery;
             resourceInputs["containers"] = state?.containers;
             resourceInputs["cosmosDb"] = state?.cosmosDb;
             resourceInputs["costManagement"] = state?.costManagement;
@@ -414,6 +419,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
             resourceInputs["apiManagement"] = args?.apiManagement;
             resourceInputs["appGateway"] = args?.appGateway;
             resourceInputs["appService"] = args?.appService;
+            resourceInputs["autoDiscovery"] = args?.autoDiscovery;
             resourceInputs["containers"] = args?.containers;
             resourceInputs["cosmosDb"] = args?.cosmosDb;
             resourceInputs["costManagement"] = args?.costManagement;
@@ -470,6 +476,10 @@ export interface AzureIntegrationsState {
      * Azure App Service. See Integration blocks below for details.
      */
     appService?: pulumi.Input<inputs.cloud.AzureIntegrationsAppService>;
+    /**
+     * Azure Auto Discovery
+     */
+    autoDiscovery?: pulumi.Input<inputs.cloud.AzureIntegrationsAutoDiscovery>;
     /**
      * Azure Containers. See Integration blocks below for details.
      */
@@ -621,6 +631,10 @@ export interface AzureIntegrationsArgs {
      * Azure App Service. See Integration blocks below for details.
      */
     appService?: pulumi.Input<inputs.cloud.AzureIntegrationsAppService>;
+    /**
+     * Azure Auto Discovery
+     */
+    autoDiscovery?: pulumi.Input<inputs.cloud.AzureIntegrationsAutoDiscovery>;
     /**
      * Azure Containers. See Integration blocks below for details.
      */

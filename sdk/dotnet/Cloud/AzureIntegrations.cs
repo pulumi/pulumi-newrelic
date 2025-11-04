@@ -359,6 +359,12 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsAppService?> AppService { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Auto Discovery
+        /// </summary>
+        [Output("autoDiscovery")]
+        public Output<Outputs.AzureIntegrationsAutoDiscovery?> AutoDiscovery { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Containers. See Integration blocks below for details.
         /// </summary>
         [Output("containers")]
@@ -618,6 +624,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsAppServiceArgs>? AppService { get; set; }
 
         /// <summary>
+        /// Azure Auto Discovery
+        /// </summary>
+        [Input("autoDiscovery")]
+        public Input<Inputs.AzureIntegrationsAutoDiscoveryArgs>? AutoDiscovery { get; set; }
+
+        /// <summary>
         /// Azure Containers. See Integration blocks below for details.
         /// </summary>
         [Input("containers")]
@@ -837,6 +849,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("appService")]
         public Input<Inputs.AzureIntegrationsAppServiceGetArgs>? AppService { get; set; }
+
+        /// <summary>
+        /// Azure Auto Discovery
+        /// </summary>
+        [Input("autoDiscovery")]
+        public Input<Inputs.AzureIntegrationsAutoDiscoveryGetArgs>? AutoDiscovery { get; set; }
 
         /// <summary>
         /// Azure Containers. See Integration blocks below for details.

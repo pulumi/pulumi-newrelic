@@ -26,6 +26,7 @@ class AzureIntegrationsArgs:
                  api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
                  app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
                  app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
+                 auto_discovery: Optional[pulumi.Input['AzureIntegrationsAutoDiscoveryArgs']] = None,
                  containers: Optional[pulumi.Input['AzureIntegrationsContainersArgs']] = None,
                  cosmos_db: Optional[pulumi.Input['AzureIntegrationsCosmosDbArgs']] = None,
                  cost_management: Optional[pulumi.Input['AzureIntegrationsCostManagementArgs']] = None,
@@ -65,6 +66,7 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppGatewayArgs'] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsAutoDiscoveryArgs'] auto_discovery: Azure Auto Discovery
         :param pulumi.Input['AzureIntegrationsContainersArgs'] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCosmosDbArgs'] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: Azure Cost Management. See Integration blocks below for details.
@@ -110,6 +112,8 @@ class AzureIntegrationsArgs:
             pulumi.set(__self__, "app_gateway", app_gateway)
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
+        if auto_discovery is not None:
+            pulumi.set(__self__, "auto_discovery", auto_discovery)
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
         if cosmos_db is not None:
@@ -231,6 +235,18 @@ class AzureIntegrationsArgs:
     @app_service.setter
     def app_service(self, value: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']]):
         pulumi.set(self, "app_service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDiscovery")
+    def auto_discovery(self) -> Optional[pulumi.Input['AzureIntegrationsAutoDiscoveryArgs']]:
+        """
+        Azure Auto Discovery
+        """
+        return pulumi.get(self, "auto_discovery")
+
+    @auto_discovery.setter
+    def auto_discovery(self, value: Optional[pulumi.Input['AzureIntegrationsAutoDiscoveryArgs']]):
+        pulumi.set(self, "auto_discovery", value)
 
     @_builtins.property
     @pulumi.getter
@@ -594,6 +610,7 @@ class _AzureIntegrationsState:
                  api_management: Optional[pulumi.Input['AzureIntegrationsApiManagementArgs']] = None,
                  app_gateway: Optional[pulumi.Input['AzureIntegrationsAppGatewayArgs']] = None,
                  app_service: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']] = None,
+                 auto_discovery: Optional[pulumi.Input['AzureIntegrationsAutoDiscoveryArgs']] = None,
                  containers: Optional[pulumi.Input['AzureIntegrationsContainersArgs']] = None,
                  cosmos_db: Optional[pulumi.Input['AzureIntegrationsCosmosDbArgs']] = None,
                  cost_management: Optional[pulumi.Input['AzureIntegrationsCostManagementArgs']] = None,
@@ -630,6 +647,7 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsApiManagementArgs'] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppGatewayArgs'] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsAppServiceArgs'] app_service: Azure App Service. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsAutoDiscoveryArgs'] auto_discovery: Azure Auto Discovery
         :param pulumi.Input['AzureIntegrationsContainersArgs'] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCosmosDbArgs'] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: Azure Cost Management. See Integration blocks below for details.
@@ -678,6 +696,8 @@ class _AzureIntegrationsState:
             pulumi.set(__self__, "app_gateway", app_gateway)
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
+        if auto_discovery is not None:
+            pulumi.set(__self__, "auto_discovery", auto_discovery)
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
         if cosmos_db is not None:
@@ -786,6 +806,18 @@ class _AzureIntegrationsState:
     @app_service.setter
     def app_service(self, value: Optional[pulumi.Input['AzureIntegrationsAppServiceArgs']]):
         pulumi.set(self, "app_service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDiscovery")
+    def auto_discovery(self) -> Optional[pulumi.Input['AzureIntegrationsAutoDiscoveryArgs']]:
+        """
+        Azure Auto Discovery
+        """
+        return pulumi.get(self, "auto_discovery")
+
+    @auto_discovery.setter
+    def auto_discovery(self, value: Optional[pulumi.Input['AzureIntegrationsAutoDiscoveryArgs']]):
+        pulumi.set(self, "auto_discovery", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1167,6 +1199,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  api_management: Optional[pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']]] = None,
                  app_gateway: Optional[pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']]] = None,
                  app_service: Optional[pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']]] = None,
+                 auto_discovery: Optional[pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']]] = None,
                  containers: Optional[pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']]] = None,
                  cosmos_db: Optional[pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']]] = None,
                  cost_management: Optional[pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']]] = None,
@@ -1380,6 +1413,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']] app_service: Azure App Service. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']] auto_discovery: Azure Auto Discovery
         :param pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']] cost_management: Azure Cost Management. See Integration blocks below for details.
@@ -1621,6 +1655,7 @@ class AzureIntegrations(pulumi.CustomResource):
                  api_management: Optional[pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']]] = None,
                  app_gateway: Optional[pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']]] = None,
                  app_service: Optional[pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']]] = None,
+                 auto_discovery: Optional[pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']]] = None,
                  containers: Optional[pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']]] = None,
                  cosmos_db: Optional[pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']]] = None,
                  cost_management: Optional[pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']]] = None,
@@ -1664,6 +1699,7 @@ class AzureIntegrations(pulumi.CustomResource):
             __props__.__dict__["api_management"] = api_management
             __props__.__dict__["app_gateway"] = app_gateway
             __props__.__dict__["app_service"] = app_service
+            __props__.__dict__["auto_discovery"] = auto_discovery
             __props__.__dict__["containers"] = containers
             __props__.__dict__["cosmos_db"] = cosmos_db
             __props__.__dict__["cost_management"] = cost_management
@@ -1710,6 +1746,7 @@ class AzureIntegrations(pulumi.CustomResource):
             api_management: Optional[pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']]] = None,
             app_gateway: Optional[pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']]] = None,
             app_service: Optional[pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']]] = None,
+            auto_discovery: Optional[pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']]] = None,
             containers: Optional[pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']]] = None,
             cosmos_db: Optional[pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']]] = None,
             cost_management: Optional[pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']]] = None,
@@ -1751,6 +1788,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AzureIntegrationsApiManagementArgs', 'AzureIntegrationsApiManagementArgsDict']] api_management: Azure API Management. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsAppGatewayArgs', 'AzureIntegrationsAppGatewayArgsDict']] app_gateway: Azure App Gateway. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsAppServiceArgs', 'AzureIntegrationsAppServiceArgsDict']] app_service: Azure App Service. See Integration blocks below for details.
+        :param pulumi.Input[Union['AzureIntegrationsAutoDiscoveryArgs', 'AzureIntegrationsAutoDiscoveryArgsDict']] auto_discovery: Azure Auto Discovery
         :param pulumi.Input[Union['AzureIntegrationsContainersArgs', 'AzureIntegrationsContainersArgsDict']] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsCosmosDbArgs', 'AzureIntegrationsCosmosDbArgsDict']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input[Union['AzureIntegrationsCostManagementArgs', 'AzureIntegrationsCostManagementArgsDict']] cost_management: Azure Cost Management. See Integration blocks below for details.
@@ -1799,6 +1837,7 @@ class AzureIntegrations(pulumi.CustomResource):
         __props__.__dict__["api_management"] = api_management
         __props__.__dict__["app_gateway"] = app_gateway
         __props__.__dict__["app_service"] = app_service
+        __props__.__dict__["auto_discovery"] = auto_discovery
         __props__.__dict__["containers"] = containers
         __props__.__dict__["cosmos_db"] = cosmos_db
         __props__.__dict__["cost_management"] = cost_management
@@ -1862,6 +1901,14 @@ class AzureIntegrations(pulumi.CustomResource):
         Azure App Service. See Integration blocks below for details.
         """
         return pulumi.get(self, "app_service")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDiscovery")
+    def auto_discovery(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsAutoDiscovery']]:
+        """
+        Azure Auto Discovery
+        """
+        return pulumi.get(self, "auto_discovery")
 
     @_builtins.property
     @pulumi.getter

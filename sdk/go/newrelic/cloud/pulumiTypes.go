@@ -13959,6 +13959,162 @@ func (o AzureIntegrationsAppServicePtrOutput) ResourceGroups() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+type AzureIntegrationsAutoDiscovery struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups []string `pulumi:"resourceGroups"`
+}
+
+// AzureIntegrationsAutoDiscoveryInput is an input type that accepts AzureIntegrationsAutoDiscoveryArgs and AzureIntegrationsAutoDiscoveryOutput values.
+// You can construct a concrete instance of `AzureIntegrationsAutoDiscoveryInput` via:
+//
+//	AzureIntegrationsAutoDiscoveryArgs{...}
+type AzureIntegrationsAutoDiscoveryInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsAutoDiscoveryOutput() AzureIntegrationsAutoDiscoveryOutput
+	ToAzureIntegrationsAutoDiscoveryOutputWithContext(context.Context) AzureIntegrationsAutoDiscoveryOutput
+}
+
+type AzureIntegrationsAutoDiscoveryArgs struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
+}
+
+func (AzureIntegrationsAutoDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsAutoDiscovery)(nil)).Elem()
+}
+
+func (i AzureIntegrationsAutoDiscoveryArgs) ToAzureIntegrationsAutoDiscoveryOutput() AzureIntegrationsAutoDiscoveryOutput {
+	return i.ToAzureIntegrationsAutoDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsAutoDiscoveryArgs) ToAzureIntegrationsAutoDiscoveryOutputWithContext(ctx context.Context) AzureIntegrationsAutoDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAutoDiscoveryOutput)
+}
+
+func (i AzureIntegrationsAutoDiscoveryArgs) ToAzureIntegrationsAutoDiscoveryPtrOutput() AzureIntegrationsAutoDiscoveryPtrOutput {
+	return i.ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsAutoDiscoveryArgs) ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AzureIntegrationsAutoDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAutoDiscoveryOutput).ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(ctx)
+}
+
+// AzureIntegrationsAutoDiscoveryPtrInput is an input type that accepts AzureIntegrationsAutoDiscoveryArgs, AzureIntegrationsAutoDiscoveryPtr and AzureIntegrationsAutoDiscoveryPtrOutput values.
+// You can construct a concrete instance of `AzureIntegrationsAutoDiscoveryPtrInput` via:
+//
+//	        AzureIntegrationsAutoDiscoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AzureIntegrationsAutoDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsAutoDiscoveryPtrOutput() AzureIntegrationsAutoDiscoveryPtrOutput
+	ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(context.Context) AzureIntegrationsAutoDiscoveryPtrOutput
+}
+
+type azureIntegrationsAutoDiscoveryPtrType AzureIntegrationsAutoDiscoveryArgs
+
+func AzureIntegrationsAutoDiscoveryPtr(v *AzureIntegrationsAutoDiscoveryArgs) AzureIntegrationsAutoDiscoveryPtrInput {
+	return (*azureIntegrationsAutoDiscoveryPtrType)(v)
+}
+
+func (*azureIntegrationsAutoDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsAutoDiscovery)(nil)).Elem()
+}
+
+func (i *azureIntegrationsAutoDiscoveryPtrType) ToAzureIntegrationsAutoDiscoveryPtrOutput() AzureIntegrationsAutoDiscoveryPtrOutput {
+	return i.ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *azureIntegrationsAutoDiscoveryPtrType) ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AzureIntegrationsAutoDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsAutoDiscoveryPtrOutput)
+}
+
+type AzureIntegrationsAutoDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsAutoDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsAutoDiscovery)(nil)).Elem()
+}
+
+func (o AzureIntegrationsAutoDiscoveryOutput) ToAzureIntegrationsAutoDiscoveryOutput() AzureIntegrationsAutoDiscoveryOutput {
+	return o
+}
+
+func (o AzureIntegrationsAutoDiscoveryOutput) ToAzureIntegrationsAutoDiscoveryOutputWithContext(ctx context.Context) AzureIntegrationsAutoDiscoveryOutput {
+	return o
+}
+
+func (o AzureIntegrationsAutoDiscoveryOutput) ToAzureIntegrationsAutoDiscoveryPtrOutput() AzureIntegrationsAutoDiscoveryPtrOutput {
+	return o.ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o AzureIntegrationsAutoDiscoveryOutput) ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AzureIntegrationsAutoDiscoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsAutoDiscovery) *AzureIntegrationsAutoDiscovery {
+		return &v
+	}).(AzureIntegrationsAutoDiscoveryPtrOutput)
+}
+
+// The data polling interval in seconds
+func (o AzureIntegrationsAutoDiscoveryOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIntegrationsAutoDiscovery) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsAutoDiscoveryOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsAutoDiscovery) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+type AzureIntegrationsAutoDiscoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsAutoDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsAutoDiscovery)(nil)).Elem()
+}
+
+func (o AzureIntegrationsAutoDiscoveryPtrOutput) ToAzureIntegrationsAutoDiscoveryPtrOutput() AzureIntegrationsAutoDiscoveryPtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsAutoDiscoveryPtrOutput) ToAzureIntegrationsAutoDiscoveryPtrOutputWithContext(ctx context.Context) AzureIntegrationsAutoDiscoveryPtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsAutoDiscoveryPtrOutput) Elem() AzureIntegrationsAutoDiscoveryOutput {
+	return o.ApplyT(func(v *AzureIntegrationsAutoDiscovery) AzureIntegrationsAutoDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIntegrationsAutoDiscovery
+		return ret
+	}).(AzureIntegrationsAutoDiscoveryOutput)
+}
+
+// The data polling interval in seconds
+func (o AzureIntegrationsAutoDiscoveryPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrationsAutoDiscovery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsAutoDiscoveryPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsAutoDiscovery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroups
+	}).(pulumi.StringArrayOutput)
+}
+
 type AzureIntegrationsContainers struct {
 	// The data polling interval in seconds
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
@@ -22350,6 +22506,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsAppGatewayPtrInput)(nil)).Elem(), AzureIntegrationsAppGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsAppServiceInput)(nil)).Elem(), AzureIntegrationsAppServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsAppServicePtrInput)(nil)).Elem(), AzureIntegrationsAppServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsAutoDiscoveryInput)(nil)).Elem(), AzureIntegrationsAutoDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsAutoDiscoveryPtrInput)(nil)).Elem(), AzureIntegrationsAutoDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsContainersInput)(nil)).Elem(), AzureIntegrationsContainersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsContainersPtrInput)(nil)).Elem(), AzureIntegrationsContainersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsCosmosDbInput)(nil)).Elem(), AzureIntegrationsCosmosDbArgs{})
@@ -22612,6 +22770,8 @@ func init() {
 	pulumi.RegisterOutputType(AzureIntegrationsAppGatewayPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsAppServiceOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsAppServicePtrOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsAutoDiscoveryOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsAutoDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsContainersOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsContainersPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsCosmosDbOutput{})

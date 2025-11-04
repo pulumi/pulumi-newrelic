@@ -91,6 +91,7 @@ __all__ = [
     'AzureIntegrationsApiManagement',
     'AzureIntegrationsAppGateway',
     'AzureIntegrationsAppService',
+    'AzureIntegrationsAutoDiscovery',
     'AzureIntegrationsContainers',
     'AzureIntegrationsCosmosDb',
     'AzureIntegrationsCostManagement',
@@ -5457,6 +5458,56 @@ class AzureIntegrationsAppService(dict):
 
     def get(self, key: str, default = None) -> Any:
         AzureIntegrationsAppService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[_builtins.int] = None,
+                 resource_groups: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        :param Sequence[_builtins.str] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        return pulumi.get(self, "resource_groups")
+
+
+@pulumi.output_type
+class AzureIntegrationsAutoDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIntegrationsAutoDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIntegrationsAutoDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIntegrationsAutoDiscovery.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

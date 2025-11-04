@@ -13,6 +13,7 @@ import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsState;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsApiManagement;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsAppGateway;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsAppService;
+import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsAutoDiscovery;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsContainers;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsCosmosDb;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsCostManagement;
@@ -338,6 +339,20 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AzureIntegrationsAppService>> appService() {
         return Codegen.optional(this.appService);
+    }
+    /**
+     * Azure Auto Discovery
+     * 
+     */
+    @Export(name="autoDiscovery", refs={AzureIntegrationsAutoDiscovery.class}, tree="[0]")
+    private Output</* @Nullable */ AzureIntegrationsAutoDiscovery> autoDiscovery;
+
+    /**
+     * @return Azure Auto Discovery
+     * 
+     */
+    public Output<Optional<AzureIntegrationsAutoDiscovery>> autoDiscovery() {
+        return Codegen.optional(this.autoDiscovery);
     }
     /**
      * Azure Containers. See Integration blocks below for details.

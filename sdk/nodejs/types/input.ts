@@ -4961,6 +4961,17 @@ export namespace cloud {
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface AzureIntegrationsAutoDiscovery {
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface AzureIntegrationsContainers {
         /**
          * The data polling interval in seconds

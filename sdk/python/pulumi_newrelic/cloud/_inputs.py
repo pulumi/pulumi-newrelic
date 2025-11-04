@@ -167,6 +167,8 @@ __all__ = [
     'AzureIntegrationsAppGatewayArgsDict',
     'AzureIntegrationsAppServiceArgs',
     'AzureIntegrationsAppServiceArgsDict',
+    'AzureIntegrationsAutoDiscoveryArgs',
+    'AzureIntegrationsAutoDiscoveryArgsDict',
     'AzureIntegrationsContainersArgs',
     'AzureIntegrationsContainersArgsDict',
     'AzureIntegrationsCosmosDbArgs',
@@ -6396,6 +6398,58 @@ elif False:
 
 @pulumi.input_type
 class AzureIntegrationsAppServiceArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @resource_groups.setter
+    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_groups", value)
+
+
+if not MYPY:
+    class AzureIntegrationsAutoDiscoveryArgsDict(TypedDict):
+        metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The data polling interval in seconds
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+elif False:
+    AzureIntegrationsAutoDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureIntegrationsAutoDiscoveryArgs:
     def __init__(__self__, *,
                  metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):

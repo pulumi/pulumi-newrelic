@@ -5015,6 +5015,17 @@ export namespace cloud {
         resourceGroups?: string[];
     }
 
+    export interface AzureIntegrationsAutoDiscovery {
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
     export interface AzureIntegrationsContainers {
         /**
          * The data polling interval in seconds
