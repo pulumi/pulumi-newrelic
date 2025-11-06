@@ -45,11 +45,27 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.ignoreTimeRange);
     }
 
+    /**
+     * (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an &#34;Apply&#34; button that allows users to confirm and apply their selected values to the dashboard.
+     * 
+     */
+    @Import(name="showApplyAction")
+    private @Nullable Output<Boolean> showApplyAction;
+
+    /**
+     * @return (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an &#34;Apply&#34; button that allows users to confirm and apply their selected values to the dashboard.
+     * 
+     */
+    public Optional<Output<Boolean>> showApplyAction() {
+        return Optional.ofNullable(this.showApplyAction);
+    }
+
     private OneDashboardVariableOptionArgs() {}
 
     private OneDashboardVariableOptionArgs(OneDashboardVariableOptionArgs $) {
         this.excluded = $.excluded;
         this.ignoreTimeRange = $.ignoreTimeRange;
+        this.showApplyAction = $.showApplyAction;
     }
 
     public static Builder builder() {
@@ -110,6 +126,27 @@ public final class OneDashboardVariableOptionArgs extends com.pulumi.resources.R
          */
         public Builder ignoreTimeRange(Boolean ignoreTimeRange) {
             return ignoreTimeRange(Output.of(ignoreTimeRange));
+        }
+
+        /**
+         * @param showApplyAction (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an &#34;Apply&#34; button that allows users to confirm and apply their selected values to the dashboard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showApplyAction(@Nullable Output<Boolean> showApplyAction) {
+            $.showApplyAction = showApplyAction;
+            return this;
+        }
+
+        /**
+         * @param showApplyAction (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an &#34;Apply&#34; button that allows users to confirm and apply their selected values to the dashboard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showApplyAction(Boolean showApplyAction) {
+            return showApplyAction(Output.of(showApplyAction));
         }
 
         public OneDashboardVariableOptionArgs build() {

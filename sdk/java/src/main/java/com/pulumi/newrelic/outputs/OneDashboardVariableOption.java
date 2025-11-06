@@ -21,6 +21,11 @@ public final class OneDashboardVariableOption {
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
+    /**
+     * @return (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an &#34;Apply&#34; button that allows users to confirm and apply their selected values to the dashboard.
+     * 
+     */
+    private @Nullable Boolean showApplyAction;
 
     private OneDashboardVariableOption() {}
     /**
@@ -37,6 +42,13 @@ public final class OneDashboardVariableOption {
     public Optional<Boolean> ignoreTimeRange() {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
+    /**
+     * @return (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an &#34;Apply&#34; button that allows users to confirm and apply their selected values to the dashboard.
+     * 
+     */
+    public Optional<Boolean> showApplyAction() {
+        return Optional.ofNullable(this.showApplyAction);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +61,13 @@ public final class OneDashboardVariableOption {
     public static final class Builder {
         private @Nullable Boolean excluded;
         private @Nullable Boolean ignoreTimeRange;
+        private @Nullable Boolean showApplyAction;
         public Builder() {}
         public Builder(OneDashboardVariableOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excluded = defaults.excluded;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
+    	      this.showApplyAction = defaults.showApplyAction;
         }
 
         @CustomType.Setter
@@ -68,10 +82,17 @@ public final class OneDashboardVariableOption {
             this.ignoreTimeRange = ignoreTimeRange;
             return this;
         }
+        @CustomType.Setter
+        public Builder showApplyAction(@Nullable Boolean showApplyAction) {
+
+            this.showApplyAction = showApplyAction;
+            return this;
+        }
         public OneDashboardVariableOption build() {
             final var _resultValue = new OneDashboardVariableOption();
             _resultValue.excluded = excluded;
             _resultValue.ignoreTimeRange = ignoreTimeRange;
+            _resultValue.showApplyAction = showApplyAction;
             return _resultValue;
         }
     }
