@@ -21,15 +21,22 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) An argument with a boolean value that is supported only by variables of `Type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         /// </summary>
         public readonly bool? IgnoreTimeRange;
+        /// <summary>
+        /// (Optional) When multi-selection is enabled (`IsMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+        /// </summary>
+        public readonly bool? ShowApplyAction;
 
         [OutputConstructor]
         private OneDashboardVariableOption(
             bool? excluded,
 
-            bool? ignoreTimeRange)
+            bool? ignoreTimeRange,
+
+            bool? showApplyAction)
         {
             Excluded = excluded;
             IgnoreTimeRange = ignoreTimeRange;
+            ShowApplyAction = showApplyAction;
         }
     }
 }

@@ -24,6 +24,12 @@ namespace Pulumi.NewRelic.Inputs
         [Input("ignoreTimeRange")]
         public Input<bool>? IgnoreTimeRange { get; set; }
 
+        /// <summary>
+        /// (Optional) When multi-selection is enabled (`IsMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+        /// </summary>
+        [Input("showApplyAction")]
+        public Input<bool>? ShowApplyAction { get; set; }
+
         public OneDashboardVariableOptionGetArgs()
         {
         }

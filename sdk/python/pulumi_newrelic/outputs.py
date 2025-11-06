@@ -12740,6 +12740,8 @@ class OneDashboardVariableOption(dict):
         suggest = None
         if key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "showApplyAction":
+            suggest = "show_apply_action"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardVariableOption. Access the value via the '{suggest}' property getter instead.")
@@ -12754,15 +12756,19 @@ class OneDashboardVariableOption(dict):
 
     def __init__(__self__, *,
                  excluded: Optional[_builtins.bool] = None,
-                 ignore_time_range: Optional[_builtins.bool] = None):
+                 ignore_time_range: Optional[_builtins.bool] = None,
+                 show_apply_action: Optional[_builtins.bool] = None):
         """
         :param _builtins.bool excluded: (Optional) An argument with a boolean value. With this turned on, the query condition defined with the variable will not be included in the query. Defaults to `false`.
         :param _builtins.bool ignore_time_range: (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
+        :param _builtins.bool show_apply_action: (Optional) When multi-selection is enabled (`is_multi_selection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
         """
         if excluded is not None:
             pulumi.set(__self__, "excluded", excluded)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if show_apply_action is not None:
+            pulumi.set(__self__, "show_apply_action", show_apply_action)
 
     @_builtins.property
     @pulumi.getter
@@ -12779,6 +12785,14 @@ class OneDashboardVariableOption(dict):
         (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
         """
         return pulumi.get(self, "ignore_time_range")
+
+    @_builtins.property
+    @pulumi.getter(name="showApplyAction")
+    def show_apply_action(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) When multi-selection is enabled (`is_multi_selection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+        """
+        return pulumi.get(self, "show_apply_action")
 
 
 @pulumi.output_type

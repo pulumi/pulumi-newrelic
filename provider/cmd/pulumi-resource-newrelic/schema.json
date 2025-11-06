@@ -7429,6 +7429,10 @@
                 "ignoreTimeRange": {
                     "type": "boolean",
                     "description": "(Optional) An argument with a boolean value that is supported only by variables of \u003cspan pulumi-lang-nodejs=\"`type`\" pulumi-lang-dotnet=\"`Type`\" pulumi-lang-go=\"`type`\" pulumi-lang-python=\"`type`\" pulumi-lang-yaml=\"`type`\" pulumi-lang-java=\"`type`\"\u003e`type`\u003c/span\u003e _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.\n"
+                },
+                "showApplyAction": {
+                    "type": "boolean",
+                    "description": "(Optional) When multi-selection is enabled (\u003cspan pulumi-lang-nodejs=\"`isMultiSelection \" pulumi-lang-dotnet=\"`IsMultiSelection \" pulumi-lang-go=\"`isMultiSelection \" pulumi-lang-python=\"`is_multi_selection \" pulumi-lang-yaml=\"`isMultiSelection \" pulumi-lang-java=\"`isMultiSelection \"\u003e`is_multi_selection \u003c/span\u003e= true`), displays an \"Apply\" button that allows users to confirm and apply their selected values to the dashboard.\n"
                 }
             },
             "type": "object"

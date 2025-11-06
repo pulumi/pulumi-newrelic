@@ -24935,6 +24935,8 @@ type OneDashboardVariableOption struct {
 	Excluded *bool `pulumi:"excluded"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+	ShowApplyAction *bool `pulumi:"showApplyAction"`
 }
 
 // OneDashboardVariableOptionInput is an input type that accepts OneDashboardVariableOptionArgs and OneDashboardVariableOptionOutput values.
@@ -24953,6 +24955,8 @@ type OneDashboardVariableOptionArgs struct {
 	Excluded pulumi.BoolPtrInput `pulumi:"excluded"`
 	// (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+	ShowApplyAction pulumi.BoolPtrInput `pulumi:"showApplyAction"`
 }
 
 func (OneDashboardVariableOptionArgs) ElementType() reflect.Type {
@@ -25014,6 +25018,11 @@ func (o OneDashboardVariableOptionOutput) Excluded() pulumi.BoolPtrOutput {
 // (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
 func (o OneDashboardVariableOptionOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardVariableOption) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+func (o OneDashboardVariableOptionOutput) ShowApplyAction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardVariableOption) *bool { return v.ShowApplyAction }).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardVariableOptionArrayOutput struct{ *pulumi.OutputState }

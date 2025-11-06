@@ -3440,6 +3440,10 @@ export interface OneDashboardVariableOption {
      * (Optional) An argument with a boolean value that is supported only by variables of `type` _nrql_ - when true, the time range specified in the query will override the time picker on dashboards and other pages.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Optional) When multi-selection is enabled (`isMultiSelection = true`), displays an "Apply" button that allows users to confirm and apply their selected values to the dashboard.
+     */
+    showApplyAction?: pulumi.Input<boolean>;
 }
 
 export interface ServiceLevelEvents {
