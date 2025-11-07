@@ -27,7 +27,7 @@ import (
 //
 // ### Workload Identity Federation (WIF) Attributes
 //
-// The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret`, `ociDomainUrl`, and `ociSvcUserName`.
+// The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret` and `ociDomainUrl`.
 //
 // To create and retrieve these values, follow Oracle's guidance for configuring identity propagation / JWT token exchange:
 //
@@ -37,8 +37,7 @@ import (
 // 1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
 // 2. Generate / record the client ID (`ociClientId`) and client secret (`ociClientSecret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingestVaultOcid` / `userVaultOcid` if desired).
 // 3. Use the Identity Domain base URL as `ociDomainUrl` (format: `https://idcs-<hash>.identity.oraclecloud.com`).
-// 4. Provide / map a service user (or principal) used for workload identity federation as `ociSvcUserName`.
-// 5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
+// 4. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
 //
 // > TIP: Rotating the OAuth2 client secret only requires updating `ociClientSecret`; it does not force resource replacement.
 //
@@ -67,7 +66,6 @@ import (
 //				OciClientSecret: pulumi.Any(ociClientSecret),
 //				OciDomainUrl:    pulumi.String("https://idcs-1234567890abcdef.identity.oraclecloud.com"),
 //				OciHomeRegion:   pulumi.String("us-ashburn-1"),
-//				OciSvcUserName:  pulumi.String("svc-newrelic-collector"),
 //			})
 //			if err != nil {
 //				return err
@@ -100,7 +98,6 @@ import (
 //				OciClientSecret:     pulumi.Any(ociClientSecret),
 //				OciDomainUrl:        pulumi.String("https://idcs-1234567890abcdef.identity.oraclecloud.com"),
 //				OciHomeRegion:       pulumi.String("us-ashburn-1"),
-//				OciSvcUserName:      pulumi.String("svc-newrelic-collector"),
 //				IngestVaultOcid:     pulumi.String("ocid1.vaultsecret.oc1..ccccccccexample"),
 //				UserVaultOcid:       pulumi.String("ocid1.vaultsecret.oc1..ddddddddexample"),
 //				InstrumentationType: pulumi.String("METRICS,LOGS"),
@@ -153,8 +150,6 @@ type OciLinkAccount struct {
 	OciHomeRegion pulumi.StringOutput `pulumi:"ociHomeRegion"`
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion pulumi.StringPtrOutput `pulumi:"ociRegion"`
-	// Service user name associated with the WIF configuration.
-	OciSvcUserName pulumi.StringOutput `pulumi:"ociSvcUserName"`
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Vault secret OCID containing a user or auxiliary secret.
@@ -182,9 +177,6 @@ func NewOciLinkAccount(ctx *pulumi.Context,
 	}
 	if args.OciHomeRegion == nil {
 		return nil, errors.New("invalid value for required argument 'OciHomeRegion'")
-	}
-	if args.OciSvcUserName == nil {
-		return nil, errors.New("invalid value for required argument 'OciSvcUserName'")
 	}
 	if args.TenantId == nil {
 		return nil, errors.New("invalid value for required argument 'TenantId'")
@@ -243,8 +235,6 @@ type ociLinkAccountState struct {
 	OciHomeRegion *string `pulumi:"ociHomeRegion"`
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion *string `pulumi:"ociRegion"`
-	// Service user name associated with the WIF configuration.
-	OciSvcUserName *string `pulumi:"ociSvcUserName"`
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId *string `pulumi:"tenantId"`
 	// Vault secret OCID containing a user or auxiliary secret.
@@ -276,8 +266,6 @@ type OciLinkAccountState struct {
 	OciHomeRegion pulumi.StringPtrInput
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion pulumi.StringPtrInput
-	// Service user name associated with the WIF configuration.
-	OciSvcUserName pulumi.StringPtrInput
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId pulumi.StringPtrInput
 	// Vault secret OCID containing a user or auxiliary secret.
@@ -313,8 +301,6 @@ type ociLinkAccountArgs struct {
 	OciHomeRegion string `pulumi:"ociHomeRegion"`
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion *string `pulumi:"ociRegion"`
-	// Service user name associated with the WIF configuration.
-	OciSvcUserName string `pulumi:"ociSvcUserName"`
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId string `pulumi:"tenantId"`
 	// Vault secret OCID containing a user or auxiliary secret.
@@ -347,8 +333,6 @@ type OciLinkAccountArgs struct {
 	OciHomeRegion pulumi.StringInput
 	// OCI region for the linkage (ignored on create, applied on update).
 	OciRegion pulumi.StringPtrInput
-	// Service user name associated with the WIF configuration.
-	OciSvcUserName pulumi.StringInput
 	// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
 	TenantId pulumi.StringInput
 	// Vault secret OCID containing a user or auxiliary secret.
@@ -500,11 +484,6 @@ func (o OciLinkAccountOutput) OciHomeRegion() pulumi.StringOutput {
 // OCI region for the linkage (ignored on create, applied on update).
 func (o OciLinkAccountOutput) OciRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OciLinkAccount) pulumi.StringPtrOutput { return v.OciRegion }).(pulumi.StringPtrOutput)
-}
-
-// Service user name associated with the WIF configuration.
-func (o OciLinkAccountOutput) OciSvcUserName() pulumi.StringOutput {
-	return o.ApplyT(func(v *OciLinkAccount) pulumi.StringOutput { return v.OciSvcUserName }).(pulumi.StringOutput)
 }
 
 // OCI tenancy OCID (root tenancy). Changing forces a new linked account.

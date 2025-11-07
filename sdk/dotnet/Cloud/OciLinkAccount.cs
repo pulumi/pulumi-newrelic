@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// ### Workload Identity Federation (WIF) Attributes
     /// 
-    /// The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `OciClientId`, `OciClientSecret`, `OciDomainUrl`, and `OciSvcUserName`.
+    /// The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `OciClientId`, `OciClientSecret` and `OciDomainUrl`.
     /// 
     /// To create and retrieve these values, follow Oracle's guidance for configuring identity propagation / JWT token exchange:
     /// 
@@ -35,8 +35,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
     /// 2. Generate / record the client ID (`OciClientId`) and client secret (`OciClientSecret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `IngestVaultOcid` / `UserVaultOcid` if desired).
     /// 3. Use the Identity Domain base URL as `OciDomainUrl` (format: `https://idcs-&lt;hash&gt;.identity.oraclecloud.com`).
-    /// 4. Provide / map a service user (or principal) used for workload identity federation as `OciSvcUserName`.
-    /// 5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
+    /// 4. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
     /// 
     /// &gt; TIP: Rotating the OAuth2 client secret only requires updating `OciClientSecret`; it does not force resource replacement.
     /// 
@@ -62,7 +61,6 @@ namespace Pulumi.NewRelic.Cloud
     ///         OciClientSecret = ociClientSecret,
     ///         OciDomainUrl = "https://idcs-1234567890abcdef.identity.oraclecloud.com",
     ///         OciHomeRegion = "us-ashburn-1",
-    ///         OciSvcUserName = "svc-newrelic-collector",
     ///     });
     /// 
     /// });
@@ -87,7 +85,6 @@ namespace Pulumi.NewRelic.Cloud
     ///         OciClientSecret = ociClientSecret,
     ///         OciDomainUrl = "https://idcs-1234567890abcdef.identity.oraclecloud.com",
     ///         OciHomeRegion = "us-ashburn-1",
-    ///         OciSvcUserName = "svc-newrelic-collector",
     ///         IngestVaultOcid = "ocid1.vaultsecret.oc1..ccccccccexample",
     ///         UserVaultOcid = "ocid1.vaultsecret.oc1..ddddddddexample",
     ///         InstrumentationType = "METRICS,LOGS",
@@ -183,12 +180,6 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Output("ociRegion")]
         public Output<string?> OciRegion { get; private set; } = null!;
-
-        /// <summary>
-        /// Service user name associated with the WIF configuration.
-        /// </summary>
-        [Output("ociSvcUserName")]
-        public Output<string> OciSvcUserName { get; private set; } = null!;
 
         /// <summary>
         /// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
@@ -335,12 +326,6 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? OciRegion { get; set; }
 
         /// <summary>
-        /// Service user name associated with the WIF configuration.
-        /// </summary>
-        [Input("ociSvcUserName", required: true)]
-        public Input<string> OciSvcUserName { get; set; } = null!;
-
-        /// <summary>
         /// OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         /// </summary>
         [Input("tenantId", required: true)]
@@ -441,12 +426,6 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("ociRegion")]
         public Input<string>? OciRegion { get; set; }
-
-        /// <summary>
-        /// Service user name associated with the WIF configuration.
-        /// </summary>
-        [Input("ociSvcUserName")]
-        public Input<string>? OciSvcUserName { get; set; }
 
         /// <summary>
         /// OCI tenancy OCID (root tenancy). Changing forces a new linked account.

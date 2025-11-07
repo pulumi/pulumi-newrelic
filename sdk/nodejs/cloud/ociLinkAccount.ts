@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ### Workload Identity Federation (WIF) Attributes
  *
- * The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret`, `ociDomainUrl`, and `ociSvcUserName`.
+ * The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret` and `ociDomainUrl`.
  *
  * To create and retrieve these values, follow Oracle's guidance for configuring identity propagation / JWT token exchange:
  *
@@ -30,8 +30,7 @@ import * as utilities from "../utilities";
  * 1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
  * 2. Generate / record the client ID (`ociClientId`) and client secret (`ociClientSecret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingestVaultOcid` / `userVaultOcid` if desired).
  * 3. Use the Identity Domain base URL as `ociDomainUrl` (format: `https://idcs-<hash>.identity.oraclecloud.com`).
- * 4. Provide / map a service user (or principal) used for workload identity federation as `ociSvcUserName`.
- * 5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
+ * 4. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
  *
  * > TIP: Rotating the OAuth2 client secret only requires updating `ociClientSecret`; it does not force resource replacement.
  *
@@ -52,7 +51,6 @@ import * as utilities from "../utilities";
  *     ociClientSecret: ociClientSecret,
  *     ociDomainUrl: "https://idcs-1234567890abcdef.identity.oraclecloud.com",
  *     ociHomeRegion: "us-ashburn-1",
- *     ociSvcUserName: "svc-newrelic-collector",
  * });
  * ```
  *
@@ -70,7 +68,6 @@ import * as utilities from "../utilities";
  *     ociClientSecret: ociClientSecret,
  *     ociDomainUrl: "https://idcs-1234567890abcdef.identity.oraclecloud.com",
  *     ociHomeRegion: "us-ashburn-1",
- *     ociSvcUserName: "svc-newrelic-collector",
  *     ingestVaultOcid: "ocid1.vaultsecret.oc1..ccccccccexample",
  *     userVaultOcid: "ocid1.vaultsecret.oc1..ddddddddexample",
  *     instrumentationType: "METRICS,LOGS",
@@ -167,10 +164,6 @@ export class OciLinkAccount extends pulumi.CustomResource {
      */
     declare public readonly ociRegion: pulumi.Output<string | undefined>;
     /**
-     * Service user name associated with the WIF configuration.
-     */
-    declare public readonly ociSvcUserName: pulumi.Output<string>;
-    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
     declare public readonly tenantId: pulumi.Output<string>;
@@ -204,7 +197,6 @@ export class OciLinkAccount extends pulumi.CustomResource {
             resourceInputs["ociDomainUrl"] = state?.ociDomainUrl;
             resourceInputs["ociHomeRegion"] = state?.ociHomeRegion;
             resourceInputs["ociRegion"] = state?.ociRegion;
-            resourceInputs["ociSvcUserName"] = state?.ociSvcUserName;
             resourceInputs["tenantId"] = state?.tenantId;
             resourceInputs["userVaultOcid"] = state?.userVaultOcid;
         } else {
@@ -224,9 +216,6 @@ export class OciLinkAccount extends pulumi.CustomResource {
             if (args?.ociHomeRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ociHomeRegion'");
             }
-            if (args?.ociSvcUserName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ociSvcUserName'");
-            }
             if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
@@ -242,7 +231,6 @@ export class OciLinkAccount extends pulumi.CustomResource {
             resourceInputs["ociDomainUrl"] = args?.ociDomainUrl;
             resourceInputs["ociHomeRegion"] = args?.ociHomeRegion;
             resourceInputs["ociRegion"] = args?.ociRegion;
-            resourceInputs["ociSvcUserName"] = args?.ociSvcUserName;
             resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["userVaultOcid"] = args?.userVaultOcid;
         }
@@ -306,10 +294,6 @@ export interface OciLinkAccountState {
      */
     ociRegion?: pulumi.Input<string>;
     /**
-     * Service user name associated with the WIF configuration.
-     */
-    ociSvcUserName?: pulumi.Input<string>;
-    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */
     tenantId?: pulumi.Input<string>;
@@ -371,10 +355,6 @@ export interface OciLinkAccountArgs {
      * OCI region for the linkage (ignored on create, applied on update).
      */
     ociRegion?: pulumi.Input<string>;
-    /**
-     * Service user name associated with the WIF configuration.
-     */
-    ociSvcUserName: pulumi.Input<string>;
     /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      */

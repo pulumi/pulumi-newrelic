@@ -196,21 +196,6 @@ public final class OciLinkAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Service user name associated with the WIF configuration.
-     * 
-     */
-    @Import(name="ociSvcUserName")
-    private @Nullable Output<String> ociSvcUserName;
-
-    /**
-     * @return Service user name associated with the WIF configuration.
-     * 
-     */
-    public Optional<Output<String>> ociSvcUserName() {
-        return Optional.ofNullable(this.ociSvcUserName);
-    }
-
-    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      * 
      */
@@ -255,7 +240,6 @@ public final class OciLinkAccountState extends com.pulumi.resources.ResourceArgs
         this.ociDomainUrl = $.ociDomainUrl;
         this.ociHomeRegion = $.ociHomeRegion;
         this.ociRegion = $.ociRegion;
-        this.ociSvcUserName = $.ociSvcUserName;
         this.tenantId = $.tenantId;
         this.userVaultOcid = $.userVaultOcid;
     }
@@ -528,27 +512,6 @@ public final class OciLinkAccountState extends com.pulumi.resources.ResourceArgs
          */
         public Builder ociRegion(String ociRegion) {
             return ociRegion(Output.of(ociRegion));
-        }
-
-        /**
-         * @param ociSvcUserName Service user name associated with the WIF configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ociSvcUserName(@Nullable Output<String> ociSvcUserName) {
-            $.ociSvcUserName = ociSvcUserName;
-            return this;
-        }
-
-        /**
-         * @param ociSvcUserName Service user name associated with the WIF configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ociSvcUserName(String ociSvcUserName) {
-            return ociSvcUserName(Output.of(ociSvcUserName));
         }
 
         /**
