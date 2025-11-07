@@ -24,7 +24,6 @@ class OciLinkAccountArgs:
                  oci_client_secret: pulumi.Input[_builtins.str],
                  oci_domain_url: pulumi.Input[_builtins.str],
                  oci_home_region: pulumi.Input[_builtins.str],
-                 oci_svc_user_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ingest_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,7 +40,6 @@ class OciLinkAccountArgs:
         :param pulumi.Input[_builtins.str] oci_client_secret: OAuth2 client secret. Not displayed in plans or state outputs.
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
-        :param pulumi.Input[_builtins.str] oci_svc_user_name: Service user name associated with the WIF configuration.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         :param pulumi.Input[_builtins.str] account_id: New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] ingest_vault_ocid: Vault secret OCID containing an ingest secret.
@@ -57,7 +55,6 @@ class OciLinkAccountArgs:
         pulumi.set(__self__, "oci_client_secret", oci_client_secret)
         pulumi.set(__self__, "oci_domain_url", oci_domain_url)
         pulumi.set(__self__, "oci_home_region", oci_home_region)
-        pulumi.set(__self__, "oci_svc_user_name", oci_svc_user_name)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -135,18 +132,6 @@ class OciLinkAccountArgs:
     @oci_home_region.setter
     def oci_home_region(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "oci_home_region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ociSvcUserName")
-    def oci_svc_user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Service user name associated with the WIF configuration.
-        """
-        return pulumi.get(self, "oci_svc_user_name")
-
-    @oci_svc_user_name.setter
-    def oci_svc_user_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "oci_svc_user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -272,7 +257,6 @@ class _OciLinkAccountState:
                  oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_svc_user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -289,7 +273,6 @@ class _OciLinkAccountState:
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
-        :param pulumi.Input[_builtins.str] oci_svc_user_name: Service user name associated with the WIF configuration.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
@@ -317,8 +300,6 @@ class _OciLinkAccountState:
             pulumi.set(__self__, "oci_home_region", oci_home_region)
         if oci_region is not None:
             pulumi.set(__self__, "oci_region", oci_region)
-        if oci_svc_user_name is not None:
-            pulumi.set(__self__, "oci_svc_user_name", oci_svc_user_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if user_vault_ocid is not None:
@@ -469,18 +450,6 @@ class _OciLinkAccountState:
         pulumi.set(self, "oci_region", value)
 
     @_builtins.property
-    @pulumi.getter(name="ociSvcUserName")
-    def oci_svc_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Service user name associated with the WIF configuration.
-        """
-        return pulumi.get(self, "oci_svc_user_name")
-
-    @oci_svc_user_name.setter
-    def oci_svc_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "oci_svc_user_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -523,7 +492,6 @@ class OciLinkAccount(pulumi.CustomResource):
                  oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_svc_user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -543,7 +511,7 @@ class OciLinkAccount(pulumi.CustomResource):
 
         ### Workload Identity Federation (WIF) Attributes
 
-        The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `oci_client_id`, `oci_client_secret`, `oci_domain_url`, and `oci_svc_user_name`.
+        The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `oci_client_id`, `oci_client_secret` and `oci_domain_url`.
 
         To create and retrieve these values, follow Oracle's guidance for configuring identity propagation / JWT token exchange:
 
@@ -553,8 +521,7 @@ class OciLinkAccount(pulumi.CustomResource):
         1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
         2. Generate / record the client ID (`oci_client_id`) and client secret (`oci_client_secret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingest_vault_ocid` / `user_vault_ocid` if desired).
         3. Use the Identity Domain base URL as `oci_domain_url` (format: `https://idcs-<hash>.identity.oraclecloud.com`).
-        4. Provide / map a service user (or principal) used for workload identity federation as `oci_svc_user_name`.
-        5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
+        4. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
 
         > TIP: Rotating the OAuth2 client secret only requires updating `oci_client_secret`; it does not force resource replacement.
 
@@ -574,8 +541,7 @@ class OciLinkAccount(pulumi.CustomResource):
             oci_client_id="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
             oci_client_secret=oci_client_secret,
             oci_domain_url="https://idcs-1234567890abcdef.identity.oraclecloud.com",
-            oci_home_region="us-ashburn-1",
-            oci_svc_user_name="svc-newrelic-collector")
+            oci_home_region="us-ashburn-1")
         ```
 
         Example including optional secret references and update-only fields:
@@ -592,7 +558,6 @@ class OciLinkAccount(pulumi.CustomResource):
             oci_client_secret=oci_client_secret,
             oci_domain_url="https://idcs-1234567890abcdef.identity.oraclecloud.com",
             oci_home_region="us-ashburn-1",
-            oci_svc_user_name="svc-newrelic-collector",
             ingest_vault_ocid="ocid1.vaultsecret.oc1..ccccccccexample",
             user_vault_ocid="ocid1.vaultsecret.oc1..ddddddddexample",
             instrumentation_type="METRICS,LOGS",
@@ -625,7 +590,6 @@ class OciLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
-        :param pulumi.Input[_builtins.str] oci_svc_user_name: Service user name associated with the WIF configuration.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
@@ -651,7 +615,7 @@ class OciLinkAccount(pulumi.CustomResource):
 
         ### Workload Identity Federation (WIF) Attributes
 
-        The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `oci_client_id`, `oci_client_secret`, `oci_domain_url`, and `oci_svc_user_name`.
+        The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `oci_client_id`, `oci_client_secret` and `oci_domain_url`.
 
         To create and retrieve these values, follow Oracle's guidance for configuring identity propagation / JWT token exchange:
 
@@ -661,8 +625,7 @@ class OciLinkAccount(pulumi.CustomResource):
         1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
         2. Generate / record the client ID (`oci_client_id`) and client secret (`oci_client_secret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingest_vault_ocid` / `user_vault_ocid` if desired).
         3. Use the Identity Domain base URL as `oci_domain_url` (format: `https://idcs-<hash>.identity.oraclecloud.com`).
-        4. Provide / map a service user (or principal) used for workload identity federation as `oci_svc_user_name`.
-        5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
+        4. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
 
         > TIP: Rotating the OAuth2 client secret only requires updating `oci_client_secret`; it does not force resource replacement.
 
@@ -682,8 +645,7 @@ class OciLinkAccount(pulumi.CustomResource):
             oci_client_id="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
             oci_client_secret=oci_client_secret,
             oci_domain_url="https://idcs-1234567890abcdef.identity.oraclecloud.com",
-            oci_home_region="us-ashburn-1",
-            oci_svc_user_name="svc-newrelic-collector")
+            oci_home_region="us-ashburn-1")
         ```
 
         Example including optional secret references and update-only fields:
@@ -700,7 +662,6 @@ class OciLinkAccount(pulumi.CustomResource):
             oci_client_secret=oci_client_secret,
             oci_domain_url="https://idcs-1234567890abcdef.identity.oraclecloud.com",
             oci_home_region="us-ashburn-1",
-            oci_svc_user_name="svc-newrelic-collector",
             ingest_vault_ocid="ocid1.vaultsecret.oc1..ccccccccexample",
             user_vault_ocid="ocid1.vaultsecret.oc1..ddddddddexample",
             instrumentation_type="METRICS,LOGS",
@@ -746,7 +707,6 @@ class OciLinkAccount(pulumi.CustomResource):
                  oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 oci_svc_user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -780,9 +740,6 @@ class OciLinkAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'oci_home_region'")
             __props__.__dict__["oci_home_region"] = oci_home_region
             __props__.__dict__["oci_region"] = oci_region
-            if oci_svc_user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'oci_svc_user_name'")
-            __props__.__dict__["oci_svc_user_name"] = oci_svc_user_name
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
@@ -811,7 +768,6 @@ class OciLinkAccount(pulumi.CustomResource):
             oci_domain_url: Optional[pulumi.Input[_builtins.str]] = None,
             oci_home_region: Optional[pulumi.Input[_builtins.str]] = None,
             oci_region: Optional[pulumi.Input[_builtins.str]] = None,
-            oci_svc_user_name: Optional[pulumi.Input[_builtins.str]] = None,
             tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
             user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None) -> 'OciLinkAccount':
         """
@@ -833,7 +789,6 @@ class OciLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_domain_url: Base URL of the OCI Identity Domain (e.g. `https://idcs-<hash>.identity.oraclecloud.com`).
         :param pulumi.Input[_builtins.str] oci_home_region: Home region of the tenancy (e.g. `us-ashburn-1`).
         :param pulumi.Input[_builtins.str] oci_region: OCI region for the linkage (ignored on create, applied on update).
-        :param pulumi.Input[_builtins.str] oci_svc_user_name: Service user name associated with the WIF configuration.
         :param pulumi.Input[_builtins.str] tenant_id: OCI tenancy OCID (root tenancy). Changing forces a new linked account.
         :param pulumi.Input[_builtins.str] user_vault_ocid: Vault secret OCID containing a user or auxiliary secret.
         """
@@ -853,7 +808,6 @@ class OciLinkAccount(pulumi.CustomResource):
         __props__.__dict__["oci_domain_url"] = oci_domain_url
         __props__.__dict__["oci_home_region"] = oci_home_region
         __props__.__dict__["oci_region"] = oci_region
-        __props__.__dict__["oci_svc_user_name"] = oci_svc_user_name
         __props__.__dict__["tenant_id"] = tenant_id
         __props__.__dict__["user_vault_ocid"] = user_vault_ocid
         return OciLinkAccount(resource_name, opts=opts, __props__=__props__)
@@ -953,14 +907,6 @@ class OciLinkAccount(pulumi.CustomResource):
         OCI region for the linkage (ignored on create, applied on update).
         """
         return pulumi.get(self, "oci_region")
-
-    @_builtins.property
-    @pulumi.getter(name="ociSvcUserName")
-    def oci_svc_user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Service user name associated with the WIF configuration.
-        """
-        return pulumi.get(self, "oci_svc_user_name")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")

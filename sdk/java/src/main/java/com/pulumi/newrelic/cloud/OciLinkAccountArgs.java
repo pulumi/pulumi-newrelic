@@ -197,21 +197,6 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Service user name associated with the WIF configuration.
-     * 
-     */
-    @Import(name="ociSvcUserName", required=true)
-    private Output<String> ociSvcUserName;
-
-    /**
-     * @return Service user name associated with the WIF configuration.
-     * 
-     */
-    public Output<String> ociSvcUserName() {
-        return this.ociSvcUserName;
-    }
-
-    /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
      * 
      */
@@ -256,7 +241,6 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         this.ociDomainUrl = $.ociDomainUrl;
         this.ociHomeRegion = $.ociHomeRegion;
         this.ociRegion = $.ociRegion;
-        this.ociSvcUserName = $.ociSvcUserName;
         this.tenantId = $.tenantId;
         this.userVaultOcid = $.userVaultOcid;
     }
@@ -532,27 +516,6 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ociSvcUserName Service user name associated with the WIF configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ociSvcUserName(Output<String> ociSvcUserName) {
-            $.ociSvcUserName = ociSvcUserName;
-            return this;
-        }
-
-        /**
-         * @param ociSvcUserName Service user name associated with the WIF configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ociSvcUserName(String ociSvcUserName) {
-            return ociSvcUserName(Output.of(ociSvcUserName));
-        }
-
-        /**
          * @param tenantId OCI tenancy OCID (root tenancy). Changing forces a new linked account.
          * 
          * @return builder
@@ -609,9 +572,6 @@ public final class OciLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
             }
             if ($.ociHomeRegion == null) {
                 throw new MissingRequiredPropertyException("OciLinkAccountArgs", "ociHomeRegion");
-            }
-            if ($.ociSvcUserName == null) {
-                throw new MissingRequiredPropertyException("OciLinkAccountArgs", "ociSvcUserName");
             }
             if ($.tenantId == null) {
                 throw new MissingRequiredPropertyException("OciLinkAccountArgs", "tenantId");

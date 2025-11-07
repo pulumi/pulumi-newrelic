@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * 
  * ### Workload Identity Federation (WIF) Attributes
  * 
- * The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret`, `ociDomainUrl`, and `ociSvcUserName`.
+ * The following arguments rely on an OCI Identity Domain OAuth2 client set up for workload identity federation (identity propagation): `ociClientId`, `ociClientSecret` and `ociDomainUrl`.
  * 
  * To create and retrieve these values, follow Oracle&#39;s guidance for configuring identity propagation / JWT token exchange:
  * 
@@ -41,8 +41,7 @@ import javax.annotation.Nullable;
  * 1. Create (or identify) an Identity Domain and register an OAuth2 confidential application (client) to represent New Relic ingestion.
  * 2. Generate / record the client ID (`ociClientId`) and client secret (`ociClientSecret`). Store the secret securely (e.g., in OCI Vault; reference its OCID via `ingestVaultOcid` / `userVaultOcid` if desired).
  * 3. Use the Identity Domain base URL as `ociDomainUrl` (format: `https://idcs-&lt;hash&gt;.identity.oraclecloud.com`).
- * 4. Provide / map a service user (or principal) used for workload identity federation as `ociSvcUserName`.
- * 5. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
+ * 4. Ensure the client has the required scopes and the tenancy policies allow the token exchange.
  * 
  * &gt; TIP: Rotating the OAuth2 client secret only requires updating `ociClientSecret`; it does not force resource replacement.
  * 
@@ -81,7 +80,6 @@ import javax.annotation.Nullable;
  *             .ociClientSecret(ociClientSecret)
  *             .ociDomainUrl("https://idcs-1234567890abcdef.identity.oraclecloud.com")
  *             .ociHomeRegion("us-ashburn-1")
- *             .ociSvcUserName("svc-newrelic-collector")
  *             .build());
  * 
  *     }
@@ -121,7 +119,6 @@ import javax.annotation.Nullable;
  *             .ociClientSecret(ociClientSecret)
  *             .ociDomainUrl("https://idcs-1234567890abcdef.identity.oraclecloud.com")
  *             .ociHomeRegion("us-ashburn-1")
- *             .ociSvcUserName("svc-newrelic-collector")
  *             .ingestVaultOcid("ocid1.vaultsecret.oc1..ccccccccexample")
  *             .userVaultOcid("ocid1.vaultsecret.oc1..ddddddddexample")
  *             .instrumentationType("METRICS,LOGS")
@@ -315,20 +312,6 @@ public class OciLinkAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> ociRegion() {
         return Codegen.optional(this.ociRegion);
-    }
-    /**
-     * Service user name associated with the WIF configuration.
-     * 
-     */
-    @Export(name="ociSvcUserName", refs={String.class}, tree="[0]")
-    private Output<String> ociSvcUserName;
-
-    /**
-     * @return Service user name associated with the WIF configuration.
-     * 
-     */
-    public Output<String> ociSvcUserName() {
-        return this.ociSvcUserName;
     }
     /**
      * OCI tenancy OCID (root tenancy). Changing forces a new linked account.
