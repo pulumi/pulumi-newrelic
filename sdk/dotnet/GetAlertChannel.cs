@@ -18,6 +18,36 @@ namespace Pulumi.NewRelic
         /// 
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     {
+        ///         Name = "foo@example.com",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+        ///     {
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     // Using the data source and resource together
+        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithDefaults());
@@ -29,6 +59,36 @@ namespace Pulumi.NewRelic
         /// 
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     {
+        ///         Name = "foo@example.com",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+        ///     {
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     // Using the data source and resource together
+        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetAlertChannelResult> Invoke(GetAlertChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());
@@ -40,6 +100,36 @@ namespace Pulumi.NewRelic
         /// 
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetAlertChannel.Invoke(new()
+        ///     {
+        ///         Name = "foo@example.com",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("foo", new()
+        ///     {
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     // Using the data source and resource together
+        ///     var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("foo", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         ChannelId = foo.Apply(getAlertChannelResult =&gt; getAlertChannelResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetAlertChannelResult> Invoke(GetAlertChannelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());

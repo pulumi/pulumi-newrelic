@@ -8,6 +8,22 @@ import * as utilities from "./utilities";
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getAlertChannel({
+ *     name: "foo@example.com",
+ * });
+ * const fooGetAlertPolicy = newrelic.getAlertPolicy({
+ *     name: "foo policy",
+ * });
+ * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
+ *     policyId: fooGetAlertPolicy.then(fooGetAlertPolicy => fooGetAlertPolicy.id),
+ *     channelId: foo.then(foo => foo.id),
+ * });
+ * ```
  */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +85,22 @@ export interface GetAlertPolicyResult {
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getAlertChannel({
+ *     name: "foo@example.com",
+ * });
+ * const fooGetAlertPolicy = newrelic.getAlertPolicy({
+ *     name: "foo policy",
+ * });
+ * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
+ *     policyId: fooGetAlertPolicy.then(fooGetAlertPolicy => fooGetAlertPolicy.id),
+ *     channelId: foo.then(foo => foo.id),
+ * });
+ * ```
  */
 export function getAlertPolicyOutput(args: GetAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

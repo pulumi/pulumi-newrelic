@@ -355,6 +355,53 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         // Resource
+     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         // Using the data source and resource together
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args) {
         return getAlertChannel(args, InvokeOptions.Empty);
@@ -365,6 +412,53 @@ public final class NewrelicFunctions {
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         // Resource
+     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         // Using the data source and resource together
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args) {
@@ -377,6 +471,53 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         // Resource
+     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         // Using the data source and resource together
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
@@ -387,6 +528,53 @@ public final class NewrelicFunctions {
      * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         // Resource
+     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         // Using the data source and resource together
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
      * 
      */
     public static Output<GetAlertChannelResult> getAlertChannel(GetAlertChannelArgs args, InvokeOutputOptions options) {
@@ -399,6 +587,53 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.AlertPolicy;
+     * import com.pulumi.newrelic.AlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         // Data source
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         // Resource
+     *         var fooAlertPolicy = new AlertPolicy("fooAlertPolicy", AlertPolicyArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         // Using the data source and resource together
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetAlertChannelResult> getAlertChannelPlain(GetAlertChannelPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
@@ -407,6 +642,49 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *             .name("foo policy")
+     *             .build());
+     * 
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooGetAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args) {
@@ -417,6 +695,49 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *             .name("foo policy")
+     *             .build());
+     * 
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooGetAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args) {
         return getAlertPolicyPlain(args, InvokeOptions.Empty);
@@ -425,6 +746,49 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *             .name("foo policy")
+     *             .build());
+     * 
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooGetAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
      * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOptions options) {
@@ -435,6 +799,49 @@ public final class NewrelicFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *             .name("foo policy")
+     *             .build());
+     * 
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooGetAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetAlertPolicyResult> getAlertPolicy(GetAlertPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
@@ -443,6 +850,49 @@ public final class NewrelicFunctions {
      * Use this data source to get information about a specific alert policy in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetAlertChannelArgs;
+     * import com.pulumi.newrelic.inputs.GetAlertPolicyArgs;
+     * import com.pulumi.newrelic.AlertPolicyChannel;
+     * import com.pulumi.newrelic.AlertPolicyChannelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var foo = NewrelicFunctions.getAlertChannel(GetAlertChannelArgs.builder()
+     *             .name("foo}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var fooGetAlertPolicy = NewrelicFunctions.getAlertPolicy(GetAlertPolicyArgs.builder()
+     *             .name("foo policy")
+     *             .build());
+     * 
+     *         var fooAlertPolicyChannel = new AlertPolicyChannel("fooAlertPolicyChannel", AlertPolicyChannelArgs.builder()
+     *             .policyId(fooGetAlertPolicy.id())
+     *             .channelId(foo.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetAlertPolicyResult> getAlertPolicyPlain(GetAlertPolicyPlainArgs args, InvokeOptions options) {
