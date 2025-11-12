@@ -132,7 +132,7 @@ require (
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-agent/v3 v3.30.0 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go/v2 v2.73.1 // indirect
+	github.com/newrelic/newrelic-client-go/v2 v2.73.2 // indirect
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
