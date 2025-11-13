@@ -12,6 +12,23 @@ import * as utilities from "./utilities";
  * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source
+ * const foo = newrelic.getAlertChannel({
+ *     name: "foo@example.com",
+ * });
+ * // Resource
+ * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * // Using the data source and resource together
+ * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
+ *     policyId: fooAlertPolicy.id,
+ *     channelId: foo.then(foo => foo.id),
+ * });
+ * ```
  */
 export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,6 +81,23 @@ export interface GetAlertChannelResult {
  * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source
+ * const foo = newrelic.getAlertChannel({
+ *     name: "foo@example.com",
+ * });
+ * // Resource
+ * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {name: "foo"});
+ * // Using the data source and resource together
+ * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
+ *     policyId: fooAlertPolicy.id,
+ *     channelId: foo.then(foo => foo.id),
+ * });
+ * ```
  */
 export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

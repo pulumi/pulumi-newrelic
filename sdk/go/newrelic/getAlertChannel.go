@@ -16,6 +16,46 @@ import (
 // > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Data source
+//			foo, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
+//				Name: "foo@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Resource
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Using the data source and resource together
+//			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
+//				PolicyId:  fooAlertPolicy.ID(),
+//				ChannelId: foo.Id,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts ...pulumi.InvokeOption) (*LookupAlertChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlertChannelResult
