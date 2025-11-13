@@ -83,9 +83,9 @@ import (
 //			_ := fooGetGroup.Id
 //			var tmp0 *string
 //			if length > 0 {
-//				tmp0 = std.Join(ctx, map[string]interface{}{
-//					"separator": ", ",
-//					"input":     fooGetGroup.UserIds,
+//				tmp0 = std.Join(ctx, &std.JoinArgs{
+//					Separator: ", ",
+//					Input:     fooGetGroup.UserIds,
 //				}, nil).Result
 //			} else {
 //				tmp0 = ""
