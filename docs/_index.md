@@ -125,6 +125,7 @@ config:
         value: US
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as newrelic from "@pulumi/newrelic";
@@ -171,6 +172,7 @@ const alertEmail = new newrelic.AlertPolicyChannel("alert_email", {
     channelIds: [email.id],
 });
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -186,6 +188,7 @@ config:
         value: US
 
 ```
+
 ```python
 import pulumi
 import pulumi_newrelic as newrelic
@@ -227,6 +230,7 @@ alert_email = newrelic.AlertPolicyChannel("alert_email",
     policy_id=alert.id,
     channel_ids=[email.id])
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -242,6 +246,7 @@ config:
         value: US
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -312,6 +317,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -327,6 +333,7 @@ config:
         value: US
 
 ```
+
 ```go
 package main
 
@@ -403,6 +410,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -418,6 +426,7 @@ config:
         value: US
 
 ```
+
 ```yaml
 resources:
   # Create an alert policy
@@ -471,6 +480,7 @@ variables:
         domain: APM
         type: APPLICATION
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -486,6 +496,7 @@ config:
         value: US
 
 ```
+
 ```java
 package generated_program;
 
@@ -569,5 +580,6 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
