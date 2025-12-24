@@ -55,6 +55,10 @@ __all__ = [
     'NrqlAlertConditionCriticalPredictionArgsDict',
     'NrqlAlertConditionNrqlArgs',
     'NrqlAlertConditionNrqlArgsDict',
+    'NrqlAlertConditionOutlierConfigurationArgs',
+    'NrqlAlertConditionOutlierConfigurationArgsDict',
+    'NrqlAlertConditionOutlierConfigurationDbscanArgs',
+    'NrqlAlertConditionOutlierConfigurationDbscanArgsDict',
     'NrqlAlertConditionTermArgs',
     'NrqlAlertConditionTermArgsDict',
     'NrqlAlertConditionTermPredictionArgs',
@@ -2239,6 +2243,107 @@ class NrqlAlertConditionNrqlArgs:
     @since_value.setter
     def since_value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "since_value", value)
+
+
+if not MYPY:
+    class NrqlAlertConditionOutlierConfigurationArgsDict(TypedDict):
+        dbscan: pulumi.Input['NrqlAlertConditionOutlierConfigurationDbscanArgsDict']
+        """
+        BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimum_points`; optional `evaluation_group_facet` partitions data before analysis.
+        """
+elif False:
+    NrqlAlertConditionOutlierConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NrqlAlertConditionOutlierConfigurationArgs:
+    def __init__(__self__, *,
+                 dbscan: pulumi.Input['NrqlAlertConditionOutlierConfigurationDbscanArgs']):
+        """
+        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationDbscanArgs'] dbscan: BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimum_points`; optional `evaluation_group_facet` partitions data before analysis.
+        """
+        pulumi.set(__self__, "dbscan", dbscan)
+
+    @_builtins.property
+    @pulumi.getter
+    def dbscan(self) -> pulumi.Input['NrqlAlertConditionOutlierConfigurationDbscanArgs']:
+        """
+        BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimum_points`; optional `evaluation_group_facet` partitions data before analysis.
+        """
+        return pulumi.get(self, "dbscan")
+
+    @dbscan.setter
+    def dbscan(self, value: pulumi.Input['NrqlAlertConditionOutlierConfigurationDbscanArgs']):
+        pulumi.set(self, "dbscan", value)
+
+
+if not MYPY:
+    class NrqlAlertConditionOutlierConfigurationDbscanArgsDict(TypedDict):
+        epsilon: pulumi.Input[_builtins.float]
+        """
+        BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+        """
+        minimum_points: pulumi.Input[_builtins.int]
+        """
+        BETA PREVIEW: the `minimum_points` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+        """
+        evaluation_group_facet: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        BETA PREVIEW: the `evaluation_group_facet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+        """
+elif False:
+    NrqlAlertConditionOutlierConfigurationDbscanArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NrqlAlertConditionOutlierConfigurationDbscanArgs:
+    def __init__(__self__, *,
+                 epsilon: pulumi.Input[_builtins.float],
+                 minimum_points: pulumi.Input[_builtins.int],
+                 evaluation_group_facet: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.float] epsilon: BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+        :param pulumi.Input[_builtins.int] minimum_points: BETA PREVIEW: the `minimum_points` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+        :param pulumi.Input[_builtins.str] evaluation_group_facet: BETA PREVIEW: the `evaluation_group_facet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+        """
+        pulumi.set(__self__, "epsilon", epsilon)
+        pulumi.set(__self__, "minimum_points", minimum_points)
+        if evaluation_group_facet is not None:
+            pulumi.set(__self__, "evaluation_group_facet", evaluation_group_facet)
+
+    @_builtins.property
+    @pulumi.getter
+    def epsilon(self) -> pulumi.Input[_builtins.float]:
+        """
+        BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+        """
+        return pulumi.get(self, "epsilon")
+
+    @epsilon.setter
+    def epsilon(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "epsilon", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumPoints")
+    def minimum_points(self) -> pulumi.Input[_builtins.int]:
+        """
+        BETA PREVIEW: the `minimum_points` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+        """
+        return pulumi.get(self, "minimum_points")
+
+    @minimum_points.setter
+    def minimum_points(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_points", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationGroupFacet")
+    def evaluation_group_facet(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        BETA PREVIEW: the `evaluation_group_facet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+        """
+        return pulumi.get(self, "evaluation_group_facet")
+
+    @evaluation_group_facet.setter
+    def evaluation_group_facet(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "evaluation_group_facet", value)
 
 
 if not MYPY:

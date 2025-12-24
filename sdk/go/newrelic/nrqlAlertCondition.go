@@ -429,6 +429,8 @@ type NrqlAlertCondition struct {
 	Nrql NrqlAlertConditionNrqlOutput `pulumi:"nrql"`
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrOutput `pulumi:"openViolationOnExpiration"`
+	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	OutlierConfiguration NrqlAlertConditionOutlierConfigurationPtrOutput `pulumi:"outlierConfiguration"`
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
@@ -533,6 +535,8 @@ type nrqlAlertConditionState struct {
 	Nrql *NrqlAlertConditionNrql `pulumi:"nrql"`
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
+	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	OutlierConfiguration *NrqlAlertConditionOutlierConfiguration `pulumi:"outlierConfiguration"`
 	// The ID of the policy where this condition should be used.
 	PolicyId *string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
@@ -602,6 +606,8 @@ type NrqlAlertConditionState struct {
 	Nrql NrqlAlertConditionNrqlPtrInput
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
+	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	OutlierConfiguration NrqlAlertConditionOutlierConfigurationPtrInput
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
@@ -673,6 +679,8 @@ type nrqlAlertConditionArgs struct {
 	Nrql NrqlAlertConditionNrql `pulumi:"nrql"`
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
+	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	OutlierConfiguration *NrqlAlertConditionOutlierConfiguration `pulumi:"outlierConfiguration"`
 	// The ID of the policy where this condition should be used.
 	PolicyId string `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
@@ -741,6 +749,8 @@ type NrqlAlertConditionArgs struct {
 	Nrql NrqlAlertConditionNrqlInput
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
+	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	OutlierConfiguration NrqlAlertConditionOutlierConfigurationPtrInput
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.StringInput
 	// Runbook URL to display in notifications.
@@ -951,6 +961,13 @@ func (o NrqlAlertConditionOutput) Nrql() NrqlAlertConditionNrqlOutput {
 // Whether to create a new incident to capture that the signal expired.
 func (o NrqlAlertConditionOutput) OpenViolationOnExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.OpenViolationOnExpiration }).(pulumi.BoolPtrOutput)
+}
+
+// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+func (o NrqlAlertConditionOutput) OutlierConfiguration() NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionOutlierConfigurationPtrOutput {
+		return v.OutlierConfiguration
+	}).(NrqlAlertConditionOutlierConfigurationPtrOutput)
 }
 
 // The ID of the policy where this condition should be used.

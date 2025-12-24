@@ -11,9 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific account in New Relic.
-// Accounts can be located by ID or name.  At most one of the two attributes can
-// be provided. If neither are provided, the provider's `accountId` will be used.
+// This data source allows you to retrieve information about a specific account in New Relic.
+//
+// ## Overview
+//
+// You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `accountId` will be used.
 //
 // ## Example Usage
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.GetAccount(ctx, &newrelic.GetAccountArgs{
-//				Scope: pulumi.StringRef("global"),
+//				Name: pulumi.StringRef("Test Account"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,11 +54,10 @@ func GetAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
-	// The account ID in New Relic.
+	// The unique identifier of the account in New Relic. This must be an integer.
 	AccountId *string `pulumi:"accountId"`
-	// The account name in New Relic.
-	Name *string `pulumi:"name"`
-	// The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
+	// The name of the account in New Relic. This must be a string.
+	Name  *string `pulumi:"name"`
 	Scope *string `pulumi:"scope"`
 }
 
@@ -64,9 +65,10 @@ type GetAccountArgs struct {
 type GetAccountResult struct {
 	AccountId *string `pulumi:"accountId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string  `pulumi:"id"`
-	Name  *string `pulumi:"name"`
-	Scope *string `pulumi:"scope"`
+	Id     string  `pulumi:"id"`
+	Name   *string `pulumi:"name"`
+	Region string  `pulumi:"region"`
+	Scope  *string `pulumi:"scope"`
 }
 
 func GetAccountOutput(ctx *pulumi.Context, args GetAccountOutputArgs, opts ...pulumi.InvokeOption) GetAccountResultOutput {
@@ -80,11 +82,10 @@ func GetAccountOutput(ctx *pulumi.Context, args GetAccountOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getAccount.
 type GetAccountOutputArgs struct {
-	// The account ID in New Relic.
+	// The unique identifier of the account in New Relic. This must be an integer.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The account name in New Relic.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
+	// The name of the account in New Relic. This must be a string.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 }
 
@@ -118,6 +119,10 @@ func (o GetAccountResultOutput) Id() pulumi.StringOutput {
 
 func (o GetAccountResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAccountResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetAccountResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAccountResultOutput) Scope() pulumi.StringPtrOutput {

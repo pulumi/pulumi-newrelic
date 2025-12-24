@@ -60,6 +60,8 @@ type AccountManagement struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The region code of the account.  One of: `us01`, `eu01`.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Status of the account - active or canceled
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewAccountManagement registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type accountManagementState struct {
 	Name *string `pulumi:"name"`
 	// The region code of the account.  One of: `us01`, `eu01`.
 	Region *string `pulumi:"region"`
+	// Status of the account - active or canceled
+	Status *string `pulumi:"status"`
 }
 
 type AccountManagementState struct {
@@ -106,6 +110,8 @@ type AccountManagementState struct {
 	Name pulumi.StringPtrInput
 	// The region code of the account.  One of: `us01`, `eu01`.
 	Region pulumi.StringPtrInput
+	// Status of the account - active or canceled
+	Status pulumi.StringPtrInput
 }
 
 func (AccountManagementState) ElementType() reflect.Type {
@@ -222,6 +228,11 @@ func (o AccountManagementOutput) Name() pulumi.StringOutput {
 // The region code of the account.  One of: `us01`, `eu01`.
 func (o AccountManagementOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountManagement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Status of the account - active or canceled
+func (o AccountManagementOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountManagement) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 type AccountManagementArrayOutput struct{ *pulumi.OutputState }

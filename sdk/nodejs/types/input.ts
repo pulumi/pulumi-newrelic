@@ -413,6 +413,28 @@ export interface NrqlAlertConditionNrql {
     sinceValue?: pulumi.Input<string>;
 }
 
+export interface NrqlAlertConditionOutlierConfiguration {
+    /**
+     * BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimumPoints`; optional `evaluationGroupFacet` partitions data before analysis.
+     */
+    dbscan: pulumi.Input<inputs.NrqlAlertConditionOutlierConfigurationDbscan>;
+}
+
+export interface NrqlAlertConditionOutlierConfigurationDbscan {
+    /**
+     * BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+     */
+    epsilon: pulumi.Input<number>;
+    /**
+     * BETA PREVIEW: the `evaluationGroupFacet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+     */
+    evaluationGroupFacet?: pulumi.Input<string>;
+    /**
+     * BETA PREVIEW: the `minimumPoints` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+     */
+    minimumPoints: pulumi.Input<number>;
+}
+
 export interface NrqlAlertConditionTerm {
     /**
      * Violations will not change system health status for this term.

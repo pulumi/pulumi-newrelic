@@ -94,6 +94,20 @@ public class AccountManagement extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Status of the account - active or canceled
+     * 
+     */
+    @Export(name="status", refs={String.class}, tree="[0]")
+    private Output<String> status;
+
+    /**
+     * @return Status of the account - active or canceled
+     * 
+     */
+    public Output<String> status() {
+        return this.status;
+    }
 
     /**
      *

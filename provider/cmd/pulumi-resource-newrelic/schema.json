@@ -3069,6 +3069,39 @@
                 }
             }
         },
+        "newrelic:index/NrqlAlertConditionOutlierConfiguration:NrqlAlertConditionOutlierConfiguration": {
+            "properties": {
+                "dbscan": {
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionOutlierConfigurationDbscan:NrqlAlertConditionOutlierConfigurationDbscan",
+                    "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`dbscan`\" pulumi-lang-dotnet=\"`Dbscan`\" pulumi-lang-go=\"`dbscan`\" pulumi-lang-python=\"`dbscan`\" pulumi-lang-yaml=\"`dbscan`\" pulumi-lang-java=\"`dbscan`\"\u003e`dbscan`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires \u003cspan pulumi-lang-nodejs=\"`epsilon`\" pulumi-lang-dotnet=\"`Epsilon`\" pulumi-lang-go=\"`epsilon`\" pulumi-lang-python=\"`epsilon`\" pulumi-lang-yaml=\"`epsilon`\" pulumi-lang-java=\"`epsilon`\"\u003e`epsilon`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`minimumPoints`\" pulumi-lang-dotnet=\"`MinimumPoints`\" pulumi-lang-go=\"`minimumPoints`\" pulumi-lang-python=\"`minimum_points`\" pulumi-lang-yaml=\"`minimumPoints`\" pulumi-lang-java=\"`minimumPoints`\"\u003e`minimum_points`\u003c/span\u003e; optional \u003cspan pulumi-lang-nodejs=\"`evaluationGroupFacet`\" pulumi-lang-dotnet=\"`EvaluationGroupFacet`\" pulumi-lang-go=\"`evaluationGroupFacet`\" pulumi-lang-python=\"`evaluation_group_facet`\" pulumi-lang-yaml=\"`evaluationGroupFacet`\" pulumi-lang-java=\"`evaluationGroupFacet`\"\u003e`evaluation_group_facet`\u003c/span\u003e partitions data before analysis.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dbscan"
+            ]
+        },
+        "newrelic:index/NrqlAlertConditionOutlierConfigurationDbscan:NrqlAlertConditionOutlierConfigurationDbscan": {
+            "properties": {
+                "epsilon": {
+                    "type": "number",
+                    "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`epsilon`\" pulumi-lang-dotnet=\"`Epsilon`\" pulumi-lang-go=\"`epsilon`\" pulumi-lang-python=\"`epsilon`\" pulumi-lang-yaml=\"`epsilon`\" pulumi-lang-java=\"`epsilon`\"\u003e`epsilon`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be \u003e 0.\n"
+                },
+                "evaluationGroupFacet": {
+                    "type": "string",
+                    "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`evaluationGroupFacet`\" pulumi-lang-dotnet=\"`EvaluationGroupFacet`\" pulumi-lang-go=\"`evaluationGroupFacet`\" pulumi-lang-python=\"`evaluation_group_facet`\" pulumi-lang-yaml=\"`evaluationGroupFacet`\" pulumi-lang-java=\"`evaluationGroupFacet`\"\u003e`evaluation_group_facet`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. \u003cspan pulumi-lang-nodejs=\"`host`\" pulumi-lang-dotnet=\"`Host`\" pulumi-lang-go=\"`host`\" pulumi-lang-python=\"`host`\" pulumi-lang-yaml=\"`host`\" pulumi-lang-java=\"`host`\"\u003e`host`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`region`\" pulumi-lang-dotnet=\"`Region`\" pulumi-lang-go=\"`region`\" pulumi-lang-python=\"`region`\" pulumi-lang-yaml=\"`region`\" pulumi-lang-java=\"`region`\"\u003e`region`\u003c/span\u003e) before running outlier detection. Omit to evaluate all results together.\n"
+                },
+                "minimumPoints": {
+                    "type": "integer",
+                    "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`minimumPoints`\" pulumi-lang-dotnet=\"`MinimumPoints`\" pulumi-lang-go=\"`minimumPoints`\" pulumi-lang-python=\"`minimum_points`\" pulumi-lang-yaml=\"`minimumPoints`\" pulumi-lang-java=\"`minimumPoints`\"\u003e`minimum_points`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be \u003e= 1.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "epsilon",
+                "minimumPoints"
+            ]
+        },
         "newrelic:index/NrqlAlertConditionTerm:NrqlAlertConditionTerm": {
             "properties": {
                 "disableHealthStatusReporting": {
@@ -10921,11 +10954,16 @@
                 "region": {
                     "type": "string",
                     "description": "The region code of the account.  One of: \u003cspan pulumi-lang-nodejs=\"`us01`\" pulumi-lang-dotnet=\"`Us01`\" pulumi-lang-go=\"`us01`\" pulumi-lang-python=\"`us01`\" pulumi-lang-yaml=\"`us01`\" pulumi-lang-java=\"`us01`\"\u003e`us01`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`eu01`\" pulumi-lang-dotnet=\"`Eu01`\" pulumi-lang-go=\"`eu01`\" pulumi-lang-python=\"`eu01`\" pulumi-lang-yaml=\"`eu01`\" pulumi-lang-java=\"`eu01`\"\u003e`eu01`\u003c/span\u003e.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the account - active or canceled"
                 }
             },
             "required": [
                 "name",
-                "region"
+                "region",
+                "status"
             ],
             "inputProperties": {
                 "name": {
@@ -10950,6 +10988,10 @@
                     "region": {
                         "type": "string",
                         "description": "The region code of the account.  One of: \u003cspan pulumi-lang-nodejs=\"`us01`\" pulumi-lang-dotnet=\"`Us01`\" pulumi-lang-go=\"`us01`\" pulumi-lang-python=\"`us01`\" pulumi-lang-yaml=\"`us01`\" pulumi-lang-java=\"`us01`\"\u003e`us01`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`eu01`\" pulumi-lang-dotnet=\"`Eu01`\" pulumi-lang-go=\"`eu01`\" pulumi-lang-python=\"`eu01`\" pulumi-lang-yaml=\"`eu01`\" pulumi-lang-java=\"`eu01`\"\u003e`eu01`\u003c/span\u003e.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the account - active or canceled"
                     }
                 },
                 "type": "object"
@@ -13086,6 +13128,10 @@
                     "type": "boolean",
                     "description": "Whether to create a new incident to capture that the signal expired.\n"
                 },
+                "outlierConfiguration": {
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionOutlierConfiguration:NrqlAlertConditionOutlierConfiguration",
+                    "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`outlierConfiguration`\" pulumi-lang-dotnet=\"`OutlierConfiguration`\" pulumi-lang-go=\"`outlierConfiguration`\" pulumi-lang-python=\"`outlier_configuration`\" pulumi-lang-yaml=\"`outlierConfiguration`\" pulumi-lang-java=\"`outlierConfiguration`\"\u003e`outlier_configuration`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an \u003cspan pulumi-lang-nodejs=\"`outlier`\" pulumi-lang-dotnet=\"`Outlier`\" pulumi-lang-go=\"`outlier`\" pulumi-lang-python=\"`outlier`\" pulumi-lang-yaml=\"`outlier`\" pulumi-lang-java=\"`outlier`\"\u003e`outlier`\u003c/span\u003e NRQL condition."
+                },
                 "policyId": {
                     "type": "string",
                     "description": "The ID of the policy where this condition should be used.\n"
@@ -13217,6 +13263,10 @@
                 "openViolationOnExpiration": {
                     "type": "boolean",
                     "description": "Whether to create a new incident to capture that the signal expired.\n"
+                },
+                "outlierConfiguration": {
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionOutlierConfiguration:NrqlAlertConditionOutlierConfiguration",
+                    "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`outlierConfiguration`\" pulumi-lang-dotnet=\"`OutlierConfiguration`\" pulumi-lang-go=\"`outlierConfiguration`\" pulumi-lang-python=\"`outlier_configuration`\" pulumi-lang-yaml=\"`outlierConfiguration`\" pulumi-lang-java=\"`outlierConfiguration`\"\u003e`outlier_configuration`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an \u003cspan pulumi-lang-nodejs=\"`outlier`\" pulumi-lang-dotnet=\"`Outlier`\" pulumi-lang-go=\"`outlier`\" pulumi-lang-python=\"`outlier`\" pulumi-lang-yaml=\"`outlier`\" pulumi-lang-java=\"`outlier`\"\u003e`outlier`\u003c/span\u003e NRQL condition."
                 },
                 "policyId": {
                     "type": "string",
@@ -13352,6 +13402,10 @@
                     "openViolationOnExpiration": {
                         "type": "boolean",
                         "description": "Whether to create a new incident to capture that the signal expired.\n"
+                    },
+                    "outlierConfiguration": {
+                        "$ref": "#/types/newrelic:index/NrqlAlertConditionOutlierConfiguration:NrqlAlertConditionOutlierConfiguration",
+                        "description": "BETA PREVIEW: the \u003cspan pulumi-lang-nodejs=\"`outlierConfiguration`\" pulumi-lang-dotnet=\"`OutlierConfiguration`\" pulumi-lang-go=\"`outlierConfiguration`\" pulumi-lang-python=\"`outlier_configuration`\" pulumi-lang-yaml=\"`outlierConfiguration`\" pulumi-lang-java=\"`outlierConfiguration`\"\u003e`outlier_configuration`\u003c/span\u003e field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an \u003cspan pulumi-lang-nodejs=\"`outlier`\" pulumi-lang-dotnet=\"`Outlier`\" pulumi-lang-go=\"`outlier`\" pulumi-lang-python=\"`outlier`\" pulumi-lang-yaml=\"`outlier`\" pulumi-lang-java=\"`outlier`\"\u003e`outlier`\u003c/span\u003e NRQL condition."
                     },
                     "policyId": {
                         "type": "string",
@@ -16618,21 +16672,20 @@
     },
     "functions": {
         "newrelic:index/getAccount:getAccount": {
-            "description": "Use this data source to get information about a specific account in New Relic.\nAccounts can be located by ID or name.  At most one of the two attributes can\nbe provided. If neither are provided, the provider's \u003cspan pulumi-lang-nodejs=\"`accountId`\" pulumi-lang-dotnet=\"`AccountId`\" pulumi-lang-go=\"`accountId`\" pulumi-lang-python=\"`account_id`\" pulumi-lang-yaml=\"`accountId`\" pulumi-lang-java=\"`accountId`\"\u003e`account_id`\u003c/span\u003e will be used.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst acc = newrelic.getAccount({\n    scope: \"global\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nacc = newrelic.get_account(scope=\"global\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var acc = NewRelic.GetAccount.Invoke(new()\n    {\n        Scope = \"global\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.GetAccount(ctx, \u0026newrelic.GetAccountArgs{\n\t\t\tScope: pulumi.StringRef(\"global\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetAccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()\n            .scope(\"global\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  acc:\n    fn::invoke:\n      function: newrelic:getAccount\n      arguments:\n        scope: global\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "This data source allows you to retrieve information about a specific account in New Relic.\n\n## Overview\n\nYou can locate accounts using either their \u003cspan pulumi-lang-nodejs=\"`accountId`\" pulumi-lang-dotnet=\"`AccountId`\" pulumi-lang-go=\"`accountId`\" pulumi-lang-python=\"`account_id`\" pulumi-lang-yaml=\"`accountId`\" pulumi-lang-java=\"`accountId`\"\u003e`account_id`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`name`\" pulumi-lang-dotnet=\"`Name`\" pulumi-lang-go=\"`name`\" pulumi-lang-python=\"`name`\" pulumi-lang-yaml=\"`name`\" pulumi-lang-java=\"`name`\"\u003e`name`\u003c/span\u003e. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default \u003cspan pulumi-lang-nodejs=\"`accountId`\" pulumi-lang-dotnet=\"`AccountId`\" pulumi-lang-go=\"`accountId`\" pulumi-lang-python=\"`account_id`\" pulumi-lang-yaml=\"`accountId`\" pulumi-lang-java=\"`accountId`\"\u003e`account_id`\u003c/span\u003e will be used.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst example = newrelic.getAccount({\n    name: \"Test Account\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample = newrelic.get_account(name=\"Test Account\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = NewRelic.GetAccount.Invoke(new()\n    {\n        Name = \"Test Account\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.GetAccount(ctx, \u0026newrelic.GetAccountArgs{\n\t\t\tName: pulumi.StringRef(\"Test Account\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetAccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()\n            .name(\"Test Account\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: newrelic:getAccount\n      arguments:\n        name: Test Account\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getAccount.\n",
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "The account ID in New Relic.\n"
+                        "description": "The unique identifier of the account in New Relic. This must be an integer.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "The account name in New Relic.\n"
+                        "description": "The name of the account in New Relic. This must be a string.\n"
                     },
                     "scope": {
-                        "type": "string",
-                        "description": "The scope of the account in New Relic.  Valid values are \"global\" and \u003cspan pulumi-lang-nodejs=\"\"inRegion\"\" pulumi-lang-dotnet=\"\"InRegion\"\" pulumi-lang-go=\"\"inRegion\"\" pulumi-lang-python=\"\"in_region\"\" pulumi-lang-yaml=\"\"inRegion\"\" pulumi-lang-java=\"\"inRegion\"\"\u003e\"in_region\"\u003c/span\u003e.  Defaults to \u003cspan pulumi-lang-nodejs=\"\"inRegion\"\" pulumi-lang-dotnet=\"\"InRegion\"\" pulumi-lang-go=\"\"inRegion\"\" pulumi-lang-python=\"\"in_region\"\" pulumi-lang-yaml=\"\"inRegion\"\" pulumi-lang-java=\"\"inRegion\"\"\u003e\"in_region\"\u003c/span\u003e.\n"
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -16650,11 +16703,15 @@
                     "name": {
                         "type": "string"
                     },
+                    "region": {
+                        "type": "string"
+                    },
                     "scope": {
                         "type": "string"
                     }
                 },
                 "required": [
+                    "region",
                     "id"
                 ],
                 "type": "object"

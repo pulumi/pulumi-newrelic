@@ -26,7 +26,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, account_id=None, id=None, name=None, scope=None):
+    def __init__(__self__, account_id=None, id=None, name=None, region=None, scope=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -36,6 +36,9 @@ class GetAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
@@ -60,6 +63,11 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "scope")
 
@@ -73,6 +81,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             account_id=self.account_id,
             id=self.id,
             name=self.name,
+            region=self.region,
             scope=self.scope)
 
 
@@ -81,9 +90,11 @@ def get_account(account_id: Optional[_builtins.str] = None,
                 scope: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to get information about a specific account in New Relic.
-    Accounts can be located by ID or name.  At most one of the two attributes can
-    be provided. If neither are provided, the provider's `account_id` will be used.
+    This data source allows you to retrieve information about a specific account in New Relic.
+
+    ## Overview
+
+    You can locate accounts using either their `account_id` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `account_id` will be used.
 
     ## Example Usage
 
@@ -91,13 +102,12 @@ def get_account(account_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_newrelic as newrelic
 
-    acc = newrelic.get_account(scope="global")
+    example = newrelic.get_account(name="Test Account")
     ```
 
 
-    :param _builtins.str account_id: The account ID in New Relic.
-    :param _builtins.str name: The account name in New Relic.
-    :param _builtins.str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
+    :param _builtins.str account_id: The unique identifier of the account in New Relic. This must be an integer.
+    :param _builtins.str name: The name of the account in New Relic. This must be a string.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -110,15 +120,18 @@ def get_account(account_id: Optional[_builtins.str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         scope=pulumi.get(__ret__, 'scope'))
 def get_account_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        scope: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Use this data source to get information about a specific account in New Relic.
-    Accounts can be located by ID or name.  At most one of the two attributes can
-    be provided. If neither are provided, the provider's `account_id` will be used.
+    This data source allows you to retrieve information about a specific account in New Relic.
+
+    ## Overview
+
+    You can locate accounts using either their `account_id` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `account_id` will be used.
 
     ## Example Usage
 
@@ -126,13 +139,12 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]
     import pulumi
     import pulumi_newrelic as newrelic
 
-    acc = newrelic.get_account(scope="global")
+    example = newrelic.get_account(name="Test Account")
     ```
 
 
-    :param _builtins.str account_id: The account ID in New Relic.
-    :param _builtins.str name: The account name in New Relic.
-    :param _builtins.str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
+    :param _builtins.str account_id: The unique identifier of the account in New Relic. This must be an integer.
+    :param _builtins.str name: The name of the account in New Relic. This must be a string.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -144,4 +156,5 @@ def get_account_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]
         account_id=pulumi.get(__response__, 'account_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         scope=pulumi.get(__response__, 'scope')))

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+import com.pulumi.newrelic.inputs.NrqlAlertConditionOutlierConfigurationArgs;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionTermArgs;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;
 import java.lang.Boolean;
@@ -309,6 +310,21 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * 
+     */
+    @Import(name="outlierConfiguration")
+    private @Nullable Output<NrqlAlertConditionOutlierConfigurationArgs> outlierConfiguration;
+
+    /**
+     * @return BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * 
+     */
+    public Optional<Output<NrqlAlertConditionOutlierConfigurationArgs>> outlierConfiguration() {
+        return Optional.ofNullable(this.outlierConfiguration);
+    }
+
+    /**
      * The ID of the policy where this condition should be used.
      * 
      */
@@ -515,6 +531,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         this.name = $.name;
         this.nrql = $.nrql;
         this.openViolationOnExpiration = $.openViolationOnExpiration;
+        this.outlierConfiguration = $.outlierConfiguration;
         this.policyId = $.policyId;
         this.runbookUrl = $.runbookUrl;
         this.signalSeasonality = $.signalSeasonality;
@@ -943,6 +960,27 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
          */
         public Builder openViolationOnExpiration(Boolean openViolationOnExpiration) {
             return openViolationOnExpiration(Output.of(openViolationOnExpiration));
+        }
+
+        /**
+         * @param outlierConfiguration BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outlierConfiguration(@Nullable Output<NrqlAlertConditionOutlierConfigurationArgs> outlierConfiguration) {
+            $.outlierConfiguration = outlierConfiguration;
+            return this;
+        }
+
+        /**
+         * @param outlierConfiguration BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outlierConfiguration(NrqlAlertConditionOutlierConfigurationArgs outlierConfiguration) {
+            return outlierConfiguration(Output.of(outlierConfiguration));
         }
 
         /**

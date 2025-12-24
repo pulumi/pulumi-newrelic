@@ -68,6 +68,10 @@ export class AccountManagement extends pulumi.CustomResource {
      * The region code of the account.  One of: `us01`, `eu01`.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Status of the account - active or canceled
+     */
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a AccountManagement resource with the given unique name, arguments, and options.
@@ -84,6 +88,7 @@ export class AccountManagement extends pulumi.CustomResource {
             const state = argsOrState as AccountManagementState | undefined;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as AccountManagementArgs | undefined;
             if (args?.region === undefined && !opts.urn) {
@@ -91,6 +96,7 @@ export class AccountManagement extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
+            resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountManagement.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +115,10 @@ export interface AccountManagementState {
      * The region code of the account.  One of: `us01`, `eu01`.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Status of the account - active or canceled
+     */
+    status?: pulumi.Input<string>;
 }
 
 /**

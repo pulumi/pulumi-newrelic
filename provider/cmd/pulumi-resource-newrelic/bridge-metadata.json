@@ -1399,6 +1399,16 @@
                     "nrql": {
                         "maxItemsOne": true
                     },
+                    "outlier_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "dbscan": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "term": {
                         "maxItemsOne": false,
                         "elem": {

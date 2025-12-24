@@ -19,6 +19,7 @@ public final class GetAccountResult {
      */
     private String id;
     private @Nullable String name;
+    private String region;
     private @Nullable String scope;
 
     private GetAccountResult() {}
@@ -34,6 +35,9 @@ public final class GetAccountResult {
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+    public String region() {
+        return this.region;
     }
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
@@ -51,6 +55,7 @@ public final class GetAccountResult {
         private @Nullable String accountId;
         private String id;
         private @Nullable String name;
+        private String region;
         private @Nullable String scope;
         public Builder() {}
         public Builder(GetAccountResult defaults) {
@@ -58,6 +63,7 @@ public final class GetAccountResult {
     	      this.accountId = defaults.accountId;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.scope = defaults.scope;
         }
 
@@ -82,6 +88,14 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
 
             this.scope = scope;
@@ -92,6 +106,7 @@ public final class GetAccountResult {
             _resultValue.accountId = accountId;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.scope = scope;
             return _resultValue;
         }

@@ -392,6 +392,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     declare public readonly openViolationOnExpiration: pulumi.Output<boolean | undefined>;
     /**
+     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     */
+    declare public readonly outlierConfiguration: pulumi.Output<outputs.NrqlAlertConditionOutlierConfiguration | undefined>;
+    /**
      * The ID of the policy where this condition should be used.
      */
     declare public readonly policyId: pulumi.Output<string>;
@@ -474,6 +478,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["nrql"] = state?.nrql;
             resourceInputs["openViolationOnExpiration"] = state?.openViolationOnExpiration;
+            resourceInputs["outlierConfiguration"] = state?.outlierConfiguration;
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["runbookUrl"] = state?.runbookUrl;
             resourceInputs["signalSeasonality"] = state?.signalSeasonality;
@@ -511,6 +516,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["nrql"] = args?.nrql;
             resourceInputs["openViolationOnExpiration"] = args?.openViolationOnExpiration;
+            resourceInputs["outlierConfiguration"] = args?.outlierConfiguration;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["runbookUrl"] = args?.runbookUrl;
             resourceInputs["signalSeasonality"] = args?.signalSeasonality;
@@ -609,6 +615,10 @@ export interface NrqlAlertConditionState {
      * Whether to create a new incident to capture that the signal expired.
      */
     openViolationOnExpiration?: pulumi.Input<boolean>;
+    /**
+     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     */
+    outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration>;
     /**
      * The ID of the policy where this condition should be used.
      */
@@ -737,6 +747,10 @@ export interface NrqlAlertConditionArgs {
      * Whether to create a new incident to capture that the signal expired.
      */
     openViolationOnExpiration?: pulumi.Input<boolean>;
+    /**
+     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     */
+    outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration>;
     /**
      * The ID of the policy where this condition should be used.
      */

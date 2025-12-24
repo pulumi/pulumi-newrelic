@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific account in New Relic.
- * Accounts can be located by ID or name.  At most one of the two attributes can
- * be provided. If neither are provided, the provider's `accountId` will be used.
+ * This data source allows you to retrieve information about a specific account in New Relic.
+ *
+ * ## Overview
+ *
+ * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `accountId` will be used.
  *
  * ## Example Usage
  *
@@ -15,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const acc = newrelic.getAccount({
- *     scope: "global",
+ * const example = newrelic.getAccount({
+ *     name: "Test Account",
  * });
  * ```
  */
@@ -35,16 +37,13 @@ export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): 
  */
 export interface GetAccountArgs {
     /**
-     * The account ID in New Relic.
+     * The unique identifier of the account in New Relic. This must be an integer.
      */
     accountId?: string;
     /**
-     * The account name in New Relic.
+     * The name of the account in New Relic. This must be a string.
      */
     name?: string;
-    /**
-     * The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
-     */
     scope?: string;
 }
 
@@ -58,12 +57,15 @@ export interface GetAccountResult {
      */
     readonly id: string;
     readonly name?: string;
+    readonly region: string;
     readonly scope?: string;
 }
 /**
- * Use this data source to get information about a specific account in New Relic.
- * Accounts can be located by ID or name.  At most one of the two attributes can
- * be provided. If neither are provided, the provider's `accountId` will be used.
+ * This data source allows you to retrieve information about a specific account in New Relic.
+ *
+ * ## Overview
+ *
+ * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `accountId` will be used.
  *
  * ## Example Usage
  *
@@ -71,8 +73,8 @@ export interface GetAccountResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const acc = newrelic.getAccount({
- *     scope: "global",
+ * const example = newrelic.getAccount({
+ *     name: "Test Account",
  * });
  * ```
  */
@@ -91,15 +93,12 @@ export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.Invo
  */
 export interface GetAccountOutputArgs {
     /**
-     * The account ID in New Relic.
+     * The unique identifier of the account in New Relic. This must be an integer.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The account name in New Relic.
+     * The name of the account in New Relic. This must be a string.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
-     */
     scope?: pulumi.Input<string>;
 }
