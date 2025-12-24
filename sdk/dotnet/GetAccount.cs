@@ -12,9 +12,11 @@ namespace Pulumi.NewRelic
     public static class GetAccount
     {
         /// <summary>
-        /// Use this data source to get information about a specific account in New Relic.
-        /// Accounts can be located by ID or name.  At most one of the two attributes can
-        /// be provided. If neither are provided, the provider's `AccountId` will be used.
+        /// This data source allows you to retrieve information about a specific account in New Relic.
+        /// 
+        /// ## Overview
+        /// 
+        /// You can locate accounts using either their `AccountId` or `Name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `AccountId` will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -26,9 +28,9 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var acc = NewRelic.GetAccount.Invoke(new()
+        ///     var example = NewRelic.GetAccount.Invoke(new()
         ///     {
-        ///         Scope = "global",
+        ///         Name = "Test Account",
         ///     });
         /// 
         /// });
@@ -38,9 +40,11 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("newrelic:index/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific account in New Relic.
-        /// Accounts can be located by ID or name.  At most one of the two attributes can
-        /// be provided. If neither are provided, the provider's `AccountId` will be used.
+        /// This data source allows you to retrieve information about a specific account in New Relic.
+        /// 
+        /// ## Overview
+        /// 
+        /// You can locate accounts using either their `AccountId` or `Name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `AccountId` will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -52,9 +56,9 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var acc = NewRelic.GetAccount.Invoke(new()
+        ///     var example = NewRelic.GetAccount.Invoke(new()
         ///     {
-        ///         Scope = "global",
+        ///         Name = "Test Account",
         ///     });
         /// 
         /// });
@@ -64,9 +68,11 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("newrelic:index/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific account in New Relic.
-        /// Accounts can be located by ID or name.  At most one of the two attributes can
-        /// be provided. If neither are provided, the provider's `AccountId` will be used.
+        /// This data source allows you to retrieve information about a specific account in New Relic.
+        /// 
+        /// ## Overview
+        /// 
+        /// You can locate accounts using either their `AccountId` or `Name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider's default `AccountId` will be used.
         /// 
         /// ## Example Usage
         /// 
@@ -78,9 +84,9 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var acc = NewRelic.GetAccount.Invoke(new()
+        ///     var example = NewRelic.GetAccount.Invoke(new()
         ///     {
-        ///         Scope = "global",
+        ///         Name = "Test Account",
         ///     });
         /// 
         /// });
@@ -94,20 +100,17 @@ namespace Pulumi.NewRelic
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The account ID in New Relic.
+        /// The unique identifier of the account in New Relic. This must be an integer.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
         /// <summary>
-        /// The account name in New Relic.
+        /// The name of the account in New Relic. This must be a string.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// The scope of the account in New Relic.  Valid values are "global" and "InRegion".  Defaults to "InRegion".
-        /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
 
@@ -120,20 +123,17 @@ namespace Pulumi.NewRelic
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The account ID in New Relic.
+        /// The unique identifier of the account in New Relic. This must be an integer.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The account name in New Relic.
+        /// The name of the account in New Relic. This must be a string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The scope of the account in New Relic.  Valid values are "global" and "InRegion".  Defaults to "InRegion".
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
@@ -153,6 +153,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly string Id;
         public readonly string? Name;
+        public readonly string Region;
         public readonly string? Scope;
 
         [OutputConstructor]
@@ -163,11 +164,14 @@ namespace Pulumi.NewRelic
 
             string? name,
 
+            string region,
+
             string? scope)
         {
             AccountId = accountId;
             Id = id;
             Name = name;
+            Region = region;
             Scope = scope;
         }
     }

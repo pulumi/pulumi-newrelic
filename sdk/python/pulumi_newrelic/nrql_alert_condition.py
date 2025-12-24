@@ -40,6 +40,7 @@ class NrqlAlertConditionArgs:
                  ignore_on_expected_termination: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 outlier_configuration: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']] = None,
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
                  slide_by: Optional[pulumi.Input[_builtins.int]] = None,
@@ -71,6 +72,7 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[_builtins.bool] ignore_on_expected_termination: Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
+        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs'] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         :param pulumi.Input[_builtins.int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
@@ -120,6 +122,8 @@ class NrqlAlertConditionArgs:
             pulumi.set(__self__, "name", name)
         if open_violation_on_expiration is not None:
             pulumi.set(__self__, "open_violation_on_expiration", open_violation_on_expiration)
+        if outlier_configuration is not None:
+            pulumi.set(__self__, "outlier_configuration", outlier_configuration)
         if runbook_url is not None:
             pulumi.set(__self__, "runbook_url", runbook_url)
         if signal_seasonality is not None:
@@ -376,6 +380,18 @@ class NrqlAlertConditionArgs:
         pulumi.set(self, "open_violation_on_expiration", value)
 
     @_builtins.property
+    @pulumi.getter(name="outlierConfiguration")
+    def outlier_configuration(self) -> Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]:
+        """
+        BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        """
+        return pulumi.get(self, "outlier_configuration")
+
+    @outlier_configuration.setter
+    def outlier_configuration(self, value: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]):
+        pulumi.set(self, "outlier_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="runbookUrl")
     def runbook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -522,6 +538,7 @@ class _NrqlAlertConditionState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 outlier_configuration: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
@@ -554,6 +571,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
+        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs'] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
@@ -606,6 +624,8 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "nrql", nrql)
         if open_violation_on_expiration is not None:
             pulumi.set(__self__, "open_violation_on_expiration", open_violation_on_expiration)
+        if outlier_configuration is not None:
+            pulumi.set(__self__, "outlier_configuration", outlier_configuration)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
         if runbook_url is not None:
@@ -864,6 +884,18 @@ class _NrqlAlertConditionState:
         pulumi.set(self, "open_violation_on_expiration", value)
 
     @_builtins.property
+    @pulumi.getter(name="outlierConfiguration")
+    def outlier_configuration(self) -> Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]:
+        """
+        BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        """
+        return pulumi.get(self, "outlier_configuration")
+
+    @outlier_configuration.setter
+    def outlier_configuration(self, value: Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]):
+        pulumi.set(self, "outlier_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1024,6 +1056,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 outlier_configuration: Optional[pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1331,6 +1364,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
+        :param pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
@@ -1659,6 +1693,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
                  open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 outlier_configuration: Optional[pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
                  signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1699,6 +1734,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'nrql'")
             __props__.__dict__["nrql"] = nrql
             __props__.__dict__["open_violation_on_expiration"] = open_violation_on_expiration
+            __props__.__dict__["outlier_configuration"] = outlier_configuration
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__.__dict__["policy_id"] = policy_id
@@ -1742,6 +1778,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             nrql: Optional[pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']]] = None,
             open_violation_on_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
+            outlier_configuration: Optional[pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']]] = None,
             policy_id: Optional[pulumi.Input[_builtins.str]] = None,
             runbook_url: Optional[pulumi.Input[_builtins.str]] = None,
             signal_seasonality: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1779,6 +1816,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
+        :param pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
@@ -1816,6 +1854,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["nrql"] = nrql
         __props__.__dict__["open_violation_on_expiration"] = open_violation_on_expiration
+        __props__.__dict__["outlier_configuration"] = outlier_configuration
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["runbook_url"] = runbook_url
         __props__.__dict__["signal_seasonality"] = signal_seasonality
@@ -1980,6 +2019,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         Whether to create a new incident to capture that the signal expired.
         """
         return pulumi.get(self, "open_violation_on_expiration")
+
+    @_builtins.property
+    @pulumi.getter(name="outlierConfiguration")
+    def outlier_configuration(self) -> pulumi.Output[Optional['outputs.NrqlAlertConditionOutlierConfiguration']]:
+        """
+        BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        """
+        return pulumi.get(self, "outlier_configuration")
 
     @_builtins.property
     @pulumi.getter(name="policyId")

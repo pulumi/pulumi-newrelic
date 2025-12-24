@@ -45,11 +45,27 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Status of the account - active or canceled
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return Status of the account - active or canceled
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
     private AccountManagementState() {}
 
     private AccountManagementState(AccountManagementState $) {
         this.name = $.name;
         this.region = $.region;
+        this.status = $.status;
     }
 
     public static Builder builder() {
@@ -110,6 +126,27 @@ public final class AccountManagementState extends com.pulumi.resources.ResourceA
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param status Status of the account - active or canceled
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status Status of the account - active or canceled
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
         }
 
         public AccountManagementState build() {

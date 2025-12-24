@@ -59,6 +59,12 @@ namespace Pulumi.NewRelic
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of the account - active or canceled
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AccountManagement resource with the given unique name, arguments, and options.
@@ -136,6 +142,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Status of the account - active or canceled
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public AccountManagementState()
         {

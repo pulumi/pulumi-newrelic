@@ -480,6 +480,12 @@ namespace Pulumi.NewRelic
         public Output<bool?> OpenViolationOnExpiration { get; private set; } = null!;
 
         /// <summary>
+        /// BETA PREVIEW: the `OutlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `Outlier` NRQL condition.
+        /// </summary>
+        [Output("outlierConfiguration")]
+        public Output<Outputs.NrqlAlertConditionOutlierConfiguration?> OutlierConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
@@ -702,6 +708,12 @@ namespace Pulumi.NewRelic
         public Input<bool>? OpenViolationOnExpiration { get; set; }
 
         /// <summary>
+        /// BETA PREVIEW: the `OutlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `Outlier` NRQL condition.
+        /// </summary>
+        [Input("outlierConfiguration")]
+        public Input<Inputs.NrqlAlertConditionOutlierConfigurationArgs>? OutlierConfiguration { get; set; }
+
+        /// <summary>
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
@@ -897,6 +909,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("openViolationOnExpiration")]
         public Input<bool>? OpenViolationOnExpiration { get; set; }
+
+        /// <summary>
+        /// BETA PREVIEW: the `OutlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `Outlier` NRQL condition.
+        /// </summary>
+        [Input("outlierConfiguration")]
+        public Input<Inputs.NrqlAlertConditionOutlierConfigurationGetArgs>? OutlierConfiguration { get; set; }
 
         /// <summary>
         /// The ID of the policy where this condition should be used.

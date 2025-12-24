@@ -3565,6 +3565,320 @@ func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type NrqlAlertConditionOutlierConfiguration struct {
+	// BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimumPoints`; optional `evaluationGroupFacet` partitions data before analysis.
+	Dbscan NrqlAlertConditionOutlierConfigurationDbscan `pulumi:"dbscan"`
+}
+
+// NrqlAlertConditionOutlierConfigurationInput is an input type that accepts NrqlAlertConditionOutlierConfigurationArgs and NrqlAlertConditionOutlierConfigurationOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionOutlierConfigurationInput` via:
+//
+//	NrqlAlertConditionOutlierConfigurationArgs{...}
+type NrqlAlertConditionOutlierConfigurationInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionOutlierConfigurationOutput() NrqlAlertConditionOutlierConfigurationOutput
+	ToNrqlAlertConditionOutlierConfigurationOutputWithContext(context.Context) NrqlAlertConditionOutlierConfigurationOutput
+}
+
+type NrqlAlertConditionOutlierConfigurationArgs struct {
+	// BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimumPoints`; optional `evaluationGroupFacet` partitions data before analysis.
+	Dbscan NrqlAlertConditionOutlierConfigurationDbscanInput `pulumi:"dbscan"`
+}
+
+func (NrqlAlertConditionOutlierConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionOutlierConfiguration)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionOutlierConfigurationArgs) ToNrqlAlertConditionOutlierConfigurationOutput() NrqlAlertConditionOutlierConfigurationOutput {
+	return i.ToNrqlAlertConditionOutlierConfigurationOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionOutlierConfigurationArgs) ToNrqlAlertConditionOutlierConfigurationOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutlierConfigurationOutput)
+}
+
+func (i NrqlAlertConditionOutlierConfigurationArgs) ToNrqlAlertConditionOutlierConfigurationPtrOutput() NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return i.ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionOutlierConfigurationArgs) ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutlierConfigurationOutput).ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionOutlierConfigurationPtrInput is an input type that accepts NrqlAlertConditionOutlierConfigurationArgs, NrqlAlertConditionOutlierConfigurationPtr and NrqlAlertConditionOutlierConfigurationPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionOutlierConfigurationPtrInput` via:
+//
+//	        NrqlAlertConditionOutlierConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NrqlAlertConditionOutlierConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionOutlierConfigurationPtrOutput() NrqlAlertConditionOutlierConfigurationPtrOutput
+	ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(context.Context) NrqlAlertConditionOutlierConfigurationPtrOutput
+}
+
+type nrqlAlertConditionOutlierConfigurationPtrType NrqlAlertConditionOutlierConfigurationArgs
+
+func NrqlAlertConditionOutlierConfigurationPtr(v *NrqlAlertConditionOutlierConfigurationArgs) NrqlAlertConditionOutlierConfigurationPtrInput {
+	return (*nrqlAlertConditionOutlierConfigurationPtrType)(v)
+}
+
+func (*nrqlAlertConditionOutlierConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionOutlierConfiguration)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionOutlierConfigurationPtrType) ToNrqlAlertConditionOutlierConfigurationPtrOutput() NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return i.ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionOutlierConfigurationPtrType) ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutlierConfigurationPtrOutput)
+}
+
+type NrqlAlertConditionOutlierConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionOutlierConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionOutlierConfiguration)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionOutlierConfigurationOutput) ToNrqlAlertConditionOutlierConfigurationOutput() NrqlAlertConditionOutlierConfigurationOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationOutput) ToNrqlAlertConditionOutlierConfigurationOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationOutput) ToNrqlAlertConditionOutlierConfigurationPtrOutput() NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return o.ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionOutlierConfigurationOutput) ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionOutlierConfiguration) *NrqlAlertConditionOutlierConfiguration {
+		return &v
+	}).(NrqlAlertConditionOutlierConfigurationPtrOutput)
+}
+
+// BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimumPoints`; optional `evaluationGroupFacet` partitions data before analysis.
+func (o NrqlAlertConditionOutlierConfigurationOutput) Dbscan() NrqlAlertConditionOutlierConfigurationDbscanOutput {
+	return o.ApplyT(func(v NrqlAlertConditionOutlierConfiguration) NrqlAlertConditionOutlierConfigurationDbscan {
+		return v.Dbscan
+	}).(NrqlAlertConditionOutlierConfigurationDbscanOutput)
+}
+
+type NrqlAlertConditionOutlierConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionOutlierConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionOutlierConfiguration)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionOutlierConfigurationPtrOutput) ToNrqlAlertConditionOutlierConfigurationPtrOutput() NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationPtrOutput) ToNrqlAlertConditionOutlierConfigurationPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationPtrOutput) Elem() NrqlAlertConditionOutlierConfigurationOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionOutlierConfiguration) NrqlAlertConditionOutlierConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionOutlierConfiguration
+		return ret
+	}).(NrqlAlertConditionOutlierConfigurationOutput)
+}
+
+// BETA PREVIEW: the `dbscan` field is in limited release and only enabled for preview on a per-account basis. - Container for DBSCAN settings used to cluster data points and classify noise as outliers. Requires `epsilon` and `minimumPoints`; optional `evaluationGroupFacet` partitions data before analysis.
+func (o NrqlAlertConditionOutlierConfigurationPtrOutput) Dbscan() NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionOutlierConfiguration) *NrqlAlertConditionOutlierConfigurationDbscan {
+		if v == nil {
+			return nil
+		}
+		return &v.Dbscan
+	}).(NrqlAlertConditionOutlierConfigurationDbscanPtrOutput)
+}
+
+type NrqlAlertConditionOutlierConfigurationDbscan struct {
+	// BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+	Epsilon float64 `pulumi:"epsilon"`
+	// BETA PREVIEW: the `evaluationGroupFacet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+	EvaluationGroupFacet *string `pulumi:"evaluationGroupFacet"`
+	// BETA PREVIEW: the `minimumPoints` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+	MinimumPoints int `pulumi:"minimumPoints"`
+}
+
+// NrqlAlertConditionOutlierConfigurationDbscanInput is an input type that accepts NrqlAlertConditionOutlierConfigurationDbscanArgs and NrqlAlertConditionOutlierConfigurationDbscanOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionOutlierConfigurationDbscanInput` via:
+//
+//	NrqlAlertConditionOutlierConfigurationDbscanArgs{...}
+type NrqlAlertConditionOutlierConfigurationDbscanInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionOutlierConfigurationDbscanOutput() NrqlAlertConditionOutlierConfigurationDbscanOutput
+	ToNrqlAlertConditionOutlierConfigurationDbscanOutputWithContext(context.Context) NrqlAlertConditionOutlierConfigurationDbscanOutput
+}
+
+type NrqlAlertConditionOutlierConfigurationDbscanArgs struct {
+	// BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+	Epsilon pulumi.Float64Input `pulumi:"epsilon"`
+	// BETA PREVIEW: the `evaluationGroupFacet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+	EvaluationGroupFacet pulumi.StringPtrInput `pulumi:"evaluationGroupFacet"`
+	// BETA PREVIEW: the `minimumPoints` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+	MinimumPoints pulumi.IntInput `pulumi:"minimumPoints"`
+}
+
+func (NrqlAlertConditionOutlierConfigurationDbscanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionOutlierConfigurationDbscan)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionOutlierConfigurationDbscanArgs) ToNrqlAlertConditionOutlierConfigurationDbscanOutput() NrqlAlertConditionOutlierConfigurationDbscanOutput {
+	return i.ToNrqlAlertConditionOutlierConfigurationDbscanOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionOutlierConfigurationDbscanArgs) ToNrqlAlertConditionOutlierConfigurationDbscanOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationDbscanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutlierConfigurationDbscanOutput)
+}
+
+func (i NrqlAlertConditionOutlierConfigurationDbscanArgs) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutput() NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return i.ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionOutlierConfigurationDbscanArgs) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutlierConfigurationDbscanOutput).ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionOutlierConfigurationDbscanPtrInput is an input type that accepts NrqlAlertConditionOutlierConfigurationDbscanArgs, NrqlAlertConditionOutlierConfigurationDbscanPtr and NrqlAlertConditionOutlierConfigurationDbscanPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionOutlierConfigurationDbscanPtrInput` via:
+//
+//	        NrqlAlertConditionOutlierConfigurationDbscanArgs{...}
+//
+//	or:
+//
+//	        nil
+type NrqlAlertConditionOutlierConfigurationDbscanPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutput() NrqlAlertConditionOutlierConfigurationDbscanPtrOutput
+	ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(context.Context) NrqlAlertConditionOutlierConfigurationDbscanPtrOutput
+}
+
+type nrqlAlertConditionOutlierConfigurationDbscanPtrType NrqlAlertConditionOutlierConfigurationDbscanArgs
+
+func NrqlAlertConditionOutlierConfigurationDbscanPtr(v *NrqlAlertConditionOutlierConfigurationDbscanArgs) NrqlAlertConditionOutlierConfigurationDbscanPtrInput {
+	return (*nrqlAlertConditionOutlierConfigurationDbscanPtrType)(v)
+}
+
+func (*nrqlAlertConditionOutlierConfigurationDbscanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionOutlierConfigurationDbscan)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionOutlierConfigurationDbscanPtrType) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutput() NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return i.ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionOutlierConfigurationDbscanPtrType) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutlierConfigurationDbscanPtrOutput)
+}
+
+type NrqlAlertConditionOutlierConfigurationDbscanOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionOutlierConfigurationDbscanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionOutlierConfigurationDbscan)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) ToNrqlAlertConditionOutlierConfigurationDbscanOutput() NrqlAlertConditionOutlierConfigurationDbscanOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) ToNrqlAlertConditionOutlierConfigurationDbscanOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationDbscanOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutput() NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return o.ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionOutlierConfigurationDbscan) *NrqlAlertConditionOutlierConfigurationDbscan {
+		return &v
+	}).(NrqlAlertConditionOutlierConfigurationDbscanPtrOutput)
+}
+
+// BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) Epsilon() pulumi.Float64Output {
+	return o.ApplyT(func(v NrqlAlertConditionOutlierConfigurationDbscan) float64 { return v.Epsilon }).(pulumi.Float64Output)
+}
+
+// BETA PREVIEW: the `evaluationGroupFacet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) EvaluationGroupFacet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionOutlierConfigurationDbscan) *string { return v.EvaluationGroupFacet }).(pulumi.StringPtrOutput)
+}
+
+// BETA PREVIEW: the `minimumPoints` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+func (o NrqlAlertConditionOutlierConfigurationDbscanOutput) MinimumPoints() pulumi.IntOutput {
+	return o.ApplyT(func(v NrqlAlertConditionOutlierConfigurationDbscan) int { return v.MinimumPoints }).(pulumi.IntOutput)
+}
+
+type NrqlAlertConditionOutlierConfigurationDbscanPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionOutlierConfigurationDbscan)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutput() NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) ToNrqlAlertConditionOutlierConfigurationDbscanPtrOutputWithContext(ctx context.Context) NrqlAlertConditionOutlierConfigurationDbscanPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) Elem() NrqlAlertConditionOutlierConfigurationDbscanOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionOutlierConfigurationDbscan) NrqlAlertConditionOutlierConfigurationDbscan {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionOutlierConfigurationDbscan
+		return ret
+	}).(NrqlAlertConditionOutlierConfigurationDbscanOutput)
+}
+
+// BETA PREVIEW: the `epsilon` field is in limited release and only enabled for preview on a per-account basis. - Radius (distance threshold) for DBSCAN in the units of the query result. Smaller values tighten clusters; larger values broaden them. Must be > 0.
+func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) Epsilon() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionOutlierConfigurationDbscan) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Epsilon
+	}).(pulumi.Float64PtrOutput)
+}
+
+// BETA PREVIEW: the `evaluationGroupFacet` field is in limited release and only enabled for preview on a per-account basis. - Optional NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) EvaluationGroupFacet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionOutlierConfigurationDbscan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationGroupFacet
+	}).(pulumi.StringPtrOutput)
+}
+
+// BETA PREVIEW: the `minimumPoints` field is in limited release and only enabled for preview on a per-account basis. - Minimum number of neighboring points needed to form a cluster. Must be >= 1.
+func (o NrqlAlertConditionOutlierConfigurationDbscanPtrOutput) MinimumPoints() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionOutlierConfigurationDbscan) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumPoints
+	}).(pulumi.IntPtrOutput)
+}
+
 type NrqlAlertConditionTerm struct {
 	// Violations will not change system health status for this term.
 	DisableHealthStatusReporting *bool `pulumi:"disableHealthStatusReporting"`
@@ -28346,6 +28660,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPredictionPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalPredictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlPtrInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionOutlierConfigurationInput)(nil)).Elem(), NrqlAlertConditionOutlierConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionOutlierConfigurationPtrInput)(nil)).Elem(), NrqlAlertConditionOutlierConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionOutlierConfigurationDbscanInput)(nil)).Elem(), NrqlAlertConditionOutlierConfigurationDbscanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionOutlierConfigurationDbscanPtrInput)(nil)).Elem(), NrqlAlertConditionOutlierConfigurationDbscanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermInput)(nil)).Elem(), NrqlAlertConditionTermArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermArrayInput)(nil)).Elem(), NrqlAlertConditionTermArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermPredictionInput)(nil)).Elem(), NrqlAlertConditionTermPredictionArgs{})
@@ -28751,6 +29069,10 @@ func init() {
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPredictionPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlPtrOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionOutlierConfigurationOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionOutlierConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionOutlierConfigurationDbscanOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionOutlierConfigurationDbscanPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermArrayOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermPredictionOutput{})

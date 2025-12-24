@@ -12,6 +12,7 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.NrqlAlertConditionState;
 import com.pulumi.newrelic.outputs.NrqlAlertConditionCritical;
 import com.pulumi.newrelic.outputs.NrqlAlertConditionNrql;
+import com.pulumi.newrelic.outputs.NrqlAlertConditionOutlierConfiguration;
 import com.pulumi.newrelic.outputs.NrqlAlertConditionTerm;
 import com.pulumi.newrelic.outputs.NrqlAlertConditionWarning;
 import java.lang.Boolean;
@@ -711,6 +712,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> openViolationOnExpiration() {
         return Codegen.optional(this.openViolationOnExpiration);
+    }
+    /**
+     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * 
+     */
+    @Export(name="outlierConfiguration", refs={NrqlAlertConditionOutlierConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ NrqlAlertConditionOutlierConfiguration> outlierConfiguration;
+
+    /**
+     * @return BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * 
+     */
+    public Output<Optional<NrqlAlertConditionOutlierConfiguration>> outlierConfiguration() {
+        return Codegen.optional(this.outlierConfiguration);
     }
     /**
      * The ID of the policy where this condition should be used.

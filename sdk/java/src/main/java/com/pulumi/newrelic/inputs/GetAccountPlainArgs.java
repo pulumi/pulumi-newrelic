@@ -15,14 +15,14 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAccountPlainArgs Empty = new GetAccountPlainArgs();
 
     /**
-     * The account ID in New Relic.
+     * The unique identifier of the account in New Relic. This must be an integer.
      * 
      */
     @Import(name="accountId")
     private @Nullable String accountId;
 
     /**
-     * @return The account ID in New Relic.
+     * @return The unique identifier of the account in New Relic. This must be an integer.
      * 
      */
     public Optional<String> accountId() {
@@ -30,31 +30,23 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The account name in New Relic.
+     * The name of the account in New Relic. This must be a string.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The account name in New Relic.
+     * @return The name of the account in New Relic. This must be a string.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;inRegion&#34;.  Defaults to &#34;inRegion&#34;.
-     * 
-     */
     @Import(name="scope")
     private @Nullable String scope;
 
-    /**
-     * @return The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;inRegion&#34;.  Defaults to &#34;inRegion&#34;.
-     * 
-     */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
@@ -86,7 +78,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountId The account ID in New Relic.
+         * @param accountId The unique identifier of the account in New Relic. This must be an integer.
          * 
          * @return builder
          * 
@@ -97,7 +89,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The account name in New Relic.
+         * @param name The name of the account in New Relic. This must be a string.
          * 
          * @return builder
          * 
@@ -107,12 +99,6 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        /**
-         * @param scope The scope of the account in New Relic.  Valid values are &#34;global&#34; and &#34;inRegion&#34;.  Defaults to &#34;inRegion&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable String scope) {
             $.scope = scope;
             return this;

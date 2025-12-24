@@ -59,16 +59,20 @@ class AccountManagementArgs:
 class _AccountManagementState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountManagement resources.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
         :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
+        :param pulumi.Input[_builtins.str] status: Status of the account - active or canceled
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
@@ -93,6 +97,18 @@ class _AccountManagementState:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Status of the account - active or canceled
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.type_token("newrelic:index/accountManagement:AccountManagement")
@@ -199,6 +215,7 @@ class AccountManagement(pulumi.CustomResource):
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
+            __props__.__dict__["status"] = None
         super(AccountManagement, __self__).__init__(
             'newrelic:index/accountManagement:AccountManagement',
             resource_name,
@@ -210,7 +227,8 @@ class AccountManagement(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountManagement':
+            region: Optional[pulumi.Input[_builtins.str]] = None,
+            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountManagement':
         """
         Get an existing AccountManagement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -220,6 +238,7 @@ class AccountManagement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
         :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
+        :param pulumi.Input[_builtins.str] status: Status of the account - active or canceled
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -227,6 +246,7 @@ class AccountManagement(pulumi.CustomResource):
 
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
+        __props__.__dict__["status"] = status
         return AccountManagement(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -244,4 +264,12 @@ class AccountManagement(pulumi.CustomResource):
         The region code of the account.  One of: `us01`, `eu01`.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status of the account - active or canceled
+        """
+        return pulumi.get(self, "status")
 

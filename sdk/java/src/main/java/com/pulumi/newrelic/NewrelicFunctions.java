@@ -55,9 +55,11 @@ import java.util.concurrent.CompletableFuture;
 
 public final class NewrelicFunctions {
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -83,8 +85,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
@@ -97,9 +99,11 @@ public final class NewrelicFunctions {
         return getAccount(GetAccountArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -125,8 +129,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
@@ -139,9 +143,11 @@ public final class NewrelicFunctions {
         return getAccountPlain(GetAccountPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -167,8 +173,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
@@ -181,9 +187,11 @@ public final class NewrelicFunctions {
         return getAccount(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -209,8 +217,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
@@ -223,9 +231,11 @@ public final class NewrelicFunctions {
         return getAccountPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -251,8 +261,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
@@ -265,9 +275,11 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -293,8 +305,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
@@ -307,9 +319,11 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific account in New Relic.
-     * Accounts can be located by ID or name.  At most one of the two attributes can
-     * be provided. If neither are provided, the provider&#39;s `accountId` will be used.
+     * This data source allows you to retrieve information about a specific account in New Relic.
+     * 
+     * ## Overview
+     * 
+     * You can locate accounts using either their `accountId` or `name`. However, only one of these attributes can be specified at a time. If neither attribute is provided, the provider&#39;s default `accountId` will be used.
      * 
      * ## Example Usage
      * 
@@ -335,8 +349,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var acc = NewrelicFunctions.getAccount(GetAccountArgs.builder()
-     *             .scope("global")
+     *         final var example = NewrelicFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("Test Account")
      *             .build());
      * 
      *     }
