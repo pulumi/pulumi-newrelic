@@ -472,7 +472,7 @@ index bcfbc33e..3738ad3d 100644
  ##### Type: `baseline`
  
  [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
-@@ -189,87 +164,43 @@ resource "newrelic_alert_policy" "foo" {
+@@ -189,88 +164,44 @@ resource "newrelic_alert_policy" "foo" {
  }
  
  resource "newrelic_nrql_alert_condition" "foo" {
@@ -527,10 +527,9 @@ index bcfbc33e..3738ad3d 100644
      threshold             = 3.5
      threshold_duration    = 600
 -    threshold_occurrences = "all"
-+    threshold_occurrences = "ALL"
-   }
- }
- ```
+-  }
+-}
+-```
 -<br> 
 -
 -##### Type: `outlier`
@@ -572,14 +571,16 @@ index bcfbc33e..3738ad3d 100644
 -    threshold             = 0
 -    threshold_duration    = 300
 -    threshold_occurrences = "all"
--  }
--}
--```
--
--<br>
++    threshold_occurrences = "ALL"
+   }
+ }
+ ```
  
+-<br>
+-
  ## Import
  
+ NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g.
 @@ -283,14 +214,9 @@ $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:baseline
  $ terraform import newrelic_nrql_alert_condition.foo 538291:6789035:static
  ```
