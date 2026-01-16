@@ -14,6 +14,15 @@
                     }
                 }
             },
+            "newrelic_alert_compound_condition": {
+                "current": "newrelic:index/alertCompoundCondition:AlertCompoundCondition",
+                "majorVersion": 5,
+                "fields": {
+                    "component_conditions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "newrelic_alert_condition": {
                 "current": "newrelic:index/alertCondition:AlertCondition",
                 "majorVersion": 5,
@@ -751,6 +760,16 @@
                     },
                     "s3": {
                         "maxItemsOne": true
+                    },
+                    "security_hub": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws_regions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "ses": {
                         "maxItemsOne": true,
@@ -4435,6 +4454,10 @@
             "newrelic_alert_channel": [
                 "account_id",
                 "config.$.user_id"
+            ],
+            "newrelic_alert_compound_condition": [
+                "account_id",
+                "policy_id"
             ],
             "newrelic_alert_condition": [
                 "entities",
