@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .account_management import *
 from .alert_channel import *
+from .alert_compound_condition import *
 from .alert_condition import *
 from .alert_muting_rule import *
 from .alert_policy import *
@@ -161,6 +162,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/alertChannel:AlertChannel": "AlertChannel"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/alertCompoundCondition",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/alertCompoundCondition:AlertCompoundCondition": "AlertCompoundCondition"
   }
  },
  {

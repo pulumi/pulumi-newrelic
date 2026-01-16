@@ -242,6 +242,10 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     declare public readonly s3: pulumi.Output<outputs.cloud.AwsIntegrationsS3 | undefined>;
     /**
+     * Security Hub integration
+     */
+    declare public readonly securityHub: pulumi.Output<outputs.cloud.AwsIntegrationsSecurityHub | undefined>;
+    /**
      * Ses integration
      */
     declare public readonly ses: pulumi.Output<outputs.cloud.AwsIntegrationsSes | undefined>;
@@ -328,6 +332,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["redshift"] = state?.redshift;
             resourceInputs["route53"] = state?.route53;
             resourceInputs["s3"] = state?.s3;
+            resourceInputs["securityHub"] = state?.securityHub;
             resourceInputs["ses"] = state?.ses;
             resourceInputs["sns"] = state?.sns;
             resourceInputs["sqs"] = state?.sqs;
@@ -388,6 +393,7 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["redshift"] = args?.redshift;
             resourceInputs["route53"] = args?.route53;
             resourceInputs["s3"] = args?.s3;
+            resourceInputs["securityHub"] = args?.securityHub;
             resourceInputs["ses"] = args?.ses;
             resourceInputs["sns"] = args?.sns;
             resourceInputs["sqs"] = args?.sqs;
@@ -600,6 +606,10 @@ export interface AwsIntegrationsState {
      * S3 integration
      */
     s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    /**
+     * Security Hub integration
+     */
+    securityHub?: pulumi.Input<inputs.cloud.AwsIntegrationsSecurityHub>;
     /**
      * Ses integration
      */
@@ -826,6 +836,10 @@ export interface AwsIntegrationsArgs {
      * S3 integration
      */
     s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
+    /**
+     * Security Hub integration
+     */
+    securityHub?: pulumi.Input<inputs.cloud.AwsIntegrationsSecurityHub>;
     /**
      * Ses integration
      */

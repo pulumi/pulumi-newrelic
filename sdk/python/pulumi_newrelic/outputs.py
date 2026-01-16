@@ -17,6 +17,7 @@ from . import outputs
 
 __all__ = [
     'AlertChannelConfig',
+    'AlertCompoundConditionComponentCondition',
     'AlertConditionTerm',
     'AlertMutingRuleCondition',
     'AlertMutingRuleConditionCondition',
@@ -519,6 +520,35 @@ class AlertChannelConfig(dict):
         The user ID for use with the user channel type.
         """
         return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class AlertCompoundConditionComponentCondition(dict):
+    def __init__(__self__, *,
+                 alias: _builtins.str,
+                 id: _builtins.str):
+        """
+        :param _builtins.str alias: The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+        :param _builtins.str id: The ID of the existing alert condition to use as a component.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> _builtins.str:
+        """
+        The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the existing alert condition to use as a component.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

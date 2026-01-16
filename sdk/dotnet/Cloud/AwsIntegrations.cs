@@ -318,6 +318,12 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsS3?> S3 { get; private set; } = null!;
 
         /// <summary>
+        /// Security Hub integration
+        /// </summary>
+        [Output("securityHub")]
+        public Output<Outputs.AwsIntegrationsSecurityHub?> SecurityHub { get; private set; } = null!;
+
+        /// <summary>
         /// Ses integration
         /// </summary>
         [Output("ses")]
@@ -694,6 +700,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsS3Args>? S3 { get; set; }
 
         /// <summary>
+        /// Security Hub integration
+        /// </summary>
+        [Input("securityHub")]
+        public Input<Inputs.AwsIntegrationsSecurityHubArgs>? SecurityHub { get; set; }
+
+        /// <summary>
         /// Ses integration
         /// </summary>
         [Input("ses")]
@@ -1030,6 +1042,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AwsIntegrationsS3GetArgs>? S3 { get; set; }
+
+        /// <summary>
+        /// Security Hub integration
+        /// </summary>
+        [Input("securityHub")]
+        public Input<Inputs.AwsIntegrationsSecurityHubGetArgs>? SecurityHub { get; set; }
 
         /// <summary>
         /// Ses integration

@@ -57,6 +57,7 @@ import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsRds;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsRedshift;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsRoute53;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsS3;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsSecurityHub;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsSes;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsSns;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsSqs;
@@ -766,6 +767,20 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AwsIntegrationsS3>> s3() {
         return Codegen.optional(this.s3);
+    }
+    /**
+     * Security Hub integration
+     * 
+     */
+    @Export(name="securityHub", refs={AwsIntegrationsSecurityHub.class}, tree="[0]")
+    private Output</* @Nullable */ AwsIntegrationsSecurityHub> securityHub;
+
+    /**
+     * @return Security Hub integration
+     * 
+     */
+    public Output<Optional<AwsIntegrationsSecurityHub>> securityHub() {
+        return Codegen.optional(this.securityHub);
     }
     /**
      * Ses integration

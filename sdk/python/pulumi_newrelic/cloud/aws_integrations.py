@@ -70,6 +70,7 @@ class AwsIntegrationsArgs:
                  redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
                  route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
                  s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+                 security_hub: Optional[pulumi.Input['AwsIntegrationsSecurityHubArgs']] = None,
                  ses: Optional[pulumi.Input['AwsIntegrationsSesArgs']] = None,
                  sns: Optional[pulumi.Input['AwsIntegrationsSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
@@ -127,6 +128,7 @@ class AwsIntegrationsArgs:
         :param pulumi.Input['AwsIntegrationsRedshiftArgs'] redshift: Redshift integration
         :param pulumi.Input['AwsIntegrationsRoute53Args'] route53: Route53 integration
         :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration
+        :param pulumi.Input['AwsIntegrationsSecurityHubArgs'] security_hub: Security Hub integration
         :param pulumi.Input['AwsIntegrationsSesArgs'] ses: Ses integration
         :param pulumi.Input['AwsIntegrationsSnsArgs'] sns: Sns integration
         :param pulumi.Input['AwsIntegrationsSqsArgs'] sqs: SQS integration
@@ -231,6 +233,8 @@ class AwsIntegrationsArgs:
             pulumi.set(__self__, "route53", route53)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if security_hub is not None:
+            pulumi.set(__self__, "security_hub", security_hub)
         if ses is not None:
             pulumi.set(__self__, "ses", ses)
         if sns is not None:
@@ -833,6 +837,18 @@ class AwsIntegrationsArgs:
         pulumi.set(self, "s3", value)
 
     @_builtins.property
+    @pulumi.getter(name="securityHub")
+    def security_hub(self) -> Optional[pulumi.Input['AwsIntegrationsSecurityHubArgs']]:
+        """
+        Security Hub integration
+        """
+        return pulumi.get(self, "security_hub")
+
+    @security_hub.setter
+    def security_hub(self, value: Optional[pulumi.Input['AwsIntegrationsSecurityHubArgs']]):
+        pulumi.set(self, "security_hub", value)
+
+    @_builtins.property
     @pulumi.getter
     def ses(self) -> Optional[pulumi.Input['AwsIntegrationsSesArgs']]:
         """
@@ -957,6 +973,7 @@ class _AwsIntegrationsState:
                  redshift: Optional[pulumi.Input['AwsIntegrationsRedshiftArgs']] = None,
                  route53: Optional[pulumi.Input['AwsIntegrationsRoute53Args']] = None,
                  s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
+                 security_hub: Optional[pulumi.Input['AwsIntegrationsSecurityHubArgs']] = None,
                  ses: Optional[pulumi.Input['AwsIntegrationsSesArgs']] = None,
                  sns: Optional[pulumi.Input['AwsIntegrationsSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['AwsIntegrationsSqsArgs']] = None,
@@ -1014,6 +1031,7 @@ class _AwsIntegrationsState:
         :param pulumi.Input['AwsIntegrationsRedshiftArgs'] redshift: Redshift integration
         :param pulumi.Input['AwsIntegrationsRoute53Args'] route53: Route53 integration
         :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration
+        :param pulumi.Input['AwsIntegrationsSecurityHubArgs'] security_hub: Security Hub integration
         :param pulumi.Input['AwsIntegrationsSesArgs'] ses: Ses integration
         :param pulumi.Input['AwsIntegrationsSnsArgs'] sns: Sns integration
         :param pulumi.Input['AwsIntegrationsSqsArgs'] sqs: SQS integration
@@ -1119,6 +1137,8 @@ class _AwsIntegrationsState:
             pulumi.set(__self__, "route53", route53)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if security_hub is not None:
+            pulumi.set(__self__, "security_hub", security_hub)
         if ses is not None:
             pulumi.set(__self__, "ses", ses)
         if sns is not None:
@@ -1721,6 +1741,18 @@ class _AwsIntegrationsState:
         pulumi.set(self, "s3", value)
 
     @_builtins.property
+    @pulumi.getter(name="securityHub")
+    def security_hub(self) -> Optional[pulumi.Input['AwsIntegrationsSecurityHubArgs']]:
+        """
+        Security Hub integration
+        """
+        return pulumi.get(self, "security_hub")
+
+    @security_hub.setter
+    def security_hub(self, value: Optional[pulumi.Input['AwsIntegrationsSecurityHubArgs']]):
+        pulumi.set(self, "security_hub", value)
+
+    @_builtins.property
     @pulumi.getter
     def ses(self) -> Optional[pulumi.Input['AwsIntegrationsSesArgs']]:
         """
@@ -1848,6 +1880,7 @@ class AwsIntegrations(pulumi.CustomResource):
                  redshift: Optional[pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
                  route53: Optional[pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
                  s3: Optional[pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
+                 security_hub: Optional[pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']]] = None,
                  ses: Optional[pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
                  sns: Optional[pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
                  sqs: Optional[pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
@@ -1917,6 +1950,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']] redshift: Redshift integration
         :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']] route53: Route53 integration
         :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']] s3: S3 integration
+        :param pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']] security_hub: Security Hub integration
         :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']] ses: Ses integration
         :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']] sns: Sns integration
         :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']] sqs: SQS integration
@@ -2005,6 +2039,7 @@ class AwsIntegrations(pulumi.CustomResource):
                  redshift: Optional[pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
                  route53: Optional[pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
                  s3: Optional[pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
+                 security_hub: Optional[pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']]] = None,
                  ses: Optional[pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
                  sns: Optional[pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
                  sqs: Optional[pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
@@ -2071,6 +2106,7 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__.__dict__["redshift"] = redshift
             __props__.__dict__["route53"] = route53
             __props__.__dict__["s3"] = s3
+            __props__.__dict__["security_hub"] = security_hub
             __props__.__dict__["ses"] = ses
             __props__.__dict__["sns"] = sns
             __props__.__dict__["sqs"] = sqs
@@ -2136,6 +2172,7 @@ class AwsIntegrations(pulumi.CustomResource):
             redshift: Optional[pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']]] = None,
             route53: Optional[pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']]] = None,
             s3: Optional[pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']]] = None,
+            security_hub: Optional[pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']]] = None,
             ses: Optional[pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']]] = None,
             sns: Optional[pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']]] = None,
             sqs: Optional[pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']]] = None,
@@ -2198,6 +2235,7 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[Union['AwsIntegrationsRedshiftArgs', 'AwsIntegrationsRedshiftArgsDict']] redshift: Redshift integration
         :param pulumi.Input[Union['AwsIntegrationsRoute53Args', 'AwsIntegrationsRoute53ArgsDict']] route53: Route53 integration
         :param pulumi.Input[Union['AwsIntegrationsS3Args', 'AwsIntegrationsS3ArgsDict']] s3: S3 integration
+        :param pulumi.Input[Union['AwsIntegrationsSecurityHubArgs', 'AwsIntegrationsSecurityHubArgsDict']] security_hub: Security Hub integration
         :param pulumi.Input[Union['AwsIntegrationsSesArgs', 'AwsIntegrationsSesArgsDict']] ses: Ses integration
         :param pulumi.Input[Union['AwsIntegrationsSnsArgs', 'AwsIntegrationsSnsArgsDict']] sns: Sns integration
         :param pulumi.Input[Union['AwsIntegrationsSqsArgs', 'AwsIntegrationsSqsArgsDict']] sqs: SQS integration
@@ -2258,6 +2296,7 @@ class AwsIntegrations(pulumi.CustomResource):
         __props__.__dict__["redshift"] = redshift
         __props__.__dict__["route53"] = route53
         __props__.__dict__["s3"] = s3
+        __props__.__dict__["security_hub"] = security_hub
         __props__.__dict__["ses"] = ses
         __props__.__dict__["sns"] = sns
         __props__.__dict__["sqs"] = sqs
@@ -2657,6 +2696,14 @@ class AwsIntegrations(pulumi.CustomResource):
         S3 integration
         """
         return pulumi.get(self, "s3")
+
+    @_builtins.property
+    @pulumi.getter(name="securityHub")
+    def security_hub(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsSecurityHub']]:
+        """
+        Security Hub integration
+        """
+        return pulumi.get(self, "security_hub")
 
     @_builtins.property
     @pulumi.getter

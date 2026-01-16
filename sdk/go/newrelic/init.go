@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountManagement{}
 	case "newrelic:index/alertChannel:AlertChannel":
 		r = &AlertChannel{}
+	case "newrelic:index/alertCompoundCondition:AlertCompoundCondition":
+		r = &AlertCompoundCondition{}
 	case "newrelic:index/alertCondition:AlertCondition":
 		r = &AlertCondition{}
 	case "newrelic:index/alertMutingRule:AlertMutingRule":
@@ -118,6 +120,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/alertChannel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/alertCompoundCondition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

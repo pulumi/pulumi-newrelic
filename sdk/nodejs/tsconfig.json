@@ -15,6 +15,7 @@
     "files": [
         "accountManagement.ts",
         "alertChannel.ts",
+        "alertCompoundCondition.ts",
         "alertCondition.ts",
         "alertMutingRule.ts",
         "alertPolicy.ts",
