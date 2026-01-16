@@ -149,6 +149,8 @@ __all__ = [
     'AwsIntegrationsRoute53ArgsDict',
     'AwsIntegrationsS3Args',
     'AwsIntegrationsS3ArgsDict',
+    'AwsIntegrationsSecurityHubArgs',
+    'AwsIntegrationsSecurityHubArgsDict',
     'AwsIntegrationsSesArgs',
     'AwsIntegrationsSesArgsDict',
     'AwsIntegrationsSnsArgs',
@@ -5785,6 +5787,58 @@ class AwsIntegrationsS3Args:
     @tag_value.setter
     def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
+
+
+if not MYPY:
+    class AwsIntegrationsSecurityHubArgsDict(TypedDict):
+        aws_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The data polling interval in seconds.
+        """
+elif False:
+    AwsIntegrationsSecurityHubArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AwsIntegrationsSecurityHubArgs:
+    def __init__(__self__, *,
+                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
+        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if aws_regions is not None:
+            pulumi.set(__self__, "aws_regions", aws_regions)
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="awsRegions")
+    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specify each AWS region that includes the resources that you want to monitor.
+        """
+        return pulumi.get(self, "aws_regions")
+
+    @aws_regions.setter
+    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "aws_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
 
 
 if not MYPY:

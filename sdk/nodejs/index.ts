@@ -15,6 +15,11 @@ export type AlertChannel = import("./alertChannel").AlertChannel;
 export const AlertChannel: typeof import("./alertChannel").AlertChannel = null as any;
 utilities.lazyLoad(exports, ["AlertChannel"], () => require("./alertChannel"));
 
+export { AlertCompoundConditionArgs, AlertCompoundConditionState } from "./alertCompoundCondition";
+export type AlertCompoundCondition = import("./alertCompoundCondition").AlertCompoundCondition;
+export const AlertCompoundCondition: typeof import("./alertCompoundCondition").AlertCompoundCondition = null as any;
+utilities.lazyLoad(exports, ["AlertCompoundCondition"], () => require("./alertCompoundCondition"));
+
 export { AlertConditionArgs, AlertConditionState } from "./alertCondition";
 export type AlertCondition = import("./alertCondition").AlertCondition;
 export const AlertCondition: typeof import("./alertCondition").AlertCondition = null as any;
@@ -249,6 +254,8 @@ const _module = {
                 return new AccountManagement(name, <any>undefined, { urn })
             case "newrelic:index/alertChannel:AlertChannel":
                 return new AlertChannel(name, <any>undefined, { urn })
+            case "newrelic:index/alertCompoundCondition:AlertCompoundCondition":
+                return new AlertCompoundCondition(name, <any>undefined, { urn })
             case "newrelic:index/alertCondition:AlertCondition":
                 return new AlertCondition(name, <any>undefined, { urn })
             case "newrelic:index/alertMutingRule:AlertMutingRule":
@@ -310,6 +317,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("newrelic", "index/accountManagement", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertChannel", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/alertCompoundCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertMutingRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicy", _module)

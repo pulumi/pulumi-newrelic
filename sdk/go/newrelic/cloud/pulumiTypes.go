@@ -12384,6 +12384,162 @@ func (o AwsIntegrationsS3PtrOutput) TagValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AwsIntegrationsSecurityHub struct {
+	// Specify each AWS region that includes the resources that you want to monitor.
+	AwsRegions []string `pulumi:"awsRegions"`
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsIntegrationsSecurityHubInput is an input type that accepts AwsIntegrationsSecurityHubArgs and AwsIntegrationsSecurityHubOutput values.
+// You can construct a concrete instance of `AwsIntegrationsSecurityHubInput` via:
+//
+//	AwsIntegrationsSecurityHubArgs{...}
+type AwsIntegrationsSecurityHubInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsSecurityHubOutput() AwsIntegrationsSecurityHubOutput
+	ToAwsIntegrationsSecurityHubOutputWithContext(context.Context) AwsIntegrationsSecurityHubOutput
+}
+
+type AwsIntegrationsSecurityHubArgs struct {
+	// Specify each AWS region that includes the resources that you want to monitor.
+	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsIntegrationsSecurityHubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsSecurityHub)(nil)).Elem()
+}
+
+func (i AwsIntegrationsSecurityHubArgs) ToAwsIntegrationsSecurityHubOutput() AwsIntegrationsSecurityHubOutput {
+	return i.ToAwsIntegrationsSecurityHubOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsSecurityHubArgs) ToAwsIntegrationsSecurityHubOutputWithContext(ctx context.Context) AwsIntegrationsSecurityHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSecurityHubOutput)
+}
+
+func (i AwsIntegrationsSecurityHubArgs) ToAwsIntegrationsSecurityHubPtrOutput() AwsIntegrationsSecurityHubPtrOutput {
+	return i.ToAwsIntegrationsSecurityHubPtrOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsSecurityHubArgs) ToAwsIntegrationsSecurityHubPtrOutputWithContext(ctx context.Context) AwsIntegrationsSecurityHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSecurityHubOutput).ToAwsIntegrationsSecurityHubPtrOutputWithContext(ctx)
+}
+
+// AwsIntegrationsSecurityHubPtrInput is an input type that accepts AwsIntegrationsSecurityHubArgs, AwsIntegrationsSecurityHubPtr and AwsIntegrationsSecurityHubPtrOutput values.
+// You can construct a concrete instance of `AwsIntegrationsSecurityHubPtrInput` via:
+//
+//	        AwsIntegrationsSecurityHubArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsIntegrationsSecurityHubPtrInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsSecurityHubPtrOutput() AwsIntegrationsSecurityHubPtrOutput
+	ToAwsIntegrationsSecurityHubPtrOutputWithContext(context.Context) AwsIntegrationsSecurityHubPtrOutput
+}
+
+type awsIntegrationsSecurityHubPtrType AwsIntegrationsSecurityHubArgs
+
+func AwsIntegrationsSecurityHubPtr(v *AwsIntegrationsSecurityHubArgs) AwsIntegrationsSecurityHubPtrInput {
+	return (*awsIntegrationsSecurityHubPtrType)(v)
+}
+
+func (*awsIntegrationsSecurityHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsSecurityHub)(nil)).Elem()
+}
+
+func (i *awsIntegrationsSecurityHubPtrType) ToAwsIntegrationsSecurityHubPtrOutput() AwsIntegrationsSecurityHubPtrOutput {
+	return i.ToAwsIntegrationsSecurityHubPtrOutputWithContext(context.Background())
+}
+
+func (i *awsIntegrationsSecurityHubPtrType) ToAwsIntegrationsSecurityHubPtrOutputWithContext(ctx context.Context) AwsIntegrationsSecurityHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsSecurityHubPtrOutput)
+}
+
+type AwsIntegrationsSecurityHubOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsSecurityHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsSecurityHub)(nil)).Elem()
+}
+
+func (o AwsIntegrationsSecurityHubOutput) ToAwsIntegrationsSecurityHubOutput() AwsIntegrationsSecurityHubOutput {
+	return o
+}
+
+func (o AwsIntegrationsSecurityHubOutput) ToAwsIntegrationsSecurityHubOutputWithContext(ctx context.Context) AwsIntegrationsSecurityHubOutput {
+	return o
+}
+
+func (o AwsIntegrationsSecurityHubOutput) ToAwsIntegrationsSecurityHubPtrOutput() AwsIntegrationsSecurityHubPtrOutput {
+	return o.ToAwsIntegrationsSecurityHubPtrOutputWithContext(context.Background())
+}
+
+func (o AwsIntegrationsSecurityHubOutput) ToAwsIntegrationsSecurityHubPtrOutputWithContext(ctx context.Context) AwsIntegrationsSecurityHubPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsSecurityHub) *AwsIntegrationsSecurityHub {
+		return &v
+	}).(AwsIntegrationsSecurityHubPtrOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor.
+func (o AwsIntegrationsSecurityHubOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsIntegrationsSecurityHub) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsSecurityHubOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsIntegrationsSecurityHub) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsIntegrationsSecurityHubPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsSecurityHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsSecurityHub)(nil)).Elem()
+}
+
+func (o AwsIntegrationsSecurityHubPtrOutput) ToAwsIntegrationsSecurityHubPtrOutput() AwsIntegrationsSecurityHubPtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsSecurityHubPtrOutput) ToAwsIntegrationsSecurityHubPtrOutputWithContext(ctx context.Context) AwsIntegrationsSecurityHubPtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsSecurityHubPtrOutput) Elem() AwsIntegrationsSecurityHubOutput {
+	return o.ApplyT(func(v *AwsIntegrationsSecurityHub) AwsIntegrationsSecurityHub {
+		if v != nil {
+			return *v
+		}
+		var ret AwsIntegrationsSecurityHub
+		return ret
+	}).(AwsIntegrationsSecurityHubOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor.
+func (o AwsIntegrationsSecurityHubPtrOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsIntegrationsSecurityHub) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsSecurityHubPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrationsSecurityHub) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type AwsIntegrationsSes struct {
 	// Specify each AWS region that includes the resources that you want to monitor.
 	AwsRegions []string `pulumi:"awsRegions"`
@@ -22488,6 +22644,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsRoute53PtrInput)(nil)).Elem(), AwsIntegrationsRoute53Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsS3Input)(nil)).Elem(), AwsIntegrationsS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsS3PtrInput)(nil)).Elem(), AwsIntegrationsS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsSecurityHubInput)(nil)).Elem(), AwsIntegrationsSecurityHubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsSecurityHubPtrInput)(nil)).Elem(), AwsIntegrationsSecurityHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsSesInput)(nil)).Elem(), AwsIntegrationsSesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsSesPtrInput)(nil)).Elem(), AwsIntegrationsSesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsSnsInput)(nil)).Elem(), AwsIntegrationsSnsArgs{})
@@ -22752,6 +22910,8 @@ func init() {
 	pulumi.RegisterOutputType(AwsIntegrationsRoute53PtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsS3Output{})
 	pulumi.RegisterOutputType(AwsIntegrationsS3PtrOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsSecurityHubOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsSecurityHubPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsSesOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsSesPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsSnsOutput{})

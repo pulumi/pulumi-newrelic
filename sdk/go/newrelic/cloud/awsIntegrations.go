@@ -122,6 +122,8 @@ type AwsIntegrations struct {
 	Route53 AwsIntegrationsRoute53PtrOutput `pulumi:"route53"`
 	// S3 integration
 	S3 AwsIntegrationsS3PtrOutput `pulumi:"s3"`
+	// Security Hub integration
+	SecurityHub AwsIntegrationsSecurityHubPtrOutput `pulumi:"securityHub"`
 	// Ses integration
 	Ses AwsIntegrationsSesPtrOutput `pulumi:"ses"`
 	// Sns integration
@@ -267,6 +269,8 @@ type awsIntegrationsState struct {
 	Route53 *AwsIntegrationsRoute53 `pulumi:"route53"`
 	// S3 integration
 	S3 *AwsIntegrationsS3 `pulumi:"s3"`
+	// Security Hub integration
+	SecurityHub *AwsIntegrationsSecurityHub `pulumi:"securityHub"`
 	// Ses integration
 	Ses *AwsIntegrationsSes `pulumi:"ses"`
 	// Sns integration
@@ -380,6 +384,8 @@ type AwsIntegrationsState struct {
 	Route53 AwsIntegrationsRoute53PtrInput
 	// S3 integration
 	S3 AwsIntegrationsS3PtrInput
+	// Security Hub integration
+	SecurityHub AwsIntegrationsSecurityHubPtrInput
 	// Ses integration
 	Ses AwsIntegrationsSesPtrInput
 	// Sns integration
@@ -497,6 +503,8 @@ type awsIntegrationsArgs struct {
 	Route53 *AwsIntegrationsRoute53 `pulumi:"route53"`
 	// S3 integration
 	S3 *AwsIntegrationsS3 `pulumi:"s3"`
+	// Security Hub integration
+	SecurityHub *AwsIntegrationsSecurityHub `pulumi:"securityHub"`
 	// Ses integration
 	Ses *AwsIntegrationsSes `pulumi:"ses"`
 	// Sns integration
@@ -611,6 +619,8 @@ type AwsIntegrationsArgs struct {
 	Route53 AwsIntegrationsRoute53PtrInput
 	// S3 integration
 	S3 AwsIntegrationsS3PtrInput
+	// Security Hub integration
+	SecurityHub AwsIntegrationsSecurityHubPtrInput
 	// Ses integration
 	Ses AwsIntegrationsSesPtrInput
 	// Sns integration
@@ -955,6 +965,11 @@ func (o AwsIntegrationsOutput) Route53() AwsIntegrationsRoute53PtrOutput {
 // S3 integration
 func (o AwsIntegrationsOutput) S3() AwsIntegrationsS3PtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsS3PtrOutput { return v.S3 }).(AwsIntegrationsS3PtrOutput)
+}
+
+// Security Hub integration
+func (o AwsIntegrationsOutput) SecurityHub() AwsIntegrationsSecurityHubPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsSecurityHubPtrOutput { return v.SecurityHub }).(AwsIntegrationsSecurityHubPtrOutput)
 }
 
 // Ses integration

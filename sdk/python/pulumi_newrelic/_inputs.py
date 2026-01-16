@@ -17,6 +17,8 @@ from . import _utilities
 __all__ = [
     'AlertChannelConfigArgs',
     'AlertChannelConfigArgsDict',
+    'AlertCompoundConditionComponentConditionArgs',
+    'AlertCompoundConditionComponentConditionArgsDict',
     'AlertConditionTermArgs',
     'AlertConditionTermArgsDict',
     'AlertMutingRuleConditionArgs',
@@ -851,6 +853,56 @@ class AlertChannelConfigArgs:
     @user_id.setter
     def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "user_id", value)
+
+
+if not MYPY:
+    class AlertCompoundConditionComponentConditionArgsDict(TypedDict):
+        alias: pulumi.Input[_builtins.str]
+        """
+        The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+        """
+        id: pulumi.Input[_builtins.str]
+        """
+        The ID of the existing alert condition to use as a component.
+        """
+elif False:
+    AlertCompoundConditionComponentConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AlertCompoundConditionComponentConditionArgs:
+    def __init__(__self__, *,
+                 alias: pulumi.Input[_builtins.str],
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] alias: The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+        :param pulumi.Input[_builtins.str] id: The ID of the existing alert condition to use as a component.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier that will be used in the compound alert condition's `trigger_expression` (e.g., 'a', 'b', 'c', 'd', 'e').
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the existing alert condition to use as a component.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:

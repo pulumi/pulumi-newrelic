@@ -53,6 +53,7 @@ import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRdsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRedshiftArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsRoute53Args;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsS3Args;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSecurityHubArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSesArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSnsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsSqsArgs;
@@ -805,6 +806,21 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Security Hub integration
+     * 
+     */
+    @Import(name="securityHub")
+    private @Nullable Output<AwsIntegrationsSecurityHubArgs> securityHub;
+
+    /**
+     * @return Security Hub integration
+     * 
+     */
+    public Optional<Output<AwsIntegrationsSecurityHubArgs>> securityHub() {
+        return Optional.ofNullable(this.securityHub);
+    }
+
+    /**
      * Ses integration
      * 
      */
@@ -946,6 +962,7 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
         this.redshift = $.redshift;
         this.route53 = $.route53;
         this.s3 = $.s3;
+        this.securityHub = $.securityHub;
         this.ses = $.ses;
         this.sns = $.sns;
         this.sqs = $.sqs;
@@ -1999,6 +2016,27 @@ public final class AwsIntegrationsArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder s3(AwsIntegrationsS3Args s3) {
             return s3(Output.of(s3));
+        }
+
+        /**
+         * @param securityHub Security Hub integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityHub(@Nullable Output<AwsIntegrationsSecurityHubArgs> securityHub) {
+            $.securityHub = securityHub;
+            return this;
+        }
+
+        /**
+         * @param securityHub Security Hub integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityHub(AwsIntegrationsSecurityHubArgs securityHub) {
+            return securityHub(Output.of(securityHub));
         }
 
         /**

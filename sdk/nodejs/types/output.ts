@@ -92,6 +92,17 @@ export interface AlertChannelConfig {
     userId?: string;
 }
 
+export interface AlertCompoundConditionComponentCondition {
+    /**
+     * The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+     */
+    alias: string;
+    /**
+     * The ID of the existing alert condition to use as a component.
+     */
+    id: string;
+}
+
 export interface AlertConditionTerm {
     /**
      * In minutes, must be in the range of 5 to 120, inclusive.
@@ -4904,6 +4915,17 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          */
         tagValue?: string;
+    }
+
+    export interface AwsIntegrationsSecurityHub {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
     }
 
     export interface AwsIntegrationsSes {

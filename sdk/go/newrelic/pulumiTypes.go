@@ -530,6 +530,112 @@ func (o AlertChannelConfigPtrOutput) UserId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AlertCompoundConditionComponentCondition struct {
+	// The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+	Alias string `pulumi:"alias"`
+	// The ID of the existing alert condition to use as a component.
+	Id string `pulumi:"id"`
+}
+
+// AlertCompoundConditionComponentConditionInput is an input type that accepts AlertCompoundConditionComponentConditionArgs and AlertCompoundConditionComponentConditionOutput values.
+// You can construct a concrete instance of `AlertCompoundConditionComponentConditionInput` via:
+//
+//	AlertCompoundConditionComponentConditionArgs{...}
+type AlertCompoundConditionComponentConditionInput interface {
+	pulumi.Input
+
+	ToAlertCompoundConditionComponentConditionOutput() AlertCompoundConditionComponentConditionOutput
+	ToAlertCompoundConditionComponentConditionOutputWithContext(context.Context) AlertCompoundConditionComponentConditionOutput
+}
+
+type AlertCompoundConditionComponentConditionArgs struct {
+	// The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The ID of the existing alert condition to use as a component.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (AlertCompoundConditionComponentConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCompoundConditionComponentCondition)(nil)).Elem()
+}
+
+func (i AlertCompoundConditionComponentConditionArgs) ToAlertCompoundConditionComponentConditionOutput() AlertCompoundConditionComponentConditionOutput {
+	return i.ToAlertCompoundConditionComponentConditionOutputWithContext(context.Background())
+}
+
+func (i AlertCompoundConditionComponentConditionArgs) ToAlertCompoundConditionComponentConditionOutputWithContext(ctx context.Context) AlertCompoundConditionComponentConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertCompoundConditionComponentConditionOutput)
+}
+
+// AlertCompoundConditionComponentConditionArrayInput is an input type that accepts AlertCompoundConditionComponentConditionArray and AlertCompoundConditionComponentConditionArrayOutput values.
+// You can construct a concrete instance of `AlertCompoundConditionComponentConditionArrayInput` via:
+//
+//	AlertCompoundConditionComponentConditionArray{ AlertCompoundConditionComponentConditionArgs{...} }
+type AlertCompoundConditionComponentConditionArrayInput interface {
+	pulumi.Input
+
+	ToAlertCompoundConditionComponentConditionArrayOutput() AlertCompoundConditionComponentConditionArrayOutput
+	ToAlertCompoundConditionComponentConditionArrayOutputWithContext(context.Context) AlertCompoundConditionComponentConditionArrayOutput
+}
+
+type AlertCompoundConditionComponentConditionArray []AlertCompoundConditionComponentConditionInput
+
+func (AlertCompoundConditionComponentConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertCompoundConditionComponentCondition)(nil)).Elem()
+}
+
+func (i AlertCompoundConditionComponentConditionArray) ToAlertCompoundConditionComponentConditionArrayOutput() AlertCompoundConditionComponentConditionArrayOutput {
+	return i.ToAlertCompoundConditionComponentConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AlertCompoundConditionComponentConditionArray) ToAlertCompoundConditionComponentConditionArrayOutputWithContext(ctx context.Context) AlertCompoundConditionComponentConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertCompoundConditionComponentConditionArrayOutput)
+}
+
+type AlertCompoundConditionComponentConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertCompoundConditionComponentConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCompoundConditionComponentCondition)(nil)).Elem()
+}
+
+func (o AlertCompoundConditionComponentConditionOutput) ToAlertCompoundConditionComponentConditionOutput() AlertCompoundConditionComponentConditionOutput {
+	return o
+}
+
+func (o AlertCompoundConditionComponentConditionOutput) ToAlertCompoundConditionComponentConditionOutputWithContext(ctx context.Context) AlertCompoundConditionComponentConditionOutput {
+	return o
+}
+
+// The identifier that will be used in the compound alert condition's `triggerExpression` (e.g., 'a', 'b', 'c', 'd', 'e').
+func (o AlertCompoundConditionComponentConditionOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertCompoundConditionComponentCondition) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The ID of the existing alert condition to use as a component.
+func (o AlertCompoundConditionComponentConditionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertCompoundConditionComponentCondition) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type AlertCompoundConditionComponentConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertCompoundConditionComponentConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertCompoundConditionComponentCondition)(nil)).Elem()
+}
+
+func (o AlertCompoundConditionComponentConditionArrayOutput) ToAlertCompoundConditionComponentConditionArrayOutput() AlertCompoundConditionComponentConditionArrayOutput {
+	return o
+}
+
+func (o AlertCompoundConditionComponentConditionArrayOutput) ToAlertCompoundConditionComponentConditionArrayOutputWithContext(ctx context.Context) AlertCompoundConditionComponentConditionArrayOutput {
+	return o
+}
+
+func (o AlertCompoundConditionComponentConditionArrayOutput) Index(i pulumi.IntInput) AlertCompoundConditionComponentConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertCompoundConditionComponentCondition {
+		return vs[0].([]AlertCompoundConditionComponentCondition)[vs[1].(int)]
+	}).(AlertCompoundConditionComponentConditionOutput)
+}
+
 type AlertConditionTerm struct {
 	// In minutes, must be in the range of 5 to 120, inclusive.
 	Duration int `pulumi:"duration"`
@@ -28622,6 +28728,8 @@ func (o GetTestGrokPatternTestGrokAttributeArrayOutput) Index(i pulumi.IntInput)
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelConfigInput)(nil)).Elem(), AlertChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelConfigPtrInput)(nil)).Elem(), AlertChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertCompoundConditionComponentConditionInput)(nil)).Elem(), AlertCompoundConditionComponentConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertCompoundConditionComponentConditionArrayInput)(nil)).Elem(), AlertCompoundConditionComponentConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionTermInput)(nil)).Elem(), AlertConditionTermArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionTermArrayInput)(nil)).Elem(), AlertConditionTermArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionInput)(nil)).Elem(), AlertMutingRuleConditionArgs{})
@@ -29031,6 +29139,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokAttributeArrayInput)(nil)).Elem(), GetTestGrokPatternTestGrokAttributeArray{})
 	pulumi.RegisterOutputType(AlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(AlertChannelConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlertCompoundConditionComponentConditionOutput{})
+	pulumi.RegisterOutputType(AlertCompoundConditionComponentConditionArrayOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermArrayOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleConditionOutput{})
