@@ -6,6 +6,8 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .aws_eu_sovereign_integrations import *
+from .aws_eu_sovereign_link_account import *
 from .aws_govcloud_integrations import *
 from .aws_govcloud_link_account import *
 from .aws_integrations import *
