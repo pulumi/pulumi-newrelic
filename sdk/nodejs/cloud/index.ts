@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AwsEuSovereignIntegrationsArgs, AwsEuSovereignIntegrationsState } from "./awsEuSovereignIntegrations";
+export type AwsEuSovereignIntegrations = import("./awsEuSovereignIntegrations").AwsEuSovereignIntegrations;
+export const AwsEuSovereignIntegrations: typeof import("./awsEuSovereignIntegrations").AwsEuSovereignIntegrations = null as any;
+utilities.lazyLoad(exports, ["AwsEuSovereignIntegrations"], () => require("./awsEuSovereignIntegrations"));
+
+export { AwsEuSovereignLinkAccountArgs, AwsEuSovereignLinkAccountState } from "./awsEuSovereignLinkAccount";
+export type AwsEuSovereignLinkAccount = import("./awsEuSovereignLinkAccount").AwsEuSovereignLinkAccount;
+export const AwsEuSovereignLinkAccount: typeof import("./awsEuSovereignLinkAccount").AwsEuSovereignLinkAccount = null as any;
+utilities.lazyLoad(exports, ["AwsEuSovereignLinkAccount"], () => require("./awsEuSovereignLinkAccount"));
+
 export { AwsGovcloudIntegrationsArgs, AwsGovcloudIntegrationsState } from "./awsGovcloudIntegrations";
 export type AwsGovcloudIntegrations = import("./awsGovcloudIntegrations").AwsGovcloudIntegrations;
 export const AwsGovcloudIntegrations: typeof import("./awsGovcloudIntegrations").AwsGovcloudIntegrations = null as any;
@@ -55,6 +65,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations":
+                return new AwsEuSovereignIntegrations(name, <any>undefined, { urn })
+            case "newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount":
+                return new AwsEuSovereignLinkAccount(name, <any>undefined, { urn })
             case "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations":
                 return new AwsGovcloudIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount":
@@ -78,6 +92,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("newrelic", "cloud/awsEuSovereignIntegrations", _module)
+pulumi.runtime.registerResourceModule("newrelic", "cloud/awsEuSovereignLinkAccount", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/awsGovcloudIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/awsGovcloudLinkAccount", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/awsIntegrations", _module)

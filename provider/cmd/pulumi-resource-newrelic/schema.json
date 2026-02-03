@@ -122,6 +122,65 @@
         ]
     },
     "types": {
+        "newrelic:cloud/AwsEuSovereignIntegrationsBilling:AwsEuSovereignIntegrationsBilling": {
+            "properties": {
+                "metricsPollingInterval": {
+                    "type": "integer",
+                    "description": "The data polling interval in seconds\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail": {
+            "properties": {
+                "awsRegions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify each AWS region that includes the resources that you want to monitor\n"
+                },
+                "metricsPollingInterval": {
+                    "type": "integer",
+                    "description": "The data polling interval in seconds\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth": {
+            "properties": {
+                "metricsPollingInterval": {
+                    "type": "integer",
+                    "description": "The data polling interval in seconds\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor": {
+            "properties": {
+                "metricsPollingInterval": {
+                    "type": "integer",
+                    "description": "The data polling interval in seconds\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay": {
+            "properties": {
+                "awsRegions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify each AWS region that includes the resources that you want to monitor\n"
+                },
+                "metricsPollingInterval": {
+                    "type": "integer",
+                    "description": "The data polling interval in seconds\n"
+                }
+            },
+            "type": "object"
+        },
         "newrelic:cloud/AwsGovcloudIntegrationsAlb:AwsGovcloudIntegrationsAlb": {
             "properties": {
                 "awsRegions": {
@@ -8683,6 +8742,187 @@
         }
     },
     "resources": {
+        "newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The ID of the account in New Relic."
+                },
+                "billing": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsBilling:AwsEuSovereignIntegrationsBilling",
+                    "description": "Billing integration"
+                },
+                "cloudtrail": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail",
+                    "description": "CloudTrail integration"
+                },
+                "health": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth",
+                    "description": "Health integration"
+                },
+                "linkedAccountId": {
+                    "type": "string",
+                    "description": "The ID of the linked AWS EU Sovereign account in New Relic."
+                },
+                "trustedAdvisor": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor",
+                    "description": "Trusted Advisor integration"
+                },
+                "xRay": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay",
+                    "description": "X-Ray integration"
+                }
+            },
+            "required": [
+                "accountId",
+                "linkedAccountId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The ID of the account in New Relic.",
+                    "willReplaceOnChanges": true
+                },
+                "billing": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsBilling:AwsEuSovereignIntegrationsBilling",
+                    "description": "Billing integration"
+                },
+                "cloudtrail": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail",
+                    "description": "CloudTrail integration"
+                },
+                "health": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth",
+                    "description": "Health integration"
+                },
+                "linkedAccountId": {
+                    "type": "string",
+                    "description": "The ID of the linked AWS EU Sovereign account in New Relic.",
+                    "willReplaceOnChanges": true
+                },
+                "trustedAdvisor": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor",
+                    "description": "Trusted Advisor integration"
+                },
+                "xRay": {
+                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay",
+                    "description": "X-Ray integration"
+                }
+            },
+            "requiredInputs": [
+                "linkedAccountId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AwsEuSovereignIntegrations resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The ID of the account in New Relic.",
+                        "willReplaceOnChanges": true
+                    },
+                    "billing": {
+                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsBilling:AwsEuSovereignIntegrationsBilling",
+                        "description": "Billing integration"
+                    },
+                    "cloudtrail": {
+                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail",
+                        "description": "CloudTrail integration"
+                    },
+                    "health": {
+                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth",
+                        "description": "Health integration"
+                    },
+                    "linkedAccountId": {
+                        "type": "string",
+                        "description": "The ID of the linked AWS EU Sovereign account in New Relic.",
+                        "willReplaceOnChanges": true
+                    },
+                    "trustedAdvisor": {
+                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor",
+                        "description": "Trusted Advisor integration"
+                    },
+                    "xRay": {
+                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay",
+                        "description": "X-Ray integration"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The ID of the account in New Relic."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role."
+                },
+                "metricCollectionMode": {
+                    "type": "string",
+                    "description": "How metrics are collected. PULL or PUSH."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AWS EU Sovereign account in New Relic."
+                }
+            },
+            "required": [
+                "accountId",
+                "arn",
+                "name"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The ID of the account in New Relic.",
+                    "willReplaceOnChanges": true
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role.",
+                    "willReplaceOnChanges": true
+                },
+                "metricCollectionMode": {
+                    "type": "string",
+                    "description": "How metrics are collected. PULL or PUSH.",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AWS EU Sovereign account in New Relic."
+                }
+            },
+            "requiredInputs": [
+                "arn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AwsEuSovereignLinkAccount resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The ID of the account in New Relic.",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the IAM role.",
+                        "willReplaceOnChanges": true
+                    },
+                    "metricCollectionMode": {
+                        "type": "string",
+                        "description": "How metrics are collected. PULL or PUSH.",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the AWS EU Sovereign account in New Relic."
+                    }
+                },
+                "type": "object"
+            }
+        },
         "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations": {
             "description": "\u003e **IMPORTANT!** This resource is in alpha state, and could still contain issues and missing functionality. If you encounter any issue please create a ticket on Github with all the required information.\n\nUse this resource to integrate an AWSGovCloud account to New Relic.\n\n## Prerequisite\n\nObtain the AwsGovCloud account designed to address the specific regulatory needs of United States (federal, state, and local agencies), education institutions, and the supporting ecosystem.\n\nIt is an isolated AWS region designed to host sensitive data and regulated workloads in the cloud, helping customers support their US government compliance requirements.\n\nTo pull data from AWSGovCloud, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/connect-aws-govcloud-new-relic).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  account:\n    type: newrelic:CloudAwsGovcloudLinkAccount\n    properties:\n      accessKeyId: '%[1]s'\n      awsAccountId: '%[2]s'\n      metricCollectionMode: PULL\n      name: '%[4]s'\n      secretAccessKey: '%[3]s'\n  foo:\n    type: newrelic:cloud:AwsGovcloudIntegrations\n    properties:\n      accountId: 3.806526e+06\n      linkedAccountId: ${account.id}\n      alb:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - us-east-1\n        fetchExtendedInventory: true\n        fetchTags: true\n        loadBalancerPrefixes:\n          - \"\"\n        tagKey: \"\"\n        tagValue: \"\"\n      apiGateway:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        stagePrefixes:\n          - \"\"\n        tagKey: \"\"\n        tagValue: \"\"\n      autoScaling:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n      awsDirectConnect:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n      awsStates:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n      cloudtrail:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n      dynamoDb:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchExtendedInventory: true\n        fetchTags: true\n        tagKey: \"\"\n        tagValue: \"\"\n      ebs:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchExtendedInventory: true\n        tagKey: \"\"\n        tagValue: \"\"\n      ec2:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchIpAddresses: true\n        tagKey: \"\"\n        tagValue: \"\"\n      elasticSearch:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchNodes: true\n        tagKey: \"\"\n        tagValue: \"\"\n      elb:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchExtendedInventory: true\n        fetchTags: true\n      emr:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchTags: true\n        tagKey: \"\"\n        tagValue: \"\"\n      iam:\n        metricsPollingInterval: 1000\n        tagKey: \"\"\n        tagValue: \"\"\n      lambda:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchTags: true\n        tagKey: \"\"\n        tagValue: \"\"\n      rds:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchTags: true\n        tagKey: \"\"\n        tagValue: \"\"\n      redShift:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        tagKey: \"\"\n        tagValue: \"\"\n      route53:\n        metricsPollingInterval: 1000\n        fetchExtendedInventory: true\n      s3:\n        metricsPollingInterval: 1000\n        fetchExtendedInventory: true\n        fetchTags: true\n        tagKey: \"\"\n        tagValue: \"\"\n      sns:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchExtendedInventory: true\n      sqs:\n        metricsPollingInterval: 1000\n        awsRegions:\n          - \"\"\n        fetchExtendedInventory: true\n        fetchTags: true\n        queuePrefixes:\n          - \"\"\n        tagKey: \"\"\n        tagValue: \"\"\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nIntegrate AWSGovCloud accounts can be imported using the `id`, e.g.\n\nbash\n\n```sh\n$ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo \u003cid\u003e\n```\n\n",
             "properties": {

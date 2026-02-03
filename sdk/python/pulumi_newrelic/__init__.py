@@ -78,6 +78,22 @@ _utilities.register(
 [
  {
   "pkg": "newrelic",
+  "mod": "cloud/awsEuSovereignIntegrations",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations": "AwsEuSovereignIntegrations"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/awsEuSovereignLinkAccount",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount": "AwsEuSovereignLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "cloud/awsGovcloudIntegrations",
   "fqn": "pulumi_newrelic.cloud",
   "classes": {

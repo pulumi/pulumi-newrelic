@@ -15,6 +15,11 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AwsEuSovereignIntegrationsBilling',
+    'AwsEuSovereignIntegrationsCloudtrail',
+    'AwsEuSovereignIntegrationsHealth',
+    'AwsEuSovereignIntegrationsTrustedAdvisor',
+    'AwsEuSovereignIntegrationsXRay',
     'AwsGovcloudIntegrationsAlb',
     'AwsGovcloudIntegrationsApiGateway',
     'AwsGovcloudIntegrationsAutoScaling',
@@ -149,6 +154,214 @@ __all__ = [
     'GcpIntegrationsVirtualMachines',
     'GcpIntegrationsVpcAccess',
 ]
+
+@pulumi.output_type
+class AwsEuSovereignIntegrationsBilling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsEuSovereignIntegrationsBilling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsEuSovereignIntegrationsBilling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsEuSovereignIntegrationsBilling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
+class AwsEuSovereignIntegrationsCloudtrail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegions":
+            suggest = "aws_regions"
+        elif key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsEuSovereignIntegrationsCloudtrail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsEuSovereignIntegrationsCloudtrail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsEuSovereignIntegrationsCloudtrail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_regions: Optional[Sequence[_builtins.str]] = None,
+                 metrics_polling_interval: Optional[_builtins.int] = None):
+        """
+        :param Sequence[_builtins.str] aws_regions: Specify each AWS region that includes the resources that you want to monitor
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        """
+        if aws_regions is not None:
+            pulumi.set(__self__, "aws_regions", aws_regions)
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="awsRegions")
+    def aws_regions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        return pulumi.get(self, "aws_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
+class AwsEuSovereignIntegrationsHealth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsEuSovereignIntegrationsHealth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsEuSovereignIntegrationsHealth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsEuSovereignIntegrationsHealth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
+class AwsEuSovereignIntegrationsTrustedAdvisor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsEuSovereignIntegrationsTrustedAdvisor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsEuSovereignIntegrationsTrustedAdvisor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsEuSovereignIntegrationsTrustedAdvisor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
+class AwsEuSovereignIntegrationsXRay(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegions":
+            suggest = "aws_regions"
+        elif key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsEuSovereignIntegrationsXRay. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsEuSovereignIntegrationsXRay.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsEuSovereignIntegrationsXRay.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_regions: Optional[Sequence[_builtins.str]] = None,
+                 metrics_polling_interval: Optional[_builtins.int] = None):
+        """
+        :param Sequence[_builtins.str] aws_regions: Specify each AWS region that includes the resources that you want to monitor
+        :param _builtins.int metrics_polling_interval: The data polling interval in seconds
+        """
+        if aws_regions is not None:
+            pulumi.set(__self__, "aws_regions", aws_regions)
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="awsRegions")
+    def aws_regions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specify each AWS region that includes the resources that you want to monitor
+        """
+        return pulumi.get(self, "aws_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[_builtins.int]:
+        """
+        The data polling interval in seconds
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
 
 @pulumi.output_type
 class AwsGovcloudIntegrationsAlb(dict):

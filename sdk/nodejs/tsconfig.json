@@ -22,6 +22,8 @@
         "alertPolicyChannel.ts",
         "apiAccessKey.ts",
         "browserApplication.ts",
+        "cloud/awsEuSovereignIntegrations.ts",
+        "cloud/awsEuSovereignLinkAccount.ts",
         "cloud/awsGovcloudIntegrations.ts",
         "cloud/awsGovcloudLinkAccount.ts",
         "cloud/awsIntegrations.ts",

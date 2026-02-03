@@ -13,6 +13,729 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AwsEuSovereignIntegrationsBilling struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsEuSovereignIntegrationsBillingInput is an input type that accepts AwsEuSovereignIntegrationsBillingArgs and AwsEuSovereignIntegrationsBillingOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsBillingInput` via:
+//
+//	AwsEuSovereignIntegrationsBillingArgs{...}
+type AwsEuSovereignIntegrationsBillingInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsBillingOutput() AwsEuSovereignIntegrationsBillingOutput
+	ToAwsEuSovereignIntegrationsBillingOutputWithContext(context.Context) AwsEuSovereignIntegrationsBillingOutput
+}
+
+type AwsEuSovereignIntegrationsBillingArgs struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsEuSovereignIntegrationsBillingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsBilling)(nil)).Elem()
+}
+
+func (i AwsEuSovereignIntegrationsBillingArgs) ToAwsEuSovereignIntegrationsBillingOutput() AwsEuSovereignIntegrationsBillingOutput {
+	return i.ToAwsEuSovereignIntegrationsBillingOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsBillingArgs) ToAwsEuSovereignIntegrationsBillingOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsBillingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsBillingOutput)
+}
+
+func (i AwsEuSovereignIntegrationsBillingArgs) ToAwsEuSovereignIntegrationsBillingPtrOutput() AwsEuSovereignIntegrationsBillingPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsBillingArgs) ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsBillingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsBillingOutput).ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(ctx)
+}
+
+// AwsEuSovereignIntegrationsBillingPtrInput is an input type that accepts AwsEuSovereignIntegrationsBillingArgs, AwsEuSovereignIntegrationsBillingPtr and AwsEuSovereignIntegrationsBillingPtrOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsBillingPtrInput` via:
+//
+//	        AwsEuSovereignIntegrationsBillingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsEuSovereignIntegrationsBillingPtrInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsBillingPtrOutput() AwsEuSovereignIntegrationsBillingPtrOutput
+	ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(context.Context) AwsEuSovereignIntegrationsBillingPtrOutput
+}
+
+type awsEuSovereignIntegrationsBillingPtrType AwsEuSovereignIntegrationsBillingArgs
+
+func AwsEuSovereignIntegrationsBillingPtr(v *AwsEuSovereignIntegrationsBillingArgs) AwsEuSovereignIntegrationsBillingPtrInput {
+	return (*awsEuSovereignIntegrationsBillingPtrType)(v)
+}
+
+func (*awsEuSovereignIntegrationsBillingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsBilling)(nil)).Elem()
+}
+
+func (i *awsEuSovereignIntegrationsBillingPtrType) ToAwsEuSovereignIntegrationsBillingPtrOutput() AwsEuSovereignIntegrationsBillingPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(context.Background())
+}
+
+func (i *awsEuSovereignIntegrationsBillingPtrType) ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsBillingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsBillingPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsBillingOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsBillingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsBilling)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsBillingOutput) ToAwsEuSovereignIntegrationsBillingOutput() AwsEuSovereignIntegrationsBillingOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsBillingOutput) ToAwsEuSovereignIntegrationsBillingOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsBillingOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsBillingOutput) ToAwsEuSovereignIntegrationsBillingPtrOutput() AwsEuSovereignIntegrationsBillingPtrOutput {
+	return o.ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(context.Background())
+}
+
+func (o AwsEuSovereignIntegrationsBillingOutput) ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsBillingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsEuSovereignIntegrationsBilling) *AwsEuSovereignIntegrationsBilling {
+		return &v
+	}).(AwsEuSovereignIntegrationsBillingPtrOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsBillingOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsBilling) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsBillingPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsBillingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsBilling)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsBillingPtrOutput) ToAwsEuSovereignIntegrationsBillingPtrOutput() AwsEuSovereignIntegrationsBillingPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsBillingPtrOutput) ToAwsEuSovereignIntegrationsBillingPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsBillingPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsBillingPtrOutput) Elem() AwsEuSovereignIntegrationsBillingOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsBilling) AwsEuSovereignIntegrationsBilling {
+		if v != nil {
+			return *v
+		}
+		var ret AwsEuSovereignIntegrationsBilling
+		return ret
+	}).(AwsEuSovereignIntegrationsBillingOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsBillingPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsBilling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsCloudtrail struct {
+	// Specify each AWS region that includes the resources that you want to monitor
+	AwsRegions []string `pulumi:"awsRegions"`
+	// The data polling interval in seconds
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsEuSovereignIntegrationsCloudtrailInput is an input type that accepts AwsEuSovereignIntegrationsCloudtrailArgs and AwsEuSovereignIntegrationsCloudtrailOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsCloudtrailInput` via:
+//
+//	AwsEuSovereignIntegrationsCloudtrailArgs{...}
+type AwsEuSovereignIntegrationsCloudtrailInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsCloudtrailOutput() AwsEuSovereignIntegrationsCloudtrailOutput
+	ToAwsEuSovereignIntegrationsCloudtrailOutputWithContext(context.Context) AwsEuSovereignIntegrationsCloudtrailOutput
+}
+
+type AwsEuSovereignIntegrationsCloudtrailArgs struct {
+	// Specify each AWS region that includes the resources that you want to monitor
+	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
+	// The data polling interval in seconds
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsEuSovereignIntegrationsCloudtrailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsCloudtrail)(nil)).Elem()
+}
+
+func (i AwsEuSovereignIntegrationsCloudtrailArgs) ToAwsEuSovereignIntegrationsCloudtrailOutput() AwsEuSovereignIntegrationsCloudtrailOutput {
+	return i.ToAwsEuSovereignIntegrationsCloudtrailOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsCloudtrailArgs) ToAwsEuSovereignIntegrationsCloudtrailOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsCloudtrailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsCloudtrailOutput)
+}
+
+func (i AwsEuSovereignIntegrationsCloudtrailArgs) ToAwsEuSovereignIntegrationsCloudtrailPtrOutput() AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsCloudtrailArgs) ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsCloudtrailOutput).ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(ctx)
+}
+
+// AwsEuSovereignIntegrationsCloudtrailPtrInput is an input type that accepts AwsEuSovereignIntegrationsCloudtrailArgs, AwsEuSovereignIntegrationsCloudtrailPtr and AwsEuSovereignIntegrationsCloudtrailPtrOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsCloudtrailPtrInput` via:
+//
+//	        AwsEuSovereignIntegrationsCloudtrailArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsEuSovereignIntegrationsCloudtrailPtrInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsCloudtrailPtrOutput() AwsEuSovereignIntegrationsCloudtrailPtrOutput
+	ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(context.Context) AwsEuSovereignIntegrationsCloudtrailPtrOutput
+}
+
+type awsEuSovereignIntegrationsCloudtrailPtrType AwsEuSovereignIntegrationsCloudtrailArgs
+
+func AwsEuSovereignIntegrationsCloudtrailPtr(v *AwsEuSovereignIntegrationsCloudtrailArgs) AwsEuSovereignIntegrationsCloudtrailPtrInput {
+	return (*awsEuSovereignIntegrationsCloudtrailPtrType)(v)
+}
+
+func (*awsEuSovereignIntegrationsCloudtrailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsCloudtrail)(nil)).Elem()
+}
+
+func (i *awsEuSovereignIntegrationsCloudtrailPtrType) ToAwsEuSovereignIntegrationsCloudtrailPtrOutput() AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(context.Background())
+}
+
+func (i *awsEuSovereignIntegrationsCloudtrailPtrType) ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsCloudtrailPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsCloudtrailOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsCloudtrailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsCloudtrail)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailOutput) ToAwsEuSovereignIntegrationsCloudtrailOutput() AwsEuSovereignIntegrationsCloudtrailOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailOutput) ToAwsEuSovereignIntegrationsCloudtrailOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsCloudtrailOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailOutput) ToAwsEuSovereignIntegrationsCloudtrailPtrOutput() AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return o.ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(context.Background())
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailOutput) ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsEuSovereignIntegrationsCloudtrail) *AwsEuSovereignIntegrationsCloudtrail {
+		return &v
+	}).(AwsEuSovereignIntegrationsCloudtrailPtrOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor
+func (o AwsEuSovereignIntegrationsCloudtrailOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsCloudtrail) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsCloudtrailOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsCloudtrail) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsCloudtrailPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsCloudtrailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsCloudtrail)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailPtrOutput) ToAwsEuSovereignIntegrationsCloudtrailPtrOutput() AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailPtrOutput) ToAwsEuSovereignIntegrationsCloudtrailPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsCloudtrailPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsCloudtrailPtrOutput) Elem() AwsEuSovereignIntegrationsCloudtrailOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsCloudtrail) AwsEuSovereignIntegrationsCloudtrail {
+		if v != nil {
+			return *v
+		}
+		var ret AwsEuSovereignIntegrationsCloudtrail
+		return ret
+	}).(AwsEuSovereignIntegrationsCloudtrailOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor
+func (o AwsEuSovereignIntegrationsCloudtrailPtrOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsCloudtrail) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsCloudtrailPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsCloudtrail) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsHealth struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsEuSovereignIntegrationsHealthInput is an input type that accepts AwsEuSovereignIntegrationsHealthArgs and AwsEuSovereignIntegrationsHealthOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsHealthInput` via:
+//
+//	AwsEuSovereignIntegrationsHealthArgs{...}
+type AwsEuSovereignIntegrationsHealthInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsHealthOutput() AwsEuSovereignIntegrationsHealthOutput
+	ToAwsEuSovereignIntegrationsHealthOutputWithContext(context.Context) AwsEuSovereignIntegrationsHealthOutput
+}
+
+type AwsEuSovereignIntegrationsHealthArgs struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsEuSovereignIntegrationsHealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsHealth)(nil)).Elem()
+}
+
+func (i AwsEuSovereignIntegrationsHealthArgs) ToAwsEuSovereignIntegrationsHealthOutput() AwsEuSovereignIntegrationsHealthOutput {
+	return i.ToAwsEuSovereignIntegrationsHealthOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsHealthArgs) ToAwsEuSovereignIntegrationsHealthOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsHealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsHealthOutput)
+}
+
+func (i AwsEuSovereignIntegrationsHealthArgs) ToAwsEuSovereignIntegrationsHealthPtrOutput() AwsEuSovereignIntegrationsHealthPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsHealthArgs) ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsHealthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsHealthOutput).ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(ctx)
+}
+
+// AwsEuSovereignIntegrationsHealthPtrInput is an input type that accepts AwsEuSovereignIntegrationsHealthArgs, AwsEuSovereignIntegrationsHealthPtr and AwsEuSovereignIntegrationsHealthPtrOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsHealthPtrInput` via:
+//
+//	        AwsEuSovereignIntegrationsHealthArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsEuSovereignIntegrationsHealthPtrInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsHealthPtrOutput() AwsEuSovereignIntegrationsHealthPtrOutput
+	ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(context.Context) AwsEuSovereignIntegrationsHealthPtrOutput
+}
+
+type awsEuSovereignIntegrationsHealthPtrType AwsEuSovereignIntegrationsHealthArgs
+
+func AwsEuSovereignIntegrationsHealthPtr(v *AwsEuSovereignIntegrationsHealthArgs) AwsEuSovereignIntegrationsHealthPtrInput {
+	return (*awsEuSovereignIntegrationsHealthPtrType)(v)
+}
+
+func (*awsEuSovereignIntegrationsHealthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsHealth)(nil)).Elem()
+}
+
+func (i *awsEuSovereignIntegrationsHealthPtrType) ToAwsEuSovereignIntegrationsHealthPtrOutput() AwsEuSovereignIntegrationsHealthPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(context.Background())
+}
+
+func (i *awsEuSovereignIntegrationsHealthPtrType) ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsHealthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsHealthPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsHealthOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsHealth)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsHealthOutput) ToAwsEuSovereignIntegrationsHealthOutput() AwsEuSovereignIntegrationsHealthOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsHealthOutput) ToAwsEuSovereignIntegrationsHealthOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsHealthOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsHealthOutput) ToAwsEuSovereignIntegrationsHealthPtrOutput() AwsEuSovereignIntegrationsHealthPtrOutput {
+	return o.ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(context.Background())
+}
+
+func (o AwsEuSovereignIntegrationsHealthOutput) ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsHealthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsEuSovereignIntegrationsHealth) *AwsEuSovereignIntegrationsHealth {
+		return &v
+	}).(AwsEuSovereignIntegrationsHealthPtrOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsHealthOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsHealth) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsHealthPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsHealthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsHealth)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsHealthPtrOutput) ToAwsEuSovereignIntegrationsHealthPtrOutput() AwsEuSovereignIntegrationsHealthPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsHealthPtrOutput) ToAwsEuSovereignIntegrationsHealthPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsHealthPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsHealthPtrOutput) Elem() AwsEuSovereignIntegrationsHealthOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsHealth) AwsEuSovereignIntegrationsHealth {
+		if v != nil {
+			return *v
+		}
+		var ret AwsEuSovereignIntegrationsHealth
+		return ret
+	}).(AwsEuSovereignIntegrationsHealthOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsHealthPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsHealth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsTrustedAdvisor struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsEuSovereignIntegrationsTrustedAdvisorInput is an input type that accepts AwsEuSovereignIntegrationsTrustedAdvisorArgs and AwsEuSovereignIntegrationsTrustedAdvisorOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsTrustedAdvisorInput` via:
+//
+//	AwsEuSovereignIntegrationsTrustedAdvisorArgs{...}
+type AwsEuSovereignIntegrationsTrustedAdvisorInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsTrustedAdvisorOutput() AwsEuSovereignIntegrationsTrustedAdvisorOutput
+	ToAwsEuSovereignIntegrationsTrustedAdvisorOutputWithContext(context.Context) AwsEuSovereignIntegrationsTrustedAdvisorOutput
+}
+
+type AwsEuSovereignIntegrationsTrustedAdvisorArgs struct {
+	// The data polling interval in seconds
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsEuSovereignIntegrationsTrustedAdvisorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsTrustedAdvisor)(nil)).Elem()
+}
+
+func (i AwsEuSovereignIntegrationsTrustedAdvisorArgs) ToAwsEuSovereignIntegrationsTrustedAdvisorOutput() AwsEuSovereignIntegrationsTrustedAdvisorOutput {
+	return i.ToAwsEuSovereignIntegrationsTrustedAdvisorOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsTrustedAdvisorArgs) ToAwsEuSovereignIntegrationsTrustedAdvisorOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsTrustedAdvisorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsTrustedAdvisorOutput)
+}
+
+func (i AwsEuSovereignIntegrationsTrustedAdvisorArgs) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutput() AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsTrustedAdvisorArgs) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsTrustedAdvisorOutput).ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(ctx)
+}
+
+// AwsEuSovereignIntegrationsTrustedAdvisorPtrInput is an input type that accepts AwsEuSovereignIntegrationsTrustedAdvisorArgs, AwsEuSovereignIntegrationsTrustedAdvisorPtr and AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsTrustedAdvisorPtrInput` via:
+//
+//	        AwsEuSovereignIntegrationsTrustedAdvisorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsEuSovereignIntegrationsTrustedAdvisorPtrInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutput() AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput
+	ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(context.Context) AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput
+}
+
+type awsEuSovereignIntegrationsTrustedAdvisorPtrType AwsEuSovereignIntegrationsTrustedAdvisorArgs
+
+func AwsEuSovereignIntegrationsTrustedAdvisorPtr(v *AwsEuSovereignIntegrationsTrustedAdvisorArgs) AwsEuSovereignIntegrationsTrustedAdvisorPtrInput {
+	return (*awsEuSovereignIntegrationsTrustedAdvisorPtrType)(v)
+}
+
+func (*awsEuSovereignIntegrationsTrustedAdvisorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsTrustedAdvisor)(nil)).Elem()
+}
+
+func (i *awsEuSovereignIntegrationsTrustedAdvisorPtrType) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutput() AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(context.Background())
+}
+
+func (i *awsEuSovereignIntegrationsTrustedAdvisorPtrType) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsTrustedAdvisorOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsTrustedAdvisorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsTrustedAdvisor)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorOutput) ToAwsEuSovereignIntegrationsTrustedAdvisorOutput() AwsEuSovereignIntegrationsTrustedAdvisorOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorOutput) ToAwsEuSovereignIntegrationsTrustedAdvisorOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsTrustedAdvisorOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorOutput) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutput() AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return o.ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(context.Background())
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorOutput) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsEuSovereignIntegrationsTrustedAdvisor) *AwsEuSovereignIntegrationsTrustedAdvisor {
+		return &v
+	}).(AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsTrustedAdvisorOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsTrustedAdvisor) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsTrustedAdvisor)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutput() AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput) ToAwsEuSovereignIntegrationsTrustedAdvisorPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput) Elem() AwsEuSovereignIntegrationsTrustedAdvisorOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsTrustedAdvisor) AwsEuSovereignIntegrationsTrustedAdvisor {
+		if v != nil {
+			return *v
+		}
+		var ret AwsEuSovereignIntegrationsTrustedAdvisor
+		return ret
+	}).(AwsEuSovereignIntegrationsTrustedAdvisorOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsTrustedAdvisor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsXRay struct {
+	// Specify each AWS region that includes the resources that you want to monitor
+	AwsRegions []string `pulumi:"awsRegions"`
+	// The data polling interval in seconds
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsEuSovereignIntegrationsXRayInput is an input type that accepts AwsEuSovereignIntegrationsXRayArgs and AwsEuSovereignIntegrationsXRayOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsXRayInput` via:
+//
+//	AwsEuSovereignIntegrationsXRayArgs{...}
+type AwsEuSovereignIntegrationsXRayInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsXRayOutput() AwsEuSovereignIntegrationsXRayOutput
+	ToAwsEuSovereignIntegrationsXRayOutputWithContext(context.Context) AwsEuSovereignIntegrationsXRayOutput
+}
+
+type AwsEuSovereignIntegrationsXRayArgs struct {
+	// Specify each AWS region that includes the resources that you want to monitor
+	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
+	// The data polling interval in seconds
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsEuSovereignIntegrationsXRayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsXRay)(nil)).Elem()
+}
+
+func (i AwsEuSovereignIntegrationsXRayArgs) ToAwsEuSovereignIntegrationsXRayOutput() AwsEuSovereignIntegrationsXRayOutput {
+	return i.ToAwsEuSovereignIntegrationsXRayOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsXRayArgs) ToAwsEuSovereignIntegrationsXRayOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsXRayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsXRayOutput)
+}
+
+func (i AwsEuSovereignIntegrationsXRayArgs) ToAwsEuSovereignIntegrationsXRayPtrOutput() AwsEuSovereignIntegrationsXRayPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(context.Background())
+}
+
+func (i AwsEuSovereignIntegrationsXRayArgs) ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsXRayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsXRayOutput).ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(ctx)
+}
+
+// AwsEuSovereignIntegrationsXRayPtrInput is an input type that accepts AwsEuSovereignIntegrationsXRayArgs, AwsEuSovereignIntegrationsXRayPtr and AwsEuSovereignIntegrationsXRayPtrOutput values.
+// You can construct a concrete instance of `AwsEuSovereignIntegrationsXRayPtrInput` via:
+//
+//	        AwsEuSovereignIntegrationsXRayArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsEuSovereignIntegrationsXRayPtrInput interface {
+	pulumi.Input
+
+	ToAwsEuSovereignIntegrationsXRayPtrOutput() AwsEuSovereignIntegrationsXRayPtrOutput
+	ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(context.Context) AwsEuSovereignIntegrationsXRayPtrOutput
+}
+
+type awsEuSovereignIntegrationsXRayPtrType AwsEuSovereignIntegrationsXRayArgs
+
+func AwsEuSovereignIntegrationsXRayPtr(v *AwsEuSovereignIntegrationsXRayArgs) AwsEuSovereignIntegrationsXRayPtrInput {
+	return (*awsEuSovereignIntegrationsXRayPtrType)(v)
+}
+
+func (*awsEuSovereignIntegrationsXRayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsXRay)(nil)).Elem()
+}
+
+func (i *awsEuSovereignIntegrationsXRayPtrType) ToAwsEuSovereignIntegrationsXRayPtrOutput() AwsEuSovereignIntegrationsXRayPtrOutput {
+	return i.ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(context.Background())
+}
+
+func (i *awsEuSovereignIntegrationsXRayPtrType) ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsXRayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsEuSovereignIntegrationsXRayPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsXRayOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsXRayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsEuSovereignIntegrationsXRay)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsXRayOutput) ToAwsEuSovereignIntegrationsXRayOutput() AwsEuSovereignIntegrationsXRayOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsXRayOutput) ToAwsEuSovereignIntegrationsXRayOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsXRayOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsXRayOutput) ToAwsEuSovereignIntegrationsXRayPtrOutput() AwsEuSovereignIntegrationsXRayPtrOutput {
+	return o.ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(context.Background())
+}
+
+func (o AwsEuSovereignIntegrationsXRayOutput) ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsXRayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsEuSovereignIntegrationsXRay) *AwsEuSovereignIntegrationsXRay {
+		return &v
+	}).(AwsEuSovereignIntegrationsXRayPtrOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor
+func (o AwsEuSovereignIntegrationsXRayOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsXRay) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsXRayOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsEuSovereignIntegrationsXRay) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsEuSovereignIntegrationsXRayPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsEuSovereignIntegrationsXRayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsEuSovereignIntegrationsXRay)(nil)).Elem()
+}
+
+func (o AwsEuSovereignIntegrationsXRayPtrOutput) ToAwsEuSovereignIntegrationsXRayPtrOutput() AwsEuSovereignIntegrationsXRayPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsXRayPtrOutput) ToAwsEuSovereignIntegrationsXRayPtrOutputWithContext(ctx context.Context) AwsEuSovereignIntegrationsXRayPtrOutput {
+	return o
+}
+
+func (o AwsEuSovereignIntegrationsXRayPtrOutput) Elem() AwsEuSovereignIntegrationsXRayOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsXRay) AwsEuSovereignIntegrationsXRay {
+		if v != nil {
+			return *v
+		}
+		var ret AwsEuSovereignIntegrationsXRay
+		return ret
+	}).(AwsEuSovereignIntegrationsXRayOutput)
+}
+
+// Specify each AWS region that includes the resources that you want to monitor
+func (o AwsEuSovereignIntegrationsXRayPtrOutput) AwsRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsXRay) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The data polling interval in seconds
+func (o AwsEuSovereignIntegrationsXRayPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsEuSovereignIntegrationsXRay) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type AwsGovcloudIntegrationsAlb struct {
 	// Specify each AWS region that includes the resources that you want to monitor
 	AwsRegions []string `pulumi:"awsRegions"`
@@ -22510,6 +23233,16 @@ func (o GcpIntegrationsVpcAccessPtrOutput) MetricsPollingInterval() pulumi.IntPt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsBillingInput)(nil)).Elem(), AwsEuSovereignIntegrationsBillingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsBillingPtrInput)(nil)).Elem(), AwsEuSovereignIntegrationsBillingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsCloudtrailInput)(nil)).Elem(), AwsEuSovereignIntegrationsCloudtrailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsCloudtrailPtrInput)(nil)).Elem(), AwsEuSovereignIntegrationsCloudtrailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsHealthInput)(nil)).Elem(), AwsEuSovereignIntegrationsHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsHealthPtrInput)(nil)).Elem(), AwsEuSovereignIntegrationsHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsTrustedAdvisorInput)(nil)).Elem(), AwsEuSovereignIntegrationsTrustedAdvisorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsTrustedAdvisorPtrInput)(nil)).Elem(), AwsEuSovereignIntegrationsTrustedAdvisorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsXRayInput)(nil)).Elem(), AwsEuSovereignIntegrationsXRayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsEuSovereignIntegrationsXRayPtrInput)(nil)).Elem(), AwsEuSovereignIntegrationsXRayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsGovcloudIntegrationsAlbInput)(nil)).Elem(), AwsGovcloudIntegrationsAlbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsGovcloudIntegrationsAlbPtrInput)(nil)).Elem(), AwsGovcloudIntegrationsAlbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsGovcloudIntegrationsApiGatewayInput)(nil)).Elem(), AwsGovcloudIntegrationsApiGatewayArgs{})
@@ -22776,6 +23509,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsVirtualMachinesPtrInput)(nil)).Elem(), GcpIntegrationsVirtualMachinesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsVpcAccessInput)(nil)).Elem(), GcpIntegrationsVpcAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsVpcAccessPtrInput)(nil)).Elem(), GcpIntegrationsVpcAccessArgs{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsBillingOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsBillingPtrOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsCloudtrailOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsCloudtrailPtrOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsHealthOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsHealthPtrOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsTrustedAdvisorOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsXRayOutput{})
+	pulumi.RegisterOutputType(AwsEuSovereignIntegrationsXRayPtrOutput{})
 	pulumi.RegisterOutputType(AwsGovcloudIntegrationsAlbOutput{})
 	pulumi.RegisterOutputType(AwsGovcloudIntegrationsAlbPtrOutput{})
 	pulumi.RegisterOutputType(AwsGovcloudIntegrationsApiGatewayOutput{})

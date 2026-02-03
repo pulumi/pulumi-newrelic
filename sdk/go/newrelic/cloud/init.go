@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations":
+		r = &AwsEuSovereignIntegrations{}
+	case "newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount":
+		r = &AwsEuSovereignLinkAccount{}
 	case "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations":
 		r = &AwsGovcloudIntegrations{}
 	case "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount":
@@ -52,6 +56,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"cloud/awsEuSovereignIntegrations",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"cloud/awsEuSovereignLinkAccount",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"cloud/awsGovcloudIntegrations",

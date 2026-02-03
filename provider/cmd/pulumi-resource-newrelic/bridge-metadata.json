@@ -132,6 +132,45 @@
                 "current": "newrelic:index/browserApplication:BrowserApplication",
                 "majorVersion": 5
             },
+            "newrelic_cloud_aws_eu_sovereign_integrations": {
+                "current": "newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations",
+                "majorVersion": 5,
+                "fields": {
+                    "billing": {
+                        "maxItemsOne": true
+                    },
+                    "cloudtrail": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws_regions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "health": {
+                        "maxItemsOne": true
+                    },
+                    "trusted_advisor": {
+                        "maxItemsOne": true
+                    },
+                    "x_ray": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws_regions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "newrelic_cloud_aws_eu_sovereign_link_account": {
+                "current": "newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount",
+                "majorVersion": 5
+            },
             "newrelic_cloud_aws_govcloud_integrations": {
                 "current": "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations",
                 "majorVersion": 5,
@@ -4482,6 +4521,13 @@
             "newrelic_browser_application": [
                 "account_id",
                 "application_id"
+            ],
+            "newrelic_cloud_aws_eu_sovereign_integrations": [
+                "account_id",
+                "linked_account_id"
+            ],
+            "newrelic_cloud_aws_eu_sovereign_link_account": [
+                "account_id"
             ],
             "newrelic_cloud_aws_govcloud_integrations": [
                 "account_id",

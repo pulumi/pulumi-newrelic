@@ -3722,6 +3722,49 @@ export interface WorkflowIssuesFilterPredicate {
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
 export namespace cloud {
+    export interface AwsEuSovereignIntegrationsBilling {
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsEuSovereignIntegrationsCloudtrail {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsEuSovereignIntegrationsHealth {
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsEuSovereignIntegrationsTrustedAdvisor {
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsEuSovereignIntegrationsXRay {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The data polling interval in seconds
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
     export interface AwsGovcloudIntegrationsAlb {
         /**
          * Specify each AWS region that includes the resources that you want to monitor
