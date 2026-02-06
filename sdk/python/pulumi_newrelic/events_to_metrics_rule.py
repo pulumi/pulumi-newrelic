@@ -220,8 +220,6 @@ class EventsToMetricsRule(pulumi.CustomResource):
                  nrql: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Use this resource to create, update, and delete New Relic Events to Metrics rules.
-
         ## Example Usage
 
         ```python
@@ -262,8 +260,6 @@ class EventsToMetricsRule(pulumi.CustomResource):
                  args: EventsToMetricsRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create, update, and delete New Relic Events to Metrics rules.
-
         ## Example Usage
 
         ```python

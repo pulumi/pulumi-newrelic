@@ -16,8 +16,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete tags for a New Relic One entity.
- * 
  * ## Example Usage
  * 
  * <pre>

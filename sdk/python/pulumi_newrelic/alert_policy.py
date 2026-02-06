@@ -26,8 +26,11 @@ class AlertPolicyArgs:
         """
         The set of arguments for constructing a AlertPolicy resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+               * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+               * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+               * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
         """
         if account_id is not None:
@@ -59,7 +62,7 @@ class AlertPolicyArgs:
     @_utilities.deprecated("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
     def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         """
         return pulumi.get(self, "channel_ids")
 
@@ -71,7 +74,10 @@ class AlertPolicyArgs:
     @pulumi.getter(name="incidentPreference")
     def incident_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+        * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+        * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+        * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         """
         return pulumi.get(self, "incident_preference")
 
@@ -102,8 +108,11 @@ class _AlertPolicyState:
         """
         Input properties used for looking up and filtering AlertPolicy resources.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+               * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+               * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+               * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
         """
         if account_id is not None:
@@ -135,7 +144,7 @@ class _AlertPolicyState:
     @_utilities.deprecated("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
     def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         """
         return pulumi.get(self, "channel_ids")
 
@@ -147,7 +156,10 @@ class _AlertPolicyState:
     @pulumi.getter(name="incidentPreference")
     def incident_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+        * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+        * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+        * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         """
         return pulumi.get(self, "incident_preference")
 
@@ -184,8 +196,6 @@ class AlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -194,18 +204,7 @@ class AlertPolicy(pulumi.CustomResource):
             name="example",
             incident_preference="PER_POLICY")
         ```
-
-        ### Provision multiple notification channels and add those channels to a policy
-
-        The following arguments are supported:
-
-          * `name` - (Required) The name of the policy.
-          * `incident_preference` - (Optional) The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
-            * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
-            * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
-            * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
-          * `channel_ids` - (Optional) **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
-          * `account_id` - (Optional) The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        See additional examples.
 
         ## Additional Examples
 
@@ -219,7 +218,7 @@ class AlertPolicy(pulumi.CustomResource):
             name="slack-example",
             type="slack",
             config={
-                "url": "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                "url": "https://hooks.slack.com/services/<*****>/<*****>",
                 "channel": "example-alerts-channel",
             })
         # Provision an email notification channel.
@@ -239,8 +238,9 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
+        <br>
 
-        ### Reference existing notification channels and add those channel to a policy
+        ##### Reference existing notification channels and add those channel to a policy
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -273,8 +273,11 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+               * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+               * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+               * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
         """
         ...
@@ -288,8 +291,6 @@ class AlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -298,18 +299,7 @@ class AlertPolicy(pulumi.CustomResource):
             name="example",
             incident_preference="PER_POLICY")
         ```
-
-        ### Provision multiple notification channels and add those channels to a policy
-
-        The following arguments are supported:
-
-          * `name` - (Required) The name of the policy.
-          * `incident_preference` - (Optional) The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
-            * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
-            * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
-            * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
-          * `channel_ids` - (Optional) **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
-          * `account_id` - (Optional) The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        See additional examples.
 
         ## Additional Examples
 
@@ -323,7 +313,7 @@ class AlertPolicy(pulumi.CustomResource):
             name="slack-example",
             type="slack",
             config={
-                "url": "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                "url": "https://hooks.slack.com/services/<*****>/<*****>",
                 "channel": "example-alerts-channel",
             })
         # Provision an email notification channel.
@@ -343,8 +333,9 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
+        <br>
 
-        ### Reference existing notification channels and add those channel to a policy
+        ##### Reference existing notification channels and add those channel to a policy
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -428,8 +419,11 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
-        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
+        :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+               * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+               * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+               * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -455,7 +449,7 @@ class AlertPolicy(pulumi.CustomResource):
     @_utilities.deprecated("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
     def channel_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         """
         return pulumi.get(self, "channel_ids")
 
@@ -463,7 +457,10 @@ class AlertPolicy(pulumi.CustomResource):
     @pulumi.getter(name="incidentPreference")
     def incident_preference(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+        * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+        * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+        * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
         """
         return pulumi.get(self, "incident_preference")
 

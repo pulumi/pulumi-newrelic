@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to create one or more Insights events.
- *
  * ## Example Usage
  *
  * ```typescript

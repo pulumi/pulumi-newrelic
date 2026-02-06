@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// Use this resource to create, update, and delete New Relic Events to Metrics rules.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

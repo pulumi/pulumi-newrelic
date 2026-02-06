@@ -7,12 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create and manage NRQL alert conditions in New Relic.
- *
  * ## Example Usage
  *
- * ### Type: `static` (default)
- *
+ * ##### Type: `static` (default)
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -56,6 +53,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * See additional examples.
  *
  * ## NRQL
  *
@@ -103,6 +101,23 @@ import * as utilities from "./utilities";
  * - `predictBy` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
  * - `preferPredictionViolation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
  *
+ * ## Outlier Configuration
+ *
+ * > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+ *
+ * > **NOTE:** The `outlierConfiguration` block is only available for _outlier_ NRQL alert conditions.
+ *
+ * The `outlierConfiguration` block supports the following nested block:
+ * - `dbscan` - (Required) The DBSCAN algorithm configuration block.
+ *
+ * `dbscan` supports the following arguments:
+ * - `epsilon` - (Required) The maximum distance between two samples for one to be considered as in the neighborhood of the other. Value must be > 0.
+ * - `minimumPoints` - (Required) The number of samples in a neighborhood for a point to be considered as a core point. This includes the point itself. Value must be >= 1.
+ * - `evaluationGroupFacet` - (Optional) NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+ *
+ * Notes:
+ * - Currently only `dbscan` is supported.
+ *
  * ## Additional Examples
  *
  * ##### Type: `baseline`
@@ -115,44 +130,83 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.AlertPolicy("foo", {name: "foo"});
  * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("foo", {
- *     accountId: "your_account_id",
- *     policyId: foo.id,
- *     type: "static",
+ *     type: "baseline",
+ *     accountId: "12345678",
  *     name: "foo",
+ *     policyId: foo.id,
  *     description: "Alert when transactions are taking too long",
- *     runbookUrl: "https://www.example.com",
  *     enabled: true,
+ *     runbookUrl: "https://www.example.com",
  *     violationTimeLimitSeconds: 3600,
- *     fillOption: "static",
- *     fillValue: 1,
- *     aggregationWindow: 60,
  *     aggregationMethod: "event_flow",
  *     aggregationDelay: "120",
- *     expirationDuration: 120,
- *     openViolationOnExpiration: true,
- *     closeViolationsOnExpiration: true,
  *     slideBy: 30,
+ *     baselineDirection: "upper_only",
+ *     signalSeasonality: "weekly",
  *     nrql: {
- *         query: "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+ *         query: "SELECT percentile(duration, 95) FROM Transaction WHERE appName = 'ExampleAppName'",
  *     },
  *     critical: {
  *         operator: "above",
  *         threshold: 5.5,
  *         thresholdDuration: 300,
- *         thresholdOccurrences: "ALL",
+ *         thresholdOccurrences: "all",
  *     },
  *     warning: {
  *         operator: "above",
  *         threshold: 3.5,
  *         thresholdDuration: 600,
- *         thresholdOccurrences: "ALL",
+ *         thresholdOccurrences: "all",
+ *     },
+ * });
+ * ```
+ * <br> 
+ *
+ * ##### Type: `outlier`
+ *
+ * > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+ *
+ * [Outlier NRQL alert conditions](https://docs.newrelic.com/docs/alerts/create-alert/set-thresholds/outlier-detection/) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates an outlier NRQL alert condition for detecting anomalies using the DBSCAN clustering algorithm.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const outlierPolicy = new newrelic.AlertPolicy("outlier_policy", {name: "outlier-demo"});
+ * const outlierCondition = new newrelic.NrqlAlertCondition("outlier_condition", {
+ *     accountId: "12345678",
+ *     policyId: outlierPolicy.id,
+ *     type: "outlier",
+ *     name: "Outlier duration anomaly",
+ *     description: "Detect hosts with anomalous average duration",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 3600,
+ *     aggregationWindow: 60,
+ *     aggregationMethod: "event_flow",
+ *     nrql: {
+ *         query: "SELECT average(duration) FROM Transaction FACET host",
+ *     },
+ *     outlierConfiguration: {
+ *         dbscan: {
+ *             epsilon: 0.15,
+ *             minimumPoints: 5,
+ *             evaluationGroupFacet: "host",
+ *         },
+ *     },
+ *     critical: {
+ *         operator: "above",
+ *         threshold: 0,
+ *         thresholdDuration: 300,
+ *         thresholdOccurrences: "all",
  *     },
  * });
  * ```
  *
+ * <br>
+ *
  * ## Tags
  *
- * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
+ * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -210,8 +264,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- *
- * <small>alerts.newrelic.com/accounts/**\<account_id\>**&#47;policies/**\<policy_id\>**&#47;conditions/**\<condition_id\>**&#47;edit</small>
  *
  * ## Upgrade from 1.x to 2.x
  *
@@ -286,6 +338,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
+ *
+ * Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
@@ -392,7 +446,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     declare public readonly openViolationOnExpiration: pulumi.Output<boolean | undefined>;
     /**
-     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      */
     declare public readonly outlierConfiguration: pulumi.Output<outputs.NrqlAlertConditionOutlierConfiguration | undefined>;
     /**
@@ -426,7 +480,8 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     declare public readonly titleTemplate: pulumi.Output<string | undefined>;
     /**
-     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
      */
     declare public readonly type: pulumi.Output<string | undefined>;
     /**
@@ -616,7 +671,7 @@ export interface NrqlAlertConditionState {
      */
     openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
-     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      */
     outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration>;
     /**
@@ -650,7 +705,8 @@ export interface NrqlAlertConditionState {
      */
     titleTemplate?: pulumi.Input<string>;
     /**
-     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
      */
     type?: pulumi.Input<string>;
     /**
@@ -748,7 +804,7 @@ export interface NrqlAlertConditionArgs {
      */
     openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
-     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      */
     outlierConfiguration?: pulumi.Input<inputs.NrqlAlertConditionOutlierConfiguration>;
     /**
@@ -782,7 +838,8 @@ export interface NrqlAlertConditionArgs {
      */
     titleTemplate?: pulumi.Input<string>;
     /**
-     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
      */
     type?: pulumi.Input<string>;
     /**

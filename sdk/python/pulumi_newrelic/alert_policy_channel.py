@@ -24,7 +24,6 @@ class AlertPolicyChannelArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertPolicyChannel resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         """
@@ -36,9 +35,6 @@ class AlertPolicyChannelArgs:
     @_builtins.property
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-        """
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
@@ -79,7 +75,6 @@ class _AlertPolicyChannelState:
         """
         Input properties used for looking up and filtering AlertPolicyChannel resources.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy.
         """
         if account_id is not None:
@@ -104,9 +99,6 @@ class _AlertPolicyChannelState:
     @_builtins.property
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-        """
         return pulumi.get(self, "channel_ids")
 
     @channel_ids.setter
@@ -190,7 +182,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy.
         """
         ...
@@ -305,7 +296,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -328,9 +318,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="channelIds")
     def channel_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-        """
         return pulumi.get(self, "channel_ids")
 
     @_builtins.property

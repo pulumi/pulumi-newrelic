@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Insights
 {
     /// <summary>
-    /// Use this resource to create one or more Insights events.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

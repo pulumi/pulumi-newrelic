@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create, update, and delete New Relic Events to Metrics rules.
- *
  * ## Example Usage
  *
  * ```typescript

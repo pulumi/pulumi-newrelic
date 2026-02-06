@@ -179,7 +179,7 @@ class AlertChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Email
+        ##### Email
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -192,6 +192,7 @@ class AlertChannel(pulumi.CustomResource):
                 "include_json_attachment": "true",
             })
         ```
+        See additional examples.
 
         ## Additional Examples
 
@@ -211,7 +212,7 @@ class AlertChannel(pulumi.CustomResource):
 
         > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 
-        ### OpsGenie
+        ##### OpsGenie
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -227,7 +228,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### PagerDuty
+        ##### PagerDuty
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -240,7 +241,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### VictorOps
+        ##### VictorOps
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -254,7 +255,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### Webhook
+        ##### Webhook
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -276,7 +277,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### Webhook with complex payload
+        ##### Webhook with complex payload
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -327,7 +328,7 @@ class AlertChannel(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Email
+        ##### Email
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -340,6 +341,7 @@ class AlertChannel(pulumi.CustomResource):
                 "include_json_attachment": "true",
             })
         ```
+        See additional examples.
 
         ## Additional Examples
 
@@ -359,7 +361,7 @@ class AlertChannel(pulumi.CustomResource):
 
         > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 
-        ### OpsGenie
+        ##### OpsGenie
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -375,7 +377,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### PagerDuty
+        ##### PagerDuty
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -388,7 +390,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### VictorOps
+        ##### VictorOps
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -402,7 +404,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### Webhook
+        ##### Webhook
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -424,7 +426,7 @@ class AlertChannel(pulumi.CustomResource):
             })
         ```
 
-        ### Webhook with complex payload
+        ##### Webhook with complex payload
         ```python
         import pulumi
         import pulumi_newrelic as newrelic

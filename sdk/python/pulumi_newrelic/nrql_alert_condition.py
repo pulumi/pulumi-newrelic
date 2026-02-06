@@ -72,14 +72,15 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[_builtins.bool] ignore_on_expected_termination: Whether an alert condition should ignore expected termination of a signal when considering whether to create a loss of signal incident. Defaults to false.
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs'] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs'] outlier_configuration: **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
         :param pulumi.Input[_builtins.int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
-        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+               <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         :param pulumi.Input[_builtins.str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[_builtins.int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -383,7 +384,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="outlierConfiguration")
     def outlier_configuration(self) -> Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]:
         """
-        BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         """
         return pulumi.get(self, "outlier_configuration")
 
@@ -468,7 +469,8 @@ class NrqlAlertConditionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         """
         return pulumi.get(self, "type")
 
@@ -571,7 +573,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs'] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        :param pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs'] outlier_configuration: **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
@@ -579,7 +581,8 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
-        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+               <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         :param pulumi.Input[_builtins.str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[_builtins.int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -887,7 +890,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="outlierConfiguration")
     def outlier_configuration(self) -> Optional[pulumi.Input['NrqlAlertConditionOutlierConfigurationArgs']]:
         """
-        BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         """
         return pulumi.get(self, "outlier_configuration")
 
@@ -984,7 +987,8 @@ class _NrqlAlertConditionState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         """
         return pulumi.get(self, "type")
 
@@ -1070,12 +1074,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         """
-        Use this resource to create and manage NRQL alert conditions in New Relic.
-
         ## Example Usage
 
-        ### Type: `static` (default)
-
+        ##### Type: `static` (default)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1118,6 +1119,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 "threshold_occurrences": "ALL",
             })
         ```
+        See additional examples.
 
         ## NRQL
 
@@ -1165,6 +1167,23 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `predict_by` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
         - `prefer_prediction_violation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
 
+        ## Outlier Configuration
+
+        > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+
+        > **NOTE:** The `outlier_configuration` block is only available for _outlier_ NRQL alert conditions.
+
+        The `outlier_configuration` block supports the following nested block:
+        - `dbscan` - (Required) The DBSCAN algorithm configuration block.
+
+        `dbscan` supports the following arguments:
+        - `epsilon` - (Required) The maximum distance between two samples for one to be considered as in the neighborhood of the other. Value must be > 0.
+        - `minimum_points` - (Required) The number of samples in a neighborhood for a point to be considered as a core point. This includes the point itself. Value must be >= 1.
+        - `evaluation_group_facet` - (Optional) NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+
+        Notes:
+        - Currently only `dbscan` is supported.
+
         ## Additional Examples
 
         ##### Type: `baseline`
@@ -1177,43 +1196,81 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         foo = newrelic.AlertPolicy("foo", name="foo")
         foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
-            account_id="your_account_id",
-            policy_id=foo.id,
-            type="static",
+            type="baseline",
+            account_id="12345678",
             name="foo",
+            policy_id=foo.id,
             description="Alert when transactions are taking too long",
-            runbook_url="https://www.example.com",
             enabled=True,
+            runbook_url="https://www.example.com",
             violation_time_limit_seconds=3600,
-            fill_option="static",
-            fill_value=1,
-            aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
-            expiration_duration=120,
-            open_violation_on_expiration=True,
-            close_violations_on_expiration=True,
             slide_by=30,
+            baseline_direction="upper_only",
+            signal_seasonality="weekly",
             nrql={
-                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+                "query": "SELECT percentile(duration, 95) FROM Transaction WHERE appName = 'ExampleAppName'",
             },
             critical={
                 "operator": "above",
                 "threshold": 5.5,
                 "threshold_duration": 300,
-                "threshold_occurrences": "ALL",
+                "threshold_occurrences": "all",
             },
             warning={
                 "operator": "above",
                 "threshold": 3.5,
                 "threshold_duration": 600,
-                "threshold_occurrences": "ALL",
+                "threshold_occurrences": "all",
+            })
+        ```
+        <br> 
+
+        ##### Type: `outlier`
+
+        > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+
+        [Outlier NRQL alert conditions](https://docs.newrelic.com/docs/alerts/create-alert/set-thresholds/outlier-detection/) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates an outlier NRQL alert condition for detecting anomalies using the DBSCAN clustering algorithm.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        outlier_policy = newrelic.AlertPolicy("outlier_policy", name="outlier-demo")
+        outlier_condition = newrelic.NrqlAlertCondition("outlier_condition",
+            account_id="12345678",
+            policy_id=outlier_policy.id,
+            type="outlier",
+            name="Outlier duration anomaly",
+            description="Detect hosts with anomalous average duration",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            aggregation_window=60,
+            aggregation_method="event_flow",
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction FACET host",
+            },
+            outlier_configuration={
+                "dbscan": {
+                    "epsilon": 0.15,
+                    "minimum_points": 5,
+                    "evaluation_group_facet": "host",
+                },
+            },
+            critical={
+                "operator": "above",
+                "threshold": 0,
+                "threshold_duration": 300,
+                "threshold_occurrences": "all",
             })
         ```
 
+        <br>
+
         ## Tags
 
-        Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
+        Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
         ```python
         import pulumi
@@ -1269,8 +1326,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 },
             ])
         ```
-
-        <small>alerts.newrelic.com/accounts/**\\<account_id\\>**/policies/**\\<policy_id\\>**/conditions/**\\<condition_id\\>**/edit</small>
 
         ## Upgrade from 1.x to 2.x
 
@@ -1343,6 +1398,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
         ```
+
+        Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1364,7 +1421,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        :param pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']] outlier_configuration: **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
@@ -1372,7 +1429,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
-        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+               <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         :param pulumi.Input[_builtins.str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[_builtins.int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -1386,12 +1444,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  args: NrqlAlertConditionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create and manage NRQL alert conditions in New Relic.
-
         ## Example Usage
 
-        ### Type: `static` (default)
-
+        ##### Type: `static` (default)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -1434,6 +1489,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 "threshold_occurrences": "ALL",
             })
         ```
+        See additional examples.
 
         ## NRQL
 
@@ -1481,6 +1537,23 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `predict_by` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
         - `prefer_prediction_violation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `prefer_prediction_violation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
 
+        ## Outlier Configuration
+
+        > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+
+        > **NOTE:** The `outlier_configuration` block is only available for _outlier_ NRQL alert conditions.
+
+        The `outlier_configuration` block supports the following nested block:
+        - `dbscan` - (Required) The DBSCAN algorithm configuration block.
+
+        `dbscan` supports the following arguments:
+        - `epsilon` - (Required) The maximum distance between two samples for one to be considered as in the neighborhood of the other. Value must be > 0.
+        - `minimum_points` - (Required) The number of samples in a neighborhood for a point to be considered as a core point. This includes the point itself. Value must be >= 1.
+        - `evaluation_group_facet` - (Optional) NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+
+        Notes:
+        - Currently only `dbscan` is supported.
+
         ## Additional Examples
 
         ##### Type: `baseline`
@@ -1493,43 +1566,81 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         foo = newrelic.AlertPolicy("foo", name="foo")
         foo_nrql_alert_condition = newrelic.NrqlAlertCondition("foo",
-            account_id="your_account_id",
-            policy_id=foo.id,
-            type="static",
+            type="baseline",
+            account_id="12345678",
             name="foo",
+            policy_id=foo.id,
             description="Alert when transactions are taking too long",
-            runbook_url="https://www.example.com",
             enabled=True,
+            runbook_url="https://www.example.com",
             violation_time_limit_seconds=3600,
-            fill_option="static",
-            fill_value=1,
-            aggregation_window=60,
             aggregation_method="event_flow",
             aggregation_delay="120",
-            expiration_duration=120,
-            open_violation_on_expiration=True,
-            close_violations_on_expiration=True,
             slide_by=30,
+            baseline_direction="upper_only",
+            signal_seasonality="weekly",
             nrql={
-                "query": "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+                "query": "SELECT percentile(duration, 95) FROM Transaction WHERE appName = 'ExampleAppName'",
             },
             critical={
                 "operator": "above",
                 "threshold": 5.5,
                 "threshold_duration": 300,
-                "threshold_occurrences": "ALL",
+                "threshold_occurrences": "all",
             },
             warning={
                 "operator": "above",
                 "threshold": 3.5,
                 "threshold_duration": 600,
-                "threshold_occurrences": "ALL",
+                "threshold_occurrences": "all",
+            })
+        ```
+        <br> 
+
+        ##### Type: `outlier`
+
+        > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+
+        [Outlier NRQL alert conditions](https://docs.newrelic.com/docs/alerts/create-alert/set-thresholds/outlier-detection/) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates an outlier NRQL alert condition for detecting anomalies using the DBSCAN clustering algorithm.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        outlier_policy = newrelic.AlertPolicy("outlier_policy", name="outlier-demo")
+        outlier_condition = newrelic.NrqlAlertCondition("outlier_condition",
+            account_id="12345678",
+            policy_id=outlier_policy.id,
+            type="outlier",
+            name="Outlier duration anomaly",
+            description="Detect hosts with anomalous average duration",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            aggregation_window=60,
+            aggregation_method="event_flow",
+            nrql={
+                "query": "SELECT average(duration) FROM Transaction FACET host",
+            },
+            outlier_configuration={
+                "dbscan": {
+                    "epsilon": 0.15,
+                    "minimum_points": 5,
+                    "evaluation_group_facet": "host",
+                },
+            },
+            critical={
+                "operator": "above",
+                "threshold": 0,
+                "threshold_duration": 300,
+                "threshold_occurrences": "all",
             })
         ```
 
+        <br>
+
         ## Tags
 
-        Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
+        Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 
         ```python
         import pulumi
@@ -1585,8 +1696,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 },
             ])
         ```
-
-        <small>alerts.newrelic.com/accounts/**\\<account_id\\>**/policies/**\\<policy_id\\>**/conditions/**\\<condition_id\\>**/edit</small>
 
         ## Upgrade from 1.x to 2.x
 
@@ -1659,6 +1768,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
         ```
+
+        Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
         :param str resource_name: The name of the resource.
         :param NrqlAlertConditionArgs args: The arguments to use to populate this resource's properties.
@@ -1816,7 +1927,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The title of the condition.
         :param pulumi.Input[Union['NrqlAlertConditionNrqlArgs', 'NrqlAlertConditionNrqlArgsDict']] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
-        :param pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']] outlier_configuration: BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        :param pulumi.Input[Union['NrqlAlertConditionOutlierConfigurationArgs', 'NrqlAlertConditionOutlierConfigurationArgsDict']] outlier_configuration: **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[_builtins.str] signal_seasonality: Seasonality under which a condition's signal(s) are evaluated. Only available for baseline conditions. Valid values are: `NEW_RELIC_CALCULATION`, `HOURLY`, `DAILY`, `WEEKLY`, or `NONE`. To have New Relic calculate seasonality automatically, set to `NEW_RELIC_CALCULATION`. To turn off seasonality completely, set to `NONE`.
@@ -1824,7 +1935,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] target_entity: BETA PREVIEW: The GUID of the entity explicitly targeted by the condition. Issues triggered by this condition will affect the health status of this entity instead of having the affected entity detected automatically. The entity's account ID must be either `account_id` or `nrql.data_account_id`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NrqlAlertConditionTermArgs', 'NrqlAlertConditionTermArgsDict']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead. A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[_builtins.str] title_template: The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
-        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[_builtins.str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+               <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         :param pulumi.Input[_builtins.str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[_builtins.int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -2024,7 +2136,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="outlierConfiguration")
     def outlier_configuration(self) -> pulumi.Output[Optional['outputs.NrqlAlertConditionOutlierConfiguration']]:
         """
-        BETA PREVIEW: the `outlier_configuration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+        **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
         """
         return pulumi.get(self, "outlier_configuration")
 
@@ -2089,7 +2201,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        <small>\\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
         """
         return pulumi.get(self, "type")
 

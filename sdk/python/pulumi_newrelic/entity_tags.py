@@ -106,8 +106,6 @@ class EntityTags(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Use this resource to create, update, and delete tags for a New Relic One entity.
-
         ## Example Usage
 
         ```python
@@ -186,8 +184,6 @@ class EntityTags(pulumi.CustomResource):
                  args: EntityTagsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create, update, and delete tags for a New Relic One entity.
-
         ## Example Usage
 
         ```python

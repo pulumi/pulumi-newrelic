@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// ### Email
+    /// ##### Email
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +38,7 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
+    /// See additional examples.
     /// 
     /// ## Additional Examples
     /// 
@@ -66,7 +67,7 @@ namespace Pulumi.NewRelic
     /// 
     /// &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `Slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
     /// 
-    /// ### OpsGenie
+    /// ##### OpsGenie
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,7 +92,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// ### PagerDuty
+    /// ##### PagerDuty
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,7 +114,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// ### VictorOps
+    /// ##### VictorOps
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,7 +137,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// ### Webhook
+    /// ##### Webhook
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -169,7 +170,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// ### Webhook with complex payload
+    /// ##### Webhook with complex payload
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

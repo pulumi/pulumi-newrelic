@@ -116,17 +116,9 @@ public class AlertPolicyChannel extends com.pulumi.resources.CustomResource {
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-     * 
-     */
     @Export(name="channelIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> channelIds;
 
-    /**
-     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-     * 
-     */
     public Output<List<String>> channelIds() {
         return this.channelIds;
     }

@@ -18,7 +18,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Email
+// ##### Email
 // ```go
 // package main
 //
@@ -47,6 +47,7 @@ import (
 //	}
 //
 // ```
+// See additional examples.
 //
 // ## Additional Examples
 //
@@ -82,7 +83,7 @@ import (
 //
 // > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
 //
-// ### OpsGenie
+// ##### OpsGenie
 // ```go
 // package main
 //
@@ -114,7 +115,7 @@ import (
 //
 // ```
 //
-// ### PagerDuty
+// ##### PagerDuty
 // ```go
 // package main
 //
@@ -143,7 +144,7 @@ import (
 //
 // ```
 //
-// ### VictorOps
+// ##### VictorOps
 // ```go
 // package main
 //
@@ -173,7 +174,7 @@ import (
 //
 // ```
 //
-// ### Webhook
+// ##### Webhook
 // ```go
 // package main
 //
@@ -211,7 +212,7 @@ import (
 //
 // ```
 //
-// ### Webhook with complex payload
+// ##### Webhook with complex payload
 // ```go
 // package main
 //
