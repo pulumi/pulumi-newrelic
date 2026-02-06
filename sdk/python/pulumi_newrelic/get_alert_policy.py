@@ -111,8 +111,6 @@ def get_alert_policy(account_id: Optional[_builtins.str] = None,
                      name: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertPolicyResult:
     """
-    Use this data source to get information about a specific alert policy in New Relic that already exists.
-
     ## Example Usage
 
     ```python
@@ -153,8 +151,6 @@ def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[_builtins
                             name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertPolicyResult]:
     """
-    Use this data source to get information about a specific alert policy in New Relic that already exists.
-
     ## Example Usage
 
     ```python

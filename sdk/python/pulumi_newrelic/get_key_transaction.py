@@ -108,8 +108,6 @@ def get_key_transaction(account_id: Optional[_builtins.str] = None,
                         name: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyTransactionResult:
     """
-    Use this data source to get information about a specific key transaction in New Relic that already exists.
-
     ## Example Usage
 
     ```python
@@ -160,8 +158,6 @@ def get_key_transaction_output(account_id: Optional[pulumi.Input[Optional[_built
                                name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyTransactionResult]:
     """
-    Use this data source to get information about a specific key transaction in New Relic that already exists.
-
     ## Example Usage
 
     ```python

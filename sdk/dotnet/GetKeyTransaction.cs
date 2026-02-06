@@ -12,8 +12,6 @@ namespace Pulumi.NewRelic
     public static class GetKeyTransaction
     {
         /// <summary>
-        /// Use this data source to get information about a specific key transaction in New Relic that already exists.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -65,8 +63,6 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific key transaction in New Relic that already exists.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -118,8 +114,6 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific key transaction in New Relic that already exists.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

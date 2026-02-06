@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Email
+ * ##### Email
  * <pre>
  * {@code
  * package generated_program;
@@ -59,6 +59,7 @@ import javax.annotation.Nullable;
  * }}{@code
  * }
  * </pre>
+ * See additional examples.
  * 
  * ## Additional Examples
  * 
@@ -102,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic&#39;s docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
  * 
- * ### OpsGenie
+ * ##### OpsGenie
  * <pre>
  * {@code
  * package generated_program;
@@ -142,7 +143,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### PagerDuty
+ * ##### PagerDuty
  * <pre>
  * {@code
  * package generated_program;
@@ -179,7 +180,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### VictorOps
+ * ##### VictorOps
  * <pre>
  * {@code
  * package generated_program;
@@ -217,7 +218,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Webhook
+ * ##### Webhook
  * <pre>
  * {@code
  * package generated_program;
@@ -263,7 +264,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Webhook with complex payload
+ * ##### Webhook with complex payload
  * <pre>
  * {@code
  * package generated_program;

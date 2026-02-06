@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create, update, and delete tags for a New Relic One entity.
- *
  * ## Example Usage
  *
  * ```typescript

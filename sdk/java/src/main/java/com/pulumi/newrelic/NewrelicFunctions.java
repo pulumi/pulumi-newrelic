@@ -363,10 +363,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific alert channel in New Relic that already exists.
-     * 
-     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -421,10 +417,6 @@ public final class NewrelicFunctions {
         return getAlertChannel(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific alert channel in New Relic that already exists.
-     * 
-     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -479,10 +471,6 @@ public final class NewrelicFunctions {
         return getAlertChannelPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific alert channel in New Relic that already exists.
-     * 
-     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -537,10 +525,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific alert channel in New Relic that already exists.
-     * 
-     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -595,10 +579,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific alert channel in New Relic that already exists.
-     * 
-     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -653,8 +633,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAlertChannel:getAlertChannel", TypeShape.of(GetAlertChannelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific alert policy in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -705,8 +683,6 @@ public final class NewrelicFunctions {
         return getAlertPolicy(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific alert policy in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -757,8 +733,6 @@ public final class NewrelicFunctions {
         return getAlertPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific alert policy in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -809,8 +783,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific alert policy in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -861,8 +833,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific alert policy in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -913,10 +883,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getAlertPolicy:getAlertPolicy", TypeShape.of(GetAlertPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-     * 
-     * Use this data source to get information about a specific application in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -980,10 +946,6 @@ public final class NewrelicFunctions {
         return getApplication(args, InvokeOptions.Empty);
     }
     /**
-     * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-     * 
-     * Use this data source to get information about a specific application in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1047,10 +1009,6 @@ public final class NewrelicFunctions {
         return getApplicationPlain(args, InvokeOptions.Empty);
     }
     /**
-     * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-     * 
-     * Use this data source to get information about a specific application in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1114,10 +1072,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-     * 
-     * Use this data source to get information about a specific application in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1181,10 +1135,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
-     * 
-     * Use this data source to get information about a specific application in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2183,8 +2133,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invokeAsync("newrelic:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific key transaction in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2248,8 +2196,6 @@ public final class NewrelicFunctions {
         return getKeyTransaction(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific key transaction in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2313,8 +2259,6 @@ public final class NewrelicFunctions {
         return getKeyTransactionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific key transaction in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2378,8 +2322,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific key transaction in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2443,8 +2385,6 @@ public final class NewrelicFunctions {
         return Deployment.getInstance().invoke("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific key transaction in New Relic that already exists.
-     * 
      * ## Example Usage
      * 
      * <pre>

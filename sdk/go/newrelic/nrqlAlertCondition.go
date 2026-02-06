@@ -12,12 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create and manage NRQL alert conditions in New Relic.
-//
 // ## Example Usage
 //
-// ### Type: `static` (default)
-//
+// ##### Type: `static` (default)
 // ```go
 // package main
 //
@@ -81,6 +78,7 @@ import (
 //	}
 //
 // ```
+// See additional examples.
 //
 // ## NRQL
 //
@@ -128,6 +126,23 @@ import (
 // - `predictBy` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
 // - `preferPredictionViolation` - (Optional) If a prediction incident is open when a term's static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
 //
+// ## Outlier Configuration
+//
+// > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+//
+// > **NOTE:** The `outlierConfiguration` block is only available for _outlier_ NRQL alert conditions.
+//
+// The `outlierConfiguration` block supports the following nested block:
+// - `dbscan` - (Required) The DBSCAN algorithm configuration block.
+//
+// `dbscan` supports the following arguments:
+// - `epsilon` - (Required) The maximum distance between two samples for one to be considered as in the neighborhood of the other. Value must be > 0.
+// - `minimumPoints` - (Required) The number of samples in a neighborhood for a point to be considered as a core point. This includes the point itself. Value must be >= 1.
+// - `evaluationGroupFacet` - (Optional) NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+//
+// Notes:
+// - Currently only `dbscan` is supported.
+//
 // ## Additional Examples
 //
 // ##### Type: `baseline`
@@ -153,37 +168,94 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewNrqlAlertCondition(ctx, "foo", &newrelic.NrqlAlertConditionArgs{
-//				AccountId:                   pulumi.String("your_account_id"),
-//				PolicyId:                    foo.ID(),
-//				Type:                        pulumi.String("static"),
-//				Name:                        pulumi.String("foo"),
-//				Description:                 pulumi.String("Alert when transactions are taking too long"),
-//				RunbookUrl:                  pulumi.String("https://www.example.com"),
-//				Enabled:                     pulumi.Bool(true),
-//				ViolationTimeLimitSeconds:   pulumi.Int(3600),
-//				FillOption:                  pulumi.String("static"),
-//				FillValue:                   pulumi.Float64(1),
-//				AggregationWindow:           pulumi.Int(60),
-//				AggregationMethod:           pulumi.String("event_flow"),
-//				AggregationDelay:            pulumi.String("120"),
-//				ExpirationDuration:          pulumi.Int(120),
-//				OpenViolationOnExpiration:   pulumi.Bool(true),
-//				CloseViolationsOnExpiration: pulumi.Bool(true),
-//				SlideBy:                     pulumi.Int(30),
+//				Type:                      pulumi.String("baseline"),
+//				AccountId:                 pulumi.String("12345678"),
+//				Name:                      pulumi.String("foo"),
+//				PolicyId:                  foo.ID(),
+//				Description:               pulumi.String("Alert when transactions are taking too long"),
+//				Enabled:                   pulumi.Bool(true),
+//				RunbookUrl:                pulumi.String("https://www.example.com"),
+//				ViolationTimeLimitSeconds: pulumi.Int(3600),
+//				AggregationMethod:         pulumi.String("event_flow"),
+//				AggregationDelay:          pulumi.String("120"),
+//				SlideBy:                   pulumi.Int(30),
+//				BaselineDirection:         pulumi.String("upper_only"),
+//				SignalSeasonality:         pulumi.String("weekly"),
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
-//					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
+//					Query: pulumi.String("SELECT percentile(duration, 95) FROM Transaction WHERE appName = 'ExampleAppName'"),
 //				},
 //				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
 //					Operator:             pulumi.String("above"),
 //					Threshold:            pulumi.Float64(5.5),
 //					ThresholdDuration:    pulumi.Int(300),
-//					ThresholdOccurrences: pulumi.String("ALL"),
+//					ThresholdOccurrences: pulumi.String("all"),
 //				},
 //				Warning: &newrelic.NrqlAlertConditionWarningArgs{
 //					Operator:             pulumi.String("above"),
 //					Threshold:            pulumi.Float64(3.5),
 //					ThresholdDuration:    pulumi.Int(600),
-//					ThresholdOccurrences: pulumi.String("ALL"),
+//					ThresholdOccurrences: pulumi.String("all"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <br>
+//
+// ##### Type: `outlier`
+//
+// > **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+//
+// [Outlier NRQL alert conditions](https://docs.newrelic.com/docs/alerts/create-alert/set-thresholds/outlier-detection/) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates an outlier NRQL alert condition for detecting anomalies using the DBSCAN clustering algorithm.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			outlierPolicy, err := newrelic.NewAlertPolicy(ctx, "outlier_policy", &newrelic.AlertPolicyArgs{
+//				Name: pulumi.String("outlier-demo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "outlier_condition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                 pulumi.String("12345678"),
+//				PolicyId:                  outlierPolicy.ID(),
+//				Type:                      pulumi.String("outlier"),
+//				Name:                      pulumi.String("Outlier duration anomaly"),
+//				Description:               pulumi.String("Detect hosts with anomalous average duration"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(3600),
+//				AggregationWindow:         pulumi.Int(60),
+//				AggregationMethod:         pulumi.String("event_flow"),
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String("SELECT average(duration) FROM Transaction FACET host"),
+//				},
+//				OutlierConfiguration: &newrelic.NrqlAlertConditionOutlierConfigurationArgs{
+//					Dbscan: &newrelic.NrqlAlertConditionOutlierConfigurationDbscanArgs{
+//						Epsilon:              pulumi.Float64(0.15),
+//						MinimumPoints:        pulumi.Int(5),
+//						EvaluationGroupFacet: pulumi.String("host"),
+//					},
+//				},
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(0),
+//					ThresholdDuration:    pulumi.Int(300),
+//					ThresholdOccurrences: pulumi.String("all"),
 //				},
 //			})
 //			if err != nil {
@@ -195,9 +267,11 @@ import (
 //
 // ```
 //
+// <br>
+//
 // ## Tags
 //
-// Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check `EntityTags`.
+// Manage NRQL alert condition tags with `EntityTags`. For up-to-date documentation about the tagging resource, please check EntityTags
 //
 // ```go
 // package main
@@ -280,8 +354,6 @@ import (
 //	}
 //
 // ```
-//
-// <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
 //
 // ## Upgrade from 1.x to 2.x
 //
@@ -388,6 +460,8 @@ import (
 // ```sh
 // $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
 // ```
+//
+// Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -429,7 +503,7 @@ type NrqlAlertCondition struct {
 	Nrql NrqlAlertConditionNrqlOutput `pulumi:"nrql"`
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrOutput `pulumi:"openViolationOnExpiration"`
-	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	// **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
 	OutlierConfiguration NrqlAlertConditionOutlierConfigurationPtrOutput `pulumi:"outlierConfiguration"`
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
@@ -447,7 +521,8 @@ type NrqlAlertCondition struct {
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
 	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
 	TitleTemplate pulumi.StringPtrOutput `pulumi:"titleTemplate"`
-	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -535,7 +610,7 @@ type nrqlAlertConditionState struct {
 	Nrql *NrqlAlertConditionNrql `pulumi:"nrql"`
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
-	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	// **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
 	OutlierConfiguration *NrqlAlertConditionOutlierConfiguration `pulumi:"outlierConfiguration"`
 	// The ID of the policy where this condition should be used.
 	PolicyId *string `pulumi:"policyId"`
@@ -553,7 +628,8 @@ type nrqlAlertConditionState struct {
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
 	TitleTemplate *string `pulumi:"titleTemplate"`
-	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
 	Type *string `pulumi:"type"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -606,7 +682,7 @@ type NrqlAlertConditionState struct {
 	Nrql NrqlAlertConditionNrqlPtrInput
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
-	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	// **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
 	OutlierConfiguration NrqlAlertConditionOutlierConfigurationPtrInput
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.StringPtrInput
@@ -624,7 +700,8 @@ type NrqlAlertConditionState struct {
 	Terms NrqlAlertConditionTermArrayInput
 	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
 	TitleTemplate pulumi.StringPtrInput
-	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
 	Type pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -679,7 +756,7 @@ type nrqlAlertConditionArgs struct {
 	Nrql NrqlAlertConditionNrql `pulumi:"nrql"`
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
-	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	// **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
 	OutlierConfiguration *NrqlAlertConditionOutlierConfiguration `pulumi:"outlierConfiguration"`
 	// The ID of the policy where this condition should be used.
 	PolicyId string `pulumi:"policyId"`
@@ -697,7 +774,8 @@ type nrqlAlertConditionArgs struct {
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
 	TitleTemplate *string `pulumi:"titleTemplate"`
-	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
 	Type *string `pulumi:"type"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -749,7 +827,7 @@ type NrqlAlertConditionArgs struct {
 	Nrql NrqlAlertConditionNrqlInput
 	// Whether to create a new incident to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
-	// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+	// **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
 	OutlierConfiguration NrqlAlertConditionOutlierConfigurationPtrInput
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.StringInput
@@ -767,7 +845,8 @@ type NrqlAlertConditionArgs struct {
 	Terms NrqlAlertConditionTermArrayInput
 	// The custom title to be used when incidents are opened by the condition. Setting this field will override the default title. Must be [Handlebars](https://handlebarsjs.com/) format.
 	TitleTemplate pulumi.StringPtrInput
-	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
 	Type pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -963,7 +1042,7 @@ func (o NrqlAlertConditionOutput) OpenViolationOnExpiration() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.OpenViolationOnExpiration }).(pulumi.BoolPtrOutput)
 }
 
-// BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+// **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
 func (o NrqlAlertConditionOutput) OutlierConfiguration() NrqlAlertConditionOutlierConfigurationPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionOutlierConfigurationPtrOutput {
 		return v.OutlierConfiguration
@@ -1007,7 +1086,8 @@ func (o NrqlAlertConditionOutput) TitleTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.TitleTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+// <small>\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**</small>
 func (o NrqlAlertConditionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -24,12 +24,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create and manage NRQL alert conditions in New Relic.
- * 
  * ## Example Usage
  * 
- * ### Type: `static` (default)
- * 
+ * ##### Type: `static` (default)
  * <pre>
  * {@code
  * package generated_program;
@@ -103,6 +100,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * See additional examples.
  * 
  * ## NRQL
  * 
@@ -150,6 +148,23 @@ import javax.annotation.Nullable;
  * - `predictBy` - (Optional) The duration, in seconds, that the prediction should look into the future. Default is 3600 seconds (1 hour).
  * - `preferPredictionViolation` - (Optional) If a prediction incident is open when a term&#39;s static threshold is breached by the actual signal, default behavior is to close the prediction incident and open a static incident. Setting `preferPredictionViolation` to `true` overrides this behavior leaving the prediction incident open and preventing a static incident from opening. Default is false.
  * 
+ * ## Outlier Configuration
+ * 
+ * &gt; **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+ * 
+ * &gt; **NOTE:** The `outlierConfiguration` block is only available for _outlier_ NRQL alert conditions.
+ * 
+ * The `outlierConfiguration` block supports the following nested block:
+ * - `dbscan` - (Required) The DBSCAN algorithm configuration block.
+ * 
+ * `dbscan` supports the following arguments:
+ * - `epsilon` - (Required) The maximum distance between two samples for one to be considered as in the neighborhood of the other. Value must be &gt; 0.
+ * - `minimumPoints` - (Required) The number of samples in a neighborhood for a point to be considered as a core point. This includes the point itself. Value must be &gt;= 1.
+ * - `evaluationGroupFacet` - (Optional) NRQL facet attribute used to segment data into groups (e.g. `host`, `region`) before running outlier detection. Omit to evaluate all results together.
+ * 
+ * Notes:
+ * - Currently only `dbscan` is supported.
+ * 
  * ## Additional Examples
  * 
  * ##### Type: `baseline`
@@ -188,37 +203,105 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooNrqlAlertCondition = new NrqlAlertCondition("fooNrqlAlertCondition", NrqlAlertConditionArgs.builder()
- *             .accountId("your_account_id")
- *             .policyId(foo.id())
- *             .type("static")
+ *             .type("baseline")
+ *             .accountId("12345678")
  *             .name("foo")
+ *             .policyId(foo.id())
  *             .description("Alert when transactions are taking too long")
- *             .runbookUrl("https://www.example.com")
  *             .enabled(true)
+ *             .runbookUrl("https://www.example.com")
  *             .violationTimeLimitSeconds(3600)
- *             .fillOption("static")
- *             .fillValue(1.0)
- *             .aggregationWindow(60)
  *             .aggregationMethod("event_flow")
  *             .aggregationDelay("120")
- *             .expirationDuration(120)
- *             .openViolationOnExpiration(true)
- *             .closeViolationsOnExpiration(true)
  *             .slideBy(30)
+ *             .baselineDirection("upper_only")
+ *             .signalSeasonality("weekly")
  *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query("SELECT average(duration) FROM Transaction where appName = 'Your App'")
+ *                 .query("SELECT percentile(duration, 95) FROM Transaction WHERE appName = 'ExampleAppName'")
  *                 .build())
  *             .critical(NrqlAlertConditionCriticalArgs.builder()
  *                 .operator("above")
  *                 .threshold(5.5)
  *                 .thresholdDuration(300)
- *                 .thresholdOccurrences("ALL")
+ *                 .thresholdOccurrences("all")
  *                 .build())
  *             .warning(NrqlAlertConditionWarningArgs.builder()
  *                 .operator("above")
  *                 .threshold(3.5)
  *                 .thresholdDuration(600)
- *                 .thresholdOccurrences("ALL")
+ *                 .thresholdOccurrences("all")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;br&gt; 
+ * 
+ * ##### Type: `outlier`
+ * 
+ * &gt; **BETA PREVIEW:** The `outlier` condition type is in limited release and only enabled for preview on a per-account basis.
+ * 
+ * [Outlier NRQL alert conditions](https://docs.newrelic.com/docs/alerts/create-alert/set-thresholds/outlier-detection/) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates an outlier NRQL alert condition for detecting anomalies using the DBSCAN clustering algorithm.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.AlertPolicyArgs;
+ * import com.pulumi.newrelic.NrqlAlertCondition;
+ * import com.pulumi.newrelic.NrqlAlertConditionArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionOutlierConfigurationArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionOutlierConfigurationDbscanArgs;
+ * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var outlierPolicy = new AlertPolicy("outlierPolicy", AlertPolicyArgs.builder()
+ *             .name("outlier-demo")
+ *             .build());
+ * 
+ *         var outlierCondition = new NrqlAlertCondition("outlierCondition", NrqlAlertConditionArgs.builder()
+ *             .accountId("12345678")
+ *             .policyId(outlierPolicy.id())
+ *             .type("outlier")
+ *             .name("Outlier duration anomaly")
+ *             .description("Detect hosts with anomalous average duration")
+ *             .enabled(true)
+ *             .violationTimeLimitSeconds(3600)
+ *             .aggregationWindow(60)
+ *             .aggregationMethod("event_flow")
+ *             .nrql(NrqlAlertConditionNrqlArgs.builder()
+ *                 .query("SELECT average(duration) FROM Transaction FACET host")
+ *                 .build())
+ *             .outlierConfiguration(NrqlAlertConditionOutlierConfigurationArgs.builder()
+ *                 .dbscan(NrqlAlertConditionOutlierConfigurationDbscanArgs.builder()
+ *                     .epsilon(0.15)
+ *                     .minimumPoints(5)
+ *                     .evaluationGroupFacet("host")
+ *                     .build())
+ *                 .build())
+ *             .critical(NrqlAlertConditionCriticalArgs.builder()
+ *                 .operator("above")
+ *                 .threshold(0.0)
+ *                 .thresholdDuration(300)
+ *                 .thresholdOccurrences("all")
  *                 .build())
  *             .build());
  * 
@@ -227,9 +310,11 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * &lt;br&gt;
+ * 
  * ## Tags
  * 
- * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check `newrelic.EntityTags`.
+ * Manage NRQL alert condition tags with `newrelic.EntityTags`. For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  * 
  * <pre>
  * {@code
@@ -319,8 +404,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**&#47;policies/**\&lt;policy_id\&gt;**&#47;conditions/**\&lt;condition_id\&gt;**&#47;edit&lt;/small&gt;
  * 
  * ## Upgrade from 1.x to 2.x
  * 
@@ -443,6 +526,8 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
+ * 
+ * Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  * 
  */
 @ResourceType(type="newrelic:index/nrqlAlertCondition:NrqlAlertCondition")
@@ -714,14 +799,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.openViolationOnExpiration);
     }
     /**
-     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      * 
      */
     @Export(name="outlierConfiguration", refs={NrqlAlertConditionOutlierConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ NrqlAlertConditionOutlierConfiguration> outlierConfiguration;
 
     /**
-     * @return BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * @return **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      * 
      */
     public Output<Optional<NrqlAlertConditionOutlierConfiguration>> outlierConfiguration() {
@@ -830,14 +915,16 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.titleTemplate);
     }
     /**
-     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * @return The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
      * 
      */
     public Output<Optional<String>> type() {

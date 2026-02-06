@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific alert channel in New Relic that already exists.
- *
- * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -76,10 +72,6 @@ export interface GetAlertChannelResult {
     readonly type: string;
 }
 /**
- * Use this data source to get information about a specific alert channel in New Relic that already exists.
- *
- * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
- *
  * ## Example Usage
  *
  * ```typescript

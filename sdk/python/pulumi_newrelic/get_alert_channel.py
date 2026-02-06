@@ -108,10 +108,6 @@ def get_alert_channel(account_id: Optional[_builtins.str] = None,
                       name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertChannelResult:
     """
-    Use this data source to get information about a specific alert channel in New Relic that already exists.
-
-    > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
-
     ## Example Usage
 
     ```python
@@ -149,10 +145,6 @@ def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[_builtin
                              name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertChannelResult]:
     """
-    Use this data source to get information about a specific alert channel in New Relic that already exists.
-
-    > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
-
     ## Example Usage
 
     ```python

@@ -74,8 +74,6 @@ class Event(pulumi.CustomResource):
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]]] = None,
                  __props__=None):
         """
-        Use this resource to create one or more Insights events.
-
         ## Example Usage
 
         ```python
@@ -131,8 +129,6 @@ class Event(pulumi.CustomResource):
                  args: EventArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create one or more Insights events.
-
         ## Example Usage
 
         ```python

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create, update, and delete tags for a New Relic One entity.
-//
 // ## Example Usage
 //
 // ```go

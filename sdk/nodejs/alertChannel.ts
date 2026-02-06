@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Email
+ * ##### Email
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -27,6 +27,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * See additional examples.
  *
  * ## Additional Examples
  *
@@ -47,7 +48,7 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** For instructions on setting up Webhooks with Slack, please visit the article linked under the argument `slack` in the aforementioned configuration, or [this article](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/notification-channels-control-where-send-alerts/#slack) in New Relic's docs for additional details on setting up the `New Relic Alerts` Slack application, and subsequently using the generated Webhook URL.
  *
- * ### OpsGenie
+ * ##### OpsGenie
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -64,7 +65,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### PagerDuty
+ * ##### PagerDuty
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -78,7 +79,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### VictorOps
+ * ##### VictorOps
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -93,7 +94,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### Webhook
+ * ##### Webhook
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -116,7 +117,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### Webhook with complex payload
+ * ##### Webhook with complex payload
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";

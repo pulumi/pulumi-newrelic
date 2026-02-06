@@ -15,8 +15,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create one or more Insights events.
- * 
  * ## Example Usage
  * 
  * <pre>
