@@ -310,14 +310,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      * 
      */
     @Import(name="outlierConfiguration")
     private @Nullable Output<NrqlAlertConditionOutlierConfigurationArgs> outlierConfiguration;
 
     /**
-     * @return BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+     * @return **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
      * 
      */
     public Optional<Output<NrqlAlertConditionOutlierConfigurationArgs>> outlierConfiguration() {
@@ -438,14 +438,16 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+     * @return The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
      * 
      */
     public Optional<Output<String>> type() {
@@ -963,7 +965,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outlierConfiguration BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+         * @param outlierConfiguration **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
          * 
          * @return builder
          * 
@@ -974,7 +976,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outlierConfiguration BETA PREVIEW: the `outlierConfiguration` field is in limited release and only enabled for preview on a per-account basis. - Defines parameters controlling outlier detection for an `outlier` NRQL condition.
+         * @param outlierConfiguration **BETA PREVIEW:** The configuration block for `outlier` NRQL alert conditions. See Outlier Configuration below for details.
          * 
          * @return builder
          * 
@@ -1153,7 +1155,8 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+         * @param type The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+         * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
          * 
          * @return builder
          * 
@@ -1164,7 +1167,8 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+         * @param type The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+         * &lt;small&gt;\***Note**: **BETA PREVIEW: the `outlier` field is in limited release and only enabled for preview on a per-account basis.**&lt;/small&gt;
          * 
          * @return builder
          * 

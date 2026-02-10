@@ -90,9 +90,6 @@ namespace Pulumi.NewRelic
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-        /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<string>> ChannelIds { get; private set; } = null!;
 
@@ -156,10 +153,6 @@ namespace Pulumi.NewRelic
 
         [Input("channelIds", required: true)]
         private InputList<string>? _channelIds;
-
-        /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-        /// </summary>
         public InputList<string> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<string>());
@@ -188,10 +181,6 @@ namespace Pulumi.NewRelic
 
         [Input("channelIds")]
         private InputList<string>? _channelIds;
-
-        /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-        /// </summary>
         public InputList<string> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<string>());

@@ -12,8 +12,6 @@ namespace Pulumi.NewRelic
     public static class GetAlertPolicy
     {
         /// <summary>
-        /// Use this data source to get information about a specific alert policy in New Relic that already exists.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -47,8 +45,6 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific alert policy in New Relic that already exists.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -82,8 +78,6 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific alert policy in New Relic that already exists.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

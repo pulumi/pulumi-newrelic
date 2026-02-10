@@ -9,8 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,18 +18,7 @@ import * as utilities from "./utilities";
  *     incidentPreference: "PER_POLICY",
  * });
  * ```
- *
- * ### Provision multiple notification channels and add those channels to a policy
- *
- * The following arguments are supported:
- *
- *   * `name` - (Required) The name of the policy.
- *   * `incidentPreference` - (Optional) The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
- *     * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
- *     * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
- *     * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
- *   * `channelIds` - (Optional) **DEPRECATED** The `channelIds` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
- *   * `accountId` - (Optional) The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+ * See additional examples.
  *
  * ## Additional Examples
  *
@@ -45,7 +32,7 @@ import * as utilities from "./utilities";
  *     name: "slack-example",
  *     type: "slack",
  *     config: {
- *         url: "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+ *         url: "https://hooks.slack.com/services/<*****>/<*****>",
  *         channel: "example-alerts-channel",
  *     },
  * });
@@ -68,8 +55,9 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <br>
  *
- * ### Reference existing notification channels and add those channel to a policy
+ * ##### Reference existing notification channels and add those channel to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -137,13 +125,16 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * **DEPRECATED** The `channelIds` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
     declare public readonly channelIds: pulumi.Output<string[] | undefined>;
     /**
-     * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+     * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+     * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+     * * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+     * * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
      */
     declare public readonly incidentPreference: pulumi.Output<string | undefined>;
     /**
@@ -189,13 +180,16 @@ export interface AlertPolicyState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * **DEPRECATED** The `channelIds` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
     channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+     * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+     * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+     * * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+     * * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
      */
     incidentPreference?: pulumi.Input<string>;
     /**
@@ -213,13 +207,16 @@ export interface AlertPolicyArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     * **DEPRECATED** The `channelIds` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
      *
      * @deprecated The `channelIds` attribute is deprecated and will be removed in the next major release of the provider.
      */
     channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+     * The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
+     * * `PER_POLICY` - This sets the incident grouping preference of the policy to **One issue per policy**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-policy) for more details on this incident grouping preference.
+     * * `PER_CONDITION` - This sets the incident grouping preference of the policy to **One issue per condition**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-condition) for more details on this incident grouping preference.
+     * * `PER_CONDITION_AND_TARGET` - This sets the incident grouping preference of the policy to **One issue per condition and signal**. Refer to [this page](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/specify-when-alerts-create-incidents/#preference-signal) for more details on this incident grouping preference.
      */
     incidentPreference?: pulumi.Input<string>;
     /**
