@@ -137,14 +137,18 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the application in New Relic.
+     * A custom name or alias you can give the application in New Relic APM.
+     * 
+     * &gt; **NOTE:** &lt;b style=&#34;color:red;&#34;&gt;Please refrain from using the deprecated attribute `name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the application in New Relic.
+     * @return A custom name or alias you can give the application in New Relic APM.
+     * 
+     * &gt; **NOTE:** &lt;b style=&#34;color:red;&#34;&gt;Please refrain from using the deprecated attribute `name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      * 
      */
     public Optional<Output<String>> name() {
@@ -402,7 +406,9 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the application in New Relic.
+         * @param name A custom name or alias you can give the application in New Relic APM.
+         * 
+         * &gt; **NOTE:** &lt;b style=&#34;color:red;&#34;&gt;Please refrain from using the deprecated attribute `name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
          * 
          * @return builder
          * 
@@ -413,7 +419,9 @@ public final class ApplicationSettingsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the application in New Relic.
+         * @param name A custom name or alias you can give the application in New Relic APM.
+         * 
+         * &gt; **NOTE:** &lt;b style=&#34;color:red;&#34;&gt;Please refrain from using the deprecated attribute `name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
          * 
          * @return builder
          * 

@@ -6,6 +6,104 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to get information about a specific entity in New Relic One that already exists. More information on Terraform's data sources can be found here.
+ *
+ * > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+ * <br><br>
+ * Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+ *
+ * ### Example: Filter By Account ID
+ *
+ * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
+ *
+ * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // The entity returned by this configuration would have to 
+ * // belong to the account_id specified in the provider 
+ * // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
+ * const app = newrelic.getEntity({
+ *     name: "my-app",
+ *     domain: "APM",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // The entity returned by this configuration, unlike in 
+ * // the above example, would have to belong to the account_id 
+ * // specified in the configuration below, i.e. 654321.
+ * const app = newrelic.getEntity({
+ *     name: "my-app",
+ *     accountId: "654321",
+ *     domain: "APM",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
+ *
+ * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
+ * ### Query for an OTEL entity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my-otel-app",
+ *     domain: "EXT",
+ *     type: "SERVICE",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ * });
+ * ```
+ *
+ * ### Query for an entity by type (AWS Lambda entity in this example)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my_lambda_trace",
+ *     type: "AWSLAMBDAFUNCTION",
+ * });
+ * ```
+ *
+ * ### Using the `entityTags` Attribute to Fetch Tags Associated with the Entity
+ *
+ * As stated above in the **Attributes Reference** section, while the attribute `entityTags` helps retrieve tags associated with the entity fetched by the data source, the tags are returned as a JSON-encoded string and not a conventional list or a map, owing to a couple of design considerations; which is why one would need to use the Terraform function `jsondecode()`, along with the attribute `entityTags` in order to convert the JSON-encoded string into a map with key-value pairs.
+ *
+ * The following is an illustration of the aforementioned scenario. It may be observed that a key-value pair version of the JSON-encoded string exported by `entityTags` is written to the variable `keyValueMaps` , using the `jsondecode()` function.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const foo = await newrelic.getEntity({
+ *         name: "Sample Searchable Entity",
+ *         domain: "EXT",
+ *         type: "SERVICE_LEVEL",
+ *     });
+ *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }));
+ *     return {
+ *         keyValueMap: keyValueMap,
+ *     };
+ * }
+ * ```
+ * The value of `local.key_value_map`  would look like the following.
+ */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getEntity:getEntity", {
@@ -94,6 +192,104 @@ export interface GetEntityResult {
     readonly tags?: outputs.GetEntityTag[];
     readonly type: string;
 }
+/**
+ * Use this data source to get information about a specific entity in New Relic One that already exists. More information on Terraform's data sources can be found here.
+ *
+ * > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+ * <br><br>
+ * Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+ *
+ * ### Example: Filter By Account ID
+ *
+ * The default behaviour of this data source is to retrieve entities matching the specified parameters (such as `name`, `domain`, `type`) from NerdGraph with the credentials specified in the configuration of the provider (account ID and API Key), filter them by the account ID specified in the configuration of the provider, and return the first match.
+ *
+ * This would mean, if no entity with the specified search parameters is found associated with the account ID in the configuration of the provider, i.e. `NEW_RELIC_ACCOUNT_ID`, an error is thrown, stating that no matching entity has been found.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // The entity returned by this configuration would have to 
+ * // belong to the account_id specified in the provider 
+ * // configuration, i.e. NEW_RELIC_ACCOUNT_ID.
+ * const app = newrelic.getEntity({
+ *     name: "my-app",
+ *     domain: "APM",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * However, in order to cater to scenarios in which it could be necessary to retrieve an entity belonging to a subaccount using the account ID and API Key of the parent account (for instance, when entities with identical names are present in both the parent account and subaccounts, since matching entities from subaccounts too are returned by NerdGraph), the `accountId` attribute of this data source may be availed. This ensures that the account ID in the configuration of the provider, used to filter entities returned by the API is now overridden by the `accountId` specified in the configuration; i.e., in the below example, the data source would now return an entity matching the specified `name`, belonging to the account with the ID `accountId`.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // The entity returned by this configuration, unlike in 
+ * // the above example, would have to belong to the account_id 
+ * // specified in the configuration below, i.e. 654321.
+ * const app = newrelic.getEntity({
+ *     name: "my-app",
+ *     accountId: "654321",
+ *     domain: "APM",
+ *     type: "APPLICATION",
+ * });
+ * ```
+ * The following example explains a use case along the lines of the aforementioned; using the `accountId` argument in the data source to allow the filtering criteria to be the `accountId` specified (of the subaccount), and not the account ID in the provider configuration.
+ *
+ * In simpler terms, when entities are queried from the parent account, entities with matching names are returned from subaccounts too, hence, specifying the `accountId` of the subaccount in the configuration allows the entity returned to belong to the subaccount with `accountId`.
+ * ### Query for an OTEL entity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my-otel-app",
+ *     domain: "EXT",
+ *     type: "SERVICE",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ * });
+ * ```
+ *
+ * ### Query for an entity by type (AWS Lambda entity in this example)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my_lambda_trace",
+ *     type: "AWSLAMBDAFUNCTION",
+ * });
+ * ```
+ *
+ * ### Using the `entityTags` Attribute to Fetch Tags Associated with the Entity
+ *
+ * As stated above in the **Attributes Reference** section, while the attribute `entityTags` helps retrieve tags associated with the entity fetched by the data source, the tags are returned as a JSON-encoded string and not a conventional list or a map, owing to a couple of design considerations; which is why one would need to use the Terraform function `jsondecode()`, along with the attribute `entityTags` in order to convert the JSON-encoded string into a map with key-value pairs.
+ *
+ * The following is an illustration of the aforementioned scenario. It may be observed that a key-value pair version of the JSON-encoded string exported by `entityTags` is written to the variable `keyValueMaps` , using the `jsondecode()` function.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const foo = await newrelic.getEntity({
+ *         name: "Sample Searchable Entity",
+ *         domain: "EXT",
+ *         type: "SERVICE_LEVEL",
+ *     });
+ *     const keyValueMap = .reduce((__obj, pair) => ({ ...__obj, [pair.key]: pair.values }));
+ *     return {
+ *         keyValueMap: keyValueMap,
+ *     };
+ * }
+ * ```
+ * The value of `local.key_value_map`  would look like the following.
+ */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getEntity:getEntity", {

@@ -31,9 +31,17 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     * 
+     */
     @Import(name="channelIds")
     private @Nullable Output<List<String>> channelIds;
 
+    /**
+     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     * 
+     */
     public Optional<Output<List<String>>> channelIds() {
         return Optional.ofNullable(this.channelIds);
     }
@@ -100,15 +108,33 @@ public final class AlertPolicyChannelState extends com.pulumi.resources.Resource
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelIds(@Nullable Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
         }
 
+        /**
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
 
+        /**
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }

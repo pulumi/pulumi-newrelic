@@ -253,15 +253,25 @@ class BrowserApplication(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Use this resource to create, update, and delete a standalone New Relic browser application.
+
+        ## Example Usage
+
+        The following Terraform configuration is an example that illustrates the basic use case of creating a standalone browser application.
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.BrowserApplication("foo",
+            name="example-browser-app",
+            cookies_enabled=True,
+            distributed_tracing_enabled=True,
+            loader_type="SPA")
+        ```
+
         ## Import
 
         A browser application can be imported using its GUID, i.e.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,15 +288,25 @@ class BrowserApplication(pulumi.CustomResource):
                  args: Optional[BrowserApplicationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create, update, and delete a standalone New Relic browser application.
+
+        ## Example Usage
+
+        The following Terraform configuration is an example that illustrates the basic use case of creating a standalone browser application.
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.BrowserApplication("foo",
+            name="example-browser-app",
+            cookies_enabled=True,
+            distributed_tracing_enabled=True,
+            loader_type="SPA")
+        ```
+
         ## Import
 
         A browser application can be imported using its GUID, i.e.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
-        ```
 
         :param str resource_name: The name of the resource.
         :param BrowserApplicationArgs args: The arguments to use to populate this resource's properties.

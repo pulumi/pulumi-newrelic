@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Use this resource to create and manage a New Relic Pipeline Cloud Rule.
+ *
+ * > **❗<b style="color:green;">\*NEW\*</b>** **Starting v3.68.0 of the New Relic Terraform Provider**, <b style="color:green;">Pipeline Cloud Rules can be managed using the resource [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule).</b> This resource replaces the <span style="color:red;">deprecated [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) resource</span>. <br><br><b>For customers currently managing Drop Rules with the deprecated [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) resource:</b> Please see our [migration guide](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/drop_rules_eol_guide) for instructions on switching to the [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource. <span style="color:red;">The resource [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) is <b>deprecated</b> and will be removed on <b>June 30, 2026</b></span>. While New Relic has automatically migrated your Drop Rules to Pipeline Cloud Rules upstream, <span style="color:tomato;">you must update your Terraform configuration to continue managing Drop Rules as Pipeline Cloud Rules</span>, using the <b style="color:green;">new</b> [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource.<br><br>
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -23,11 +27,7 @@ import * as utilities from "./utilities";
  *
  * Pipeline Cloud Rules can be imported using the `id`. For example:
  *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:index/pipelineCloudRule:PipelineCloudRule foo <id>
- * ```
+ * > **NOTE:** If you'd like to import a `newrelic.PipelineCloudRule` resource corresponding to an existing `newrelic.NrqlDropRule` resource in your configuration in light of the aforementioned EOL, please head over to the instructions in our Drop Rules EOL Migration Guide.
  */
 export class PipelineCloudRule extends pulumi.CustomResource {
     /**

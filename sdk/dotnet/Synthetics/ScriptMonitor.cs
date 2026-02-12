@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
+    /// Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
+    /// 
+    /// &gt; **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its &lt;b style="color:red;"&gt;end-of-life&lt;/b&gt; on &lt;b style="color:red;"&gt;October 22, 2024&lt;/b&gt;. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values &lt;span style="color:red;"&gt;will be deemed invalid&lt;/span&gt;.
+    /// &lt;br&gt;&lt;br&gt;
+    /// If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning in the **Deprecated Runtime** section.
+    /// 
     /// ## Example Usage
     /// 
     /// ##### Type: `SCRIPT_API`
@@ -277,13 +283,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Synthetics monitor scripts can be imported using the `guid`, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
-    /// ```
+    /// Synthetics monitor scripts can be imported using the `Guid`, e.g.
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/scriptMonitor:ScriptMonitor")]
     public partial class ScriptMonitor : global::Pulumi.CustomResource
@@ -410,6 +410,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+        /// </summary>
         [Output("useUnsupportedLegacyRuntime")]
         public Output<bool?> UseUnsupportedLegacyRuntime { get; private set; } = null!;
 
@@ -593,6 +596,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+        /// </summary>
         [Input("useUnsupportedLegacyRuntime")]
         public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
 
@@ -756,6 +762,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+        /// </summary>
         [Input("useUnsupportedLegacyRuntime")]
         public Input<bool>? UseUnsupportedLegacyRuntime { get; set; }
 

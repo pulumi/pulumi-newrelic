@@ -12,6 +12,10 @@ namespace Pulumi.NewRelic
     public static class GetApplication
     {
         /// <summary>
+        /// &gt; **DEPRECATED** Use at your own risk. Use the [`newrelic.getEntity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
+        /// 
+        /// Use this data source to get information about a specific application in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -63,6 +67,10 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **DEPRECATED** Use at your own risk. Use the [`newrelic.getEntity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
+        /// 
+        /// Use this data source to get information about a specific application in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -114,6 +122,10 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **DEPRECATED** Use at your own risk. Use the [`newrelic.getEntity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
+        /// 
+        /// Use this data source to get information about a specific application in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

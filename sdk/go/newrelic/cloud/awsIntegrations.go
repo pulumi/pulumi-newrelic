@@ -12,15 +12,1077 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to integrate AWS services with New Relic.
+//
+// ## Prerequisite
+//
+// Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+//
+// New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+//
+// Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+//
+// ## Example Usage
+//
+// The following example demonstrates the use of the `cloud.AwsIntegrations` resource with multiple AWS integrations supported by the resource.
+//
+// To view a full example with all supported AWS integrations, please see the Additional Examples section. Integration blocks used in the resource may also be left empty to use the default configuration of the integration.
+//
+// A full example, inclusive of setup of AWS resources (from the AWS Terraform Provider) associated with this resource, may be found in our AWS cloud integration guide.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := cloud.NewAwsLinkAccount(ctx, "foo", &cloud.AwsLinkAccountArgs{
+//				Arn:                  pulumi.Any(newrelicAwsRole.Arn),
+//				MetricCollectionMode: pulumi.String("PULL"),
+//				Name:                 pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloud.NewAwsIntegrations(ctx, "bar", &cloud.AwsIntegrationsArgs{
+//				LinkedAccountId: foo.ID(),
+//				Cloudtrail: &cloud.AwsIntegrationsCloudtrailArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-east-2"),
+//					},
+//				},
+//				Vpc: &cloud.AwsIntegrationsVpcArgs{
+//					MetricsPollingInterval: pulumi.Int(900),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-east-2"),
+//					},
+//					FetchNatGateway: pulumi.Bool(true),
+//					FetchVpn:        pulumi.Bool(false),
+//					TagKey:          pulumi.String("tag key"),
+//					TagValue:        pulumi.String("tag value"),
+//				},
+//				Sqs: &cloud.AwsIntegrationsSqsArgs{
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					QueuePrefixes: pulumi.StringArray{
+//						pulumi.String("queue prefix"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					TagKey:   pulumi.String("tag key"),
+//					TagValue: pulumi.String("tag value"),
+//				},
+//				ApiGateway: &cloud.AwsIntegrationsApiGatewayArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					StagePrefixes: pulumi.StringArray{
+//						pulumi.String("stage prefix"),
+//					},
+//					TagKey:   pulumi.String("tag key"),
+//					TagValue: pulumi.String("tag value"),
+//				},
+//				Cloudfront: &cloud.AwsIntegrationsCloudfrontArgs{
+//					FetchLambdasAtEdge:     pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Ec2: &cloud.AwsIntegrationsEc2Args{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					DuplicateEc2Tags:       pulumi.Bool(true),
+//					FetchIpAddresses:       pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Elasticsearch: &cloud.AwsIntegrationsElasticsearchArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchNodes:             pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Kinesis: &cloud.AwsIntegrationsKinesisArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchShards:            pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(900),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Supported AWS Integrations
+//
+// <details>
+//
+//	<summary>Expand this section to view all supported AWS services supported, that may be integrated via this resource.</summary>
+//
+// | Block                   | Description                   |
+// |-------------------------|-------------------------------|
+// | `alb`                   | ALB Integration               |
+// | `apiGateway`           | API Gateway Integration       |
+// | `autoScaling`          | Auto Scaling Integration      |
+// | `awsAppSync`          | AppSync Integration           |
+// | `awsAthena`            | Athena Integration            |
+// | `awsCognito`           | Cognito Integration           |
+// | `awsConnect`           | Connect Integration           |
+// | `awsDirectConnect`    | Direct Connect Integration    |
+// | `awsFsx`               | FSx Integration               |
+// | `awsGlue`              | Glue Integration              |
+// | `awsKinesisAnalytics` | Kinesis Analytics Integration |
+// | `awsMediaConvert`     | MediaConvert Integration      |
+// | `awsMediaPackageVod` | Media Package VOD Integration |
+// | `awsMq`                | MQ Integration                |
+// | `awsMsk`               | MSK Integration               |
+// | `awsNeptune`           | Neptune Integration           |
+// | `awsQldb`              | QLDB Integration              |
+// | `awsRoute53resolver`   | Route53 Resolver Integration  |
+// | `awsStates`            | States Integration            |
+// | `awsTransitGateway`   | Transit Gateway Integration   |
+// | `awsWaf`               | WAF Integration               |
+// | `awsWafv2`             | WAFv2 Integration             |
+// | `billing`               | Billing Integration           |
+// | `cloudfront`            | CloudFront Integration        |
+// | `cloudtrail`            | CloudTrail Integration        |
+// | `docDb`                | DocumentDB Integration        |
+// | `dynamodb`              | DynamoDB Integration          |
+// | `ebs`                   | EBS Integration               |
+// | `ec2`                   | EC2 Integration               |
+// | `ecs`                   | ECS Integration               |
+// | `efs`                   | EFS Integration               |
+// | `elasticache`           | ElastiCache Integration       |
+// | `elasticbeanstalk`      | Elastic Beanstalk Integration |
+// | `elasticsearch`         | Elasticsearch Integration     |
+// | `elb`                   | ELB Integration               |
+// | `emr`                   | EMR Integration               |
+// | `health`                | Health Integration            |
+// | `iam`                   | IAM Integration               |
+// | `iot`                   | IoT Integration               |
+// | `kinesis`               | Kinesis Integration           |
+// | `kinesisFirehose`      | Kinesis Firehose Integration  |
+// | `lambda`                | Lambda Integration            |
+// | `rds`                   | RDS Integration               |
+// | `redshift`              | Redshift Integration          |
+// | `route53`               | Route53 Integration           |
+// | `s3`                    | S3 Integration                |
+// | `ses`                   | SES Integration               |
+// | `securityHub`          | Security Hub Integration      |
+// | `sns`                   | SNS Integration               |
+// | `sqs`                   | SQS Integration               |
+// | `trustedAdvisor`       | Trusted Advisor Integration   |
+// | `vpc`                   | VPC Integration               |
+// | `xRay`                 | X-Ray Integration             |
+//
+// </details>
+//
+// ## Integration Blocks
+//
+// The following section lists out arguments which may be used with each AWS integration supported by this resource.
+//
+// As specified above in the Arguments to be Specified with Integration Blocks section, except for `linkedAccountId` and `accountId`, all aforementioned arguments are to be specified within an integration block as they are supported by a specific set of integrations each; the following list of integration blocks elucidates the same with samples of what each integration block would look like.
+//
+// <details>
+//
+//	<summary> Expand this list to see a list of all integration blocks supported by this resource, the arguments which go with them and a sample of what the block would look like with these arguments. </summary>
+//	<details>
+//	  <summary>cloudtrail</summary>
+//
+// *  Supported Arguments: `awsRegions` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	cloudtrail {
+//	   metrics_polling_interval = 300
+//	   aws_regions              = ["us-east-1", "us-east-2"]
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>vpc</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchNatGateway` `fetchVpn` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 vpc {
+//	  metrics_polling_interval = 900
+//	  aws_regions              = ["us-east-1", "us-east-2"]
+//	  fetch_nat_gateway        = true
+//	  fetch_vpn                = false
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>x_ray</summary>
+//
+// *  Supported Arguments: `awsRegions` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 60,300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 x_ray {
+//	  metrics_polling_interval = 300
+//	  aws_regions              = ["us-east-1", "us-east-2"]
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>s3</summary>
+//
+// *  Supported Arguments: `fetchExtendedInventory` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	s3 {
+//	   metrics_polling_interval = 3600
+//	   fetch_extended_inventory = true
+//	   fetch_tags               = true
+//	   tag_key                  = "tag key"
+//	   tag_value                = "tag value"
+//	}
+//
+// ```
+// </details>
+//
+//	<details>
+//	  <summary>doc_db</summary>
+//
+// *  Supported Arguments: `awsRegions` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	doc_db {
+//	   metrics_polling_interval = 300
+//	   aws_regions              = ["us-east-1", "us-east-2"]
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>sqs</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `fetchTags` `queuePrefixes` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	sqs {
+//	   fetch_extended_inventory = true
+//	   fetch_tags               = true
+//	   queue_prefixes           = ["queue prefix"]
+//	   metrics_polling_interval = 300
+//	   aws_regions              = ["us-east-1"]
+//	   tag_key                  = "tag key"
+//	   tag_value                = "tag value"
+//	 }
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>ebs</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 ebs {
+//	  metrics_polling_interval = 900
+//	  fetch_extended_inventory = true
+//	  aws_regions              = ["us-east-1"]
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>alb</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `fetchTags` `loadBalancerPrefixes` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	alb {
+//	  fetch_extended_inventory = true
+//	  fetch_tags               = true
+//	  load_balancer_prefixes   = ["load balancer prefix"]
+//	  metrics_polling_interval = 300
+//	  aws_regions              = ["us-east-1"]
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>elasticache</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 elasticache {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>api_gateway</summary>
+//
+// *  Supported Arguments: `awsRegions` `tagKey` `tagValue` `stagePrefixes`
+// ```hcl
+//
+//	 api_gateway {
+//	  metrics_polling_interval = 300
+//	  aws_regions              = ["us-east-1"]
+//	  stage_prefixes           = ["stage prefix"]
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>cloudfront</summary>
+//
+// *  Supported Arguments: `fetchLambdasAtEdge` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 cloudfront {
+//	  fetch_lambdas_at_edge    = true
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>dynamodb</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	dynamodb {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_extended_inventory = true
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>ec2</summary>
+//
+// *  Supported Arguments: `awsRegions` `duplicateEc2Tags` `fetchIpAddresses` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 ec2 {
+//	  aws_regions              = ["us-east-1"]
+//	  duplicate_ec2_tags       = true
+//	  fetch_ip_addresses       = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>ecs</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	ecs {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>efs</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	efs {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>elasticbeanstalk</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 elasticbeanstalk {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_extended_inventory = true
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>elasticsearch</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchNodes` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	 elasticsearch {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_nodes              = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>elb</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `fetchTags` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	       elb {
+//	         aws_regions              = ["us-east-1"]
+//	         fetch_extended_inventory = true
+//	         fetch_tags               = true
+//	         metrics_polling_interval = 300
+//	       }
+//	```
+//	 </details>
+//	 <details>
+//	   <summary>emr</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	emr {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>iam</summary>
+//
+// *  Supported Arguments: `tagKey` `tagValue` `metricsPollingInterval`
+// ```hcl
+//
+//	iam {
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary> kinesis </summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchShards` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	       kinesis {
+//	         aws_regions              = ["us-east-1"]
+//	         fetch_shards             = true
+//	         fetch_tags               = true
+//	         metrics_polling_interval = 900
+//	         tag_key                  = "tag key"
+//	         tag_value                = "tag value"
+//	       }
+//	```
+//	 </details>
+//	 <details>
+//	   <summary>lambda</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	       lambda {
+//	         aws_regions              = ["us-east-1"]
+//	         fetch_tags               = true
+//	         metrics_polling_interval = 300
+//	         tag_key                  = "tag key"
+//	         tag_value                = "tag value"
+//	       }
+//	```
+//	 </details>
+//	 <details>
+//	   <summary>rds</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchTags` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	rds {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_tags               = true
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>redshift</summary>
+//
+// *  Supported Arguments: `awsRegions` `tagKey` `tagValue` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	redshift {
+//	  aws_regions              = ["us-east-1"]
+//	  metrics_polling_interval = 300
+//	  tag_key                  = "tag key"
+//	  tag_value                = "tag value"
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>route53</summary>
+//
+// *  Supported Arguments: `fetchExtendedInventory` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	route53 {
+//	  fetch_extended_inventory = true
+//	  metrics_polling_interval = 300
+//	}
+//
+// ```
+//
+//	</details>
+//	<details>
+//	  <summary>sns</summary>
+//
+// *  Supported Arguments: `awsRegions` `fetchExtendedInventory` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+// ```hcl
+//
+//	sns {
+//	  aws_regions              = ["us-east-1"]
+//	  fetch_extended_inventory = true
+//	  metrics_polling_interval = 300
+//	}
+//
+// ```
+//
+//	</details>
+//	  <details>
+//	  <summary>security hub</summary>
+//
+// *  Supported Arguments: `awsRegions` `metricsPollingInterval`
+// *  Valid `metricsPollingInterval` values: 21600, 43200, 86400 (seconds)
+// ```hcl
+//
+//	security_hub {
+//	  aws_regions              = ["us-east-1"]
+//	  metrics_polling_interval = 86400
+//	}
+//
+// ```
+//
+//	</details>
+//
+// </details>
+//
+// ## Additional Examples
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloud.NewAwsIntegrations(ctx, "bar", &cloud.AwsIntegrationsArgs{
+//				LinkedAccountId: pulumi.Any(foo.Id),
+//				Billing: &cloud.AwsIntegrationsBillingArgs{
+//					MetricsPollingInterval: pulumi.Int(3600),
+//				},
+//				Cloudtrail: &cloud.AwsIntegrationsCloudtrailArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-east-2"),
+//					},
+//				},
+//				Health: &cloud.AwsIntegrationsHealthArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				TrustedAdvisor: &cloud.AwsIntegrationsTrustedAdvisorArgs{
+//					MetricsPollingInterval: pulumi.Int(3600),
+//				},
+//				Vpc: &cloud.AwsIntegrationsVpcArgs{
+//					MetricsPollingInterval: pulumi.Int(900),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-east-2"),
+//					},
+//					FetchNatGateway: pulumi.Bool(true),
+//					FetchVpn:        pulumi.Bool(false),
+//					TagKey:          pulumi.String("tag key"),
+//					TagValue:        pulumi.String("tag value"),
+//				},
+//				XRay: &cloud.AwsIntegrationsXRayArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-east-2"),
+//					},
+//				},
+//				S3: &cloud.AwsIntegrationsS3Args{
+//					MetricsPollingInterval: pulumi.Int(3600),
+//				},
+//				DocDb: &cloud.AwsIntegrationsDocDbArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Sqs: &cloud.AwsIntegrationsSqsArgs{
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					QueuePrefixes: pulumi.StringArray{
+//						pulumi.String("queue prefix"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					TagKey:   pulumi.String("tag key"),
+//					TagValue: pulumi.String("tag value"),
+//				},
+//				Ebs: &cloud.AwsIntegrationsEbsArgs{
+//					MetricsPollingInterval: pulumi.Int(900),
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					TagKey:   pulumi.String("tag key"),
+//					TagValue: pulumi.String("tag value"),
+//				},
+//				Alb: &cloud.AwsIntegrationsAlbArgs{
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					LoadBalancerPrefixes: pulumi.StringArray{
+//						pulumi.String("load balancer prefix"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					TagKey:   pulumi.String("tag key"),
+//					TagValue: pulumi.String("tag value"),
+//				},
+//				Elasticache: &cloud.AwsIntegrationsElasticacheArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				ApiGateway: &cloud.AwsIntegrationsApiGatewayArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					StagePrefixes: pulumi.StringArray{
+//						pulumi.String("stage prefix"),
+//					},
+//					TagKey:   pulumi.String("tag key"),
+//					TagValue: pulumi.String("tag value"),
+//				},
+//				AutoScaling: &cloud.AwsIntegrationsAutoScalingArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsAppSync: &cloud.AwsIntegrationsAwsAppSyncArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsAthena: &cloud.AwsIntegrationsAwsAthenaArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsCognito: &cloud.AwsIntegrationsAwsCognitoArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsConnect: &cloud.AwsIntegrationsAwsConnectArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsDirectConnect: &cloud.AwsIntegrationsAwsDirectConnectArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsFsx: &cloud.AwsIntegrationsAwsFsxArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsGlue: &cloud.AwsIntegrationsAwsGlueArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsKinesisAnalytics: &cloud.AwsIntegrationsAwsKinesisAnalyticsArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsMediaConvert: &cloud.AwsIntegrationsAwsMediaConvertArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsMediaPackageVod: &cloud.AwsIntegrationsAwsMediaPackageVodArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsMq: &cloud.AwsIntegrationsAwsMqArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsMsk: &cloud.AwsIntegrationsAwsMskArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsNeptune: &cloud.AwsIntegrationsAwsNeptuneArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsQldb: &cloud.AwsIntegrationsAwsQldbArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsRoute53resolver: &cloud.AwsIntegrationsAwsRoute53resolverArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsStates: &cloud.AwsIntegrationsAwsStatesArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsTransitGateway: &cloud.AwsIntegrationsAwsTransitGatewayArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsWaf: &cloud.AwsIntegrationsAwsWafArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				AwsWafv2: &cloud.AwsIntegrationsAwsWafv2Args{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Cloudfront: &cloud.AwsIntegrationsCloudfrontArgs{
+//					FetchLambdasAtEdge:     pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Dynamodb: &cloud.AwsIntegrationsDynamodbArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Ec2: &cloud.AwsIntegrationsEc2Args{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					DuplicateEc2Tags:       pulumi.Bool(true),
+//					FetchIpAddresses:       pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Ecs: &cloud.AwsIntegrationsEcsArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Efs: &cloud.AwsIntegrationsEfsArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Elasticbeanstalk: &cloud.AwsIntegrationsElasticbeanstalkArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Elasticsearch: &cloud.AwsIntegrationsElasticsearchArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchNodes:             pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Elb: &cloud.AwsIntegrationsElbArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Emr: &cloud.AwsIntegrationsEmrArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Iam: &cloud.AwsIntegrationsIamArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Iot: &cloud.AwsIntegrationsIotArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Kinesis: &cloud.AwsIntegrationsKinesisArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchShards:            pulumi.Bool(true),
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(900),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				KinesisFirehose: &cloud.AwsIntegrationsKinesisFirehoseArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Lambda: &cloud.AwsIntegrationsLambdaArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Rds: &cloud.AwsIntegrationsRdsArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchTags:              pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Redshift: &cloud.AwsIntegrationsRedshiftArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//					TagKey:                 pulumi.String("tag key"),
+//					TagValue:               pulumi.String("tag value"),
+//				},
+//				Route53: &cloud.AwsIntegrationsRoute53Args{
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Ses: &cloud.AwsIntegrationsSesArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Sns: &cloud.AwsIntegrationsSnsArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					FetchExtendedInventory: pulumi.Bool(true),
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				SecurityHub: &cloud.AwsIntegrationsSecurityHubArgs{
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//					},
+//					MetricsPollingInterval: pulumi.Int(86400),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Linked AWS account integrations can be imported using the `id`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>
-// ```
 type AwsIntegrations struct {
 	pulumi.CustomResourceState
 

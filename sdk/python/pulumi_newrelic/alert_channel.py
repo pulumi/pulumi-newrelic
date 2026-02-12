@@ -302,11 +302,7 @@ class AlertChannel(pulumi.CustomResource):
 
         Alert channels can be imported using the `id`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
-        ```
+        > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,11 +447,7 @@ class AlertChannel(pulumi.CustomResource):
 
         Alert channels can be imported using the `id`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
-        ```
+        > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
         :param str resource_name: The name of the resource.
         :param AlertChannelArgs args: The arguments to use to populate this resource's properties.

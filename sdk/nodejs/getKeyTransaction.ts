@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Use this data source to get information about a specific key transaction in New Relic that already exists.  More information on Terraform's data sources can be found here.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -85,6 +87,8 @@ export interface GetKeyTransactionResult {
     readonly type: string;
 }
 /**
+ * Use this data source to get information about a specific key transaction in New Relic that already exists.  More information on Terraform's data sources can be found here.
+ *
  * ## Example Usage
  *
  * ```typescript

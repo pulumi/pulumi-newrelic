@@ -199,12 +199,6 @@ import javax.annotation.Nullable;
  * 
  * Linked GCP account integrations can be imported using the `id`, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:cloud/gcpIntegrations:GcpIntegrations")
 public class GcpIntegrations extends com.pulumi.resources.CustomResource {

@@ -7,9 +7,53 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
+ *
+ * Use this resource to manage configuration for an application that already exists in New Relic.
+ *
+ * > **WARNING:** We encourage you to use this resource to manage all application settings together, not just a few, to avoid potential issues like incompatibility or unexpected behavior.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = new newrelic.plugins.ApplicationSettings("app", {
+ *     guid: "Mxxxxxxxxxxxxxxxxxxxxx",
+ *     name: "Sample New Relic APM Application",
+ *     appApdexThreshold: 0.7,
+ *     useServerSideConfig: true,
+ *     transactionTracers: [{
+ *         explainQueryPlans: [{
+ *             queryPlanThresholdType: "VALUE",
+ *             queryPlanThresholdValue: 0.5,
+ *         }],
+ *         sql: {
+ *             recordSql: "RAW",
+ *         },
+ *         stackTraceThresholdValue: 0.5,
+ *         transactionThresholdType: "VALUE",
+ *         transactionThresholdValue: 0.5,
+ *     }],
+ *     errorCollectors: [{
+ *         expectedErrorClasses: [],
+ *         expectedErrorCodes: [],
+ *         ignoredErrorClasses: [],
+ *         ignoredErrorCodes: [],
+ *     }],
+ *     enableSlowSql: true,
+ *     tracerType: "NONE",
+ *     enableThreadProfiler: true,
+ * });
+ * ```
+ * ## Notes
+ *
+ * > **NOTE:** The `newrelic.plugins.ApplicationSettings` resource cannot be deleted directly via Terraform. It can only reset application settings to their initial state.
+ *
  * ## Import
  *
- * Applications can be imported using notation `application_guid`, e.g.
+ * Applications can be imported using notation `applicationGuid`, e.g.
  *
  * ```sh
  * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
@@ -75,7 +119,9 @@ export class ApplicationSettings extends pulumi.CustomResource {
     declare public readonly guid: pulumi.Output<string>;
     declare public /*out*/ readonly isImported: pulumi.Output<boolean>;
     /**
-     * The name of the application in New Relic.
+     * A custom name or alias you can give the application in New Relic APM.
+     *
+     * > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -172,7 +218,9 @@ export interface ApplicationSettingsState {
     guid?: pulumi.Input<string>;
     isImported?: pulumi.Input<boolean>;
     /**
-     * The name of the application in New Relic.
+     * A custom name or alias you can give the application in New Relic APM.
+     *
+     * > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      */
     name?: pulumi.Input<string>;
     /**
@@ -224,7 +272,9 @@ export interface ApplicationSettingsArgs {
      */
     guid?: pulumi.Input<string>;
     /**
-     * The name of the application in New Relic.
+     * A custom name or alias you can give the application in New Relic APM.
+     *
+     * > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      */
     name?: pulumi.Input<string>;
     /**

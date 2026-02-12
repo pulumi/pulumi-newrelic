@@ -43,7 +43,9 @@ class ApplicationSettingsArgs:
         :param pulumi.Input[_builtins.str] guid: The GUID of the application in New Relic APM.
                
                > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the application in New Relic.
+        :param pulumi.Input[_builtins.str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         :param pulumi.Input[_builtins.str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[_builtins.bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -161,7 +163,9 @@ class ApplicationSettingsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the application in New Relic.
+        A custom name or alias you can give the application in New Relic APM.
+
+        > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         """
         return pulumi.get(self, "name")
 
@@ -232,7 +236,9 @@ class _ApplicationSettingsState:
         :param pulumi.Input[_builtins.str] guid: The GUID of the application in New Relic APM.
                
                > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the application in New Relic.
+        :param pulumi.Input[_builtins.str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         :param pulumi.Input[_builtins.str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSettingsTransactionTracerArgs']]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[_builtins.bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -361,7 +367,9 @@ class _ApplicationSettingsState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the application in New Relic.
+        A custom name or alias you can give the application in New Relic APM.
+
+        > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         """
         return pulumi.get(self, "name")
 
@@ -425,6 +433,49 @@ class ApplicationSettings(pulumi.CustomResource):
                  use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        > **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
+
+        Use this resource to manage configuration for an application that already exists in New Relic.
+
+        > **WARNING:** We encourage you to use this resource to manage all application settings together, not just a few, to avoid potential issues like incompatibility or unexpected behavior.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        app = newrelic.plugins.ApplicationSettings("app",
+            guid="Mxxxxxxxxxxxxxxxxxxxxx",
+            name="Sample New Relic APM Application",
+            app_apdex_threshold=0.7,
+            use_server_side_config=True,
+            transaction_tracers=[{
+                "explain_query_plans": [{
+                    "query_plan_threshold_type": "VALUE",
+                    "query_plan_threshold_value": 0.5,
+                }],
+                "sql": {
+                    "record_sql": "RAW",
+                },
+                "stack_trace_threshold_value": 0.5,
+                "transaction_threshold_type": "VALUE",
+                "transaction_threshold_value": 0.5,
+            }],
+            error_collectors=[{
+                "expected_error_classes": [],
+                "expected_error_codes": [],
+                "ignored_error_classes": [],
+                "ignored_error_codes": [],
+            }],
+            enable_slow_sql=True,
+            tracer_type="NONE",
+            enable_thread_profiler=True)
+        ```
+        ## Notes
+
+        > **NOTE:** The `plugins.ApplicationSettings` resource cannot be deleted directly via Terraform. It can only reset application settings to their initial state.
+
         ## Import
 
         Applications can be imported using notation `application_guid`, e.g.
@@ -444,7 +495,9 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] guid: The GUID of the application in New Relic APM.
                
                > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the application in New Relic.
+        :param pulumi.Input[_builtins.str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         :param pulumi.Input[_builtins.str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[_builtins.bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -456,6 +509,49 @@ class ApplicationSettings(pulumi.CustomResource):
                  args: Optional[ApplicationSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
+
+        Use this resource to manage configuration for an application that already exists in New Relic.
+
+        > **WARNING:** We encourage you to use this resource to manage all application settings together, not just a few, to avoid potential issues like incompatibility or unexpected behavior.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        app = newrelic.plugins.ApplicationSettings("app",
+            guid="Mxxxxxxxxxxxxxxxxxxxxx",
+            name="Sample New Relic APM Application",
+            app_apdex_threshold=0.7,
+            use_server_side_config=True,
+            transaction_tracers=[{
+                "explain_query_plans": [{
+                    "query_plan_threshold_type": "VALUE",
+                    "query_plan_threshold_value": 0.5,
+                }],
+                "sql": {
+                    "record_sql": "RAW",
+                },
+                "stack_trace_threshold_value": 0.5,
+                "transaction_threshold_type": "VALUE",
+                "transaction_threshold_value": 0.5,
+            }],
+            error_collectors=[{
+                "expected_error_classes": [],
+                "expected_error_codes": [],
+                "ignored_error_classes": [],
+                "ignored_error_codes": [],
+            }],
+            enable_slow_sql=True,
+            tracer_type="NONE",
+            enable_thread_profiler=True)
+        ```
+        ## Notes
+
+        > **NOTE:** The `plugins.ApplicationSettings` resource cannot be deleted directly via Terraform. It can only reset application settings to their initial state.
+
         ## Import
 
         Applications can be imported using notation `application_guid`, e.g.
@@ -549,7 +645,9 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] guid: The GUID of the application in New Relic APM.
                
                > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the application in New Relic.
+        :param pulumi.Input[_builtins.str] name: A custom name or alias you can give the application in New Relic APM.
+               
+               > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         :param pulumi.Input[_builtins.str] tracer_type: Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationSettingsTransactionTracerArgs', 'ApplicationSettingsTransactionTracerArgsDict']]]] transaction_tracers: Configuration block for transaction tracer. Providing this block enables transaction tracing. The following arguments are supported:
         :param pulumi.Input[_builtins.bool] use_server_side_config: Enable or disable server side monitoring for the New Relic application.
@@ -639,7 +737,9 @@ class ApplicationSettings(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the application in New Relic.
+        A custom name or alias you can give the application in New Relic APM.
+
+        > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         """
         return pulumi.get(self, "name")
 

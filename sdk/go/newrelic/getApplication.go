@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **DEPRECATED** Use at your own risk. Use the [`getEntity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
+//
+// Use this data source to get information about a specific application in New Relic that already exists. More information on Terraform's data sources can be found here.
+//
 // ## Example Usage
 //
 // ```go

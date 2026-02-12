@@ -20,7 +20,7 @@ public final class WorkflowIssuesFilter {
      */
     private @Nullable String filterId;
     /**
-     * @return (Required) Filter&#39;s name.
+     * @return The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can&#39;t be empty.
      * 
      */
     private String name;
@@ -44,7 +44,7 @@ public final class WorkflowIssuesFilter {
         return Optional.ofNullable(this.filterId);
     }
     /**
-     * @return (Required) Filter&#39;s name.
+     * @return The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can&#39;t be empty.
      * 
      */
     public String name() {

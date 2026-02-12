@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// Use this resource to create, update, and delete New Relic Events to Metrics rules.
+    /// 
+    /// &gt; **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+    /// &lt;br&gt;&lt;br&gt;
+    /// Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -34,14 +40,7 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// New Relic Events to Metrics rules can be imported using a concatenated string of the format
-    /// 
     ///  `&lt;account_id&gt;:&lt;rule_id&gt;`, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
-    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/eventsToMetricsRule:EventsToMetricsRule")]
     public partial class EventsToMetricsRule : global::Pulumi.CustomResource

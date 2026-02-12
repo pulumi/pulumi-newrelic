@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Insights
 {
     /// <summary>
+    /// Use this resource to create one or more Insights events during a terraform run.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

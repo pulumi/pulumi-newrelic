@@ -11,6 +11,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+//
+// ## ID Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Data source
+//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//				Id: pulumi.StringRef("1e543419-0c25-456a-9057-fb0eb310e60b"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Resource
+//			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
+//				Name:          pulumi.String("webhook-example"),
+//				Type:          pulumi.String("WEBHOOK"),
+//				DestinationId: pulumi.String(foo.Id),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Label: pulumi.String("Payload Template"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Name Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Data source
+//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//				Name: pulumi.StringRef("webhook-destination"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Resource
+//			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
+//				Name:          pulumi.String("webhook-example"),
+//				Type:          pulumi.String("WEBHOOK"),
+//				DestinationId: pulumi.String(foo.Id),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Label: pulumi.String("Payload Template"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotificationDestinationArgs, opts ...pulumi.InvokeOption) (*LookupNotificationDestinationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNotificationDestinationResult

@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic
     public static class GetTestGrokPattern
     {
         /// <summary>
+        /// Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -40,6 +42,8 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -68,6 +72,8 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetTestGrokPatternResult>("newrelic:index/getTestGrokPattern:getTestGrokPattern", args ?? new GetTestGrokPatternInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

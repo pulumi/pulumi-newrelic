@@ -150,13 +150,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// ## Import
     /// 
-    /// Linked GCP account integrations can be imported using the `id`, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo &lt;id&gt;
-    /// ```
+    /// Linked GCP account integrations can be imported using the `Id`, e.g.
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/gcpIntegrations:GcpIntegrations")]
     public partial class GcpIntegrations : global::Pulumi.CustomResource

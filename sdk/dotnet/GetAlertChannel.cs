@@ -12,6 +12,11 @@ namespace Pulumi.NewRelic
     public static class GetAlertChannel
     {
         /// <summary>
+        /// Use this data source to get information about a specific alert channel in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
+        /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+        /// 
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -48,6 +53,11 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to get information about a specific alert channel in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
+        /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+        /// 
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -84,6 +94,11 @@ namespace Pulumi.NewRelic
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to get information about a specific alert channel in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
+        /// &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+        /// 
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

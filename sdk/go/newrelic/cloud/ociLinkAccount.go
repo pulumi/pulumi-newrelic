@@ -117,12 +117,6 @@ import (
 // ## Import
 //
 // Linked OCI accounts can be imported using the `id`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo <id>
-// ```
 type OciLinkAccount struct {
 	pulumi.CustomResourceState
 

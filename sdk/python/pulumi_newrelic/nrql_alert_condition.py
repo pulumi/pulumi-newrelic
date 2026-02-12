@@ -1074,6 +1074,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  warning: Optional[pulumi.Input[Union['NrqlAlertConditionWarningArgs', 'NrqlAlertConditionWarningArgsDict']]] = None,
                  __props__=None):
         """
+        Use this resource to create and manage NRQL alert conditions in New Relic.
+
+        > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+        <br><br>
+        Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+
         ## Example Usage
 
         ##### Type: `static` (default)
@@ -1391,13 +1397,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
-        ```
 
         // For `static` conditions
-
-        ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
         ```
+
+        > **NOTE:** The value of `conditionType` in the import composite ID must be a valid condition type - `static` or `baseline`. Also note that deprecated arguments will *not* be set when importing.
 
         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
@@ -1444,6 +1449,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  args: NrqlAlertConditionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create and manage NRQL alert conditions in New Relic.
+
+        > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+        <br><br>
+        Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+
         ## Example Usage
 
         ##### Type: `static` (default)
@@ -1761,13 +1772,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
-        ```
 
         // For `static` conditions
-
-        ```sh
         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
         ```
+
+        > **NOTE:** The value of `conditionType` in the import composite ID must be a valid condition type - `static` or `baseline`. Also note that deprecated arguments will *not* be set when importing.
 
         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 

@@ -94,6 +94,8 @@ def get_test_grok_pattern(account_id: Optional[_builtins.str] = None,
                           log_lines: Optional[Sequence[_builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestGrokPatternResult:
     """
+    Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+
     ## Example Usage
 
     ```python
@@ -131,6 +133,8 @@ def get_test_grok_pattern_output(account_id: Optional[pulumi.Input[Optional[_bui
                                  log_lines: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestGrokPatternResult]:
     """
+    Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+
     ## Example Usage
 
     ```python

@@ -5,15 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ### Create A New Relic One Dashboard From A JSON File
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * as std from "@pulumi/std";
+ *
+ * const foo = new newrelic.OneDashboardJson("foo", {json: std.file({
+ *     input: "dashboard.json",
+ * }).then(invoke => invoke.result)});
+ * ```
+ *
+ * ## Additional Examples
+ *
+ * ### Setting Thresholds
+ *
+ * The following example demonstrates setting thresholds on a billboard widget.
+ *
+ * `dashboard.json`
+ *
+ * ### More Complex Examples
+ *
+ * The following examples show more intricate use cases of creating dashboards from JSON files, using this resource.
+ * - This example illustrates the use of a variable list of items to create a dashboard, that may be used iteratively to populate queries and other arguments of widgets, using Terraform template files.
+ * - This example elaborates on the use of an apt Terraform configuration with additional dependencies, to instrument the use of values obtained from a GraphQL API response iteratively to configure widgets in the dashboard for each item in the response, using the Terraform `jsondecode` function.
+ *
+ * More of such examples may be found in ths GitHub repository.
+ *
  * ## Import
  *
  * New Relic dashboards can be imported using their GUID, e.g.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
- * ```
  */
 export class OneDashboardJson extends pulumi.CustomResource {
     /**

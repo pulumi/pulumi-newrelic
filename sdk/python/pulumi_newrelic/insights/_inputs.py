@@ -21,24 +21,19 @@ __all__ = [
     'EventEventAttributeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EventEventArgsDict(TypedDict):
-        attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgsDict']]]
-        """
-        An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
-        """
-        timestamp: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
-        """
-elif False:
-    EventEventArgsDict: TypeAlias = Mapping[str, Any]
+class EventEventArgsDict(TypedDict):
+    attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgsDict']]]
+    """
+    An attribute to include in your event payload. Multiple attribute blocks can be defined for an event.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+    """
+    timestamp: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+    """
 
 @pulumi.input_type
 class EventEventArgs:
@@ -93,22 +88,19 @@ class EventEventArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class EventEventAttributeArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the attribute.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
-        """
-elif False:
-    EventEventAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class EventEventAttributeArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the attribute.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are string, int, or float. Defaults to string.
+    """
 
 @pulumi.input_type
 class EventEventAttributeArgs:

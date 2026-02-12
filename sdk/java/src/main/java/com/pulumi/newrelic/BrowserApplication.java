@@ -16,15 +16,48 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create, update, and delete a standalone New Relic browser application.
+ * 
+ * ## Example Usage
+ * 
+ * The following Terraform configuration is an example that illustrates the basic use case of creating a standalone browser application.
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.BrowserApplication;
+ * import com.pulumi.newrelic.BrowserApplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new BrowserApplication("foo", BrowserApplicationArgs.builder()
+ *             .name("example-browser-app")
+ *             .cookiesEnabled(true)
+ *             .distributedTracingEnabled(true)
+ *             .loaderType("SPA")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * A browser application can be imported using its GUID, i.e.
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
- * ```
  * 
  */
 @ResourceType(type="newrelic:index/browserApplication:BrowserApplication")

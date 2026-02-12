@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? FilterId { get; set; }
 
         /// <summary>
-        /// (Required) Filter's name.
+        /// The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

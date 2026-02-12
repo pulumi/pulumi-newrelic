@@ -10,15 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// Use this resource to create, update, and delete a standalone New Relic browser application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// The following Terraform configuration is an example that illustrates the basic use case of creating a standalone browser application.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.BrowserApplication("foo", new()
+    ///     {
+    ///         Name = "example-browser-app",
+    ///         CookiesEnabled = true,
+    ///         DistributedTracingEnabled = true,
+    ///         LoaderType = "SPA",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A browser application can be imported using its GUID, i.e.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
-    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/browserApplication:BrowserApplication")]
     public partial class BrowserApplication : global::Pulumi.CustomResource

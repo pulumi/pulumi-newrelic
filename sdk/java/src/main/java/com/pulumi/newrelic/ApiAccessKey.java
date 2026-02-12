@@ -15,12 +15,145 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to programmatically create and manage the following types of keys in New Relic:
+ * - [User API keys](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)
+ * - License (or ingest) keys, including:
+ *   - General (Ingest) [license keys](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM
+ *   - [Browser license keys](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)
+ * 
+ * Refer to the New Relic article [&#39;Use NerdGraph to manage license keys and User API keys&#39;](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+ * 
+ * &gt; **WARNING:** When creating a User API key, if a &lt;span style=&#34;color:tomato;&#34;&gt;truncated API key&lt;/span&gt; appears in the state after the first `pulumi up`, it is likely because the API key was created for a user other than the one running Terraform. This is a security measure by the New Relic API to _prevent exposing the full key value when an API key is created for another user_. See the Important Considerations section below for more details.
+ * 
+ * ## Example Usage
+ * 
+ * ### Example: Creating a User API Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.ApiAccessKey;
+ * import com.pulumi.newrelic.ApiAccessKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var userApiKey = new ApiAccessKey("userApiKey", ApiAccessKeyArgs.builder()
+ *             .accountId("1234321")
+ *             .keyType("USER")
+ *             .userId("1001111101")
+ *             .name("User API Key for Admin Access")
+ *             .notes("This key is used for managing user-level API access.")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Example: Creating an Ingest License Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.ApiAccessKey;
+ * import com.pulumi.newrelic.ApiAccessKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ingestLicenseKey = new ApiAccessKey("ingestLicenseKey", ApiAccessKeyArgs.builder()
+ *             .accountId("1234321")
+ *             .keyType("INGEST")
+ *             .ingestType("LICENSE")
+ *             .name("Ingest License Key for App Monitoring")
+ *             .notes("This key is used for APM and other ingest purposes.")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Example: Creating an Ingest Browser Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.ApiAccessKey;
+ * import com.pulumi.newrelic.ApiAccessKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ingestBrowserKey = new ApiAccessKey("ingestBrowserKey", ApiAccessKeyArgs.builder()
+ *             .accountId("1234321")
+ *             .keyType("INGEST")
+ *             .ingestType("BROWSER")
+ *             .name("Browser Monitoring Key")
+ *             .notes("This key is used for browser monitoring and analytics.")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Important Considerations
+ * 
+ * #### Updating Existing Keys
+ * - Only `name` and `notes` can be updated in place. Changes to other attributes will recreate the key (the `newrelic.ApiAccessKey` resource), invalidating the existing one.
+ * 
+ * #### Creating API Keys for Other Users
+ * - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
+ * 
+ * #### Importing Existing Keys into Terraform State
+ * - A key may be imported with its ID using the syntax described in the Import section below. However, the actual value of the key _cannot be imported_ if the key being fetched was created by a user other than the one whose API key is being used to run Terraform. In such cases, the API returns a truncated key for security reasons. For more details, see [Use NerdGraph to manage license keys and User API keys](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys).
+ * 
+ * #### Account Type Restrictions for Ingest Keys
+ * - Creating `INGEST` keys requires a New Relic user with core or full platform access. See [user types](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
+ * 
  * ## Import
  * 
  * Existing API access keys can be imported using a composite ID of `&lt;api_access_key_id&gt;:&lt;key_type&gt;`, where `&lt;key_type&gt;` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.
  * 
  * For example:
- * 
  * ```sh
  * $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar &#34;131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST&#34;
  * ```
@@ -28,18 +161,6 @@ import javax.annotation.Nullable;
  * For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=&lt;filename&gt;.tf`, reducing manual effort and ensuring accuracy.
  * 
  * For example:
- * 
- * hcl
- * 
- * import {
- * 
- *   id = &#34;131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST&#34;
- * 
- *   to = newrelic_api_access_key.foobar
- * 
- * }
- * 
- * This approach simplifies the import process and ensures that the resource configuration aligns with the imported state.
  * 
  */
 @ResourceType(type="newrelic:index/apiAccessKey:ApiAccessKey")
@@ -106,9 +227,19 @@ public class ApiAccessKey extends com.pulumi.resources.CustomResource {
     public Output<String> keyType() {
         return this.keyType;
     }
+    /**
+     * The name of the API key.
+     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the API key.
+     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

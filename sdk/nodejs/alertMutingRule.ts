@@ -7,6 +7,12 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Use this resource to create a muting rule for New Relic Alerts incidents.
+ *
+ * > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+ * <br><br>
+ * Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -54,6 +60,7 @@ import * as utilities from "./utilities";
  *
  * ```sh
  * $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+ *
  * ```
  */
 export class AlertMutingRule extends pulumi.CustomResource {

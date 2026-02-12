@@ -10,15 +10,456 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// &gt; **IMPORTANT!**
+    /// When configuring the `newrelic.OneDashboard` resource, it is important to understand that widgets should ideally be sorted by row and column order to maintain the stability and accuracy of your dashboard setup. If this specified order is not adhered to, it can lead to resource drift, which might result in discrepancies between the intended setup and the actual deployed dashboard.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Create A New Relic One Dashboard
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampledash = new NewRelic.OneDashboard("exampledash", new()
+    ///     {
+    ///         Name = "New Relic Terraform Example",
+    ///         Permissions = "public_read_only",
+    ///         Pages = new[]
+    ///         {
+    ///             new NewRelic.Inputs.OneDashboardPageArgs
+    ///             {
+    ///                 Name = "New Relic Terraform Example",
+    ///                 WidgetTables = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetTableArgs
+    ///                     {
+    ///                         Title = "List of Transactions",
+    ///                         Row = 1,
+    ///                         Column = 4,
+    ///                         Width = 6,
+    ///                         Height = 3,
+    ///                         RefreshRate = "60000",
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetTableNrqlQueryArgs
+    ///                             {
+    ///                                 Query = "FROM Transaction SELECT *",
+    ///                             },
+    ///                         },
+    ///                         InitialSorting = new NewRelic.Inputs.OneDashboardPageWidgetTableInitialSortingArgs
+    ///                         {
+    ///                             Direction = "desc",
+    ///                             Name = "timestamp",
+    ///                         },
+    ///                         DataFormats = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetTableDataFormatArgs
+    ///                             {
+    ///                                 Name = "duration",
+    ///                                 Type = "decimal",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 WidgetBillboards = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetBillboardArgs
+    ///                     {
+    ///                         Title = "Requests per minute",
+    ///                         Row = 1,
+    ///                         Column = 1,
+    ///                         Width = 6,
+    ///                         Height = 3,
+    ///                         RefreshRate = "60000",
+    ///                         DataFormats = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetBillboardDataFormatArgs
+    ///                             {
+    ///                                 Name = "rate",
+    ///                                 Type = "recent-relative",
+    ///                             },
+    ///                         },
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetBillboardNrqlQueryArgs
+    ///                             {
+    ///                                 Query = "FROM Transaction SELECT rate(count(*), 1 minute)",
+    ///                             },
+    ///                         },
+    ///                         BillboardSettings = new NewRelic.Inputs.OneDashboardPageWidgetBillboardBillboardSettingsArgs
+    ///                         {
+    ///                             Link = new NewRelic.Inputs.OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs
+    ///                             {
+    ///                                 NewTab = true,
+    ///                                 Title = "Click to view more details",
+    ///                                 Url = "https://example.com",
+    ///                             },
+    ///                             Visual = new NewRelic.Inputs.OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs
+    ///                             {
+    ///                                 Alignment = "inline",
+    ///                                 Display = "auto",
+    ///                             },
+    ///                             GridOptions = new NewRelic.Inputs.OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs
+    ///                             {
+    ///                                 Columns = 4,
+    ///                                 Label = 6,
+    ///                                 Value = 8,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 WidgetBars = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetBarArgs
+    ///                     {
+    ///                         Title = "Average transaction duration, by application",
+    ///                         Row = 1,
+    ///                         Column = 7,
+    ///                         Width = 6,
+    ///                         Height = 3,
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetBarNrqlQueryArgs
+    ///                             {
+    ///                                 AccountId = "12345",
+    ///                                 Query = "FROM Transaction SELECT average(duration) FACET appName",
+    ///                             },
+    ///                         },
+    ///                         LinkedEntityGuids = new[]
+    ///                         {
+    ///                             "abc123",
+    ///                         },
+    ///                     },
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetBarArgs
+    ///                     {
+    ///                         Title = "Average transaction duration, by application",
+    ///                         Row = 4,
+    ///                         Column = 1,
+    ///                         Width = 6,
+    ///                         Height = 3,
+    ///                         RefreshRate = "300000",
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetBarNrqlQueryArgs
+    ///                             {
+    ///                                 AccountId = "12345",
+    ///                                 Query = "FROM Transaction SELECT average(duration) FACET appName",
+    ///                             },
+    ///                         },
+    ///                         FilterCurrentDashboard = true,
+    ///                         Colors = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetBarColorArgs
+    ///                             {
+    ///                                 Color = "#722727",
+    ///                                 SeriesOverrides = new[]
+    ///                                 {
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetBarColorSeriesOverrideArgs
+    ///                                     {
+    ///                                         Color = "#722322",
+    ///                                         SeriesName = "Node",
+    ///                                     },
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetBarColorSeriesOverrideArgs
+    ///                                     {
+    ///                                         Color = "#236f70",
+    ///                                         SeriesName = "Java",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 WidgetLines = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetLineArgs
+    ///                     {
+    ///                         Title = "Average transaction duration and the request per minute, by application",
+    ///                         Row = 4,
+    ///                         Column = 7,
+    ///                         Width = 6,
+    ///                         Height = 3,
+    ///                         RefreshRate = "30000",
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNrqlQueryArgs
+    ///                             {
+    ///                                 AccountId = JsonSerializer.Serialize(new object?[]
+    ///                                 {
+    ///                                     1234567,
+    ///                                     2345671,
+    ///                                 }),
+    ///                                 Query = "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago",
+    ///                             },
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNrqlQueryArgs
+    ///                             {
+    ///                                 Query = "FROM Transaction SELECT rate(count(*), 1 minute)",
+    ///                             },
+    ///                         },
+    ///                         LegendEnabled = true,
+    ///                         IgnoreTimeRange = false,
+    ///                         YAxisLeftZero = true,
+    ///                         YAxisLeftMin = 0,
+    ///                         YAxisLeftMax = 1,
+    ///                         Tooltip = new NewRelic.Inputs.OneDashboardPageWidgetLineTooltipArgs
+    ///                         {
+    ///                             Mode = "single",
+    ///                         },
+    ///                         YAxisRight = new NewRelic.Inputs.OneDashboardPageWidgetLineYAxisRightArgs
+    ///                         {
+    ///                             YAxisRightZero = true,
+    ///                             YAxisRightMin = 0,
+    ///                             YAxisRightMax = 300,
+    ///                             YAxisRightSeries = new[]
+    ///                             {
+    ///                                 "A",
+    ///                                 "B",
+    ///                             },
+    ///                         },
+    ///                         IsLabelVisible = true,
+    ///                         Thresholds = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineThresholdArgs
+    ///                             {
+    ///                                 Name = "Duration Threshold",
+    ///                                 From = "1",
+    ///                                 To = "2",
+    ///                                 Severity = "critical",
+    ///                             },
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineThresholdArgs
+    ///                             {
+    ///                                 Name = "Duration Threshold Two",
+    ///                                 From = "2.1",
+    ///                                 To = "3.3",
+    ///                                 Severity = "warning",
+    ///                             },
+    ///                         },
+    ///                         Units = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineUnitArgs
+    ///                             {
+    ///                                 Unit = "ms",
+    ///                                 SeriesOverrides = new[]
+    ///                                 {
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetLineUnitSeriesOverrideArgs
+    ///                                     {
+    ///                                         Unit = "ms",
+    ///                                         SeriesName = "max duration",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetLineArgs
+    ///                     {
+    ///                         Title = "Overall CPU % Statistics",
+    ///                         Row = 1,
+    ///                         Column = 5,
+    ///                         Height = 3,
+    ///                         Width = 4,
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNrqlQueryArgs
+    ///                             {
+    ///                                 Query = @"SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES
+    /// ",
+    ///                             },
+    ///                         },
+    ///                         FacetShowOtherSeries = false,
+    ///                         LegendEnabled = true,
+    ///                         IgnoreTimeRange = false,
+    ///                         YAxisLeftZero = true,
+    ///                         YAxisLeftMin = 0,
+    ///                         YAxisLeftMax = 0,
+    ///                         NullValues = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNullValueArgs
+    ///                             {
+    ///                                 NullValue = "default",
+    ///                                 SeriesOverrides = new[]
+    ///                                 {
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs
+    ///                                     {
+    ///                                         NullValue = "remove",
+    ///                                         SeriesName = "Avg Cpu User Percent",
+    ///                                     },
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs
+    ///                                     {
+    ///                                         NullValue = "zero",
+    ///                                         SeriesName = "Avg Cpu Idle Percent",
+    ///                                     },
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs
+    ///                                     {
+    ///                                         NullValue = "default",
+    ///                                         SeriesName = "Avg Cpu IO Wait Percent",
+    ///                                     },
+    ///                                     new NewRelic.Inputs.OneDashboardPageWidgetLineNullValueSeriesOverrideArgs
+    ///                                     {
+    ///                                         NullValue = "preserve",
+    ///                                         SeriesName = "Avg Cpu System Percent",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 WidgetMarkdowns = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetMarkdownArgs
+    ///                     {
+    ///                         Title = "Dashboard Note",
+    ///                         Row = 7,
+    ///                         Column = 1,
+    ///                         Width = 12,
+    ///                         Height = 3,
+    ///                         Text = @"### Helpful Links
+    /// 
+    /// * [New Relic One](https://one.newrelic.com)
+    /// * [Developer Portal](https://developer.newrelic.com)",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Variables = new[]
+    ///         {
+    ///             new NewRelic.Inputs.OneDashboardVariableArgs
+    ///             {
+    ///                 DefaultValues = new[]
+    ///                 {
+    ///                     "value",
+    ///                 },
+    ///                 IsMultiSelection = true,
+    ///                 Items = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardVariableItemArgs
+    ///                     {
+    ///                         Title = "item",
+    ///                         Value = "ITEM",
+    ///                     },
+    ///                 },
+    ///                 Name = "variable",
+    ///                 NrqlQuery = new NewRelic.Inputs.OneDashboardVariableNrqlQueryArgs
+    ///                 {
+    ///                     AccountIds = new[]
+    ///                     {
+    ///                         "12345",
+    ///                     },
+    ///                     Query = "FROM Transaction SELECT average(duration) FACET appName",
+    ///                 },
+    ///                 ReplacementStrategy = "default",
+    ///                 Title = "title",
+    ///                 Type = "nrql",
+    ///                 Options = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardVariableOptionArgs
+    ///                     {
+    ///                         ShowApplyAction = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// ### Use the New Relic CLI to convert an existing dashboard
+    /// 
+    /// You can use the New Relic CLI to convert an existing dashboard into HCL code for use in Terraform.
+    /// 
+    /// 1. [Download and install the New Relic CLI](https://github.com/newrelic/newrelic-cli#installation--upgrades)
+    /// 2. [Export the dashboard you want to add to Terraform from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards). Copy the JSON from the UI and paste it into a `.json` file.
+    /// 3. Convert the `.json` file to HCL using the CLI: `cat dashboard.json | newrelic utils terraform dashboard --label MyDashboardResource`
+    /// 
+    /// If you encounter any issues converting your dashboard, [please create a ticket on the New Relic CLI Github repository](https://github.com/newrelic/newrelic-cli/issues/new/choose).
+    /// 
+    /// ### Create a two page dashboard
+    /// 
+    /// The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `Widget` attribute documentation for more details.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var multiPageDashboard = new NewRelic.OneDashboard("multi_page_dashboard", new()
+    ///     {
+    ///         Name = "My Multi-page dashboard",
+    ///         Permissions = "private",
+    ///         Pages = new[]
+    ///         {
+    ///             new NewRelic.Inputs.OneDashboardPageArgs
+    ///             {
+    ///                 Name = "My Multi-page dashboard",
+    ///                 WidgetBars = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetBarArgs
+    ///                     {
+    ///                         Title = "foo",
+    ///                         Row = 1,
+    ///                         Column = 1,
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetBarNrqlQueryArgs
+    ///                             {
+    ///                                 Query = "FROM Transaction SELECT count(*) FACET name",
+    ///                             },
+    ///                         },
+    ///                         LinkedEntityGuids = new[]
+    ///                         {
+    ///                             "abc123",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.OneDashboardPageArgs
+    ///             {
+    ///                 Name = "Multi-query Page",
+    ///                 WidgetLines = new[]
+    ///                 {
+    ///                     new NewRelic.Inputs.OneDashboardPageWidgetLineArgs
+    ///                     {
+    ///                         Title = "Comparing throughput cross-account",
+    ///                         Row = 1,
+    ///                         Column = 1,
+    ///                         Width = 12,
+    ///                         NrqlQueries = new[]
+    ///                         {
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNrqlQueryArgs
+    ///                             {
+    ///                                 AccountId = firstAccountID,
+    ///                                 Query = "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'First Account Throughput' TIMESERIES",
+    ///                             },
+    ///                             new NewRelic.Inputs.OneDashboardPageWidgetLineNrqlQueryArgs
+    ///                             {
+    ///                                 AccountId = secondAccountID,
+    ///                                 Query = "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'Second Account Throughput' TIMESERIES",
+    ///                             },
+    ///                         },
+    ///                         YAxisLeftZero = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic dashboards can be imported using their GUID, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;dashboard GUID&gt;
-    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboard:OneDashboard")]
     public partial class OneDashboard : global::Pulumi.CustomResource

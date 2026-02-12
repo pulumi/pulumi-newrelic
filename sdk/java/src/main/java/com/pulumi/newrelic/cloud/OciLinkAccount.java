@@ -136,12 +136,6 @@ import javax.annotation.Nullable;
  * 
  * Linked OCI accounts can be imported using the `id`, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:cloud/ociLinkAccount:OciLinkAccount")
 public class OciLinkAccount extends com.pulumi.resources.CustomResource {

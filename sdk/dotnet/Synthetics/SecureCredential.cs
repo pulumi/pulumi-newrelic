@@ -34,7 +34,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Import
     /// 
-    /// A Synthetics secure credential can be imported using its `key`:
+    /// A Synthetics secure credential can be imported using its `Key`:
     /// 
     /// ```sh
     /// $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY

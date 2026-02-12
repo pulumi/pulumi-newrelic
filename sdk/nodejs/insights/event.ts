@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Use this resource to create one or more Insights events during a terraform run.
+ *
  * ## Example Usage
  *
  * ```typescript

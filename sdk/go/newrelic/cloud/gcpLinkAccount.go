@@ -59,18 +59,14 @@ import (
 // ## Import
 //
 // Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
-// ```
 type GcpLinkAccount struct {
 	pulumi.CustomResourceState
 
 	// Account ID of the New Relic account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// name of the linked account
+	// The name of the GCP account in New Relic.
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Project ID of the GCP account.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -111,7 +107,9 @@ func GetGcpLinkAccount(ctx *pulumi.Context,
 type gcpLinkAccountState struct {
 	// Account ID of the New Relic account.
 	AccountId *string `pulumi:"accountId"`
-	// name of the linked account
+	// The name of the GCP account in New Relic.
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name *string `pulumi:"name"`
 	// Project ID of the GCP account.
 	ProjectId *string `pulumi:"projectId"`
@@ -120,7 +118,9 @@ type gcpLinkAccountState struct {
 type GcpLinkAccountState struct {
 	// Account ID of the New Relic account.
 	AccountId pulumi.StringPtrInput
-	// name of the linked account
+	// The name of the GCP account in New Relic.
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name pulumi.StringPtrInput
 	// Project ID of the GCP account.
 	ProjectId pulumi.StringPtrInput
@@ -133,7 +133,9 @@ func (GcpLinkAccountState) ElementType() reflect.Type {
 type gcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
 	AccountId *string `pulumi:"accountId"`
-	// name of the linked account
+	// The name of the GCP account in New Relic.
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name *string `pulumi:"name"`
 	// Project ID of the GCP account.
 	ProjectId string `pulumi:"projectId"`
@@ -143,7 +145,9 @@ type gcpLinkAccountArgs struct {
 type GcpLinkAccountArgs struct {
 	// Account ID of the New Relic account.
 	AccountId pulumi.StringPtrInput
-	// name of the linked account
+	// The name of the GCP account in New Relic.
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name pulumi.StringPtrInput
 	// Project ID of the GCP account.
 	ProjectId pulumi.StringInput
@@ -241,7 +245,9 @@ func (o GcpLinkAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// name of the linked account
+// The name of the GCP account in New Relic.
+//
+// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 func (o GcpLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -5,15 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Use this resource to create, update, and delete a standalone New Relic browser application.
+ *
+ * ## Example Usage
+ *
+ * The following Terraform configuration is an example that illustrates the basic use case of creating a standalone browser application.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.BrowserApplication("foo", {
+ *     name: "example-browser-app",
+ *     cookiesEnabled: true,
+ *     distributedTracingEnabled: true,
+ *     loaderType: "SPA",
+ * });
+ * ```
+ *
  * ## Import
  *
  * A browser application can be imported using its GUID, i.e.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
- * ```
  */
 export class BrowserApplication extends pulumi.CustomResource {
     /**

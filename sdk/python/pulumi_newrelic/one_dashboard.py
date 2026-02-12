@@ -271,15 +271,307 @@ class OneDashboard(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OneDashboardVariableArgs', 'OneDashboardVariableArgsDict']]]]] = None,
                  __props__=None):
         """
+        > **IMPORTANT!**
+        When configuring the `OneDashboard` resource, it is important to understand that widgets should ideally be sorted by row and column order to maintain the stability and accuracy of your dashboard setup. If this specified order is not adhered to, it can lead to resource drift, which might result in discrepancies between the intended setup and the actual deployed dashboard.
+
+        ## Example Usage
+
+        ### Create A New Relic One Dashboard
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_newrelic as newrelic
+
+        exampledash = newrelic.OneDashboard("exampledash",
+            name="New Relic Terraform Example",
+            permissions="public_read_only",
+            pages=[{
+                "name": "New Relic Terraform Example",
+                "widget_tables": [{
+                    "title": "List of Transactions",
+                    "row": 1,
+                    "column": 4,
+                    "width": 6,
+                    "height": 3,
+                    "refresh_rate": "60000",
+                    "nrql_queries": [{
+                        "query": "FROM Transaction SELECT *",
+                    }],
+                    "initial_sorting": {
+                        "direction": "desc",
+                        "name": "timestamp",
+                    },
+                    "data_formats": [{
+                        "name": "duration",
+                        "type": "decimal",
+                    }],
+                }],
+                "widget_billboards": [{
+                    "title": "Requests per minute",
+                    "row": 1,
+                    "column": 1,
+                    "width": 6,
+                    "height": 3,
+                    "refresh_rate": "60000",
+                    "data_formats": [{
+                        "name": "rate",
+                        "type": "recent-relative",
+                    }],
+                    "nrql_queries": [{
+                        "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                    }],
+                    "billboard_settings": {
+                        "link": {
+                            "new_tab": True,
+                            "title": "Click to view more details",
+                            "url": "https://example.com",
+                        },
+                        "visual": {
+                            "alignment": "inline",
+                            "display": "auto",
+                        },
+                        "grid_options": {
+                            "columns": 4,
+                            "label": 6,
+                            "value": 8,
+                        },
+                    },
+                }],
+                "widget_bars": [
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 1,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "linked_entity_guids": ["abc123"],
+                    },
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 4,
+                        "column": 1,
+                        "width": 6,
+                        "height": 3,
+                        "refresh_rate": "300000",
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "filter_current_dashboard": True,
+                        "colors": [{
+                            "color": "#722727",
+                            "series_overrides": [
+                                {
+                                    "color": "#722322",
+                                    "series_name": "Node",
+                                },
+                                {
+                                    "color": "#236f70",
+                                    "series_name": "Java",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_lines": [
+                    {
+                        "title": "Average transaction duration and the request per minute, by application",
+                        "row": 4,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "refresh_rate": "30000",
+                        "nrql_queries": [
+                            {
+                                "account_id": json.dumps([
+                                    1234567,
+                                    2345671,
+                                ]),
+                                "query": "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago",
+                            },
+                            {
+                                "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                            },
+                        ],
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 1,
+                        "tooltip": {
+                            "mode": "single",
+                        },
+                        "y_axis_right": {
+                            "y_axis_right_zero": True,
+                            "y_axis_right_min": 0,
+                            "y_axis_right_max": 300,
+                            "y_axis_right_series": [
+                                "A",
+                                "B",
+                            ],
+                        },
+                        "is_label_visible": True,
+                        "thresholds": [
+                            {
+                                "name": "Duration Threshold",
+                                "from_": "1",
+                                "to": "2",
+                                "severity": "critical",
+                            },
+                            {
+                                "name": "Duration Threshold Two",
+                                "from_": "2.1",
+                                "to": "3.3",
+                                "severity": "warning",
+                            },
+                        ],
+                        "units": [{
+                            "unit": "ms",
+                            "series_overrides": [{
+                                "unit": "ms",
+                                "series_name": "max duration",
+                            }],
+                        }],
+                    },
+                    {
+                        "title": "Overall CPU % Statistics",
+                        "row": 1,
+                        "column": 5,
+                        "height": 3,
+                        "width": 4,
+                        "nrql_queries": [{
+                            "query": "SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES\\n",
+                        }],
+                        "facet_show_other_series": False,
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 0,
+                        "null_values": [{
+                            "null_value": "default",
+                            "series_overrides": [
+                                {
+                                    "null_value": "remove",
+                                    "series_name": "Avg Cpu User Percent",
+                                },
+                                {
+                                    "null_value": "zero",
+                                    "series_name": "Avg Cpu Idle Percent",
+                                },
+                                {
+                                    "null_value": "default",
+                                    "series_name": "Avg Cpu IO Wait Percent",
+                                },
+                                {
+                                    "null_value": "preserve",
+                                    "series_name": "Avg Cpu System Percent",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_markdowns": [{
+                    "title": "Dashboard Note",
+                    "row": 7,
+                    "column": 1,
+                    "width": 12,
+                    "height": 3,
+                    "text": \"\"\"### Helpful Links
+
+        * [New Relic One](https://one.newrelic.com)
+        * [Developer Portal](https://developer.newrelic.com)\"\"\",
+                }],
+            }],
+            variables=[{
+                "default_values": ["value"],
+                "is_multi_selection": True,
+                "items": [{
+                    "title": "item",
+                    "value": "ITEM",
+                }],
+                "name": "variable",
+                "nrql_query": {
+                    "account_ids": ["12345"],
+                    "query": "FROM Transaction SELECT average(duration) FACET appName",
+                },
+                "replacement_strategy": "default",
+                "title": "title",
+                "type": "nrql",
+                "options": [{
+                    "show_apply_action": True,
+                }],
+            }])
+        ```
+        See additional examples.
+
+        ## Additional Examples
+
+        ### Use the New Relic CLI to convert an existing dashboard
+
+        You can use the New Relic CLI to convert an existing dashboard into HCL code for use in Terraform.
+
+        1. [Download and install the New Relic CLI](https://github.com/newrelic/newrelic-cli#installation--upgrades)
+        2. [Export the dashboard you want to add to Terraform from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards). Copy the JSON from the UI and paste it into a `.json` file.
+        3. Convert the `.json` file to HCL using the CLI: `cat dashboard.json | newrelic utils terraform dashboard --label my_dashboard_resource`
+
+        If you encounter any issues converting your dashboard, [please create a ticket on the New Relic CLI Github repository](https://github.com/newrelic/newrelic-cli/issues/new/choose).
+
+        ### Create a two page dashboard
+
+        The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        multi_page_dashboard = newrelic.OneDashboard("multi_page_dashboard",
+            name="My Multi-page dashboard",
+            permissions="private",
+            pages=[
+                {
+                    "name": "My Multi-page dashboard",
+                    "widget_bars": [{
+                        "title": "foo",
+                        "row": 1,
+                        "column": 1,
+                        "nrql_queries": [{
+                            "query": "FROM Transaction SELECT count(*) FACET name",
+                        }],
+                        "linked_entity_guids": ["abc123"],
+                    }],
+                },
+                {
+                    "name": "Multi-query Page",
+                    "widget_lines": [{
+                        "title": "Comparing throughput cross-account",
+                        "row": 1,
+                        "column": 1,
+                        "width": 12,
+                        "nrql_queries": [
+                            {
+                                "account_id": first_account_id,
+                                "query": "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'First Account Throughput' TIMESERIES",
+                            },
+                            {
+                                "account_id": second_account_id,
+                                "query": "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'Second Account Throughput' TIMESERIES",
+                            },
+                        ],
+                        "y_axis_left_zero": False,
+                    }],
+                },
+            ])
+        ```
+
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,15 +589,307 @@ class OneDashboard(pulumi.CustomResource):
                  args: OneDashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **IMPORTANT!**
+        When configuring the `OneDashboard` resource, it is important to understand that widgets should ideally be sorted by row and column order to maintain the stability and accuracy of your dashboard setup. If this specified order is not adhered to, it can lead to resource drift, which might result in discrepancies between the intended setup and the actual deployed dashboard.
+
+        ## Example Usage
+
+        ### Create A New Relic One Dashboard
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_newrelic as newrelic
+
+        exampledash = newrelic.OneDashboard("exampledash",
+            name="New Relic Terraform Example",
+            permissions="public_read_only",
+            pages=[{
+                "name": "New Relic Terraform Example",
+                "widget_tables": [{
+                    "title": "List of Transactions",
+                    "row": 1,
+                    "column": 4,
+                    "width": 6,
+                    "height": 3,
+                    "refresh_rate": "60000",
+                    "nrql_queries": [{
+                        "query": "FROM Transaction SELECT *",
+                    }],
+                    "initial_sorting": {
+                        "direction": "desc",
+                        "name": "timestamp",
+                    },
+                    "data_formats": [{
+                        "name": "duration",
+                        "type": "decimal",
+                    }],
+                }],
+                "widget_billboards": [{
+                    "title": "Requests per minute",
+                    "row": 1,
+                    "column": 1,
+                    "width": 6,
+                    "height": 3,
+                    "refresh_rate": "60000",
+                    "data_formats": [{
+                        "name": "rate",
+                        "type": "recent-relative",
+                    }],
+                    "nrql_queries": [{
+                        "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                    }],
+                    "billboard_settings": {
+                        "link": {
+                            "new_tab": True,
+                            "title": "Click to view more details",
+                            "url": "https://example.com",
+                        },
+                        "visual": {
+                            "alignment": "inline",
+                            "display": "auto",
+                        },
+                        "grid_options": {
+                            "columns": 4,
+                            "label": 6,
+                            "value": 8,
+                        },
+                    },
+                }],
+                "widget_bars": [
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 1,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "linked_entity_guids": ["abc123"],
+                    },
+                    {
+                        "title": "Average transaction duration, by application",
+                        "row": 4,
+                        "column": 1,
+                        "width": 6,
+                        "height": 3,
+                        "refresh_rate": "300000",
+                        "nrql_queries": [{
+                            "account_id": "12345",
+                            "query": "FROM Transaction SELECT average(duration) FACET appName",
+                        }],
+                        "filter_current_dashboard": True,
+                        "colors": [{
+                            "color": "#722727",
+                            "series_overrides": [
+                                {
+                                    "color": "#722322",
+                                    "series_name": "Node",
+                                },
+                                {
+                                    "color": "#236f70",
+                                    "series_name": "Java",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_lines": [
+                    {
+                        "title": "Average transaction duration and the request per minute, by application",
+                        "row": 4,
+                        "column": 7,
+                        "width": 6,
+                        "height": 3,
+                        "refresh_rate": "30000",
+                        "nrql_queries": [
+                            {
+                                "account_id": json.dumps([
+                                    1234567,
+                                    2345671,
+                                ]),
+                                "query": "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago",
+                            },
+                            {
+                                "query": "FROM Transaction SELECT rate(count(*), 1 minute)",
+                            },
+                        ],
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 1,
+                        "tooltip": {
+                            "mode": "single",
+                        },
+                        "y_axis_right": {
+                            "y_axis_right_zero": True,
+                            "y_axis_right_min": 0,
+                            "y_axis_right_max": 300,
+                            "y_axis_right_series": [
+                                "A",
+                                "B",
+                            ],
+                        },
+                        "is_label_visible": True,
+                        "thresholds": [
+                            {
+                                "name": "Duration Threshold",
+                                "from_": "1",
+                                "to": "2",
+                                "severity": "critical",
+                            },
+                            {
+                                "name": "Duration Threshold Two",
+                                "from_": "2.1",
+                                "to": "3.3",
+                                "severity": "warning",
+                            },
+                        ],
+                        "units": [{
+                            "unit": "ms",
+                            "series_overrides": [{
+                                "unit": "ms",
+                                "series_name": "max duration",
+                            }],
+                        }],
+                    },
+                    {
+                        "title": "Overall CPU % Statistics",
+                        "row": 1,
+                        "column": 5,
+                        "height": 3,
+                        "width": 4,
+                        "nrql_queries": [{
+                            "query": "SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES\\n",
+                        }],
+                        "facet_show_other_series": False,
+                        "legend_enabled": True,
+                        "ignore_time_range": False,
+                        "y_axis_left_zero": True,
+                        "y_axis_left_min": 0,
+                        "y_axis_left_max": 0,
+                        "null_values": [{
+                            "null_value": "default",
+                            "series_overrides": [
+                                {
+                                    "null_value": "remove",
+                                    "series_name": "Avg Cpu User Percent",
+                                },
+                                {
+                                    "null_value": "zero",
+                                    "series_name": "Avg Cpu Idle Percent",
+                                },
+                                {
+                                    "null_value": "default",
+                                    "series_name": "Avg Cpu IO Wait Percent",
+                                },
+                                {
+                                    "null_value": "preserve",
+                                    "series_name": "Avg Cpu System Percent",
+                                },
+                            ],
+                        }],
+                    },
+                ],
+                "widget_markdowns": [{
+                    "title": "Dashboard Note",
+                    "row": 7,
+                    "column": 1,
+                    "width": 12,
+                    "height": 3,
+                    "text": \"\"\"### Helpful Links
+
+        * [New Relic One](https://one.newrelic.com)
+        * [Developer Portal](https://developer.newrelic.com)\"\"\",
+                }],
+            }],
+            variables=[{
+                "default_values": ["value"],
+                "is_multi_selection": True,
+                "items": [{
+                    "title": "item",
+                    "value": "ITEM",
+                }],
+                "name": "variable",
+                "nrql_query": {
+                    "account_ids": ["12345"],
+                    "query": "FROM Transaction SELECT average(duration) FACET appName",
+                },
+                "replacement_strategy": "default",
+                "title": "title",
+                "type": "nrql",
+                "options": [{
+                    "show_apply_action": True,
+                }],
+            }])
+        ```
+        See additional examples.
+
+        ## Additional Examples
+
+        ### Use the New Relic CLI to convert an existing dashboard
+
+        You can use the New Relic CLI to convert an existing dashboard into HCL code for use in Terraform.
+
+        1. [Download and install the New Relic CLI](https://github.com/newrelic/newrelic-cli#installation--upgrades)
+        2. [Export the dashboard you want to add to Terraform from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards). Copy the JSON from the UI and paste it into a `.json` file.
+        3. Convert the `.json` file to HCL using the CLI: `cat dashboard.json | newrelic utils terraform dashboard --label my_dashboard_resource`
+
+        If you encounter any issues converting your dashboard, [please create a ticket on the New Relic CLI Github repository](https://github.com/newrelic/newrelic-cli/issues/new/choose).
+
+        ### Create a two page dashboard
+
+        The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        multi_page_dashboard = newrelic.OneDashboard("multi_page_dashboard",
+            name="My Multi-page dashboard",
+            permissions="private",
+            pages=[
+                {
+                    "name": "My Multi-page dashboard",
+                    "widget_bars": [{
+                        "title": "foo",
+                        "row": 1,
+                        "column": 1,
+                        "nrql_queries": [{
+                            "query": "FROM Transaction SELECT count(*) FACET name",
+                        }],
+                        "linked_entity_guids": ["abc123"],
+                    }],
+                },
+                {
+                    "name": "Multi-query Page",
+                    "widget_lines": [{
+                        "title": "Comparing throughput cross-account",
+                        "row": 1,
+                        "column": 1,
+                        "width": 12,
+                        "nrql_queries": [
+                            {
+                                "account_id": first_account_id,
+                                "query": "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'First Account Throughput' TIMESERIES",
+                            },
+                            {
+                                "account_id": second_account_id,
+                                "query": "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'Second Account Throughput' TIMESERIES",
+                            },
+                        ],
+                        "y_axis_left_zero": False,
+                    }],
+                },
+            ])
+        ```
+
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
-        ```
 
         :param str resource_name: The name of the resource.
         :param OneDashboardArgs args: The arguments to use to populate this resource's properties.

@@ -33,12 +33,6 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Linked AWS accounts can be imported using the `id`, e.g.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
- * ```
  */
 export class AwsLinkAccount extends pulumi.CustomResource {
     /**
@@ -81,7 +75,9 @@ export class AwsLinkAccount extends pulumi.CustomResource {
      */
     declare public readonly metricCollectionMode: pulumi.Output<string | undefined>;
     /**
-     * The name of the linked account.
+     * The linked account name
+     *
+     * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
     declare public readonly name: pulumi.Output<string>;
 
@@ -134,7 +130,9 @@ export interface AwsLinkAccountState {
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The name of the linked account.
+     * The linked account name
+     *
+     * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
     name?: pulumi.Input<string>;
 }
@@ -156,7 +154,9 @@ export interface AwsLinkAccountArgs {
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The name of the linked account.
+     * The linked account name
+     *
+     * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
     name?: pulumi.Input<string>;
 }

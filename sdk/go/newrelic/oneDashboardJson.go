@@ -12,15 +12,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Create A New Relic One Dashboard From A JSON File
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "dashboard.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewOneDashboardJson(ctx, "foo", &newrelic.OneDashboardJsonArgs{
+//				Json: pulumi.String(invokeFile.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Additional Examples
+//
+// ### Setting Thresholds
+//
+// The following example demonstrates setting thresholds on a billboard widget.
+//
+// `dashboard.json`
+//
+// ### More Complex Examples
+//
+// The following examples show more intricate use cases of creating dashboards from JSON files, using this resource.
+// - This example illustrates the use of a variable list of items to create a dashboard, that may be used iteratively to populate queries and other arguments of widgets, using Terraform template files.
+// - This example elaborates on the use of an apt Terraform configuration with additional dependencies, to instrument the use of values obtained from a GraphQL API response iteratively to configure widgets in the dashboard for each item in the response, using the Terraform `jsondecode` function.
+//
+// More of such examples may be found in ths GitHub repository.
+//
 // ## Import
 //
 // New Relic dashboards can be imported using their GUID, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard <dashboard GUID>
-// ```
 type OneDashboardJson struct {
 	pulumi.CustomResourceState
 

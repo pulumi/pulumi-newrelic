@@ -16,6 +16,12 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create, update, and delete tags for a New Relic One entity.
+ * 
+ * &gt; **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+ * &lt;br&gt;&lt;br&gt;
+ * Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -74,14 +80,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * New Relic One entity tags can be imported using a concatenated string of the format
- * 
  *  `&lt;guid&gt;`, e.g.
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
- * ```
  * 
  */
 @ResourceType(type="newrelic:index/entityTags:EntityTags")

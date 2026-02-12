@@ -66,12 +66,6 @@ import javax.annotation.Nullable;
  * 
  * Linked AWS accounts can be imported using the `id`, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:cloud/awsLinkAccount:AwsLinkAccount")
 public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
@@ -118,14 +112,18 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.metricCollectionMode);
     }
     /**
-     * The name of the linked account.
+     * The linked account name
+     * 
+     * &gt; **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the linked account.
+     * @return The linked account name
+     * 
+     * &gt; **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      * 
      */
     public Output<String> name() {

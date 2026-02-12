@@ -69,12 +69,6 @@ import javax.annotation.Nullable;
  * 
  * Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:cloud/azureLinkAccount:AzureLinkAccount")
 public class AzureLinkAccount extends com.pulumi.resources.CustomResource {

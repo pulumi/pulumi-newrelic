@@ -11,9 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
+//
+// Use this resource to manage configuration for an application that already exists in New Relic.
+//
+// > **WARNING:** We encourage you to use this resource to manage all application settings together, not just a few, to avoid potential issues like incompatibility or unexpected behavior.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewApplicationSettings(ctx, "app", &plugins.ApplicationSettingsArgs{
+//				Guid:                pulumi.String("Mxxxxxxxxxxxxxxxxxxxxx"),
+//				Name:                pulumi.String("Sample New Relic APM Application"),
+//				AppApdexThreshold:   pulumi.Float64(0.7),
+//				UseServerSideConfig: pulumi.Bool(true),
+//				TransactionTracers: plugins.ApplicationSettingsTransactionTracerArray{
+//					&plugins.ApplicationSettingsTransactionTracerArgs{
+//						ExplainQueryPlans: plugins.ApplicationSettingsTransactionTracerExplainQueryPlanArray{
+//							&plugins.ApplicationSettingsTransactionTracerExplainQueryPlanArgs{
+//								QueryPlanThresholdType:  pulumi.String("VALUE"),
+//								QueryPlanThresholdValue: pulumi.Float64(0.5),
+//							},
+//						},
+//						Sql: &plugins.ApplicationSettingsTransactionTracerSqlArgs{
+//							RecordSql: pulumi.String("RAW"),
+//						},
+//						StackTraceThresholdValue:  pulumi.Float64(0.5),
+//						TransactionThresholdType:  pulumi.String("VALUE"),
+//						TransactionThresholdValue: pulumi.Float64(0.5),
+//					},
+//				},
+//				ErrorCollectors: plugins.ApplicationSettingsErrorCollectorArray{
+//					&plugins.ApplicationSettingsErrorCollectorArgs{
+//						ExpectedErrorClasses: pulumi.StringArray{},
+//						ExpectedErrorCodes:   pulumi.StringArray{},
+//						IgnoredErrorClasses:  pulumi.StringArray{},
+//						IgnoredErrorCodes:    pulumi.StringArray{},
+//					},
+//				},
+//				EnableSlowSql:        pulumi.Bool(true),
+//				TracerType:           pulumi.String("NONE"),
+//				EnableThreadProfiler: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Notes
+//
+// > **NOTE:** The `plugins.ApplicationSettings` resource cannot be deleted directly via Terraform. It can only reset application settings to their initial state.
+//
 // ## Import
 //
-// Applications can be imported using notation `application_guid`, e.g.
+// Applications can be imported using notation `applicationGuid`, e.g.
 //
 // ```sh
 // $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
@@ -38,7 +103,9 @@ type ApplicationSettings struct {
 	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid       pulumi.StringOutput `pulumi:"guid"`
 	IsImported pulumi.BoolOutput   `pulumi:"isImported"`
-	// The name of the application in New Relic.
+	// A custom name or alias you can give the application in New Relic APM.
+	//
+	// > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType pulumi.StringPtrOutput `pulumi:"tracerType"`
@@ -95,7 +162,9 @@ type applicationSettingsState struct {
 	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid       *string `pulumi:"guid"`
 	IsImported *bool   `pulumi:"isImported"`
-	// The name of the application in New Relic.
+	// A custom name or alias you can give the application in New Relic APM.
+	//
+	// > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
 	Name *string `pulumi:"name"`
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType *string `pulumi:"tracerType"`
@@ -123,7 +192,9 @@ type ApplicationSettingsState struct {
 	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid       pulumi.StringPtrInput
 	IsImported pulumi.BoolPtrInput
-	// The name of the application in New Relic.
+	// A custom name or alias you can give the application in New Relic APM.
+	//
+	// > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
 	Name pulumi.StringPtrInput
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType pulumi.StringPtrInput
@@ -154,7 +225,9 @@ type applicationSettingsArgs struct {
 	//
 	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid *string `pulumi:"guid"`
-	// The name of the application in New Relic.
+	// A custom name or alias you can give the application in New Relic APM.
+	//
+	// > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
 	Name *string `pulumi:"name"`
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType *string `pulumi:"tracerType"`
@@ -182,7 +255,9 @@ type ApplicationSettingsArgs struct {
 	//
 	// > **NOTE:** While the attribute `guid` is not mandatory at a schema level, it is recommended to use `guid` over `name`, as support for using `name` with this resource shall eventually be discontinued. Please see the note under `name` for more details.
 	Guid pulumi.StringPtrInput
-	// The name of the application in New Relic.
+	// A custom name or alias you can give the application in New Relic APM.
+	//
+	// > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
 	Name pulumi.StringPtrInput
 	// Configures the type of tracer used. Valid values are `CROSS_APPLICATION_TRACER`, `DISTRIBUTED_TRACING`, `NONE`, `OPT_OUT`.
 	TracerType pulumi.StringPtrInput
@@ -320,7 +395,9 @@ func (o ApplicationSettingsOutput) IsImported() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.IsImported }).(pulumi.BoolOutput)
 }
 
-// The name of the application in New Relic.
+// A custom name or alias you can give the application in New Relic APM.
+//
+// > **NOTE:** <b style="color:red;">Please refrain from using the deprecated attribute `name`</b>with the resource `plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
 func (o ApplicationSettingsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -33,7 +33,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Import
     /// 
-    /// A Synthetics private location can be imported using the `guid`
+    /// A Synthetics private location can be imported using the `Guid`
     /// 
     /// ```sh
     /// $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID

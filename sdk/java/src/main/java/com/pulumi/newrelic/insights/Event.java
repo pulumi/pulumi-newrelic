@@ -15,6 +15,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create one or more Insights events during a terraform run.
+ * 
  * ## Example Usage
  * 
  * <pre>

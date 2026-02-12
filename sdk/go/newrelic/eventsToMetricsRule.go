@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to create, update, and delete New Relic Events to Metrics rules.
+//
+// > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+// <br><br>
+// Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+//
 // ## Example Usage
 //
 // ```go
@@ -46,12 +52,6 @@ import (
 // New Relic Events to Metrics rules can be imported using a concatenated string of the format
 //
 //	`<account_id>:<rule_id>`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
-// ```
 type EventsToMetricsRule struct {
 	pulumi.CustomResourceState
 

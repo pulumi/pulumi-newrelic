@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to get information about a specific alert channel in New Relic that already exists. More information on Terraform's data sources can be found here.
+//
+// > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
+//
 // ## Example Usage
 //
 // ```go

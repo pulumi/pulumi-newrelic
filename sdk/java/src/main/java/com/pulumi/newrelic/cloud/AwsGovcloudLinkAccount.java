@@ -63,12 +63,6 @@ import javax.annotation.Nullable;
  * 
  * Linked AWS GovCloud accounts can be imported using the `id`, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount")
 public class AwsGovcloudLinkAccount extends com.pulumi.resources.CustomResource {

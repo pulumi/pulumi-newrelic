@@ -147,7 +147,54 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
                                  secure_urls: Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+
+    ## ID Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    # Data source
+    foo = newrelic.get_notification_destination(id="1e543419-0c25-456a-9057-fb0eb310e60b")
+    # Resource
+    foo_channel = newrelic.NotificationChannel("foo-channel",
+        name="webhook-example",
+        type="WEBHOOK",
+        destination_id=foo.id,
+        product="IINT",
+        properties=[{
+            "key": "payload",
+            "value": \"\"\"{
+    \\x09"name": "foo"
+    }\"\"\",
+            "label": "Payload Template",
+        }])
+    ```
+
+    ## Name Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    # Data source
+    foo = newrelic.get_notification_destination(name="webhook-destination")
+    # Resource
+    foo_channel = newrelic.NotificationChannel("foo-channel",
+        name="webhook-example",
+        type="WEBHOOK",
+        destination_id=foo.id,
+        product="IINT",
+        properties=[{
+            "key": "payload",
+            "value": \"\"\"{
+    \\x09"name": "foo"
+    }\"\"\",
+            "label": "Payload Template",
+        }])
+    ```
+
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param _builtins.str id: The id of the notification destination in New Relic.
@@ -180,7 +227,54 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
                                         secure_urls: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+
+    ## ID Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    # Data source
+    foo = newrelic.get_notification_destination(id="1e543419-0c25-456a-9057-fb0eb310e60b")
+    # Resource
+    foo_channel = newrelic.NotificationChannel("foo-channel",
+        name="webhook-example",
+        type="WEBHOOK",
+        destination_id=foo.id,
+        product="IINT",
+        properties=[{
+            "key": "payload",
+            "value": \"\"\"{
+    \\x09"name": "foo"
+    }\"\"\",
+            "label": "Payload Template",
+        }])
+    ```
+
+    ## Name Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    # Data source
+    foo = newrelic.get_notification_destination(name="webhook-destination")
+    # Resource
+    foo_channel = newrelic.NotificationChannel("foo-channel",
+        name="webhook-example",
+        type="WEBHOOK",
+        destination_id=foo.id,
+        product="IINT",
+        properties=[{
+            "key": "payload",
+            "value": \"\"\"{
+    \\x09"name": "foo"
+    }\"\"\",
+            "label": "Payload Template",
+        }])
+    ```
+
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param _builtins.str id: The id of the notification destination in New Relic.

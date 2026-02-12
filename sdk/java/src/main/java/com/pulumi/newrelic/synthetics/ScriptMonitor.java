@@ -20,6 +20,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
+ * 
+ * &gt; **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt;.
+ * &lt;br&gt;&lt;br&gt;
+ * If your Synthetic monitors&#39; configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning in the **Deprecated Runtime** section.
+ * 
  * ## Example Usage
  * 
  * ##### Type: `SCRIPT_API`
@@ -318,12 +324,6 @@ import javax.annotation.Nullable;
  * 
  * Synthetics monitor scripts can be imported using the `guid`, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:synthetics/scriptMonitor:ScriptMonitor")
 public class ScriptMonitor extends com.pulumi.resources.CustomResource {
@@ -611,9 +611,17 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+     * 
+     */
     @Export(name="useUnsupportedLegacyRuntime", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useUnsupportedLegacyRuntime;
 
+    /**
+     * @return A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+     * 
+     */
     public Output<Optional<Boolean>> useUnsupportedLegacyRuntime() {
         return Codegen.optional(this.useUnsupportedLegacyRuntime);
     }

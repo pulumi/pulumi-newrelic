@@ -381,16 +381,9 @@ class ServiceLevel(pulumi.CustomResource):
         ## Import
 
         New Relic Service Levels can be imported using a concatenated string of the format
-
          `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 
         Example:
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -546,16 +539,9 @@ class ServiceLevel(pulumi.CustomResource):
         ## Import
 
         New Relic Service Levels can be imported using a concatenated string of the format
-
          `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 
         Example:
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
-        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceLevelArgs args: The arguments to use to populate this resource's properties.

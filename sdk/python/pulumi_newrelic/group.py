@@ -154,6 +154,86 @@ class Group(pulumi.CustomResource):
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        The `Group` resource facilitates creating, updating, and deleting groups in New Relic, while also enabling the addition and removal of users from these groups.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
+            user_ids=[
+                "0001112222",
+                "2221110000",
+            ])
+        ```
+
+        ## Additional Examples
+
+        ### Updating User Group Membership Management in Terraform
+
+        ### Overview
+        There is a potential race condition within Terraform when managing user accounts and their respective group memberships. A user might be deleted before Terraform disassociates them from a user group. This can lead to an error during `pulumi up` because the user ID no longer exists when the group resource is being updated.
+
+        ### Recommended Solution
+        To address this and ensure proper sequential execution of resource updates, it is recommended to utilize the `create_before_destroy` lifecycle directive within your user group resource definition.
+
+        ### Addition of New Users to a New Group
+
+        The following example illustrates the creation of a group using the `Group` resource, to which users created using the `User` resource are added.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_user = newrelic.User("foo",
+            name="Test User One",
+            email_id="test_user_one@test.com",
+            authentication_domain_id=foo.id,
+            user_type="CORE_USER_TIER")
+        bar = newrelic.User("bar",
+            name="Test User Two",
+            email_id="test_user_two@test.com",
+            authentication_domain_id=foo.id,
+            user_type="BASIC_USER_TIER")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
+            user_ids=[
+                foo_user.id,
+                bar.id,
+            ])
+        ```
+
+        ### Addition of Existing Users to a New Group
+
+        The following example demonstrates the usage of the `Group` resource to create a group, wherein the `User` data source is employed to associate existing users with the newly formed group.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_get_user = newrelic.get_user(authentication_domain_id=foo.id,
+            email_id="test_user_one@test.com")
+        bar = newrelic.get_user(authentication_domain_id=foo.id,
+            name="Test User Two")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
+            user_ids=[
+                foo_get_user.id,
+                bar.id,
+            ])
+        ```
+
+        > **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
+
         ## Import
 
         A group can be imported using its ID. Example:
@@ -179,6 +259,86 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        The `Group` resource facilitates creating, updating, and deleting groups in New Relic, while also enabling the addition and removal of users from these groups.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
+            user_ids=[
+                "0001112222",
+                "2221110000",
+            ])
+        ```
+
+        ## Additional Examples
+
+        ### Updating User Group Membership Management in Terraform
+
+        ### Overview
+        There is a potential race condition within Terraform when managing user accounts and their respective group memberships. A user might be deleted before Terraform disassociates them from a user group. This can lead to an error during `pulumi up` because the user ID no longer exists when the group resource is being updated.
+
+        ### Recommended Solution
+        To address this and ensure proper sequential execution of resource updates, it is recommended to utilize the `create_before_destroy` lifecycle directive within your user group resource definition.
+
+        ### Addition of New Users to a New Group
+
+        The following example illustrates the creation of a group using the `Group` resource, to which users created using the `User` resource are added.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_user = newrelic.User("foo",
+            name="Test User One",
+            email_id="test_user_one@test.com",
+            authentication_domain_id=foo.id,
+            user_type="CORE_USER_TIER")
+        bar = newrelic.User("bar",
+            name="Test User Two",
+            email_id="test_user_two@test.com",
+            authentication_domain_id=foo.id,
+            user_type="BASIC_USER_TIER")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
+            user_ids=[
+                foo_user.id,
+                bar.id,
+            ])
+        ```
+
+        ### Addition of Existing Users to a New Group
+
+        The following example demonstrates the usage of the `Group` resource to create a group, wherein the `User` data source is employed to associate existing users with the newly formed group.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.get_authentication_domain(name="Test Authentication Domain")
+        foo_get_user = newrelic.get_user(authentication_domain_id=foo.id,
+            email_id="test_user_one@test.com")
+        bar = newrelic.get_user(authentication_domain_id=foo.id,
+            name="Test User Two")
+        foo_group = newrelic.Group("foo",
+            name="Test Group",
+            authentication_domain_id=foo.id,
+            user_ids=[
+                foo_get_user.id,
+                bar.id,
+            ])
+        ```
+
+        > **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
+
         ## Import
 
         A group can be imported using its ID. Example:

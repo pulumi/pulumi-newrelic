@@ -6,6 +6,61 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+ *
+ * ## ID Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source
+ * const foo = newrelic.getNotificationDestination({
+ *     id: "1e543419-0c25-456a-9057-fb0eb310e60b",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * \x09"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Name Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source
+ * const foo = newrelic.getNotificationDestination({
+ *     name: "webhook-destination",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * \x09"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ */
 export function getNotificationDestination(args?: GetNotificationDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationDestinationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +131,61 @@ export interface GetNotificationDestinationResult {
      */
     readonly type: string;
 }
+/**
+ * Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+ *
+ * ## ID Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source
+ * const foo = newrelic.getNotificationDestination({
+ *     id: "1e543419-0c25-456a-9057-fb0eb310e60b",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * \x09"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Name Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source
+ * const foo = newrelic.getNotificationDestination({
+ *     name: "webhook-destination",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * \x09"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ */
 export function getNotificationDestinationOutput(args?: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationDestinationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

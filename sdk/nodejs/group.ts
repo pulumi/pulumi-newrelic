@@ -5,6 +5,101 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * The `newrelic.Group` resource facilitates creating, updating, and deleting groups in New Relic, while also enabling the addition and removal of users from these groups.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getAuthenticationDomain({
+ *     name: "Test Authentication Domain",
+ * });
+ * const fooGroup = new newrelic.Group("foo", {
+ *     name: "Test Group",
+ *     authenticationDomainId: foo.then(foo => foo.id),
+ *     userIds: [
+ *         "0001112222",
+ *         "2221110000",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Additional Examples
+ *
+ * ### Updating User Group Membership Management in Terraform
+ *
+ * ### Overview
+ * There is a potential race condition within Terraform when managing user accounts and their respective group memberships. A user might be deleted before Terraform disassociates them from a user group. This can lead to an error during `pulumi up` because the user ID no longer exists when the group resource is being updated.
+ *
+ * ### Recommended Solution
+ * To address this and ensure proper sequential execution of resource updates, it is recommended to utilize the `createBeforeDestroy` lifecycle directive within your user group resource definition.
+ *
+ * ### Addition of New Users to a New Group
+ *
+ * The following example illustrates the creation of a group using the `newrelic.Group` resource, to which users created using the `newrelic.User` resource are added.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getAuthenticationDomain({
+ *     name: "Test Authentication Domain",
+ * });
+ * const fooUser = new newrelic.User("foo", {
+ *     name: "Test User One",
+ *     emailId: "test_user_one@test.com",
+ *     authenticationDomainId: foo.then(foo => foo.id),
+ *     userType: "CORE_USER_TIER",
+ * });
+ * const bar = new newrelic.User("bar", {
+ *     name: "Test User Two",
+ *     emailId: "test_user_two@test.com",
+ *     authenticationDomainId: foo.then(foo => foo.id),
+ *     userType: "BASIC_USER_TIER",
+ * });
+ * const fooGroup = new newrelic.Group("foo", {
+ *     name: "Test Group",
+ *     authenticationDomainId: foo.then(foo => foo.id),
+ *     userIds: [
+ *         fooUser.id,
+ *         bar.id,
+ *     ],
+ * });
+ * ```
+ *
+ * ### Addition of Existing Users to a New Group
+ *
+ * The following example demonstrates the usage of the `newrelic.Group` resource to create a group, wherein the `newrelic.User` data source is employed to associate existing users with the newly formed group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getAuthenticationDomain({
+ *     name: "Test Authentication Domain",
+ * });
+ * const fooGetUser = foo.then(foo => newrelic.getUser({
+ *     authenticationDomainId: foo.id,
+ *     emailId: "test_user_one@test.com",
+ * }));
+ * const bar = foo.then(foo => newrelic.getUser({
+ *     authenticationDomainId: foo.id,
+ *     name: "Test User Two",
+ * }));
+ * const fooGroup = new newrelic.Group("foo", {
+ *     name: "Test Group",
+ *     authenticationDomainId: foo.then(foo => foo.id),
+ *     userIds: [
+ *         fooGetUser.then(fooGetUser => fooGetUser.id),
+ *         bar.then(bar => bar.id),
+ *     ],
+ * });
+ * ```
+ *
+ * > **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
+ *
  * ## Import
  *
  * A group can be imported using its ID. Example:

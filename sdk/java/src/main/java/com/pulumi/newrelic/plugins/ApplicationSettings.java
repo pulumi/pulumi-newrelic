@@ -20,9 +20,78 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
+ * 
+ * Use this resource to manage configuration for an application that already exists in New Relic.
+ * 
+ * &gt; **WARNING:** We encourage you to use this resource to manage all application settings together, not just a few, to avoid potential issues like incompatibility or unexpected behavior.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.plugins.ApplicationSettings;
+ * import com.pulumi.newrelic.plugins.ApplicationSettingsArgs;
+ * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsTransactionTracerArgs;
+ * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsTransactionTracerSqlArgs;
+ * import com.pulumi.newrelic.plugins.inputs.ApplicationSettingsErrorCollectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app = new ApplicationSettings("app", ApplicationSettingsArgs.builder()
+ *             .guid("Mxxxxxxxxxxxxxxxxxxxxx")
+ *             .name("Sample New Relic APM Application")
+ *             .appApdexThreshold(0.7)
+ *             .useServerSideConfig(true)
+ *             .transactionTracers(ApplicationSettingsTransactionTracerArgs.builder()
+ *                 .explainQueryPlans(ApplicationSettingsTransactionTracerExplainQueryPlanArgs.builder()
+ *                     .queryPlanThresholdType("VALUE")
+ *                     .queryPlanThresholdValue(0.5)
+ *                     .build())
+ *                 .sql(ApplicationSettingsTransactionTracerSqlArgs.builder()
+ *                     .recordSql("RAW")
+ *                     .build())
+ *                 .stackTraceThresholdValue(0.5)
+ *                 .transactionThresholdType("VALUE")
+ *                 .transactionThresholdValue(0.5)
+ *                 .build())
+ *             .errorCollectors(ApplicationSettingsErrorCollectorArgs.builder()
+ *                 .expectedErrorClasses()
+ *                 .expectedErrorCodes()
+ *                 .ignoredErrorClasses()
+ *                 .ignoredErrorCodes()
+ *                 .build())
+ *             .enableSlowSql(true)
+ *             .tracerType("NONE")
+ *             .enableThreadProfiler(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * ## Notes
+ * 
+ * &gt; **NOTE:** The `newrelic.plugins.ApplicationSettings` resource cannot be deleted directly via Terraform. It can only reset application settings to their initial state.
+ * 
  * ## Import
  * 
- * Applications can be imported using notation `application_guid`, e.g.
+ * Applications can be imported using notation `applicationGuid`, e.g.
  * 
  * ```sh
  * $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
@@ -140,14 +209,18 @@ public class ApplicationSettings extends com.pulumi.resources.CustomResource {
         return this.isImported;
     }
     /**
-     * The name of the application in New Relic.
+     * A custom name or alias you can give the application in New Relic APM.
+     * 
+     * &gt; **NOTE:** &lt;b style=&#34;color:red;&#34;&gt;Please refrain from using the deprecated attribute `name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the application in New Relic.
+     * @return A custom name or alias you can give the application in New Relic APM.
+     * 
+     * &gt; **NOTE:** &lt;b style=&#34;color:red;&#34;&gt;Please refrain from using the deprecated attribute `name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `guid` instead. For more information on the usage of `guid` against `name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
      * 
      */
     public Output<String> name() {

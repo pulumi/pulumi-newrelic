@@ -314,11 +314,7 @@ import javax.annotation.Nullable;
  * 
  * Alert channels can be imported using the `id`, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/alertChannel:AlertChannel main &lt;id&gt;
- * ```
+ * &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
  * 
  */
 @ResourceType(type="newrelic:index/alertChannel:AlertChannel")

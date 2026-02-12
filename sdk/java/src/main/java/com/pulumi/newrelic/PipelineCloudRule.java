@@ -15,6 +15,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create and manage a New Relic Pipeline Cloud Rule.
+ * 
+ * &gt; **❗&lt;b style=&#34;color:green;&#34;&gt;\*NEW\*&lt;/b&gt;** **Starting v3.68.0 of the New Relic Terraform Provider**, &lt;b style=&#34;color:green;&#34;&gt;Pipeline Cloud Rules can be managed using the resource [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule).&lt;/b&gt; This resource replaces the &lt;span style=&#34;color:red;&#34;&gt;deprecated [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) resource&lt;/span&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;For customers currently managing Drop Rules with the deprecated [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) resource:&lt;/b&gt; Please see our [migration guide](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/drop_rules_eol_guide) for instructions on switching to the [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource. &lt;span style=&#34;color:red;&#34;&gt;The resource [`newrelic.NrqlDropRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/nrql_drop_rule) is &lt;b&gt;deprecated&lt;/b&gt; and will be removed on &lt;b&gt;June 30, 2026&lt;/b&gt;&lt;/span&gt;. While New Relic has automatically migrated your Drop Rules to Pipeline Cloud Rules upstream, &lt;span style=&#34;color:tomato;&#34;&gt;you must update your Terraform configuration to continue managing Drop Rules as Pipeline Cloud Rules&lt;/span&gt;, using the &lt;b style=&#34;color:green;&#34;&gt;new&lt;/b&gt; [`newrelic.PipelineCloudRule`](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/resources/pipeline_cloud_rule) resource.&lt;br&gt;&lt;br&gt;
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -55,11 +59,7 @@ import javax.annotation.Nullable;
  * 
  * Pipeline Cloud Rules can be imported using the `id`. For example:
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/pipelineCloudRule:PipelineCloudRule foo &lt;id&gt;
- * ```
+ * &gt; **NOTE:** If you&#39;d like to import a `newrelic.PipelineCloudRule` resource corresponding to an existing `newrelic.NrqlDropRule` resource in your configuration in light of the aforementioned EOL, please head over to the instructions in our Drop Rules EOL Migration Guide.
  * 
  */
 @ResourceType(type="newrelic:index/pipelineCloudRule:PipelineCloudRule")
