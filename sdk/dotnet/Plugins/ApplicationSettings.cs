@@ -10,9 +10,73 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Plugins
 {
     /// <summary>
+    /// &gt; **NOTE:** Applications are not created by this resource, but are created by a reporting agent.
+    /// 
+    /// Use this resource to manage configuration for an application that already exists in New Relic.
+    /// 
+    /// &gt; **WARNING:** We encourage you to use this resource to manage all application settings together, not just a few, to avoid potential issues like incompatibility or unexpected behavior.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new NewRelic.Plugins.ApplicationSettings("app", new()
+    ///     {
+    ///         Guid = "Mxxxxxxxxxxxxxxxxxxxxx",
+    ///         Name = "Sample New Relic APM Application",
+    ///         AppApdexThreshold = 0.7,
+    ///         UseServerSideConfig = true,
+    ///         TransactionTracers = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.ApplicationSettingsTransactionTracerArgs
+    ///             {
+    ///                 ExplainQueryPlans = new[]
+    ///                 {
+    ///                     new NewRelic.Plugins.Inputs.ApplicationSettingsTransactionTracerExplainQueryPlanArgs
+    ///                     {
+    ///                         QueryPlanThresholdType = "VALUE",
+    ///                         QueryPlanThresholdValue = 0.5,
+    ///                     },
+    ///                 },
+    ///                 Sql = new NewRelic.Plugins.Inputs.ApplicationSettingsTransactionTracerSqlArgs
+    ///                 {
+    ///                     RecordSql = "RAW",
+    ///                 },
+    ///                 StackTraceThresholdValue = 0.5,
+    ///                 TransactionThresholdType = "VALUE",
+    ///                 TransactionThresholdValue = 0.5,
+    ///             },
+    ///         },
+    ///         ErrorCollectors = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.ApplicationSettingsErrorCollectorArgs
+    ///             {
+    ///                 ExpectedErrorClasses = new() { },
+    ///                 ExpectedErrorCodes = new() { },
+    ///                 IgnoredErrorClasses = new() { },
+    ///                 IgnoredErrorCodes = new() { },
+    ///             },
+    ///         },
+    ///         EnableSlowSql = true,
+    ///         TracerType = "NONE",
+    ///         EnableThreadProfiler = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Notes
+    /// 
+    /// &gt; **NOTE:** The `newrelic.plugins.ApplicationSettings` resource cannot be deleted directly via Terraform. It can only reset application settings to their initial state.
+    /// 
     /// ## Import
     /// 
-    /// Applications can be imported using notation `application_guid`, e.g.
+    /// Applications can be imported using notation `ApplicationGuid`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
@@ -69,7 +133,9 @@ namespace Pulumi.NewRelic.Plugins
         public Output<bool> IsImported { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application in New Relic.
+        /// A custom name or alias you can give the application in New Relic APM.
+        /// 
+        /// &gt; **NOTE:** &lt;b style="color:red;"&gt;Please refrain from using the deprecated attribute `Name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `Guid` instead. For more information on the usage of `Guid` against `Name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -189,7 +255,9 @@ namespace Pulumi.NewRelic.Plugins
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// The name of the application in New Relic.
+        /// A custom name or alias you can give the application in New Relic APM.
+        /// 
+        /// &gt; **NOTE:** &lt;b style="color:red;"&gt;Please refrain from using the deprecated attribute `Name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `Guid` instead. For more information on the usage of `Guid` against `Name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -280,7 +348,9 @@ namespace Pulumi.NewRelic.Plugins
         public Input<bool>? IsImported { get; set; }
 
         /// <summary>
-        /// The name of the application in New Relic.
+        /// A custom name or alias you can give the application in New Relic APM.
+        /// 
+        /// &gt; **NOTE:** &lt;b style="color:red;"&gt;Please refrain from using the deprecated attribute `Name`&lt;/b&gt;with the resource `newrelic.plugins.ApplicationSettings` and use `Guid` instead. For more information on the usage of `Guid` against `Name` and associated implications if the resource is upgraded from an older version of the New Relic Terraform Provider, please see the note in this section below.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

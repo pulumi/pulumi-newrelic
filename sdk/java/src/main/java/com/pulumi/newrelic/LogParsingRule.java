@@ -109,12 +109,6 @@ import javax.annotation.Nullable;
  * 
  * New Relic log parsing rule can be imported using the rule ID, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
- * ```
- * 
  */
 @ResourceType(type="newrelic:index/logParsingRule:LogParsingRule")
 public class LogParsingRule extends com.pulumi.resources.CustomResource {

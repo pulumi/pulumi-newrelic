@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
+//
+// > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+// <br><br>
+// If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtimeType` and `runtimeTypeVersion` in the **Argument Reference** section.
+//
 // ## Example Usage
 //
 // ```go
@@ -262,12 +268,6 @@ import (
 // ## Import
 //
 // Synthetics monitor can be imported using the `guid`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
-// ```
 type Monitor struct {
 	pulumi.CustomResourceState
 
@@ -320,8 +320,9 @@ type Monitor struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The URI the monitor runs against.
-	Uri                         pulumi.StringPtrOutput `pulumi:"uri"`
-	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput   `pulumi:"useUnsupportedLegacyRuntime"`
+	Uri pulumi.StringPtrOutput `pulumi:"uri"`
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput `pulumi:"useUnsupportedLegacyRuntime"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrOutput `pulumi:"validationString"`
 	// Monitor should validate SSL certificate chain.
@@ -413,8 +414,9 @@ type monitorState struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type *string `pulumi:"type"`
 	// The URI the monitor runs against.
-	Uri                         *string `pulumi:"uri"`
-	UseUnsupportedLegacyRuntime *bool   `pulumi:"useUnsupportedLegacyRuntime"`
+	Uri *string `pulumi:"uri"`
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+	UseUnsupportedLegacyRuntime *bool `pulumi:"useUnsupportedLegacyRuntime"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
 	// Monitor should validate SSL certificate chain.
@@ -471,7 +473,8 @@ type MonitorState struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringPtrInput
 	// The URI the monitor runs against.
-	Uri                         pulumi.StringPtrInput
+	Uri pulumi.StringPtrInput
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
 	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
@@ -529,8 +532,9 @@ type monitorArgs struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type string `pulumi:"type"`
 	// The URI the monitor runs against.
-	Uri                         *string `pulumi:"uri"`
-	UseUnsupportedLegacyRuntime *bool   `pulumi:"useUnsupportedLegacyRuntime"`
+	Uri *string `pulumi:"uri"`
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+	UseUnsupportedLegacyRuntime *bool `pulumi:"useUnsupportedLegacyRuntime"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
 	// Monitor should validate SSL certificate chain.
@@ -584,7 +588,8 @@ type MonitorArgs struct {
 	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringInput
 	// The URI the monitor runs against.
-	Uri                         pulumi.StringPtrInput
+	Uri pulumi.StringPtrInput
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
 	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
@@ -795,6 +800,7 @@ func (o MonitorOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
+// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
 func (o MonitorOutput) UseUnsupportedLegacyRuntime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.UseUnsupportedLegacyRuntime }).(pulumi.BoolPtrOutput)
 }

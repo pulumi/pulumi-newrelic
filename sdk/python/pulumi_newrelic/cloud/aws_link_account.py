@@ -28,7 +28,9 @@ class AwsLinkAccountArgs:
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[_builtins.str] name: The name of the linked account.
+        :param pulumi.Input[_builtins.str] name: The linked account name
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         pulumi.set(__self__, "arn", arn)
         if account_id is not None:
@@ -78,7 +80,9 @@ class AwsLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the linked account.
+        The linked account name
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -99,7 +103,9 @@ class _AwsLinkAccountState:
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[_builtins.str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[_builtins.str] name: The name of the linked account.
+        :param pulumi.Input[_builtins.str] name: The linked account name
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -150,7 +156,9 @@ class _AwsLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the linked account.
+        The linked account name
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -199,18 +207,14 @@ class AwsLinkAccount(pulumi.CustomResource):
 
         Linked AWS accounts can be imported using the `id`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[_builtins.str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[_builtins.str] name: The name of the linked account.
+        :param pulumi.Input[_builtins.str] name: The linked account name
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         ...
     @overload
@@ -246,12 +250,6 @@ class AwsLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
-        ```
 
         :param str resource_name: The name of the resource.
         :param AwsLinkAccountArgs args: The arguments to use to populate this resource's properties.
@@ -311,7 +309,9 @@ class AwsLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[_builtins.str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[_builtins.str] name: The name of the linked account.
+        :param pulumi.Input[_builtins.str] name: The linked account name
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,7 +351,9 @@ class AwsLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the linked account.
+        The linked account name
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 

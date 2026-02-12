@@ -74,12 +74,6 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// New Relic log parsing rule can be imported using the rule ID, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
-    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/logParsingRule:LogParsingRule")]
     public partial class LogParsingRule : global::Pulumi.CustomResource

@@ -85,6 +85,10 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(name: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
+    > **DEPRECATED** Use at your own risk. Use the [`get_entity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
+
+    Use this data source to get information about a specific application in New Relic that already exists. More information on Terraform's data sources can be found here.
+
     ## Example Usage
 
     ```python
@@ -125,6 +129,10 @@ def get_application(name: Optional[_builtins.str] = None,
 def get_application_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
+    > **DEPRECATED** Use at your own risk. Use the [`get_entity`](https://www.terraform.io/docs/providers/newrelic/d/entity.html) data source instead. This feature may be removed in the next major release.
+
+    Use this data source to get information about a specific application in New Relic that already exists. More information on Terraform's data sources can be found here.
+
     ## Example Usage
 
     ```python

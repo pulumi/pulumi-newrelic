@@ -570,12 +570,6 @@ class OciLinkAccount(pulumi.CustomResource):
 
         Linked OCI accounts can be imported using the `id`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo <id>
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
@@ -673,12 +667,6 @@ class OciLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked OCI accounts can be imported using the `id`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo <id>
-        ```
 
         :param str resource_name: The name of the resource.
         :param OciLinkAccountArgs args: The arguments to use to populate this resource's properties.

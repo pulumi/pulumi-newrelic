@@ -1079,12 +1079,6 @@ class GcpIntegrations(pulumi.CustomResource):
 
         Linked GCP account integrations can be imported using the `id`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -1230,12 +1224,6 @@ class GcpIntegrations(pulumi.CustomResource):
         ## Import
 
         Linked GCP account integrations can be imported using the `id`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
-        ```
 
         :param str resource_name: The name of the resource.
         :param GcpIntegrationsArgs args: The arguments to use to populate this resource's properties.

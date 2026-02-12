@@ -308,12 +308,6 @@ import (
 // ## Import
 //
 // Compound alert conditions can be imported using the condition ID, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
-// ```
 type AlertCompoundCondition struct {
 	pulumi.CustomResourceState
 

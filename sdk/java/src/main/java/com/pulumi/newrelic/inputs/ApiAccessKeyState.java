@@ -81,9 +81,19 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.keyType);
     }
 
+    /**
+     * The name of the API key.
+     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the API key.
+     * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -238,11 +248,25 @@ public final class ApiAccessKeyState extends com.pulumi.resources.ResourceArgs {
             return keyType(Output.of(keyType));
         }
 
+        /**
+         * @param name The name of the API key.
+         * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the API key.
+         * - **Note**: While `name` is optional, it is &lt;b style=&#34;color:red;&#34;&gt;\*\*strongly recommended\*\*&lt;/b&gt; to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

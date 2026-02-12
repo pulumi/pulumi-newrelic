@@ -668,14 +668,9 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * Channels can only be used by a single workflow, therefore importing them is not particularly useful, because in the UI channels are created upon workflow creation.
- * 
  * Additionally, the channel id isn&#39;t available via the UI, and you&#39;d need to look it up with the `channels` query in the NerdGraph API.
- * 
  * That being said, importing is possible using -
- * 
- * ```sh
- * $ pulumi import newrelic:index/notificationChannel:NotificationChannel foo &lt;destination_id&gt;
- * ```
+ * ```terraform import newrelic_notification_destination.foo &lt;destination_id&gt;```
  * 
  */
 @ResourceType(type="newrelic:index/notificationChannel:NotificationChannel")

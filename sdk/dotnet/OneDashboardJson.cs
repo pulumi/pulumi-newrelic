@@ -10,15 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ### Create A New Relic One Dashboard From A JSON File
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.OneDashboardJson("foo", new()
+    ///     {
+    ///         Json = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "dashboard.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// ### Setting Thresholds
+    /// 
+    /// The following example demonstrates setting thresholds on a billboard widget.
+    /// 
+    /// `dashboard.json`
+    /// 
+    /// ### More Complex Examples
+    /// 
+    /// The following examples show more intricate use cases of creating dashboards from JSON files, using this resource.
+    /// - This example illustrates the use of a variable list of items to create a dashboard, that may be used iteratively to populate queries and other arguments of widgets, using Terraform template files.
+    /// - This example elaborates on the use of an apt Terraform configuration with additional dependencies, to instrument the use of values obtained from a GraphQL API response iteratively to configure widgets in the dashboard for each item in the response, using the Terraform `Jsondecode` function.
+    /// 
+    /// More of such examples may be found in ths GitHub repository.
+    /// 
     /// ## Import
     /// 
     /// New Relic dashboards can be imported using their GUID, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard &lt;dashboard GUID&gt;
-    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardJson:OneDashboardJson")]
     public partial class OneDashboardJson : global::Pulumi.CustomResource

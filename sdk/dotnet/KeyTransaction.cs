@@ -39,12 +39,6 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// A Key Transaction in New Relic may be imported into Terraform using its GUID specified in the `&lt;id&gt;` field, in the following command.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/keyTransaction:KeyTransaction foo &lt;id&gt;
-    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/keyTransaction:KeyTransaction")]
     public partial class KeyTransaction : global::Pulumi.CustomResource

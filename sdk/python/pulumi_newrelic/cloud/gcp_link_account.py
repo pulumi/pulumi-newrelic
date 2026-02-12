@@ -26,7 +26,9 @@ class GcpLinkAccountArgs:
         The set of arguments for constructing a GcpLinkAccount resource.
         :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[_builtins.str] name: name of the linked account
+        :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         pulumi.set(__self__, "project_id", project_id)
         if account_id is not None:
@@ -62,7 +64,9 @@ class GcpLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        name of the linked account
+        The name of the GCP account in New Relic.
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -80,7 +84,9 @@ class _GcpLinkAccountState:
         """
         Input properties used for looking up and filtering GcpLinkAccount resources.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[_builtins.str] name: name of the linked account
+        :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
         """
         if account_id is not None:
@@ -106,7 +112,9 @@ class _GcpLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        name of the linked account
+        The name of the GCP account in New Relic.
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 
@@ -170,16 +178,12 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[_builtins.str] name: name of the linked account
+        :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
         """
         ...
@@ -220,12 +224,6 @@ class GcpLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
-        ```
 
         :param str resource_name: The name of the resource.
         :param GcpLinkAccountArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +278,9 @@ class GcpLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
-        :param pulumi.Input[_builtins.str] name: name of the linked account
+        :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
+               
+               > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -304,7 +304,9 @@ class GcpLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        name of the linked account
+        The name of the GCP account in New Relic.
+
+        > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
         """
         return pulumi.get(self, "name")
 

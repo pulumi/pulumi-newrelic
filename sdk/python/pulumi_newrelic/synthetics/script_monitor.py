@@ -60,6 +60,7 @@ class ScriptMonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
+        :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "status", status)
@@ -304,6 +305,9 @@ class ScriptMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="useUnsupportedLegacyRuntime")
     def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+        """
         return pulumi.get(self, "use_unsupported_legacy_runtime")
 
     @use_unsupported_legacy_runtime.setter
@@ -359,6 +363,7 @@ class _ScriptMonitorState:
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
+        :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -648,6 +653,9 @@ class _ScriptMonitorState:
     @_builtins.property
     @pulumi.getter(name="useUnsupportedLegacyRuntime")
     def use_unsupported_legacy_runtime(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+        """
         return pulumi.get(self, "use_unsupported_legacy_runtime")
 
     @use_unsupported_legacy_runtime.setter
@@ -681,6 +689,12 @@ class ScriptMonitor(pulumi.CustomResource):
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
+
+        > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+        <br><br>
+        If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning in the **Deprecated Runtime** section.
+
         ## Example Usage
 
         ##### Type: `SCRIPT_API`
@@ -846,12 +860,6 @@ class ScriptMonitor(pulumi.CustomResource):
         ## Import
 
         Synthetics monitor scripts can be imported using the `guid`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -874,6 +882,7 @@ class ScriptMonitor(pulumi.CustomResource):
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
+        :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         ...
     @overload
@@ -882,6 +891,12 @@ class ScriptMonitor(pulumi.CustomResource):
                  args: ScriptMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create update, and delete a Script API or Script Browser Synthetics Monitor in New Relic.
+
+        > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+        <br><br>
+        If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning in the **Deprecated Runtime** section.
+
         ## Example Usage
 
         ##### Type: `SCRIPT_API`
@@ -1047,12 +1062,6 @@ class ScriptMonitor(pulumi.CustomResource):
         ## Import
 
         Synthetics monitor scripts can be imported using the `guid`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
-        ```
 
         :param str resource_name: The name of the resource.
         :param ScriptMonitorArgs args: The arguments to use to populate this resource's properties.
@@ -1183,6 +1192,7 @@ class ScriptMonitor(pulumi.CustomResource):
                
                The `SCRIPTED_BROWSER` monitor type supports the following additional arguments:
         :param pulumi.Input[_builtins.str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
+        :param pulumi.Input[_builtins.bool] use_unsupported_legacy_runtime: A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1376,5 +1386,8 @@ class ScriptMonitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="useUnsupportedLegacyRuntime")
     def use_unsupported_legacy_runtime(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+        """
         return pulumi.get(self, "use_unsupported_legacy_runtime")
 

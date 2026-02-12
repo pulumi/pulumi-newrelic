@@ -265,12 +265,6 @@ class ObfuscationRule(pulumi.CustomResource):
 
         New Relic obfuscation rule can be imported using the rule ID, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
@@ -314,12 +308,6 @@ class ObfuscationRule(pulumi.CustomResource):
         ## Import
 
         New Relic obfuscation rule can be imported using the rule ID, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
-        ```
 
         :param str resource_name: The name of the resource.
         :param ObfuscationRuleArgs args: The arguments to use to populate this resource's properties.

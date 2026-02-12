@@ -14,15 +14,64 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * ### Create A New Relic One Dashboard From A JSON File
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.OneDashboardJson;
+ * import com.pulumi.newrelic.OneDashboardJsonArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new OneDashboardJson("foo", OneDashboardJsonArgs.builder()
+ *             .json(StdFunctions.file(FileArgs.builder()
+ *                 .input("dashboard.json")
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Additional Examples
+ * 
+ * ### Setting Thresholds
+ * 
+ * The following example demonstrates setting thresholds on a billboard widget.
+ * 
+ * `dashboard.json`
+ * 
+ * ### More Complex Examples
+ * 
+ * The following examples show more intricate use cases of creating dashboards from JSON files, using this resource.
+ * - This example illustrates the use of a variable list of items to create a dashboard, that may be used iteratively to populate queries and other arguments of widgets, using Terraform template files.
+ * - This example elaborates on the use of an apt Terraform configuration with additional dependencies, to instrument the use of values obtained from a GraphQL API response iteratively to configure widgets in the dashboard for each item in the response, using the Terraform `jsondecode` function.
+ * 
+ * More of such examples may be found in ths GitHub repository.
+ * 
  * ## Import
  * 
  * New Relic dashboards can be imported using their GUID, e.g.
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/oneDashboardJson:OneDashboardJson my_dashboard &lt;dashboard GUID&gt;
- * ```
  * 
  */
 @ResourceType(type="newrelic:index/oneDashboardJson:OneDashboardJson")

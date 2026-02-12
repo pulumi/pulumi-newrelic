@@ -27711,7 +27711,7 @@ func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) Index(i pulumi.IntInput
 type WorkflowIssuesFilter struct {
 	// filter id.
 	FilterId *string `pulumi:"filterId"`
-	// (Required) Filter's name.
+	// The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
 	Name string `pulumi:"name"`
 	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates []WorkflowIssuesFilterPredicate `pulumi:"predicates"`
@@ -27733,7 +27733,7 @@ type WorkflowIssuesFilterInput interface {
 type WorkflowIssuesFilterArgs struct {
 	// filter id.
 	FilterId pulumi.StringPtrInput `pulumi:"filterId"`
-	// (Required) Filter's name.
+	// The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates WorkflowIssuesFilterPredicateArrayInput `pulumi:"predicates"`
@@ -27823,7 +27823,7 @@ func (o WorkflowIssuesFilterOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) *string { return v.FilterId }).(pulumi.StringPtrOutput)
 }
 
-// (Required) Filter's name.
+// The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
 func (o WorkflowIssuesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -27872,7 +27872,7 @@ func (o WorkflowIssuesFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) Filter's name.
+// The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
 func (o WorkflowIssuesFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {

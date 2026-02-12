@@ -171,12 +171,6 @@ import * as utilities from "./utilities";
  *
  * Workflows can be imported using the `id`, e.g.
  *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:index/workflow:Workflow foo <id>
- * ```
- *
  * You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
  */
 export class Workflow extends pulumi.CustomResource {

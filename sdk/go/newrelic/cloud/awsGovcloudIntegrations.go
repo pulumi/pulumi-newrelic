@@ -29,12 +29,6 @@ import (
 // ## Import
 //
 // Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
-// ```
 type AwsGovcloudIntegrations struct {
 	pulumi.CustomResourceState
 

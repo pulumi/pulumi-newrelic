@@ -559,12 +559,6 @@ class AlertCompoundCondition(pulumi.CustomResource):
 
         Compound alert conditions can be imported using the condition ID, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -801,12 +795,6 @@ class AlertCompoundCondition(pulumi.CustomResource):
         ## Import
 
         Compound alert conditions can be imported using the condition ID, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
-        ```
 
         :param str resource_name: The name of the resource.
         :param AlertCompoundConditionArgs args: The arguments to use to populate this resource's properties.

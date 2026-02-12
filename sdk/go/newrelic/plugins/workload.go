@@ -251,12 +251,6 @@ import (
 // New Relic workloads can be imported using a concatenated string of the format
 //
 //	`<account_id>:<workload_id>:<guid>`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
-// ```
 type Workload struct {
 	pulumi.CustomResourceState
 

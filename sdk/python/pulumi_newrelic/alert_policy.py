@@ -268,6 +268,7 @@ class AlertPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
         ```
+
         Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 
         :param str resource_name: The name of the resource.
@@ -363,6 +364,7 @@ class AlertPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
         ```
+
         Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 
         :param str resource_name: The name of the resource.

@@ -32,9 +32,17 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     * 
+     */
     @Import(name="channelIds", required=true)
     private Output<List<String>> channelIds;
 
+    /**
+     * @return Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     * 
+     */
     public Output<List<String>> channelIds() {
         return this.channelIds;
     }
@@ -101,15 +109,33 @@ public final class AlertPolicyChannelArgs extends com.pulumi.resources.ResourceA
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelIds(Output<List<String>> channelIds) {
             $.channelIds = channelIds;
             return this;
         }
 
+        /**
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelIds(List<String> channelIds) {
             return channelIds(Output.of(channelIds));
         }
 
+        /**
+         * @param channelIds Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelIds(String... channelIds) {
             return channelIds(List.of(channelIds));
         }

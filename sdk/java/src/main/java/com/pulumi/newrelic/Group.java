@@ -16,6 +16,180 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * The `newrelic.Group` resource facilitates creating, updating, and deleting groups in New Relic, while also enabling the addition and removal of users from these groups.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NewrelicFunctions;
+ * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+ * import com.pulumi.newrelic.Group;
+ * import com.pulumi.newrelic.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *             .name("Test Authentication Domain")
+ *             .build());
+ * 
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()
+ *             .name("Test Group")
+ *             .authenticationDomainId(foo.id())
+ *             .userIds(            
+ *                 "0001112222",
+ *                 "2221110000")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Additional Examples
+ * 
+ * ### Updating User Group Membership Management in Terraform
+ * 
+ * ### Overview
+ * There is a potential race condition within Terraform when managing user accounts and their respective group memberships. A user might be deleted before Terraform disassociates them from a user group. This can lead to an error during `pulumi up` because the user ID no longer exists when the group resource is being updated.
+ * 
+ * ### Recommended Solution
+ * To address this and ensure proper sequential execution of resource updates, it is recommended to utilize the `createBeforeDestroy` lifecycle directive within your user group resource definition.
+ * 
+ * ### Addition of New Users to a New Group
+ * 
+ * The following example illustrates the creation of a group using the `newrelic.Group` resource, to which users created using the `newrelic.User` resource are added.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NewrelicFunctions;
+ * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+ * import com.pulumi.newrelic.User;
+ * import com.pulumi.newrelic.UserArgs;
+ * import com.pulumi.newrelic.Group;
+ * import com.pulumi.newrelic.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *             .name("Test Authentication Domain")
+ *             .build());
+ * 
+ *         var fooUser = new User("fooUser", UserArgs.builder()
+ *             .name("Test User One")
+ *             .emailId("test_user_one}{@literal @}{@code test.com")
+ *             .authenticationDomainId(foo.id())
+ *             .userType("CORE_USER_TIER")
+ *             .build());
+ * 
+ *         var bar = new User("bar", UserArgs.builder()
+ *             .name("Test User Two")
+ *             .emailId("test_user_two}{@literal @}{@code test.com")
+ *             .authenticationDomainId(foo.id())
+ *             .userType("BASIC_USER_TIER")
+ *             .build());
+ * 
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()
+ *             .name("Test Group")
+ *             .authenticationDomainId(foo.id())
+ *             .userIds(            
+ *                 fooUser.id(),
+ *                 bar.id())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * ### Addition of Existing Users to a New Group
+ * 
+ * The following example demonstrates the usage of the `newrelic.Group` resource to create a group, wherein the `newrelic.User` data source is employed to associate existing users with the newly formed group.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NewrelicFunctions;
+ * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
+ * import com.pulumi.newrelic.inputs.GetUserArgs;
+ * import com.pulumi.newrelic.Group;
+ * import com.pulumi.newrelic.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         final var foo = NewrelicFunctions.getAuthenticationDomain(GetAuthenticationDomainArgs.builder()
+ *             .name("Test Authentication Domain")
+ *             .build());
+ * 
+ *         final var fooGetUser = NewrelicFunctions.getUser(GetUserArgs.builder()
+ *             .authenticationDomainId(foo.id())
+ *             .emailId("test_user_one}{@literal @}{@code test.com")
+ *             .build());
+ * 
+ *         final var bar = NewrelicFunctions.getUser(GetUserArgs.builder()
+ *             .authenticationDomainId(foo.id())
+ *             .name("Test User Two")
+ *             .build());
+ * 
+ *         var fooGroup = new Group("fooGroup", GroupArgs.builder()
+ *             .name("Test Group")
+ *             .authenticationDomainId(foo.id())
+ *             .userIds(            
+ *                 fooGetUser.id(),
+ *                 bar.id())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * &gt; **NOTE** Please note that the addition of users to groups is only possible when both the group and the users to be added to it belong to the _same authentication domain_. If the group being created and the users being added to it belong to different authentication domains, an error indicating `user not found` or an equivalent error will be thrown.
+ * 
  * ## Import
  * 
  * A group can be imported using its ID. Example:

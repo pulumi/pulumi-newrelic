@@ -10,15 +10,1073 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
+    /// Use this resource to integrate AWS services with New Relic.
+    /// 
+    /// ## Prerequisite
+    /// 
+    /// Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
+    /// 
+    /// New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
+    /// 
+    /// Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// The following example demonstrates the use of the `newrelic.cloud.AwsIntegrations` resource with multiple AWS integrations supported by the resource.
+    /// 
+    /// To view a full example with all supported AWS integrations, please see the Additional Examples section. Integration blocks used in the resource may also be left empty to use the default configuration of the integration.
+    /// 
+    /// A full example, inclusive of setup of AWS resources (from the AWS Terraform Provider) associated with this resource, may be found in our AWS cloud integration guide.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Cloud.AwsLinkAccount("foo", new()
+    ///     {
+    ///         Arn = newrelicAwsRole.Arn,
+    ///         MetricCollectionMode = "PULL",
+    ///         Name = "foo",
+    ///     });
+    /// 
+    ///     var bar = new NewRelic.Cloud.AwsIntegrations("bar", new()
+    ///     {
+    ///         LinkedAccountId = foo.Id,
+    ///         Cloudtrail = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudtrailArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-east-2",
+    ///             },
+    ///         },
+    ///         Vpc = new NewRelic.Cloud.Inputs.AwsIntegrationsVpcArgs
+    ///         {
+    ///             MetricsPollingInterval = 900,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-east-2",
+    ///             },
+    ///             FetchNatGateway = true,
+    ///             FetchVpn = false,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Sqs = new NewRelic.Cloud.Inputs.AwsIntegrationsSqsArgs
+    ///         {
+    ///             FetchExtendedInventory = true,
+    ///             FetchTags = true,
+    ///             QueuePrefixes = new[]
+    ///             {
+    ///                 "queue prefix",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         ApiGateway = new NewRelic.Cloud.Inputs.AwsIntegrationsApiGatewayArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             StagePrefixes = new[]
+    ///             {
+    ///                 "stage prefix",
+    ///             },
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Cloudfront = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudfrontArgs
+    ///         {
+    ///             FetchLambdasAtEdge = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Ec2 = new NewRelic.Cloud.Inputs.AwsIntegrationsEc2Args
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             DuplicateEc2Tags = true,
+    ///             FetchIpAddresses = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Elasticsearch = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticsearchArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchNodes = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Kinesis = new NewRelic.Cloud.Inputs.AwsIntegrationsKinesisArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchShards = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 900,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Supported AWS Integrations
+    /// 
+    /// &lt;details&gt;
+    ///   &lt;summary&gt;Expand this section to view all supported AWS services supported, that may be integrated via this resource.&lt;/summary&gt;
+    /// 
+    /// | Block                   | Description                   |
+    /// |-------------------------|-------------------------------|
+    /// | `Alb`                   | ALB Integration               |
+    /// | `ApiGateway`           | API Gateway Integration       |
+    /// | `AutoScaling`          | Auto Scaling Integration      |
+    /// | `AwsAppSync`          | AppSync Integration           |
+    /// | `AwsAthena`            | Athena Integration            |
+    /// | `AwsCognito`           | Cognito Integration           |
+    /// | `AwsConnect`           | Connect Integration           |
+    /// | `AwsDirectConnect`    | Direct Connect Integration    |
+    /// | `AwsFsx`               | FSx Integration               |
+    /// | `AwsGlue`              | Glue Integration              |
+    /// | `AwsKinesisAnalytics` | Kinesis Analytics Integration |
+    /// | `AwsMediaConvert`     | MediaConvert Integration      |
+    /// | `AwsMediaPackageVod` | Media Package VOD Integration |
+    /// | `AwsMq`                | MQ Integration                |
+    /// | `AwsMsk`               | MSK Integration               |
+    /// | `AwsNeptune`           | Neptune Integration           |
+    /// | `AwsQldb`              | QLDB Integration              |
+    /// | `AwsRoute53resolver`   | Route53 Resolver Integration  |
+    /// | `AwsStates`            | States Integration            |
+    /// | `AwsTransitGateway`   | Transit Gateway Integration   |
+    /// | `AwsWaf`               | WAF Integration               |
+    /// | `AwsWafv2`             | WAFv2 Integration             |
+    /// | `Billing`               | Billing Integration           |
+    /// | `Cloudfront`            | CloudFront Integration        |
+    /// | `Cloudtrail`            | CloudTrail Integration        |
+    /// | `DocDb`                | DocumentDB Integration        |
+    /// | `Dynamodb`              | DynamoDB Integration          |
+    /// | `Ebs`                   | EBS Integration               |
+    /// | `Ec2`                   | EC2 Integration               |
+    /// | `Ecs`                   | ECS Integration               |
+    /// | `Efs`                   | EFS Integration               |
+    /// | `Elasticache`           | ElastiCache Integration       |
+    /// | `Elasticbeanstalk`      | Elastic Beanstalk Integration |
+    /// | `Elasticsearch`         | Elasticsearch Integration     |
+    /// | `Elb`                   | ELB Integration               |
+    /// | `Emr`                   | EMR Integration               |
+    /// | `Health`                | Health Integration            |
+    /// | `Iam`                   | IAM Integration               |
+    /// | `Iot`                   | IoT Integration               |
+    /// | `Kinesis`               | Kinesis Integration           |
+    /// | `KinesisFirehose`      | Kinesis Firehose Integration  |
+    /// | `Lambda`                | Lambda Integration            |
+    /// | `Rds`                   | RDS Integration               |
+    /// | `Redshift`              | Redshift Integration          |
+    /// | `Route53`               | Route53 Integration           |
+    /// | `S3`                    | S3 Integration                |
+    /// | `Ses`                   | SES Integration               |
+    /// | `SecurityHub`          | Security Hub Integration      |
+    /// | `Sns`                   | SNS Integration               |
+    /// | `Sqs`                   | SQS Integration               |
+    /// | `TrustedAdvisor`       | Trusted Advisor Integration   |
+    /// | `Vpc`                   | VPC Integration               |
+    /// | `XRay`                 | X-Ray Integration             |
+    /// 
+    /// &lt;/details&gt;
+    /// 
+    /// ## Integration Blocks
+    /// 
+    /// The following section lists out arguments which may be used with each AWS integration supported by this resource.
+    /// 
+    /// As specified above in the Arguments to be Specified with Integration Blocks section, except for `LinkedAccountId` and `AccountId`, all aforementioned arguments are to be specified within an integration block as they are supported by a specific set of integrations each; the following list of integration blocks elucidates the same with samples of what each integration block would look like.
+    /// 
+    /// &lt;details&gt;
+    ///   &lt;summary&gt; Expand this list to see a list of all integration blocks supported by this resource, the arguments which go with them and a sample of what the block would look like with these arguments. &lt;/summary&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;cloudtrail&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///      cloudtrail {
+    ///         metrics_polling_interval = 300
+    ///         aws_regions              = ["us-east-1", "us-east-2"]
+    ///      }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;vpc&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchNatGateway` `FetchVpn` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///      vpc {
+    ///       metrics_polling_interval = 900
+    ///       aws_regions              = ["us-east-1", "us-east-2"]
+    ///       fetch_nat_gateway        = true
+    ///       fetch_vpn                = false
+    ///       tag_key                  = "tag key"
+    ///       tag_value                = "tag value"
+    ///     }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;x_ray&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 60,300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///      x_ray {
+    ///       metrics_polling_interval = 300
+    ///       aws_regions              = ["us-east-1", "us-east-2"]
+    ///     }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;s3&lt;/summary&gt;
+    /// *  Supported Arguments: `FetchExtendedInventory` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///      s3 { 
+    ///         metrics_polling_interval = 3600
+    ///         fetch_extended_inventory = true
+    ///         fetch_tags               = true
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///      }
+    /// ```
+    /// &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;doc_db&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        doc_db {
+    ///           metrics_polling_interval = 300
+    ///           aws_regions              = ["us-east-1", "us-east-2"]
+    ///        }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;sqs&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `FetchTags` `QueuePrefixes` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        sqs {
+    ///           fetch_extended_inventory = true
+    ///           fetch_tags               = true
+    ///           queue_prefixes           = ["queue prefix"]
+    ///           metrics_polling_interval = 300
+    ///           aws_regions              = ["us-east-1"]
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;ebs&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 900, 1800, 3600 (seconds)
+    /// ```hcl  
+    ///        ebs {
+    ///         metrics_polling_interval = 900
+    ///         fetch_extended_inventory = true
+    ///         aws_regions              = ["us-east-1"]
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;alb&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `FetchTags` `LoadBalancerPrefixes` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///         alb {
+    ///           fetch_extended_inventory = true
+    ///           fetch_tags               = true
+    ///           load_balancer_prefixes   = ["load balancer prefix"]
+    ///           metrics_polling_interval = 300
+    ///           aws_regions              = ["us-east-1"]
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;elasticache&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        elasticache {
+    ///         aws_regions              = ["us-east-1"]
+    ///         fetch_tags               = true
+    ///         metrics_polling_interval = 300
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;api_gateway&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `TagKey` `TagValue` `StagePrefixes`
+    /// ```hcl 
+    ///        api_gateway {
+    ///         metrics_polling_interval = 300
+    ///         aws_regions              = ["us-east-1"]
+    ///         stage_prefixes           = ["stage prefix"]
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;cloudfront&lt;/summary&gt;
+    /// *  Supported Arguments: `FetchLambdasAtEdge` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        cloudfront {
+    ///         fetch_lambdas_at_edge    = true
+    ///         fetch_tags               = true
+    ///         metrics_polling_interval = 300
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;dynamodb&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///         dynamodb {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_extended_inventory = true
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;ec2&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `DuplicateEc2Tags` `FetchIpAddresses` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        ec2 {
+    ///         aws_regions              = ["us-east-1"]
+    ///         duplicate_ec2_tags       = true
+    ///         fetch_ip_addresses       = true
+    ///         metrics_polling_interval = 300
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;ecs&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl
+    ///         ecs {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;efs&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///         efs {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;elasticbeanstalk&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        elasticbeanstalk {
+    ///         aws_regions              = ["us-east-1"]
+    ///         fetch_extended_inventory = true
+    ///         fetch_tags               = true
+    ///         metrics_polling_interval = 300
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;elasticsearch&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchNodes` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///        elasticsearch {
+    ///         aws_regions              = ["us-east-1"]
+    ///         fetch_nodes              = true
+    ///         metrics_polling_interval = 300
+    ///         tag_key                  = "tag key"
+    ///         tag_value                = "tag value"
+    ///       }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;elb&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `FetchTags` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///         elb {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_extended_inventory = true
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///         }
+    ///  ```
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;emr&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl 
+    ///         emr {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;iam&lt;/summary&gt;
+    /// *  Supported Arguments: `TagKey` `TagValue` `MetricsPollingInterval`
+    /// ```hcl  
+    ///         iam {
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt; kinesis &lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchShards` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 900, 1800, 3600 (seconds)
+    /// ```hcl
+    ///         kinesis {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_shards             = true
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 900
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    ///  ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;lambda&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl  
+    ///         lambda {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    ///  ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;rds&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchTags` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl  
+    ///         rds {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_tags               = true
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;redshift&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `TagKey` `TagValue` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl
+    ///         redshift {
+    ///           aws_regions              = ["us-east-1"]
+    ///           metrics_polling_interval = 300
+    ///           tag_key                  = "tag key"
+    ///           tag_value                = "tag value"
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;route53&lt;/summary&gt;
+    /// *  Supported Arguments: `FetchExtendedInventory` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl
+    ///         route53 {
+    ///           fetch_extended_inventory = true
+    ///           metrics_polling_interval = 300
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///   &lt;details&gt;
+    ///     &lt;summary&gt;sns&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `FetchExtendedInventory` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 300, 900, 1800, 3600 (seconds)
+    /// ```hcl  
+    ///         sns {
+    ///           aws_regions              = ["us-east-1"]
+    ///           fetch_extended_inventory = true
+    ///           metrics_polling_interval = 300
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    ///     &lt;details&gt;
+    ///     &lt;summary&gt;security hub&lt;/summary&gt;
+    /// *  Supported Arguments: `AwsRegions` `MetricsPollingInterval`
+    /// *  Valid `MetricsPollingInterval` values: 21600, 43200, 86400 (seconds)
+    /// ```hcl  
+    ///         security_hub {
+    ///           aws_regions              = ["us-east-1"]
+    ///           metrics_polling_interval = 86400
+    ///         }
+    /// ``` 
+    ///   &lt;/details&gt;
+    /// &lt;/details&gt;
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bar = new NewRelic.Cloud.AwsIntegrations("bar", new()
+    ///     {
+    ///         LinkedAccountId = foo.Id,
+    ///         Billing = new NewRelic.Cloud.Inputs.AwsIntegrationsBillingArgs
+    ///         {
+    ///             MetricsPollingInterval = 3600,
+    ///         },
+    ///         Cloudtrail = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudtrailArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-east-2",
+    ///             },
+    ///         },
+    ///         Health = new NewRelic.Cloud.Inputs.AwsIntegrationsHealthArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         TrustedAdvisor = new NewRelic.Cloud.Inputs.AwsIntegrationsTrustedAdvisorArgs
+    ///         {
+    ///             MetricsPollingInterval = 3600,
+    ///         },
+    ///         Vpc = new NewRelic.Cloud.Inputs.AwsIntegrationsVpcArgs
+    ///         {
+    ///             MetricsPollingInterval = 900,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-east-2",
+    ///             },
+    ///             FetchNatGateway = true,
+    ///             FetchVpn = false,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         XRay = new NewRelic.Cloud.Inputs.AwsIntegrationsXRayArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-east-2",
+    ///             },
+    ///         },
+    ///         S3 = new NewRelic.Cloud.Inputs.AwsIntegrationsS3Args
+    ///         {
+    ///             MetricsPollingInterval = 3600,
+    ///         },
+    ///         DocDb = new NewRelic.Cloud.Inputs.AwsIntegrationsDocDbArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Sqs = new NewRelic.Cloud.Inputs.AwsIntegrationsSqsArgs
+    ///         {
+    ///             FetchExtendedInventory = true,
+    ///             FetchTags = true,
+    ///             QueuePrefixes = new[]
+    ///             {
+    ///                 "queue prefix",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Ebs = new NewRelic.Cloud.Inputs.AwsIntegrationsEbsArgs
+    ///         {
+    ///             MetricsPollingInterval = 900,
+    ///             FetchExtendedInventory = true,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Alb = new NewRelic.Cloud.Inputs.AwsIntegrationsAlbArgs
+    ///         {
+    ///             FetchExtendedInventory = true,
+    ///             FetchTags = true,
+    ///             LoadBalancerPrefixes = new[]
+    ///             {
+    ///                 "load balancer prefix",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Elasticache = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticacheArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         ApiGateway = new NewRelic.Cloud.Inputs.AwsIntegrationsApiGatewayArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             StagePrefixes = new[]
+    ///             {
+    ///                 "stage prefix",
+    ///             },
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         AutoScaling = new NewRelic.Cloud.Inputs.AwsIntegrationsAutoScalingArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsAppSync = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsAppSyncArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsAthena = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsAthenaArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsCognito = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsCognitoArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsConnect = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsConnectArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsDirectConnect = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsDirectConnectArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsFsx = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsFsxArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsGlue = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsGlueArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsKinesisAnalytics = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsKinesisAnalyticsArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsMediaConvert = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMediaConvertArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsMediaPackageVod = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMediaPackageVodArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsMq = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMqArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsMsk = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsMskArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsNeptune = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsNeptuneArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsQldb = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsQldbArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsRoute53resolver = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsRoute53resolverArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsStates = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsStatesArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsTransitGateway = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsTransitGatewayArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsWaf = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsWafArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         AwsWafv2 = new NewRelic.Cloud.Inputs.AwsIntegrationsAwsWafv2Args
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Cloudfront = new NewRelic.Cloud.Inputs.AwsIntegrationsCloudfrontArgs
+    ///         {
+    ///             FetchLambdasAtEdge = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Dynamodb = new NewRelic.Cloud.Inputs.AwsIntegrationsDynamodbArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchExtendedInventory = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Ec2 = new NewRelic.Cloud.Inputs.AwsIntegrationsEc2Args
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             DuplicateEc2Tags = true,
+    ///             FetchIpAddresses = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Ecs = new NewRelic.Cloud.Inputs.AwsIntegrationsEcsArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Efs = new NewRelic.Cloud.Inputs.AwsIntegrationsEfsArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Elasticbeanstalk = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticbeanstalkArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchExtendedInventory = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Elasticsearch = new NewRelic.Cloud.Inputs.AwsIntegrationsElasticsearchArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchNodes = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Elb = new NewRelic.Cloud.Inputs.AwsIntegrationsElbArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchExtendedInventory = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Emr = new NewRelic.Cloud.Inputs.AwsIntegrationsEmrArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Iam = new NewRelic.Cloud.Inputs.AwsIntegrationsIamArgs
+    ///         {
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Iot = new NewRelic.Cloud.Inputs.AwsIntegrationsIotArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Kinesis = new NewRelic.Cloud.Inputs.AwsIntegrationsKinesisArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchShards = true,
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 900,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         KinesisFirehose = new NewRelic.Cloud.Inputs.AwsIntegrationsKinesisFirehoseArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Lambda = new NewRelic.Cloud.Inputs.AwsIntegrationsLambdaArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Rds = new NewRelic.Cloud.Inputs.AwsIntegrationsRdsArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchTags = true,
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Redshift = new NewRelic.Cloud.Inputs.AwsIntegrationsRedshiftArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///             TagKey = "tag key",
+    ///             TagValue = "tag value",
+    ///         },
+    ///         Route53 = new NewRelic.Cloud.Inputs.AwsIntegrationsRoute53Args
+    ///         {
+    ///             FetchExtendedInventory = true,
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Ses = new NewRelic.Cloud.Inputs.AwsIntegrationsSesArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         Sns = new NewRelic.Cloud.Inputs.AwsIntegrationsSnsArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             FetchExtendedInventory = true,
+    ///             MetricsPollingInterval = 300,
+    ///         },
+    ///         SecurityHub = new NewRelic.Cloud.Inputs.AwsIntegrationsSecurityHubArgs
+    ///         {
+    ///             AwsRegions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///             },
+    ///             MetricsPollingInterval = 86400,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Linked AWS account integrations can be imported using the `id`, e.g.
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo &lt;id&gt;
-    /// ```
+    /// Linked AWS account integrations can be imported using the `Id`, e.g.
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsIntegrations:AwsIntegrations")]
     public partial class AwsIntegrations : global::Pulumi.CustomResource

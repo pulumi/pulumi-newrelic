@@ -52,12 +52,6 @@ import (
 // ## Import
 //
 // Linked AWS GovCloud accounts can be imported using the `id`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
-// ```
 type AwsGovcloudLinkAccount struct {
 	pulumi.CustomResourceState
 

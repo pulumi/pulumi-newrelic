@@ -49,12 +49,6 @@ import (
 // ## Import
 //
 // A Key Transaction in New Relic may be imported into Terraform using its GUID specified in the `<id>` field, in the following command.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:index/keyTransaction:KeyTransaction foo <id>
-// ```
 type KeyTransaction struct {
 	pulumi.CustomResourceState
 

@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -67,6 +69,8 @@ export interface GetTestGrokPatternResult {
     readonly testGroks: outputs.GetTestGrokPatternTestGrok[];
 }
 /**
+ * Use this data source to validate a grok pattern.  More information on Terraform's data sources can be found here.
+ *
  * ## Example Usage
  *
  * ```typescript

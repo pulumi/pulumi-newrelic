@@ -7,15 +7,308 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **IMPORTANT!**
+ * When configuring the `newrelic.OneDashboard` resource, it is important to understand that widgets should ideally be sorted by row and column order to maintain the stability and accuracy of your dashboard setup. If this specified order is not adhered to, it can lead to resource drift, which might result in discrepancies between the intended setup and the actual deployed dashboard.
+ *
+ * ## Example Usage
+ *
+ * ### Create A New Relic One Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const exampledash = new newrelic.OneDashboard("exampledash", {
+ *     name: "New Relic Terraform Example",
+ *     permissions: "public_read_only",
+ *     pages: [{
+ *         name: "New Relic Terraform Example",
+ *         widgetTables: [{
+ *             title: "List of Transactions",
+ *             row: 1,
+ *             column: 4,
+ *             width: 6,
+ *             height: 3,
+ *             refreshRate: "60000",
+ *             nrqlQueries: [{
+ *                 query: "FROM Transaction SELECT *",
+ *             }],
+ *             initialSorting: {
+ *                 direction: "desc",
+ *                 name: "timestamp",
+ *             },
+ *             dataFormats: [{
+ *                 name: "duration",
+ *                 type: "decimal",
+ *             }],
+ *         }],
+ *         widgetBillboards: [{
+ *             title: "Requests per minute",
+ *             row: 1,
+ *             column: 1,
+ *             width: 6,
+ *             height: 3,
+ *             refreshRate: "60000",
+ *             dataFormats: [{
+ *                 name: "rate",
+ *                 type: "recent-relative",
+ *             }],
+ *             nrqlQueries: [{
+ *                 query: "FROM Transaction SELECT rate(count(*), 1 minute)",
+ *             }],
+ *             billboardSettings: {
+ *                 link: {
+ *                     newTab: true,
+ *                     title: "Click to view more details",
+ *                     url: "https://example.com",
+ *                 },
+ *                 visual: {
+ *                     alignment: "inline",
+ *                     display: "auto",
+ *                 },
+ *                 gridOptions: {
+ *                     columns: 4,
+ *                     label: 6,
+ *                     value: 8,
+ *                 },
+ *             },
+ *         }],
+ *         widgetBars: [
+ *             {
+ *                 title: "Average transaction duration, by application",
+ *                 row: 1,
+ *                 column: 7,
+ *                 width: 6,
+ *                 height: 3,
+ *                 nrqlQueries: [{
+ *                     accountId: "12345",
+ *                     query: "FROM Transaction SELECT average(duration) FACET appName",
+ *                 }],
+ *                 linkedEntityGuids: ["abc123"],
+ *             },
+ *             {
+ *                 title: "Average transaction duration, by application",
+ *                 row: 4,
+ *                 column: 1,
+ *                 width: 6,
+ *                 height: 3,
+ *                 refreshRate: "300000",
+ *                 nrqlQueries: [{
+ *                     accountId: "12345",
+ *                     query: "FROM Transaction SELECT average(duration) FACET appName",
+ *                 }],
+ *                 filterCurrentDashboard: true,
+ *                 colors: [{
+ *                     color: "#722727",
+ *                     seriesOverrides: [
+ *                         {
+ *                             color: "#722322",
+ *                             seriesName: "Node",
+ *                         },
+ *                         {
+ *                             color: "#236f70",
+ *                             seriesName: "Java",
+ *                         },
+ *                     ],
+ *                 }],
+ *             },
+ *         ],
+ *         widgetLines: [
+ *             {
+ *                 title: "Average transaction duration and the request per minute, by application",
+ *                 row: 4,
+ *                 column: 7,
+ *                 width: 6,
+ *                 height: 3,
+ *                 refreshRate: "30000",
+ *                 nrqlQueries: [
+ *                     {
+ *                         accountId: JSON.stringify([
+ *                             1234567,
+ *                             2345671,
+ *                         ]),
+ *                         query: "FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago",
+ *                     },
+ *                     {
+ *                         query: "FROM Transaction SELECT rate(count(*), 1 minute)",
+ *                     },
+ *                 ],
+ *                 legendEnabled: true,
+ *                 ignoreTimeRange: false,
+ *                 yAxisLeftZero: true,
+ *                 yAxisLeftMin: 0,
+ *                 yAxisLeftMax: 1,
+ *                 tooltip: {
+ *                     mode: "single",
+ *                 },
+ *                 yAxisRight: {
+ *                     yAxisRightZero: true,
+ *                     yAxisRightMin: 0,
+ *                     yAxisRightMax: 300,
+ *                     yAxisRightSeries: [
+ *                         "A",
+ *                         "B",
+ *                     ],
+ *                 },
+ *                 isLabelVisible: true,
+ *                 thresholds: [
+ *                     {
+ *                         name: "Duration Threshold",
+ *                         from: "1",
+ *                         to: "2",
+ *                         severity: "critical",
+ *                     },
+ *                     {
+ *                         name: "Duration Threshold Two",
+ *                         from: "2.1",
+ *                         to: "3.3",
+ *                         severity: "warning",
+ *                     },
+ *                 ],
+ *                 units: [{
+ *                     unit: "ms",
+ *                     seriesOverrides: [{
+ *                         unit: "ms",
+ *                         seriesName: "max duration",
+ *                     }],
+ *                 }],
+ *             },
+ *             {
+ *                 title: "Overall CPU % Statistics",
+ *                 row: 1,
+ *                 column: 5,
+ *                 height: 3,
+ *                 width: 4,
+ *                 nrqlQueries: [{
+ *                     query: "SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES\n",
+ *                 }],
+ *                 facetShowOtherSeries: false,
+ *                 legendEnabled: true,
+ *                 ignoreTimeRange: false,
+ *                 yAxisLeftZero: true,
+ *                 yAxisLeftMin: 0,
+ *                 yAxisLeftMax: 0,
+ *                 nullValues: [{
+ *                     nullValue: "default",
+ *                     seriesOverrides: [
+ *                         {
+ *                             nullValue: "remove",
+ *                             seriesName: "Avg Cpu User Percent",
+ *                         },
+ *                         {
+ *                             nullValue: "zero",
+ *                             seriesName: "Avg Cpu Idle Percent",
+ *                         },
+ *                         {
+ *                             nullValue: "default",
+ *                             seriesName: "Avg Cpu IO Wait Percent",
+ *                         },
+ *                         {
+ *                             nullValue: "preserve",
+ *                             seriesName: "Avg Cpu System Percent",
+ *                         },
+ *                     ],
+ *                 }],
+ *             },
+ *         ],
+ *         widgetMarkdowns: [{
+ *             title: "Dashboard Note",
+ *             row: 7,
+ *             column: 1,
+ *             width: 12,
+ *             height: 3,
+ *             text: `### Helpful Links
+ *
+ * * [New Relic One](https://one.newrelic.com)
+ * * [Developer Portal](https://developer.newrelic.com)`,
+ *         }],
+ *     }],
+ *     variables: [{
+ *         defaultValues: ["value"],
+ *         isMultiSelection: true,
+ *         items: [{
+ *             title: "item",
+ *             value: "ITEM",
+ *         }],
+ *         name: "variable",
+ *         nrqlQuery: {
+ *             accountIds: ["12345"],
+ *             query: "FROM Transaction SELECT average(duration) FACET appName",
+ *         },
+ *         replacementStrategy: "default",
+ *         title: "title",
+ *         type: "nrql",
+ *         options: [{
+ *             showApplyAction: true,
+ *         }],
+ *     }],
+ * });
+ * ```
+ * See additional examples.
+ *
+ * ## Additional Examples
+ *
+ * ### Use the New Relic CLI to convert an existing dashboard
+ *
+ * You can use the New Relic CLI to convert an existing dashboard into HCL code for use in Terraform.
+ *
+ * 1. [Download and install the New Relic CLI](https://github.com/newrelic/newrelic-cli#installation--upgrades)
+ * 2. [Export the dashboard you want to add to Terraform from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards). Copy the JSON from the UI and paste it into a `.json` file.
+ * 3. Convert the `.json` file to HCL using the CLI: `cat dashboard.json | newrelic utils terraform dashboard --label myDashboardResource`
+ *
+ * If you encounter any issues converting your dashboard, [please create a ticket on the New Relic CLI Github repository](https://github.com/newrelic/newrelic-cli/issues/new/choose).
+ *
+ * ### Create a two page dashboard
+ *
+ * The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const multiPageDashboard = new newrelic.OneDashboard("multi_page_dashboard", {
+ *     name: "My Multi-page dashboard",
+ *     permissions: "private",
+ *     pages: [
+ *         {
+ *             name: "My Multi-page dashboard",
+ *             widgetBars: [{
+ *                 title: "foo",
+ *                 row: 1,
+ *                 column: 1,
+ *                 nrqlQueries: [{
+ *                     query: "FROM Transaction SELECT count(*) FACET name",
+ *                 }],
+ *                 linkedEntityGuids: ["abc123"],
+ *             }],
+ *         },
+ *         {
+ *             name: "Multi-query Page",
+ *             widgetLines: [{
+ *                 title: "Comparing throughput cross-account",
+ *                 row: 1,
+ *                 column: 1,
+ *                 width: 12,
+ *                 nrqlQueries: [
+ *                     {
+ *                         accountId: firstAccountID,
+ *                         query: "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'First Account Throughput' TIMESERIES",
+ *                     },
+ *                     {
+ *                         accountId: secondAccountID,
+ *                         query: "FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'Second Account Throughput' TIMESERIES",
+ *                     },
+ *                 ],
+ *                 yAxisLeftZero: false,
+ *             }],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * New Relic dashboards can be imported using their GUID, e.g.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
- * ```
  */
 export class OneDashboard extends pulumi.CustomResource {
     /**

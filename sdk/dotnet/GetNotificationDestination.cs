@@ -11,12 +11,255 @@ namespace Pulumi.NewRelic
 {
     public static class GetNotificationDestination
     {
+        /// <summary>
+        /// Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
+        /// ## ID Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Name Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Name = "webhook-destination",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetNotificationDestinationResult> InvokeAsync(GetNotificationDestinationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
+        /// ## ID Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Name Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Name = "webhook-destination",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information about a specific notification destination in New Relic that already exists. More information on Terraform's data sources can be found here.
+        /// 
+        /// ## ID Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Name Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Name = "webhook-destination",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
     }

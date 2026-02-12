@@ -80,12 +80,6 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Linked OCI accounts can be imported using the `id`, e.g.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo <id>
- * ```
  */
 export class OciLinkAccount extends pulumi.CustomResource {
     /**

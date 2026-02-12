@@ -58,7 +58,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
  * ```
- * When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
+ *
+ * When importing `newrelic.AlertPolicyChannel` resource, the attribute `channelIds`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
  */
 export class AlertPolicyChannel extends pulumi.CustomResource {
     /**
@@ -92,6 +93,9 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
     declare public readonly accountId: pulumi.Output<string>;
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     */
     declare public readonly channelIds: pulumi.Output<string[]>;
     /**
      * The ID of the policy.
@@ -139,6 +143,9 @@ export interface AlertPolicyChannelState {
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     */
     channelIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the policy.
@@ -154,6 +161,9 @@ export interface AlertPolicyChannelArgs {
      * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift your Terraform state.
+     */
     channelIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the policy.

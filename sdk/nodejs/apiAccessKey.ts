@@ -5,12 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Use this resource to programmatically create and manage the following types of keys in New Relic:
+ * - [User API keys](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)
+ * - License (or ingest) keys, including:
+ *   - General (Ingest) [license keys](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM
+ *   - [Browser license keys](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)
+ *
+ * Refer to the New Relic article ['Use NerdGraph to manage license keys and User API keys'](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys) for detailed information.
+ *
+ * > **WARNING:** When creating a User API key, if a <span style="color:tomato;">truncated API key</span> appears in the state after the first `pulumi up`, it is likely because the API key was created for a user other than the one running Terraform. This is a security measure by the New Relic API to _prevent exposing the full key value when an API key is created for another user_. See the Important Considerations section below for more details.
+ *
+ * ## Example Usage
+ *
+ * ### Example: Creating a User API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const userApiKey = new newrelic.ApiAccessKey("user_api_key", {
+ *     accountId: "1234321",
+ *     keyType: "USER",
+ *     userId: "1001111101",
+ *     name: "User API Key for Admin Access",
+ *     notes: "This key is used for managing user-level API access.",
+ * });
+ * ```
+ *
+ * ### Example: Creating an Ingest License Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const ingestLicenseKey = new newrelic.ApiAccessKey("ingest_license_key", {
+ *     accountId: "1234321",
+ *     keyType: "INGEST",
+ *     ingestType: "LICENSE",
+ *     name: "Ingest License Key for App Monitoring",
+ *     notes: "This key is used for APM and other ingest purposes.",
+ * });
+ * ```
+ *
+ * ### Example: Creating an Ingest Browser Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const ingestBrowserKey = new newrelic.ApiAccessKey("ingest_browser_key", {
+ *     accountId: "1234321",
+ *     keyType: "INGEST",
+ *     ingestType: "BROWSER",
+ *     name: "Browser Monitoring Key",
+ *     notes: "This key is used for browser monitoring and analytics.",
+ * });
+ * ```
+ *
+ * ## Important Considerations
+ *
+ * #### Updating Existing Keys
+ * - Only `name` and `notes` can be updated in place. Changes to other attributes will recreate the key (the `newrelic.ApiAccessKey` resource), invalidating the existing one.
+ *
+ * #### Creating API Keys for Other Users
+ * - If an API key is created for a user other than the owner of the API key used to run Terraform, the full key value will not be returned by the API for security reasons. Instead, a truncated version of the key will be provided. To retrieve the full key, ensure the necessary capabilities and access management settings are applied to the user running Terraform. For more details, contact New Relic Support.
+ *
+ * #### Importing Existing Keys into Terraform State
+ * - A key may be imported with its ID using the syntax described in the Import section below. However, the actual value of the key _cannot be imported_ if the key being fetched was created by a user other than the one whose API key is being used to run Terraform. In such cases, the API returns a truncated key for security reasons. For more details, see [Use NerdGraph to manage license keys and User API keys](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys/#query-keys).
+ *
+ * #### Account Type Restrictions for Ingest Keys
+ * - Creating `INGEST` keys requires a New Relic user with core or full platform access. See [user types](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/user-type/#api-access).
+ *
  * ## Import
  *
  * Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`, where `<key_type>` is either `INGEST` or `USER`. Refer to the considerations listed in the Important Considerations section above regarding limitations on importing the actual key value.
  *
  * For example:
- *
  * ```sh
  * $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
  * ```
@@ -18,18 +85,6 @@ import * as utilities from "./utilities";
  * For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=<filename>.tf`, reducing manual effort and ensuring accuracy.
  *
  * For example:
- *
- * hcl
- *
- * import {
- *
- *   id = "131313133A331313130B5F13DF01313FDB13B13133EE5E133D13EAAB3A3C13D3:INGEST"
- *
- *   to = newrelic_api_access_key.foobar
- *
- * }
- *
- * This approach simplifies the import process and ensures that the resource configuration aligns with the imported state.
  */
 export class ApiAccessKey extends pulumi.CustomResource {
     /**
@@ -78,6 +133,10 @@ export class ApiAccessKey extends pulumi.CustomResource {
      * - If `keyType` is `USER`, then `userId` must be specified.
      */
     declare public readonly keyType: pulumi.Output<string>;
+    /**
+     * The name of the API key.
+     * - **Note**: While `name` is optional, it is <b style="color:red;">\*\*strongly recommended\*\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     */
     declare public readonly name: pulumi.Output<string>;
     /**
      * Additional notes about the API access key.
@@ -149,6 +208,10 @@ export interface ApiAccessKeyState {
      * - If `keyType` is `USER`, then `userId` must be specified.
      */
     keyType?: pulumi.Input<string>;
+    /**
+     * The name of the API key.
+     * - **Note**: While `name` is optional, it is <b style="color:red;">\*\*strongly recommended\*\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Additional notes about the API access key.
@@ -178,6 +241,10 @@ export interface ApiAccessKeyArgs {
      * - If `keyType` is `USER`, then `userId` must be specified.
      */
     keyType: pulumi.Input<string>;
+    /**
+     * The name of the API key.
+     * - **Note**: While `name` is optional, it is <b style="color:red;">\*\*strongly recommended\*\*</b> to provide a meaningful name for easier identification and management of keys. If a `name` is not provided, the API will assign a default name when processing the request to create the API key, which may cause unexpected drift in your Terraform state. To prevent this, it is best practice to always specify a `name`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Additional notes about the API access key.

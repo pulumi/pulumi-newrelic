@@ -531,12 +531,6 @@ class MonitorDowntime(pulumi.CustomResource):
 
         A monitor downtime can be imported into Terraform configuration using its `guid`, i.e.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
@@ -719,12 +713,6 @@ class MonitorDowntime(pulumi.CustomResource):
         ## Import
 
         A monitor downtime can be imported into Terraform configuration using its `guid`, i.e.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
-        ```
 
         :param str resource_name: The name of the resource.
         :param MonitorDowntimeArgs args: The arguments to use to populate this resource's properties.

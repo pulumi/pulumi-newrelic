@@ -34,14 +34,14 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * (Required) Filter&#39;s name.
+     * The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can&#39;t be empty.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return (Required) Filter&#39;s name.
+     * @return The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can&#39;t be empty.
      * 
      */
     public Output<String> name() {
@@ -127,7 +127,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name (Required) Filter&#39;s name.
+         * @param name The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can&#39;t be empty.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name (Required) Filter&#39;s name.
+         * @param name The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can&#39;t be empty.
          * 
          * @return builder
          * 

@@ -55,12 +55,6 @@ import (
 // ## Import
 //
 // Linked AWS accounts can be imported using the `id`, e.g.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
-// ```
 type AwsLinkAccount struct {
 	pulumi.CustomResourceState
 
@@ -70,7 +64,9 @@ type AwsLinkAccount struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrOutput `pulumi:"metricCollectionMode"`
-	// The name of the linked account.
+	// The linked account name
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -113,7 +109,9 @@ type awsLinkAccountState struct {
 	Arn *string `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
-	// The name of the linked account.
+	// The linked account name
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name *string `pulumi:"name"`
 }
 
@@ -124,7 +122,9 @@ type AwsLinkAccountState struct {
 	Arn pulumi.StringPtrInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrInput
-	// The name of the linked account.
+	// The linked account name
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name pulumi.StringPtrInput
 }
 
@@ -139,7 +139,9 @@ type awsLinkAccountArgs struct {
 	Arn string `pulumi:"arn"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
-	// The name of the linked account.
+	// The linked account name
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name *string `pulumi:"name"`
 }
 
@@ -151,7 +153,9 @@ type AwsLinkAccountArgs struct {
 	Arn pulumi.StringInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrInput
-	// The name of the linked account.
+	// The linked account name
+	//
+	// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 	Name pulumi.StringPtrInput
 }
 
@@ -257,7 +261,9 @@ func (o AwsLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringPtrOutput { return v.MetricCollectionMode }).(pulumi.StringPtrOutput)
 }
 
-// The name of the linked account.
+// The linked account name
+//
+// > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `cloud.AwsLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
 func (o AwsLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

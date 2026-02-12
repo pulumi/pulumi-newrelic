@@ -50,12 +50,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * New Relic log parsing rule can be imported using the rule ID, e.g.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
- * ```
  */
 export class LogParsingRule extends pulumi.CustomResource {
     /**

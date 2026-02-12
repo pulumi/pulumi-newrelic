@@ -22,73 +22,510 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Use this resource to create and manage New Relic notification destinations. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
+ * 
+ * ## Example Usage
+ * 
+ * ##### [Webhook](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#webhook)
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationSecureUrlArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthCustomHeaderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("foo")
+ *             .type("WEBHOOK")
+ *             .secureUrl(NotificationDestinationSecureUrlArgs.builder()
+ *                 .prefix("https://webhook.mywebhook.com/")
+ *                 .secureSuffix("service_id/123456")
+ *                 .build())
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("source")
+ *                 .value("terraform")
+ *                 .build())
+ *             .authCustomHeaders(NotificationDestinationAuthCustomHeaderArgs.builder()
+ *                 .key("API_KEY")
+ *                 .value("test-api-key")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * See additional examples.
+ * 
+ * ## Additional Examples
+ * 
+ * &gt; **NOTE:** We support all properties. The mentioned properties are just an example.
+ * 
+ * #### [WORKFLOW_AUTOMATION]
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthCustomHeaderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("workflow-automation-destination-name")
+ *             .type("WORKFLOW_AUTOMATION")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("")
+ *                 .value("")
+ *                 .build())
+ *             .authCustomHeaders(NotificationDestinationAuthCustomHeaderArgs.builder()
+ *                 .key("Api-Key")
+ *                 .value("YOUR_NR_USER_API_KEY")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ##### [MICROSOFT_TEAMS](https://docs.newrelic.com/docs/alerts/get-notified/microsoft-teams-integrations/)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("ms-teams-example")
+ *             .type("MICROSOFT_TEAMS")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("securityCode")
+ *                 .value("abcdefgh")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ##### [ServiceNow](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#servicenow)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("servicenow-example")
+ *             .type("SERVICE_NOW")
+ *             .properties(            
+ *                 NotificationDestinationPropertyArgs.builder()
+ *                     .key("url")
+ *                     .value("https://service-now.com/")
+ *                     .build(),
+ *                 NotificationDestinationPropertyArgs.builder()
+ *                     .key("two_way_integration")
+ *                     .value("true")
+ *                     .build())
+ *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
+ *                 .user("username")
+ *                 .password("password")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ##### [Email](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#email)
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("email-example")
+ *             .type("EMAIL")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("email")
+ *                 .value("email}{@literal @}{@code email.com,email2}{@literal @}{@code email.com")
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * ##### [Jira](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#jira)
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("jira-example")
+ *             .type("JIRA")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("url")
+ *                 .value("https://example.atlassian.net")
+ *                 .build())
+ *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
+ *                 .user("example}{@literal @}{@code email.com")
+ *                 .password("password")
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-sli)
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("pagerduty-service-example")
+ *             .type("PAGERDUTY_SERVICE_INTEGRATION")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("")
+ *                 .value("")
+ *                 .build())
+ *             .authToken(NotificationDestinationAuthTokenArgs.builder()
+ *                 .prefix("Token token=")
+ *                 .token("10567a689d984d03c021034b22a789e2")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-ali)
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("pagerduty-account-example")
+ *             .type("PAGERDUTY_ACCOUNT_INTEGRATION")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("two_way_integration")
+ *                 .value("true")
+ *                 .build())
+ *             .authToken(NotificationDestinationAuthTokenArgs.builder()
+ *                 .prefix("Token token=")
+ *                 .token("u+E8EU3MhsZwLfZ1ic1A")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * #### Mobile Push
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("mobile-push-example")
+ *             .type("MOBILE_PUSH")
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key("userId")
+ *                 .value("12345678")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * #### [AWS Event Bridge](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#eventBridge)
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import com.pulumi.newrelic.NotificationDestinationArgs;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo", NotificationDestinationArgs.builder()
+ *             .accountId("12345678")
+ *             .name("event-bridge-example")
+ *             .type("EVENT_BRIDGE")
+ *             .properties(            
+ *                 NotificationDestinationPropertyArgs.builder()
+ *                     .key("AWSAccountId")
+ *                     .value("123456789123456")
+ *                     .build(),
+ *                 NotificationDestinationPropertyArgs.builder()
+ *                     .key("AWSRegion")
+ *                     .value("us-east-2")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * #### [Slack](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#slack)
+ * 
+ * In order to create a Slack destination, you have to grant our application access to your workspace. This process is [based on OAuth](https://api.slack.com/authentication/oauth-v2) and can only be done through a browser.
+ * As a result, you cannot set up a Slack destination purely with Terraform code.
+ * However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `newrelic.NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
+ * 
+ * ## Additional Information
+ * 
+ * More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
+ * More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
+ * 
+ * ### Moving from Legacy Alert Channels to Notification Channels
+ * As stated in the documentation of this resource and `newrelic.NotificationChannel`, destinations, created using the resource `newrelic.NotificationDestination` can be paired with `newrelic.NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `newrelic.AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+ * 
+ * If you&#39;re currently using `newrelic.AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
+ * 
+ * Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
+ * 
  * ## Import
  * 
- * ~&gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
+ * &gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
  * 
- * Destination id can be found in the Destinations page -&gt; three dots at the right of the chosen destination -&gt; copy destination id to clipboard.
- * 
+ * Destination id can be found in the Destinations page &gt; three dots at the right of the chosen destination &gt; copy destination id to clipboard.
  * This example is especially useful for slack destinations which *must* be imported.
  * 
  * 1. Add an empty resource to your terraform file:
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- * terraform
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationDestination;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
- * resource &#34;newrelic_notification_destination&#34; &#34;foo&#34; {
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
  * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationDestination("foo");
+ * 
+ *     }
  * }
- * 
- * ```sh
- * $ pulumi import newrelic:index/notificationDestination:NotificationDestination  Run import command: `newrelic_notification_destination.foo &lt;destination_id&gt;`
- * ```
- * 
+ * }
+ * </pre>
+ * 2. Run import command: `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;`
  * 3. Run the following command after the import successfully done and copy the information to your resource:
- *    
  *    `terraform state show newrelic_notification_destination.foo`
- * 
- * 4. Add `ignore_changes` attribute on `all` in your imported resource:
- * 
- * terraform
- * 
- * lifecycle {
- * 
- *     ignore_changes = all
- * 
- *   }
- * 
- * Your imported destination should look like that:
- * 
- * terraform
- * 
- * resource &#34;newrelic_notification_destination&#34; &#34;foo&#34; {
- * 
- *   lifecycle {
- * 
- *     ignore_changes = all
- * 
- *   }
- * 
- *   name = &#34;*********&#34;
- * 
- *   type = &#34;SLACK&#34;
- * 
- *   auth_token {
- * 
- *     prefix = &#34;Bearer&#34;
- * 
- *   }
- * 
- *   property {
- * 
- *       key   = &#34;teamName&#34;
- *     
- *       label = &#34;Team Name&#34;
- *     
- *       value = &#34;******&#34;
- * 
- *   }
- * 
- * }
+ * 4. Add `ignoreChanges` attribute on `all` in your imported resource:
  * 
  */
 @ResourceType(type="newrelic:index/notificationDestination:NotificationDestination")
@@ -248,14 +685,14 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return this.status;
     }
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+     * @return The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
      * 
      */
     public Output<String> type() {

@@ -157,14 +157,30 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The specific semver version of the runtime type.
+     * The specific version of the runtime type selected (`100`).
+     * 
+     * &gt; **WARNING:**  The &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; of the **Synthetics Legacy Runtime** took effect on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors &lt;b style=&#34;color:maroon;&#34;&gt;officially ended as of October 22, 2024&lt;/b&gt;. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider &lt;span style=&#34;color:maroon;&#34;&gt;will be blocked by an API error&lt;/span&gt; if they include values corresponding to the legacy runtime or blank runtime values.
+     * &lt;br&gt;&lt;br&gt;
+     * Following these changes, starting with &lt;b style=&#34;color:red;&#34;&gt;v3.51.0&lt;/b&gt; of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt; (this applies to all Synthetic monitor resources, except `newrelic.synthetics.Monitor` with type `SIMPLE`). If your monitors&#39; configuration &lt;span style=&#34;color:red;&#34;&gt;is not updated with new runtime values&lt;/span&gt;, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+     * &lt;br&gt;&lt;br&gt;
+     * We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible &lt;span style=&#34;color:red;&#34;&gt;if they are still using the legacy runtime&lt;/span&gt;, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you&#39;re looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+     * &lt;br&gt;&lt;br&gt;
+     * You would not be affected by the EOL if your Synthetic monitors&#39; Terraform configuration comprises new runtime values.
      * 
      */
     @Import(name="runtimeTypeVersion")
     private @Nullable Output<String> runtimeTypeVersion;
 
     /**
-     * @return The specific semver version of the runtime type.
+     * @return The specific version of the runtime type selected (`100`).
+     * 
+     * &gt; **WARNING:**  The &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; of the **Synthetics Legacy Runtime** took effect on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors &lt;b style=&#34;color:maroon;&#34;&gt;officially ended as of October 22, 2024&lt;/b&gt;. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider &lt;span style=&#34;color:maroon;&#34;&gt;will be blocked by an API error&lt;/span&gt; if they include values corresponding to the legacy runtime or blank runtime values.
+     * &lt;br&gt;&lt;br&gt;
+     * Following these changes, starting with &lt;b style=&#34;color:red;&#34;&gt;v3.51.0&lt;/b&gt; of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt; (this applies to all Synthetic monitor resources, except `newrelic.synthetics.Monitor` with type `SIMPLE`). If your monitors&#39; configuration &lt;span style=&#34;color:red;&#34;&gt;is not updated with new runtime values&lt;/span&gt;, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+     * &lt;br&gt;&lt;br&gt;
+     * We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible &lt;span style=&#34;color:red;&#34;&gt;if they are still using the legacy runtime&lt;/span&gt;, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you&#39;re looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+     * &lt;br&gt;&lt;br&gt;
+     * You would not be affected by the EOL if your Synthetic monitors&#39; Terraform configuration comprises new runtime values.
      * 
      */
     public Optional<Output<String>> runtimeTypeVersion() {
@@ -216,9 +232,17 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+     * 
+     */
     @Import(name="useUnsupportedLegacyRuntime")
     private @Nullable Output<Boolean> useUnsupportedLegacyRuntime;
 
+    /**
+     * @return A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+     * 
+     */
     public Optional<Output<Boolean>> useUnsupportedLegacyRuntime() {
         return Optional.ofNullable(this.useUnsupportedLegacyRuntime);
     }
@@ -490,7 +514,15 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific semver version of the runtime type.
+         * @param runtimeTypeVersion The specific version of the runtime type selected (`100`).
+         * 
+         * &gt; **WARNING:**  The &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; of the **Synthetics Legacy Runtime** took effect on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors &lt;b style=&#34;color:maroon;&#34;&gt;officially ended as of October 22, 2024&lt;/b&gt;. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider &lt;span style=&#34;color:maroon;&#34;&gt;will be blocked by an API error&lt;/span&gt; if they include values corresponding to the legacy runtime or blank runtime values.
+         * &lt;br&gt;&lt;br&gt;
+         * Following these changes, starting with &lt;b style=&#34;color:red;&#34;&gt;v3.51.0&lt;/b&gt; of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt; (this applies to all Synthetic monitor resources, except `newrelic.synthetics.Monitor` with type `SIMPLE`). If your monitors&#39; configuration &lt;span style=&#34;color:red;&#34;&gt;is not updated with new runtime values&lt;/span&gt;, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+         * &lt;br&gt;&lt;br&gt;
+         * We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible &lt;span style=&#34;color:red;&#34;&gt;if they are still using the legacy runtime&lt;/span&gt;, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you&#39;re looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+         * &lt;br&gt;&lt;br&gt;
+         * You would not be affected by the EOL if your Synthetic monitors&#39; Terraform configuration comprises new runtime values.
          * 
          * @return builder
          * 
@@ -501,7 +533,15 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeTypeVersion The specific semver version of the runtime type.
+         * @param runtimeTypeVersion The specific version of the runtime type selected (`100`).
+         * 
+         * &gt; **WARNING:**  The &lt;b style=&#34;color:red;&#34;&gt;end-of-life&lt;/b&gt; of the **Synthetics Legacy Runtime** took effect on &lt;b style=&#34;color:red;&#34;&gt;October 22, 2024&lt;/b&gt;, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors &lt;b style=&#34;color:maroon;&#34;&gt;officially ended as of October 22, 2024&lt;/b&gt;. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider &lt;span style=&#34;color:maroon;&#34;&gt;will be blocked by an API error&lt;/span&gt; if they include values corresponding to the legacy runtime or blank runtime values.
+         * &lt;br&gt;&lt;br&gt;
+         * Following these changes, starting with &lt;b style=&#34;color:red;&#34;&gt;v3.51.0&lt;/b&gt; of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime &lt;span style=&#34;color:red;&#34;&gt;will be deemed invalid&lt;/span&gt; (this applies to all Synthetic monitor resources, except `newrelic.synthetics.Monitor` with type `SIMPLE`). If your monitors&#39; configuration &lt;span style=&#34;color:red;&#34;&gt;is not updated with new runtime values&lt;/span&gt;, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+         * &lt;br&gt;&lt;br&gt;
+         * We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible &lt;span style=&#34;color:red;&#34;&gt;if they are still using the legacy runtime&lt;/span&gt;, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you&#39;re looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+         * &lt;br&gt;&lt;br&gt;
+         * You would not be affected by the EOL if your Synthetic monitors&#39; Terraform configuration comprises new runtime values.
          * 
          * @return builder
          * 
@@ -593,11 +633,23 @@ public final class StepMonitorArgs extends com.pulumi.resources.ResourceArgs {
             return tags(List.of(tags));
         }
 
+        /**
+         * @param useUnsupportedLegacyRuntime A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useUnsupportedLegacyRuntime(@Nullable Output<Boolean> useUnsupportedLegacyRuntime) {
             $.useUnsupportedLegacyRuntime = useUnsupportedLegacyRuntime;
             return this;
         }
 
+        /**
+         * @param useUnsupportedLegacyRuntime A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useUnsupportedLegacyRuntime(Boolean useUnsupportedLegacyRuntime) {
             return useUnsupportedLegacyRuntime(Output.of(useUnsupportedLegacyRuntime));
         }

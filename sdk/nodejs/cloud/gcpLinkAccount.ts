@@ -37,12 +37,6 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
- *
- * bash
- *
- * ```sh
- * $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo <id>
- * ```
  */
 export class GcpLinkAccount extends pulumi.CustomResource {
     /**
@@ -77,7 +71,9 @@ export class GcpLinkAccount extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * name of the linked account
+     * The name of the GCP account in New Relic.
+     *
+     * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -124,7 +120,9 @@ export interface GcpLinkAccountState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * name of the linked account
+     * The name of the GCP account in New Relic.
+     *
+     * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -142,7 +140,9 @@ export interface GcpLinkAccountArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * name of the linked account
+     * The name of the GCP account in New Relic.
+     *
+     * > **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      */
     name?: pulumi.Input<string>;
     /**

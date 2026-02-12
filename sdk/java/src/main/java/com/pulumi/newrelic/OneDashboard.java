@@ -18,15 +18,352 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **IMPORTANT!**
+ * When configuring the `newrelic.OneDashboard` resource, it is important to understand that widgets should ideally be sorted by row and column order to maintain the stability and accuracy of your dashboard setup. If this specified order is not adhered to, it can lead to resource drift, which might result in discrepancies between the intended setup and the actual deployed dashboard.
+ * 
+ * ## Example Usage
+ * 
+ * ### Create A New Relic One Dashboard
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.OneDashboard;
+ * import com.pulumi.newrelic.OneDashboardArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardVariableArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardVariableNrqlQueryArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampledash = new OneDashboard("exampledash", OneDashboardArgs.builder()
+ *             .name("New Relic Terraform Example")
+ *             .permissions("public_read_only")
+ *             .pages(OneDashboardPageArgs.builder()
+ *                 .name("New Relic Terraform Example")
+ *                 .widgetTables(OneDashboardPageWidgetTableArgs.builder()
+ *                     .title("List of Transactions")
+ *                     .row(1)
+ *                     .column(4)
+ *                     .width(6)
+ *                     .height(3)
+ *                     .refreshRate("60000")
+ *                     .nrqlQueries(OneDashboardPageWidgetTableNrqlQueryArgs.builder()
+ *                         .query("FROM Transaction SELECT *")
+ *                         .build())
+ *                     .initialSorting(OneDashboardPageWidgetTableInitialSortingArgs.builder()
+ *                         .direction("desc")
+ *                         .name("timestamp")
+ *                         .build())
+ *                     .dataFormats(OneDashboardPageWidgetTableDataFormatArgs.builder()
+ *                         .name("duration")
+ *                         .type("decimal")
+ *                         .build())
+ *                     .build())
+ *                 .widgetBillboards(OneDashboardPageWidgetBillboardArgs.builder()
+ *                     .title("Requests per minute")
+ *                     .row(1)
+ *                     .column(1)
+ *                     .width(6)
+ *                     .height(3)
+ *                     .refreshRate("60000")
+ *                     .dataFormats(OneDashboardPageWidgetBillboardDataFormatArgs.builder()
+ *                         .name("rate")
+ *                         .type("recent-relative")
+ *                         .build())
+ *                     .nrqlQueries(OneDashboardPageWidgetBillboardNrqlQueryArgs.builder()
+ *                         .query("FROM Transaction SELECT rate(count(*), 1 minute)")
+ *                         .build())
+ *                     .billboardSettings(OneDashboardPageWidgetBillboardBillboardSettingsArgs.builder()
+ *                         .link(OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs.builder()
+ *                             .newTab(true)
+ *                             .title("Click to view more details")
+ *                             .url("https://example.com")
+ *                             .build())
+ *                         .visual(OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs.builder()
+ *                             .alignment("inline")
+ *                             .display("auto")
+ *                             .build())
+ *                         .gridOptions(OneDashboardPageWidgetBillboardBillboardSettingsGridOptionsArgs.builder()
+ *                             .columns(4)
+ *                             .label(6)
+ *                             .value(8)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .widgetBars(                
+ *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .title("Average transaction duration, by application")
+ *                         .row(1)
+ *                         .column(7)
+ *                         .width(6)
+ *                         .height(3)
+ *                         .nrqlQueries(OneDashboardPageWidgetBarNrqlQueryArgs.builder()
+ *                             .accountId("12345")
+ *                             .query("FROM Transaction SELECT average(duration) FACET appName")
+ *                             .build())
+ *                         .linkedEntityGuids("abc123")
+ *                         .build(),
+ *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .title("Average transaction duration, by application")
+ *                         .row(4)
+ *                         .column(1)
+ *                         .width(6)
+ *                         .height(3)
+ *                         .refreshRate("300000")
+ *                         .nrqlQueries(OneDashboardPageWidgetBarNrqlQueryArgs.builder()
+ *                             .accountId("12345")
+ *                             .query("FROM Transaction SELECT average(duration) FACET appName")
+ *                             .build())
+ *                         .filterCurrentDashboard(true)
+ *                         .colors(OneDashboardPageWidgetBarColorArgs.builder()
+ *                             .color("#722727")
+ *                             .seriesOverrides(                            
+ *                                 OneDashboardPageWidgetBarColorSeriesOverrideArgs.builder()
+ *                                     .color("#722322")
+ *                                     .seriesName("Node")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetBarColorSeriesOverrideArgs.builder()
+ *                                     .color("#236f70")
+ *                                     .seriesName("Java")
+ *                                     .build())
+ *                             .build())
+ *                         .build())
+ *                 .widgetLines(                
+ *                     OneDashboardPageWidgetLineArgs.builder()
+ *                         .title("Average transaction duration and the request per minute, by application")
+ *                         .row(4)
+ *                         .column(7)
+ *                         .width(6)
+ *                         .height(3)
+ *                         .refreshRate("30000")
+ *                         .nrqlQueries(                        
+ *                             OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                                 .accountId(serializeJson(
+ *                                     jsonArray(
+ *                                         1234567, 
+ *                                         2345671
+ *                                     )))
+ *                                 .query("FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago")
+ *                                 .build(),
+ *                             OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                                 .query("FROM Transaction SELECT rate(count(*), 1 minute)")
+ *                                 .build())
+ *                         .legendEnabled(true)
+ *                         .ignoreTimeRange(false)
+ *                         .yAxisLeftZero(true)
+ *                         .yAxisLeftMin(0.0)
+ *                         .yAxisLeftMax(1.0)
+ *                         .tooltip(OneDashboardPageWidgetLineTooltipArgs.builder()
+ *                             .mode("single")
+ *                             .build())
+ *                         .yAxisRight(OneDashboardPageWidgetLineYAxisRightArgs.builder()
+ *                             .yAxisRightZero(true)
+ *                             .yAxisRightMin(0.0)
+ *                             .yAxisRightMax(300.0)
+ *                             .yAxisRightSeries(                            
+ *                                 "A",
+ *                                 "B")
+ *                             .build())
+ *                         .isLabelVisible(true)
+ *                         .thresholds(                        
+ *                             OneDashboardPageWidgetLineThresholdArgs.builder()
+ *                                 .name("Duration Threshold")
+ *                                 .from("1")
+ *                                 .to("2")
+ *                                 .severity("critical")
+ *                                 .build(),
+ *                             OneDashboardPageWidgetLineThresholdArgs.builder()
+ *                                 .name("Duration Threshold Two")
+ *                                 .from("2.1")
+ *                                 .to("3.3")
+ *                                 .severity("warning")
+ *                                 .build())
+ *                         .units(OneDashboardPageWidgetLineUnitArgs.builder()
+ *                             .unit("ms")
+ *                             .seriesOverrides(OneDashboardPageWidgetLineUnitSeriesOverrideArgs.builder()
+ *                                 .unit("ms")
+ *                                 .seriesName("max duration")
+ *                                 .build())
+ *                             .build())
+ *                         .build(),
+ *                     OneDashboardPageWidgetLineArgs.builder()
+ *                         .title("Overall CPU % Statistics")
+ *                         .row(1)
+ *                         .column(5)
+ *                         .height(3)
+ *                         .width(4)
+ *                         .nrqlQueries(OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                             .query("""
+ * SELECT average(cpuSystemPercent), average(cpuUserPercent), average(cpuIdlePercent), average(cpuIOWaitPercent) FROM SystemSample  SINCE 1 hour ago TIMESERIES
+ *                             """)
+ *                             .build())
+ *                         .facetShowOtherSeries(false)
+ *                         .legendEnabled(true)
+ *                         .ignoreTimeRange(false)
+ *                         .yAxisLeftZero(true)
+ *                         .yAxisLeftMin(0.0)
+ *                         .yAxisLeftMax(0.0)
+ *                         .nullValues(OneDashboardPageWidgetLineNullValueArgs.builder()
+ *                             .nullValue("default")
+ *                             .seriesOverrides(                            
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("remove")
+ *                                     .seriesName("Avg Cpu User Percent")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("zero")
+ *                                     .seriesName("Avg Cpu Idle Percent")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("default")
+ *                                     .seriesName("Avg Cpu IO Wait Percent")
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue("preserve")
+ *                                     .seriesName("Avg Cpu System Percent")
+ *                                     .build())
+ *                             .build())
+ *                         .build())
+ *                 .widgetMarkdowns(OneDashboardPageWidgetMarkdownArgs.builder()
+ *                     .title("Dashboard Note")
+ *                     .row(7)
+ *                     .column(1)
+ *                     .width(12)
+ *                     .height(3)
+ *                     .text("""
+ * ### Helpful Links
+ * 
+ * * [New Relic One](https://one.newrelic.com)
+ * * [Developer Portal](https://developer.newrelic.com)                    """)
+ *                     .build())
+ *                 .build())
+ *             .variables(OneDashboardVariableArgs.builder()
+ *                 .defaultValues("value")
+ *                 .isMultiSelection(true)
+ *                 .items(OneDashboardVariableItemArgs.builder()
+ *                     .title("item")
+ *                     .value("ITEM")
+ *                     .build())
+ *                 .name("variable")
+ *                 .nrqlQuery(OneDashboardVariableNrqlQueryArgs.builder()
+ *                     .accountIds("12345")
+ *                     .query("FROM Transaction SELECT average(duration) FACET appName")
+ *                     .build())
+ *                 .replacementStrategy("default")
+ *                 .title("title")
+ *                 .type("nrql")
+ *                 .options(OneDashboardVariableOptionArgs.builder()
+ *                     .showApplyAction(true)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * See additional examples.
+ * 
+ * ## Additional Examples
+ * 
+ * ### Use the New Relic CLI to convert an existing dashboard
+ * 
+ * You can use the New Relic CLI to convert an existing dashboard into HCL code for use in Terraform.
+ * 
+ * 1. [Download and install the New Relic CLI](https://github.com/newrelic/newrelic-cli#installation--upgrades)
+ * 2. [Export the dashboard you want to add to Terraform from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards). Copy the JSON from the UI and paste it into a `.json` file.
+ * 3. Convert the `.json` file to HCL using the CLI: `cat dashboard.json | newrelic utils terraform dashboard --label myDashboardResource`
+ * 
+ * If you encounter any issues converting your dashboard, [please create a ticket on the New Relic CLI Github repository](https://github.com/newrelic/newrelic-cli/issues/new/choose).
+ * 
+ * ### Create a two page dashboard
+ * 
+ * The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.OneDashboard;
+ * import com.pulumi.newrelic.OneDashboardArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var multiPageDashboard = new OneDashboard("multiPageDashboard", OneDashboardArgs.builder()
+ *             .name("My Multi-page dashboard")
+ *             .permissions("private")
+ *             .pages(            
+ *                 OneDashboardPageArgs.builder()
+ *                     .name("My Multi-page dashboard")
+ *                     .widgetBars(OneDashboardPageWidgetBarArgs.builder()
+ *                         .title("foo")
+ *                         .row(1)
+ *                         .column(1)
+ *                         .nrqlQueries(OneDashboardPageWidgetBarNrqlQueryArgs.builder()
+ *                             .query("FROM Transaction SELECT count(*) FACET name")
+ *                             .build())
+ *                         .linkedEntityGuids("abc123")
+ *                         .build())
+ *                     .build(),
+ *                 OneDashboardPageArgs.builder()
+ *                     .name("Multi-query Page")
+ *                     .widgetLines(OneDashboardPageWidgetLineArgs.builder()
+ *                         .title("Comparing throughput cross-account")
+ *                         .row(1)
+ *                         .column(1)
+ *                         .width(12)
+ *                         .nrqlQueries(                        
+ *                             OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                                 .accountId(firstAccountID)
+ *                                 .query("FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'First Account Throughput' TIMESERIES")
+ *                                 .build(),
+ *                             OneDashboardPageWidgetLineNrqlQueryArgs.builder()
+ *                                 .accountId(secondAccountID)
+ *                                 .query("FROM Metric SELECT rate(count(apm.service.transaction.duration), 1 minute) as 'Second Account Throughput' TIMESERIES")
+ *                                 .build())
+ *                         .yAxisLeftZero(false)
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * New Relic dashboards can be imported using their GUID, e.g.
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;dashboard GUID&gt;
- * ```
  * 
  */
 @ResourceType(type="newrelic:index/oneDashboard:OneDashboard")

@@ -3694,7 +3694,7 @@ export interface WorkflowIssuesFilter {
      */
     filterId?: pulumi.Input<string>;
     /**
-     * (Required) Filter's name.
+     * The name of the filter. The name only serves a cosmetic purpose and can only be seen through Terraform and GraphQL API. It can't be empty.
      */
     name: pulumi.Input<string>;
     /**

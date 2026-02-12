@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
+//
+// > **IMPORTANT:**  The **Synthetics Legacy Runtime** has reached its <b style="color:red;">end-of-life</b> on <b style="color:red;">October 22, 2024</b>. As a consequence, using the legacy runtime or blank runtime values with Synthetic monitor requests from the New Relic Terraform Provider will result in API errors. Starting with **v3.51.0** of the New Relic Terraform Provider, configurations of Synthetic monitors without runtime attributes or comprising legacy runtime values <span style="color:red;">will be deemed invalid</span>.
+// <br><br>
+// If your Synthetic monitors' configuration is not updated already with new runtime values, upgrade as soon as possible to avoid these consequences. For more details and instructions, please see the detailed warning against `runtimeType` and `runtimeTypeVersion` in the **Argument Reference** section.
+//
 // ## Example Usage
 //
 // ```go
@@ -151,12 +157,6 @@ import (
 // ## Import
 //
 // A step monitor can be imported using its GUID, using the following command.
-//
-// bash
-//
-// ```sh
-// $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
-// ```
 type StepMonitor struct {
 	pulumi.CustomResourceState
 
@@ -184,15 +184,24 @@ type StepMonitor struct {
 	PeriodInMinutes pulumi.IntOutput `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected (`100`).
+	//
+	// > **WARNING:**  The <b style="color:red;">end-of-life</b> of the **Synthetics Legacy Runtime** took effect on <b style="color:red;">October 22, 2024</b>, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors <b style="color:maroon;">officially ended as of October 22, 2024</b>. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider <span style="color:maroon;">will be blocked by an API error</span> if they include values corresponding to the legacy runtime or blank runtime values.
+	// <br><br>
+	// Following these changes, starting with <b style="color:red;">v3.51.0</b> of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime <span style="color:red;">will be deemed invalid</span> (this applies to all Synthetic monitor resources, except `synthetics.Monitor` with type `SIMPLE`). If your monitors' configuration <span style="color:red;">is not updated with new runtime values</span>, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+	// <br><br>
+	// We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible <span style="color:red;">if they are still using the legacy runtime</span>, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you're looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+	// <br><br>
+	// You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
 	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
 	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayOutput `pulumi:"steps"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags                        StepMonitorTagArrayOutput `pulumi:"tags"`
-	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput      `pulumi:"useUnsupportedLegacyRuntime"`
+	Tags StepMonitorTagArrayOutput `pulumi:"tags"`
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+	UseUnsupportedLegacyRuntime pulumi.BoolPtrOutput `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // NewStepMonitor registers a new resource with the given unique name, arguments, and options.
@@ -258,15 +267,24 @@ type stepMonitorState struct {
 	PeriodInMinutes *int `pulumi:"periodInMinutes"`
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected (`100`).
+	//
+	// > **WARNING:**  The <b style="color:red;">end-of-life</b> of the **Synthetics Legacy Runtime** took effect on <b style="color:red;">October 22, 2024</b>, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors <b style="color:maroon;">officially ended as of October 22, 2024</b>. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider <span style="color:maroon;">will be blocked by an API error</span> if they include values corresponding to the legacy runtime or blank runtime values.
+	// <br><br>
+	// Following these changes, starting with <b style="color:red;">v3.51.0</b> of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime <span style="color:red;">will be deemed invalid</span> (this applies to all Synthetic monitor resources, except `synthetics.Monitor` with type `SIMPLE`). If your monitors' configuration <span style="color:red;">is not updated with new runtime values</span>, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+	// <br><br>
+	// We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible <span style="color:red;">if they are still using the legacy runtime</span>, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you're looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+	// <br><br>
+	// You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status *string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags                        []StepMonitorTag `pulumi:"tags"`
-	UseUnsupportedLegacyRuntime *bool            `pulumi:"useUnsupportedLegacyRuntime"`
+	Tags []StepMonitorTag `pulumi:"tags"`
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+	UseUnsupportedLegacyRuntime *bool `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 type StepMonitorState struct {
@@ -294,14 +312,23 @@ type StepMonitorState struct {
 	PeriodInMinutes pulumi.IntPtrInput
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected (`100`).
+	//
+	// > **WARNING:**  The <b style="color:red;">end-of-life</b> of the **Synthetics Legacy Runtime** took effect on <b style="color:red;">October 22, 2024</b>, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors <b style="color:maroon;">officially ended as of October 22, 2024</b>. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider <span style="color:maroon;">will be blocked by an API error</span> if they include values corresponding to the legacy runtime or blank runtime values.
+	// <br><br>
+	// Following these changes, starting with <b style="color:red;">v3.51.0</b> of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime <span style="color:red;">will be deemed invalid</span> (this applies to all Synthetic monitor resources, except `synthetics.Monitor` with type `SIMPLE`). If your monitors' configuration <span style="color:red;">is not updated with new runtime values</span>, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+	// <br><br>
+	// We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible <span style="color:red;">if they are still using the legacy runtime</span>, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you're looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+	// <br><br>
+	// You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringPtrInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags                        StepMonitorTagArrayInput
+	Tags StepMonitorTagArrayInput
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
 	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
@@ -328,15 +355,24 @@ type stepMonitorArgs struct {
 	Period string `pulumi:"period"`
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType *string `pulumi:"runtimeType"`
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected (`100`).
+	//
+	// > **WARNING:**  The <b style="color:red;">end-of-life</b> of the **Synthetics Legacy Runtime** took effect on <b style="color:red;">October 22, 2024</b>, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors <b style="color:maroon;">officially ended as of October 22, 2024</b>. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider <span style="color:maroon;">will be blocked by an API error</span> if they include values corresponding to the legacy runtime or blank runtime values.
+	// <br><br>
+	// Following these changes, starting with <b style="color:red;">v3.51.0</b> of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime <span style="color:red;">will be deemed invalid</span> (this applies to all Synthetic monitor resources, except `synthetics.Monitor` with type `SIMPLE`). If your monitors' configuration <span style="color:red;">is not updated with new runtime values</span>, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+	// <br><br>
+	// We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible <span style="color:red;">if they are still using the legacy runtime</span>, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you're looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+	// <br><br>
+	// You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
 	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
 	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status string `pulumi:"status"`
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps []StepMonitorStep `pulumi:"steps"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags                        []StepMonitorTag `pulumi:"tags"`
-	UseUnsupportedLegacyRuntime *bool            `pulumi:"useUnsupportedLegacyRuntime"`
+	Tags []StepMonitorTag `pulumi:"tags"`
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
+	UseUnsupportedLegacyRuntime *bool `pulumi:"useUnsupportedLegacyRuntime"`
 }
 
 // The set of arguments for constructing a StepMonitor resource.
@@ -359,14 +395,23 @@ type StepMonitorArgs struct {
 	Period pulumi.StringInput
 	// The runtime that the monitor will use to run jobs (`CHROME_BROWSER`).
 	RuntimeType pulumi.StringPtrInput
-	// The specific semver version of the runtime type.
+	// The specific version of the runtime type selected (`100`).
+	//
+	// > **WARNING:**  The <b style="color:red;">end-of-life</b> of the **Synthetics Legacy Runtime** took effect on <b style="color:red;">October 22, 2024</b>, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors <b style="color:maroon;">officially ended as of October 22, 2024</b>. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider <span style="color:maroon;">will be blocked by an API error</span> if they include values corresponding to the legacy runtime or blank runtime values.
+	// <br><br>
+	// Following these changes, starting with <b style="color:red;">v3.51.0</b> of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime <span style="color:red;">will be deemed invalid</span> (this applies to all Synthetic monitor resources, except `synthetics.Monitor` with type `SIMPLE`). If your monitors' configuration <span style="color:red;">is not updated with new runtime values</span>, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+	// <br><br>
+	// We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible <span style="color:red;">if they are still using the legacy runtime</span>, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you're looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+	// <br><br>
+	// You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
 	RuntimeTypeVersion pulumi.StringPtrInput
 	// The run state of the monitor. (`ENABLED` or `DISABLED`).
 	Status pulumi.StringInput
 	// The steps that make up the script the monitor will run. See Nested steps blocks below for details.
 	Steps StepMonitorStepArrayInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
-	Tags                        StepMonitorTagArrayInput
+	Tags StepMonitorTagArrayInput
+	// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
 	UseUnsupportedLegacyRuntime pulumi.BoolPtrInput
 }
 
@@ -517,7 +562,15 @@ func (o StepMonitorOutput) RuntimeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
 }
 
-// The specific semver version of the runtime type.
+// The specific version of the runtime type selected (`100`).
+//
+// > **WARNING:**  The <b style="color:red;">end-of-life</b> of the **Synthetics Legacy Runtime** took effect on <b style="color:red;">October 22, 2024</b>, implying that support for using the deprecated Synthetics Legacy Runtime with **new and existing** Synthetic monitors <b style="color:maroon;">officially ended as of October 22, 2024</b>. As a consequence of this API change, all requests associated with Synthetic Monitors (except Ping Monitors) going out of the New Relic Terraform Provider <span style="color:maroon;">will be blocked by an API error</span> if they include values corresponding to the legacy runtime or blank runtime values.
+// <br><br>
+// Following these changes, starting with <b style="color:red;">v3.51.0</b> of the New Relic Terraform Provider, configuration of **new and existing** Synthetic monitors without runtime attributes (or) comprising runtime attributes signifying the legacy runtime <span style="color:red;">will be deemed invalid</span> (this applies to all Synthetic monitor resources, except `synthetics.Monitor` with type `SIMPLE`). If your monitors' configuration <span style="color:red;">is not updated with new runtime values</span>, you will see the consequences stated here. New Synthetic monitors created after August 26, 2024 already adhere to these restrictions, as part of the first phase of the EOL.
+// <br><br>
+// We kindly recommend that you upgrade your Synthetic Monitors to the new runtime as soon as possible <span style="color:red;">if they are still using the legacy runtime</span>, to avoid seeing the aforementioned consequences. Please check out this guide in the documentation of the Terraform Provider (specifically, the table at the bottom of the guide, if you're looking for updates to be made to the configuration of Synthetic monitors) and [this announcement](https://forum.newrelic.com/s/hubtopic/aAXPh0000001brxOAA/upcoming-endoflife-legacy-synthetics-runtimes-and-cpm) for more details on the EOL, actions needed, relevant resources, and more.
+// <br><br>
+// You would not be affected by the EOL if your Synthetic monitors' Terraform configuration comprises new runtime values.
 func (o StepMonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
 }
@@ -537,6 +590,7 @@ func (o StepMonitorOutput) Tags() StepMonitorTagArrayOutput {
 	return o.ApplyT(func(v *StepMonitor) StepMonitorTagArrayOutput { return v.Tags }).(StepMonitorTagArrayOutput)
 }
 
+// A boolean attribute to be set true by the customer, if they would like to use the unsupported legacy runtime of Synthetic Monitors by means of an exemption given until the October 22, 2024 Legacy Runtime EOL. Setting this attribute to true would allow skipping validation performed by the the New Relic Terraform Provider starting v3.43.0 to disallow using the legacy runtime with new monitors. This would, hence, allow creation of monitors in the legacy runtime until the October 22, 2024 Legacy Runtime EOL, if exempt by the API.
 func (o StepMonitorOutput) UseUnsupportedLegacyRuntime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.BoolPtrOutput { return v.UseUnsupportedLegacyRuntime }).(pulumi.BoolPtrOutput)
 }

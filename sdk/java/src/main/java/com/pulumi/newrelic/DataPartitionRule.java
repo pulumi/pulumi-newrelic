@@ -63,12 +63,6 @@ import javax.annotation.Nullable;
  * 
  * New Relic data partition rule can be imported using the rule ID, e.g.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:index/dataPartitionRule:DataPartitionRule")
 public class DataPartitionRule extends com.pulumi.resources.CustomResource {

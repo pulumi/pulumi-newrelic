@@ -358,12 +358,6 @@ class LogParsingRule(pulumi.CustomResource):
 
         New Relic log parsing rule can be imported using the rule ID, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
@@ -423,12 +417,6 @@ class LogParsingRule(pulumi.CustomResource):
         ## Import
 
         New Relic log parsing rule can be imported using the rule ID, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
-        ```
 
         :param str resource_name: The name of the resource.
         :param LogParsingRuleArgs args: The arguments to use to populate this resource's properties.

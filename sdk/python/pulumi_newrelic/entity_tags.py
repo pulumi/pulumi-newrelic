@@ -106,6 +106,12 @@ class EntityTags(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntityTagsTagArgs', 'EntityTagsTagArgsDict']]]]] = None,
                  __props__=None):
         """
+        Use this resource to create, update, and delete tags for a New Relic One entity.
+
+        > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+        <br><br>
+        Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+
         ## Example Usage
 
         ```python
@@ -163,14 +169,7 @@ class EntityTags(pulumi.CustomResource):
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
-
          `<guid>`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,6 +183,12 @@ class EntityTags(pulumi.CustomResource):
                  args: EntityTagsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create, update, and delete tags for a New Relic One entity.
+
+        > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+        <br><br>
+        Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+
         ## Example Usage
 
         ```python
@@ -241,14 +246,7 @@ class EntityTags(pulumi.CustomResource):
         ## Import
 
         New Relic One entity tags can be imported using a concatenated string of the format
-
          `<guid>`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
-        ```
 
         :param str resource_name: The name of the resource.
         :param EntityTagsArgs args: The arguments to use to populate this resource's properties.

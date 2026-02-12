@@ -220,6 +220,12 @@ class EventsToMetricsRule(pulumi.CustomResource):
                  nrql: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Use this resource to create, update, and delete New Relic Events to Metrics rules.
+
+        > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+        <br><br>
+        Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+
         ## Example Usage
 
         ```python
@@ -236,14 +242,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
         ## Import
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
-
          `<account_id>:<rule_id>`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,6 +259,12 @@ class EventsToMetricsRule(pulumi.CustomResource):
                  args: EventsToMetricsRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Use this resource to create, update, and delete New Relic Events to Metrics rules.
+
+        > **IMPORTANT!** Version 2.0.0 of the New Relic Terraform Provider introduces some [additional requirements](https://www.terraform.io/providers/newrelic/newrelic/latest/docs/guides/migration_guide_v2) for configuring the provider.
+        <br><br>
+        Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.x version of the provider and ensure that your environment successfully runs `pulumi preview` without unexpected changes.
+
         ## Example Usage
 
         ```python
@@ -276,14 +281,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
         ## Import
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
-
          `<account_id>:<rule_id>`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
-        ```
 
         :param str resource_name: The name of the resource.
         :param EventsToMetricsRuleArgs args: The arguments to use to populate this resource's properties.

@@ -69,12 +69,6 @@ import javax.annotation.Nullable;
  * 
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount  newrelic_cloud_gcp_link_account.foo &lt;id&gt;
- * ```
- * 
  */
 @ResourceType(type="newrelic:cloud/gcpLinkAccount:GcpLinkAccount")
 public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
@@ -93,14 +87,18 @@ public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * name of the linked account
+     * The name of the GCP account in New Relic.
+     * 
+     * &gt; **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return name of the linked account
+     * @return The name of the GCP account in New Relic.
+     * 
+     * &gt; **WARNING:** Starting with v3.27.2 of the New Relic Terraform Provider, updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.GcpLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
      * 
      */
     public Output<String> name() {

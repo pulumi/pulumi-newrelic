@@ -10,73 +10,381 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// Use this resource to create and manage New Relic notification destinations. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ##### [Webhook](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#webhook)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "foo",
+    ///         Type = "WEBHOOK",
+    ///         SecureUrl = new NewRelic.Inputs.NotificationDestinationSecureUrlArgs
+    ///         {
+    ///             Prefix = "https://webhook.mywebhook.com/",
+    ///             SecureSuffix = "service_id/123456",
+    ///         },
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "source",
+    ///                 Value = "terraform",
+    ///             },
+    ///         },
+    ///         AuthCustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationAuthCustomHeaderArgs
+    ///             {
+    ///                 Key = "API_KEY",
+    ///                 Value = "test-api-key",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// &gt; **NOTE:** We support all properties. The mentioned properties are just an example.
+    /// 
+    /// #### [WORKFLOW_AUTOMATION]
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "workflow-automation-destination-name",
+    ///         Type = "WORKFLOW_AUTOMATION",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "",
+    ///                 Value = "",
+    ///             },
+    ///         },
+    ///         AuthCustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationAuthCustomHeaderArgs
+    ///             {
+    ///                 Key = "Api-Key",
+    ///                 Value = "YOUR_NR_USER_API_KEY",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [MICROSOFT_TEAMS](https://docs.newrelic.com/docs/alerts/get-notified/microsoft-teams-integrations/)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "ms-teams-example",
+    ///         Type = "MICROSOFT_TEAMS",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "securityCode",
+    ///                 Value = "abcdefgh",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [ServiceNow](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#servicenow)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "servicenow-example",
+    ///         Type = "SERVICE_NOW",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "url",
+    ///                 Value = "https://service-now.com/",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "two_way_integration",
+    ///                 Value = "true",
+    ///             },
+    ///         },
+    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
+    ///         {
+    ///             User = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [Email](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#email)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "email-example",
+    ///         Type = "EMAIL",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "email",
+    ///                 Value = "email@email.com,email2@email.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [Jira](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#jira)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "jira-example",
+    ///         Type = "JIRA",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "url",
+    ///                 Value = "https://example.atlassian.net",
+    ///             },
+    ///         },
+    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
+    ///         {
+    ///             User = "example@email.com",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-sli)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "pagerduty-service-example",
+    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "",
+    ///                 Value = "",
+    ///             },
+    ///         },
+    ///         AuthToken = new NewRelic.Inputs.NotificationDestinationAuthTokenArgs
+    ///         {
+    ///             Prefix = "Token token=",
+    ///             Token = "10567a689d984d03c021034b22a789e2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-ali)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "pagerduty-account-example",
+    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "two_way_integration",
+    ///                 Value = "true",
+    ///             },
+    ///         },
+    ///         AuthToken = new NewRelic.Inputs.NotificationDestinationAuthTokenArgs
+    ///         {
+    ///             Prefix = "Token token=",
+    ///             Token = "u+E8EU3MhsZwLfZ1ic1A",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// #### Mobile Push
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "mobile-push-example",
+    ///         Type = "MOBILE_PUSH",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "userId",
+    ///                 Value = "12345678",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// #### [AWS Event Bridge](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#eventBridge)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         AccountId = "12345678",
+    ///         Name = "event-bridge-example",
+    ///         Type = "EVENT_BRIDGE",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "AWSAccountId",
+    ///                 Value = "123456789123456",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "AWSRegion",
+    ///                 Value = "us-east-2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// #### [Slack](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#slack)
+    /// 
+    /// In order to create a Slack destination, you have to grant our application access to your workspace. This process is [based on OAuth](https://api.slack.com/authentication/oauth-v2) and can only be done through a browser.
+    /// As a result, you cannot set up a Slack destination purely with Terraform code.
+    /// However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `newrelic.NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
+    /// 
+    /// ## Additional Information
+    /// 
+    /// More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
+    /// More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
+    /// 
+    /// ### Moving from Legacy Alert Channels to Notification Channels
+    /// As stated in the documentation of this resource and `newrelic.NotificationChannel`, destinations, created using the resource `newrelic.NotificationDestination` can be paired with `newrelic.NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `newrelic.AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
+    /// 
+    /// If you're currently using `newrelic.AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
+    /// 
+    /// Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
+    /// 
     /// ## Import
     /// 
-    /// ~&gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
+    /// &gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
     /// 
-    /// Destination id can be found in the Destinations page -&gt; three dots at the right of the chosen destination -&gt; copy destination id to clipboard.
-    /// 
+    /// Destination id can be found in the Destinations page &gt; three dots at the right of the chosen destination &gt; copy destination id to clipboard.
     /// This example is especially useful for slack destinations which *must* be imported.
     /// 
     /// 1. Add an empty resource to your terraform file:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// terraform
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo");
     /// 
-    /// resource "newrelic_notification_destination" "foo" {
-    /// 
-    /// }
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:index/notificationDestination:NotificationDestination  Run import command: `newrelic_notification_destination.foo &lt;destination_id&gt;`
+    /// });
     /// ```
-    /// 
+    /// 2. Run import command: `terraform import newrelic_notification_destination.foo &lt;destination_id&gt;`
     /// 3. Run the following command after the import successfully done and copy the information to your resource:
-    ///    
     ///    `terraform state show newrelic_notification_destination.foo`
-    /// 
-    /// 4. Add `ignore_changes` attribute on `all` in your imported resource:
-    /// 
-    /// terraform
-    /// 
-    /// lifecycle {
-    /// 
-    ///     ignore_changes = all
-    /// 
-    ///   }
-    /// 
-    /// Your imported destination should look like that:
-    /// 
-    /// terraform
-    /// 
-    /// resource "newrelic_notification_destination" "foo" {
-    /// 
-    ///   lifecycle {
-    /// 
-    ///     ignore_changes = all
-    /// 
-    ///   }
-    /// 
-    ///   name = "*********"
-    /// 
-    ///   type = "SLACK"
-    /// 
-    ///   auth_token {
-    /// 
-    ///     prefix = "Bearer"
-    /// 
-    ///   }
-    /// 
-    ///   property {
-    /// 
-    ///       key   = "teamName"
-    ///     
-    ///       label = "Team Name"
-    ///     
-    ///       value = "******"
-    /// 
-    ///   }
-    /// 
-    /// }
+    /// 4. Add `IgnoreChanges` attribute on `All` in your imported resource:
     /// </summary>
     [NewRelicResourceType("newrelic:index/notificationDestination:NotificationDestination")]
     public partial class NotificationDestination : global::Pulumi.CustomResource
@@ -148,7 +456,7 @@ namespace Pulumi.NewRelic
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+        /// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -260,7 +568,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NotificationDestinationSecureUrlArgs>? SecureUrl { get; set; }
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+        /// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -352,7 +660,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, SERVICE_NOW_APP, PAGERDUTY_ACCOUNT_INTEGRATION, PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE, MICROSOFT_TEAMS, WORKFLOW_AUTOMATION).
+        /// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

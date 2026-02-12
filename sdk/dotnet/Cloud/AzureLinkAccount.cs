@@ -47,13 +47,7 @@ namespace Pulumi.NewRelic.Cloud
     /// 
     /// ## Import
     /// 
-    /// Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo &lt;id&gt;
-    /// ```
+    /// Linked Azure accounts can be imported using `Id`, you can find the `Id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/azureLinkAccount:AzureLinkAccount")]
     public partial class AzureLinkAccount : global::Pulumi.CustomResource
