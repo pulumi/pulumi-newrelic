@@ -6,6 +6,95 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this resource to integrate AWS EU Sovereign services with New Relic.
+ *
+ * ## Prerequisite
+ *
+ * Setup is required for this resource to work properly. This resource assumes you have linked an AWS EU Sovereign account to New Relic.
+ *
+ * The New Relic AWS EU Sovereign integration relies on two mechanisms to get data into New Relic:
+ *
+ * * **CloudWatch Metric Streams (PUSH)**: This is the supported method for AWS EU Sovereign Cloud to get metrics into New Relic for the majority of AWS services. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration) to set up a metric stream.
+ *
+ * * **API Polling (PULL)**: Required for services that are **not supported** by CloudWatch Metric Streams. The following three services must be integrated via API Polling: **Billing**, **CloudTrail** and **X-Ray**. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration).
+ *
+ * This resource is used to configure API Polling integrations for those three services that are not available through AWS CloudWatch Metric Streams.
+ *
+ * ## Example Usage
+ *
+ * The following example demonstrates the use of the `newrelic.cloud.AwsEuSovereignIntegrations` resource with multiple AWS EU Sovereign integrations supported by the resource.
+ *
+ * To view a full example with all supported AWS EU Sovereign integrations, please see the Additional Examples section. Integration blocks used in the resource may also be left empty to use the default configuration of the integration.
+ *
+ * A full example, inclusive of setup of AWS resources (from the AWS Terraform Provider) associated with this resource, may be found in our AWS EU Sovereign cloud integration guide.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.AwsEuSovereignLinkAccount("foo", {
+ *     arn: "arn:aws-eusc:iam::123456789012:role/NewRelicInfrastructure-Integrations",
+ *     metricCollectionMode: "PULL",
+ *     name: "my-eu-sovereign-account",
+ * });
+ * const bar = new newrelic.cloud.AwsEuSovereignIntegrations("bar", {
+ *     linkedAccountId: foo.id,
+ *     billing: {
+ *         metricsPollingInterval: 3600,
+ *     },
+ *     cloudtrail: {
+ *         metricsPollingInterval: 300,
+ *         awsRegions: ["eusc-de-east-1"],
+ *     },
+ *     xRay: {
+ *         metricsPollingInterval: 300,
+ *         awsRegions: ["eusc-de-east-1"],
+ *     },
+ * });
+ * ```
+ *
+ * ## Supported AWS EU Sovereign Integrations
+ *
+ * > **NOTE:** CloudWatch Metric Streams is the only supported method for AWS EU Sovereign Cloud. The following three integrations are for services **not supported by CloudWatch Metric Streams** and must be configured via API Polling using this resource.
+ *
+ * <details>
+ *   <summary>Expand this section to view all supported AWS EU Sovereign services that may be integrated via this resource.</summary>
+ *
+ * | Block                  | Description                   |
+ * |------------------------|-------------------------------|
+ * | `billing`              | Billing Integration           |
+ * | `cloudtrail`           | CloudTrail Integration        |
+ * | `xRay`                | X-Ray Integration             |
+ *
+ * </details>
+ *
+ * ## Additional Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const bar = new newrelic.cloud.AwsEuSovereignIntegrations("bar", {
+ *     linkedAccountId: foo.id,
+ *     billing: {
+ *         metricsPollingInterval: 300,
+ *     },
+ *     cloudtrail: {
+ *         metricsPollingInterval: 900,
+ *         awsRegions: ["eusc-de-east-1"],
+ *     },
+ *     xRay: {
+ *         metricsPollingInterval: 300,
+ *         awsRegions: ["eusc-de-east-1"],
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Linked AWS EU Sovereign account integrations can be imported using the `id`, e.g.
+ */
 export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
     /**
      * Get an existing AwsEuSovereignIntegrations resource's state with the given name, ID, and optional extra
@@ -35,7 +124,7 @@ export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -106,7 +195,7 @@ export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
  */
 export interface AwsEuSovereignIntegrationsState {
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -140,7 +229,7 @@ export interface AwsEuSovereignIntegrationsState {
  */
 export interface AwsEuSovereignIntegrationsArgs {
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     accountId?: pulumi.Input<string>;
     /**

@@ -12,10 +12,139 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this resource to integrate AWS EU Sovereign services with New Relic.
+//
+// ## Prerequisite
+//
+// Setup is required for this resource to work properly. This resource assumes you have linked an AWS EU Sovereign account to New Relic.
+//
+// The New Relic AWS EU Sovereign integration relies on two mechanisms to get data into New Relic:
+//
+// * **CloudWatch Metric Streams (PUSH)**: This is the supported method for AWS EU Sovereign Cloud to get metrics into New Relic for the majority of AWS services. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration) to set up a metric stream.
+//
+// * **API Polling (PULL)**: Required for services that are **not supported** by CloudWatch Metric Streams. The following three services must be integrated via API Polling: **Billing**, **CloudTrail** and **X-Ray**. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration).
+//
+// This resource is used to configure API Polling integrations for those three services that are not available through AWS CloudWatch Metric Streams.
+//
+// ## Example Usage
+//
+// The following example demonstrates the use of the `cloud.AwsEuSovereignIntegrations` resource with multiple AWS EU Sovereign integrations supported by the resource.
+//
+// To view a full example with all supported AWS EU Sovereign integrations, please see the Additional Examples section. Integration blocks used in the resource may also be left empty to use the default configuration of the integration.
+//
+// A full example, inclusive of setup of AWS resources (from the AWS Terraform Provider) associated with this resource, may be found in our AWS EU Sovereign cloud integration guide.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := cloud.NewAwsEuSovereignLinkAccount(ctx, "foo", &cloud.AwsEuSovereignLinkAccountArgs{
+//				Arn:                  pulumi.String("arn:aws-eusc:iam::123456789012:role/NewRelicInfrastructure-Integrations"),
+//				MetricCollectionMode: pulumi.String("PULL"),
+//				Name:                 pulumi.String("my-eu-sovereign-account"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloud.NewAwsEuSovereignIntegrations(ctx, "bar", &cloud.AwsEuSovereignIntegrationsArgs{
+//				LinkedAccountId: foo.ID(),
+//				Billing: &cloud.AwsEuSovereignIntegrationsBillingArgs{
+//					MetricsPollingInterval: pulumi.Int(3600),
+//				},
+//				Cloudtrail: &cloud.AwsEuSovereignIntegrationsCloudtrailArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("eusc-de-east-1"),
+//					},
+//				},
+//				XRay: &cloud.AwsEuSovereignIntegrationsXRayArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("eusc-de-east-1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Supported AWS EU Sovereign Integrations
+//
+// > **NOTE:** CloudWatch Metric Streams is the only supported method for AWS EU Sovereign Cloud. The following three integrations are for services **not supported by CloudWatch Metric Streams** and must be configured via API Polling using this resource.
+//
+// <details>
+//
+//	<summary>Expand this section to view all supported AWS EU Sovereign services that may be integrated via this resource.</summary>
+//
+// | Block                  | Description                   |
+// |------------------------|-------------------------------|
+// | `billing`              | Billing Integration           |
+// | `cloudtrail`           | CloudTrail Integration        |
+// | `xRay`                | X-Ray Integration             |
+//
+// </details>
+//
+// ## Additional Examples
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloud.NewAwsEuSovereignIntegrations(ctx, "bar", &cloud.AwsEuSovereignIntegrationsArgs{
+//				LinkedAccountId: pulumi.Any(foo.Id),
+//				Billing: &cloud.AwsEuSovereignIntegrationsBillingArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//				},
+//				Cloudtrail: &cloud.AwsEuSovereignIntegrationsCloudtrailArgs{
+//					MetricsPollingInterval: pulumi.Int(900),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("eusc-de-east-1"),
+//					},
+//				},
+//				XRay: &cloud.AwsEuSovereignIntegrationsXRayArgs{
+//					MetricsPollingInterval: pulumi.Int(300),
+//					AwsRegions: pulumi.StringArray{
+//						pulumi.String("eusc-de-east-1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Linked AWS EU Sovereign account integrations can be imported using the `id`, e.g.
 type AwsEuSovereignIntegrations struct {
 	pulumi.CustomResourceState
 
-	// The ID of the account in New Relic.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Billing integration
 	Billing AwsEuSovereignIntegrationsBillingPtrOutput `pulumi:"billing"`
@@ -64,7 +193,7 @@ func GetAwsEuSovereignIntegrations(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AwsEuSovereignIntegrations resources.
 type awsEuSovereignIntegrationsState struct {
-	// The ID of the account in New Relic.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`
 	// Billing integration
 	Billing *AwsEuSovereignIntegrationsBilling `pulumi:"billing"`
@@ -81,7 +210,7 @@ type awsEuSovereignIntegrationsState struct {
 }
 
 type AwsEuSovereignIntegrationsState struct {
-	// The ID of the account in New Relic.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.StringPtrInput
 	// Billing integration
 	Billing AwsEuSovereignIntegrationsBillingPtrInput
@@ -102,7 +231,7 @@ func (AwsEuSovereignIntegrationsState) ElementType() reflect.Type {
 }
 
 type awsEuSovereignIntegrationsArgs struct {
-	// The ID of the account in New Relic.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`
 	// Billing integration
 	Billing *AwsEuSovereignIntegrationsBilling `pulumi:"billing"`
@@ -120,7 +249,7 @@ type awsEuSovereignIntegrationsArgs struct {
 
 // The set of arguments for constructing a AwsEuSovereignIntegrations resource.
 type AwsEuSovereignIntegrationsArgs struct {
-	// The ID of the account in New Relic.
+	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.StringPtrInput
 	// Billing integration
 	Billing AwsEuSovereignIntegrationsBillingPtrInput
@@ -223,7 +352,7 @@ func (o AwsEuSovereignIntegrationsOutput) ToAwsEuSovereignIntegrationsOutputWith
 	return o
 }
 
-// The ID of the account in New Relic.
+// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 func (o AwsEuSovereignIntegrationsOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsEuSovereignIntegrations) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

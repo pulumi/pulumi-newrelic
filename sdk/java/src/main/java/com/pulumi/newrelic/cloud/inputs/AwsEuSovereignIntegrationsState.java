@@ -21,14 +21,14 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
     public static final AwsEuSovereignIntegrationsState Empty = new AwsEuSovereignIntegrationsState();
 
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the account in New Relic.
+     * @return The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -156,7 +156,7 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
         }
 
         /**
-         * @param accountId The ID of the account in New Relic.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
         }
 
         /**
-         * @param accountId The ID of the account in New Relic.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
          * 
          * @return builder
          * 

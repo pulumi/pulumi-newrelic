@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this resource to link an AWS EU Sovereign account to New Relic.
+ *
+ * ## Prerequisite
+ *
+ * Setup is required in AWS EU Sovereign for this resource to work properly. To link an AWS EU Sovereign account to New Relic, you need an AWS EU Sovereign Cloud account.
+ *
+ * Using a metric stream to New Relic is the only supported method for AWS EU Sovereign Cloud to get metrics into New Relic for the majority of AWS services. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration) to set up a metric stream.
+ *
+ * To pull data from AWS EU Sovereign for services not supported by CloudWatch Metric Streams (Billing, CloudTrail and X-Ray), complete the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration).
+ *
+ * ## Example Usage
+ *
+ * You can also use the full example, including the AWS set up, found in our guides.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.cloud.AwsEuSovereignLinkAccount("foo", {
+ *     accountId: "1234567",
+ *     name: "My New Relic - AWS EU Sovereign Linked Account",
+ *     metricCollectionMode: "PUSH",
+ *     arn: "arn:aws-eusc:iam::123456789012:role/NewRelicInfrastructure-Integrations",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Linked AWS EU Sovereign accounts can be imported using the `id`, e.g.
+ */
 export class AwsEuSovereignLinkAccount extends pulumi.CustomResource {
     /**
      * Get an existing AwsEuSovereignLinkAccount resource's state with the given name, ID, and optional extra
@@ -33,19 +64,23 @@ export class AwsEuSovereignLinkAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The ARN of the IAM role.
+     * The Amazon Resource Name (ARN) of the IAM role.
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
-     * How metrics are collected. PULL or PUSH.
+     * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      */
     declare public readonly metricCollectionMode: pulumi.Output<string | undefined>;
     /**
-     * The name of the AWS EU Sovereign account in New Relic.
+     * The name/identifier of the AWS EU Sovereign - New Relic 'linked' account.
+     *
+     * > **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     *
+     * > **NOTE:** This resource requires the New Relic provider to be configured with `region = "EU"` or the `NEW_RELIC_REGION=EU` environment variable.
      */
     declare public readonly name: pulumi.Output<string>;
 
@@ -86,19 +121,23 @@ export class AwsEuSovereignLinkAccount extends pulumi.CustomResource {
  */
 export interface AwsEuSovereignLinkAccountState {
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role.
+     * The Amazon Resource Name (ARN) of the IAM role.
      */
     arn?: pulumi.Input<string>;
     /**
-     * How metrics are collected. PULL or PUSH.
+     * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The name of the AWS EU Sovereign account in New Relic.
+     * The name/identifier of the AWS EU Sovereign - New Relic 'linked' account.
+     *
+     * > **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     *
+     * > **NOTE:** This resource requires the New Relic provider to be configured with `region = "EU"` or the `NEW_RELIC_REGION=EU` environment variable.
      */
     name?: pulumi.Input<string>;
 }
@@ -108,19 +147,23 @@ export interface AwsEuSovereignLinkAccountState {
  */
 export interface AwsEuSovereignLinkAccountArgs {
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role.
+     * The Amazon Resource Name (ARN) of the IAM role.
      */
     arn: pulumi.Input<string>;
     /**
-     * How metrics are collected. PULL or PUSH.
+     * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * The name of the AWS EU Sovereign account in New Relic.
+     * The name/identifier of the AWS EU Sovereign - New Relic 'linked' account.
+     *
+     * > **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     *
+     * > **NOTE:** This resource requires the New Relic provider to be configured with `region = "EU"` or the `NEW_RELIC_REGION=EU` environment variable.
      */
     name?: pulumi.Input<string>;
 }

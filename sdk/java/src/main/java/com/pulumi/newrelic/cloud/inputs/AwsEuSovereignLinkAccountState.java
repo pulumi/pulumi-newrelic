@@ -16,14 +16,14 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
     public static final AwsEuSovereignLinkAccountState Empty = new AwsEuSovereignLinkAccountState();
 
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the account in New Relic.
+     * @return The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -31,14 +31,14 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
     }
 
     /**
-     * The ARN of the IAM role.
+     * The Amazon Resource Name (ARN) of the IAM role.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the IAM role.
+     * @return The Amazon Resource Name (ARN) of the IAM role.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -46,14 +46,14 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
     }
 
     /**
-     * How metrics are collected. PULL or PUSH.
+     * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      * 
      */
     @Import(name="metricCollectionMode")
     private @Nullable Output<String> metricCollectionMode;
 
     /**
-     * @return How metrics are collected. PULL or PUSH.
+     * @return How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      * 
      */
     public Optional<Output<String>> metricCollectionMode() {
@@ -61,14 +61,22 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the AWS EU Sovereign account in New Relic.
+     * The name/identifier of the AWS EU Sovereign - New Relic &#39;linked&#39; account.
+     * 
+     * &gt; **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     * 
+     * &gt; **NOTE:** This resource requires the New Relic provider to be configured with `region = &#34;EU&#34;` or the `NEW_RELIC_REGION=EU` environment variable.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the AWS EU Sovereign account in New Relic.
+     * @return The name/identifier of the AWS EU Sovereign - New Relic &#39;linked&#39; account.
+     * 
+     * &gt; **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     * 
+     * &gt; **NOTE:** This resource requires the New Relic provider to be configured with `region = &#34;EU&#34;` or the `NEW_RELIC_REGION=EU` environment variable.
      * 
      */
     public Optional<Output<String>> name() {
@@ -103,7 +111,7 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param accountId The ID of the account in New Relic.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
          * 
          * @return builder
          * 
@@ -114,7 +122,7 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param accountId The ID of the account in New Relic.
+         * @param accountId The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
          * 
          * @return builder
          * 
@@ -124,7 +132,7 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn The ARN of the IAM role.
+         * @param arn The Amazon Resource Name (ARN) of the IAM role.
          * 
          * @return builder
          * 
@@ -135,7 +143,7 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn The ARN of the IAM role.
+         * @param arn The Amazon Resource Name (ARN) of the IAM role.
          * 
          * @return builder
          * 
@@ -145,7 +153,7 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param metricCollectionMode How metrics are collected. PULL or PUSH.
+         * @param metricCollectionMode How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
          * 
          * @return builder
          * 
@@ -156,7 +164,7 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param metricCollectionMode How metrics are collected. PULL or PUSH.
+         * @param metricCollectionMode How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
          * 
          * @return builder
          * 
@@ -166,7 +174,11 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the AWS EU Sovereign account in New Relic.
+         * @param name The name/identifier of the AWS EU Sovereign - New Relic &#39;linked&#39; account.
+         * 
+         * &gt; **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+         * 
+         * &gt; **NOTE:** This resource requires the New Relic provider to be configured with `region = &#34;EU&#34;` or the `NEW_RELIC_REGION=EU` environment variable.
          * 
          * @return builder
          * 
@@ -177,7 +189,11 @@ public final class AwsEuSovereignLinkAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the AWS EU Sovereign account in New Relic.
+         * @param name The name/identifier of the AWS EU Sovereign - New Relic &#39;linked&#39; account.
+         * 
+         * &gt; **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+         * 
+         * &gt; **NOTE:** This resource requires the New Relic provider to be configured with `region = &#34;EU&#34;` or the `NEW_RELIC_REGION=EU` environment variable.
          * 
          * @return builder
          * 
