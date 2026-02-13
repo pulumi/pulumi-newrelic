@@ -31,7 +31,7 @@ class AwsEuSovereignIntegrationsArgs:
         """
         The set of arguments for constructing a AwsEuSovereignIntegrations resource.
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS EU Sovereign account in New Relic.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the account in New Relic.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsEuSovereignIntegrationsBillingArgs'] billing: Billing integration
         :param pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs'] cloudtrail: CloudTrail integration
         :param pulumi.Input['AwsEuSovereignIntegrationsHealthArgs'] health: Health integration
@@ -68,7 +68,7 @@ class AwsEuSovereignIntegrationsArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the account in New Relic.
+        The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
@@ -149,7 +149,7 @@ class _AwsEuSovereignIntegrationsState:
                  x_ray: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']] = None):
         """
         Input properties used for looking up and filtering AwsEuSovereignIntegrations resources.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the account in New Relic.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsEuSovereignIntegrationsBillingArgs'] billing: Billing integration
         :param pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs'] cloudtrail: CloudTrail integration
         :param pulumi.Input['AwsEuSovereignIntegrationsHealthArgs'] health: Health integration
@@ -176,7 +176,7 @@ class _AwsEuSovereignIntegrationsState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the account in New Relic.
+        The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 
@@ -272,10 +272,94 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
                  x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         """
-        Create a AwsEuSovereignIntegrations resource with the given unique name, props, and options.
+        Use this resource to integrate AWS EU Sovereign services with New Relic.
+
+        ## Prerequisite
+
+        Setup is required for this resource to work properly. This resource assumes you have linked an AWS EU Sovereign account to New Relic.
+
+        The New Relic AWS EU Sovereign integration relies on two mechanisms to get data into New Relic:
+
+        * **CloudWatch Metric Streams (PUSH)**: This is the supported method for AWS EU Sovereign Cloud to get metrics into New Relic for the majority of AWS services. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration) to set up a metric stream.
+
+        * **API Polling (PULL)**: Required for services that are **not supported** by CloudWatch Metric Streams. The following three services must be integrated via API Polling: **Billing**, **CloudTrail** and **X-Ray**. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration).
+
+        This resource is used to configure API Polling integrations for those three services that are not available through AWS CloudWatch Metric Streams.
+
+        ## Example Usage
+
+        The following example demonstrates the use of the `cloud.AwsEuSovereignIntegrations` resource with multiple AWS EU Sovereign integrations supported by the resource.
+
+        To view a full example with all supported AWS EU Sovereign integrations, please see the Additional Examples section. Integration blocks used in the resource may also be left empty to use the default configuration of the integration.
+
+        A full example, inclusive of setup of AWS resources (from the AWS Terraform Provider) associated with this resource, may be found in our AWS EU Sovereign cloud integration guide.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsEuSovereignLinkAccount("foo",
+            arn="arn:aws-eusc:iam::123456789012:role/NewRelicInfrastructure-Integrations",
+            metric_collection_mode="PULL",
+            name="my-eu-sovereign-account")
+        bar = newrelic.cloud.AwsEuSovereignIntegrations("bar",
+            linked_account_id=foo.id,
+            billing={
+                "metrics_polling_interval": 3600,
+            },
+            cloudtrail={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["eusc-de-east-1"],
+            },
+            x_ray={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["eusc-de-east-1"],
+            })
+        ```
+
+        ## Supported AWS EU Sovereign Integrations
+
+        > **NOTE:** CloudWatch Metric Streams is the only supported method for AWS EU Sovereign Cloud. The following three integrations are for services **not supported by CloudWatch Metric Streams** and must be configured via API Polling using this resource.
+
+        <details>
+          <summary>Expand this section to view all supported AWS EU Sovereign services that may be integrated via this resource.</summary>
+
+        | Block                  | Description                   |
+        |------------------------|-------------------------------|
+        | `billing`              | Billing Integration           |
+        | `cloudtrail`           | CloudTrail Integration        |
+        | `x_ray`                | X-Ray Integration             |
+
+        </details>
+
+        ## Additional Examples
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        bar = newrelic.cloud.AwsEuSovereignIntegrations("bar",
+            linked_account_id=foo["id"],
+            billing={
+                "metrics_polling_interval": 300,
+            },
+            cloudtrail={
+                "metrics_polling_interval": 900,
+                "aws_regions": ["eusc-de-east-1"],
+            },
+            x_ray={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["eusc-de-east-1"],
+            })
+        ```
+
+        ## Import
+
+        Linked AWS EU Sovereign account integrations can be imported using the `id`, e.g.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the account in New Relic.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']] billing: Billing integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']] cloudtrail: CloudTrail integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']] health: Health integration
@@ -290,7 +374,91 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
                  args: AwsEuSovereignIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AwsEuSovereignIntegrations resource with the given unique name, props, and options.
+        Use this resource to integrate AWS EU Sovereign services with New Relic.
+
+        ## Prerequisite
+
+        Setup is required for this resource to work properly. This resource assumes you have linked an AWS EU Sovereign account to New Relic.
+
+        The New Relic AWS EU Sovereign integration relies on two mechanisms to get data into New Relic:
+
+        * **CloudWatch Metric Streams (PUSH)**: This is the supported method for AWS EU Sovereign Cloud to get metrics into New Relic for the majority of AWS services. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration) to set up a metric stream.
+
+        * **API Polling (PULL)**: Required for services that are **not supported** by CloudWatch Metric Streams. The following three services must be integrated via API Polling: **Billing**, **CloudTrail** and **X-Ray**. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration).
+
+        This resource is used to configure API Polling integrations for those three services that are not available through AWS CloudWatch Metric Streams.
+
+        ## Example Usage
+
+        The following example demonstrates the use of the `cloud.AwsEuSovereignIntegrations` resource with multiple AWS EU Sovereign integrations supported by the resource.
+
+        To view a full example with all supported AWS EU Sovereign integrations, please see the Additional Examples section. Integration blocks used in the resource may also be left empty to use the default configuration of the integration.
+
+        A full example, inclusive of setup of AWS resources (from the AWS Terraform Provider) associated with this resource, may be found in our AWS EU Sovereign cloud integration guide.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.cloud.AwsEuSovereignLinkAccount("foo",
+            arn="arn:aws-eusc:iam::123456789012:role/NewRelicInfrastructure-Integrations",
+            metric_collection_mode="PULL",
+            name="my-eu-sovereign-account")
+        bar = newrelic.cloud.AwsEuSovereignIntegrations("bar",
+            linked_account_id=foo.id,
+            billing={
+                "metrics_polling_interval": 3600,
+            },
+            cloudtrail={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["eusc-de-east-1"],
+            },
+            x_ray={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["eusc-de-east-1"],
+            })
+        ```
+
+        ## Supported AWS EU Sovereign Integrations
+
+        > **NOTE:** CloudWatch Metric Streams is the only supported method for AWS EU Sovereign Cloud. The following three integrations are for services **not supported by CloudWatch Metric Streams** and must be configured via API Polling using this resource.
+
+        <details>
+          <summary>Expand this section to view all supported AWS EU Sovereign services that may be integrated via this resource.</summary>
+
+        | Block                  | Description                   |
+        |------------------------|-------------------------------|
+        | `billing`              | Billing Integration           |
+        | `cloudtrail`           | CloudTrail Integration        |
+        | `x_ray`                | X-Ray Integration             |
+
+        </details>
+
+        ## Additional Examples
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        bar = newrelic.cloud.AwsEuSovereignIntegrations("bar",
+            linked_account_id=foo["id"],
+            billing={
+                "metrics_polling_interval": 300,
+            },
+            cloudtrail={
+                "metrics_polling_interval": 900,
+                "aws_regions": ["eusc-de-east-1"],
+            },
+            x_ray={
+                "metrics_polling_interval": 300,
+                "aws_regions": ["eusc-de-east-1"],
+            })
+        ```
+
+        ## Import
+
+        Linked AWS EU Sovereign account integrations can be imported using the `id`, e.g.
+
         :param str resource_name: The name of the resource.
         :param AwsEuSovereignIntegrationsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,7 +523,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the account in New Relic.
+        :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']] billing: Billing integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']] cloudtrail: CloudTrail integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']] health: Health integration
@@ -380,7 +548,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the account in New Relic.
+        The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
 

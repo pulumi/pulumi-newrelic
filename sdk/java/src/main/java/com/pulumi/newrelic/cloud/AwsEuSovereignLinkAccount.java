@@ -14,59 +14,121 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Use this resource to link an AWS EU Sovereign account to New Relic.
+ * 
+ * ## Prerequisite
+ * 
+ * Setup is required in AWS EU Sovereign for this resource to work properly. To link an AWS EU Sovereign account to New Relic, you need an AWS EU Sovereign Cloud account.
+ * 
+ * Using a metric stream to New Relic is the only supported method for AWS EU Sovereign Cloud to get metrics into New Relic for the majority of AWS services. Follow the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration) to set up a metric stream.
+ * 
+ * To pull data from AWS EU Sovereign for services not supported by CloudWatch Metric Streams (Billing, CloudTrail and X-Ray), complete the [steps outlined here](https://docs-preview.newrelic.com/docs/aws-eu-sovereign-cloud-integration).
+ * 
+ * ## Example Usage
+ * 
+ * You can also use the full example, including the AWS set up, found in our guides.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.cloud.AwsEuSovereignLinkAccount;
+ * import com.pulumi.newrelic.cloud.AwsEuSovereignLinkAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new AwsEuSovereignLinkAccount("foo", AwsEuSovereignLinkAccountArgs.builder()
+ *             .accountId("1234567")
+ *             .name("My New Relic - AWS EU Sovereign Linked Account")
+ *             .metricCollectionMode("PUSH")
+ *             .arn("arn:aws-eusc:iam::123456789012:role/NewRelicInfrastructure-Integrations")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * Linked AWS EU Sovereign accounts can be imported using the `id`, e.g.
+ * 
+ */
 @ResourceType(type="newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount")
 public class AwsEuSovereignLinkAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the account in New Relic.
+     * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The ID of the account in New Relic.
+     * @return The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The ARN of the IAM role.
+     * The Amazon Resource Name (ARN) of the IAM role.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the IAM role.
+     * @return The Amazon Resource Name (ARN) of the IAM role.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * How metrics are collected. PULL or PUSH.
+     * How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      * 
      */
     @Export(name="metricCollectionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricCollectionMode;
 
     /**
-     * @return How metrics are collected. PULL or PUSH.
+     * @return How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
      * 
      */
     public Output<Optional<String>> metricCollectionMode() {
         return Codegen.optional(this.metricCollectionMode);
     }
     /**
-     * The name of the AWS EU Sovereign account in New Relic.
+     * The name/identifier of the AWS EU Sovereign - New Relic &#39;linked&#39; account.
+     * 
+     * &gt; **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     * 
+     * &gt; **NOTE:** This resource requires the New Relic provider to be configured with `region = &#34;EU&#34;` or the `NEW_RELIC_REGION=EU` environment variable.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the AWS EU Sovereign account in New Relic.
+     * @return The name/identifier of the AWS EU Sovereign - New Relic &#39;linked&#39; account.
+     * 
+     * &gt; **WARNING:** Updating any of the aforementioned attributes (except `name`) of a `newrelic.cloud.AwsEuSovereignLinkAccount` resource that has been applied would **force a replacement** of the resource (destruction of the resource, followed by the creation of a new resource). Please carefully review the output of `pulumi preview`, which would clearly indicate a replacement of this resource, before performing a `pulumi up`.
+     * 
+     * &gt; **NOTE:** This resource requires the New Relic provider to be configured with `region = &#34;EU&#34;` or the `NEW_RELIC_REGION=EU` environment variable.
      * 
      */
     public Output<String> name() {
