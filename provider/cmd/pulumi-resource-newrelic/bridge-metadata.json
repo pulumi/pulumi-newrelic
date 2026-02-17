@@ -149,12 +149,6 @@
                             }
                         }
                     },
-                    "health": {
-                        "maxItemsOne": true
-                    },
-                    "trusted_advisor": {
-                        "maxItemsOne": true
-                    },
                     "x_ray": {
                         "maxItemsOne": true,
                         "elem": {
