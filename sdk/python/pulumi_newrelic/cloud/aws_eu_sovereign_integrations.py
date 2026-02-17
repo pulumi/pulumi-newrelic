@@ -25,8 +25,6 @@ class AwsEuSovereignIntegrationsArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  billing: Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']] = None,
-                 health: Optional[pulumi.Input['AwsEuSovereignIntegrationsHealthArgs']] = None,
-                 trusted_advisor: Optional[pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs']] = None,
                  x_ray: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']] = None):
         """
         The set of arguments for constructing a AwsEuSovereignIntegrations resource.
@@ -34,8 +32,6 @@ class AwsEuSovereignIntegrationsArgs:
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsEuSovereignIntegrationsBillingArgs'] billing: Billing integration
         :param pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs'] cloudtrail: CloudTrail integration
-        :param pulumi.Input['AwsEuSovereignIntegrationsHealthArgs'] health: Health integration
-        :param pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration
         :param pulumi.Input['AwsEuSovereignIntegrationsXRayArgs'] x_ray: X-Ray integration
         """
         pulumi.set(__self__, "linked_account_id", linked_account_id)
@@ -45,10 +41,6 @@ class AwsEuSovereignIntegrationsArgs:
             pulumi.set(__self__, "billing", billing)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
-        if health is not None:
-            pulumi.set(__self__, "health", health)
-        if trusted_advisor is not None:
-            pulumi.set(__self__, "trusted_advisor", trusted_advisor)
         if x_ray is not None:
             pulumi.set(__self__, "x_ray", x_ray)
 
@@ -101,30 +93,6 @@ class AwsEuSovereignIntegrationsArgs:
         pulumi.set(self, "cloudtrail", value)
 
     @_builtins.property
-    @pulumi.getter
-    def health(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsHealthArgs']]:
-        """
-        Health integration
-        """
-        return pulumi.get(self, "health")
-
-    @health.setter
-    def health(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsHealthArgs']]):
-        pulumi.set(self, "health", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trustedAdvisor")
-    def trusted_advisor(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs']]:
-        """
-        Trusted Advisor integration
-        """
-        return pulumi.get(self, "trusted_advisor")
-
-    @trusted_advisor.setter
-    def trusted_advisor(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs']]):
-        pulumi.set(self, "trusted_advisor", value)
-
-    @_builtins.property
     @pulumi.getter(name="xRay")
     def x_ray(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']]:
         """
@@ -143,18 +111,14 @@ class _AwsEuSovereignIntegrationsState:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  billing: Optional[pulumi.Input['AwsEuSovereignIntegrationsBillingArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs']] = None,
-                 health: Optional[pulumi.Input['AwsEuSovereignIntegrationsHealthArgs']] = None,
                  linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_advisor: Optional[pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs']] = None,
                  x_ray: Optional[pulumi.Input['AwsEuSovereignIntegrationsXRayArgs']] = None):
         """
         Input properties used for looking up and filtering AwsEuSovereignIntegrations resources.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsEuSovereignIntegrationsBillingArgs'] billing: Billing integration
         :param pulumi.Input['AwsEuSovereignIntegrationsCloudtrailArgs'] cloudtrail: CloudTrail integration
-        :param pulumi.Input['AwsEuSovereignIntegrationsHealthArgs'] health: Health integration
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS EU Sovereign account in New Relic.
-        :param pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration
         :param pulumi.Input['AwsEuSovereignIntegrationsXRayArgs'] x_ray: X-Ray integration
         """
         if account_id is not None:
@@ -163,12 +127,8 @@ class _AwsEuSovereignIntegrationsState:
             pulumi.set(__self__, "billing", billing)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
-        if health is not None:
-            pulumi.set(__self__, "health", health)
         if linked_account_id is not None:
             pulumi.set(__self__, "linked_account_id", linked_account_id)
-        if trusted_advisor is not None:
-            pulumi.set(__self__, "trusted_advisor", trusted_advisor)
         if x_ray is not None:
             pulumi.set(__self__, "x_ray", x_ray)
 
@@ -209,18 +169,6 @@ class _AwsEuSovereignIntegrationsState:
         pulumi.set(self, "cloudtrail", value)
 
     @_builtins.property
-    @pulumi.getter
-    def health(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsHealthArgs']]:
-        """
-        Health integration
-        """
-        return pulumi.get(self, "health")
-
-    @health.setter
-    def health(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsHealthArgs']]):
-        pulumi.set(self, "health", value)
-
-    @_builtins.property
     @pulumi.getter(name="linkedAccountId")
     def linked_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -231,18 +179,6 @@ class _AwsEuSovereignIntegrationsState:
     @linked_account_id.setter
     def linked_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "linked_account_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trustedAdvisor")
-    def trusted_advisor(self) -> Optional[pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs']]:
-        """
-        Trusted Advisor integration
-        """
-        return pulumi.get(self, "trusted_advisor")
-
-    @trusted_advisor.setter
-    def trusted_advisor(self, value: Optional[pulumi.Input['AwsEuSovereignIntegrationsTrustedAdvisorArgs']]):
-        pulumi.set(self, "trusted_advisor", value)
 
     @_builtins.property
     @pulumi.getter(name="xRay")
@@ -266,9 +202,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  billing: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
                  cloudtrail: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
-                 health: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']]] = None,
                  linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_advisor: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsTrustedAdvisorArgs', 'AwsEuSovereignIntegrationsTrustedAdvisorArgsDict']]] = None,
                  x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         """
@@ -362,9 +296,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']] billing: Billing integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']] cloudtrail: CloudTrail integration
-        :param pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']] health: Health integration
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS EU Sovereign account in New Relic.
-        :param pulumi.Input[Union['AwsEuSovereignIntegrationsTrustedAdvisorArgs', 'AwsEuSovereignIntegrationsTrustedAdvisorArgsDict']] trusted_advisor: Trusted Advisor integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']] x_ray: X-Ray integration
         """
         ...
@@ -477,9 +409,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  billing: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
                  cloudtrail: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
-                 health: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']]] = None,
                  linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_advisor: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsTrustedAdvisorArgs', 'AwsEuSovereignIntegrationsTrustedAdvisorArgsDict']]] = None,
                  x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -493,11 +423,9 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["billing"] = billing
             __props__.__dict__["cloudtrail"] = cloudtrail
-            __props__.__dict__["health"] = health
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
-            __props__.__dict__["trusted_advisor"] = trusted_advisor
             __props__.__dict__["x_ray"] = x_ray
         super(AwsEuSovereignIntegrations, __self__).__init__(
             'newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations',
@@ -512,9 +440,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[_builtins.str]] = None,
             billing: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']]] = None,
             cloudtrail: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']]] = None,
-            health: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']]] = None,
             linked_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            trusted_advisor: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsTrustedAdvisorArgs', 'AwsEuSovereignIntegrationsTrustedAdvisorArgsDict']]] = None,
             x_ray: Optional[pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']]] = None) -> 'AwsEuSovereignIntegrations':
         """
         Get an existing AwsEuSovereignIntegrations resource's state with the given name, id, and optional extra
@@ -526,9 +452,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsBillingArgs', 'AwsEuSovereignIntegrationsBillingArgsDict']] billing: Billing integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsCloudtrailArgs', 'AwsEuSovereignIntegrationsCloudtrailArgsDict']] cloudtrail: CloudTrail integration
-        :param pulumi.Input[Union['AwsEuSovereignIntegrationsHealthArgs', 'AwsEuSovereignIntegrationsHealthArgsDict']] health: Health integration
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS EU Sovereign account in New Relic.
-        :param pulumi.Input[Union['AwsEuSovereignIntegrationsTrustedAdvisorArgs', 'AwsEuSovereignIntegrationsTrustedAdvisorArgsDict']] trusted_advisor: Trusted Advisor integration
         :param pulumi.Input[Union['AwsEuSovereignIntegrationsXRayArgs', 'AwsEuSovereignIntegrationsXRayArgsDict']] x_ray: X-Ray integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -538,9 +462,7 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["billing"] = billing
         __props__.__dict__["cloudtrail"] = cloudtrail
-        __props__.__dict__["health"] = health
         __props__.__dict__["linked_account_id"] = linked_account_id
-        __props__.__dict__["trusted_advisor"] = trusted_advisor
         __props__.__dict__["x_ray"] = x_ray
         return AwsEuSovereignIntegrations(resource_name, opts=opts, __props__=__props__)
 
@@ -569,28 +491,12 @@ class AwsEuSovereignIntegrations(pulumi.CustomResource):
         return pulumi.get(self, "cloudtrail")
 
     @_builtins.property
-    @pulumi.getter
-    def health(self) -> pulumi.Output[Optional['outputs.AwsEuSovereignIntegrationsHealth']]:
-        """
-        Health integration
-        """
-        return pulumi.get(self, "health")
-
-    @_builtins.property
     @pulumi.getter(name="linkedAccountId")
     def linked_account_id(self) -> pulumi.Output[_builtins.str]:
         """
         The ID of the linked AWS EU Sovereign account in New Relic.
         """
         return pulumi.get(self, "linked_account_id")
-
-    @_builtins.property
-    @pulumi.getter(name="trustedAdvisor")
-    def trusted_advisor(self) -> pulumi.Output[Optional['outputs.AwsEuSovereignIntegrationsTrustedAdvisor']]:
-        """
-        Trusted Advisor integration
-        """
-        return pulumi.get(self, "trusted_advisor")
 
     @_builtins.property
     @pulumi.getter(name="xRay")
