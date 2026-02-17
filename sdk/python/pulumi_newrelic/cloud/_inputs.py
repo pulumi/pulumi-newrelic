@@ -19,10 +19,6 @@ __all__ = [
     'AwsEuSovereignIntegrationsBillingArgsDict',
     'AwsEuSovereignIntegrationsCloudtrailArgs',
     'AwsEuSovereignIntegrationsCloudtrailArgsDict',
-    'AwsEuSovereignIntegrationsHealthArgs',
-    'AwsEuSovereignIntegrationsHealthArgsDict',
-    'AwsEuSovereignIntegrationsTrustedAdvisorArgs',
-    'AwsEuSovereignIntegrationsTrustedAdvisorArgsDict',
     'AwsEuSovereignIntegrationsXRayArgs',
     'AwsEuSovereignIntegrationsXRayArgsDict',
     'AwsGovcloudIntegrationsAlbArgs',
@@ -357,64 +353,6 @@ class AwsEuSovereignIntegrationsCloudtrailArgs:
     @aws_regions.setter
     def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aws_regions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The data polling interval in seconds
-        """
-        return pulumi.get(self, "metrics_polling_interval")
-
-    @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "metrics_polling_interval", value)
-
-
-class AwsEuSovereignIntegrationsHealthArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The data polling interval in seconds
-    """
-
-@pulumi.input_type
-class AwsEuSovereignIntegrationsHealthArgs:
-    def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
-        """
-        if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
-
-    @_builtins.property
-    @pulumi.getter(name="metricsPollingInterval")
-    def metrics_polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The data polling interval in seconds
-        """
-        return pulumi.get(self, "metrics_polling_interval")
-
-    @metrics_polling_interval.setter
-    def metrics_polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "metrics_polling_interval", value)
-
-
-class AwsEuSovereignIntegrationsTrustedAdvisorArgsDict(TypedDict):
-    metrics_polling_interval: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The data polling interval in seconds
-    """
-
-@pulumi.input_type
-class AwsEuSovereignIntegrationsTrustedAdvisorArgs:
-    def __init__(__self__, *,
-                 metrics_polling_interval: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] metrics_polling_interval: The data polling interval in seconds
-        """
-        if metrics_polling_interval is not None:
-            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
 
     @_builtins.property
     @pulumi.getter(name="metricsPollingInterval")

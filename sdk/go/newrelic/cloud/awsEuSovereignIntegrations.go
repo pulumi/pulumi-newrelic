@@ -150,12 +150,8 @@ type AwsEuSovereignIntegrations struct {
 	Billing AwsEuSovereignIntegrationsBillingPtrOutput `pulumi:"billing"`
 	// CloudTrail integration
 	Cloudtrail AwsEuSovereignIntegrationsCloudtrailPtrOutput `pulumi:"cloudtrail"`
-	// Health integration
-	Health AwsEuSovereignIntegrationsHealthPtrOutput `pulumi:"health"`
 	// The ID of the linked AWS EU Sovereign account in New Relic.
 	LinkedAccountId pulumi.StringOutput `pulumi:"linkedAccountId"`
-	// Trusted Advisor integration
-	TrustedAdvisor AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput `pulumi:"trustedAdvisor"`
 	// X-Ray integration
 	XRay AwsEuSovereignIntegrationsXRayPtrOutput `pulumi:"xRay"`
 }
@@ -199,12 +195,8 @@ type awsEuSovereignIntegrationsState struct {
 	Billing *AwsEuSovereignIntegrationsBilling `pulumi:"billing"`
 	// CloudTrail integration
 	Cloudtrail *AwsEuSovereignIntegrationsCloudtrail `pulumi:"cloudtrail"`
-	// Health integration
-	Health *AwsEuSovereignIntegrationsHealth `pulumi:"health"`
 	// The ID of the linked AWS EU Sovereign account in New Relic.
 	LinkedAccountId *string `pulumi:"linkedAccountId"`
-	// Trusted Advisor integration
-	TrustedAdvisor *AwsEuSovereignIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// X-Ray integration
 	XRay *AwsEuSovereignIntegrationsXRay `pulumi:"xRay"`
 }
@@ -216,12 +208,8 @@ type AwsEuSovereignIntegrationsState struct {
 	Billing AwsEuSovereignIntegrationsBillingPtrInput
 	// CloudTrail integration
 	Cloudtrail AwsEuSovereignIntegrationsCloudtrailPtrInput
-	// Health integration
-	Health AwsEuSovereignIntegrationsHealthPtrInput
 	// The ID of the linked AWS EU Sovereign account in New Relic.
 	LinkedAccountId pulumi.StringPtrInput
-	// Trusted Advisor integration
-	TrustedAdvisor AwsEuSovereignIntegrationsTrustedAdvisorPtrInput
 	// X-Ray integration
 	XRay AwsEuSovereignIntegrationsXRayPtrInput
 }
@@ -237,12 +225,8 @@ type awsEuSovereignIntegrationsArgs struct {
 	Billing *AwsEuSovereignIntegrationsBilling `pulumi:"billing"`
 	// CloudTrail integration
 	Cloudtrail *AwsEuSovereignIntegrationsCloudtrail `pulumi:"cloudtrail"`
-	// Health integration
-	Health *AwsEuSovereignIntegrationsHealth `pulumi:"health"`
 	// The ID of the linked AWS EU Sovereign account in New Relic.
 	LinkedAccountId string `pulumi:"linkedAccountId"`
-	// Trusted Advisor integration
-	TrustedAdvisor *AwsEuSovereignIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// X-Ray integration
 	XRay *AwsEuSovereignIntegrationsXRay `pulumi:"xRay"`
 }
@@ -255,12 +239,8 @@ type AwsEuSovereignIntegrationsArgs struct {
 	Billing AwsEuSovereignIntegrationsBillingPtrInput
 	// CloudTrail integration
 	Cloudtrail AwsEuSovereignIntegrationsCloudtrailPtrInput
-	// Health integration
-	Health AwsEuSovereignIntegrationsHealthPtrInput
 	// The ID of the linked AWS EU Sovereign account in New Relic.
 	LinkedAccountId pulumi.StringInput
-	// Trusted Advisor integration
-	TrustedAdvisor AwsEuSovereignIntegrationsTrustedAdvisorPtrInput
 	// X-Ray integration
 	XRay AwsEuSovereignIntegrationsXRayPtrInput
 }
@@ -367,21 +347,9 @@ func (o AwsEuSovereignIntegrationsOutput) Cloudtrail() AwsEuSovereignIntegration
 	return o.ApplyT(func(v *AwsEuSovereignIntegrations) AwsEuSovereignIntegrationsCloudtrailPtrOutput { return v.Cloudtrail }).(AwsEuSovereignIntegrationsCloudtrailPtrOutput)
 }
 
-// Health integration
-func (o AwsEuSovereignIntegrationsOutput) Health() AwsEuSovereignIntegrationsHealthPtrOutput {
-	return o.ApplyT(func(v *AwsEuSovereignIntegrations) AwsEuSovereignIntegrationsHealthPtrOutput { return v.Health }).(AwsEuSovereignIntegrationsHealthPtrOutput)
-}
-
 // The ID of the linked AWS EU Sovereign account in New Relic.
 func (o AwsEuSovereignIntegrationsOutput) LinkedAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsEuSovereignIntegrations) pulumi.StringOutput { return v.LinkedAccountId }).(pulumi.StringOutput)
-}
-
-// Trusted Advisor integration
-func (o AwsEuSovereignIntegrationsOutput) TrustedAdvisor() AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
-	return o.ApplyT(func(v *AwsEuSovereignIntegrations) AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput {
-		return v.TrustedAdvisor
-	}).(AwsEuSovereignIntegrationsTrustedAdvisorPtrOutput)
 }
 
 // X-Ray integration

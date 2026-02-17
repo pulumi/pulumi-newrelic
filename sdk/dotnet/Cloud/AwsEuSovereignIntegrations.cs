@@ -154,22 +154,10 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsEuSovereignIntegrationsCloudtrail?> Cloudtrail { get; private set; } = null!;
 
         /// <summary>
-        /// Health integration
-        /// </summary>
-        [Output("health")]
-        public Output<Outputs.AwsEuSovereignIntegrationsHealth?> Health { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the linked AWS EU Sovereign account in New Relic.
         /// </summary>
         [Output("linkedAccountId")]
         public Output<string> LinkedAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// Trusted Advisor integration
-        /// </summary>
-        [Output("trustedAdvisor")]
-        public Output<Outputs.AwsEuSovereignIntegrationsTrustedAdvisor?> TrustedAdvisor { get; private set; } = null!;
 
         /// <summary>
         /// X-Ray integration
@@ -242,22 +230,10 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsEuSovereignIntegrationsCloudtrailArgs>? Cloudtrail { get; set; }
 
         /// <summary>
-        /// Health integration
-        /// </summary>
-        [Input("health")]
-        public Input<Inputs.AwsEuSovereignIntegrationsHealthArgs>? Health { get; set; }
-
-        /// <summary>
         /// The ID of the linked AWS EU Sovereign account in New Relic.
         /// </summary>
         [Input("linkedAccountId", required: true)]
         public Input<string> LinkedAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// Trusted Advisor integration
-        /// </summary>
-        [Input("trustedAdvisor")]
-        public Input<Inputs.AwsEuSovereignIntegrationsTrustedAdvisorArgs>? TrustedAdvisor { get; set; }
 
         /// <summary>
         /// X-Ray integration
@@ -292,22 +268,10 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsEuSovereignIntegrationsCloudtrailGetArgs>? Cloudtrail { get; set; }
 
         /// <summary>
-        /// Health integration
-        /// </summary>
-        [Input("health")]
-        public Input<Inputs.AwsEuSovereignIntegrationsHealthGetArgs>? Health { get; set; }
-
-        /// <summary>
         /// The ID of the linked AWS EU Sovereign account in New Relic.
         /// </summary>
         [Input("linkedAccountId")]
         public Input<string>? LinkedAccountId { get; set; }
-
-        /// <summary>
-        /// Trusted Advisor integration
-        /// </summary>
-        [Input("trustedAdvisor")]
-        public Input<Inputs.AwsEuSovereignIntegrationsTrustedAdvisorGetArgs>? TrustedAdvisor { get; set; }
 
         /// <summary>
         /// X-Ray integration

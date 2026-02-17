@@ -136,17 +136,9 @@ export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
      */
     declare public readonly cloudtrail: pulumi.Output<outputs.cloud.AwsEuSovereignIntegrationsCloudtrail | undefined>;
     /**
-     * Health integration
-     */
-    declare public readonly health: pulumi.Output<outputs.cloud.AwsEuSovereignIntegrationsHealth | undefined>;
-    /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      */
     declare public readonly linkedAccountId: pulumi.Output<string>;
-    /**
-     * Trusted Advisor integration
-     */
-    declare public readonly trustedAdvisor: pulumi.Output<outputs.cloud.AwsEuSovereignIntegrationsTrustedAdvisor | undefined>;
     /**
      * X-Ray integration
      */
@@ -168,9 +160,7 @@ export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
             resourceInputs["accountId"] = state?.accountId;
             resourceInputs["billing"] = state?.billing;
             resourceInputs["cloudtrail"] = state?.cloudtrail;
-            resourceInputs["health"] = state?.health;
             resourceInputs["linkedAccountId"] = state?.linkedAccountId;
-            resourceInputs["trustedAdvisor"] = state?.trustedAdvisor;
             resourceInputs["xRay"] = state?.xRay;
         } else {
             const args = argsOrState as AwsEuSovereignIntegrationsArgs | undefined;
@@ -180,9 +170,7 @@ export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
             resourceInputs["accountId"] = args?.accountId;
             resourceInputs["billing"] = args?.billing;
             resourceInputs["cloudtrail"] = args?.cloudtrail;
-            resourceInputs["health"] = args?.health;
             resourceInputs["linkedAccountId"] = args?.linkedAccountId;
-            resourceInputs["trustedAdvisor"] = args?.trustedAdvisor;
             resourceInputs["xRay"] = args?.xRay;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -207,17 +195,9 @@ export interface AwsEuSovereignIntegrationsState {
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsCloudtrail>;
     /**
-     * Health integration
-     */
-    health?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsHealth>;
-    /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      */
     linkedAccountId?: pulumi.Input<string>;
-    /**
-     * Trusted Advisor integration
-     */
-    trustedAdvisor?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsTrustedAdvisor>;
     /**
      * X-Ray integration
      */
@@ -241,17 +221,9 @@ export interface AwsEuSovereignIntegrationsArgs {
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsCloudtrail>;
     /**
-     * Health integration
-     */
-    health?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsHealth>;
-    /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      */
     linkedAccountId: pulumi.Input<string>;
-    /**
-     * Trusted Advisor integration
-     */
-    trustedAdvisor?: pulumi.Input<inputs.cloud.AwsEuSovereignIntegrationsTrustedAdvisor>;
     /**
      * X-Ray integration
      */

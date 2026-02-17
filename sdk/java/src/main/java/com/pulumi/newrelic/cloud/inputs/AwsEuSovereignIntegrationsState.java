@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.cloud.inputs.AwsEuSovereignIntegrationsBillingArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsEuSovereignIntegrationsCloudtrailArgs;
-import com.pulumi.newrelic.cloud.inputs.AwsEuSovereignIntegrationsHealthArgs;
-import com.pulumi.newrelic.cloud.inputs.AwsEuSovereignIntegrationsTrustedAdvisorArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsEuSovereignIntegrationsXRayArgs;
 import java.lang.String;
 import java.util.Objects;
@@ -66,21 +64,6 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
     }
 
     /**
-     * Health integration
-     * 
-     */
-    @Import(name="health")
-    private @Nullable Output<AwsEuSovereignIntegrationsHealthArgs> health;
-
-    /**
-     * @return Health integration
-     * 
-     */
-    public Optional<Output<AwsEuSovereignIntegrationsHealthArgs>> health() {
-        return Optional.ofNullable(this.health);
-    }
-
-    /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      * 
      */
@@ -93,21 +76,6 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
      */
     public Optional<Output<String>> linkedAccountId() {
         return Optional.ofNullable(this.linkedAccountId);
-    }
-
-    /**
-     * Trusted Advisor integration
-     * 
-     */
-    @Import(name="trustedAdvisor")
-    private @Nullable Output<AwsEuSovereignIntegrationsTrustedAdvisorArgs> trustedAdvisor;
-
-    /**
-     * @return Trusted Advisor integration
-     * 
-     */
-    public Optional<Output<AwsEuSovereignIntegrationsTrustedAdvisorArgs>> trustedAdvisor() {
-        return Optional.ofNullable(this.trustedAdvisor);
     }
 
     /**
@@ -131,9 +99,7 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
         this.accountId = $.accountId;
         this.billing = $.billing;
         this.cloudtrail = $.cloudtrail;
-        this.health = $.health;
         this.linkedAccountId = $.linkedAccountId;
-        this.trustedAdvisor = $.trustedAdvisor;
         this.xRay = $.xRay;
     }
 
@@ -219,27 +185,6 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
         }
 
         /**
-         * @param health Health integration
-         * 
-         * @return builder
-         * 
-         */
-        public Builder health(@Nullable Output<AwsEuSovereignIntegrationsHealthArgs> health) {
-            $.health = health;
-            return this;
-        }
-
-        /**
-         * @param health Health integration
-         * 
-         * @return builder
-         * 
-         */
-        public Builder health(AwsEuSovereignIntegrationsHealthArgs health) {
-            return health(Output.of(health));
-        }
-
-        /**
          * @param linkedAccountId The ID of the linked AWS EU Sovereign account in New Relic.
          * 
          * @return builder
@@ -258,27 +203,6 @@ public final class AwsEuSovereignIntegrationsState extends com.pulumi.resources.
          */
         public Builder linkedAccountId(String linkedAccountId) {
             return linkedAccountId(Output.of(linkedAccountId));
-        }
-
-        /**
-         * @param trustedAdvisor Trusted Advisor integration
-         * 
-         * @return builder
-         * 
-         */
-        public Builder trustedAdvisor(@Nullable Output<AwsEuSovereignIntegrationsTrustedAdvisorArgs> trustedAdvisor) {
-            $.trustedAdvisor = trustedAdvisor;
-            return this;
-        }
-
-        /**
-         * @param trustedAdvisor Trusted Advisor integration
-         * 
-         * @return builder
-         * 
-         */
-        public Builder trustedAdvisor(AwsEuSovereignIntegrationsTrustedAdvisorArgs trustedAdvisor) {
-            return trustedAdvisor(Output.of(trustedAdvisor));
         }
 
         /**

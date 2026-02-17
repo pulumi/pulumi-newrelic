@@ -3794,20 +3794,6 @@ export namespace cloud {
         metricsPollingInterval?: number;
     }
 
-    export interface AwsEuSovereignIntegrationsHealth {
-        /**
-         * The data polling interval in seconds
-         */
-        metricsPollingInterval?: number;
-    }
-
-    export interface AwsEuSovereignIntegrationsTrustedAdvisor {
-        /**
-         * The data polling interval in seconds
-         */
-        metricsPollingInterval?: number;
-    }
-
     export interface AwsEuSovereignIntegrationsXRay {
         /**
          * Specify each AWS region that includes the resources that you want to monitor

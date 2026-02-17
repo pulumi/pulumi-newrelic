@@ -12,8 +12,6 @@ import com.pulumi.newrelic.cloud.AwsEuSovereignIntegrationsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsEuSovereignIntegrationsState;
 import com.pulumi.newrelic.cloud.outputs.AwsEuSovereignIntegrationsBilling;
 import com.pulumi.newrelic.cloud.outputs.AwsEuSovereignIntegrationsCloudtrail;
-import com.pulumi.newrelic.cloud.outputs.AwsEuSovereignIntegrationsHealth;
-import com.pulumi.newrelic.cloud.outputs.AwsEuSovereignIntegrationsTrustedAdvisor;
 import com.pulumi.newrelic.cloud.outputs.AwsEuSovereignIntegrationsXRay;
 import java.lang.String;
 import java.util.Optional;
@@ -207,20 +205,6 @@ public class AwsEuSovereignIntegrations extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.cloudtrail);
     }
     /**
-     * Health integration
-     * 
-     */
-    @Export(name="health", refs={AwsEuSovereignIntegrationsHealth.class}, tree="[0]")
-    private Output</* @Nullable */ AwsEuSovereignIntegrationsHealth> health;
-
-    /**
-     * @return Health integration
-     * 
-     */
-    public Output<Optional<AwsEuSovereignIntegrationsHealth>> health() {
-        return Codegen.optional(this.health);
-    }
-    /**
      * The ID of the linked AWS EU Sovereign account in New Relic.
      * 
      */
@@ -233,20 +217,6 @@ public class AwsEuSovereignIntegrations extends com.pulumi.resources.CustomResou
      */
     public Output<String> linkedAccountId() {
         return this.linkedAccountId;
-    }
-    /**
-     * Trusted Advisor integration
-     * 
-     */
-    @Export(name="trustedAdvisor", refs={AwsEuSovereignIntegrationsTrustedAdvisor.class}, tree="[0]")
-    private Output</* @Nullable */ AwsEuSovereignIntegrationsTrustedAdvisor> trustedAdvisor;
-
-    /**
-     * @return Trusted Advisor integration
-     * 
-     */
-    public Output<Optional<AwsEuSovereignIntegrationsTrustedAdvisor>> trustedAdvisor() {
-        return Codegen.optional(this.trustedAdvisor);
     }
     /**
      * X-Ray integration

@@ -147,24 +147,6 @@
             },
             "type": "object"
         },
-        "newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth": {
-            "properties": {
-                "metricsPollingInterval": {
-                    "type": "integer",
-                    "description": "The data polling interval in seconds\n"
-                }
-            },
-            "type": "object"
-        },
-        "newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor": {
-            "properties": {
-                "metricsPollingInterval": {
-                    "type": "integer",
-                    "description": "The data polling interval in seconds\n"
-                }
-            },
-            "type": "object"
-        },
         "newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay": {
             "properties": {
                 "awsRegions": {
@@ -8757,17 +8739,9 @@
                     "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail",
                     "description": "CloudTrail integration"
                 },
-                "health": {
-                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth",
-                    "description": "Health integration"
-                },
                 "linkedAccountId": {
                     "type": "string",
                     "description": "The ID of the linked AWS EU Sovereign account in New Relic.\n"
-                },
-                "trustedAdvisor": {
-                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor",
-                    "description": "Trusted Advisor integration"
                 },
                 "xRay": {
                     "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay",
@@ -8792,18 +8766,10 @@
                     "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail",
                     "description": "CloudTrail integration"
                 },
-                "health": {
-                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth",
-                    "description": "Health integration"
-                },
                 "linkedAccountId": {
                     "type": "string",
                     "description": "The ID of the linked AWS EU Sovereign account in New Relic.\n",
                     "willReplaceOnChanges": true
-                },
-                "trustedAdvisor": {
-                    "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor",
-                    "description": "Trusted Advisor integration"
                 },
                 "xRay": {
                     "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay",
@@ -8829,18 +8795,10 @@
                         "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsCloudtrail:AwsEuSovereignIntegrationsCloudtrail",
                         "description": "CloudTrail integration"
                     },
-                    "health": {
-                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsHealth:AwsEuSovereignIntegrationsHealth",
-                        "description": "Health integration"
-                    },
                     "linkedAccountId": {
                         "type": "string",
                         "description": "The ID of the linked AWS EU Sovereign account in New Relic.\n",
                         "willReplaceOnChanges": true
-                    },
-                    "trustedAdvisor": {
-                        "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsTrustedAdvisor:AwsEuSovereignIntegrationsTrustedAdvisor",
-                        "description": "Trusted Advisor integration"
                     },
                     "xRay": {
                         "$ref": "#/types/newrelic:cloud/AwsEuSovereignIntegrationsXRay:AwsEuSovereignIntegrationsXRay",
