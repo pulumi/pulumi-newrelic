@@ -2,7 +2,7 @@ module github.com/pulumi/pulumi-newrelic/provider/v5
 
 go 1.24.7
 
-toolchain go1.24.10
+toolchain go1.24.13
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
