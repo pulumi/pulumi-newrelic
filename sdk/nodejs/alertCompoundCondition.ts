@@ -232,6 +232,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Compound alert conditions can be imported using the condition ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
+ * ```
  */
 export class AlertCompoundCondition extends pulumi.CustomResource {
     /**

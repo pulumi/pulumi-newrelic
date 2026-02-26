@@ -51,6 +51,7 @@ class GcpIntegrationsArgs:
                  vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
         """
         The set of arguments for constructing a GcpIntegrations resource.
+
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked GCP account in New Relic.
                
                The following arguments/integration blocks are intended to be used with a minimum `metrics_polling_interval` of 300 seconds.
@@ -510,6 +511,7 @@ class _GcpIntegrationsState:
                  vpc_access: Optional[pulumi.Input['GcpIntegrationsVpcAccessArgs']] = None):
         """
         Input properties used for looking up and filtering GcpIntegrations resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
@@ -1079,6 +1081,11 @@ class GcpIntegrations(pulumi.CustomResource):
 
         Linked GCP account integrations can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -1224,6 +1231,11 @@ class GcpIntegrations(pulumi.CustomResource):
         ## Import
 
         Linked GCP account integrations can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GcpIntegrationsArgs args: The arguments to use to populate this resource's properties.

@@ -69,6 +69,12 @@ import javax.annotation.Nullable;
  * 
  * Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
  * 
+ * ```sh
+ * 
+ *   $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount foo &lt;id&gt;
+ * 
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:cloud/gcpLinkAccount:GcpLinkAccount")
 public class GcpLinkAccount extends com.pulumi.resources.CustomResource {

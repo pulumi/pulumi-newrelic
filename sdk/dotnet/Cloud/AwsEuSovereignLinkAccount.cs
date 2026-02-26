@@ -46,6 +46,10 @@ namespace Pulumi.NewRelic.Cloud
     /// ## Import
     /// 
     /// Linked AWS EU Sovereign accounts can be imported using the `Id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount foo &lt;id&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount")]
     public partial class AwsEuSovereignLinkAccount : global::Pulumi.CustomResource

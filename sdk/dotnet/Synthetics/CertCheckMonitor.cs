@@ -109,6 +109,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Import
     /// 
     /// A cert check monitor can be imported using its GUID, using the following command.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor &lt;guid&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/certCheckMonitor:CertCheckMonitor")]
     public partial class CertCheckMonitor : global::Pulumi.CustomResource

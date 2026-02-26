@@ -32,6 +32,7 @@ class WorkflowArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[_builtins.str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
@@ -190,6 +191,7 @@ class _WorkflowState:
                  workflow_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
+
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: Notification configuration. See Nested destination blocks below for details.
         :param pulumi.Input[_builtins.bool] destinations_enabled: **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
@@ -554,7 +556,11 @@ class Workflow(pulumi.CustomResource):
 
         Workflows can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/workflow:Workflow foo <id>
+        ```
         You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -734,7 +740,11 @@ class Workflow(pulumi.CustomResource):
 
         Workflows can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/workflow:Workflow foo <id>
+        ```
         You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

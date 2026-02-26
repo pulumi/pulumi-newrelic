@@ -26,6 +26,7 @@ class EventsToMetricsRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventsToMetricsRule resource.
+
         :param pulumi.Input[_builtins.str] nrql: Explains how to create metrics from events.
         :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[_builtins.str] description: Provides additional information about the rule.
@@ -114,6 +115,7 @@ class _EventsToMetricsRuleState:
                  rule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventsToMetricsRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[_builtins.str] description: Provides additional information about the rule.
         :param pulumi.Input[_builtins.bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -244,6 +246,11 @@ class EventsToMetricsRule(pulumi.CustomResource):
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
          `<account_id>:<rule_id>`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account with the event and where the metrics will be put.
@@ -282,6 +289,11 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
         New Relic Events to Metrics rules can be imported using a concatenated string of the format
          `<account_id>:<rule_id>`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EventsToMetricsRuleArgs args: The arguments to use to populate this resource's properties.

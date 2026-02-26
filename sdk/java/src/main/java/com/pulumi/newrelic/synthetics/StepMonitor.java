@@ -161,6 +161,10 @@ import javax.annotation.Nullable;
  * 
  * A step monitor can be imported using its GUID, using the following command.
  * 
+ * ```sh
+ * $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:synthetics/stepMonitor:StepMonitor")
 public class StepMonitor extends com.pulumi.resources.CustomResource {

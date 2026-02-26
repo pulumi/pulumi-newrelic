@@ -68,6 +68,10 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * A broken links monitor can be imported using its GUID, using the following command.
+ *
+ * ```sh
+ * $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
+ * ```
  */
 export class BrokenLinksMonitor extends pulumi.CustomResource {
     /**

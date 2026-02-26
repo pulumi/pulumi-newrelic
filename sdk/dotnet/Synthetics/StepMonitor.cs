@@ -157,6 +157,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Import
     /// 
     /// A step monitor can be imported using its GUID, using the following command.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/stepMonitor:StepMonitor")]
     public partial class StepMonitor : global::Pulumi.CustomResource

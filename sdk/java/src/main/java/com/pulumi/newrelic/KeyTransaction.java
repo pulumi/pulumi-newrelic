@@ -60,6 +60,10 @@ import javax.annotation.Nullable;
  * 
  * A Key Transaction in New Relic may be imported into Terraform using its GUID specified in the `&lt;id&gt;` field, in the following command.
  * 
+ * ```sh
+ * $ pulumi import newrelic:index/keyTransaction:KeyTransaction foo &lt;id&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/keyTransaction:KeyTransaction")
 public class KeyTransaction extends com.pulumi.resources.CustomResource {

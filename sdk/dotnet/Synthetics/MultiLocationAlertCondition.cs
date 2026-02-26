@@ -171,6 +171,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
     ///  `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition")]
     public partial class MultiLocationAlertCondition : global::Pulumi.CustomResource

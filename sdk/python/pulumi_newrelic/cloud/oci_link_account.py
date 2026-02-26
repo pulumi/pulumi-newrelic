@@ -35,6 +35,7 @@ class OciLinkAccountArgs:
                  user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OciLinkAccount resource.
+
         :param pulumi.Input[_builtins.str] compartment_ocid: OCI compartment OCID representing (or containing) the monitored resources/newrelic compartment.
         :param pulumi.Input[_builtins.str] oci_client_id: OCI Identity Domain (IDCS) OAuth2 client ID used for workload identity federation.
         :param pulumi.Input[_builtins.str] oci_client_secret: OAuth2 client secret. Not displayed in plans or state outputs.
@@ -261,6 +262,7 @@ class _OciLinkAccountState:
                  user_vault_ocid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OciLinkAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] compartment_ocid: OCI compartment OCID representing (or containing) the monitored resources/newrelic compartment.
         :param pulumi.Input[_builtins.str] ingest_vault_ocid: Vault secret OCID containing an ingest secret.
@@ -570,6 +572,11 @@ class OciLinkAccount(pulumi.CustomResource):
 
         Linked OCI accounts can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: New Relic account to operate on. Overrides the provider-level `account_id`. If omitted, use the provider default or `NEW_RELIC_ACCOUNT_ID`.
@@ -667,6 +674,11 @@ class OciLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked OCI accounts can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OciLinkAccountArgs args: The arguments to use to populate this resource's properties.

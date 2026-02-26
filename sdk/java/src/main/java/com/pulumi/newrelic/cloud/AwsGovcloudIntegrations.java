@@ -53,6 +53,10 @@ import javax.annotation.Nullable;
  * 
  * Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo &lt;id&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations")
 public class AwsGovcloudIntegrations extends com.pulumi.resources.CustomResource {

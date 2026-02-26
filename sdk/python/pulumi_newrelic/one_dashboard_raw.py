@@ -28,6 +28,7 @@ class OneDashboardRawArgs:
                  permissions: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OneDashboardRaw resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
@@ -117,6 +118,7 @@ class _OneDashboardRawState:
                  permissions: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OneDashboardRaw resources.
+
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the dashboard page in New Relic.
@@ -318,6 +320,7 @@ class OneDashboardRaw(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -412,6 +415,7 @@ class OneDashboardRaw(pulumi.CustomResource):
                 ],
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OneDashboardRawArgs args: The arguments to use to populate this resource's properties.

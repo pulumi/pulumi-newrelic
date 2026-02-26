@@ -157,6 +157,10 @@ import (
 // ## Import
 //
 // A step monitor can be imported using its GUID, using the following command.
+//
+// ```sh
+// $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
+// ```
 type StepMonitor struct {
 	pulumi.CustomResourceState
 

@@ -34,6 +34,7 @@ class ApplicationSettingsArgs:
                  use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ApplicationSettings resource.
+
         :param pulumi.Input[_builtins.float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
         :param pulumi.Input[_builtins.bool] enable_real_user_monitoring: Dummy field to support backward compatibility of previous version.should be removed with next major version.
         :param pulumi.Input[_builtins.bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
@@ -227,6 +228,7 @@ class _ApplicationSettingsState:
                  use_server_side_config: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ApplicationSettings resources.
+
         :param pulumi.Input[_builtins.float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
         :param pulumi.Input[_builtins.bool] enable_real_user_monitoring: Dummy field to support backward compatibility of previous version.should be removed with next major version.
         :param pulumi.Input[_builtins.bool] enable_slow_sql: Enable or disable the collection of slowest database queries in your traces.
@@ -484,6 +486,7 @@ class ApplicationSettings(pulumi.CustomResource):
         $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] app_apdex_threshold: The acceptable response time limit (Apdex threshold) for the application.
@@ -559,6 +562,7 @@ class ApplicationSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main Mzk1NzUyNHQVRJNTxBUE18QVBQTElDc4ODU1MzYx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationSettingsArgs args: The arguments to use to populate this resource's properties.

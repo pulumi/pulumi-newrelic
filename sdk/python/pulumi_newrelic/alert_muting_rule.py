@@ -30,6 +30,7 @@ class AlertMutingRuleArgs:
                  schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
         """
         The set of arguments for constructing a AlertMutingRule resource.
+
         :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[_builtins.bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[_builtins.str] account_id: The account id of the MutingRule.
@@ -148,6 +149,7 @@ class _AlertMutingRuleState:
                  schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering AlertMutingRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account id of the MutingRule.
         :param pulumi.Input[_builtins.str] action_on_muting_rule_window_ended: The action when the muting rule window is ended or disabled. Valid values are `CLOSE_ISSUES_ON_INACTIVE`, `DO_NOTHING`.
         :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
@@ -326,6 +328,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id of the MutingRule.
@@ -397,6 +400,7 @@ class AlertMutingRule(pulumi.CustomResource):
         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertMutingRuleArgs args: The arguments to use to populate this resource's properties.

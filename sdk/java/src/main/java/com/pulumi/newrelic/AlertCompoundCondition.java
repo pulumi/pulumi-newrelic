@@ -335,6 +335,10 @@ import javax.annotation.Nullable;
  * 
  * Compound alert conditions can be imported using the condition ID, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/alertCompoundCondition:AlertCompoundCondition")
 public class AlertCompoundCondition extends com.pulumi.resources.CustomResource {

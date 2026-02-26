@@ -260,6 +260,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Import
     /// 
     /// Synthetics monitor can be imported using the `Guid`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/monitor:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource

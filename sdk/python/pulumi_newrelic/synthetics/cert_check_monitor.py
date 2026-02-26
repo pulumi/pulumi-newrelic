@@ -35,6 +35,7 @@ class CertCheckMonitorArgs:
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CertCheckMonitor resource.
+
         :param pulumi.Input[_builtins.int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[_builtins.str] domain: The domain of the host that will have its certificate checked.
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
@@ -249,6 +250,7 @@ class _CertCheckMonitorState:
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering CertCheckMonitor resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[_builtins.int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[_builtins.str] domain: The domain of the host that will have its certificate checked.
@@ -559,6 +561,11 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         A cert check monitor can be imported using its GUID, using the following command.
 
+        ```sh
+        $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
@@ -649,6 +656,11 @@ class CertCheckMonitor(pulumi.CustomResource):
         ## Import
 
         A cert check monitor can be imported using its GUID, using the following command.
+
+        ```sh
+        $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CertCheckMonitorArgs args: The arguments to use to populate this resource's properties.

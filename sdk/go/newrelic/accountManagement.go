@@ -47,6 +47,10 @@ import (
 // ## Import
 //
 // Accounts can be imported using the `id`, e.g.
+//
+// ```sh
+// $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
+// ```
 type AccountManagement struct {
 	pulumi.CustomResourceState
 

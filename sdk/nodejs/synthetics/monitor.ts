@@ -161,6 +161,10 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Synthetics monitor can be imported using the `guid`, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
+ * ```
  */
 export class Monitor extends pulumi.CustomResource {
     /**

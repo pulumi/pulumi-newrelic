@@ -300,6 +300,10 @@ import (
 // ## Import
 //
 // Synthetics monitor scripts can be imported using the `guid`, e.g.
+//
+// ```sh
+// $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
+// ```
 type ScriptMonitor struct {
 	pulumi.CustomResourceState
 

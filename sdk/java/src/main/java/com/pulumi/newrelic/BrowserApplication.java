@@ -59,6 +59,10 @@ import javax.annotation.Nullable;
  * 
  * A browser application can be imported using its GUID, i.e.
  * 
+ * ```sh
+ * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/browserApplication:BrowserApplication")
 public class BrowserApplication extends com.pulumi.resources.CustomResource {

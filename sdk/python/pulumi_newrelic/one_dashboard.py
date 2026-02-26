@@ -29,6 +29,7 @@ class OneDashboardArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         The set of arguments for constructing a OneDashboard resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
@@ -134,6 +135,7 @@ class _OneDashboardState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering OneDashboard resources.
+
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the dashboard page in New Relic.
@@ -573,6 +575,11 @@ class OneDashboard(pulumi.CustomResource):
 
         New Relic dashboards can be imported using their GUID, e.g.
 
+        ```sh
+        $ terraform import newrelic_one_dashboard.my_dashboard <dashboard GUID>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -890,6 +897,11 @@ class OneDashboard(pulumi.CustomResource):
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.
+
+        ```sh
+        $ terraform import newrelic_one_dashboard.my_dashboard <dashboard GUID>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OneDashboardArgs args: The arguments to use to populate this resource's properties.

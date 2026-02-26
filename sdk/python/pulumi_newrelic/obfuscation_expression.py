@@ -25,6 +25,7 @@ class ObfuscationExpressionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObfuscationExpression resource.
+
         :param pulumi.Input[_builtins.str] regex: Regex of expression. Must be wrapped in parentheses, e.g. (regex.*).
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation expression.
         :param pulumi.Input[_builtins.str] description: Description of expression.
@@ -96,6 +97,7 @@ class _ObfuscationExpressionState:
                  regex: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObfuscationExpression resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation expression.
         :param pulumi.Input[_builtins.str] description: Description of expression.
         :param pulumi.Input[_builtins.str] name: Name of expression.
@@ -190,6 +192,11 @@ class ObfuscationExpression(pulumi.CustomResource):
 
         New Relic obfuscation expression can be imported using the expression ID, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/obfuscationExpression:ObfuscationExpression foo 34567
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation expression.
@@ -222,6 +229,11 @@ class ObfuscationExpression(pulumi.CustomResource):
         ## Import
 
         New Relic obfuscation expression can be imported using the expression ID, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/obfuscationExpression:ObfuscationExpression foo 34567
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ObfuscationExpressionArgs args: The arguments to use to populate this resource's properties.

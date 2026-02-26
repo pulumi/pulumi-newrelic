@@ -32,6 +32,7 @@ class AlertCompoundConditionArgs:
                  threshold_duration: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a AlertCompoundCondition resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this alert compound condition should be used.
@@ -184,6 +185,7 @@ class _AlertCompoundConditionState:
                  trigger_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertCompoundCondition resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertCompoundConditionComponentConditionArgs']]] component_conditions: The list of conditions to be combined. Each component condition must be enabled. Must include at least 2. See Component Conditions below for details.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the compound alert condition is enabled. Defaults to `true`.
@@ -559,6 +561,11 @@ class AlertCompoundCondition(pulumi.CustomResource):
 
         Compound alert conditions can be imported using the condition ID, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID for managing your compound alert conditions. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -795,6 +802,11 @@ class AlertCompoundCondition(pulumi.CustomResource):
         ## Import
 
         Compound alert conditions can be imported using the condition ID, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/alertCompoundCondition:AlertCompoundCondition main 789012
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertCompoundConditionArgs args: The arguments to use to populate this resource's properties.

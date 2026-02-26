@@ -26,6 +26,7 @@ class SecureCredentialArgs:
                  last_updated: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecureCredential resource.
+
         :param pulumi.Input[_builtins.str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         :param pulumi.Input[_builtins.str] value: The secure credential's value.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
@@ -112,6 +113,7 @@ class _SecureCredentialState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecureCredential resources.
+
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] description: The secure credential's description.
         :param pulumi.Input[_builtins.str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -225,6 +227,7 @@ class SecureCredential(pulumi.CustomResource):
         $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
@@ -261,6 +264,7 @@ class SecureCredential(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecureCredentialArgs args: The arguments to use to populate this resource's properties.

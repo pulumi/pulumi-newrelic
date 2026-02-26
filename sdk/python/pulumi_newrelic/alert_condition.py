@@ -36,6 +36,7 @@ class AlertConditionArgs:
                  violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a AlertCondition resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[_builtins.str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
@@ -264,6 +265,7 @@ class _AlertConditionState:
                  violation_close_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AlertCondition resources.
+
         :param pulumi.Input[_builtins.str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[_builtins.bool] enabled: Whether the condition is enabled or not. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The instance IDs associated with this condition.
@@ -605,6 +607,7 @@ class AlertCondition(pulumi.CustomResource):
         $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
@@ -726,6 +729,7 @@ class AlertCondition(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertConditionArgs args: The arguments to use to populate this resource's properties.

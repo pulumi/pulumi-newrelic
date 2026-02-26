@@ -25,6 +25,7 @@ class NrqlDropRuleArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NrqlDropRule resource.
+
         :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         :param pulumi.Input[_builtins.str] nrql: A NRQL string that specifies what data types to drop.
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
@@ -97,6 +98,7 @@ class _NrqlDropRuleState:
                  rule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NrqlDropRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] action: An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         :param pulumi.Input[_builtins.str] description: The description of the drop rule.
@@ -251,6 +253,11 @@ class NrqlDropRule(pulumi.CustomResource):
         New Relic NRQL drop rules can be imported using a concatenated string of the format
          `<account_id>:<rule_id>`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/nrqlDropRule:NrqlDropRule foo 12345:34567
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
@@ -313,6 +320,11 @@ class NrqlDropRule(pulumi.CustomResource):
 
         New Relic NRQL drop rules can be imported using a concatenated string of the format
          `<account_id>:<rule_id>`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/nrqlDropRule:NrqlDropRule foo 12345:34567
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NrqlDropRuleArgs args: The arguments to use to populate this resource's properties.

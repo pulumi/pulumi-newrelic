@@ -59,6 +59,12 @@ import (
 // ## Import
 //
 // Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
+//
+// ```sh
+//
+//	$ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount foo <id>
+//
+// ```
 type GcpLinkAccount struct {
 	pulumi.CustomResourceState
 

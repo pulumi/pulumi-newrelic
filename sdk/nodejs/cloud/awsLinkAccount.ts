@@ -33,6 +33,10 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Linked AWS accounts can be imported using the `id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
+ * ```
  */
 export class AwsLinkAccount extends pulumi.CustomResource {
     /**

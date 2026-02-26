@@ -239,6 +239,10 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// New Relic workloads can be imported using a concatenated string of the format
     ///  `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/workload:Workload")]
     public partial class Workload : global::Pulumi.CustomResource

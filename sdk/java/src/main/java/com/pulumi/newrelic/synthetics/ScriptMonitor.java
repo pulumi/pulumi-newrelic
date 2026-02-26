@@ -324,6 +324,10 @@ import javax.annotation.Nullable;
  * 
  * Synthetics monitor scripts can be imported using the `guid`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:synthetics/scriptMonitor:ScriptMonitor")
 public class ScriptMonitor extends com.pulumi.resources.CustomResource {

@@ -29,6 +29,7 @@ class ObfuscationRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObfuscationRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[_builtins.str] filter: NRQL for determining whether a given log record should have obfuscation actions applied.
@@ -130,6 +131,7 @@ class _ObfuscationRuleState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObfuscationRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[Sequence[pulumi.Input['ObfuscationRuleActionArgs']]] actions: Actions for the rule. The actions will be applied in the order specified by this list.
         :param pulumi.Input[_builtins.str] description: Description of rule.
@@ -265,6 +267,11 @@ class ObfuscationRule(pulumi.CustomResource):
 
         New Relic obfuscation rule can be imported using the rule ID, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
@@ -308,6 +315,11 @@ class ObfuscationRule(pulumi.CustomResource):
         ## Import
 
         New Relic obfuscation rule can be imported using the rule ID, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ObfuscationRuleArgs args: The arguments to use to populate this resource's properties.

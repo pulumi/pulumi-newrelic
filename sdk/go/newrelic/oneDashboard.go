@@ -398,6 +398,10 @@ import (
 // ## Import
 //
 // New Relic dashboards can be imported using their GUID, e.g.
+//
+// ```sh
+// $ terraform import newrelic_one_dashboard.my_dashboard <dashboard GUID>
+// ```
 type OneDashboard struct {
 	pulumi.CustomResourceState
 

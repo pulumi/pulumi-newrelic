@@ -365,6 +365,10 @@ import javax.annotation.Nullable;
  * 
  * New Relic dashboards can be imported using their GUID, e.g.
  * 
+ * ```sh
+ * $ terraform import newrelic_one_dashboard.my_dashboard &lt;dashboard GUID&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/oneDashboard:OneDashboard")
 public class OneDashboard extends com.pulumi.resources.CustomResource {

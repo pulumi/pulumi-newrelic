@@ -25,6 +25,7 @@ class UserArgs:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] authentication_domain_id: The ID of the authentication domain to which the user to be created would belong.
         :param pulumi.Input[_builtins.str] email_id: The email ID of the user to be created.
         :param pulumi.Input[_builtins.str] name: The name of the user to be created.
@@ -103,6 +104,7 @@ class _UserState:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] authentication_domain_id: The ID of the authentication domain to which the user to be created would belong.
         :param pulumi.Input[_builtins.str] email_id: The email ID of the user to be created.
         :param pulumi.Input[_builtins.str] name: The name of the user to be created.
@@ -210,6 +212,7 @@ class User(pulumi.CustomResource):
         $ pulumi import newrelic:index/user:User foo 1999999999
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_domain_id: The ID of the authentication domain to which the user to be created would belong.
@@ -251,6 +254,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/user:User foo 1999999999
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

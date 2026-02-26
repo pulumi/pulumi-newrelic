@@ -31,6 +31,7 @@ class MultiLocationAlertConditionArgs:
                  warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
         """
         The set of arguments for constructing a MultiLocationAlertCondition resource.
+
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition will be used.
@@ -171,6 +172,7 @@ class _MultiLocationAlertConditionState:
                  warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
         """
         Input properties used for looking up and filtering MultiLocationAlertCondition resources.
+
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
         :param pulumi.Input[_builtins.bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
@@ -426,6 +428,11 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
          `<policy_id>:<condition_id>`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MultiLocationAlertConditionCriticalArgs', 'MultiLocationAlertConditionCriticalArgsDict']] critical: A condition term with the priority set to critical.
@@ -541,6 +548,11 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
         New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
          `<policy_id>:<condition_id>`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MultiLocationAlertConditionArgs args: The arguments to use to populate this resource's properties.

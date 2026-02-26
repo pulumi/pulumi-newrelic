@@ -99,6 +99,10 @@ namespace Pulumi.NewRelic.Cloud
     /// ## Import
     /// 
     /// Linked OCI accounts can be imported using the `Id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:cloud/ociLinkAccount:OciLinkAccount foo &lt;id&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/ociLinkAccount:OciLinkAccount")]
     public partial class OciLinkAccount : global::Pulumi.CustomResource

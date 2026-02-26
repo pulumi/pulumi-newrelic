@@ -37,6 +37,7 @@ class StepMonitorArgs:
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StepMonitor resource.
+
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[Sequence[pulumi.Input['StepMonitorStepArgs']]] steps: The steps that make up the script the monitor will run. See Nested steps blocks below for details.
@@ -285,6 +286,7 @@ class _StepMonitorState:
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering StepMonitor resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] devices: The multiple devices list on which synthetic monitors will run. Valid values are `DESKTOP`, `MOBILE_LANDSCAPE`, `MOBILE_PORTRAIT`, `TABLET_LANDSCAPE` and `TABLET_PORTRAIT`.
@@ -669,6 +671,11 @@ class StepMonitor(pulumi.CustomResource):
 
         A step monitor can be imported using its GUID, using the following command.
 
+        ```sh
+        $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
@@ -788,6 +795,11 @@ class StepMonitor(pulumi.CustomResource):
         ## Import
 
         A step monitor can be imported using its GUID, using the following command.
+
+        ```sh
+        $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StepMonitorArgs args: The arguments to use to populate this resource's properties.

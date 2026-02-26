@@ -67,6 +67,10 @@ import javax.annotation.Nullable;
  * 
  * Linked AWS EU Sovereign accounts can be imported using the `id`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount foo &lt;id&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount")
 public class AwsEuSovereignLinkAccount extends com.pulumi.resources.CustomResource {

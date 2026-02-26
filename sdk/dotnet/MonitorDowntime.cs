@@ -236,6 +236,10 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// A monitor downtime can be imported into Terraform configuration using its `Guid`, i.e.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor &lt;guid&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/monitorDowntime:MonitorDowntime")]
     public partial class MonitorDowntime : global::Pulumi.CustomResource

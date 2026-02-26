@@ -41,6 +41,7 @@ class ScriptMonitorArgs:
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScriptMonitor resource.
+
         :param pulumi.Input[_builtins.str] period: The interval at which this monitor should run. Valid values are `EVERY_MINUTE`, `EVERY_5_MINUTES`, `EVERY_10_MINUTES`, `EVERY_15_MINUTES`, `EVERY_30_MINUTES`, `EVERY_HOUR`, `EVERY_6_HOURS`, `EVERY_12_HOURS`, or `EVERY_DAY`.
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[_builtins.str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
@@ -341,6 +342,7 @@ class _ScriptMonitorState:
                  use_unsupported_legacy_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScriptMonitor resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
         :param pulumi.Input[_builtins.str] device_orientation: Device emulation orientation field. Valid values are `LANDSCAPE` and `PORTRAIT`. We recommend you to use `devices` field instead of `device_type`,`device_orientation` fields, as it allows you to select multiple combinations of device types and orientations.
@@ -861,6 +863,11 @@ class ScriptMonitor(pulumi.CustomResource):
 
         Synthetics monitor scripts can be imported using the `guid`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
@@ -1062,6 +1069,11 @@ class ScriptMonitor(pulumi.CustomResource):
         ## Import
 
         Synthetics monitor scripts can be imported using the `guid`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ScriptMonitorArgs args: The arguments to use to populate this resource's properties.

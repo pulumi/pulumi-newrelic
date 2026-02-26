@@ -284,6 +284,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Import
     /// 
     /// Synthetics monitor scripts can be imported using the `Guid`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/scriptMonitor:ScriptMonitor")]
     public partial class ScriptMonitor : global::Pulumi.CustomResource

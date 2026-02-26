@@ -45,6 +45,10 @@ namespace Pulumi.NewRelic.Cloud
     /// ## Import
     /// 
     /// Linked AWS accounts can be imported using the `Id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo &lt;id&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsLinkAccount:AwsLinkAccount")]
     public partial class AwsLinkAccount : global::Pulumi.CustomResource

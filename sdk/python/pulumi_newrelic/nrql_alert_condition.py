@@ -53,6 +53,7 @@ class NrqlAlertConditionArgs:
                  warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
         """
         The set of arguments for constructing a NrqlAlertCondition resource.
+
         :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -554,6 +555,7 @@ class _NrqlAlertConditionState:
                  warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
         """
         Input properties used for looking up and filtering NrqlAlertCondition resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[_builtins.str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[_builtins.str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
@@ -1406,6 +1408,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -1780,6 +1783,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         > **NOTE:** The value of `conditionType` in the import composite ID must be a valid condition type - `static` or `baseline`. Also note that deprecated arguments will *not* be set when importing.
 
         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
+
 
         :param str resource_name: The name of the resource.
         :param NrqlAlertConditionArgs args: The arguments to use to populate this resource's properties.

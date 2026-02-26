@@ -250,6 +250,10 @@ import javax.annotation.Nullable;
  * 
  * Example:
  * 
+ * ```sh
+ * $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/serviceLevel:ServiceLevel")
 public class ServiceLevel extends com.pulumi.resources.CustomResource {

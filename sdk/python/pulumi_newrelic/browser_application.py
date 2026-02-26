@@ -26,6 +26,7 @@ class BrowserApplicationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BrowserApplication resource.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         :param pulumi.Input[_builtins.bool] cookies_enabled: Configures cookies. Defaults to `true`, if not specified.
         :param pulumi.Input[_builtins.bool] distributed_tracing_enabled: Configures distributed tracing in browser apps. Defaults to `true`, if not specified.
@@ -117,6 +118,7 @@ class _BrowserApplicationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BrowserApplication resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
         :param pulumi.Input[_builtins.str] application_id: The application ID of the browser application (not to be confused with GUID).
         :param pulumi.Input[_builtins.bool] cookies_enabled: Configures cookies. Defaults to `true`, if not specified.
@@ -273,6 +275,11 @@ class BrowserApplication(pulumi.CustomResource):
 
         A browser application can be imported using its GUID, i.e.
 
+        ```sh
+        $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account ID of the New Relic account you wish to create the browser application in. Defaults to the value of the environment variable `NEW_RELIC_ACCOUNT_ID` if not specified.
@@ -307,6 +314,11 @@ class BrowserApplication(pulumi.CustomResource):
         ## Import
 
         A browser application can be imported using its GUID, i.e.
+
+        ```sh
+        $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BrowserApplicationArgs args: The arguments to use to populate this resource's properties.

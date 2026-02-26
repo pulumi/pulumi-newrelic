@@ -130,6 +130,10 @@ import javax.annotation.Nullable;
  * 
  * A broken links monitor can be imported using its GUID, using the following command.
  * 
+ * ```sh
+ * $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor &lt;guid&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor")
 public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {

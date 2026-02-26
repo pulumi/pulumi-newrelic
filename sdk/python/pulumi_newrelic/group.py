@@ -24,6 +24,7 @@ class GroupArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] authentication_domain_id: The ID of the authentication domain to which the group to be created would belong.
         :param pulumi.Input[_builtins.str] name: The name of the group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: A list of IDs of users to be included in the group to be created.
@@ -87,6 +88,7 @@ class _GroupState:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] authentication_domain_id: The ID of the authentication domain to which the group to be created would belong.
         :param pulumi.Input[_builtins.str] name: The name of the group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: A list of IDs of users to be included in the group to be created.
@@ -242,6 +244,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import newrelic:index/group:Group foo <group_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_domain_id: The ID of the authentication domain to which the group to be created would belong.
@@ -346,6 +349,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/group:Group foo <group_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

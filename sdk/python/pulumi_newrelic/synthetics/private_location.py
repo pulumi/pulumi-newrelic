@@ -25,6 +25,7 @@ class PrivateLocationArgs:
                  verified_script_execution: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PrivateLocation resource.
+
         :param pulumi.Input[_builtins.str] description: The private location description.
         :param pulumi.Input[_builtins.str] account_id: The account in which the private location will be created.
         :param pulumi.Input[_builtins.str] name: The name of the private location.
@@ -100,6 +101,7 @@ class _PrivateLocationState:
                  verified_script_execution: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PrivateLocation resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account in which the private location will be created.
         :param pulumi.Input[_builtins.str] description: The private location description.
         :param pulumi.Input[_builtins.str] domain_id: The private location globally unique identifier.
@@ -256,6 +258,7 @@ class PrivateLocation(pulumi.CustomResource):
         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account in which the private location will be created.
@@ -290,6 +293,7 @@ class PrivateLocation(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLocationArgs args: The arguments to use to populate this resource's properties.

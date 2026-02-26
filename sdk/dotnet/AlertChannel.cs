@@ -204,6 +204,10 @@ namespace Pulumi.NewRelic
     /// 
     /// Alert channels can be imported using the `Id`, e.g.
     /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/alertChannel:AlertChannel main &lt;id&gt;
+    /// ```
+    /// 
     /// &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertChannel:AlertChannel")]

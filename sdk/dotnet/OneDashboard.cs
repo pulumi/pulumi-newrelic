@@ -460,6 +460,10 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// New Relic dashboards can be imported using their GUID, e.g.
+    /// 
+    /// ```sh
+    /// $ terraform import newrelic_one_dashboard.my_dashboard &lt;dashboard GUID&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboard:OneDashboard")]
     public partial class OneDashboard : global::Pulumi.CustomResource

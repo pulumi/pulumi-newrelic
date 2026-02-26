@@ -309,6 +309,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * New Relic dashboards can be imported using their GUID, e.g.
+ *
+ * ```sh
+ * $ terraform import newrelic_one_dashboard.my_dashboard <dashboard GUID>
+ * ```
  */
 export class OneDashboard extends pulumi.CustomResource {
     /**

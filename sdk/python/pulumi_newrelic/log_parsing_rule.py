@@ -29,6 +29,7 @@ class LogParsingRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogParsingRule resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the rule should be applied or not to incoming data.
         :param pulumi.Input[_builtins.str] grok: The Grok of what to parse.
         :param pulumi.Input[_builtins.str] lucene: The Lucene to match events to the parsing rule.
@@ -162,6 +163,7 @@ class _LogParsingRuleState:
                  nrql: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogParsingRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
         :param pulumi.Input[_builtins.str] attribute: The parsing rule will apply to value of this attribute. If field is not provided, value will default to message.
         :param pulumi.Input[_builtins.bool] deleted: Whether or not this rule is deleted.
@@ -358,6 +360,11 @@ class LogParsingRule(pulumi.CustomResource):
 
         New Relic log parsing rule can be imported using the rule ID, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the obfuscation rule.
@@ -417,6 +424,11 @@ class LogParsingRule(pulumi.CustomResource):
         ## Import
 
         New Relic log parsing rule can be imported using the rule ID, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/logParsingRule:LogParsingRule foo 3456789
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LogParsingRuleArgs args: The arguments to use to populate this resource's properties.

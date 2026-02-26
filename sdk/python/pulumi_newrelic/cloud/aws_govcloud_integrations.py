@@ -45,6 +45,7 @@ class AwsGovcloudIntegrationsArgs:
                  sqs: Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']] = None):
         """
         The set of arguments for constructing a AwsGovcloudIntegrations resource.
+
         :param pulumi.Input[_builtins.str] linked_account_id: The access key of the AwsGovCloud.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
@@ -404,6 +405,7 @@ class _AwsGovcloudIntegrationsState:
                  sqs: Optional[pulumi.Input['AwsGovcloudIntegrationsSqsArgs']] = None):
         """
         Input properties used for looking up and filtering AwsGovcloudIntegrations resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsGovcloudIntegrationsAlbArgs'] alb: Application load balancer AwsGovCloud integration.See Integration blocks below for details.
         :param pulumi.Input['AwsGovcloudIntegrationsApiGatewayArgs'] api_gateway: Api Gateway AwsGovCloud integration.See Integration blocks below for details.
@@ -785,6 +787,11 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
 
         Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -834,6 +841,11 @@ class AwsGovcloudIntegrations(pulumi.CustomResource):
         ## Import
 
         Integrate AWSGovCloud accounts can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AwsGovcloudIntegrationsArgs args: The arguments to use to populate this resource's properties.
