@@ -188,6 +188,10 @@ import javax.annotation.Nullable;
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
  *  `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition")
 public class MultiLocationAlertCondition extends com.pulumi.resources.CustomResource {

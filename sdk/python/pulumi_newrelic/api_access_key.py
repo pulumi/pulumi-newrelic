@@ -27,6 +27,7 @@ class ApiAccessKeyArgs:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiAccessKey resource.
+
         :param pulumi.Input[_builtins.str] key_type: The type of API key to create. Valid options are `INGEST` or `USER` (case-sensitive).
                - If `key_type` is `INGEST`, then `ingest_type` must be specified.
                - If `key_type` is `USER`, then `user_id` must be specified.
@@ -137,6 +138,7 @@ class _ApiAccessKeyState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiAccessKey resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
         :param pulumi.Input[_builtins.str] ingest_type: Required if `key_type` is `INGEST`. Valid options are `BROWSER` or `LICENSE` (case-sensitive).
         :param pulumi.Input[_builtins.str] key: The actual API key.
@@ -345,6 +347,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
         For example:
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where the API access key will be created.
@@ -441,6 +444,7 @@ class ApiAccessKey(pulumi.CustomResource):
         For customers using Terraform v1.5 and above, it is recommended to use the `import {}` block in your Terraform configuration. This allows Terraform to generate the resource configuration automatically during the import process by running a `pulumi preview -generate-config-out=<filename>.tf`, reducing manual effort and ensuring accuracy.
 
         For example:
+
 
         :param str resource_name: The name of the resource.
         :param ApiAccessKeyArgs args: The arguments to use to populate this resource's properties.

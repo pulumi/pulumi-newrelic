@@ -29,6 +29,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * New Relic data partition rule can be imported using the rule ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
+ * ```
  */
 export class DataPartitionRule extends pulumi.CustomResource {
     /**

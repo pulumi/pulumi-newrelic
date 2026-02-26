@@ -27,6 +27,7 @@ class AzureLinkAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzureLinkAccount resource.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID of the App.
         :param pulumi.Input[_builtins.str] client_secret: Secret Value of the client.
         :param pulumi.Input[_builtins.str] subscription_id: Subscription ID of the Azure cloud account.
@@ -127,6 +128,7 @@ class _AzureLinkAccountState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AzureLinkAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic.
         :param pulumi.Input[_builtins.str] application_id: Application ID of the App.
         :param pulumi.Input[_builtins.str] client_secret: Secret Value of the client.
@@ -265,6 +267,12 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
 
+        ```sh
+        $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
+
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic.
@@ -311,6 +319,12 @@ class AzureLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic
+
+        ```sh
+        $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
+
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureLinkAccountArgs args: The arguments to use to populate this resource's properties.

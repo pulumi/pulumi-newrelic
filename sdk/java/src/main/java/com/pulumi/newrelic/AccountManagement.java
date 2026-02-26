@@ -57,6 +57,10 @@ import javax.annotation.Nullable;
  * 
  * Accounts can be imported using the `id`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:index/accountManagement:AccountManagement foo &lt;id&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/accountManagement:AccountManagement")
 public class AccountManagement extends com.pulumi.resources.CustomResource {

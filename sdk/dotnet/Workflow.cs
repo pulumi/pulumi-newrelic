@@ -279,6 +279,9 @@ namespace Pulumi.NewRelic
     /// 
     /// Workflows can be imported using the `Id`, e.g.
     /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/workflow:Workflow foo &lt;id&gt;
+    /// ```
     /// You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
     /// </summary>
     [NewRelicResourceType("newrelic:index/workflow:Workflow")]

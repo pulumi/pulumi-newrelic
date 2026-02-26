@@ -37,6 +37,10 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// A browser application can be imported using its GUID, i.e.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/browserApplication:BrowserApplication foo &lt;GUID&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/browserApplication:BrowserApplication")]
     public partial class BrowserApplication : global::Pulumi.CustomResource

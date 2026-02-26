@@ -57,6 +57,10 @@ import javax.annotation.Nullable;
  * 
  * New Relic obfuscation expression can be imported using the expression ID, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:index/obfuscationExpression:ObfuscationExpression foo 34567
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:index/obfuscationExpression:ObfuscationExpression")
 public class ObfuscationExpression extends com.pulumi.resources.CustomResource {

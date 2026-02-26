@@ -41,6 +41,10 @@ namespace Pulumi.NewRelic
     /// 
     /// New Relic Events to Metrics rules can be imported using a concatenated string of the format
     ///  `&lt;account_id&gt;:&lt;rule_id&gt;`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/eventsToMetricsRule:EventsToMetricsRule")]
     public partial class EventsToMetricsRule : global::Pulumi.CustomResource

@@ -1002,6 +1002,10 @@ import javax.annotation.Nullable;
  * 
  * Linked AWS account integrations can be imported using the `id`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo &lt;id&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:cloud/awsIntegrations:AwsIntegrations")
 public class AwsIntegrations extends com.pulumi.resources.CustomResource {

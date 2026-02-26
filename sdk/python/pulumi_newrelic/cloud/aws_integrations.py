@@ -79,6 +79,7 @@ class AwsIntegrationsArgs:
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
         """
         The set of arguments for constructing a AwsIntegrations resource.
+
         :param pulumi.Input[_builtins.str] linked_account_id: The ID of the linked AWS account in New Relic.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
@@ -982,6 +983,7 @@ class _AwsIntegrationsState:
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
         """
         Input properties used for looking up and filtering AwsIntegrations resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsAlbArgs'] alb: ALB integration
         :param pulumi.Input['AwsIntegrationsApiGatewayArgs'] api_gateway: API Gateway integration
@@ -2716,6 +2718,11 @@ class AwsIntegrations(pulumi.CustomResource):
 
         Linked AWS account integrations can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -3608,6 +3615,11 @@ class AwsIntegrations(pulumi.CustomResource):
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AwsIntegrationsArgs args: The arguments to use to populate this resource's properties.

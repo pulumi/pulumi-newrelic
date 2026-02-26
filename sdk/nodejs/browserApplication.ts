@@ -25,6 +25,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * A browser application can be imported using its GUID, i.e.
+ *
+ * ```sh
+ * $ pulumi import newrelic:index/browserApplication:BrowserApplication foo <GUID>
+ * ```
  */
 export class BrowserApplication extends pulumi.CustomResource {
     /**

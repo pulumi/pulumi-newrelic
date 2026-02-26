@@ -25,6 +25,7 @@ class AwsGovcloudLinkAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AwsGovcloudLinkAccount resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
                
                > **NOTE:** Altering the `account_id` (or) `metric_collection_mode` of an already applied `cloud.AwsGovcloudLinkAccount` resource shall trigger a recreation of the resource, instead of an update.
@@ -102,6 +103,7 @@ class _AwsGovcloudLinkAccountState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AwsGovcloudLinkAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
                
@@ -208,6 +210,11 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
         Linked AWS GovCloud accounts can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
@@ -249,6 +256,11 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked AWS GovCloud accounts can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AwsGovcloudLinkAccountArgs args: The arguments to use to populate this resource's properties.

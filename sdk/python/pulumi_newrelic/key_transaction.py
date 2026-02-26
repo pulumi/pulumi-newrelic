@@ -26,6 +26,7 @@ class KeyTransactionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyTransaction resource.
+
         :param pulumi.Input[_builtins.float] apdex_index: A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
         :param pulumi.Input[_builtins.str] application_guid: The GUID of the APM Application comprising transactions, of which one would be made a key transaction.
         :param pulumi.Input[_builtins.float] browser_apdex_target: A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
@@ -116,6 +117,7 @@ class _KeyTransactionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyTransaction resources.
+
         :param pulumi.Input[_builtins.float] apdex_index: A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
         :param pulumi.Input[_builtins.str] application_guid: The GUID of the APM Application comprising transactions, of which one would be made a key transaction.
         :param pulumi.Input[_builtins.float] browser_apdex_target: A decimal value representing the response time threshold for satisfactory experience (e.g., 0.5 seconds).
@@ -263,6 +265,11 @@ class KeyTransaction(pulumi.CustomResource):
 
         A Key Transaction in New Relic may be imported into Terraform using its GUID specified in the `<id>` field, in the following command.
 
+        ```sh
+        $ pulumi import newrelic:index/keyTransaction:KeyTransaction foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] apdex_index: A decimal value, measuring user satisfaction with response times, ranging from 0 (frustrated) to 1 (satisfied).
@@ -301,6 +308,11 @@ class KeyTransaction(pulumi.CustomResource):
         ## Import
 
         A Key Transaction in New Relic may be imported into Terraform using its GUID specified in the `<id>` field, in the following command.
+
+        ```sh
+        $ pulumi import newrelic:index/keyTransaction:KeyTransaction foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyTransactionArgs args: The arguments to use to populate this resource's properties.

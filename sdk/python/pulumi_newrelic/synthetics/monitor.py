@@ -46,6 +46,7 @@ class MonitorArgs:
                  verify_ssl: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input[_builtins.str] status: The run state of the monitor. (`ENABLED` or `DISABLED`).
         :param pulumi.Input[_builtins.str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
@@ -434,6 +435,7 @@ class _MonitorState:
                  verify_ssl: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] browsers: The multiple browsers list on which synthetic monitors will run. Valid values are `CHROME` and `FIREFOX`.
         :param pulumi.Input[_builtins.bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
@@ -1004,6 +1006,11 @@ class Monitor(pulumi.CustomResource):
 
         Synthetics monitor can be imported using the `guid`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account in which the Synthetics monitor will be created.
@@ -1191,6 +1198,11 @@ class Monitor(pulumi.CustomResource):
         ## Import
 
         Synthetics monitor can be imported using the `guid`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

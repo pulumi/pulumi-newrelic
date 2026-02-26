@@ -25,6 +25,7 @@ class AwsEuSovereignLinkAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AwsEuSovereignLinkAccount resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         :param pulumi.Input[_builtins.str] metric_collection_mode: How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
@@ -104,6 +105,7 @@ class _AwsEuSovereignLinkAccountState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AwsEuSovereignLinkAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[_builtins.str] metric_collection_mode: How metrics will be collected. Use `PUSH` for metric stream, `PULL` for API polling of the 3 services not supported by metric streams (Billing, CloudTrail and X-Ray), or `BOTH` for both methods. Defaults to `PUSH`, if not specified in the configuration.
@@ -216,6 +218,11 @@ class AwsEuSovereignLinkAccount(pulumi.CustomResource):
 
         Linked AWS EU Sovereign accounts can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`, if not specified in the configuration.
@@ -262,6 +269,11 @@ class AwsEuSovereignLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked AWS EU Sovereign accounts can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:cloud/awsEuSovereignLinkAccount:AwsEuSovereignLinkAccount foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AwsEuSovereignLinkAccountArgs args: The arguments to use to populate this resource's properties.

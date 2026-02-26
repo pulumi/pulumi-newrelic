@@ -1083,6 +1083,10 @@ import (
 // ## Import
 //
 // Linked AWS account integrations can be imported using the `id`, e.g.
+//
+// ```sh
+// $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>
+// ```
 type AwsIntegrations struct {
 	pulumi.CustomResourceState
 

@@ -23,6 +23,7 @@ class AccountManagementArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountManagement resource.
+
         :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
         """
@@ -63,6 +64,7 @@ class _AccountManagementState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountManagement resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the Account.
         :param pulumi.Input[_builtins.str] region: The region code of the account.  One of: `us01`, `eu01`.
         :param pulumi.Input[_builtins.str] status: Status of the account - active or canceled
@@ -141,6 +143,11 @@ class AccountManagement(pulumi.CustomResource):
 
         Accounts can be imported using the `id`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Account.
@@ -172,6 +179,11 @@ class AccountManagement(pulumi.CustomResource):
         ## Import
 
         Accounts can be imported using the `id`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/accountManagement:AccountManagement foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountManagementArgs args: The arguments to use to populate this resource's properties.

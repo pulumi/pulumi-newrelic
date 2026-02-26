@@ -25,6 +25,7 @@ class PipelineCloudRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PipelineCloudRule resource.
+
         :param pulumi.Input[_builtins.str] nrql: The NRQL query that defines the data to be processed by this Pipeline Cloud Rule.
         :param pulumi.Input[_builtins.str] account_id: The account ID where the Pipeline Cloud Rule will be created.
         :param pulumi.Input[_builtins.str] description: Additional information about the rule.
@@ -96,6 +97,7 @@ class _PipelineCloudRuleState:
                  nrql: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PipelineCloudRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID where the Pipeline Cloud Rule will be created.
         :param pulumi.Input[_builtins.str] description: Additional information about the rule.
         :param pulumi.Input[_builtins.str] name: The name of the rule. This must be unique within an account.
@@ -192,7 +194,12 @@ class PipelineCloudRule(pulumi.CustomResource):
 
         Pipeline Cloud Rules can be imported using the `id`. For example:
 
+        ```sh
+        $ pulumi import newrelic:index/pipelineCloudRule:PipelineCloudRule foo <id>
+        ```
+
         > **NOTE:** If you'd like to import a `PipelineCloudRule` resource corresponding to an existing `NrqlDropRule` resource in your configuration in light of the aforementioned EOL, please head over to the instructions in our Drop Rules EOL Migration Guide.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +236,12 @@ class PipelineCloudRule(pulumi.CustomResource):
 
         Pipeline Cloud Rules can be imported using the `id`. For example:
 
+        ```sh
+        $ pulumi import newrelic:index/pipelineCloudRule:PipelineCloudRule foo <id>
+        ```
+
         > **NOTE:** If you'd like to import a `PipelineCloudRule` resource corresponding to an existing `NrqlDropRule` resource in your configuration in light of the aforementioned EOL, please head over to the instructions in our Drop Rules EOL Migration Guide.
+
 
         :param str resource_name: The name of the resource.
         :param PipelineCloudRuleArgs args: The arguments to use to populate this resource's properties.

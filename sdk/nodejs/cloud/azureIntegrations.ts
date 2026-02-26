@@ -177,6 +177,11 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic.
+ *
+ * ```sh
+ * $ pulumi import newrelic:cloud/azureIntegrations:AzureIntegrations foo <id>
+ *
+ * ```
  */
 export class AzureIntegrations extends pulumi.CustomResource {
     /**

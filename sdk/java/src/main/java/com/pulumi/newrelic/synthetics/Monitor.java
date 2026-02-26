@@ -275,6 +275,10 @@ import javax.annotation.Nullable;
  * 
  * Synthetics monitor can be imported using the `guid`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:synthetics/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {

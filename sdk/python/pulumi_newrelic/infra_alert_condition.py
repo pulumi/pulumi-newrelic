@@ -38,6 +38,7 @@ class InfraAlertConditionArgs:
                  where: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InfraAlertCondition resource.
+
         :param pulumi.Input[_builtins.str] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[_builtins.str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
         :param pulumi.Input[_builtins.str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
@@ -295,6 +296,7 @@ class _InfraAlertConditionState:
                  where: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InfraAlertCondition resources.
+
         :param pulumi.Input[_builtins.str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
         :param pulumi.Input[_builtins.int] created_at: The timestamp the alert condition was created.
         :param pulumi.Input['InfraAlertConditionCriticalArgs'] critical: Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
@@ -728,6 +730,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
@@ -885,6 +888,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         ```sh
         $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InfraAlertConditionArgs args: The arguments to use to populate this resource's properties.

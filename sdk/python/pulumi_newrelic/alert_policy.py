@@ -25,6 +25,7 @@ class AlertPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertPolicy resource.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
@@ -107,6 +108,7 @@ class _AlertPolicyState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertPolicy resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_ids: **DEPRECATED** The `channel_ids` argument is deprecated and will be removed in the next major release of the provider. An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported via `pulumi import` (see Import for info).
         :param pulumi.Input[_builtins.str] incident_preference: The rollup strategy for the policy, which can have one of the following values (the default value is `PER_POLICY`):
@@ -271,6 +273,7 @@ class AlertPolicy(pulumi.CustomResource):
 
         Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -366,6 +369,7 @@ class AlertPolicy(pulumi.CustomResource):
         ```
 
         Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `pulumi up`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
+
 
         :param str resource_name: The name of the resource.
         :param AlertPolicyArgs args: The arguments to use to populate this resource's properties.

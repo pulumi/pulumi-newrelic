@@ -24,6 +24,7 @@ class GcpLinkAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GcpLinkAccount resource.
+
         :param pulumi.Input[_builtins.str] project_id: Project ID of the GCP account.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
         :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
@@ -83,6 +84,7 @@ class _GcpLinkAccountState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GcpLinkAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
         :param pulumi.Input[_builtins.str] name: The name of the GCP account in New Relic.
                
@@ -178,6 +180,13 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
 
+        ```sh
+
+          $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount foo <id>
+
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the New Relic account.
@@ -224,6 +233,13 @@ class GcpLinkAccount(pulumi.CustomResource):
         ## Import
 
         Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
+
+        ```sh
+
+          $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount foo <id>
+
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GcpLinkAccountArgs args: The arguments to use to populate this resource's properties.

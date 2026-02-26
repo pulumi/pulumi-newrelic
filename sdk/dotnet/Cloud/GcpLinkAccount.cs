@@ -49,6 +49,12 @@ namespace Pulumi.NewRelic.Cloud
     /// ## Import
     /// 
     /// Linked GCP accounts can be imported using `Id`, you can find the `Id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console.
+    /// 
+    /// ```sh
+    /// 
+    ///   $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount foo &lt;id&gt;
+    /// 
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/gcpLinkAccount:GcpLinkAccount")]
     public partial class GcpLinkAccount : global::Pulumi.CustomResource

@@ -25,6 +25,7 @@ class EntityTagsArgs:
                  tags: pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]):
         """
         The set of arguments for constructing a EntityTags resource.
+
         :param pulumi.Input[_builtins.str] guid: The guid of the entity to tag.
         :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
@@ -63,6 +64,7 @@ class _EntityTagsState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering EntityTags resources.
+
         :param pulumi.Input[_builtins.str] guid: The guid of the entity to tag.
         :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
@@ -171,6 +173,11 @@ class EntityTags(pulumi.CustomResource):
         New Relic One entity tags can be imported using a concatenated string of the format
          `<guid>`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] guid: The guid of the entity to tag.
@@ -247,6 +254,11 @@ class EntityTags(pulumi.CustomResource):
 
         New Relic One entity tags can be imported using a concatenated string of the format
          `<guid>`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EntityTagsArgs args: The arguments to use to populate this resource's properties.

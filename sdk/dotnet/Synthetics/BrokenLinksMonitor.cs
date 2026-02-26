@@ -107,6 +107,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Import
     /// 
     /// A broken links monitor can be imported using its GUID, using the following command.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor &lt;guid&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor")]
     public partial class BrokenLinksMonitor : global::Pulumi.CustomResource

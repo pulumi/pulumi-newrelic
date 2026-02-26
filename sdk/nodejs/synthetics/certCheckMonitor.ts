@@ -70,6 +70,10 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * A cert check monitor can be imported using its GUID, using the following command.
+ *
+ * ```sh
+ * $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor <guid>
+ * ```
  */
 export class CertCheckMonitor extends pulumi.CustomResource {
     /**

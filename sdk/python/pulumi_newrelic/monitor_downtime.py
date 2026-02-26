@@ -33,6 +33,7 @@ class MonitorDowntimeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorDowntime resource.
+
         :param pulumi.Input[_builtins.str] end_time: A datetime stamp signifying the end of the Monitor Downtime.
         :param pulumi.Input[_builtins.str] mode: An identifier of the type of Monitor Downtime to be created.
         :param pulumi.Input[_builtins.str] start_time: A datetime stamp signifying the start of the Monitor Downtime.
@@ -197,6 +198,7 @@ class _MonitorDowntimeState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorDowntime resources.
+
         :param pulumi.Input[_builtins.str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
         :param pulumi.Input['MonitorDowntimeEndRepeatArgs'] end_repeat: A specification of when the Monitor Downtime should end its repeat cycle, by number of occurrences or date.
         :param pulumi.Input[_builtins.str] end_time: A datetime stamp signifying the end of the Monitor Downtime.
@@ -531,6 +533,11 @@ class MonitorDowntime(pulumi.CustomResource):
 
         A monitor downtime can be imported into Terraform configuration using its `guid`, i.e.
 
+        ```sh
+        $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the New Relic account in which the Monitor Downtime shall be created. Defaults to the `account_id` in the provider{} configuration if not specified.
@@ -713,6 +720,11 @@ class MonitorDowntime(pulumi.CustomResource):
         ## Import
 
         A monitor downtime can be imported into Terraform configuration using its `guid`, i.e.
+
+        ```sh
+        $ pulumi import newrelic:index/monitorDowntime:MonitorDowntime monitor <guid>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorDowntimeArgs args: The arguments to use to populate this resource's properties.

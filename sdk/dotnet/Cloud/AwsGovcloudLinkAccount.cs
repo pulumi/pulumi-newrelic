@@ -42,6 +42,10 @@ namespace Pulumi.NewRelic.Cloud
     /// ## Import
     /// 
     /// Linked AWS GovCloud accounts can be imported using the `Id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo &lt;id&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount")]
     public partial class AwsGovcloudLinkAccount : global::Pulumi.CustomResource

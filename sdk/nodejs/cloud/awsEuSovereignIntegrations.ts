@@ -94,6 +94,10 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Linked AWS EU Sovereign account integrations can be imported using the `id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:cloud/awsEuSovereignIntegrations:AwsEuSovereignIntegrations foo <id>
+ * ```
  */
 export class AwsEuSovereignIntegrations extends pulumi.CustomResource {
     /**

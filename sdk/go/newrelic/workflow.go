@@ -281,6 +281,9 @@ import (
 //
 // Workflows can be imported using the `id`, e.g.
 //
+// ```sh
+// $ pulumi import newrelic:index/workflow:Workflow foo <id>
+// ```
 // You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
 type Workflow struct {
 	pulumi.CustomResourceState

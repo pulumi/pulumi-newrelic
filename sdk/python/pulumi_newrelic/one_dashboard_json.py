@@ -23,6 +23,7 @@ class OneDashboardJsonArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OneDashboardJson resource.
+
         :param pulumi.Input[_builtins.str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
@@ -65,6 +66,7 @@ class _OneDashboardJsonState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OneDashboardJson resources.
+
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the dashboard in New Relic.
         :param pulumi.Input[_builtins.str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
@@ -185,6 +187,11 @@ class OneDashboardJson(pulumi.CustomResource):
 
         New Relic dashboards can be imported using their GUID, e.g.
 
+        ```sh
+        $ terraform import newrelic_one_dashboard_json.my_dashboard <dashboard GUID>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -228,6 +235,11 @@ class OneDashboardJson(pulumi.CustomResource):
         ## Import
 
         New Relic dashboards can be imported using their GUID, e.g.
+
+        ```sh
+        $ terraform import newrelic_one_dashboard_json.my_dashboard <dashboard GUID>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OneDashboardJsonArgs args: The arguments to use to populate this resource's properties.

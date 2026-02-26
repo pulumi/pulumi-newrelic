@@ -39,6 +39,10 @@ namespace Pulumi.NewRelic
     /// 
     /// Pipeline Cloud Rules can be imported using the `Id`. For example:
     /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/pipelineCloudRule:PipelineCloudRule foo &lt;id&gt;
+    /// ```
+    /// 
     /// &gt; **NOTE:** If you'd like to import a `newrelic.PipelineCloudRule` resource corresponding to an existing `newrelic.NrqlDropRule` resource in your configuration in light of the aforementioned EOL, please head over to the instructions in our Drop Rules EOL Migration Guide.
     /// </summary>
     [NewRelicResourceType("newrelic:index/pipelineCloudRule:PipelineCloudRule")]

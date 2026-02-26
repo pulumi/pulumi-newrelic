@@ -207,6 +207,10 @@ import (
 //	`<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to.
 //
 // Example:
+//
+// ```sh
+// $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
+// ```
 type ServiceLevel struct {
 	pulumi.CustomResourceState
 

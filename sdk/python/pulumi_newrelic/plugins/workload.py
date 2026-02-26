@@ -31,6 +31,7 @@ class WorkloadArgs:
                  status_config_static: Optional[pulumi.Input['WorkloadStatusConfigStaticArgs']] = None):
         """
         The set of arguments for constructing a Workload resource.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
@@ -171,6 +172,7 @@ class _WorkloadState:
                  workload_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workload resources.
+
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
         :param pulumi.Input[_builtins.str] composite_entity_search_query: The composite query used to compose a dynamic workload.
         :param pulumi.Input[_builtins.str] description: Relevant information about the workload.
@@ -494,6 +496,11 @@ class Workload(pulumi.CustomResource):
         New Relic workloads can be imported using a concatenated string of the format
          `<account_id>:<workload_id>:<guid>`, e.g.
 
+        ```sh
+        $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The New Relic account ID where you want to create the workload.
@@ -635,6 +642,11 @@ class Workload(pulumi.CustomResource):
 
         New Relic workloads can be imported using a concatenated string of the format
          `<account_id>:<workload_id>:<guid>`, e.g.
+
+        ```sh
+        $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadArgs args: The arguments to use to populate this resource's properties.

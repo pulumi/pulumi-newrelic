@@ -24,6 +24,7 @@ class EventArgs:
                  events: pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]):
         """
         The set of arguments for constructing a Event resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         pulumi.set(__self__, "events", events)
@@ -47,6 +48,7 @@ class _EventState:
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]] = None):
         """
         Input properties used for looking up and filtering Event resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         if events is not None:
@@ -120,6 +122,7 @@ class Event(pulumi.CustomResource):
           * `value` - (Required) The value of the attribute.
           * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventEventArgs', 'EventEventArgsDict']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
@@ -176,6 +179,7 @@ class Event(pulumi.CustomResource):
           * `key` - (Required) The name of the attribute.
           * `value` - (Required) The value of the attribute.
           * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+
 
         :param str resource_name: The name of the resource.
         :param EventArgs args: The arguments to use to populate this resource's properties.

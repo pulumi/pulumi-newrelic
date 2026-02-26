@@ -132,6 +132,10 @@ import javax.annotation.Nullable;
  * 
  * A cert check monitor can be imported using its GUID, using the following command.
  * 
+ * ```sh
+ * $ pulumi import newrelic:synthetics/certCheckMonitor:CertCheckMonitor monitor &lt;guid&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:synthetics/certCheckMonitor:CertCheckMonitor")
 public class CertCheckMonitor extends com.pulumi.resources.CustomResource {

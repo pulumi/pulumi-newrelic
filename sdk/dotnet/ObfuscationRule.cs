@@ -55,6 +55,10 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// New Relic obfuscation rule can be imported using the rule ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/obfuscationRule:ObfuscationRule foo 34567
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/obfuscationRule:ObfuscationRule")]
     public partial class ObfuscationRule : global::Pulumi.CustomResource

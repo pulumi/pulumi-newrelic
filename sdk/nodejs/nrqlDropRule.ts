@@ -56,6 +56,10 @@ import * as utilities from "./utilities";
  *
  * New Relic NRQL drop rules can be imported using a concatenated string of the format
  *  `<account_id>:<rule_id>`, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:index/nrqlDropRule:NrqlDropRule foo 12345:34567
+ * ```
  */
 export class NrqlDropRule extends pulumi.CustomResource {
     /**

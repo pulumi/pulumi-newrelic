@@ -37,6 +37,10 @@ namespace Pulumi.NewRelic
     /// ## Import
     /// 
     /// Accounts can be imported using the `Id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/accountManagement:AccountManagement foo &lt;id&gt;
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/accountManagement:AccountManagement")]
     public partial class AccountManagement : global::Pulumi.CustomResource

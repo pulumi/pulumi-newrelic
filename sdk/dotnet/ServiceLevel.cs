@@ -204,6 +204,10 @@ namespace Pulumi.NewRelic
     ///  `&lt;account_id&gt;:&lt;sli_id&gt;:&lt;guid&gt;`, where the `Guid` is the entity the SLI relates to.
     /// 
     /// Example:
+    /// 
+    /// ```sh
+    /// $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
+    /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/serviceLevel:ServiceLevel")]
     public partial class ServiceLevel : global::Pulumi.CustomResource

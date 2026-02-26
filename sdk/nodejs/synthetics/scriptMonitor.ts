@@ -187,6 +187,10 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * Synthetics monitor scripts can be imported using the `guid`, e.g.
+ *
+ * ```sh
+ * $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
+ * ```
  */
 export class ScriptMonitor extends pulumi.CustomResource {
     /**

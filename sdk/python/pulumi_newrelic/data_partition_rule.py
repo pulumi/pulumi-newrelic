@@ -27,6 +27,7 @@ class DataPartitionRuleArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataPartitionRule resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether or not this data partition rule is enabled.
         :param pulumi.Input[_builtins.str] nrql: The NRQL to match events for this data partition rule. Logs matching this criteria will be routed to the specified data partition.
         :param pulumi.Input[_builtins.str] retention_policy: The retention policy of the data partition data. Valid values are `SECONDARY` and `STANDARD`.
@@ -128,6 +129,7 @@ class _DataPartitionRuleState:
                  target_data_partition: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataPartitionRule resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the data partition rule.
         :param pulumi.Input[_builtins.bool] deleted: Whether or not this data partition rule is deleted. Deleting a data partition rule does not delete the already persisted data. This data will be retained for a given period of time specified in the retention policy field.
         :param pulumi.Input[_builtins.str] description: The description of the data partition rule.
@@ -274,6 +276,11 @@ class DataPartitionRule(pulumi.CustomResource):
 
         New Relic data partition rule can be imported using the rule ID, e.g.
 
+        ```sh
+        $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account id associated with the data partition rule.
@@ -313,6 +320,11 @@ class DataPartitionRule(pulumi.CustomResource):
         ## Import
 
         New Relic data partition rule can be imported using the rule ID, e.g.
+
+        ```sh
+        $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DataPartitionRuleArgs args: The arguments to use to populate this resource's properties.

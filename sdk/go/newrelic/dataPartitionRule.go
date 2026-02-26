@@ -51,6 +51,10 @@ import (
 // ## Import
 //
 // New Relic data partition rule can be imported using the rule ID, e.g.
+//
+// ```sh
+// $ pulumi import newrelic:index/dataPartitionRule:DataPartitionRule foo <id>
+// ```
 type DataPartitionRule struct {
 	pulumi.CustomResourceState
 

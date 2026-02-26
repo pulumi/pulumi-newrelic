@@ -66,6 +66,10 @@ import javax.annotation.Nullable;
  * 
  * Linked AWS accounts can be imported using the `id`, e.g.
  * 
+ * ```sh
+ * $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo &lt;id&gt;
+ * ```
+ * 
  */
 @ResourceType(type="newrelic:cloud/awsLinkAccount:AwsLinkAccount")
 public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
