@@ -164,7 +164,7 @@ class EntityTags(pulumi.CustomResource):
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
-                } for entry in [{"key": k, "value": v} for k, v in custom_tags]],
+                } for entry in [{"key": k, "value": v} for k, v in custom_tags.items()]],
                 guid=foo[range["key"]].guid))
         ```
 
@@ -246,7 +246,7 @@ class EntityTags(pulumi.CustomResource):
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
-                } for entry in [{"key": k, "value": v} for k, v in custom_tags]],
+                } for entry in [{"key": k, "value": v} for k, v in custom_tags.items()]],
                 guid=foo[range["key"]].guid))
         ```
 
