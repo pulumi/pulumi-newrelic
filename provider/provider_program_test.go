@@ -107,7 +107,13 @@ func TestNrqlAlertConditionImport(t *testing.T) {
 		opttest.NewStackOptions(optnewstack.DisableAutoDestroy()),
 		opttest.SkipInstall(),
 	)
-	res := importer.Import(t, "newrelic:index/nrqlAlertCondition:NrqlAlertCondition", "importedCondition", conditionID+":static", "")
+	res := importer.Import(
+		t,
+		"newrelic:index/nrqlAlertCondition:NrqlAlertCondition",
+		"importedCondition",
+		conditionID+":static",
+		"",
+	)
 
 	require.Contains(t, res.Stdout, "type: newrelic:NrqlAlertCondition")
 }
