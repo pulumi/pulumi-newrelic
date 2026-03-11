@@ -25,10 +25,10 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.OneDashboardJson("foo", new()
     ///     {
-    ///         Json = Std.File.Invoke(new()
+    ///         Json = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "dashboard.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

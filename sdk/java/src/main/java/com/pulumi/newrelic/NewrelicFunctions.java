@@ -2598,7 +2598,6 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2623,10 +2622,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
-     *             .separator(", ")
-     *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
+     *             Map.entry("separator", ", "),
+     *             Map.entry("input", fooGetGroup.userIds())
+     *         )).result() : "");
      * 
      *     }
      * }
@@ -2698,7 +2697,6 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2723,10 +2721,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
-     *             .separator(", ")
-     *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
+     *             Map.entry("separator", ", "),
+     *             Map.entry("input", fooGetGroup.userIds())
+     *         )).result() : "");
      * 
      *     }
      * }
@@ -2798,7 +2796,6 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2823,10 +2820,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
-     *             .separator(", ")
-     *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
+     *             Map.entry("separator", ", "),
+     *             Map.entry("input", fooGetGroup.userIds())
+     *         )).result() : "");
      * 
      *     }
      * }
@@ -2898,7 +2895,6 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2923,10 +2919,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
-     *             .separator(", ")
-     *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
+     *             Map.entry("separator", ", "),
+     *             Map.entry("input", fooGetGroup.userIds())
+     *         )).result() : "");
      * 
      *     }
      * }
@@ -2998,7 +2994,6 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
-     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3023,10 +3018,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
-     *             .separator(", ")
-     *             .input(fooGetGroup.userIds())
-     *             .build()).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
+     *             Map.entry("separator", ", "),
+     *             Map.entry("input", fooGetGroup.userIds())
+     *         )).result() : "");
      * 
      *     }
      * }

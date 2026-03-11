@@ -65,21 +65,20 @@ namespace Pulumi.NewRelic
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Threading.Tasks;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// using Std = Pulumi.Std;
     /// 
-    /// return await Deployment.RunAsync(async() =&gt; 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var apps = (await Std.Toset.InvokeAsync(new()
+    ///     var apps = Std.Index.Toset.Invoke(new()
     ///     {
     ///         Input = new[]
     ///         {
     ///             "Example App Name 1",
     ///             "Example App Name 2",
     ///         },
-    ///     })).Result;
+    ///     }).Result;
     /// 
     ///     var customTags = 
     ///     {
@@ -88,12 +87,24 @@ namespace Pulumi.NewRelic
     ///         { "tag-key-3", "tag-value-3" },
     ///     };
     /// 
-    ///     var foo = ;
+    ///     var foo = .ToDictionary(item =&gt; {
+    ///         var __key = item.Key;
+    ///         return __key;
+    ///     }, item =&gt; {
+    ///         var __key = item.Key;
+    ///         return NewRelic.GetEntity.Invoke(new()
+    ///         {
+    ///             Name = __key,
+    ///             Type = "APPLICATION",
+    ///             Domain = "APM",
+    ///         });
+    ///     });
     /// 
     ///     var fooEntityTags = new List&lt;NewRelic.EntityTags&gt;();
-    ///     foreach (var range in )
+    ///     for (var rangeIndex = 0; rangeIndex &lt; apps; rangeIndex++)
     ///     {
-    ///         fooEntityTags.Add(new NewRelic.EntityTags($"foo-{range.Key}", new()
+    ///         var range = new { Value = rangeIndex };
+    ///         fooEntityTags.Add(new NewRelic.EntityTags($"foo-{range.Value}", new()
     ///         {
     ///             Tags = customTags.Select(pair =&gt; new { pair.Key, pair.Value }).Select(entry =&gt; 
     ///             {
@@ -106,7 +117,7 @@ namespace Pulumi.NewRelic
     ///                     },
     ///                 };
     ///             }).ToList(),
-    ///             Guid = foo[range.Key].Guid,
+    ///             Guid = foo[range.Key].Apply(key =&gt; key.Guid),
     ///         }));
     ///     }
     /// });

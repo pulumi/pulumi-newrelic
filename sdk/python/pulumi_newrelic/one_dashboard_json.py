@@ -164,7 +164,7 @@ class OneDashboardJson(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
         import pulumi_std as std
 
-        foo = newrelic.OneDashboardJson("foo", json=std.file(input="dashboard.json").result)
+        foo = newrelic.OneDashboardJson("foo", json=std.index.file(input="dashboard.json")["result"])
         ```
 
         ## Additional Examples
@@ -213,7 +213,7 @@ class OneDashboardJson(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
         import pulumi_std as std
 
-        foo = newrelic.OneDashboardJson("foo", json=std.file(input="dashboard.json").result)
+        foo = newrelic.OneDashboardJson("foo", json=std.index.file(input="dashboard.json")["result"])
         ```
 
         ## Additional Examples

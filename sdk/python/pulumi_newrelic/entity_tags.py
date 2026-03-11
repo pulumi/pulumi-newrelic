@@ -146,10 +146,10 @@ class EntityTags(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
         import pulumi_std as std
 
-        apps = std.toset(input=[
+        apps = std.index.toset(input=[
             "Example App Name 1",
             "Example App Name 2",
-        ]).result
+        ])["result"]
         custom_tags = {
             "tag-key-1": "tag-value-1",
             "tag-key-2": "tag-value-2",
@@ -159,8 +159,8 @@ class EntityTags(pulumi.CustomResource):
             type="APPLICATION",
             domain="APM") for __key, __value in apps}
         foo_entity_tags = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
-            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
+        for range in [{"value": i} for i in range(0, apps)]:
+            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['value']}",
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
@@ -228,10 +228,10 @@ class EntityTags(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
         import pulumi_std as std
 
-        apps = std.toset(input=[
+        apps = std.index.toset(input=[
             "Example App Name 1",
             "Example App Name 2",
-        ]).result
+        ])["result"]
         custom_tags = {
             "tag-key-1": "tag-value-1",
             "tag-key-2": "tag-value-2",
@@ -241,8 +241,8 @@ class EntityTags(pulumi.CustomResource):
             type="APPLICATION",
             domain="APM") for __key, __value in apps}
         foo_entity_tags = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
-            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
+        for range in [{"value": i} for i in range(0, apps)]:
+            foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['value']}",
                 tags=[{
                     "key": entry["key"],
                     "values": [entry["value"]],
