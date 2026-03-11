@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.OneDashboardJson;
  * import com.pulumi.newrelic.OneDashboardJsonArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,9 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new OneDashboardJson("foo", OneDashboardJsonArgs.builder()
- *             .json(StdFunctions.file(FileArgs.builder()
- *                 .input("dashboard.json")
- *                 .build()).result())
+ *             .json(StdFunctions.file(Map.of("input", "dashboard.json")).result())
  *             .build());
  * 
  *     }

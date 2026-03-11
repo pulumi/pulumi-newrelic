@@ -138,16 +138,13 @@ namespace Pulumi.NewRelic
         ///         Type = "SERVICE_LEVEL",
         ///     });
         /// 
-        ///     var keyValueMap = Std.Jsondecode.Invoke(new()
-        ///     {
-        ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
-        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///     var keyValueMap = .ToDictionary(item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Key;
         ///     }, item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Values;
-        ///     }));
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -287,16 +284,13 @@ namespace Pulumi.NewRelic
         ///         Type = "SERVICE_LEVEL",
         ///     });
         /// 
-        ///     var keyValueMap = Std.Jsondecode.Invoke(new()
-        ///     {
-        ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
-        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///     var keyValueMap = .ToDictionary(item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Key;
         ///     }, item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Values;
-        ///     }));
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -436,16 +430,13 @@ namespace Pulumi.NewRelic
         ///         Type = "SERVICE_LEVEL",
         ///     });
         /// 
-        ///     var keyValueMap = Std.Jsondecode.Invoke(new()
-        ///     {
-        ///         Input = foo.Apply(getEntityResult =&gt; getEntityResult.EntityTags),
-        ///     }).Apply(invoke =&gt; .ToDictionary(item =&gt; {
+        ///     var keyValueMap = .ToDictionary(item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Key;
         ///     }, item =&gt; {
         ///         var pair = item.Value;
         ///         return pair.Values;
-        ///     }));
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
