@@ -1,0 +1,42 @@
+name: newrelic-nrql-alert-condition-import-create
+runtime: yaml
+description: Creates a NRQL alert condition for import regression testing.
+config:
+  suffix:
+    type: string
+resources:
+  policy:
+    type: newrelic:AlertPolicy
+    properties:
+      name: tf-test-${suffix}
+  condition:
+    type: newrelic:NrqlAlertCondition
+    properties:
+      policyId: ${policy.id}
+      name: tf-test-${suffix}
+      type: static
+      enabled: false
+      description: test description
+      violationTimeLimitSeconds: 3600
+      fillOption: static
+      fillValue: 0
+      closeViolationsOnExpiration: true
+      openViolationOnExpiration: true
+      expirationDuration: 120
+      aggregationWindow: 60
+      aggregationDelay: 300
+      aggregationMethod: EVENT_FLOW
+      nrql:
+        query: SELECT uniqueCount(hostname) FROM Transaction
+      critical:
+        operator: above
+        threshold: 1.25666
+        thresholdDuration: 120
+        thresholdOccurrences: ALL
+      warning:
+        operator: above
+        threshold: 1.1666
+        thresholdDuration: 120
+        thresholdOccurrences: AT_LEAST_ONCE
+outputs:
+  conditionId: ${condition.id}
