@@ -2598,6 +2598,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2622,10 +2623,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
-     *             Map.entry("separator", ", "),
-     *             Map.entry("input", fooGetGroup.userIds())
-     *         )).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(", ")
+     *             .input(fooGetGroup.userIds())
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -2697,6 +2698,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2721,10 +2723,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
-     *             Map.entry("separator", ", "),
-     *             Map.entry("input", fooGetGroup.userIds())
-     *         )).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(", ")
+     *             .input(fooGetGroup.userIds())
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -2796,6 +2798,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2820,10 +2823,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
-     *             Map.entry("separator", ", "),
-     *             Map.entry("input", fooGetGroup.userIds())
-     *         )).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(", ")
+     *             .input(fooGetGroup.userIds())
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -2895,6 +2898,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2919,10 +2923,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
-     *             Map.entry("separator", ", "),
-     *             Map.entry("input", fooGetGroup.userIds())
-     *         )).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(", ")
+     *             .input(fooGetGroup.userIds())
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -2994,6 +2998,7 @@ public final class NewrelicFunctions {
      * import com.pulumi.newrelic.inputs.GetAuthenticationDomainArgs;
      * import com.pulumi.newrelic.inputs.GetGroupArgs;
      * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JoinArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3018,10 +3023,10 @@ public final class NewrelicFunctions {
      * 
      *         final var id = fooGetGroup.id();
      * 
-     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(Map.ofEntries(
-     *             Map.entry("separator", ", "),
-     *             Map.entry("input", fooGetGroup.userIds())
-     *         )).result() : "");
+     *         final var userIds = fooGetGroup.userIds().length().applyValue(_length -> _length > 0 ? StdFunctions.join(JoinArgs.builder()
+     *             .separator(", ")
+     *             .input(fooGetGroup.userIds())
+     *             .build()).result() : "");
      * 
      *     }
      * }
@@ -3413,7 +3418,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -3440,9 +3445,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource
@@ -3526,7 +3586,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -3553,9 +3613,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource
@@ -3639,7 +3754,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -3666,9 +3781,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource
@@ -3752,7 +3922,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -3779,9 +3949,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource
@@ -3865,7 +4090,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -3892,9 +4117,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource
@@ -3978,7 +4258,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -4005,9 +4285,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource
@@ -4091,7 +4426,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage
+     * ## Name Example Usage (Contains Match)
      * 
      * <pre>
      * {@code
@@ -4118,9 +4453,64 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source
+     *         // Data source - uses contains match
+     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
+     *             .build());
+     * 
+     *         // Resource
+     *         var foo_channel = new NotificationChannel("foo-channel", NotificationChannelArgs.builder()
+     *             .name("webhook-example")
+     *             .type("WEBHOOK")
+     *             .destinationId(foo.id())
+     *             .product("IINT")
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key("payload")
+     *                 .value("""
+     * {
+     * 	"name": "foo"
+     * }                """)
+     *                 .label("Payload Template")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Exact Name Example Usage (Exact Match)
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Data source - uses exact match
+     *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .exactName("webhook-destination")
      *             .build());
      * 
      *         // Resource

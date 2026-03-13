@@ -251,7 +251,7 @@ def get_entity(account_id: Optional[_builtins.str] = None,
     foo = newrelic.get_entity(name="Sample Searchable Entity",
         domain="EXT",
         type="SERVICE_LEVEL")
-    key_value_map = {pair["key"]: pair["values"] for pair in std.index.jsondecode(input=foo.entity_tags)["result"]}
+    key_value_map = {pair["key"]: pair["values"] for pair in std.jsondecode(input=foo.entity_tags).result}
     pulumi.export("keyValueMap", key_value_map)
     ```
     The value of `local.key_value_map`  would look like the following.
@@ -382,7 +382,7 @@ def get_entity_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]
     foo = newrelic.get_entity(name="Sample Searchable Entity",
         domain="EXT",
         type="SERVICE_LEVEL")
-    key_value_map = {pair["key"]: pair["values"] for pair in std.index.jsondecode(input=foo.entity_tags)["result"]}
+    key_value_map = {pair["key"]: pair["values"] for pair in std.jsondecode(input=foo.entity_tags).result}
     pulumi.export("keyValueMap", key_value_map)
     ```
     The value of `local.key_value_map`  would look like the following.

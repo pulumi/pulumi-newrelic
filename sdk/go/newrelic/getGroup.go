@@ -64,37 +64,39 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
-// Name: "Test Authentication Domain",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// fooGetGroup, err := newrelic.LookupGroup(ctx, &newrelic.LookupGroupArgs{
-// AuthenticationDomainId: foo.Id,
-// Name: "Test Group",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _ := fooGetGroup.Id;
-// var tmp0 interface{}
-// if length > 0 {
-// tmp0 = std.Join(ctx, map[string]interface{}{
-// "separator": ", ",
-// "input": fooGetGroup.UserIds,
-// }, nil).Result
-// } else {
-// tmp0 = ""
-// }
-// _ = len(fooGetGroup.UserIds).ApplyT(func(length int) (interface{}, error) {
-// return tmp0, nil
-// }).(pulumi.Interface{}Output)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := newrelic.GetAuthenticationDomain(ctx, &newrelic.GetAuthenticationDomainArgs{
+//				Name: "Test Authentication Domain",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooGetGroup, err := newrelic.LookupGroup(ctx, &newrelic.LookupGroupArgs{
+//				AuthenticationDomainId: foo.Id,
+//				Name:                   "Test Group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := fooGetGroup.Id
+//			var tmp0 *string
+//			if length > 0 {
+//				tmp0 = std.Join(ctx, &std.JoinArgs{
+//					Separator: ", ",
+//					Input:     fooGetGroup.UserIds,
+//				}, nil).Result
+//			} else {
+//				tmp0 = ""
+//			}
+//			_ = len(fooGetGroup.UserIds).ApplyT(func(length int) (*string, error) {
+//				return &tmp0, nil
+//			}).(pulumi.StringPtrOutput)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

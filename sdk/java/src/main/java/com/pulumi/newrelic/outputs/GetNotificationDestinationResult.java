@@ -22,6 +22,7 @@ public final class GetNotificationDestinationResult {
      * 
      */
     private Boolean active;
+    private @Nullable String exactName;
     /**
      * @return The unique entity identifier of the destination in New Relic.
      * 
@@ -64,6 +65,9 @@ public final class GetNotificationDestinationResult {
      */
     public Boolean active() {
         return this.active;
+    }
+    public Optional<String> exactName() {
+        return Optional.ofNullable(this.exactName);
     }
     /**
      * @return The unique entity identifier of the destination in New Relic.
@@ -122,6 +126,7 @@ public final class GetNotificationDestinationResult {
     public static final class Builder {
         private String accountId;
         private Boolean active;
+        private @Nullable String exactName;
         private String guid;
         private @Nullable String id;
         private @Nullable String name;
@@ -134,6 +139,7 @@ public final class GetNotificationDestinationResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.active = defaults.active;
+    	      this.exactName = defaults.exactName;
     	      this.guid = defaults.guid;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -157,6 +163,12 @@ public final class GetNotificationDestinationResult {
               throw new MissingRequiredPropertyException("GetNotificationDestinationResult", "active");
             }
             this.active = active;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exactName(@Nullable String exactName) {
+
+            this.exactName = exactName;
             return this;
         }
         @CustomType.Setter
@@ -221,6 +233,7 @@ public final class GetNotificationDestinationResult {
             final var _resultValue = new GetNotificationDestinationResult();
             _resultValue.accountId = accountId;
             _resultValue.active = active;
+            _resultValue.exactName = exactName;
             _resultValue.guid = guid;
             _resultValue.id = id;
             _resultValue.name = name;

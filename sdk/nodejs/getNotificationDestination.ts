@@ -35,15 +35,43 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ## Name Example Usage
+ * ## Name Example Usage (Contains Match)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * // Data source
+ * // Data source - uses contains match
+ * // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
  * const foo = newrelic.getNotificationDestination({
  *     name: "webhook-destination",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * \x09"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Exact Name Example Usage (Exact Match)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source - uses exact match
+ * // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+ * const foo = newrelic.getNotificationDestination({
+ *     exactName: "webhook-destination",
  * });
  * // Resource
  * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
@@ -66,6 +94,7 @@ export function getNotificationDestination(args?: GetNotificationDestinationArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getNotificationDestination:getNotificationDestination", {
         "accountId": args.accountId,
+        "exactName": args.exactName,
         "id": args.id,
         "name": args.name,
         "secureUrls": args.secureUrls,
@@ -81,13 +110,17 @@ export interface GetNotificationDestinationArgs {
      */
     accountId?: string;
     /**
+     * The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
+     *
+     * Optional:
+     */
+    exactName?: string;
+    /**
      * The id of the notification destination in New Relic.
      */
     id?: string;
     /**
-     * The name of the notification destination.
-     *
-     * Optional:
+     * The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
      */
     name?: string;
     /**
@@ -105,6 +138,7 @@ export interface GetNotificationDestinationResult {
      * An indication whether the notification destination is active or not.
      */
     readonly active: boolean;
+    readonly exactName?: string;
     /**
      * The unique entity identifier of the destination in New Relic.
      */
@@ -160,15 +194,43 @@ export interface GetNotificationDestinationResult {
  * });
  * ```
  *
- * ## Name Example Usage
+ * ## Name Example Usage (Contains Match)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * // Data source
+ * // Data source - uses contains match
+ * // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
  * const foo = newrelic.getNotificationDestination({
  *     name: "webhook-destination",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     name: "webhook-example",
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * \x09"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Exact Name Example Usage (Exact Match)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * // Data source - uses exact match
+ * // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+ * const foo = newrelic.getNotificationDestination({
+ *     exactName: "webhook-destination",
  * });
  * // Resource
  * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
@@ -191,6 +253,7 @@ export function getNotificationDestinationOutput(args?: GetNotificationDestinati
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("newrelic:index/getNotificationDestination:getNotificationDestination", {
         "accountId": args.accountId,
+        "exactName": args.exactName,
         "id": args.id,
         "name": args.name,
         "secureUrls": args.secureUrls,
@@ -206,13 +269,17 @@ export interface GetNotificationDestinationOutputArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
+     * The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
+     *
+     * Optional:
+     */
+    exactName?: pulumi.Input<string>;
+    /**
      * The id of the notification destination in New Relic.
      */
     id?: pulumi.Input<string>;
     /**
-     * The name of the notification destination.
-     *
-     * Optional:
+     * The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
      */
     name?: pulumi.Input<string>;
     /**

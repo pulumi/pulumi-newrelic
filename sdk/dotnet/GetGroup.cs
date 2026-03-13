@@ -68,15 +68,15 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, fooGetGroup).Apply(values =&gt;
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     {
+        ///         Separator = ", ",
+        ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
+        ///     })).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
-        ///         var fooGetGroup = values.Item2;
-        ///         return length &gt; 0 ? Std.Index.Join.Invoke(new()
-        ///         {
-        ///             Separator = ", ",
-        ///             Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
-        ///         }).Result : "";
+        ///         var invoke = values.Item2;
+        ///         return length &gt; 0 ? invoke.Result : "";
         ///     });
         /// 
         /// });
@@ -142,15 +142,15 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, fooGetGroup).Apply(values =&gt;
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     {
+        ///         Separator = ", ",
+        ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
+        ///     })).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
-        ///         var fooGetGroup = values.Item2;
-        ///         return length &gt; 0 ? Std.Index.Join.Invoke(new()
-        ///         {
-        ///             Separator = ", ",
-        ///             Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
-        ///         }).Result : "";
+        ///         var invoke = values.Item2;
+        ///         return length &gt; 0 ? invoke.Result : "";
         ///     });
         /// 
         /// });
@@ -216,15 +216,15 @@ namespace Pulumi.NewRelic
         /// 
         ///     var id = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.Id);
         /// 
-        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, fooGetGroup).Apply(values =&gt;
+        ///     var userIds = Output.Tuple(fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds).Length, Std.Join.Invoke(new()
+        ///     {
+        ///         Separator = ", ",
+        ///         Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
+        ///     })).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
-        ///         var fooGetGroup = values.Item2;
-        ///         return length &gt; 0 ? Std.Index.Join.Invoke(new()
-        ///         {
-        ///             Separator = ", ",
-        ///             Input = fooGetGroup.Apply(getGroupResult =&gt; getGroupResult.UserIds),
-        ///         }).Result : "";
+        ///         var invoke = values.Item2;
+        ///         return length &gt; 0 ? invoke.Result : "";
         ///     });
         /// 
         /// });
