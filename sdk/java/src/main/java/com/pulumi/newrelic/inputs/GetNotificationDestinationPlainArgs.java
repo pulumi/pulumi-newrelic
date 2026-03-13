@@ -32,6 +32,25 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     }
 
     /**
+     * The exact name of the notification destination. Uses an **exact** match, so searching for &#34;foo&#34; would only match &#34;foo&#34;, not &#34;foobar&#34;.
+     * 
+     * Optional:
+     * 
+     */
+    @Import(name="exactName")
+    private @Nullable String exactName;
+
+    /**
+     * @return The exact name of the notification destination. Uses an **exact** match, so searching for &#34;foo&#34; would only match &#34;foo&#34;, not &#34;foobar&#34;.
+     * 
+     * Optional:
+     * 
+     */
+    public Optional<String> exactName() {
+        return Optional.ofNullable(this.exactName);
+    }
+
+    /**
      * The id of the notification destination in New Relic.
      * 
      */
@@ -47,18 +66,14 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * The name of the notification destination.
-     * 
-     * Optional:
+     * The name of the notification destination. Uses a **contains** match, so searching for &#34;foo&#34; would match &#34;foobar&#34;, &#34;myfoo&#34;, etc.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the notification destination.
-     * 
-     * Optional:
+     * @return The name of the notification destination. Uses a **contains** match, so searching for &#34;foo&#34; would match &#34;foobar&#34;, &#34;myfoo&#34;, etc.
      * 
      */
     public Optional<String> name() {
@@ -84,6 +99,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
 
     private GetNotificationDestinationPlainArgs(GetNotificationDestinationPlainArgs $) {
         this.accountId = $.accountId;
+        this.exactName = $.exactName;
         this.id = $.id;
         this.name = $.name;
         this.secureUrls = $.secureUrls;
@@ -119,6 +135,19 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         }
 
         /**
+         * @param exactName The exact name of the notification destination. Uses an **exact** match, so searching for &#34;foo&#34; would only match &#34;foo&#34;, not &#34;foobar&#34;.
+         * 
+         * Optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactName(@Nullable String exactName) {
+            $.exactName = exactName;
+            return this;
+        }
+
+        /**
          * @param id The id of the notification destination in New Relic.
          * 
          * @return builder
@@ -130,9 +159,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the notification destination.
-         * 
-         * Optional:
+         * @param name The name of the notification destination. Uses a **contains** match, so searching for &#34;foo&#34; would match &#34;foobar&#34;, &#34;myfoo&#34;, etc.
          * 
          * @return builder
          * 

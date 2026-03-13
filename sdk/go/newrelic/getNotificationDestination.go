@@ -57,7 +57,7 @@ import (
 //
 // ```
 //
-// ## Name Example Usage
+// ## Name Example Usage (Contains Match)
 //
 // ```go
 // package main
@@ -71,9 +71,55 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Data source
+//			// Data source - uses contains match
+//			// Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
 //			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
 //				Name: pulumi.StringRef("webhook-destination"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Resource
+//			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
+//				Name:          pulumi.String("webhook-example"),
+//				Type:          pulumi.String("WEBHOOK"),
+//				DestinationId: pulumi.String(foo.Id),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Label: pulumi.String("Payload Template"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Exact Name Example Usage (Exact Match)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Data source - uses exact match
+//			// Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//				ExactName: pulumi.StringRef("webhook-destination"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -114,11 +160,13 @@ func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotification
 type LookupNotificationDestinationArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *string `pulumi:"accountId"`
-	// The id of the notification destination in New Relic.
-	Id *string `pulumi:"id"`
-	// The name of the notification destination.
+	// The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
 	//
 	// Optional:
+	ExactName *string `pulumi:"exactName"`
+	// The id of the notification destination in New Relic.
+	Id *string `pulumi:"id"`
+	// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
 	Name *string `pulumi:"name"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
@@ -128,7 +176,8 @@ type LookupNotificationDestinationArgs struct {
 type LookupNotificationDestinationResult struct {
 	AccountId string `pulumi:"accountId"`
 	// An indication whether the notification destination is active or not.
-	Active bool `pulumi:"active"`
+	Active    bool    `pulumi:"active"`
+	ExactName *string `pulumi:"exactName"`
 	// The unique entity identifier of the destination in New Relic.
 	Guid string  `pulumi:"guid"`
 	Id   *string `pulumi:"id"`
@@ -157,11 +206,13 @@ func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotific
 type LookupNotificationDestinationOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The id of the notification destination in New Relic.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the notification destination.
+	// The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
 	//
 	// Optional:
+	ExactName pulumi.StringPtrInput `pulumi:"exactName"`
+	// The id of the notification destination in New Relic.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls GetNotificationDestinationSecureUrlArrayInput `pulumi:"secureUrls"`
@@ -193,6 +244,10 @@ func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.StringOutp
 // An indication whether the notification destination is active or not.
 func (o LookupNotificationDestinationResultOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+func (o LookupNotificationDestinationResultOutput) ExactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) *string { return v.ExactName }).(pulumi.StringPtrOutput)
 }
 
 // The unique entity identifier of the destination in New Relic.

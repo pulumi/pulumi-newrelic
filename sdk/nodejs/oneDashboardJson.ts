@@ -14,9 +14,9 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  * import * as std from "@pulumi/std";
  *
- * const foo = new newrelic.OneDashboardJson("foo", {json: std.index.file({
+ * const foo = new newrelic.OneDashboardJson("foo", {json: std.file({
  *     input: "dashboard.json",
- * }).result});
+ * }).then(invoke => invoke.result)});
  * ```
  *
  * ## Additional Examples

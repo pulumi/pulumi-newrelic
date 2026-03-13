@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Name Example Usage
+        /// ## Name Example Usage (Contains Match)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -63,10 +63,51 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source
+        ///     // Data source - uses contains match
+        ///     // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Exact Name Example Usage (Exact Match)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source - uses exact match
+        ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         ExactName = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
@@ -137,7 +178,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Name Example Usage
+        /// ## Name Example Usage (Contains Match)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -147,10 +188,51 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source
+        ///     // Data source - uses contains match
+        ///     // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Exact Name Example Usage (Exact Match)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source - uses exact match
+        ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         ExactName = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
@@ -221,7 +303,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Name Example Usage
+        /// ## Name Example Usage (Contains Match)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -231,10 +313,51 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source
+        ///     // Data source - uses contains match
+        ///     // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Name = "webhook-example",
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Exact Name Example Usage (Exact Match)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Data source - uses exact match
+        ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         ExactName = "webhook-destination",
         ///     });
         /// 
         ///     // Resource
@@ -274,15 +397,21 @@ namespace Pulumi.NewRelic
         public string? AccountId { get; set; }
 
         /// <summary>
+        /// The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
+        /// 
+        /// Optional:
+        /// </summary>
+        [Input("exactName")]
+        public string? ExactName { get; set; }
+
+        /// <summary>
         /// The id of the notification destination in New Relic.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the notification destination.
-        /// 
-        /// Optional:
+        /// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -314,15 +443,21 @@ namespace Pulumi.NewRelic
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
+        /// 
+        /// Optional:
+        /// </summary>
+        [Input("exactName")]
+        public Input<string>? ExactName { get; set; }
+
+        /// <summary>
         /// The id of the notification destination in New Relic.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the notification destination.
-        /// 
-        /// Optional:
+        /// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -354,6 +489,7 @@ namespace Pulumi.NewRelic
         /// An indication whether the notification destination is active or not.
         /// </summary>
         public readonly bool Active;
+        public readonly string? ExactName;
         /// <summary>
         /// The unique entity identifier of the destination in New Relic.
         /// </summary>
@@ -386,6 +522,8 @@ namespace Pulumi.NewRelic
 
             bool active,
 
+            string? exactName,
+
             string guid,
 
             string? id,
@@ -402,6 +540,7 @@ namespace Pulumi.NewRelic
         {
             AccountId = accountId;
             Active = active;
+            ExactName = exactName;
             Guid = guid;
             Id = id;
             Name = name;

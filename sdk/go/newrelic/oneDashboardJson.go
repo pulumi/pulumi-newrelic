@@ -29,14 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, map[string]interface{}{
-//				"input": "dashboard.json",
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "dashboard.json",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = newrelic.NewOneDashboardJson(ctx, "foo", &newrelic.OneDashboardJsonArgs{
-//				Json: invokeFile.Result,
+//				Json: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
