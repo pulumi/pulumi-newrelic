@@ -12,6 +12,12 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class OneDashboardPageWidgetLineGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested ChartStyles blocks below for details.
+        /// </summary>
+        [Input("chartStyles")]
+        public Input<Inputs.OneDashboardPageWidgetLineChartStylesGetArgs>? ChartStyles { get; set; }
+
         [Input("colors")]
         private InputList<Inputs.OneDashboardPageWidgetLineColorGetArgs>? _colors;
 

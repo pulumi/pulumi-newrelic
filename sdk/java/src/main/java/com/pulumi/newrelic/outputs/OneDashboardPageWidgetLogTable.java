@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLogTableChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLogTableColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLogTableDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLogTableInitialSorting;
@@ -22,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetLogTable {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetLogTableChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -110,6 +116,13 @@ public final class OneDashboardPageWidgetLogTable {
     private @Nullable Double yAxisLeftMin;
 
     private OneDashboardPageWidgetLogTable() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetLogTableChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -242,6 +255,7 @@ public final class OneDashboardPageWidgetLogTable {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetLogTableChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetLogTableColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetLogTableDataFormat> dataFormats;
@@ -263,6 +277,7 @@ public final class OneDashboardPageWidgetLogTable {
         public Builder() {}
         public Builder(OneDashboardPageWidgetLogTable defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -283,6 +298,12 @@ public final class OneDashboardPageWidgetLogTable {
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetLogTableChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetLogTableColor> colors) {
 
@@ -416,6 +437,7 @@ public final class OneDashboardPageWidgetLogTable {
         }
         public OneDashboardPageWidgetLogTable build() {
             final var _resultValue = new OneDashboardPageWidgetLogTable();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

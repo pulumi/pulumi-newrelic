@@ -6,6 +6,7 @@ package com.pulumi.newrelic.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBillboardBillboardSettings;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBillboardChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBillboardColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBillboardDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetBillboardInitialSorting;
@@ -28,6 +29,11 @@ public final class OneDashboardPageWidgetBillboard {
      * 
      */
     private @Nullable OneDashboardPageWidgetBillboardBillboardSettings billboardSettings;
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetBillboardChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -132,6 +138,13 @@ public final class OneDashboardPageWidgetBillboard {
      */
     public Optional<OneDashboardPageWidgetBillboardBillboardSettings> billboardSettings() {
         return Optional.ofNullable(this.billboardSettings);
+    }
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetBillboardChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
     }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -280,6 +293,7 @@ public final class OneDashboardPageWidgetBillboard {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable OneDashboardPageWidgetBillboardBillboardSettings billboardSettings;
+        private @Nullable OneDashboardPageWidgetBillboardChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetBillboardColor> colors;
         private Integer column;
         private @Nullable String critical;
@@ -304,6 +318,7 @@ public final class OneDashboardPageWidgetBillboard {
         public Builder(OneDashboardPageWidgetBillboard defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billboardSettings = defaults.billboardSettings;
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.critical = defaults.critical;
@@ -330,6 +345,12 @@ public final class OneDashboardPageWidgetBillboard {
         public Builder billboardSettings(@Nullable OneDashboardPageWidgetBillboardBillboardSettings billboardSettings) {
 
             this.billboardSettings = billboardSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetBillboardChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
             return this;
         }
         @CustomType.Setter
@@ -478,6 +499,7 @@ public final class OneDashboardPageWidgetBillboard {
         public OneDashboardPageWidgetBillboard build() {
             final var _resultValue = new OneDashboardPageWidgetBillboard();
             _resultValue.billboardSettings = billboardSettings;
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.critical = critical;

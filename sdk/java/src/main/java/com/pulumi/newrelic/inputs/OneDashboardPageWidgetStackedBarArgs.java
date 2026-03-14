@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetStackedBarInitialSortingArgs;
@@ -26,6 +27,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetStackedBarArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetStackedBarArgs Empty = new OneDashboardPageWidgetStackedBarArgs();
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetStackedBarChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetStackedBarChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -307,6 +323,7 @@ public final class OneDashboardPageWidgetStackedBarArgs extends com.pulumi.resou
     private OneDashboardPageWidgetStackedBarArgs() {}
 
     private OneDashboardPageWidgetStackedBarArgs(OneDashboardPageWidgetStackedBarArgs $) {
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.dataFormats = $.dataFormats;
@@ -344,6 +361,27 @@ public final class OneDashboardPageWidgetStackedBarArgs extends com.pulumi.resou
 
         public Builder(OneDashboardPageWidgetStackedBarArgs defaults) {
             $ = new OneDashboardPageWidgetStackedBarArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetStackedBarChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetStackedBarChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

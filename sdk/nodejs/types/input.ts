@@ -579,7 +579,7 @@ export interface OneDashboardPage {
      */
     name: pulumi.Input<string>;
     /**
-     * An area widget.
+     * Supports both `lineInterpolation` and `gradient`
      */
     widgetAreas?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetArea>[]>;
     /**
@@ -587,7 +587,7 @@ export interface OneDashboardPage {
      */
     widgetBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBar>[]>;
     /**
-     * A billboard widget.
+     * Supports `lineInterpolation` only
      */
     widgetBillboards?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboard>[]>;
     /**
@@ -603,7 +603,7 @@ export interface OneDashboardPage {
      */
     widgetHeatmaps?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmap>[]>;
     /**
-     * A histogram widget.
+     * Supports `gradient` only
      */
     widgetHistograms?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogram>[]>;
     /**
@@ -611,7 +611,7 @@ export interface OneDashboardPage {
      */
     widgetJsons?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJson>[]>;
     /**
-     * A line widget.
+     * Supports `lineInterpolation` only
      */
     widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[]>;
     /**
@@ -623,11 +623,11 @@ export interface OneDashboardPage {
      */
     widgetMarkdowns?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdown>[]>;
     /**
-     * A pie widget.
+     * Supports `gradient` only
      */
     widgetPies?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPy>[]>;
     /**
-     * A stacked bar widget.
+     * Supports `gradient` only
      */
     widgetStackedBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBar>[]>;
     /**
@@ -637,6 +637,10 @@ export interface OneDashboardPage {
 }
 
 export interface OneDashboardPageWidgetArea {
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetAreaChartStyles>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
@@ -710,6 +714,24 @@ export interface OneDashboardPageWidgetArea {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetAreaChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetAreaChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetAreaChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetAreaColor {
@@ -828,6 +850,10 @@ export interface OneDashboardPageWidgetAreaUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetBar {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBarChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColor>[]>;
@@ -904,6 +930,24 @@ export interface OneDashboardPageWidgetBar {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBarChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBarChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBarChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetBarColor {
@@ -1018,6 +1062,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
      */
     billboardSettings?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardBillboardSettings>;
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardChartStyles>;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
@@ -1153,6 +1201,24 @@ export interface OneDashboardPageWidgetBillboardBillboardSettingsVisual {
     display?: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetBillboardChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBillboardChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBillboardChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
+}
+
 export interface OneDashboardPageWidgetBillboardColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -1262,6 +1328,10 @@ export interface OneDashboardPageWidgetBillboardUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetBullet {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetBulletChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColor>[]>;
@@ -1334,6 +1404,24 @@ export interface OneDashboardPageWidgetBullet {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBulletChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetBulletChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBulletChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetBulletColor {
@@ -1445,6 +1533,10 @@ export interface OneDashboardPageWidgetBulletUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetFunnel {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColor>[]>;
@@ -1513,6 +1605,24 @@ export interface OneDashboardPageWidgetFunnel {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetFunnelChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetFunnelChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetFunnelChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetFunnelColor {
@@ -1624,6 +1734,10 @@ export interface OneDashboardPageWidgetFunnelUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetHeatmap {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColor>[]>;
@@ -1700,6 +1814,24 @@ export interface OneDashboardPageWidgetHeatmap {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetHeatmapChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetHeatmapChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHeatmapChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetHeatmapColor {
@@ -1811,6 +1943,10 @@ export interface OneDashboardPageWidgetHeatmapUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetHistogram {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColor>[]>;
@@ -1879,6 +2015,24 @@ export interface OneDashboardPageWidgetHistogram {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetHistogramChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetHistogramChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHistogramChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetHistogramColor {
@@ -1990,6 +2144,10 @@ export interface OneDashboardPageWidgetHistogramUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetJson {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetJsonChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColor>[]>;
@@ -2058,6 +2216,24 @@ export interface OneDashboardPageWidgetJson {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetJsonChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetJsonChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetJsonChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetJsonColor {
@@ -2169,6 +2345,10 @@ export interface OneDashboardPageWidgetJsonUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetLine {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetLineChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColor>[]>;
@@ -2257,6 +2437,24 @@ export interface OneDashboardPageWidgetLine {
      * (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
      */
     yAxisRight?: pulumi.Input<inputs.OneDashboardPageWidgetLineYAxisRight>;
+}
+
+export interface OneDashboardPageWidgetLineChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetLineChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLineChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetLineColor {
@@ -2413,6 +2611,10 @@ export interface OneDashboardPageWidgetLineYAxisRight {
 
 export interface OneDashboardPageWidgetLogTable {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColor>[]>;
@@ -2481,6 +2683,24 @@ export interface OneDashboardPageWidgetLogTable {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetLogTableChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetLogTableChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLogTableChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetLogTableColor {
@@ -2592,6 +2812,10 @@ export interface OneDashboardPageWidgetLogTableUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetMarkdown {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColor>[]>;
@@ -2660,6 +2884,24 @@ export interface OneDashboardPageWidgetMarkdown {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetMarkdownChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetMarkdownChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetMarkdownChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetMarkdownColor {
@@ -2760,6 +3002,10 @@ export interface OneDashboardPageWidgetMarkdownUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetPy {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetPyChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColor>[]>;
@@ -2836,6 +3082,24 @@ export interface OneDashboardPageWidgetPy {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetPyChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetPyChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetPyChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetPyColor {
@@ -2947,6 +3211,10 @@ export interface OneDashboardPageWidgetPyUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetStackedBar {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColor>[]>;
@@ -3019,6 +3287,24 @@ export interface OneDashboardPageWidgetStackedBar {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetStackedBarChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetStackedBarChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetStackedBarChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetStackedBarColor {
@@ -3137,6 +3423,10 @@ export interface OneDashboardPageWidgetStackedBarUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetTable {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: pulumi.Input<inputs.OneDashboardPageWidgetTableChartStyles>;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColor>[]>;
@@ -3217,6 +3507,24 @@ export interface OneDashboardPageWidgetTable {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetTableChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: pulumi.Input<inputs.OneDashboardPageWidgetTableChartStylesGradient>;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetTableChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: pulumi.Input<boolean>;
 }
 
 export interface OneDashboardPageWidgetTableColor {

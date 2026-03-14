@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetJsonChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetJsonColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetJsonDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetJsonInitialSorting;
@@ -22,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetJson {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetJsonChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -110,6 +116,13 @@ public final class OneDashboardPageWidgetJson {
     private @Nullable Double yAxisLeftMin;
 
     private OneDashboardPageWidgetJson() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetJsonChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -242,6 +255,7 @@ public final class OneDashboardPageWidgetJson {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetJsonChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetJsonColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetJsonDataFormat> dataFormats;
@@ -263,6 +277,7 @@ public final class OneDashboardPageWidgetJson {
         public Builder() {}
         public Builder(OneDashboardPageWidgetJson defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -283,6 +298,12 @@ public final class OneDashboardPageWidgetJson {
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetJsonChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetJsonColor> colors) {
 
@@ -416,6 +437,7 @@ public final class OneDashboardPageWidgetJson {
         }
         public OneDashboardPageWidgetJson build() {
             final var _resultValue = new OneDashboardPageWidgetJson();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

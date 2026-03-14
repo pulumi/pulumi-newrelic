@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardBillboardSettingsArgs;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBillboardInitialSortingArgs;
@@ -40,6 +41,21 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
      */
     public Optional<Output<OneDashboardPageWidgetBillboardBillboardSettingsArgs>> billboardSettings() {
         return Optional.ofNullable(this.billboardSettings);
+    }
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetBillboardChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetBillboardChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
     }
 
     /**
@@ -338,6 +354,7 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
 
     private OneDashboardPageWidgetBillboardArgs(OneDashboardPageWidgetBillboardArgs $) {
         this.billboardSettings = $.billboardSettings;
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.critical = $.critical;
@@ -397,6 +414,27 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
          */
         public Builder billboardSettings(OneDashboardPageWidgetBillboardBillboardSettingsArgs billboardSettings) {
             return billboardSettings(Output.of(billboardSettings));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetBillboardChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetBillboardChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

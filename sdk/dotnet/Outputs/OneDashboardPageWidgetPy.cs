@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetPy
     {
         /// <summary>
+        /// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested ChartStyles blocks below for details.
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetPyChartStyles? ChartStyles;
+        /// <summary>
         /// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetPyColor> Colors;
@@ -93,6 +97,8 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private OneDashboardPageWidgetPy(
+            Outputs.OneDashboardPageWidgetPyChartStyles? chartStyles,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetPyColor> colors,
 
             int column,
@@ -133,6 +139,7 @@ namespace Pulumi.NewRelic.Outputs
 
             double? yAxisLeftMin)
         {
+            ChartStyles = chartStyles;
             Colors = colors;
             Column = column;
             DataFormats = dataFormats;

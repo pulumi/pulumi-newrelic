@@ -1519,6 +1519,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1568,6 +1578,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1633,6 +1653,16 @@
                                                     }
                                                 }
                                             },
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1679,6 +1709,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1725,6 +1765,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1771,6 +1821,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1820,6 +1880,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1866,6 +1936,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1912,6 +1992,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -1974,6 +2064,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -2020,6 +2120,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -2063,6 +2173,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -2112,6 +2232,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -2161,6 +2291,16 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
+                                            "chart_styles": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "gradient": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "colors": {
                                                 "maxItemsOne": false,
                                                 "elem": {

@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBarChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBarColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBarDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetBarInitialSortingArgs;
@@ -25,6 +26,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetBarArgs Empty = new OneDashboardPageWidgetBarArgs();
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetBarChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetBarChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -321,6 +337,7 @@ public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.Re
     private OneDashboardPageWidgetBarArgs() {}
 
     private OneDashboardPageWidgetBarArgs(OneDashboardPageWidgetBarArgs $) {
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.dataFormats = $.dataFormats;
@@ -359,6 +376,27 @@ public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.Re
 
         public Builder(OneDashboardPageWidgetBarArgs defaults) {
             $ = new OneDashboardPageWidgetBarArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetBarChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetBarChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

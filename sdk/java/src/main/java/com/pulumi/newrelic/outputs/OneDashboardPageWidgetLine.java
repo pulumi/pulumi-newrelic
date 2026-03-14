@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetLineInitialSorting;
@@ -25,6 +26,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetLine {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetLineChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -138,6 +144,13 @@ public final class OneDashboardPageWidgetLine {
     private @Nullable OneDashboardPageWidgetLineYAxisRight yAxisRight;
 
     private OneDashboardPageWidgetLine() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetLineChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -305,6 +318,7 @@ public final class OneDashboardPageWidgetLine {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetLineChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetLineColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetLineDataFormat> dataFormats;
@@ -331,6 +345,7 @@ public final class OneDashboardPageWidgetLine {
         public Builder() {}
         public Builder(OneDashboardPageWidgetLine defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -356,6 +371,12 @@ public final class OneDashboardPageWidgetLine {
     	      this.yAxisRight = defaults.yAxisRight;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetLineChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetLineColor> colors) {
 
@@ -522,6 +543,7 @@ public final class OneDashboardPageWidgetLine {
         }
         public OneDashboardPageWidgetLine build() {
             final var _resultValue = new OneDashboardPageWidgetLine();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// An area widget.
+        /// Supports both `LineInterpolation` and `Gradient`
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetArea> WidgetAreas;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBar> WidgetBars;
         /// <summary>
-        /// A billboard widget.
+        /// Supports `LineInterpolation` only
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboard> WidgetBillboards;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHeatmap> WidgetHeatmaps;
         /// <summary>
-        /// A histogram widget.
+        /// Supports `Gradient` only
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> WidgetHistograms;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetJson> WidgetJsons;
         /// <summary>
-        /// A line widget.
+        /// Supports `LineInterpolation` only
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLine> WidgetLines;
         /// <summary>
@@ -70,11 +70,11 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> WidgetMarkdowns;
         /// <summary>
-        /// A pie widget.
+        /// Supports `Gradient` only
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetPy> WidgetPies;
         /// <summary>
-        /// A stacked bar widget.
+        /// Supports `Gradient` only
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetStackedBar> WidgetStackedBars;
         /// <summary>

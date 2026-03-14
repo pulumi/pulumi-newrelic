@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHistogramChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHistogramColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHistogramDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHistogramInitialSortingArgs;
@@ -25,6 +26,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetHistogramArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetHistogramArgs Empty = new OneDashboardPageWidgetHistogramArgs();
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetHistogramChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetHistogramChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -291,6 +307,7 @@ public final class OneDashboardPageWidgetHistogramArgs extends com.pulumi.resour
     private OneDashboardPageWidgetHistogramArgs() {}
 
     private OneDashboardPageWidgetHistogramArgs(OneDashboardPageWidgetHistogramArgs $) {
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.dataFormats = $.dataFormats;
@@ -327,6 +344,27 @@ public final class OneDashboardPageWidgetHistogramArgs extends com.pulumi.resour
 
         public Builder(OneDashboardPageWidgetHistogramArgs defaults) {
             $ = new OneDashboardPageWidgetHistogramArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetHistogramChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetHistogramChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

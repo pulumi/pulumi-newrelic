@@ -77,14 +77,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An area widget.
+     * Supports both `lineInterpolation` and `gradient`
      * 
      */
     @Import(name="widgetAreas")
     private @Nullable Output<List<OneDashboardPageWidgetAreaArgs>> widgetAreas;
 
     /**
-     * @return An area widget.
+     * @return Supports both `lineInterpolation` and `gradient`
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetAreaArgs>>> widgetAreas() {
@@ -107,14 +107,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A billboard widget.
+     * Supports `lineInterpolation` only
      * 
      */
     @Import(name="widgetBillboards")
     private @Nullable Output<List<OneDashboardPageWidgetBillboardArgs>> widgetBillboards;
 
     /**
-     * @return A billboard widget.
+     * @return Supports `lineInterpolation` only
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetBillboardArgs>>> widgetBillboards() {
@@ -167,14 +167,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A histogram widget.
+     * Supports `gradient` only
      * 
      */
     @Import(name="widgetHistograms")
     private @Nullable Output<List<OneDashboardPageWidgetHistogramArgs>> widgetHistograms;
 
     /**
-     * @return A histogram widget.
+     * @return Supports `gradient` only
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetHistogramArgs>>> widgetHistograms() {
@@ -197,14 +197,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A line widget.
+     * Supports `lineInterpolation` only
      * 
      */
     @Import(name="widgetLines")
     private @Nullable Output<List<OneDashboardPageWidgetLineArgs>> widgetLines;
 
     /**
-     * @return A line widget.
+     * @return Supports `lineInterpolation` only
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetLineArgs>>> widgetLines() {
@@ -242,14 +242,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A pie widget.
+     * Supports `gradient` only
      * 
      */
     @Import(name="widgetPies")
     private @Nullable Output<List<OneDashboardPageWidgetPyArgs>> widgetPies;
 
     /**
-     * @return A pie widget.
+     * @return Supports `gradient` only
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetPyArgs>>> widgetPies() {
@@ -257,14 +257,14 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A stacked bar widget.
+     * Supports `gradient` only
      * 
      */
     @Import(name="widgetStackedBars")
     private @Nullable Output<List<OneDashboardPageWidgetStackedBarArgs>> widgetStackedBars;
 
     /**
-     * @return A stacked bar widget.
+     * @return Supports `gradient` only
      * 
      */
     public Optional<Output<List<OneDashboardPageWidgetStackedBarArgs>>> widgetStackedBars() {
@@ -390,7 +390,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetAreas An area widget.
+         * @param widgetAreas Supports both `lineInterpolation` and `gradient`
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetAreas An area widget.
+         * @param widgetAreas Supports both `lineInterpolation` and `gradient`
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetAreas An area widget.
+         * @param widgetAreas Supports both `lineInterpolation` and `gradient`
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetBillboards A billboard widget.
+         * @param widgetBillboards Supports `lineInterpolation` only
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetBillboards A billboard widget.
+         * @param widgetBillboards Supports `lineInterpolation` only
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetBillboards A billboard widget.
+         * @param widgetBillboards Supports `lineInterpolation` only
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetHistograms A histogram widget.
+         * @param widgetHistograms Supports `gradient` only
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetHistograms A histogram widget.
+         * @param widgetHistograms Supports `gradient` only
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetHistograms A histogram widget.
+         * @param widgetHistograms Supports `gradient` only
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetLines A line widget.
+         * @param widgetLines Supports `lineInterpolation` only
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetLines A line widget.
+         * @param widgetLines Supports `lineInterpolation` only
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetLines A line widget.
+         * @param widgetLines Supports `lineInterpolation` only
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetPies A pie widget.
+         * @param widgetPies Supports `gradient` only
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetPies A pie widget.
+         * @param widgetPies Supports `gradient` only
          * 
          * @return builder
          * 
@@ -752,7 +752,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetPies A pie widget.
+         * @param widgetPies Supports `gradient` only
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetStackedBars A stacked bar widget.
+         * @param widgetStackedBars Supports `gradient` only
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetStackedBars A stacked bar widget.
+         * @param widgetStackedBars Supports `gradient` only
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class OneDashboardPageArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param widgetStackedBars A stacked bar widget.
+         * @param widgetStackedBars Supports `gradient` only
          * 
          * @return builder
          * 

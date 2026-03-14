@@ -18,6 +18,12 @@ namespace Pulumi.NewRelic.Inputs
         [Input("billboardSettings")]
         public Input<Inputs.OneDashboardPageWidgetBillboardBillboardSettingsArgs>? BillboardSettings { get; set; }
 
+        /// <summary>
+        /// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested ChartStyles blocks below for details.
+        /// </summary>
+        [Input("chartStyles")]
+        public Input<Inputs.OneDashboardPageWidgetBillboardChartStylesArgs>? ChartStyles { get; set; }
+
         [Input("colors")]
         private InputList<Inputs.OneDashboardPageWidgetBillboardColorArgs>? _colors;
 

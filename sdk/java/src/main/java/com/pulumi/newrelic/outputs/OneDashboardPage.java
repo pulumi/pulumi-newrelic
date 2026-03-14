@@ -43,7 +43,7 @@ public final class OneDashboardPage {
      */
     private String name;
     /**
-     * @return An area widget.
+     * @return Supports both `lineInterpolation` and `gradient`
      * 
      */
     private @Nullable List<OneDashboardPageWidgetArea> widgetAreas;
@@ -53,7 +53,7 @@ public final class OneDashboardPage {
      */
     private @Nullable List<OneDashboardPageWidgetBar> widgetBars;
     /**
-     * @return A billboard widget.
+     * @return Supports `lineInterpolation` only
      * 
      */
     private @Nullable List<OneDashboardPageWidgetBillboard> widgetBillboards;
@@ -73,7 +73,7 @@ public final class OneDashboardPage {
      */
     private @Nullable List<OneDashboardPageWidgetHeatmap> widgetHeatmaps;
     /**
-     * @return A histogram widget.
+     * @return Supports `gradient` only
      * 
      */
     private @Nullable List<OneDashboardPageWidgetHistogram> widgetHistograms;
@@ -83,7 +83,7 @@ public final class OneDashboardPage {
      */
     private @Nullable List<OneDashboardPageWidgetJson> widgetJsons;
     /**
-     * @return A line widget.
+     * @return Supports `lineInterpolation` only
      * 
      */
     private @Nullable List<OneDashboardPageWidgetLine> widgetLines;
@@ -98,12 +98,12 @@ public final class OneDashboardPage {
      */
     private @Nullable List<OneDashboardPageWidgetMarkdown> widgetMarkdowns;
     /**
-     * @return A pie widget.
+     * @return Supports `gradient` only
      * 
      */
     private @Nullable List<OneDashboardPageWidgetPy> widgetPies;
     /**
-     * @return A stacked bar widget.
+     * @return Supports `gradient` only
      * 
      */
     private @Nullable List<OneDashboardPageWidgetStackedBar> widgetStackedBars;
@@ -136,7 +136,7 @@ public final class OneDashboardPage {
         return this.name;
     }
     /**
-     * @return An area widget.
+     * @return Supports both `lineInterpolation` and `gradient`
      * 
      */
     public List<OneDashboardPageWidgetArea> widgetAreas() {
@@ -150,7 +150,7 @@ public final class OneDashboardPage {
         return this.widgetBars == null ? List.of() : this.widgetBars;
     }
     /**
-     * @return A billboard widget.
+     * @return Supports `lineInterpolation` only
      * 
      */
     public List<OneDashboardPageWidgetBillboard> widgetBillboards() {
@@ -178,7 +178,7 @@ public final class OneDashboardPage {
         return this.widgetHeatmaps == null ? List.of() : this.widgetHeatmaps;
     }
     /**
-     * @return A histogram widget.
+     * @return Supports `gradient` only
      * 
      */
     public List<OneDashboardPageWidgetHistogram> widgetHistograms() {
@@ -192,7 +192,7 @@ public final class OneDashboardPage {
         return this.widgetJsons == null ? List.of() : this.widgetJsons;
     }
     /**
-     * @return A line widget.
+     * @return Supports `lineInterpolation` only
      * 
      */
     public List<OneDashboardPageWidgetLine> widgetLines() {
@@ -213,14 +213,14 @@ public final class OneDashboardPage {
         return this.widgetMarkdowns == null ? List.of() : this.widgetMarkdowns;
     }
     /**
-     * @return A pie widget.
+     * @return Supports `gradient` only
      * 
      */
     public List<OneDashboardPageWidgetPy> widgetPies() {
         return this.widgetPies == null ? List.of() : this.widgetPies;
     }
     /**
-     * @return A stacked bar widget.
+     * @return Supports `gradient` only
      * 
      */
     public List<OneDashboardPageWidgetStackedBar> widgetStackedBars() {

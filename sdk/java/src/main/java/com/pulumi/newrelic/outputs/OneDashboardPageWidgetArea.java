@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetAreaInitialSorting;
@@ -23,6 +24,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetArea {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetAreaChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -116,6 +122,13 @@ public final class OneDashboardPageWidgetArea {
     private @Nullable Double yAxisLeftMin;
 
     private OneDashboardPageWidgetArea() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetAreaChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -255,6 +268,7 @@ public final class OneDashboardPageWidgetArea {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetAreaChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetAreaColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetAreaDataFormat> dataFormats;
@@ -277,6 +291,7 @@ public final class OneDashboardPageWidgetArea {
         public Builder() {}
         public Builder(OneDashboardPageWidgetArea defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -298,6 +313,12 @@ public final class OneDashboardPageWidgetArea {
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetAreaChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetAreaColor> colors) {
 
@@ -437,6 +458,7 @@ public final class OneDashboardPageWidgetArea {
         }
         public OneDashboardPageWidgetArea build() {
             final var _resultValue = new OneDashboardPageWidgetArea();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

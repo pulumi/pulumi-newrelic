@@ -34,7 +34,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetAreaArgs>? _widgetAreas;
 
         /// <summary>
-        /// An area widget.
+        /// Supports both `LineInterpolation` and `Gradient`
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetAreaArgs> WidgetAreas
         {
@@ -58,7 +58,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetBillboardArgs>? _widgetBillboards;
 
         /// <summary>
-        /// A billboard widget.
+        /// Supports `LineInterpolation` only
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBillboardArgs> WidgetBillboards
         {
@@ -106,7 +106,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetHistogramArgs>? _widgetHistograms;
 
         /// <summary>
-        /// A histogram widget.
+        /// Supports `Gradient` only
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHistogramArgs> WidgetHistograms
         {
@@ -130,7 +130,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetLineArgs>? _widgetLines;
 
         /// <summary>
-        /// A line widget.
+        /// Supports `LineInterpolation` only
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLineArgs> WidgetLines
         {
@@ -166,7 +166,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetPyArgs>? _widgetPies;
 
         /// <summary>
-        /// A pie widget.
+        /// Supports `Gradient` only
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetPyArgs> WidgetPies
         {
@@ -178,7 +178,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetStackedBarArgs>? _widgetStackedBars;
 
         /// <summary>
-        /// A stacked bar widget.
+        /// Supports `Gradient` only
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetStackedBarArgs> WidgetStackedBars
         {
