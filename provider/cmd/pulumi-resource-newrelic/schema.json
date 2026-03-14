@@ -3334,7 +3334,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetArea:OneDashboardPageWidgetArea"
                     },
-                    "description": "An area widget.\n"
+                    "description": "Supports both \u003cspan pulumi-lang-nodejs=\"`lineInterpolation`\" pulumi-lang-dotnet=\"`LineInterpolation`\" pulumi-lang-go=\"`lineInterpolation`\" pulumi-lang-python=\"`line_interpolation`\" pulumi-lang-yaml=\"`lineInterpolation`\" pulumi-lang-java=\"`lineInterpolation`\"\u003e`line_interpolation`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`gradient`\" pulumi-lang-dotnet=\"`Gradient`\" pulumi-lang-go=\"`gradient`\" pulumi-lang-python=\"`gradient`\" pulumi-lang-yaml=\"`gradient`\" pulumi-lang-java=\"`gradient`\"\u003e`gradient`\u003c/span\u003e\n"
                 },
                 "widgetBars": {
                     "type": "array",
@@ -3348,7 +3348,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboard:OneDashboardPageWidgetBillboard"
                     },
-                    "description": "A billboard widget.\n"
+                    "description": "Supports \u003cspan pulumi-lang-nodejs=\"`lineInterpolation`\" pulumi-lang-dotnet=\"`LineInterpolation`\" pulumi-lang-go=\"`lineInterpolation`\" pulumi-lang-python=\"`line_interpolation`\" pulumi-lang-yaml=\"`lineInterpolation`\" pulumi-lang-java=\"`lineInterpolation`\"\u003e`line_interpolation`\u003c/span\u003e only\n"
                 },
                 "widgetBullets": {
                     "type": "array",
@@ -3376,7 +3376,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHistogram:OneDashboardPageWidgetHistogram"
                     },
-                    "description": "A histogram widget.\n"
+                    "description": "Supports \u003cspan pulumi-lang-nodejs=\"`gradient`\" pulumi-lang-dotnet=\"`Gradient`\" pulumi-lang-go=\"`gradient`\" pulumi-lang-python=\"`gradient`\" pulumi-lang-yaml=\"`gradient`\" pulumi-lang-java=\"`gradient`\"\u003e`gradient`\u003c/span\u003e only\n"
                 },
                 "widgetJsons": {
                     "type": "array",
@@ -3390,7 +3390,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLine:OneDashboardPageWidgetLine"
                     },
-                    "description": "A line widget.\n"
+                    "description": "Supports \u003cspan pulumi-lang-nodejs=\"`lineInterpolation`\" pulumi-lang-dotnet=\"`LineInterpolation`\" pulumi-lang-go=\"`lineInterpolation`\" pulumi-lang-python=\"`line_interpolation`\" pulumi-lang-yaml=\"`lineInterpolation`\" pulumi-lang-java=\"`lineInterpolation`\"\u003e`line_interpolation`\u003c/span\u003e only\n"
                 },
                 "widgetLogTables": {
                     "type": "array",
@@ -3411,14 +3411,14 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPy:OneDashboardPageWidgetPy"
                     },
-                    "description": "A pie widget.\n"
+                    "description": "Supports \u003cspan pulumi-lang-nodejs=\"`gradient`\" pulumi-lang-dotnet=\"`Gradient`\" pulumi-lang-go=\"`gradient`\" pulumi-lang-python=\"`gradient`\" pulumi-lang-yaml=\"`gradient`\" pulumi-lang-java=\"`gradient`\"\u003e`gradient`\u003c/span\u003e only\n"
                 },
                 "widgetStackedBars": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBar:OneDashboardPageWidgetStackedBar"
                     },
-                    "description": "A stacked bar widget.\n"
+                    "description": "Supports \u003cspan pulumi-lang-nodejs=\"`gradient`\" pulumi-lang-dotnet=\"`Gradient`\" pulumi-lang-go=\"`gradient`\" pulumi-lang-python=\"`gradient`\" pulumi-lang-yaml=\"`gradient`\" pulumi-lang-java=\"`gradient`\"\u003e`gradient`\u003c/span\u003e only\n"
                 },
                 "widgetTables": {
                     "type": "array",
@@ -3443,6 +3443,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetArea:OneDashboardPageWidgetArea": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaChartStyles:OneDashboardPageWidgetAreaChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -3552,6 +3556,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetAreaChartStyles:OneDashboardPageWidgetAreaChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaChartStylesGradient:OneDashboardPageWidgetAreaChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetAreaChartStylesGradient:OneDashboardPageWidgetAreaChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetAreaColor:OneDashboardPageWidgetAreaColor": {
             "properties": {
@@ -3720,6 +3749,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetBar:OneDashboardPageWidgetBar": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarChartStyles:OneDashboardPageWidgetBarChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -3837,6 +3870,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetBarChartStyles:OneDashboardPageWidgetBarChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarChartStylesGradient:OneDashboardPageWidgetBarChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetBarChartStylesGradient:OneDashboardPageWidgetBarChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetBarColor:OneDashboardPageWidgetBarColor": {
             "properties": {
@@ -3996,6 +4054,10 @@
                 "billboardSettings": {
                     "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardBillboardSettings:OneDashboardPageWidgetBillboardBillboardSettings",
                     "description": "(Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.\n"
+                },
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardChartStyles:OneDashboardPageWidgetBillboardChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
                 },
                 "colors": {
                     "type": "array",
@@ -4175,6 +4237,31 @@
             },
             "type": "object"
         },
+        "newrelic:index/OneDashboardPageWidgetBillboardChartStyles:OneDashboardPageWidgetBillboardChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardChartStylesGradient:OneDashboardPageWidgetBillboardChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboardChartStylesGradient:OneDashboardPageWidgetBillboardChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
+        },
         "newrelic:index/OneDashboardPageWidgetBillboardColor:OneDashboardPageWidgetBillboardColor": {
             "properties": {
                 "color": {
@@ -4330,6 +4417,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetBullet:OneDashboardPageWidgetBullet": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBulletChartStyles:OneDashboardPageWidgetBulletChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -4441,6 +4532,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetBulletChartStyles:OneDashboardPageWidgetBulletChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBulletChartStylesGradient:OneDashboardPageWidgetBulletChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetBulletChartStylesGradient:OneDashboardPageWidgetBulletChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetBulletColor:OneDashboardPageWidgetBulletColor": {
             "properties": {
@@ -4597,6 +4713,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetFunnel:OneDashboardPageWidgetFunnel": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetFunnelChartStyles:OneDashboardPageWidgetFunnelChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -4702,6 +4822,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetFunnelChartStyles:OneDashboardPageWidgetFunnelChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetFunnelChartStylesGradient:OneDashboardPageWidgetFunnelChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetFunnelChartStylesGradient:OneDashboardPageWidgetFunnelChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetFunnelColor:OneDashboardPageWidgetFunnelColor": {
             "properties": {
@@ -4858,6 +5003,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetHeatmap:OneDashboardPageWidgetHeatmap": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHeatmapChartStyles:OneDashboardPageWidgetHeatmapChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -4975,6 +5124,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetHeatmapChartStyles:OneDashboardPageWidgetHeatmapChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHeatmapChartStylesGradient:OneDashboardPageWidgetHeatmapChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetHeatmapChartStylesGradient:OneDashboardPageWidgetHeatmapChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetHeatmapColor:OneDashboardPageWidgetHeatmapColor": {
             "properties": {
@@ -5131,6 +5305,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetHistogram:OneDashboardPageWidgetHistogram": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHistogramChartStyles:OneDashboardPageWidgetHistogramChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -5236,6 +5414,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetHistogramChartStyles:OneDashboardPageWidgetHistogramChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHistogramChartStylesGradient:OneDashboardPageWidgetHistogramChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetHistogramChartStylesGradient:OneDashboardPageWidgetHistogramChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetHistogramColor:OneDashboardPageWidgetHistogramColor": {
             "properties": {
@@ -5392,6 +5595,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetJson:OneDashboardPageWidgetJson": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJsonChartStyles:OneDashboardPageWidgetJsonChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -5497,6 +5704,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetJsonChartStyles:OneDashboardPageWidgetJsonChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJsonChartStylesGradient:OneDashboardPageWidgetJsonChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetJsonChartStylesGradient:OneDashboardPageWidgetJsonChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetJsonColor:OneDashboardPageWidgetJsonColor": {
             "properties": {
@@ -5653,6 +5885,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetLine:OneDashboardPageWidgetLine": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineChartStyles:OneDashboardPageWidgetLineChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -5781,6 +6017,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetLineChartStyles:OneDashboardPageWidgetLineChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineChartStylesGradient:OneDashboardPageWidgetLineChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetLineChartStylesGradient:OneDashboardPageWidgetLineChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetLineColor:OneDashboardPageWidgetLineColor": {
             "properties": {
@@ -5994,6 +6255,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetLogTable:OneDashboardPageWidgetLogTable": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLogTableChartStyles:OneDashboardPageWidgetLogTableChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -6099,6 +6364,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetLogTableChartStyles:OneDashboardPageWidgetLogTableChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLogTableChartStylesGradient:OneDashboardPageWidgetLogTableChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetLogTableChartStylesGradient:OneDashboardPageWidgetLogTableChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetLogTableColor:OneDashboardPageWidgetLogTableColor": {
             "properties": {
@@ -6255,6 +6545,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetMarkdown:OneDashboardPageWidgetMarkdown": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetMarkdownChartStyles:OneDashboardPageWidgetMarkdownChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -6357,6 +6651,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetMarkdownChartStyles:OneDashboardPageWidgetMarkdownChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetMarkdownChartStylesGradient:OneDashboardPageWidgetMarkdownChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetMarkdownChartStylesGradient:OneDashboardPageWidgetMarkdownChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetMarkdownColor:OneDashboardPageWidgetMarkdownColor": {
             "properties": {
@@ -6489,6 +6808,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetPy:OneDashboardPageWidgetPy": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyChartStyles:OneDashboardPageWidgetPyChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -6606,6 +6929,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetPyChartStyles:OneDashboardPageWidgetPyChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyChartStylesGradient:OneDashboardPageWidgetPyChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetPyChartStylesGradient:OneDashboardPageWidgetPyChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetPyColor:OneDashboardPageWidgetPyColor": {
             "properties": {
@@ -6762,6 +7110,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetStackedBar:OneDashboardPageWidgetStackedBar": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBarChartStyles:OneDashboardPageWidgetStackedBarChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -6871,6 +7223,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetStackedBarChartStyles:OneDashboardPageWidgetStackedBarChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBarChartStylesGradient:OneDashboardPageWidgetStackedBarChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetStackedBarChartStylesGradient:OneDashboardPageWidgetStackedBarChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetStackedBarColor:OneDashboardPageWidgetStackedBarColor": {
             "properties": {
@@ -7039,6 +7416,10 @@
         },
         "newrelic:index/OneDashboardPageWidgetTable:OneDashboardPageWidgetTable": {
             "properties": {
+                "chartStyles": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableChartStyles:OneDashboardPageWidgetTableChartStyles",
+                    "description": "(Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested\u003cspan pulumi-lang-nodejs=\" chartStyles \" pulumi-lang-dotnet=\" ChartStyles \" pulumi-lang-go=\" chartStyles \" pulumi-lang-python=\" chart_styles \" pulumi-lang-yaml=\" chartStyles \" pulumi-lang-java=\" chartStyles \"\u003e chart_styles \u003c/span\u003eblocks below for details.\n"
+                },
                 "colors": {
                     "type": "array",
                     "items": {
@@ -7163,6 +7544,31 @@
                     ]
                 }
             }
+        },
+        "newrelic:index/OneDashboardPageWidgetTableChartStyles:OneDashboardPageWidgetTableChartStyles": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableChartStylesGradient:OneDashboardPageWidgetTableChartStylesGradient",
+                    "description": "(Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:\n"
+                },
+                "lineInterpolation": {
+                    "type": "string",
+                    "description": "(Optional) Controls how data points are connected in line/area charts. Valid values are: \u003cspan pulumi-lang-nodejs=\"`linear`\" pulumi-lang-dotnet=\"`Linear`\" pulumi-lang-go=\"`linear`\" pulumi-lang-python=\"`linear`\" pulumi-lang-yaml=\"`linear`\" pulumi-lang-java=\"`linear`\"\u003e`linear`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`smooth`\" pulumi-lang-dotnet=\"`Smooth`\" pulumi-lang-go=\"`smooth`\" pulumi-lang-python=\"`smooth`\" pulumi-lang-yaml=\"`smooth`\" pulumi-lang-java=\"`smooth`\"\u003e`smooth`\u003c/span\u003e, `stepBefore`, `stepAfter`\n"
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:index/OneDashboardPageWidgetTableChartStylesGradient:OneDashboardPageWidgetTableChartStylesGradient": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "(Required) Boolean value to enable or disable gradient effect.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
         },
         "newrelic:index/OneDashboardPageWidgetTableColor:OneDashboardPageWidgetTableColor": {
             "properties": {
