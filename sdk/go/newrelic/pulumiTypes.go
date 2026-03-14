@@ -4886,11 +4886,11 @@ type OneDashboardPage struct {
 	Guid *string `pulumi:"guid"`
 	// The title of the dashboard.
 	Name string `pulumi:"name"`
-	// An area widget.
+	// Supports both `lineInterpolation` and `gradient`
 	WidgetAreas []OneDashboardPageWidgetArea `pulumi:"widgetAreas"`
 	// A bar widget.
 	WidgetBars []OneDashboardPageWidgetBar `pulumi:"widgetBars"`
-	// A billboard widget.
+	// Supports `lineInterpolation` only
 	WidgetBillboards []OneDashboardPageWidgetBillboard `pulumi:"widgetBillboards"`
 	// A bullet widget.
 	WidgetBullets []OneDashboardPageWidgetBullet `pulumi:"widgetBullets"`
@@ -4898,19 +4898,19 @@ type OneDashboardPage struct {
 	WidgetFunnels []OneDashboardPageWidgetFunnel `pulumi:"widgetFunnels"`
 	// A heatmap widget.
 	WidgetHeatmaps []OneDashboardPageWidgetHeatmap `pulumi:"widgetHeatmaps"`
-	// A histogram widget.
+	// Supports `gradient` only
 	WidgetHistograms []OneDashboardPageWidgetHistogram `pulumi:"widgetHistograms"`
 	// A JSON widget.
 	WidgetJsons []OneDashboardPageWidgetJson `pulumi:"widgetJsons"`
-	// A line widget.
+	// Supports `lineInterpolation` only
 	WidgetLines []OneDashboardPageWidgetLine `pulumi:"widgetLines"`
 	// A log table widget.
 	WidgetLogTables []OneDashboardPageWidgetLogTable `pulumi:"widgetLogTables"`
 	// A markdown widget.
 	WidgetMarkdowns []OneDashboardPageWidgetMarkdown `pulumi:"widgetMarkdowns"`
-	// A pie widget.
+	// Supports `gradient` only
 	WidgetPies []OneDashboardPageWidgetPy `pulumi:"widgetPies"`
-	// A stacked bar widget.
+	// Supports `gradient` only
 	WidgetStackedBars []OneDashboardPageWidgetStackedBar `pulumi:"widgetStackedBars"`
 	// A table widget.
 	WidgetTables []OneDashboardPageWidgetTable `pulumi:"widgetTables"`
@@ -4934,11 +4934,11 @@ type OneDashboardPageArgs struct {
 	Guid pulumi.StringPtrInput `pulumi:"guid"`
 	// The title of the dashboard.
 	Name pulumi.StringInput `pulumi:"name"`
-	// An area widget.
+	// Supports both `lineInterpolation` and `gradient`
 	WidgetAreas OneDashboardPageWidgetAreaArrayInput `pulumi:"widgetAreas"`
 	// A bar widget.
 	WidgetBars OneDashboardPageWidgetBarArrayInput `pulumi:"widgetBars"`
-	// A billboard widget.
+	// Supports `lineInterpolation` only
 	WidgetBillboards OneDashboardPageWidgetBillboardArrayInput `pulumi:"widgetBillboards"`
 	// A bullet widget.
 	WidgetBullets OneDashboardPageWidgetBulletArrayInput `pulumi:"widgetBullets"`
@@ -4946,19 +4946,19 @@ type OneDashboardPageArgs struct {
 	WidgetFunnels OneDashboardPageWidgetFunnelArrayInput `pulumi:"widgetFunnels"`
 	// A heatmap widget.
 	WidgetHeatmaps OneDashboardPageWidgetHeatmapArrayInput `pulumi:"widgetHeatmaps"`
-	// A histogram widget.
+	// Supports `gradient` only
 	WidgetHistograms OneDashboardPageWidgetHistogramArrayInput `pulumi:"widgetHistograms"`
 	// A JSON widget.
 	WidgetJsons OneDashboardPageWidgetJsonArrayInput `pulumi:"widgetJsons"`
-	// A line widget.
+	// Supports `lineInterpolation` only
 	WidgetLines OneDashboardPageWidgetLineArrayInput `pulumi:"widgetLines"`
 	// A log table widget.
 	WidgetLogTables OneDashboardPageWidgetLogTableArrayInput `pulumi:"widgetLogTables"`
 	// A markdown widget.
 	WidgetMarkdowns OneDashboardPageWidgetMarkdownArrayInput `pulumi:"widgetMarkdowns"`
-	// A pie widget.
+	// Supports `gradient` only
 	WidgetPies OneDashboardPageWidgetPyArrayInput `pulumi:"widgetPies"`
-	// A stacked bar widget.
+	// Supports `gradient` only
 	WidgetStackedBars OneDashboardPageWidgetStackedBarArrayInput `pulumi:"widgetStackedBars"`
 	// A table widget.
 	WidgetTables OneDashboardPageWidgetTableArrayInput `pulumi:"widgetTables"`
@@ -5030,7 +5030,7 @@ func (o OneDashboardPageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPage) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An area widget.
+// Supports both `lineInterpolation` and `gradient`
 func (o OneDashboardPageOutput) WidgetAreas() OneDashboardPageWidgetAreaArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetArea { return v.WidgetAreas }).(OneDashboardPageWidgetAreaArrayOutput)
 }
@@ -5040,7 +5040,7 @@ func (o OneDashboardPageOutput) WidgetBars() OneDashboardPageWidgetBarArrayOutpu
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBar { return v.WidgetBars }).(OneDashboardPageWidgetBarArrayOutput)
 }
 
-// A billboard widget.
+// Supports `lineInterpolation` only
 func (o OneDashboardPageOutput) WidgetBillboards() OneDashboardPageWidgetBillboardArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBillboard { return v.WidgetBillboards }).(OneDashboardPageWidgetBillboardArrayOutput)
 }
@@ -5060,7 +5060,7 @@ func (o OneDashboardPageOutput) WidgetHeatmaps() OneDashboardPageWidgetHeatmapAr
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetHeatmap { return v.WidgetHeatmaps }).(OneDashboardPageWidgetHeatmapArrayOutput)
 }
 
-// A histogram widget.
+// Supports `gradient` only
 func (o OneDashboardPageOutput) WidgetHistograms() OneDashboardPageWidgetHistogramArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetHistogram { return v.WidgetHistograms }).(OneDashboardPageWidgetHistogramArrayOutput)
 }
@@ -5070,7 +5070,7 @@ func (o OneDashboardPageOutput) WidgetJsons() OneDashboardPageWidgetJsonArrayOut
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetJson { return v.WidgetJsons }).(OneDashboardPageWidgetJsonArrayOutput)
 }
 
-// A line widget.
+// Supports `lineInterpolation` only
 func (o OneDashboardPageOutput) WidgetLines() OneDashboardPageWidgetLineArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetLine { return v.WidgetLines }).(OneDashboardPageWidgetLineArrayOutput)
 }
@@ -5085,12 +5085,12 @@ func (o OneDashboardPageOutput) WidgetMarkdowns() OneDashboardPageWidgetMarkdown
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetMarkdown { return v.WidgetMarkdowns }).(OneDashboardPageWidgetMarkdownArrayOutput)
 }
 
-// A pie widget.
+// Supports `gradient` only
 func (o OneDashboardPageOutput) WidgetPies() OneDashboardPageWidgetPyArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetPy { return v.WidgetPies }).(OneDashboardPageWidgetPyArrayOutput)
 }
 
-// A stacked bar widget.
+// Supports `gradient` only
 func (o OneDashboardPageOutput) WidgetStackedBars() OneDashboardPageWidgetStackedBarArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetStackedBar { return v.WidgetStackedBars }).(OneDashboardPageWidgetStackedBarArrayOutput)
 }
@@ -5121,6 +5121,8 @@ func (o OneDashboardPageArrayOutput) Index(i pulumi.IntInput) OneDashboardPageOu
 }
 
 type OneDashboardPageWidgetArea struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetAreaChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetAreaColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -5172,6 +5174,8 @@ type OneDashboardPageWidgetAreaInput interface {
 }
 
 type OneDashboardPageWidgetAreaArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetAreaChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetAreaColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -5260,6 +5264,11 @@ func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutput() O
 
 func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) ChartStyles() OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *OneDashboardPageWidgetAreaChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetAreaChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -5374,6 +5383,301 @@ func (o OneDashboardPageWidgetAreaArrayOutput) Index(i pulumi.IntInput) OneDashb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetArea {
 		return vs[0].([]OneDashboardPageWidgetArea)[vs[1].(int)]
 	}).(OneDashboardPageWidgetAreaOutput)
+}
+
+type OneDashboardPageWidgetAreaChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetAreaChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetAreaChartStylesInput is an input type that accepts OneDashboardPageWidgetAreaChartStylesArgs and OneDashboardPageWidgetAreaChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaChartStylesInput` via:
+//
+//	OneDashboardPageWidgetAreaChartStylesArgs{...}
+type OneDashboardPageWidgetAreaChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaChartStylesOutput() OneDashboardPageWidgetAreaChartStylesOutput
+	ToOneDashboardPageWidgetAreaChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetAreaChartStylesOutput
+}
+
+type OneDashboardPageWidgetAreaChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetAreaChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetAreaChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesArgs) ToOneDashboardPageWidgetAreaChartStylesOutput() OneDashboardPageWidgetAreaChartStylesOutput {
+	return i.ToOneDashboardPageWidgetAreaChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesArgs) ToOneDashboardPageWidgetAreaChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesArgs) ToOneDashboardPageWidgetAreaChartStylesPtrOutput() OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesArgs) ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaChartStylesOutput).ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetAreaChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetAreaChartStylesArgs, OneDashboardPageWidgetAreaChartStylesPtr and OneDashboardPageWidgetAreaChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetAreaChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetAreaChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaChartStylesPtrOutput() OneDashboardPageWidgetAreaChartStylesPtrOutput
+	ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetAreaChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetAreaChartStylesPtrType OneDashboardPageWidgetAreaChartStylesArgs
+
+func OneDashboardPageWidgetAreaChartStylesPtr(v *OneDashboardPageWidgetAreaChartStylesArgs) OneDashboardPageWidgetAreaChartStylesPtrInput {
+	return (*oneDashboardPageWidgetAreaChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetAreaChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetAreaChartStylesPtrType) ToOneDashboardPageWidgetAreaChartStylesPtrOutput() OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetAreaChartStylesPtrType) ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesOutput) ToOneDashboardPageWidgetAreaChartStylesOutput() OneDashboardPageWidgetAreaChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesOutput) ToOneDashboardPageWidgetAreaChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesOutput) ToOneDashboardPageWidgetAreaChartStylesPtrOutput() OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesOutput) ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetAreaChartStyles) *OneDashboardPageWidgetAreaChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetAreaChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetAreaChartStylesOutput) Gradient() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaChartStyles) *OneDashboardPageWidgetAreaChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetAreaChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetAreaChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesPtrOutput) ToOneDashboardPageWidgetAreaChartStylesPtrOutput() OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesPtrOutput) ToOneDashboardPageWidgetAreaChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesPtrOutput) Elem() OneDashboardPageWidgetAreaChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaChartStyles) OneDashboardPageWidgetAreaChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetAreaChartStyles
+		return ret
+	}).(OneDashboardPageWidgetAreaChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetAreaChartStylesPtrOutput) Gradient() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaChartStyles) *OneDashboardPageWidgetAreaChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetAreaChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetAreaChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetAreaChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetAreaChartStylesGradientArgs and OneDashboardPageWidgetAreaChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetAreaChartStylesGradientArgs{...}
+type OneDashboardPageWidgetAreaChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaChartStylesGradientOutput() OneDashboardPageWidgetAreaChartStylesGradientOutput
+	ToOneDashboardPageWidgetAreaChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetAreaChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetAreaChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetAreaChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesGradientArgs) ToOneDashboardPageWidgetAreaChartStylesGradientOutput() OneDashboardPageWidgetAreaChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetAreaChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesGradientArgs) ToOneDashboardPageWidgetAreaChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesGradientArgs) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutput() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaChartStylesGradientArgs) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaChartStylesGradientOutput).ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetAreaChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetAreaChartStylesGradientArgs, OneDashboardPageWidgetAreaChartStylesGradientPtr and OneDashboardPageWidgetAreaChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetAreaChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetAreaChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutput() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetAreaChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetAreaChartStylesGradientPtrType OneDashboardPageWidgetAreaChartStylesGradientArgs
+
+func OneDashboardPageWidgetAreaChartStylesGradientPtr(v *OneDashboardPageWidgetAreaChartStylesGradientArgs) OneDashboardPageWidgetAreaChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetAreaChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetAreaChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetAreaChartStylesGradientPtrType) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutput() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetAreaChartStylesGradientPtrType) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientOutput) ToOneDashboardPageWidgetAreaChartStylesGradientOutput() OneDashboardPageWidgetAreaChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientOutput) ToOneDashboardPageWidgetAreaChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientOutput) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutput() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientOutput) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetAreaChartStylesGradient) *OneDashboardPageWidgetAreaChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetAreaChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetAreaChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetAreaChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetAreaChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientPtrOutput) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutput() OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientPtrOutput) ToOneDashboardPageWidgetAreaChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetAreaChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaChartStylesGradient) OneDashboardPageWidgetAreaChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetAreaChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetAreaChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetAreaChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetAreaChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetAreaColor struct {
@@ -6542,6 +6846,8 @@ func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) Index(i pulumi.
 }
 
 type OneDashboardPageWidgetBar struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetBarChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetBarColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -6595,6 +6901,8 @@ type OneDashboardPageWidgetBarInput interface {
 }
 
 type OneDashboardPageWidgetBarArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetBarChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetBarColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -6685,6 +6993,11 @@ func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutput() One
 
 func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) ChartStyles() OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *OneDashboardPageWidgetBarChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetBarChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -6804,6 +7117,301 @@ func (o OneDashboardPageWidgetBarArrayOutput) Index(i pulumi.IntInput) OneDashbo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBar {
 		return vs[0].([]OneDashboardPageWidgetBar)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBarOutput)
+}
+
+type OneDashboardPageWidgetBarChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetBarChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetBarChartStylesInput is an input type that accepts OneDashboardPageWidgetBarChartStylesArgs and OneDashboardPageWidgetBarChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarChartStylesInput` via:
+//
+//	OneDashboardPageWidgetBarChartStylesArgs{...}
+type OneDashboardPageWidgetBarChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarChartStylesOutput() OneDashboardPageWidgetBarChartStylesOutput
+	ToOneDashboardPageWidgetBarChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetBarChartStylesOutput
+}
+
+type OneDashboardPageWidgetBarChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetBarChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetBarChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarChartStylesArgs) ToOneDashboardPageWidgetBarChartStylesOutput() OneDashboardPageWidgetBarChartStylesOutput {
+	return i.ToOneDashboardPageWidgetBarChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarChartStylesArgs) ToOneDashboardPageWidgetBarChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetBarChartStylesArgs) ToOneDashboardPageWidgetBarChartStylesPtrOutput() OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarChartStylesArgs) ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarChartStylesOutput).ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBarChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetBarChartStylesArgs, OneDashboardPageWidgetBarChartStylesPtr and OneDashboardPageWidgetBarChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetBarChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBarChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarChartStylesPtrOutput() OneDashboardPageWidgetBarChartStylesPtrOutput
+	ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetBarChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetBarChartStylesPtrType OneDashboardPageWidgetBarChartStylesArgs
+
+func OneDashboardPageWidgetBarChartStylesPtr(v *OneDashboardPageWidgetBarChartStylesArgs) OneDashboardPageWidgetBarChartStylesPtrInput {
+	return (*oneDashboardPageWidgetBarChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBarChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBarChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBarChartStylesPtrType) ToOneDashboardPageWidgetBarChartStylesPtrOutput() OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBarChartStylesPtrType) ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetBarChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarChartStylesOutput) ToOneDashboardPageWidgetBarChartStylesOutput() OneDashboardPageWidgetBarChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesOutput) ToOneDashboardPageWidgetBarChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesOutput) ToOneDashboardPageWidgetBarChartStylesPtrOutput() OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBarChartStylesOutput) ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBarChartStyles) *OneDashboardPageWidgetBarChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetBarChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetBarChartStylesOutput) Gradient() OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarChartStyles) *OneDashboardPageWidgetBarChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetBarChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetBarChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBarChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBarChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarChartStylesPtrOutput) ToOneDashboardPageWidgetBarChartStylesPtrOutput() OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesPtrOutput) ToOneDashboardPageWidgetBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesPtrOutput) Elem() OneDashboardPageWidgetBarChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarChartStyles) OneDashboardPageWidgetBarChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBarChartStyles
+		return ret
+	}).(OneDashboardPageWidgetBarChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetBarChartStylesPtrOutput) Gradient() OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarChartStyles) *OneDashboardPageWidgetBarChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetBarChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetBarChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBarChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetBarChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetBarChartStylesGradientArgs and OneDashboardPageWidgetBarChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetBarChartStylesGradientArgs{...}
+type OneDashboardPageWidgetBarChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarChartStylesGradientOutput() OneDashboardPageWidgetBarChartStylesGradientOutput
+	ToOneDashboardPageWidgetBarChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetBarChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetBarChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetBarChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarChartStylesGradientArgs) ToOneDashboardPageWidgetBarChartStylesGradientOutput() OneDashboardPageWidgetBarChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetBarChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarChartStylesGradientArgs) ToOneDashboardPageWidgetBarChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetBarChartStylesGradientArgs) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutput() OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarChartStylesGradientArgs) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarChartStylesGradientOutput).ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBarChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetBarChartStylesGradientArgs, OneDashboardPageWidgetBarChartStylesGradientPtr and OneDashboardPageWidgetBarChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetBarChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBarChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarChartStylesGradientPtrOutput() OneDashboardPageWidgetBarChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetBarChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetBarChartStylesGradientPtrType OneDashboardPageWidgetBarChartStylesGradientArgs
+
+func OneDashboardPageWidgetBarChartStylesGradientPtr(v *OneDashboardPageWidgetBarChartStylesGradientArgs) OneDashboardPageWidgetBarChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetBarChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBarChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBarChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBarChartStylesGradientPtrType) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutput() OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBarChartStylesGradientPtrType) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetBarChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientOutput) ToOneDashboardPageWidgetBarChartStylesGradientOutput() OneDashboardPageWidgetBarChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientOutput) ToOneDashboardPageWidgetBarChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientOutput) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutput() OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientOutput) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBarChartStylesGradient) *OneDashboardPageWidgetBarChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetBarChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetBarChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetBarChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBarChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientPtrOutput) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutput() OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientPtrOutput) ToOneDashboardPageWidgetBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetBarChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarChartStylesGradient) OneDashboardPageWidgetBarChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBarChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetBarChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetBarChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBarChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetBarColor struct {
@@ -7837,6 +8445,8 @@ func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) Index(i pulumi.I
 type OneDashboardPageWidgetBillboard struct {
 	// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
 	BillboardSettings *OneDashboardPageWidgetBillboardBillboardSettings `pulumi:"billboardSettings"`
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetBillboardChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetBillboardColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -7892,6 +8502,8 @@ type OneDashboardPageWidgetBillboardInput interface {
 type OneDashboardPageWidgetBillboardArgs struct {
 	// (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
 	BillboardSettings OneDashboardPageWidgetBillboardBillboardSettingsPtrInput `pulumi:"billboardSettings"`
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetBillboardChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetBillboardColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -7989,6 +8601,13 @@ func (o OneDashboardPageWidgetBillboardOutput) BillboardSettings() OneDashboardP
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *OneDashboardPageWidgetBillboardBillboardSettings {
 		return v.BillboardSettings
 	}).(OneDashboardPageWidgetBillboardBillboardSettingsPtrOutput)
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) ChartStyles() OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *OneDashboardPageWidgetBillboardChartStyles {
+		return v.ChartStyles
+	}).(OneDashboardPageWidgetBillboardChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -8803,6 +9422,301 @@ func (o OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput) Display
 		}
 		return v.Display
 	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetBillboardChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetBillboardChartStylesInput is an input type that accepts OneDashboardPageWidgetBillboardChartStylesArgs and OneDashboardPageWidgetBillboardChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardChartStylesInput` via:
+//
+//	OneDashboardPageWidgetBillboardChartStylesArgs{...}
+type OneDashboardPageWidgetBillboardChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardChartStylesOutput() OneDashboardPageWidgetBillboardChartStylesOutput
+	ToOneDashboardPageWidgetBillboardChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetBillboardChartStylesOutput
+}
+
+type OneDashboardPageWidgetBillboardChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetBillboardChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetBillboardChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesArgs) ToOneDashboardPageWidgetBillboardChartStylesOutput() OneDashboardPageWidgetBillboardChartStylesOutput {
+	return i.ToOneDashboardPageWidgetBillboardChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesArgs) ToOneDashboardPageWidgetBillboardChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesArgs) ToOneDashboardPageWidgetBillboardChartStylesPtrOutput() OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesArgs) ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardChartStylesOutput).ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetBillboardChartStylesArgs, OneDashboardPageWidgetBillboardChartStylesPtr and OneDashboardPageWidgetBillboardChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardChartStylesPtrOutput() OneDashboardPageWidgetBillboardChartStylesPtrOutput
+	ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardChartStylesPtrType OneDashboardPageWidgetBillboardChartStylesArgs
+
+func OneDashboardPageWidgetBillboardChartStylesPtr(v *OneDashboardPageWidgetBillboardChartStylesArgs) OneDashboardPageWidgetBillboardChartStylesPtrInput {
+	return (*oneDashboardPageWidgetBillboardChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardChartStylesPtrType) ToOneDashboardPageWidgetBillboardChartStylesPtrOutput() OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardChartStylesPtrType) ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesOutput) ToOneDashboardPageWidgetBillboardChartStylesOutput() OneDashboardPageWidgetBillboardChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesOutput) ToOneDashboardPageWidgetBillboardChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesOutput) ToOneDashboardPageWidgetBillboardChartStylesPtrOutput() OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesOutput) ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardChartStyles) *OneDashboardPageWidgetBillboardChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetBillboardChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetBillboardChartStylesOutput) Gradient() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardChartStyles) *OneDashboardPageWidgetBillboardChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetBillboardChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesPtrOutput) ToOneDashboardPageWidgetBillboardChartStylesPtrOutput() OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesPtrOutput) ToOneDashboardPageWidgetBillboardChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesPtrOutput) Elem() OneDashboardPageWidgetBillboardChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardChartStyles) OneDashboardPageWidgetBillboardChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardChartStyles
+		return ret
+	}).(OneDashboardPageWidgetBillboardChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetBillboardChartStylesPtrOutput) Gradient() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardChartStyles) *OneDashboardPageWidgetBillboardChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetBillboardChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetBillboardChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetBillboardChartStylesGradientArgs and OneDashboardPageWidgetBillboardChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetBillboardChartStylesGradientArgs{...}
+type OneDashboardPageWidgetBillboardChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardChartStylesGradientOutput() OneDashboardPageWidgetBillboardChartStylesGradientOutput
+	ToOneDashboardPageWidgetBillboardChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetBillboardChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetBillboardChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetBillboardChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesGradientArgs) ToOneDashboardPageWidgetBillboardChartStylesGradientOutput() OneDashboardPageWidgetBillboardChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetBillboardChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesGradientArgs) ToOneDashboardPageWidgetBillboardChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesGradientArgs) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutput() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardChartStylesGradientArgs) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardChartStylesGradientOutput).ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBillboardChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetBillboardChartStylesGradientArgs, OneDashboardPageWidgetBillboardChartStylesGradientPtr and OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetBillboardChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBillboardChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutput() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetBillboardChartStylesGradientPtrType OneDashboardPageWidgetBillboardChartStylesGradientArgs
+
+func OneDashboardPageWidgetBillboardChartStylesGradientPtr(v *OneDashboardPageWidgetBillboardChartStylesGradientArgs) OneDashboardPageWidgetBillboardChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetBillboardChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBillboardChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBillboardChartStylesGradientPtrType) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutput() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBillboardChartStylesGradientPtrType) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientOutput) ToOneDashboardPageWidgetBillboardChartStylesGradientOutput() OneDashboardPageWidgetBillboardChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientOutput) ToOneDashboardPageWidgetBillboardChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientOutput) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutput() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientOutput) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBillboardChartStylesGradient) *OneDashboardPageWidgetBillboardChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetBillboardChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBillboardChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutput() OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput) ToOneDashboardPageWidgetBillboardChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetBillboardChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardChartStylesGradient) OneDashboardPageWidgetBillboardChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBillboardChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetBillboardChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBillboardChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetBillboardColor struct {
@@ -9834,6 +10748,8 @@ func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) Index(i pu
 }
 
 type OneDashboardPageWidgetBullet struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetBulletChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetBulletColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -9885,6 +10801,8 @@ type OneDashboardPageWidgetBulletInput interface {
 }
 
 type OneDashboardPageWidgetBulletArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetBulletChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetBulletColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -9973,6 +10891,11 @@ func (o OneDashboardPageWidgetBulletOutput) ToOneDashboardPageWidgetBulletOutput
 
 func (o OneDashboardPageWidgetBulletOutput) ToOneDashboardPageWidgetBulletOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetBulletOutput) ChartStyles() OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *OneDashboardPageWidgetBulletChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetBulletChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -10089,6 +11012,301 @@ func (o OneDashboardPageWidgetBulletArrayOutput) Index(i pulumi.IntInput) OneDas
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBullet {
 		return vs[0].([]OneDashboardPageWidgetBullet)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBulletOutput)
+}
+
+type OneDashboardPageWidgetBulletChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetBulletChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetBulletChartStylesInput is an input type that accepts OneDashboardPageWidgetBulletChartStylesArgs and OneDashboardPageWidgetBulletChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletChartStylesInput` via:
+//
+//	OneDashboardPageWidgetBulletChartStylesArgs{...}
+type OneDashboardPageWidgetBulletChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletChartStylesOutput() OneDashboardPageWidgetBulletChartStylesOutput
+	ToOneDashboardPageWidgetBulletChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetBulletChartStylesOutput
+}
+
+type OneDashboardPageWidgetBulletChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetBulletChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetBulletChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesArgs) ToOneDashboardPageWidgetBulletChartStylesOutput() OneDashboardPageWidgetBulletChartStylesOutput {
+	return i.ToOneDashboardPageWidgetBulletChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesArgs) ToOneDashboardPageWidgetBulletChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesArgs) ToOneDashboardPageWidgetBulletChartStylesPtrOutput() OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesArgs) ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletChartStylesOutput).ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBulletChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetBulletChartStylesArgs, OneDashboardPageWidgetBulletChartStylesPtr and OneDashboardPageWidgetBulletChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetBulletChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBulletChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletChartStylesPtrOutput() OneDashboardPageWidgetBulletChartStylesPtrOutput
+	ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetBulletChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetBulletChartStylesPtrType OneDashboardPageWidgetBulletChartStylesArgs
+
+func OneDashboardPageWidgetBulletChartStylesPtr(v *OneDashboardPageWidgetBulletChartStylesArgs) OneDashboardPageWidgetBulletChartStylesPtrInput {
+	return (*oneDashboardPageWidgetBulletChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBulletChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBulletChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBulletChartStylesPtrType) ToOneDashboardPageWidgetBulletChartStylesPtrOutput() OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBulletChartStylesPtrType) ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesOutput) ToOneDashboardPageWidgetBulletChartStylesOutput() OneDashboardPageWidgetBulletChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesOutput) ToOneDashboardPageWidgetBulletChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesOutput) ToOneDashboardPageWidgetBulletChartStylesPtrOutput() OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesOutput) ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBulletChartStyles) *OneDashboardPageWidgetBulletChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetBulletChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetBulletChartStylesOutput) Gradient() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletChartStyles) *OneDashboardPageWidgetBulletChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetBulletChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetBulletChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBulletChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesPtrOutput) ToOneDashboardPageWidgetBulletChartStylesPtrOutput() OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesPtrOutput) ToOneDashboardPageWidgetBulletChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesPtrOutput) Elem() OneDashboardPageWidgetBulletChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletChartStyles) OneDashboardPageWidgetBulletChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBulletChartStyles
+		return ret
+	}).(OneDashboardPageWidgetBulletChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetBulletChartStylesPtrOutput) Gradient() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletChartStyles) *OneDashboardPageWidgetBulletChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetBulletChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetBulletChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetBulletChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetBulletChartStylesGradientArgs and OneDashboardPageWidgetBulletChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetBulletChartStylesGradientArgs{...}
+type OneDashboardPageWidgetBulletChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletChartStylesGradientOutput() OneDashboardPageWidgetBulletChartStylesGradientOutput
+	ToOneDashboardPageWidgetBulletChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetBulletChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetBulletChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetBulletChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesGradientArgs) ToOneDashboardPageWidgetBulletChartStylesGradientOutput() OneDashboardPageWidgetBulletChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetBulletChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesGradientArgs) ToOneDashboardPageWidgetBulletChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesGradientArgs) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutput() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletChartStylesGradientArgs) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletChartStylesGradientOutput).ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetBulletChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetBulletChartStylesGradientArgs, OneDashboardPageWidgetBulletChartStylesGradientPtr and OneDashboardPageWidgetBulletChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetBulletChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetBulletChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutput() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetBulletChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetBulletChartStylesGradientPtrType OneDashboardPageWidgetBulletChartStylesGradientArgs
+
+func OneDashboardPageWidgetBulletChartStylesGradientPtr(v *OneDashboardPageWidgetBulletChartStylesGradientArgs) OneDashboardPageWidgetBulletChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetBulletChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetBulletChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBulletChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetBulletChartStylesGradientPtrType) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutput() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetBulletChartStylesGradientPtrType) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientOutput) ToOneDashboardPageWidgetBulletChartStylesGradientOutput() OneDashboardPageWidgetBulletChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientOutput) ToOneDashboardPageWidgetBulletChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientOutput) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutput() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientOutput) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetBulletChartStylesGradient) *OneDashboardPageWidgetBulletChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetBulletChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetBulletChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetBulletChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetBulletChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientPtrOutput) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutput() OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientPtrOutput) ToOneDashboardPageWidgetBulletChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetBulletChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletChartStylesGradient) OneDashboardPageWidgetBulletChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetBulletChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetBulletChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetBulletChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetBulletChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetBulletColor struct {
@@ -11120,6 +12338,8 @@ func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) Index(i pulum
 }
 
 type OneDashboardPageWidgetFunnel struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetFunnelChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetFunnelColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -11169,6 +12389,8 @@ type OneDashboardPageWidgetFunnelInput interface {
 }
 
 type OneDashboardPageWidgetFunnelArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetFunnelChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetFunnelColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -11255,6 +12477,11 @@ func (o OneDashboardPageWidgetFunnelOutput) ToOneDashboardPageWidgetFunnelOutput
 
 func (o OneDashboardPageWidgetFunnelOutput) ToOneDashboardPageWidgetFunnelOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetFunnelOutput) ChartStyles() OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *OneDashboardPageWidgetFunnelChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetFunnelChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -11366,6 +12593,301 @@ func (o OneDashboardPageWidgetFunnelArrayOutput) Index(i pulumi.IntInput) OneDas
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnel {
 		return vs[0].([]OneDashboardPageWidgetFunnel)[vs[1].(int)]
 	}).(OneDashboardPageWidgetFunnelOutput)
+}
+
+type OneDashboardPageWidgetFunnelChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetFunnelChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetFunnelChartStylesInput is an input type that accepts OneDashboardPageWidgetFunnelChartStylesArgs and OneDashboardPageWidgetFunnelChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelChartStylesInput` via:
+//
+//	OneDashboardPageWidgetFunnelChartStylesArgs{...}
+type OneDashboardPageWidgetFunnelChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelChartStylesOutput() OneDashboardPageWidgetFunnelChartStylesOutput
+	ToOneDashboardPageWidgetFunnelChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetFunnelChartStylesOutput
+}
+
+type OneDashboardPageWidgetFunnelChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetFunnelChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetFunnelChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesArgs) ToOneDashboardPageWidgetFunnelChartStylesOutput() OneDashboardPageWidgetFunnelChartStylesOutput {
+	return i.ToOneDashboardPageWidgetFunnelChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesArgs) ToOneDashboardPageWidgetFunnelChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesArgs) ToOneDashboardPageWidgetFunnelChartStylesPtrOutput() OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesArgs) ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelChartStylesOutput).ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetFunnelChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetFunnelChartStylesArgs, OneDashboardPageWidgetFunnelChartStylesPtr and OneDashboardPageWidgetFunnelChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetFunnelChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetFunnelChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelChartStylesPtrOutput() OneDashboardPageWidgetFunnelChartStylesPtrOutput
+	ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetFunnelChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetFunnelChartStylesPtrType OneDashboardPageWidgetFunnelChartStylesArgs
+
+func OneDashboardPageWidgetFunnelChartStylesPtr(v *OneDashboardPageWidgetFunnelChartStylesArgs) OneDashboardPageWidgetFunnelChartStylesPtrInput {
+	return (*oneDashboardPageWidgetFunnelChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetFunnelChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetFunnelChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetFunnelChartStylesPtrType) ToOneDashboardPageWidgetFunnelChartStylesPtrOutput() OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetFunnelChartStylesPtrType) ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesOutput) ToOneDashboardPageWidgetFunnelChartStylesOutput() OneDashboardPageWidgetFunnelChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesOutput) ToOneDashboardPageWidgetFunnelChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesOutput) ToOneDashboardPageWidgetFunnelChartStylesPtrOutput() OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesOutput) ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetFunnelChartStyles) *OneDashboardPageWidgetFunnelChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetFunnelChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetFunnelChartStylesOutput) Gradient() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelChartStyles) *OneDashboardPageWidgetFunnelChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetFunnelChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetFunnelChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesPtrOutput) ToOneDashboardPageWidgetFunnelChartStylesPtrOutput() OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesPtrOutput) ToOneDashboardPageWidgetFunnelChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesPtrOutput) Elem() OneDashboardPageWidgetFunnelChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelChartStyles) OneDashboardPageWidgetFunnelChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetFunnelChartStyles
+		return ret
+	}).(OneDashboardPageWidgetFunnelChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetFunnelChartStylesPtrOutput) Gradient() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelChartStyles) *OneDashboardPageWidgetFunnelChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetFunnelChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetFunnelChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetFunnelChartStylesGradientArgs and OneDashboardPageWidgetFunnelChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetFunnelChartStylesGradientArgs{...}
+type OneDashboardPageWidgetFunnelChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelChartStylesGradientOutput() OneDashboardPageWidgetFunnelChartStylesGradientOutput
+	ToOneDashboardPageWidgetFunnelChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetFunnelChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetFunnelChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetFunnelChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesGradientArgs) ToOneDashboardPageWidgetFunnelChartStylesGradientOutput() OneDashboardPageWidgetFunnelChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetFunnelChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesGradientArgs) ToOneDashboardPageWidgetFunnelChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesGradientArgs) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutput() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelChartStylesGradientArgs) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelChartStylesGradientOutput).ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetFunnelChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetFunnelChartStylesGradientArgs, OneDashboardPageWidgetFunnelChartStylesGradientPtr and OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetFunnelChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetFunnelChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutput() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetFunnelChartStylesGradientPtrType OneDashboardPageWidgetFunnelChartStylesGradientArgs
+
+func OneDashboardPageWidgetFunnelChartStylesGradientPtr(v *OneDashboardPageWidgetFunnelChartStylesGradientArgs) OneDashboardPageWidgetFunnelChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetFunnelChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetFunnelChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetFunnelChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetFunnelChartStylesGradientPtrType) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutput() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetFunnelChartStylesGradientPtrType) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientOutput) ToOneDashboardPageWidgetFunnelChartStylesGradientOutput() OneDashboardPageWidgetFunnelChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientOutput) ToOneDashboardPageWidgetFunnelChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientOutput) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutput() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientOutput) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetFunnelChartStylesGradient) *OneDashboardPageWidgetFunnelChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetFunnelChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetFunnelChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutput() OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput) ToOneDashboardPageWidgetFunnelChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetFunnelChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelChartStylesGradient) OneDashboardPageWidgetFunnelChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetFunnelChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetFunnelChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetFunnelChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetFunnelColor struct {
@@ -12397,6 +13919,8 @@ func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) Index(i pulum
 }
 
 type OneDashboardPageWidgetHeatmap struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetHeatmapChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetHeatmapColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -12450,6 +13974,8 @@ type OneDashboardPageWidgetHeatmapInput interface {
 }
 
 type OneDashboardPageWidgetHeatmapArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetHeatmapChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetHeatmapColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -12540,6 +14066,11 @@ func (o OneDashboardPageWidgetHeatmapOutput) ToOneDashboardPageWidgetHeatmapOutp
 
 func (o OneDashboardPageWidgetHeatmapOutput) ToOneDashboardPageWidgetHeatmapOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetHeatmapOutput) ChartStyles() OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *OneDashboardPageWidgetHeatmapChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetHeatmapChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -12661,6 +14192,301 @@ func (o OneDashboardPageWidgetHeatmapArrayOutput) Index(i pulumi.IntInput) OneDa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmap {
 		return vs[0].([]OneDashboardPageWidgetHeatmap)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHeatmapOutput)
+}
+
+type OneDashboardPageWidgetHeatmapChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetHeatmapChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetHeatmapChartStylesInput is an input type that accepts OneDashboardPageWidgetHeatmapChartStylesArgs and OneDashboardPageWidgetHeatmapChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapChartStylesInput` via:
+//
+//	OneDashboardPageWidgetHeatmapChartStylesArgs{...}
+type OneDashboardPageWidgetHeatmapChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapChartStylesOutput() OneDashboardPageWidgetHeatmapChartStylesOutput
+	ToOneDashboardPageWidgetHeatmapChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapChartStylesOutput
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetHeatmapChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetHeatmapChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesArgs) ToOneDashboardPageWidgetHeatmapChartStylesOutput() OneDashboardPageWidgetHeatmapChartStylesOutput {
+	return i.ToOneDashboardPageWidgetHeatmapChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesArgs) ToOneDashboardPageWidgetHeatmapChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesArgs) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutput() OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesArgs) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapChartStylesOutput).ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetHeatmapChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetHeatmapChartStylesArgs, OneDashboardPageWidgetHeatmapChartStylesPtr and OneDashboardPageWidgetHeatmapChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetHeatmapChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetHeatmapChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapChartStylesPtrOutput() OneDashboardPageWidgetHeatmapChartStylesPtrOutput
+	ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetHeatmapChartStylesPtrType OneDashboardPageWidgetHeatmapChartStylesArgs
+
+func OneDashboardPageWidgetHeatmapChartStylesPtr(v *OneDashboardPageWidgetHeatmapChartStylesArgs) OneDashboardPageWidgetHeatmapChartStylesPtrInput {
+	return (*oneDashboardPageWidgetHeatmapChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetHeatmapChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHeatmapChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetHeatmapChartStylesPtrType) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutput() OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetHeatmapChartStylesPtrType) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesOutput) ToOneDashboardPageWidgetHeatmapChartStylesOutput() OneDashboardPageWidgetHeatmapChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesOutput) ToOneDashboardPageWidgetHeatmapChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesOutput) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutput() OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesOutput) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetHeatmapChartStyles) *OneDashboardPageWidgetHeatmapChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetHeatmapChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetHeatmapChartStylesOutput) Gradient() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapChartStyles) *OneDashboardPageWidgetHeatmapChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetHeatmapChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHeatmapChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesPtrOutput) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutput() OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesPtrOutput) ToOneDashboardPageWidgetHeatmapChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesPtrOutput) Elem() OneDashboardPageWidgetHeatmapChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapChartStyles) OneDashboardPageWidgetHeatmapChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetHeatmapChartStyles
+		return ret
+	}).(OneDashboardPageWidgetHeatmapChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetHeatmapChartStylesPtrOutput) Gradient() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapChartStyles) *OneDashboardPageWidgetHeatmapChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetHeatmapChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetHeatmapChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetHeatmapChartStylesGradientArgs and OneDashboardPageWidgetHeatmapChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetHeatmapChartStylesGradientArgs{...}
+type OneDashboardPageWidgetHeatmapChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapChartStylesGradientOutput() OneDashboardPageWidgetHeatmapChartStylesGradientOutput
+	ToOneDashboardPageWidgetHeatmapChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetHeatmapChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesGradientArgs) ToOneDashboardPageWidgetHeatmapChartStylesGradientOutput() OneDashboardPageWidgetHeatmapChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetHeatmapChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesGradientArgs) ToOneDashboardPageWidgetHeatmapChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesGradientArgs) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapChartStylesGradientArgs) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapChartStylesGradientOutput).ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetHeatmapChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetHeatmapChartStylesGradientArgs, OneDashboardPageWidgetHeatmapChartStylesGradientPtr and OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetHeatmapChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetHeatmapChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetHeatmapChartStylesGradientPtrType OneDashboardPageWidgetHeatmapChartStylesGradientArgs
+
+func OneDashboardPageWidgetHeatmapChartStylesGradientPtr(v *OneDashboardPageWidgetHeatmapChartStylesGradientArgs) OneDashboardPageWidgetHeatmapChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetHeatmapChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetHeatmapChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHeatmapChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetHeatmapChartStylesGradientPtrType) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetHeatmapChartStylesGradientPtrType) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientOutput) ToOneDashboardPageWidgetHeatmapChartStylesGradientOutput() OneDashboardPageWidgetHeatmapChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientOutput) ToOneDashboardPageWidgetHeatmapChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientOutput) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientOutput) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetHeatmapChartStylesGradient) *OneDashboardPageWidgetHeatmapChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHeatmapChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput() OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput) ToOneDashboardPageWidgetHeatmapChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetHeatmapChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapChartStylesGradient) OneDashboardPageWidgetHeatmapChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetHeatmapChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetHeatmapChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHeatmapChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetHeatmapColor struct {
@@ -13692,6 +15518,8 @@ func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) Index(i pulu
 }
 
 type OneDashboardPageWidgetHistogram struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetHistogramChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetHistogramColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -13741,6 +15569,8 @@ type OneDashboardPageWidgetHistogramInput interface {
 }
 
 type OneDashboardPageWidgetHistogramArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetHistogramChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetHistogramColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -13827,6 +15657,13 @@ func (o OneDashboardPageWidgetHistogramOutput) ToOneDashboardPageWidgetHistogram
 
 func (o OneDashboardPageWidgetHistogramOutput) ToOneDashboardPageWidgetHistogramOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetHistogramOutput) ChartStyles() OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *OneDashboardPageWidgetHistogramChartStyles {
+		return v.ChartStyles
+	}).(OneDashboardPageWidgetHistogramChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -13944,6 +15781,301 @@ func (o OneDashboardPageWidgetHistogramArrayOutput) Index(i pulumi.IntInput) One
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogram {
 		return vs[0].([]OneDashboardPageWidgetHistogram)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHistogramOutput)
+}
+
+type OneDashboardPageWidgetHistogramChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetHistogramChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetHistogramChartStylesInput is an input type that accepts OneDashboardPageWidgetHistogramChartStylesArgs and OneDashboardPageWidgetHistogramChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramChartStylesInput` via:
+//
+//	OneDashboardPageWidgetHistogramChartStylesArgs{...}
+type OneDashboardPageWidgetHistogramChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramChartStylesOutput() OneDashboardPageWidgetHistogramChartStylesOutput
+	ToOneDashboardPageWidgetHistogramChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetHistogramChartStylesOutput
+}
+
+type OneDashboardPageWidgetHistogramChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetHistogramChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetHistogramChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesArgs) ToOneDashboardPageWidgetHistogramChartStylesOutput() OneDashboardPageWidgetHistogramChartStylesOutput {
+	return i.ToOneDashboardPageWidgetHistogramChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesArgs) ToOneDashboardPageWidgetHistogramChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesArgs) ToOneDashboardPageWidgetHistogramChartStylesPtrOutput() OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesArgs) ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramChartStylesOutput).ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetHistogramChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetHistogramChartStylesArgs, OneDashboardPageWidgetHistogramChartStylesPtr and OneDashboardPageWidgetHistogramChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetHistogramChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetHistogramChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramChartStylesPtrOutput() OneDashboardPageWidgetHistogramChartStylesPtrOutput
+	ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetHistogramChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetHistogramChartStylesPtrType OneDashboardPageWidgetHistogramChartStylesArgs
+
+func OneDashboardPageWidgetHistogramChartStylesPtr(v *OneDashboardPageWidgetHistogramChartStylesArgs) OneDashboardPageWidgetHistogramChartStylesPtrInput {
+	return (*oneDashboardPageWidgetHistogramChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetHistogramChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHistogramChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetHistogramChartStylesPtrType) ToOneDashboardPageWidgetHistogramChartStylesPtrOutput() OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetHistogramChartStylesPtrType) ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesOutput) ToOneDashboardPageWidgetHistogramChartStylesOutput() OneDashboardPageWidgetHistogramChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesOutput) ToOneDashboardPageWidgetHistogramChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesOutput) ToOneDashboardPageWidgetHistogramChartStylesPtrOutput() OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesOutput) ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetHistogramChartStyles) *OneDashboardPageWidgetHistogramChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetHistogramChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetHistogramChartStylesOutput) Gradient() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramChartStyles) *OneDashboardPageWidgetHistogramChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetHistogramChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHistogramChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesPtrOutput) ToOneDashboardPageWidgetHistogramChartStylesPtrOutput() OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesPtrOutput) ToOneDashboardPageWidgetHistogramChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesPtrOutput) Elem() OneDashboardPageWidgetHistogramChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramChartStyles) OneDashboardPageWidgetHistogramChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetHistogramChartStyles
+		return ret
+	}).(OneDashboardPageWidgetHistogramChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetHistogramChartStylesPtrOutput) Gradient() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramChartStyles) *OneDashboardPageWidgetHistogramChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetHistogramChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetHistogramChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetHistogramChartStylesGradientArgs and OneDashboardPageWidgetHistogramChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetHistogramChartStylesGradientArgs{...}
+type OneDashboardPageWidgetHistogramChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramChartStylesGradientOutput() OneDashboardPageWidgetHistogramChartStylesGradientOutput
+	ToOneDashboardPageWidgetHistogramChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetHistogramChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetHistogramChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetHistogramChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesGradientArgs) ToOneDashboardPageWidgetHistogramChartStylesGradientOutput() OneDashboardPageWidgetHistogramChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetHistogramChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesGradientArgs) ToOneDashboardPageWidgetHistogramChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesGradientArgs) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutput() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramChartStylesGradientArgs) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramChartStylesGradientOutput).ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetHistogramChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetHistogramChartStylesGradientArgs, OneDashboardPageWidgetHistogramChartStylesGradientPtr and OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetHistogramChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetHistogramChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutput() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetHistogramChartStylesGradientPtrType OneDashboardPageWidgetHistogramChartStylesGradientArgs
+
+func OneDashboardPageWidgetHistogramChartStylesGradientPtr(v *OneDashboardPageWidgetHistogramChartStylesGradientArgs) OneDashboardPageWidgetHistogramChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetHistogramChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetHistogramChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHistogramChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetHistogramChartStylesGradientPtrType) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutput() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetHistogramChartStylesGradientPtrType) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientOutput) ToOneDashboardPageWidgetHistogramChartStylesGradientOutput() OneDashboardPageWidgetHistogramChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientOutput) ToOneDashboardPageWidgetHistogramChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientOutput) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutput() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientOutput) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetHistogramChartStylesGradient) *OneDashboardPageWidgetHistogramChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetHistogramChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetHistogramChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutput() OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput) ToOneDashboardPageWidgetHistogramChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetHistogramChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramChartStylesGradient) OneDashboardPageWidgetHistogramChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetHistogramChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetHistogramChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetHistogramChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetHistogramColor struct {
@@ -14975,6 +17107,8 @@ func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) Index(i pu
 }
 
 type OneDashboardPageWidgetJson struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetJsonChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetJsonColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -15024,6 +17158,8 @@ type OneDashboardPageWidgetJsonInput interface {
 }
 
 type OneDashboardPageWidgetJsonArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetJsonChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetJsonColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -15110,6 +17246,11 @@ func (o OneDashboardPageWidgetJsonOutput) ToOneDashboardPageWidgetJsonOutput() O
 
 func (o OneDashboardPageWidgetJsonOutput) ToOneDashboardPageWidgetJsonOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetJsonOutput) ChartStyles() OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *OneDashboardPageWidgetJsonChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetJsonChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -15219,6 +17360,301 @@ func (o OneDashboardPageWidgetJsonArrayOutput) Index(i pulumi.IntInput) OneDashb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJson {
 		return vs[0].([]OneDashboardPageWidgetJson)[vs[1].(int)]
 	}).(OneDashboardPageWidgetJsonOutput)
+}
+
+type OneDashboardPageWidgetJsonChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetJsonChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetJsonChartStylesInput is an input type that accepts OneDashboardPageWidgetJsonChartStylesArgs and OneDashboardPageWidgetJsonChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonChartStylesInput` via:
+//
+//	OneDashboardPageWidgetJsonChartStylesArgs{...}
+type OneDashboardPageWidgetJsonChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonChartStylesOutput() OneDashboardPageWidgetJsonChartStylesOutput
+	ToOneDashboardPageWidgetJsonChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetJsonChartStylesOutput
+}
+
+type OneDashboardPageWidgetJsonChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetJsonChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetJsonChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesArgs) ToOneDashboardPageWidgetJsonChartStylesOutput() OneDashboardPageWidgetJsonChartStylesOutput {
+	return i.ToOneDashboardPageWidgetJsonChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesArgs) ToOneDashboardPageWidgetJsonChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesArgs) ToOneDashboardPageWidgetJsonChartStylesPtrOutput() OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesArgs) ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonChartStylesOutput).ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetJsonChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetJsonChartStylesArgs, OneDashboardPageWidgetJsonChartStylesPtr and OneDashboardPageWidgetJsonChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetJsonChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetJsonChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonChartStylesPtrOutput() OneDashboardPageWidgetJsonChartStylesPtrOutput
+	ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetJsonChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetJsonChartStylesPtrType OneDashboardPageWidgetJsonChartStylesArgs
+
+func OneDashboardPageWidgetJsonChartStylesPtr(v *OneDashboardPageWidgetJsonChartStylesArgs) OneDashboardPageWidgetJsonChartStylesPtrInput {
+	return (*oneDashboardPageWidgetJsonChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetJsonChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetJsonChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetJsonChartStylesPtrType) ToOneDashboardPageWidgetJsonChartStylesPtrOutput() OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetJsonChartStylesPtrType) ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesOutput) ToOneDashboardPageWidgetJsonChartStylesOutput() OneDashboardPageWidgetJsonChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesOutput) ToOneDashboardPageWidgetJsonChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesOutput) ToOneDashboardPageWidgetJsonChartStylesPtrOutput() OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesOutput) ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetJsonChartStyles) *OneDashboardPageWidgetJsonChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetJsonChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetJsonChartStylesOutput) Gradient() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonChartStyles) *OneDashboardPageWidgetJsonChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetJsonChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetJsonChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetJsonChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesPtrOutput) ToOneDashboardPageWidgetJsonChartStylesPtrOutput() OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesPtrOutput) ToOneDashboardPageWidgetJsonChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesPtrOutput) Elem() OneDashboardPageWidgetJsonChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonChartStyles) OneDashboardPageWidgetJsonChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetJsonChartStyles
+		return ret
+	}).(OneDashboardPageWidgetJsonChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetJsonChartStylesPtrOutput) Gradient() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonChartStyles) *OneDashboardPageWidgetJsonChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetJsonChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetJsonChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetJsonChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetJsonChartStylesGradientArgs and OneDashboardPageWidgetJsonChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetJsonChartStylesGradientArgs{...}
+type OneDashboardPageWidgetJsonChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonChartStylesGradientOutput() OneDashboardPageWidgetJsonChartStylesGradientOutput
+	ToOneDashboardPageWidgetJsonChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetJsonChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetJsonChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetJsonChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesGradientArgs) ToOneDashboardPageWidgetJsonChartStylesGradientOutput() OneDashboardPageWidgetJsonChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetJsonChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesGradientArgs) ToOneDashboardPageWidgetJsonChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesGradientArgs) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutput() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonChartStylesGradientArgs) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonChartStylesGradientOutput).ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetJsonChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetJsonChartStylesGradientArgs, OneDashboardPageWidgetJsonChartStylesGradientPtr and OneDashboardPageWidgetJsonChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetJsonChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetJsonChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutput() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetJsonChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetJsonChartStylesGradientPtrType OneDashboardPageWidgetJsonChartStylesGradientArgs
+
+func OneDashboardPageWidgetJsonChartStylesGradientPtr(v *OneDashboardPageWidgetJsonChartStylesGradientArgs) OneDashboardPageWidgetJsonChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetJsonChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetJsonChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetJsonChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetJsonChartStylesGradientPtrType) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutput() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetJsonChartStylesGradientPtrType) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientOutput) ToOneDashboardPageWidgetJsonChartStylesGradientOutput() OneDashboardPageWidgetJsonChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientOutput) ToOneDashboardPageWidgetJsonChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientOutput) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutput() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientOutput) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetJsonChartStylesGradient) *OneDashboardPageWidgetJsonChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetJsonChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetJsonChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetJsonChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetJsonChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientPtrOutput) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutput() OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientPtrOutput) ToOneDashboardPageWidgetJsonChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetJsonChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonChartStylesGradient) OneDashboardPageWidgetJsonChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetJsonChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetJsonChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetJsonChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetJsonChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetJsonColor struct {
@@ -16250,6 +18686,8 @@ func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) Index(i pulumi.
 }
 
 type OneDashboardPageWidgetLine struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetLineChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetLineColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -16309,6 +18747,8 @@ type OneDashboardPageWidgetLineInput interface {
 }
 
 type OneDashboardPageWidgetLineArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetLineChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetLineColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -16405,6 +18845,11 @@ func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutput() O
 
 func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) ChartStyles() OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *OneDashboardPageWidgetLineChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetLineChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -16539,6 +18984,301 @@ func (o OneDashboardPageWidgetLineArrayOutput) Index(i pulumi.IntInput) OneDashb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLine {
 		return vs[0].([]OneDashboardPageWidgetLine)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineOutput)
+}
+
+type OneDashboardPageWidgetLineChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetLineChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetLineChartStylesInput is an input type that accepts OneDashboardPageWidgetLineChartStylesArgs and OneDashboardPageWidgetLineChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineChartStylesInput` via:
+//
+//	OneDashboardPageWidgetLineChartStylesArgs{...}
+type OneDashboardPageWidgetLineChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineChartStylesOutput() OneDashboardPageWidgetLineChartStylesOutput
+	ToOneDashboardPageWidgetLineChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetLineChartStylesOutput
+}
+
+type OneDashboardPageWidgetLineChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetLineChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetLineChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineChartStylesArgs) ToOneDashboardPageWidgetLineChartStylesOutput() OneDashboardPageWidgetLineChartStylesOutput {
+	return i.ToOneDashboardPageWidgetLineChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineChartStylesArgs) ToOneDashboardPageWidgetLineChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetLineChartStylesArgs) ToOneDashboardPageWidgetLineChartStylesPtrOutput() OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineChartStylesArgs) ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineChartStylesOutput).ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLineChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetLineChartStylesArgs, OneDashboardPageWidgetLineChartStylesPtr and OneDashboardPageWidgetLineChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetLineChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLineChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineChartStylesPtrOutput() OneDashboardPageWidgetLineChartStylesPtrOutput
+	ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetLineChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetLineChartStylesPtrType OneDashboardPageWidgetLineChartStylesArgs
+
+func OneDashboardPageWidgetLineChartStylesPtr(v *OneDashboardPageWidgetLineChartStylesArgs) OneDashboardPageWidgetLineChartStylesPtrInput {
+	return (*oneDashboardPageWidgetLineChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLineChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLineChartStylesPtrType) ToOneDashboardPageWidgetLineChartStylesPtrOutput() OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLineChartStylesPtrType) ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetLineChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineChartStylesOutput) ToOneDashboardPageWidgetLineChartStylesOutput() OneDashboardPageWidgetLineChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesOutput) ToOneDashboardPageWidgetLineChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesOutput) ToOneDashboardPageWidgetLineChartStylesPtrOutput() OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLineChartStylesOutput) ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLineChartStyles) *OneDashboardPageWidgetLineChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetLineChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetLineChartStylesOutput) Gradient() OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineChartStyles) *OneDashboardPageWidgetLineChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetLineChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetLineChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLineChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineChartStylesPtrOutput) ToOneDashboardPageWidgetLineChartStylesPtrOutput() OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesPtrOutput) ToOneDashboardPageWidgetLineChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesPtrOutput) Elem() OneDashboardPageWidgetLineChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineChartStyles) OneDashboardPageWidgetLineChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLineChartStyles
+		return ret
+	}).(OneDashboardPageWidgetLineChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetLineChartStylesPtrOutput) Gradient() OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineChartStyles) *OneDashboardPageWidgetLineChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetLineChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetLineChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLineChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetLineChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetLineChartStylesGradientArgs and OneDashboardPageWidgetLineChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetLineChartStylesGradientArgs{...}
+type OneDashboardPageWidgetLineChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineChartStylesGradientOutput() OneDashboardPageWidgetLineChartStylesGradientOutput
+	ToOneDashboardPageWidgetLineChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetLineChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetLineChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetLineChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineChartStylesGradientArgs) ToOneDashboardPageWidgetLineChartStylesGradientOutput() OneDashboardPageWidgetLineChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetLineChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineChartStylesGradientArgs) ToOneDashboardPageWidgetLineChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetLineChartStylesGradientArgs) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutput() OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineChartStylesGradientArgs) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineChartStylesGradientOutput).ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLineChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetLineChartStylesGradientArgs, OneDashboardPageWidgetLineChartStylesGradientPtr and OneDashboardPageWidgetLineChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetLineChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLineChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineChartStylesGradientPtrOutput() OneDashboardPageWidgetLineChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetLineChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetLineChartStylesGradientPtrType OneDashboardPageWidgetLineChartStylesGradientArgs
+
+func OneDashboardPageWidgetLineChartStylesGradientPtr(v *OneDashboardPageWidgetLineChartStylesGradientArgs) OneDashboardPageWidgetLineChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetLineChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLineChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLineChartStylesGradientPtrType) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutput() OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLineChartStylesGradientPtrType) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetLineChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientOutput) ToOneDashboardPageWidgetLineChartStylesGradientOutput() OneDashboardPageWidgetLineChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientOutput) ToOneDashboardPageWidgetLineChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientOutput) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutput() OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientOutput) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLineChartStylesGradient) *OneDashboardPageWidgetLineChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetLineChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetLineChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetLineChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLineChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientPtrOutput) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutput() OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientPtrOutput) ToOneDashboardPageWidgetLineChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetLineChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineChartStylesGradient) OneDashboardPageWidgetLineChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLineChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetLineChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetLineChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLineChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetLineColor struct {
@@ -18025,6 +20765,8 @@ func (o OneDashboardPageWidgetLineYAxisRightPtrOutput) YAxisRightZero() pulumi.B
 }
 
 type OneDashboardPageWidgetLogTable struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetLogTableChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetLogTableColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -18074,6 +20816,8 @@ type OneDashboardPageWidgetLogTableInput interface {
 }
 
 type OneDashboardPageWidgetLogTableArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetLogTableChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetLogTableColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -18160,6 +20904,13 @@ func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOu
 
 func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetLogTableOutput) ChartStyles() OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *OneDashboardPageWidgetLogTableChartStyles {
+		return v.ChartStyles
+	}).(OneDashboardPageWidgetLogTableChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -18273,6 +21024,301 @@ func (o OneDashboardPageWidgetLogTableArrayOutput) Index(i pulumi.IntInput) OneD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTable {
 		return vs[0].([]OneDashboardPageWidgetLogTable)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLogTableOutput)
+}
+
+type OneDashboardPageWidgetLogTableChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetLogTableChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetLogTableChartStylesInput is an input type that accepts OneDashboardPageWidgetLogTableChartStylesArgs and OneDashboardPageWidgetLogTableChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableChartStylesInput` via:
+//
+//	OneDashboardPageWidgetLogTableChartStylesArgs{...}
+type OneDashboardPageWidgetLogTableChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableChartStylesOutput() OneDashboardPageWidgetLogTableChartStylesOutput
+	ToOneDashboardPageWidgetLogTableChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetLogTableChartStylesOutput
+}
+
+type OneDashboardPageWidgetLogTableChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetLogTableChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetLogTableChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesArgs) ToOneDashboardPageWidgetLogTableChartStylesOutput() OneDashboardPageWidgetLogTableChartStylesOutput {
+	return i.ToOneDashboardPageWidgetLogTableChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesArgs) ToOneDashboardPageWidgetLogTableChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesArgs) ToOneDashboardPageWidgetLogTableChartStylesPtrOutput() OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesArgs) ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableChartStylesOutput).ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLogTableChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetLogTableChartStylesArgs, OneDashboardPageWidgetLogTableChartStylesPtr and OneDashboardPageWidgetLogTableChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetLogTableChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLogTableChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableChartStylesPtrOutput() OneDashboardPageWidgetLogTableChartStylesPtrOutput
+	ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetLogTableChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetLogTableChartStylesPtrType OneDashboardPageWidgetLogTableChartStylesArgs
+
+func OneDashboardPageWidgetLogTableChartStylesPtr(v *OneDashboardPageWidgetLogTableChartStylesArgs) OneDashboardPageWidgetLogTableChartStylesPtrInput {
+	return (*oneDashboardPageWidgetLogTableChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLogTableChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLogTableChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLogTableChartStylesPtrType) ToOneDashboardPageWidgetLogTableChartStylesPtrOutput() OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLogTableChartStylesPtrType) ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesOutput) ToOneDashboardPageWidgetLogTableChartStylesOutput() OneDashboardPageWidgetLogTableChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesOutput) ToOneDashboardPageWidgetLogTableChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesOutput) ToOneDashboardPageWidgetLogTableChartStylesPtrOutput() OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesOutput) ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLogTableChartStyles) *OneDashboardPageWidgetLogTableChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetLogTableChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetLogTableChartStylesOutput) Gradient() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableChartStyles) *OneDashboardPageWidgetLogTableChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetLogTableChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLogTableChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesPtrOutput) ToOneDashboardPageWidgetLogTableChartStylesPtrOutput() OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesPtrOutput) ToOneDashboardPageWidgetLogTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesPtrOutput) Elem() OneDashboardPageWidgetLogTableChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableChartStyles) OneDashboardPageWidgetLogTableChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLogTableChartStyles
+		return ret
+	}).(OneDashboardPageWidgetLogTableChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetLogTableChartStylesPtrOutput) Gradient() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableChartStyles) *OneDashboardPageWidgetLogTableChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetLogTableChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetLogTableChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetLogTableChartStylesGradientArgs and OneDashboardPageWidgetLogTableChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetLogTableChartStylesGradientArgs{...}
+type OneDashboardPageWidgetLogTableChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableChartStylesGradientOutput() OneDashboardPageWidgetLogTableChartStylesGradientOutput
+	ToOneDashboardPageWidgetLogTableChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetLogTableChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetLogTableChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetLogTableChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesGradientArgs) ToOneDashboardPageWidgetLogTableChartStylesGradientOutput() OneDashboardPageWidgetLogTableChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetLogTableChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesGradientArgs) ToOneDashboardPageWidgetLogTableChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesGradientArgs) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutput() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableChartStylesGradientArgs) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableChartStylesGradientOutput).ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetLogTableChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetLogTableChartStylesGradientArgs, OneDashboardPageWidgetLogTableChartStylesGradientPtr and OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetLogTableChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetLogTableChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutput() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetLogTableChartStylesGradientPtrType OneDashboardPageWidgetLogTableChartStylesGradientArgs
+
+func OneDashboardPageWidgetLogTableChartStylesGradientPtr(v *OneDashboardPageWidgetLogTableChartStylesGradientArgs) OneDashboardPageWidgetLogTableChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetLogTableChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetLogTableChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLogTableChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetLogTableChartStylesGradientPtrType) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutput() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetLogTableChartStylesGradientPtrType) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientOutput) ToOneDashboardPageWidgetLogTableChartStylesGradientOutput() OneDashboardPageWidgetLogTableChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientOutput) ToOneDashboardPageWidgetLogTableChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientOutput) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutput() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientOutput) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetLogTableChartStylesGradient) *OneDashboardPageWidgetLogTableChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetLogTableChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetLogTableChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutput() OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput) ToOneDashboardPageWidgetLogTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetLogTableChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableChartStylesGradient) OneDashboardPageWidgetLogTableChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetLogTableChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetLogTableChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetLogTableChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetLogTableColor struct {
@@ -19304,6 +22350,8 @@ func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) Index(i pul
 }
 
 type OneDashboardPageWidgetMarkdown struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetMarkdownChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetMarkdownColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -19353,6 +22401,8 @@ type OneDashboardPageWidgetMarkdownInput interface {
 }
 
 type OneDashboardPageWidgetMarkdownArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetMarkdownChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetMarkdownColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -19439,6 +22489,13 @@ func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOu
 
 func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetMarkdownOutput) ChartStyles() OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *OneDashboardPageWidgetMarkdownChartStyles {
+		return v.ChartStyles
+	}).(OneDashboardPageWidgetMarkdownChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -19552,6 +22609,301 @@ func (o OneDashboardPageWidgetMarkdownArrayOutput) Index(i pulumi.IntInput) OneD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdown {
 		return vs[0].([]OneDashboardPageWidgetMarkdown)[vs[1].(int)]
 	}).(OneDashboardPageWidgetMarkdownOutput)
+}
+
+type OneDashboardPageWidgetMarkdownChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetMarkdownChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetMarkdownChartStylesInput is an input type that accepts OneDashboardPageWidgetMarkdownChartStylesArgs and OneDashboardPageWidgetMarkdownChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownChartStylesInput` via:
+//
+//	OneDashboardPageWidgetMarkdownChartStylesArgs{...}
+type OneDashboardPageWidgetMarkdownChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownChartStylesOutput() OneDashboardPageWidgetMarkdownChartStylesOutput
+	ToOneDashboardPageWidgetMarkdownChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownChartStylesOutput
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetMarkdownChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetMarkdownChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesArgs) ToOneDashboardPageWidgetMarkdownChartStylesOutput() OneDashboardPageWidgetMarkdownChartStylesOutput {
+	return i.ToOneDashboardPageWidgetMarkdownChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesArgs) ToOneDashboardPageWidgetMarkdownChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesArgs) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutput() OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesArgs) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownChartStylesOutput).ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetMarkdownChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetMarkdownChartStylesArgs, OneDashboardPageWidgetMarkdownChartStylesPtr and OneDashboardPageWidgetMarkdownChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetMarkdownChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetMarkdownChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownChartStylesPtrOutput() OneDashboardPageWidgetMarkdownChartStylesPtrOutput
+	ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetMarkdownChartStylesPtrType OneDashboardPageWidgetMarkdownChartStylesArgs
+
+func OneDashboardPageWidgetMarkdownChartStylesPtr(v *OneDashboardPageWidgetMarkdownChartStylesArgs) OneDashboardPageWidgetMarkdownChartStylesPtrInput {
+	return (*oneDashboardPageWidgetMarkdownChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetMarkdownChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetMarkdownChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetMarkdownChartStylesPtrType) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutput() OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetMarkdownChartStylesPtrType) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesOutput) ToOneDashboardPageWidgetMarkdownChartStylesOutput() OneDashboardPageWidgetMarkdownChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesOutput) ToOneDashboardPageWidgetMarkdownChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesOutput) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutput() OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesOutput) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetMarkdownChartStyles) *OneDashboardPageWidgetMarkdownChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetMarkdownChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetMarkdownChartStylesOutput) Gradient() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownChartStyles) *OneDashboardPageWidgetMarkdownChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetMarkdownChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetMarkdownChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesPtrOutput) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutput() OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesPtrOutput) ToOneDashboardPageWidgetMarkdownChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesPtrOutput) Elem() OneDashboardPageWidgetMarkdownChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownChartStyles) OneDashboardPageWidgetMarkdownChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetMarkdownChartStyles
+		return ret
+	}).(OneDashboardPageWidgetMarkdownChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetMarkdownChartStylesPtrOutput) Gradient() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownChartStyles) *OneDashboardPageWidgetMarkdownChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetMarkdownChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetMarkdownChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetMarkdownChartStylesGradientArgs and OneDashboardPageWidgetMarkdownChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetMarkdownChartStylesGradientArgs{...}
+type OneDashboardPageWidgetMarkdownChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownChartStylesGradientOutput() OneDashboardPageWidgetMarkdownChartStylesGradientOutput
+	ToOneDashboardPageWidgetMarkdownChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetMarkdownChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesGradientArgs) ToOneDashboardPageWidgetMarkdownChartStylesGradientOutput() OneDashboardPageWidgetMarkdownChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetMarkdownChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesGradientArgs) ToOneDashboardPageWidgetMarkdownChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesGradientArgs) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownChartStylesGradientArgs) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownChartStylesGradientOutput).ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetMarkdownChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetMarkdownChartStylesGradientArgs, OneDashboardPageWidgetMarkdownChartStylesGradientPtr and OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetMarkdownChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetMarkdownChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetMarkdownChartStylesGradientPtrType OneDashboardPageWidgetMarkdownChartStylesGradientArgs
+
+func OneDashboardPageWidgetMarkdownChartStylesGradientPtr(v *OneDashboardPageWidgetMarkdownChartStylesGradientArgs) OneDashboardPageWidgetMarkdownChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetMarkdownChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetMarkdownChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetMarkdownChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetMarkdownChartStylesGradientPtrType) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetMarkdownChartStylesGradientPtrType) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientOutput) ToOneDashboardPageWidgetMarkdownChartStylesGradientOutput() OneDashboardPageWidgetMarkdownChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientOutput) ToOneDashboardPageWidgetMarkdownChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientOutput) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientOutput) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetMarkdownChartStylesGradient) *OneDashboardPageWidgetMarkdownChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetMarkdownChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput() OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput) ToOneDashboardPageWidgetMarkdownChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetMarkdownChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownChartStylesGradient) OneDashboardPageWidgetMarkdownChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetMarkdownChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetMarkdownChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetMarkdownChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetMarkdownColor struct {
@@ -20477,6 +23829,8 @@ func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) Index(i pul
 }
 
 type OneDashboardPageWidgetPy struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetPyChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetPyColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -20530,6 +23884,8 @@ type OneDashboardPageWidgetPyInput interface {
 }
 
 type OneDashboardPageWidgetPyArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetPyChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetPyColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -20620,6 +23976,11 @@ func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutput() OneDa
 
 func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) ChartStyles() OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *OneDashboardPageWidgetPyChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetPyChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -20739,6 +24100,301 @@ func (o OneDashboardPageWidgetPyArrayOutput) Index(i pulumi.IntInput) OneDashboa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPy {
 		return vs[0].([]OneDashboardPageWidgetPy)[vs[1].(int)]
 	}).(OneDashboardPageWidgetPyOutput)
+}
+
+type OneDashboardPageWidgetPyChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetPyChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetPyChartStylesInput is an input type that accepts OneDashboardPageWidgetPyChartStylesArgs and OneDashboardPageWidgetPyChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyChartStylesInput` via:
+//
+//	OneDashboardPageWidgetPyChartStylesArgs{...}
+type OneDashboardPageWidgetPyChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyChartStylesOutput() OneDashboardPageWidgetPyChartStylesOutput
+	ToOneDashboardPageWidgetPyChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetPyChartStylesOutput
+}
+
+type OneDashboardPageWidgetPyChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetPyChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetPyChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyChartStylesArgs) ToOneDashboardPageWidgetPyChartStylesOutput() OneDashboardPageWidgetPyChartStylesOutput {
+	return i.ToOneDashboardPageWidgetPyChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyChartStylesArgs) ToOneDashboardPageWidgetPyChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetPyChartStylesArgs) ToOneDashboardPageWidgetPyChartStylesPtrOutput() OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyChartStylesArgs) ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyChartStylesOutput).ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetPyChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetPyChartStylesArgs, OneDashboardPageWidgetPyChartStylesPtr and OneDashboardPageWidgetPyChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetPyChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetPyChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyChartStylesPtrOutput() OneDashboardPageWidgetPyChartStylesPtrOutput
+	ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetPyChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetPyChartStylesPtrType OneDashboardPageWidgetPyChartStylesArgs
+
+func OneDashboardPageWidgetPyChartStylesPtr(v *OneDashboardPageWidgetPyChartStylesArgs) OneDashboardPageWidgetPyChartStylesPtrInput {
+	return (*oneDashboardPageWidgetPyChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetPyChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetPyChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetPyChartStylesPtrType) ToOneDashboardPageWidgetPyChartStylesPtrOutput() OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetPyChartStylesPtrType) ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetPyChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyChartStylesOutput) ToOneDashboardPageWidgetPyChartStylesOutput() OneDashboardPageWidgetPyChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesOutput) ToOneDashboardPageWidgetPyChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesOutput) ToOneDashboardPageWidgetPyChartStylesPtrOutput() OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetPyChartStylesOutput) ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetPyChartStyles) *OneDashboardPageWidgetPyChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetPyChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetPyChartStylesOutput) Gradient() OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyChartStyles) *OneDashboardPageWidgetPyChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetPyChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetPyChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetPyChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetPyChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyChartStylesPtrOutput) ToOneDashboardPageWidgetPyChartStylesPtrOutput() OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesPtrOutput) ToOneDashboardPageWidgetPyChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesPtrOutput) Elem() OneDashboardPageWidgetPyChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyChartStyles) OneDashboardPageWidgetPyChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetPyChartStyles
+		return ret
+	}).(OneDashboardPageWidgetPyChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetPyChartStylesPtrOutput) Gradient() OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyChartStyles) *OneDashboardPageWidgetPyChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetPyChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetPyChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetPyChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetPyChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetPyChartStylesGradientArgs and OneDashboardPageWidgetPyChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetPyChartStylesGradientArgs{...}
+type OneDashboardPageWidgetPyChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyChartStylesGradientOutput() OneDashboardPageWidgetPyChartStylesGradientOutput
+	ToOneDashboardPageWidgetPyChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetPyChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetPyChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetPyChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyChartStylesGradientArgs) ToOneDashboardPageWidgetPyChartStylesGradientOutput() OneDashboardPageWidgetPyChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetPyChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyChartStylesGradientArgs) ToOneDashboardPageWidgetPyChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetPyChartStylesGradientArgs) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutput() OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyChartStylesGradientArgs) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyChartStylesGradientOutput).ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetPyChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetPyChartStylesGradientArgs, OneDashboardPageWidgetPyChartStylesGradientPtr and OneDashboardPageWidgetPyChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetPyChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetPyChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyChartStylesGradientPtrOutput() OneDashboardPageWidgetPyChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetPyChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetPyChartStylesGradientPtrType OneDashboardPageWidgetPyChartStylesGradientArgs
+
+func OneDashboardPageWidgetPyChartStylesGradientPtr(v *OneDashboardPageWidgetPyChartStylesGradientArgs) OneDashboardPageWidgetPyChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetPyChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetPyChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetPyChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetPyChartStylesGradientPtrType) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutput() OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetPyChartStylesGradientPtrType) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetPyChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientOutput) ToOneDashboardPageWidgetPyChartStylesGradientOutput() OneDashboardPageWidgetPyChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientOutput) ToOneDashboardPageWidgetPyChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientOutput) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutput() OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientOutput) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetPyChartStylesGradient) *OneDashboardPageWidgetPyChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetPyChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetPyChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetPyChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetPyChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientPtrOutput) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutput() OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientPtrOutput) ToOneDashboardPageWidgetPyChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetPyChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyChartStylesGradient) OneDashboardPageWidgetPyChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetPyChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetPyChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetPyChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetPyChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetPyColor struct {
@@ -21770,6 +25426,8 @@ func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) Index(i pulumi.In
 }
 
 type OneDashboardPageWidgetStackedBar struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetStackedBarChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetStackedBarColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -21821,6 +25479,8 @@ type OneDashboardPageWidgetStackedBarInput interface {
 }
 
 type OneDashboardPageWidgetStackedBarArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetStackedBarChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetStackedBarColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -21909,6 +25569,13 @@ func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedB
 
 func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetStackedBarOutput) ChartStyles() OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *OneDashboardPageWidgetStackedBarChartStyles {
+		return v.ChartStyles
+	}).(OneDashboardPageWidgetStackedBarChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -22031,6 +25698,301 @@ func (o OneDashboardPageWidgetStackedBarArrayOutput) Index(i pulumi.IntInput) On
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBar {
 		return vs[0].([]OneDashboardPageWidgetStackedBar)[vs[1].(int)]
 	}).(OneDashboardPageWidgetStackedBarOutput)
+}
+
+type OneDashboardPageWidgetStackedBarChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetStackedBarChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetStackedBarChartStylesInput is an input type that accepts OneDashboardPageWidgetStackedBarChartStylesArgs and OneDashboardPageWidgetStackedBarChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarChartStylesInput` via:
+//
+//	OneDashboardPageWidgetStackedBarChartStylesArgs{...}
+type OneDashboardPageWidgetStackedBarChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarChartStylesOutput() OneDashboardPageWidgetStackedBarChartStylesOutput
+	ToOneDashboardPageWidgetStackedBarChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarChartStylesOutput
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetStackedBarChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetStackedBarChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesArgs) ToOneDashboardPageWidgetStackedBarChartStylesOutput() OneDashboardPageWidgetStackedBarChartStylesOutput {
+	return i.ToOneDashboardPageWidgetStackedBarChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesArgs) ToOneDashboardPageWidgetStackedBarChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesArgs) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutput() OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesArgs) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarChartStylesOutput).ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetStackedBarChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetStackedBarChartStylesArgs, OneDashboardPageWidgetStackedBarChartStylesPtr and OneDashboardPageWidgetStackedBarChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetStackedBarChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetStackedBarChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarChartStylesPtrOutput() OneDashboardPageWidgetStackedBarChartStylesPtrOutput
+	ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetStackedBarChartStylesPtrType OneDashboardPageWidgetStackedBarChartStylesArgs
+
+func OneDashboardPageWidgetStackedBarChartStylesPtr(v *OneDashboardPageWidgetStackedBarChartStylesArgs) OneDashboardPageWidgetStackedBarChartStylesPtrInput {
+	return (*oneDashboardPageWidgetStackedBarChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetStackedBarChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetStackedBarChartStylesPtrType) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutput() OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetStackedBarChartStylesPtrType) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesOutput) ToOneDashboardPageWidgetStackedBarChartStylesOutput() OneDashboardPageWidgetStackedBarChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesOutput) ToOneDashboardPageWidgetStackedBarChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesOutput) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutput() OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesOutput) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetStackedBarChartStyles) *OneDashboardPageWidgetStackedBarChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetStackedBarChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetStackedBarChartStylesOutput) Gradient() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarChartStyles) *OneDashboardPageWidgetStackedBarChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetStackedBarChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesPtrOutput) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutput() OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesPtrOutput) ToOneDashboardPageWidgetStackedBarChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesPtrOutput) Elem() OneDashboardPageWidgetStackedBarChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarChartStyles) OneDashboardPageWidgetStackedBarChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetStackedBarChartStyles
+		return ret
+	}).(OneDashboardPageWidgetStackedBarChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetStackedBarChartStylesPtrOutput) Gradient() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarChartStyles) *OneDashboardPageWidgetStackedBarChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetStackedBarChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetStackedBarChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetStackedBarChartStylesGradientArgs and OneDashboardPageWidgetStackedBarChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetStackedBarChartStylesGradientArgs{...}
+type OneDashboardPageWidgetStackedBarChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarChartStylesGradientOutput() OneDashboardPageWidgetStackedBarChartStylesGradientOutput
+	ToOneDashboardPageWidgetStackedBarChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetStackedBarChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesGradientArgs) ToOneDashboardPageWidgetStackedBarChartStylesGradientOutput() OneDashboardPageWidgetStackedBarChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetStackedBarChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesGradientArgs) ToOneDashboardPageWidgetStackedBarChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesGradientArgs) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarChartStylesGradientArgs) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarChartStylesGradientOutput).ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetStackedBarChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetStackedBarChartStylesGradientArgs, OneDashboardPageWidgetStackedBarChartStylesGradientPtr and OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetStackedBarChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetStackedBarChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetStackedBarChartStylesGradientPtrType OneDashboardPageWidgetStackedBarChartStylesGradientArgs
+
+func OneDashboardPageWidgetStackedBarChartStylesGradientPtr(v *OneDashboardPageWidgetStackedBarChartStylesGradientArgs) OneDashboardPageWidgetStackedBarChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetStackedBarChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetStackedBarChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetStackedBarChartStylesGradientPtrType) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetStackedBarChartStylesGradientPtrType) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientOutput) ToOneDashboardPageWidgetStackedBarChartStylesGradientOutput() OneDashboardPageWidgetStackedBarChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientOutput) ToOneDashboardPageWidgetStackedBarChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientOutput) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientOutput) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetStackedBarChartStylesGradient) *OneDashboardPageWidgetStackedBarChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetStackedBarChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput() OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput) ToOneDashboardPageWidgetStackedBarChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetStackedBarChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarChartStylesGradient) OneDashboardPageWidgetStackedBarChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetStackedBarChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetStackedBarChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetStackedBarChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetStackedBarColor struct {
@@ -23199,6 +27161,8 @@ func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) Index(i p
 }
 
 type OneDashboardPageWidgetTable struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles *OneDashboardPageWidgetTableChartStyles `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors []OneDashboardPageWidgetTableColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -23254,6 +27218,8 @@ type OneDashboardPageWidgetTableInput interface {
 }
 
 type OneDashboardPageWidgetTableArgs struct {
+	// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+	ChartStyles OneDashboardPageWidgetTableChartStylesPtrInput `pulumi:"chartStyles"`
 	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
 	Colors OneDashboardPageWidgetTableColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
@@ -23346,6 +27312,11 @@ func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutput()
 
 func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableOutput {
 	return o
+}
+
+// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) ChartStyles() OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *OneDashboardPageWidgetTableChartStyles { return v.ChartStyles }).(OneDashboardPageWidgetTableChartStylesPtrOutput)
 }
 
 // (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -23472,6 +27443,301 @@ func (o OneDashboardPageWidgetTableArrayOutput) Index(i pulumi.IntInput) OneDash
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTable {
 		return vs[0].([]OneDashboardPageWidgetTable)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableOutput)
+}
+
+type OneDashboardPageWidgetTableChartStyles struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient *OneDashboardPageWidgetTableChartStylesGradient `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation *string `pulumi:"lineInterpolation"`
+}
+
+// OneDashboardPageWidgetTableChartStylesInput is an input type that accepts OneDashboardPageWidgetTableChartStylesArgs and OneDashboardPageWidgetTableChartStylesOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableChartStylesInput` via:
+//
+//	OneDashboardPageWidgetTableChartStylesArgs{...}
+type OneDashboardPageWidgetTableChartStylesInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableChartStylesOutput() OneDashboardPageWidgetTableChartStylesOutput
+	ToOneDashboardPageWidgetTableChartStylesOutputWithContext(context.Context) OneDashboardPageWidgetTableChartStylesOutput
+}
+
+type OneDashboardPageWidgetTableChartStylesArgs struct {
+	// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+	Gradient OneDashboardPageWidgetTableChartStylesGradientPtrInput `pulumi:"gradient"`
+	// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+	LineInterpolation pulumi.StringPtrInput `pulumi:"lineInterpolation"`
+}
+
+func (OneDashboardPageWidgetTableChartStylesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableChartStyles)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableChartStylesArgs) ToOneDashboardPageWidgetTableChartStylesOutput() OneDashboardPageWidgetTableChartStylesOutput {
+	return i.ToOneDashboardPageWidgetTableChartStylesOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableChartStylesArgs) ToOneDashboardPageWidgetTableChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableChartStylesOutput)
+}
+
+func (i OneDashboardPageWidgetTableChartStylesArgs) ToOneDashboardPageWidgetTableChartStylesPtrOutput() OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableChartStylesArgs) ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableChartStylesOutput).ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetTableChartStylesPtrInput is an input type that accepts OneDashboardPageWidgetTableChartStylesArgs, OneDashboardPageWidgetTableChartStylesPtr and OneDashboardPageWidgetTableChartStylesPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableChartStylesPtrInput` via:
+//
+//	        OneDashboardPageWidgetTableChartStylesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetTableChartStylesPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableChartStylesPtrOutput() OneDashboardPageWidgetTableChartStylesPtrOutput
+	ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(context.Context) OneDashboardPageWidgetTableChartStylesPtrOutput
+}
+
+type oneDashboardPageWidgetTableChartStylesPtrType OneDashboardPageWidgetTableChartStylesArgs
+
+func OneDashboardPageWidgetTableChartStylesPtr(v *OneDashboardPageWidgetTableChartStylesArgs) OneDashboardPageWidgetTableChartStylesPtrInput {
+	return (*oneDashboardPageWidgetTableChartStylesPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetTableChartStylesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetTableChartStyles)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetTableChartStylesPtrType) ToOneDashboardPageWidgetTableChartStylesPtrOutput() OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return i.ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetTableChartStylesPtrType) ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableChartStylesPtrOutput)
+}
+
+type OneDashboardPageWidgetTableChartStylesOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableChartStylesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableChartStylesOutput) ToOneDashboardPageWidgetTableChartStylesOutput() OneDashboardPageWidgetTableChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesOutput) ToOneDashboardPageWidgetTableChartStylesOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesOutput) ToOneDashboardPageWidgetTableChartStylesPtrOutput() OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return o.ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetTableChartStylesOutput) ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetTableChartStyles) *OneDashboardPageWidgetTableChartStyles {
+		return &v
+	}).(OneDashboardPageWidgetTableChartStylesPtrOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetTableChartStylesOutput) Gradient() OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableChartStyles) *OneDashboardPageWidgetTableChartStylesGradient {
+		return v.Gradient
+	}).(OneDashboardPageWidgetTableChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetTableChartStylesOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableChartStyles) *string { return v.LineInterpolation }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetTableChartStylesPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableChartStylesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetTableChartStyles)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableChartStylesPtrOutput) ToOneDashboardPageWidgetTableChartStylesPtrOutput() OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesPtrOutput) ToOneDashboardPageWidgetTableChartStylesPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesPtrOutput) Elem() OneDashboardPageWidgetTableChartStylesOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableChartStyles) OneDashboardPageWidgetTableChartStyles {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetTableChartStyles
+		return ret
+	}).(OneDashboardPageWidgetTableChartStylesOutput)
+}
+
+// (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+func (o OneDashboardPageWidgetTableChartStylesPtrOutput) Gradient() OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableChartStyles) *OneDashboardPageWidgetTableChartStylesGradient {
+		if v == nil {
+			return nil
+		}
+		return v.Gradient
+	}).(OneDashboardPageWidgetTableChartStylesGradientPtrOutput)
+}
+
+// (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+func (o OneDashboardPageWidgetTableChartStylesPtrOutput) LineInterpolation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableChartStyles) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetTableChartStylesGradient struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// OneDashboardPageWidgetTableChartStylesGradientInput is an input type that accepts OneDashboardPageWidgetTableChartStylesGradientArgs and OneDashboardPageWidgetTableChartStylesGradientOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableChartStylesGradientInput` via:
+//
+//	OneDashboardPageWidgetTableChartStylesGradientArgs{...}
+type OneDashboardPageWidgetTableChartStylesGradientInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableChartStylesGradientOutput() OneDashboardPageWidgetTableChartStylesGradientOutput
+	ToOneDashboardPageWidgetTableChartStylesGradientOutputWithContext(context.Context) OneDashboardPageWidgetTableChartStylesGradientOutput
+}
+
+type OneDashboardPageWidgetTableChartStylesGradientArgs struct {
+	// (Required) Boolean value to enable or disable gradient effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (OneDashboardPageWidgetTableChartStylesGradientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableChartStylesGradient)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableChartStylesGradientArgs) ToOneDashboardPageWidgetTableChartStylesGradientOutput() OneDashboardPageWidgetTableChartStylesGradientOutput {
+	return i.ToOneDashboardPageWidgetTableChartStylesGradientOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableChartStylesGradientArgs) ToOneDashboardPageWidgetTableChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesGradientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableChartStylesGradientOutput)
+}
+
+func (i OneDashboardPageWidgetTableChartStylesGradientArgs) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutput() OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableChartStylesGradientArgs) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableChartStylesGradientOutput).ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(ctx)
+}
+
+// OneDashboardPageWidgetTableChartStylesGradientPtrInput is an input type that accepts OneDashboardPageWidgetTableChartStylesGradientArgs, OneDashboardPageWidgetTableChartStylesGradientPtr and OneDashboardPageWidgetTableChartStylesGradientPtrOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableChartStylesGradientPtrInput` via:
+//
+//	        OneDashboardPageWidgetTableChartStylesGradientArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardPageWidgetTableChartStylesGradientPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableChartStylesGradientPtrOutput() OneDashboardPageWidgetTableChartStylesGradientPtrOutput
+	ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(context.Context) OneDashboardPageWidgetTableChartStylesGradientPtrOutput
+}
+
+type oneDashboardPageWidgetTableChartStylesGradientPtrType OneDashboardPageWidgetTableChartStylesGradientArgs
+
+func OneDashboardPageWidgetTableChartStylesGradientPtr(v *OneDashboardPageWidgetTableChartStylesGradientArgs) OneDashboardPageWidgetTableChartStylesGradientPtrInput {
+	return (*oneDashboardPageWidgetTableChartStylesGradientPtrType)(v)
+}
+
+func (*oneDashboardPageWidgetTableChartStylesGradientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetTableChartStylesGradient)(nil)).Elem()
+}
+
+func (i *oneDashboardPageWidgetTableChartStylesGradientPtrType) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutput() OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return i.ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardPageWidgetTableChartStylesGradientPtrType) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableChartStylesGradientPtrOutput)
+}
+
+type OneDashboardPageWidgetTableChartStylesGradientOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableChartStylesGradientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientOutput) ToOneDashboardPageWidgetTableChartStylesGradientOutput() OneDashboardPageWidgetTableChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientOutput) ToOneDashboardPageWidgetTableChartStylesGradientOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesGradientOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientOutput) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutput() OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return o.ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientOutput) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardPageWidgetTableChartStylesGradient) *OneDashboardPageWidgetTableChartStylesGradient {
+		return &v
+	}).(OneDashboardPageWidgetTableChartStylesGradientPtrOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetTableChartStylesGradientOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableChartStylesGradient) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type OneDashboardPageWidgetTableChartStylesGradientPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableChartStylesGradientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardPageWidgetTableChartStylesGradient)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientPtrOutput) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutput() OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientPtrOutput) ToOneDashboardPageWidgetTableChartStylesGradientPtrOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableChartStylesGradientPtrOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableChartStylesGradientPtrOutput) Elem() OneDashboardPageWidgetTableChartStylesGradientOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableChartStylesGradient) OneDashboardPageWidgetTableChartStylesGradient {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardPageWidgetTableChartStylesGradient
+		return ret
+	}).(OneDashboardPageWidgetTableChartStylesGradientOutput)
+}
+
+// (Required) Boolean value to enable or disable gradient effect.
+func (o OneDashboardPageWidgetTableChartStylesGradientPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OneDashboardPageWidgetTableChartStylesGradient) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type OneDashboardPageWidgetTableColor struct {
@@ -28786,6 +33052,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageArrayInput)(nil)).Elem(), OneDashboardPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInput)(nil)).Elem(), OneDashboardPageWidgetAreaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetAreaChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetAreaChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetAreaChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetAreaChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArgs{})
@@ -28808,6 +33078,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInput)(nil)).Elem(), OneDashboardPageWidgetBarArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetBarChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetBarChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetBarChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetBarChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorInput)(nil)).Elem(), OneDashboardPageWidgetBarColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArgs{})
@@ -28836,6 +33110,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsVisualInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetBillboardChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetBillboardChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetBillboardChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{})
@@ -28856,6 +33134,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInput)(nil)).Elem(), OneDashboardPageWidgetBulletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetBulletChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetBulletChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetBulletChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetBulletChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArgs{})
@@ -28876,6 +33158,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInput)(nil)).Elem(), OneDashboardPageWidgetFunnelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetFunnelChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetFunnelChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetFunnelChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetFunnelChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArgs{})
@@ -28896,6 +33182,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs{})
@@ -28916,6 +33206,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInput)(nil)).Elem(), OneDashboardPageWidgetHistogramArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetHistogramChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetHistogramChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetHistogramChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetHistogramChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArgs{})
@@ -28936,6 +33230,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInput)(nil)).Elem(), OneDashboardPageWidgetJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetJsonChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetJsonChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetJsonChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetJsonChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArgs{})
@@ -28956,6 +33254,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInput)(nil)).Elem(), OneDashboardPageWidgetLineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetLineChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetLineChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorInput)(nil)).Elem(), OneDashboardPageWidgetLineColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArgs{})
@@ -28982,6 +33284,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineYAxisRightPtrInput)(nil)).Elem(), OneDashboardPageWidgetLineYAxisRightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetLogTableChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetLogTableChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetLogTableChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetLogTableChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArgs{})
@@ -29002,6 +33308,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs{})
@@ -29020,6 +33330,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInput)(nil)).Elem(), OneDashboardPageWidgetPyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetPyChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetPyChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetPyChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetPyChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorInput)(nil)).Elem(), OneDashboardPageWidgetPyColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArgs{})
@@ -29040,6 +33354,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs{})
@@ -29062,6 +33380,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInput)(nil)).Elem(), OneDashboardPageWidgetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableChartStylesInput)(nil)).Elem(), OneDashboardPageWidgetTableChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableChartStylesPtrInput)(nil)).Elem(), OneDashboardPageWidgetTableChartStylesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableChartStylesGradientInput)(nil)).Elem(), OneDashboardPageWidgetTableChartStylesGradientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableChartStylesGradientPtrInput)(nil)).Elem(), OneDashboardPageWidgetTableChartStylesGradientArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorInput)(nil)).Elem(), OneDashboardPageWidgetTableColorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArgs{})
@@ -29197,6 +33519,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideOutput{})
@@ -29219,6 +33545,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideOutput{})
@@ -29247,6 +33577,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsLinkPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsVisualOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardBillboardSettingsVisualPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput{})
@@ -29267,6 +33601,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideOutput{})
@@ -29287,6 +33625,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput{})
@@ -29307,6 +33649,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput{})
@@ -29327,6 +33673,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput{})
@@ -29347,6 +33697,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideOutput{})
@@ -29367,6 +33721,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideOutput{})
@@ -29393,6 +33751,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineYAxisRightPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput{})
@@ -29413,6 +33775,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput{})
@@ -29431,6 +33797,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideOutput{})
@@ -29451,6 +33821,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput{})
@@ -29473,6 +33847,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableChartStylesOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableChartStylesPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableChartStylesGradientOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableChartStylesGradientPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideOutput{})

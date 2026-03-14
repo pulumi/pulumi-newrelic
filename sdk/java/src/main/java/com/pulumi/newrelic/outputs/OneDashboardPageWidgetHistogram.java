@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHistogramInitialSorting;
@@ -22,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetHistogram {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetHistogramChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -110,6 +116,13 @@ public final class OneDashboardPageWidgetHistogram {
     private @Nullable Double yAxisLeftMin;
 
     private OneDashboardPageWidgetHistogram() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetHistogramChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -242,6 +255,7 @@ public final class OneDashboardPageWidgetHistogram {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetHistogramChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetHistogramColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetHistogramDataFormat> dataFormats;
@@ -263,6 +277,7 @@ public final class OneDashboardPageWidgetHistogram {
         public Builder() {}
         public Builder(OneDashboardPageWidgetHistogram defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -283,6 +298,12 @@ public final class OneDashboardPageWidgetHistogram {
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetHistogramChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetHistogramColor> colors) {
 
@@ -416,6 +437,7 @@ public final class OneDashboardPageWidgetHistogram {
         }
         public OneDashboardPageWidgetHistogram build() {
             final var _resultValue = new OneDashboardPageWidgetHistogram();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

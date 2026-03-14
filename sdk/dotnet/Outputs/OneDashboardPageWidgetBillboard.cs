@@ -18,6 +18,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly Outputs.OneDashboardPageWidgetBillboardBillboardSettings? BillboardSettings;
         /// <summary>
+        /// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested ChartStyles blocks below for details.
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetBillboardChartStyles? ChartStyles;
+        /// <summary>
         /// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboardColor> Colors;
@@ -99,6 +103,8 @@ namespace Pulumi.NewRelic.Outputs
         private OneDashboardPageWidgetBillboard(
             Outputs.OneDashboardPageWidgetBillboardBillboardSettings? billboardSettings,
 
+            Outputs.OneDashboardPageWidgetBillboardChartStyles? chartStyles,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetBillboardColor> colors,
 
             int column,
@@ -140,6 +146,7 @@ namespace Pulumi.NewRelic.Outputs
             double? yAxisLeftMin)
         {
             BillboardSettings = billboardSettings;
+            ChartStyles = chartStyles;
             Colors = colors;
             Column = column;
             Critical = critical;

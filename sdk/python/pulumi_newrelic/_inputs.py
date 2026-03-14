@@ -75,6 +75,10 @@ __all__ = [
     'OneDashboardPageArgsDict',
     'OneDashboardPageWidgetAreaArgs',
     'OneDashboardPageWidgetAreaArgsDict',
+    'OneDashboardPageWidgetAreaChartStylesArgs',
+    'OneDashboardPageWidgetAreaChartStylesArgsDict',
+    'OneDashboardPageWidgetAreaChartStylesGradientArgs',
+    'OneDashboardPageWidgetAreaChartStylesGradientArgsDict',
     'OneDashboardPageWidgetAreaColorArgs',
     'OneDashboardPageWidgetAreaColorArgsDict',
     'OneDashboardPageWidgetAreaColorSeriesOverrideArgs',
@@ -97,6 +101,10 @@ __all__ = [
     'OneDashboardPageWidgetAreaUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBarArgs',
     'OneDashboardPageWidgetBarArgsDict',
+    'OneDashboardPageWidgetBarChartStylesArgs',
+    'OneDashboardPageWidgetBarChartStylesArgsDict',
+    'OneDashboardPageWidgetBarChartStylesGradientArgs',
+    'OneDashboardPageWidgetBarChartStylesGradientArgsDict',
     'OneDashboardPageWidgetBarColorArgs',
     'OneDashboardPageWidgetBarColorArgsDict',
     'OneDashboardPageWidgetBarColorSeriesOverrideArgs',
@@ -125,6 +133,10 @@ __all__ = [
     'OneDashboardPageWidgetBillboardBillboardSettingsLinkArgsDict',
     'OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs',
     'OneDashboardPageWidgetBillboardBillboardSettingsVisualArgsDict',
+    'OneDashboardPageWidgetBillboardChartStylesArgs',
+    'OneDashboardPageWidgetBillboardChartStylesArgsDict',
+    'OneDashboardPageWidgetBillboardChartStylesGradientArgs',
+    'OneDashboardPageWidgetBillboardChartStylesGradientArgsDict',
     'OneDashboardPageWidgetBillboardColorArgs',
     'OneDashboardPageWidgetBillboardColorArgsDict',
     'OneDashboardPageWidgetBillboardColorSeriesOverrideArgs',
@@ -145,6 +157,10 @@ __all__ = [
     'OneDashboardPageWidgetBillboardUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetBulletArgs',
     'OneDashboardPageWidgetBulletArgsDict',
+    'OneDashboardPageWidgetBulletChartStylesArgs',
+    'OneDashboardPageWidgetBulletChartStylesArgsDict',
+    'OneDashboardPageWidgetBulletChartStylesGradientArgs',
+    'OneDashboardPageWidgetBulletChartStylesGradientArgsDict',
     'OneDashboardPageWidgetBulletColorArgs',
     'OneDashboardPageWidgetBulletColorArgsDict',
     'OneDashboardPageWidgetBulletColorSeriesOverrideArgs',
@@ -165,6 +181,10 @@ __all__ = [
     'OneDashboardPageWidgetBulletUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetFunnelArgs',
     'OneDashboardPageWidgetFunnelArgsDict',
+    'OneDashboardPageWidgetFunnelChartStylesArgs',
+    'OneDashboardPageWidgetFunnelChartStylesArgsDict',
+    'OneDashboardPageWidgetFunnelChartStylesGradientArgs',
+    'OneDashboardPageWidgetFunnelChartStylesGradientArgsDict',
     'OneDashboardPageWidgetFunnelColorArgs',
     'OneDashboardPageWidgetFunnelColorArgsDict',
     'OneDashboardPageWidgetFunnelColorSeriesOverrideArgs',
@@ -185,6 +205,10 @@ __all__ = [
     'OneDashboardPageWidgetFunnelUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHeatmapArgs',
     'OneDashboardPageWidgetHeatmapArgsDict',
+    'OneDashboardPageWidgetHeatmapChartStylesArgs',
+    'OneDashboardPageWidgetHeatmapChartStylesArgsDict',
+    'OneDashboardPageWidgetHeatmapChartStylesGradientArgs',
+    'OneDashboardPageWidgetHeatmapChartStylesGradientArgsDict',
     'OneDashboardPageWidgetHeatmapColorArgs',
     'OneDashboardPageWidgetHeatmapColorArgsDict',
     'OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs',
@@ -205,6 +229,10 @@ __all__ = [
     'OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetHistogramArgs',
     'OneDashboardPageWidgetHistogramArgsDict',
+    'OneDashboardPageWidgetHistogramChartStylesArgs',
+    'OneDashboardPageWidgetHistogramChartStylesArgsDict',
+    'OneDashboardPageWidgetHistogramChartStylesGradientArgs',
+    'OneDashboardPageWidgetHistogramChartStylesGradientArgsDict',
     'OneDashboardPageWidgetHistogramColorArgs',
     'OneDashboardPageWidgetHistogramColorArgsDict',
     'OneDashboardPageWidgetHistogramColorSeriesOverrideArgs',
@@ -225,6 +253,10 @@ __all__ = [
     'OneDashboardPageWidgetHistogramUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetJsonArgs',
     'OneDashboardPageWidgetJsonArgsDict',
+    'OneDashboardPageWidgetJsonChartStylesArgs',
+    'OneDashboardPageWidgetJsonChartStylesArgsDict',
+    'OneDashboardPageWidgetJsonChartStylesGradientArgs',
+    'OneDashboardPageWidgetJsonChartStylesGradientArgsDict',
     'OneDashboardPageWidgetJsonColorArgs',
     'OneDashboardPageWidgetJsonColorArgsDict',
     'OneDashboardPageWidgetJsonColorSeriesOverrideArgs',
@@ -245,6 +277,10 @@ __all__ = [
     'OneDashboardPageWidgetJsonUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetLineArgs',
     'OneDashboardPageWidgetLineArgsDict',
+    'OneDashboardPageWidgetLineChartStylesArgs',
+    'OneDashboardPageWidgetLineChartStylesArgsDict',
+    'OneDashboardPageWidgetLineChartStylesGradientArgs',
+    'OneDashboardPageWidgetLineChartStylesGradientArgsDict',
     'OneDashboardPageWidgetLineColorArgs',
     'OneDashboardPageWidgetLineColorArgsDict',
     'OneDashboardPageWidgetLineColorSeriesOverrideArgs',
@@ -271,6 +307,10 @@ __all__ = [
     'OneDashboardPageWidgetLineYAxisRightArgsDict',
     'OneDashboardPageWidgetLogTableArgs',
     'OneDashboardPageWidgetLogTableArgsDict',
+    'OneDashboardPageWidgetLogTableChartStylesArgs',
+    'OneDashboardPageWidgetLogTableChartStylesArgsDict',
+    'OneDashboardPageWidgetLogTableChartStylesGradientArgs',
+    'OneDashboardPageWidgetLogTableChartStylesGradientArgsDict',
     'OneDashboardPageWidgetLogTableColorArgs',
     'OneDashboardPageWidgetLogTableColorArgsDict',
     'OneDashboardPageWidgetLogTableColorSeriesOverrideArgs',
@@ -291,6 +331,10 @@ __all__ = [
     'OneDashboardPageWidgetLogTableUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetMarkdownArgs',
     'OneDashboardPageWidgetMarkdownArgsDict',
+    'OneDashboardPageWidgetMarkdownChartStylesArgs',
+    'OneDashboardPageWidgetMarkdownChartStylesArgsDict',
+    'OneDashboardPageWidgetMarkdownChartStylesGradientArgs',
+    'OneDashboardPageWidgetMarkdownChartStylesGradientArgsDict',
     'OneDashboardPageWidgetMarkdownColorArgs',
     'OneDashboardPageWidgetMarkdownColorArgsDict',
     'OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs',
@@ -309,6 +353,10 @@ __all__ = [
     'OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetPyArgs',
     'OneDashboardPageWidgetPyArgsDict',
+    'OneDashboardPageWidgetPyChartStylesArgs',
+    'OneDashboardPageWidgetPyChartStylesArgsDict',
+    'OneDashboardPageWidgetPyChartStylesGradientArgs',
+    'OneDashboardPageWidgetPyChartStylesGradientArgsDict',
     'OneDashboardPageWidgetPyColorArgs',
     'OneDashboardPageWidgetPyColorArgsDict',
     'OneDashboardPageWidgetPyColorSeriesOverrideArgs',
@@ -329,6 +377,10 @@ __all__ = [
     'OneDashboardPageWidgetPyUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetStackedBarArgs',
     'OneDashboardPageWidgetStackedBarArgsDict',
+    'OneDashboardPageWidgetStackedBarChartStylesArgs',
+    'OneDashboardPageWidgetStackedBarChartStylesArgsDict',
+    'OneDashboardPageWidgetStackedBarChartStylesGradientArgs',
+    'OneDashboardPageWidgetStackedBarChartStylesGradientArgsDict',
     'OneDashboardPageWidgetStackedBarColorArgs',
     'OneDashboardPageWidgetStackedBarColorArgsDict',
     'OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs',
@@ -351,6 +403,10 @@ __all__ = [
     'OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgsDict',
     'OneDashboardPageWidgetTableArgs',
     'OneDashboardPageWidgetTableArgsDict',
+    'OneDashboardPageWidgetTableChartStylesArgs',
+    'OneDashboardPageWidgetTableChartStylesArgsDict',
+    'OneDashboardPageWidgetTableChartStylesGradientArgs',
+    'OneDashboardPageWidgetTableChartStylesGradientArgsDict',
     'OneDashboardPageWidgetTableColorArgs',
     'OneDashboardPageWidgetTableColorArgsDict',
     'OneDashboardPageWidgetTableColorSeriesOverrideArgs',
@@ -2878,7 +2934,7 @@ class OneDashboardPageArgsDict(TypedDict):
     """
     widget_areas: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgsDict']]]]
     """
-    An area widget.
+    Supports both `line_interpolation` and `gradient`
     """
     widget_bars: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgsDict']]]]
     """
@@ -2886,7 +2942,7 @@ class OneDashboardPageArgsDict(TypedDict):
     """
     widget_billboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgsDict']]]]
     """
-    A billboard widget.
+    Supports `line_interpolation` only
     """
     widget_bullets: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgsDict']]]]
     """
@@ -2902,7 +2958,7 @@ class OneDashboardPageArgsDict(TypedDict):
     """
     widget_histograms: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgsDict']]]]
     """
-    A histogram widget.
+    Supports `gradient` only
     """
     widget_jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgsDict']]]]
     """
@@ -2910,7 +2966,7 @@ class OneDashboardPageArgsDict(TypedDict):
     """
     widget_lines: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgsDict']]]]
     """
-    A line widget.
+    Supports `line_interpolation` only
     """
     widget_log_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgsDict']]]]
     """
@@ -2922,11 +2978,11 @@ class OneDashboardPageArgsDict(TypedDict):
     """
     widget_pies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgsDict']]]]
     """
-    A pie widget.
+    Supports `gradient` only
     """
     widget_stacked_bars: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgsDict']]]]
     """
-    A stacked bar widget.
+    Supports `gradient` only
     """
     widget_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgsDict']]]]
     """
@@ -2957,19 +3013,19 @@ class OneDashboardPageArgs:
         :param pulumi.Input[_builtins.str] name: The title of the dashboard.
         :param pulumi.Input[_builtins.str] description: Brief text describing the dashboard.
         :param pulumi.Input[_builtins.str] guid: The unique entity identifier of the dashboard page in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]] widget_areas: An area widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]] widget_areas: Supports both `line_interpolation` and `gradient`
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]] widget_bars: A bar widget.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]] widget_billboards: A billboard widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]] widget_billboards: Supports `line_interpolation` only
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgs']]] widget_bullets: A bullet widget.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgs']]] widget_funnels: A funnel widget.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgs']]] widget_heatmaps: A heatmap widget.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]] widget_histograms: A histogram widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]] widget_histograms: Supports `gradient` only
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgs']]] widget_jsons: A JSON widget.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]] widget_lines: A line widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]] widget_lines: Supports `line_interpolation` only
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgs']]] widget_log_tables: A log table widget.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgs']]] widget_markdowns: A markdown widget.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]] widget_pies: A pie widget.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]] widget_stacked_bars: A stacked bar widget.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]] widget_pies: Supports `gradient` only
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]] widget_stacked_bars: Supports `gradient` only
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]] widget_tables: A table widget.
         """
         pulumi.set(__self__, "name", name)
@@ -3046,7 +3102,7 @@ class OneDashboardPageArgs:
     @pulumi.getter(name="widgetAreas")
     def widget_areas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]]]:
         """
-        An area widget.
+        Supports both `line_interpolation` and `gradient`
         """
         return pulumi.get(self, "widget_areas")
 
@@ -3070,7 +3126,7 @@ class OneDashboardPageArgs:
     @pulumi.getter(name="widgetBillboards")
     def widget_billboards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]]]:
         """
-        A billboard widget.
+        Supports `line_interpolation` only
         """
         return pulumi.get(self, "widget_billboards")
 
@@ -3118,7 +3174,7 @@ class OneDashboardPageArgs:
     @pulumi.getter(name="widgetHistograms")
     def widget_histograms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]]]:
         """
-        A histogram widget.
+        Supports `gradient` only
         """
         return pulumi.get(self, "widget_histograms")
 
@@ -3142,7 +3198,7 @@ class OneDashboardPageArgs:
     @pulumi.getter(name="widgetLines")
     def widget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]]]:
         """
-        A line widget.
+        Supports `line_interpolation` only
         """
         return pulumi.get(self, "widget_lines")
 
@@ -3178,7 +3234,7 @@ class OneDashboardPageArgs:
     @pulumi.getter(name="widgetPies")
     def widget_pies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]]]:
         """
-        A pie widget.
+        Supports `gradient` only
         """
         return pulumi.get(self, "widget_pies")
 
@@ -3190,7 +3246,7 @@ class OneDashboardPageArgs:
     @pulumi.getter(name="widgetStackedBars")
     def widget_stacked_bars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]]]:
         """
-        A stacked bar widget.
+        Supports `gradient` only
         """
         return pulumi.get(self, "widget_stacked_bars")
 
@@ -3227,6 +3283,10 @@ class OneDashboardPageWidgetAreaArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
     """
     (Optional) A human-friendly display string for this value.
+    """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetAreaChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
     """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgsDict']]]]
     """
@@ -3293,6 +3353,7 @@ class OneDashboardPageWidgetAreaArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetAreaChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -3313,6 +3374,7 @@ class OneDashboardPageWidgetAreaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetAreaChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -3332,6 +3394,8 @@ class OneDashboardPageWidgetAreaArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -3410,6 +3474,18 @@ class OneDashboardPageWidgetAreaArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetAreaChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetAreaChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3587,6 +3663,83 @@ class OneDashboardPageWidgetAreaArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetAreaChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetAreaChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetAreaChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetAreaChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetAreaChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetAreaChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetAreaChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetAreaChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetAreaChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetAreaColorArgsDict(TypedDict):
@@ -4110,6 +4263,10 @@ class OneDashboardPageWidgetBarArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetBarChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -4179,6 +4336,7 @@ class OneDashboardPageWidgetBarArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetBarChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -4200,6 +4358,7 @@ class OneDashboardPageWidgetBarArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetBarChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -4220,6 +4379,8 @@ class OneDashboardPageWidgetBarArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -4300,6 +4461,18 @@ class OneDashboardPageWidgetBarArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetBarChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBarChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -4489,6 +4662,83 @@ class OneDashboardPageWidgetBarArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetBarChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetBarChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetBarChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetBarChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetBarChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetBarChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBarChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetBarChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetBarChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetBarColorArgsDict(TypedDict):
@@ -4988,6 +5238,10 @@ class OneDashboardPageWidgetBillboardArgsDict(TypedDict):
     """
     (Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -5058,6 +5312,7 @@ class OneDashboardPageWidgetBillboardArgs:
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
                  billboard_settings: Optional[pulumi.Input['OneDashboardPageWidgetBillboardBillboardSettingsArgs']] = None,
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgs']]]] = None,
                  critical: Optional[pulumi.Input[_builtins.str]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardDataFormatArgs']]]] = None,
@@ -5080,6 +5335,7 @@ class OneDashboardPageWidgetBillboardArgs:
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
         :param pulumi.Input['OneDashboardPageWidgetBillboardBillboardSettingsArgs'] billboard_settings: (Optional) A nested block that describes billboard specific settings. See Nested billboard\\_settings blocks below for details.
+        :param pulumi.Input['OneDashboardPageWidgetBillboardChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[_builtins.str] critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
@@ -5102,6 +5358,8 @@ class OneDashboardPageWidgetBillboardArgs:
         pulumi.set(__self__, "title", title)
         if billboard_settings is not None:
             pulumi.set(__self__, "billboard_settings", billboard_settings)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if critical is not None:
@@ -5194,6 +5452,18 @@ class OneDashboardPageWidgetBillboardArgs:
     @billboard_settings.setter
     def billboard_settings(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBillboardBillboardSettingsArgs']]):
         pulumi.set(self, "billboard_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -5639,6 +5909,83 @@ class OneDashboardPageWidgetBillboardBillboardSettingsVisualArgs:
     @display.setter
     def display(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display", value)
+
+
+class OneDashboardPageWidgetBillboardChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetBillboardChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetBillboardChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBillboardChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetBillboardChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetBillboardChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetBillboardColorArgsDict(TypedDict):
@@ -6138,6 +6485,10 @@ class OneDashboardPageWidgetBulletArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetBulletChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -6200,6 +6551,7 @@ class OneDashboardPageWidgetBulletArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetBulletChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -6220,6 +6572,7 @@ class OneDashboardPageWidgetBulletArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetBulletChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -6239,6 +6592,8 @@ class OneDashboardPageWidgetBulletArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -6327,6 +6682,18 @@ class OneDashboardPageWidgetBulletArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetBulletChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBulletChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6492,6 +6859,83 @@ class OneDashboardPageWidgetBulletArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetBulletChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetBulletChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetBulletChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetBulletChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetBulletChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetBulletChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetBulletChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetBulletChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetBulletChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetBulletColorArgsDict(TypedDict):
@@ -6987,6 +7431,10 @@ class OneDashboardPageWidgetFunnelArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -7048,6 +7496,7 @@ class OneDashboardPageWidgetFunnelArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -7067,6 +7516,7 @@ class OneDashboardPageWidgetFunnelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetFunnelChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -7085,6 +7535,8 @@ class OneDashboardPageWidgetFunnelArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -7161,6 +7613,18 @@ class OneDashboardPageWidgetFunnelArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -7326,6 +7790,83 @@ class OneDashboardPageWidgetFunnelArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetFunnelChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetFunnelChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetFunnelChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetFunnelChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetFunnelChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetFunnelChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetFunnelColorArgsDict(TypedDict):
@@ -7821,6 +8362,10 @@ class OneDashboardPageWidgetHeatmapArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -7890,6 +8435,7 @@ class OneDashboardPageWidgetHeatmapArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -7911,6 +8457,7 @@ class OneDashboardPageWidgetHeatmapArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -7931,6 +8478,8 @@ class OneDashboardPageWidgetHeatmapArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -8011,6 +8560,18 @@ class OneDashboardPageWidgetHeatmapArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -8200,6 +8761,83 @@ class OneDashboardPageWidgetHeatmapArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetHeatmapChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetHeatmapChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetHeatmapChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetHeatmapChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetHeatmapChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetHeatmapColorArgsDict(TypedDict):
@@ -8695,6 +9333,10 @@ class OneDashboardPageWidgetHistogramArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -8756,6 +9398,7 @@ class OneDashboardPageWidgetHistogramArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -8775,6 +9418,7 @@ class OneDashboardPageWidgetHistogramArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetHistogramChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -8793,6 +9437,8 @@ class OneDashboardPageWidgetHistogramArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -8869,6 +9515,18 @@ class OneDashboardPageWidgetHistogramArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -9034,6 +9692,83 @@ class OneDashboardPageWidgetHistogramArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetHistogramChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetHistogramChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetHistogramChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetHistogramChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetHistogramChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetHistogramChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetHistogramColorArgsDict(TypedDict):
@@ -9529,6 +10264,10 @@ class OneDashboardPageWidgetJsonArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetJsonChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -9590,6 +10329,7 @@ class OneDashboardPageWidgetJsonArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetJsonChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -9609,6 +10349,7 @@ class OneDashboardPageWidgetJsonArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetJsonChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -9627,6 +10368,8 @@ class OneDashboardPageWidgetJsonArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -9703,6 +10446,18 @@ class OneDashboardPageWidgetJsonArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetJsonChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetJsonChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -9868,6 +10623,83 @@ class OneDashboardPageWidgetJsonArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetJsonChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetJsonChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetJsonChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetJsonChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetJsonChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetJsonChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetJsonChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetJsonChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetJsonChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetJsonColorArgsDict(TypedDict):
@@ -10363,6 +11195,10 @@ class OneDashboardPageWidgetLineArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetLineChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -10444,6 +11280,7 @@ class OneDashboardPageWidgetLineArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetLineChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -10468,6 +11305,7 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetLineChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -10491,6 +11329,8 @@ class OneDashboardPageWidgetLineArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -10577,6 +11417,18 @@ class OneDashboardPageWidgetLineArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetLineChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLineChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -10802,6 +11654,83 @@ class OneDashboardPageWidgetLineArgs:
     @y_axis_right.setter
     def y_axis_right(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLineYAxisRightArgs']]):
         pulumi.set(self, "y_axis_right", value)
+
+
+class OneDashboardPageWidgetLineChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetLineChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetLineChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetLineChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetLineChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetLineChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLineChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetLineChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetLineChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetLineColorArgsDict(TypedDict):
@@ -11503,6 +12432,10 @@ class OneDashboardPageWidgetLogTableArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -11564,6 +12497,7 @@ class OneDashboardPageWidgetLogTableArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -11583,6 +12517,7 @@ class OneDashboardPageWidgetLogTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetLogTableChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -11601,6 +12536,8 @@ class OneDashboardPageWidgetLogTableArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -11677,6 +12614,18 @@ class OneDashboardPageWidgetLogTableArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11842,6 +12791,83 @@ class OneDashboardPageWidgetLogTableArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetLogTableChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetLogTableChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetLogTableChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetLogTableChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetLogTableChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetLogTableChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetLogTableColorArgsDict(TypedDict):
@@ -12337,6 +13363,10 @@ class OneDashboardPageWidgetMarkdownArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -12398,6 +13428,7 @@ class OneDashboardPageWidgetMarkdownArgs:
                  row: pulumi.Input[_builtins.int],
                  text: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -12417,6 +13448,7 @@ class OneDashboardPageWidgetMarkdownArgs:
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] text: (Required) The markdown source to be rendered in the widget.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -12435,6 +13467,8 @@ class OneDashboardPageWidgetMarkdownArgs:
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "text", text)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -12511,6 +13545,18 @@ class OneDashboardPageWidgetMarkdownArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -12676,6 +13722,83 @@ class OneDashboardPageWidgetMarkdownArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetMarkdownChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetMarkdownChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetMarkdownChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetMarkdownChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetMarkdownChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetMarkdownColorArgsDict(TypedDict):
@@ -13123,6 +14246,10 @@ class OneDashboardPageWidgetPyArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetPyChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -13192,6 +14319,7 @@ class OneDashboardPageWidgetPyArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetPyChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -13213,6 +14341,7 @@ class OneDashboardPageWidgetPyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetPyChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -13233,6 +14362,8 @@ class OneDashboardPageWidgetPyArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -13313,6 +14444,18 @@ class OneDashboardPageWidgetPyArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetPyChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetPyChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -13502,6 +14645,83 @@ class OneDashboardPageWidgetPyArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetPyChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetPyChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetPyChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetPyChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetPyChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetPyChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetPyChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetPyChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetPyChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetPyColorArgsDict(TypedDict):
@@ -13997,6 +15217,10 @@ class OneDashboardPageWidgetStackedBarArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -14062,6 +15286,7 @@ class OneDashboardPageWidgetStackedBarArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -14082,6 +15307,7 @@ class OneDashboardPageWidgetStackedBarArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -14101,6 +15327,8 @@ class OneDashboardPageWidgetStackedBarArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -14179,6 +15407,18 @@ class OneDashboardPageWidgetStackedBarArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -14356,6 +15596,83 @@ class OneDashboardPageWidgetStackedBarArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetStackedBarChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetStackedBarChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetStackedBarChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetStackedBarChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetStackedBarChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetStackedBarColorArgsDict(TypedDict):
@@ -14879,6 +16196,10 @@ class OneDashboardPageWidgetTableArgsDict(TypedDict):
     """
     (Optional) A human-friendly display string for this value.
     """
+    chart_styles: NotRequired[pulumi.Input['OneDashboardPageWidgetTableChartStylesArgsDict']]
+    """
+    (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+    """
     colors: NotRequired[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgsDict']]]]
     """
     (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -14952,6 +16273,7 @@ class OneDashboardPageWidgetTableArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]],
                  row: pulumi.Input[_builtins.int],
                  title: pulumi.Input[_builtins.str],
+                 chart_styles: Optional[pulumi.Input['OneDashboardPageWidgetTableChartStylesArgs']] = None,
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgs']]]] = None,
                  data_formats: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableDataFormatArgs']]]] = None,
                  facet_show_other_series: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -14974,6 +16296,7 @@ class OneDashboardPageWidgetTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for Variables for details.
         :param pulumi.Input[_builtins.int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[_builtins.str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input['OneDashboardPageWidgetTableChartStylesArgs'] chart_styles: (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableColorArgs']]] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableDataFormatArgs']]] data_formats: (Optional) A nested block that describes data format. See Nested data_format blocks below for details.
         :param pulumi.Input[_builtins.bool] facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
@@ -14995,6 +16318,8 @@ class OneDashboardPageWidgetTableArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if chart_styles is not None:
+            pulumi.set(__self__, "chart_styles", chart_styles)
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if data_formats is not None:
@@ -15077,6 +16402,18 @@ class OneDashboardPageWidgetTableArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartStyles")
+    def chart_styles(self) -> Optional[pulumi.Input['OneDashboardPageWidgetTableChartStylesArgs']]:
+        """
+        (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chart_styles blocks below for details.
+        """
+        return pulumi.get(self, "chart_styles")
+
+    @chart_styles.setter
+    def chart_styles(self, value: Optional[pulumi.Input['OneDashboardPageWidgetTableChartStylesArgs']]):
+        pulumi.set(self, "chart_styles", value)
 
     @_builtins.property
     @pulumi.getter
@@ -15278,6 +16615,83 @@ class OneDashboardPageWidgetTableArgs:
     @y_axis_left_min.setter
     def y_axis_left_min(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "y_axis_left_min", value)
+
+
+class OneDashboardPageWidgetTableChartStylesArgsDict(TypedDict):
+    gradient: NotRequired[pulumi.Input['OneDashboardPageWidgetTableChartStylesGradientArgsDict']]
+    """
+    (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+    """
+    line_interpolation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetTableChartStylesArgs:
+    def __init__(__self__, *,
+                 gradient: Optional[pulumi.Input['OneDashboardPageWidgetTableChartStylesGradientArgs']] = None,
+                 line_interpolation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['OneDashboardPageWidgetTableChartStylesGradientArgs'] gradient: (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        :param pulumi.Input[_builtins.str] line_interpolation: (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[pulumi.Input['OneDashboardPageWidgetTableChartStylesGradientArgs']]:
+        """
+        (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+        """
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: Optional[pulumi.Input['OneDashboardPageWidgetTableChartStylesGradientArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+        """
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "line_interpolation", value)
+
+
+class OneDashboardPageWidgetTableChartStylesGradientArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean value to enable or disable gradient effect.
+    """
+
+@pulumi.input_type
+class OneDashboardPageWidgetTableChartStylesGradientArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: (Required) Boolean value to enable or disable gradient effect.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        (Required) Boolean value to enable or disable gradient effect.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 class OneDashboardPageWidgetTableColorArgsDict(TypedDict):

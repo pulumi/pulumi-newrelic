@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetHeatmapInitialSortingArgs;
@@ -25,6 +26,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetHeatmapArgs Empty = new OneDashboardPageWidgetHeatmapArgs();
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetHeatmapChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetHeatmapChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -321,6 +337,7 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
     private OneDashboardPageWidgetHeatmapArgs() {}
 
     private OneDashboardPageWidgetHeatmapArgs(OneDashboardPageWidgetHeatmapArgs $) {
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.dataFormats = $.dataFormats;
@@ -359,6 +376,27 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
 
         public Builder(OneDashboardPageWidgetHeatmapArgs defaults) {
             $ = new OneDashboardPageWidgetHeatmapArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetHeatmapChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetHeatmapChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

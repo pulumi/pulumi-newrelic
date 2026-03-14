@@ -632,7 +632,7 @@ export interface OneDashboardPage {
      */
     name: string;
     /**
-     * An area widget.
+     * Supports both `lineInterpolation` and `gradient`
      */
     widgetAreas?: outputs.OneDashboardPageWidgetArea[];
     /**
@@ -640,7 +640,7 @@ export interface OneDashboardPage {
      */
     widgetBars?: outputs.OneDashboardPageWidgetBar[];
     /**
-     * A billboard widget.
+     * Supports `lineInterpolation` only
      */
     widgetBillboards?: outputs.OneDashboardPageWidgetBillboard[];
     /**
@@ -656,7 +656,7 @@ export interface OneDashboardPage {
      */
     widgetHeatmaps?: outputs.OneDashboardPageWidgetHeatmap[];
     /**
-     * A histogram widget.
+     * Supports `gradient` only
      */
     widgetHistograms?: outputs.OneDashboardPageWidgetHistogram[];
     /**
@@ -664,7 +664,7 @@ export interface OneDashboardPage {
      */
     widgetJsons?: outputs.OneDashboardPageWidgetJson[];
     /**
-     * A line widget.
+     * Supports `lineInterpolation` only
      */
     widgetLines?: outputs.OneDashboardPageWidgetLine[];
     /**
@@ -676,11 +676,11 @@ export interface OneDashboardPage {
      */
     widgetMarkdowns?: outputs.OneDashboardPageWidgetMarkdown[];
     /**
-     * A pie widget.
+     * Supports `gradient` only
      */
     widgetPies?: outputs.OneDashboardPageWidgetPy[];
     /**
-     * A stacked bar widget.
+     * Supports `gradient` only
      */
     widgetStackedBars?: outputs.OneDashboardPageWidgetStackedBar[];
     /**
@@ -690,6 +690,10 @@ export interface OneDashboardPage {
 }
 
 export interface OneDashboardPageWidgetArea {
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetAreaChartStyles;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
@@ -763,6 +767,24 @@ export interface OneDashboardPageWidgetArea {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetAreaChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetAreaChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetAreaChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetAreaColor {
@@ -881,6 +903,10 @@ export interface OneDashboardPageWidgetAreaUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetBar {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetBarChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetBarColor[];
@@ -957,6 +983,24 @@ export interface OneDashboardPageWidgetBar {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetBarChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetBarChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetBarChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetBarColor {
@@ -1071,6 +1115,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) A nested block that describes billboard specific settings. See Nested billboard\_settings blocks below for details.
      */
     billboardSettings?: outputs.OneDashboardPageWidgetBillboardBillboardSettings;
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetBillboardChartStyles;
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
@@ -1206,6 +1254,24 @@ export interface OneDashboardPageWidgetBillboardBillboardSettingsVisual {
     display?: string;
 }
 
+export interface OneDashboardPageWidgetBillboardChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetBillboardChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetBillboardChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
+}
+
 export interface OneDashboardPageWidgetBillboardColor {
     /**
      * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
@@ -1315,6 +1381,10 @@ export interface OneDashboardPageWidgetBillboardUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetBullet {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetBulletChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetBulletColor[];
@@ -1387,6 +1457,24 @@ export interface OneDashboardPageWidgetBullet {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetBulletChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetBulletChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetBulletChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetBulletColor {
@@ -1498,6 +1586,10 @@ export interface OneDashboardPageWidgetBulletUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetFunnel {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetFunnelChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetFunnelColor[];
@@ -1566,6 +1658,24 @@ export interface OneDashboardPageWidgetFunnel {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetFunnelChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetFunnelChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetFunnelChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetFunnelColor {
@@ -1677,6 +1787,10 @@ export interface OneDashboardPageWidgetFunnelUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetHeatmap {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetHeatmapChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetHeatmapColor[];
@@ -1753,6 +1867,24 @@ export interface OneDashboardPageWidgetHeatmap {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetHeatmapChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetHeatmapChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetHeatmapChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetHeatmapColor {
@@ -1864,6 +1996,10 @@ export interface OneDashboardPageWidgetHeatmapUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetHistogram {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetHistogramChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetHistogramColor[];
@@ -1932,6 +2068,24 @@ export interface OneDashboardPageWidgetHistogram {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetHistogramChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetHistogramChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetHistogramChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetHistogramColor {
@@ -2043,6 +2197,10 @@ export interface OneDashboardPageWidgetHistogramUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetJson {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetJsonChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetJsonColor[];
@@ -2111,6 +2269,24 @@ export interface OneDashboardPageWidgetJson {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetJsonChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetJsonChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetJsonChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetJsonColor {
@@ -2222,6 +2398,10 @@ export interface OneDashboardPageWidgetJsonUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetLine {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetLineChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetLineColor[];
@@ -2310,6 +2490,24 @@ export interface OneDashboardPageWidgetLine {
      * (Optional) An attribute which helps specify the configuration of the Y-Axis displayed on the right side of the line widget. This is a nested block, which includes the following attributes:
      */
     yAxisRight?: outputs.OneDashboardPageWidgetLineYAxisRight;
+}
+
+export interface OneDashboardPageWidgetLineChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetLineChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetLineChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetLineColor {
@@ -2466,6 +2664,10 @@ export interface OneDashboardPageWidgetLineYAxisRight {
 
 export interface OneDashboardPageWidgetLogTable {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetLogTableChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetLogTableColor[];
@@ -2534,6 +2736,24 @@ export interface OneDashboardPageWidgetLogTable {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetLogTableChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetLogTableChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetLogTableChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetLogTableColor {
@@ -2645,6 +2865,10 @@ export interface OneDashboardPageWidgetLogTableUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetMarkdown {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetMarkdownChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetMarkdownColor[];
@@ -2713,6 +2937,24 @@ export interface OneDashboardPageWidgetMarkdown {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetMarkdownChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetMarkdownChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetMarkdownChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetMarkdownColor {
@@ -2813,6 +3055,10 @@ export interface OneDashboardPageWidgetMarkdownUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetPy {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetPyChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetPyColor[];
@@ -2889,6 +3135,24 @@ export interface OneDashboardPageWidgetPy {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetPyChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetPyChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetPyChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetPyColor {
@@ -3000,6 +3264,10 @@ export interface OneDashboardPageWidgetPyUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetStackedBar {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetStackedBarChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetStackedBarColor[];
@@ -3072,6 +3340,24 @@ export interface OneDashboardPageWidgetStackedBar {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetStackedBarChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetStackedBarChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetStackedBarChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetStackedBarColor {
@@ -3190,6 +3476,10 @@ export interface OneDashboardPageWidgetStackedBarUnitSeriesOverride {
 
 export interface OneDashboardPageWidgetTable {
     /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     */
+    chartStyles?: outputs.OneDashboardPageWidgetTableChartStyles;
+    /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      */
     colors?: outputs.OneDashboardPageWidgetTableColor[];
@@ -3270,6 +3560,24 @@ export interface OneDashboardPageWidgetTable {
      * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
      */
     yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetTableChartStyles {
+    /**
+     * (Optional) A nested block that enables gradient effects on charts. Contains a single required attribute:
+     */
+    gradient?: outputs.OneDashboardPageWidgetTableChartStylesGradient;
+    /**
+     * (Optional) Controls how data points are connected in line/area charts. Valid values are: `linear`, `smooth`, `stepBefore`, `stepAfter`
+     */
+    lineInterpolation?: string;
+}
+
+export interface OneDashboardPageWidgetTableChartStylesGradient {
+    /**
+     * (Required) Boolean value to enable or disable gradient effect.
+     */
+    enabled: boolean;
 }
 
 export interface OneDashboardPageWidgetTableColor {

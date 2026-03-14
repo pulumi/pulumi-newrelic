@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetFunnelInitialSorting;
@@ -22,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetFunnel {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetFunnelChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -110,6 +116,13 @@ public final class OneDashboardPageWidgetFunnel {
     private @Nullable Double yAxisLeftMin;
 
     private OneDashboardPageWidgetFunnel() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetFunnelChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -242,6 +255,7 @@ public final class OneDashboardPageWidgetFunnel {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetFunnelChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetFunnelColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetFunnelDataFormat> dataFormats;
@@ -263,6 +277,7 @@ public final class OneDashboardPageWidgetFunnel {
         public Builder() {}
         public Builder(OneDashboardPageWidgetFunnel defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -283,6 +298,12 @@ public final class OneDashboardPageWidgetFunnel {
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetFunnelChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetFunnelColor> colors) {
 
@@ -416,6 +437,7 @@ public final class OneDashboardPageWidgetFunnel {
         }
         public OneDashboardPageWidgetFunnel build() {
             final var _resultValue = new OneDashboardPageWidgetFunnel();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

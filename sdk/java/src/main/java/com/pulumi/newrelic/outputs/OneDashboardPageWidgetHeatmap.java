@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapChartStyles;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapColor;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapDataFormat;
 import com.pulumi.newrelic.outputs.OneDashboardPageWidgetHeatmapInitialSorting;
@@ -22,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OneDashboardPageWidgetHeatmap {
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    private @Nullable OneDashboardPageWidgetHeatmapChartStyles chartStyles;
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -120,6 +126,13 @@ public final class OneDashboardPageWidgetHeatmap {
     private @Nullable Double yAxisLeftMin;
 
     private OneDashboardPageWidgetHeatmap() {}
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<OneDashboardPageWidgetHeatmapChartStyles> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
     /**
      * @return (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
      * 
@@ -266,6 +279,7 @@ public final class OneDashboardPageWidgetHeatmap {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable OneDashboardPageWidgetHeatmapChartStyles chartStyles;
         private @Nullable List<OneDashboardPageWidgetHeatmapColor> colors;
         private Integer column;
         private @Nullable List<OneDashboardPageWidgetHeatmapDataFormat> dataFormats;
@@ -289,6 +303,7 @@ public final class OneDashboardPageWidgetHeatmap {
         public Builder() {}
         public Builder(OneDashboardPageWidgetHeatmap defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.chartStyles = defaults.chartStyles;
     	      this.colors = defaults.colors;
     	      this.column = defaults.column;
     	      this.dataFormats = defaults.dataFormats;
@@ -311,6 +326,12 @@ public final class OneDashboardPageWidgetHeatmap {
     	      this.yAxisLeftMin = defaults.yAxisLeftMin;
         }
 
+        @CustomType.Setter
+        public Builder chartStyles(@Nullable OneDashboardPageWidgetHeatmapChartStyles chartStyles) {
+
+            this.chartStyles = chartStyles;
+            return this;
+        }
         @CustomType.Setter
         public Builder colors(@Nullable List<OneDashboardPageWidgetHeatmapColor> colors) {
 
@@ -459,6 +480,7 @@ public final class OneDashboardPageWidgetHeatmap {
         }
         public OneDashboardPageWidgetHeatmap build() {
             final var _resultValue = new OneDashboardPageWidgetHeatmap();
+            _resultValue.chartStyles = chartStyles;
             _resultValue.colors = colors;
             _resultValue.column = column;
             _resultValue.dataFormats = dataFormats;

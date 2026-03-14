@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetFunnelChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetFunnelColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetFunnelDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetFunnelInitialSortingArgs;
@@ -25,6 +26,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetFunnelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetFunnelArgs Empty = new OneDashboardPageWidgetFunnelArgs();
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetFunnelChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetFunnelChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -291,6 +307,7 @@ public final class OneDashboardPageWidgetFunnelArgs extends com.pulumi.resources
     private OneDashboardPageWidgetFunnelArgs() {}
 
     private OneDashboardPageWidgetFunnelArgs(OneDashboardPageWidgetFunnelArgs $) {
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.dataFormats = $.dataFormats;
@@ -327,6 +344,27 @@ public final class OneDashboardPageWidgetFunnelArgs extends com.pulumi.resources
 
         public Builder(OneDashboardPageWidgetFunnelArgs defaults) {
             $ = new OneDashboardPageWidgetFunnelArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetFunnelChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetFunnelChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

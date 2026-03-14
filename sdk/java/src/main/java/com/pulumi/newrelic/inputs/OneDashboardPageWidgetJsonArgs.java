@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonChartStylesArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonColorArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonDataFormatArgs;
 import com.pulumi.newrelic.inputs.OneDashboardPageWidgetJsonInitialSortingArgs;
@@ -25,6 +26,21 @@ import javax.annotation.Nullable;
 public final class OneDashboardPageWidgetJsonArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OneDashboardPageWidgetJsonArgs Empty = new OneDashboardPageWidgetJsonArgs();
+
+    /**
+     * (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    @Import(name="chartStyles")
+    private @Nullable Output<OneDashboardPageWidgetJsonChartStylesArgs> chartStyles;
+
+    /**
+     * @return (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+     * 
+     */
+    public Optional<Output<OneDashboardPageWidgetJsonChartStylesArgs>> chartStyles() {
+        return Optional.ofNullable(this.chartStyles);
+    }
 
     /**
      * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
@@ -291,6 +307,7 @@ public final class OneDashboardPageWidgetJsonArgs extends com.pulumi.resources.R
     private OneDashboardPageWidgetJsonArgs() {}
 
     private OneDashboardPageWidgetJsonArgs(OneDashboardPageWidgetJsonArgs $) {
+        this.chartStyles = $.chartStyles;
         this.colors = $.colors;
         this.column = $.column;
         this.dataFormats = $.dataFormats;
@@ -327,6 +344,27 @@ public final class OneDashboardPageWidgetJsonArgs extends com.pulumi.resources.R
 
         public Builder(OneDashboardPageWidgetJsonArgs defaults) {
             $ = new OneDashboardPageWidgetJsonArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(@Nullable Output<OneDashboardPageWidgetJsonChartStylesArgs> chartStyles) {
+            $.chartStyles = chartStyles;
+            return this;
+        }
+
+        /**
+         * @param chartStyles (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested chartStyles blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chartStyles(OneDashboardPageWidgetJsonChartStylesArgs chartStyles) {
+            return chartStyles(Output.of(chartStyles));
         }
 
         /**

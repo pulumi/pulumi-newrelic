@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class OneDashboardPageWidgetBullet
     {
         /// <summary>
+        /// (Optional) A nested block that describes chart styling configuration including line interpolation and gradient settings. See Nested ChartStyles blocks below for details.
+        /// </summary>
+        public readonly Outputs.OneDashboardPageWidgetBulletChartStyles? ChartStyles;
+        /// <summary>
         /// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBulletColor> Colors;
@@ -89,6 +93,8 @@ namespace Pulumi.NewRelic.Outputs
 
         [OutputConstructor]
         private OneDashboardPageWidgetBullet(
+            Outputs.OneDashboardPageWidgetBulletChartStyles? chartStyles,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetBulletColor> colors,
 
             int column,
@@ -127,6 +133,7 @@ namespace Pulumi.NewRelic.Outputs
 
             double? yAxisLeftMin)
         {
+            ChartStyles = chartStyles;
             Colors = colors;
             Column = column;
             DataFormats = dataFormats;
