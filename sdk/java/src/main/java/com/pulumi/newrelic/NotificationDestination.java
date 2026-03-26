@@ -14,6 +14,7 @@ import com.pulumi.newrelic.outputs.NotificationDestinationAuthBasic;
 import com.pulumi.newrelic.outputs.NotificationDestinationAuthCustomHeader;
 import com.pulumi.newrelic.outputs.NotificationDestinationAuthToken;
 import com.pulumi.newrelic.outputs.NotificationDestinationProperty;
+import com.pulumi.newrelic.outputs.NotificationDestinationScope;
 import com.pulumi.newrelic.outputs.NotificationDestinationSecureUrl;
 import java.lang.Boolean;
 import java.lang.String;
@@ -475,18 +476,6 @@ import javax.annotation.Nullable;
  * As a result, you cannot set up a Slack destination purely with Terraform code.
  * However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `newrelic.NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
  * 
- * ## Additional Information
- * 
- * More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
- * More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
- * 
- * ### Moving from Legacy Alert Channels to Notification Channels
- * As stated in the documentation of this resource and `newrelic.NotificationChannel`, destinations, created using the resource `newrelic.NotificationDestination` can be paired with `newrelic.NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `newrelic.AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
- * 
- * If you&#39;re currently using `newrelic.AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
- * 
- * Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
- * 
  * ## Import
  * 
  * &gt; **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
@@ -644,6 +633,7 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
     }
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      * 
      */
     @Export(name="properties", refs={List.class,NotificationDestinationProperty.class}, tree="[0,1]")
@@ -651,10 +641,25 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
 
     /**
      * @return A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      * 
      */
     public Output<List<NotificationDestinationProperty>> properties() {
         return this.properties;
+    }
+    /**
+     * Scope of the destination
+     * 
+     */
+    @Export(name="scope", refs={NotificationDestinationScope.class}, tree="[0]")
+    private Output</* @Nullable */ NotificationDestinationScope> scope;
+
+    /**
+     * @return Scope of the destination
+     * 
+     */
+    public Output<Optional<NotificationDestinationScope>> scope() {
+        return Codegen.optional(this.scope);
     }
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.

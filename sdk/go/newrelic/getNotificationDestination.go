@@ -57,7 +57,7 @@ import (
 //
 // ```
 //
-// ## Name Example Usage (Contains Match)
+// ## Name Example Usage
 //
 // ```go
 // package main
@@ -71,8 +71,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Data source - uses contains match
-//			// Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+//			// Data source (uses contains match)
+//			// Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
 //			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
 //				Name: pulumi.StringRef("webhook-destination"),
 //			}, nil)
@@ -102,7 +102,7 @@ import (
 //
 // ```
 //
-// ## Exact Name Example Usage (Exact Match)
+// ## Exact Name Example Usage
 //
 // ```go
 // package main
@@ -116,7 +116,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Data source - uses exact match
+//			// Data source (uses exact match)
 //			// Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
 //			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
 //				ExactName: pulumi.StringRef("webhook-destination"),
@@ -146,6 +146,8 @@ import (
 //	}
 //
 // ```
+//
+// Use this data source to create cross account destination.
 func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotificationDestinationArgs, opts ...pulumi.InvokeOption) (*LookupNotificationDestinationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNotificationDestinationResult
@@ -168,6 +170,8 @@ type LookupNotificationDestinationArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
 	Name *string `pulumi:"name"`
+	// A nested block of scope of destination which has two parameters scope type and ID.
+	Scope *GetNotificationDestinationScope `pulumi:"scope"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 }
@@ -185,6 +189,8 @@ type LookupNotificationDestinationResult struct {
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property.
 	Properties []GetNotificationDestinationProperty `pulumi:"properties"`
+	// A nested block of scope of destination which has two parameters scope type and ID.
+	Scope *GetNotificationDestinationScope `pulumi:"scope"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls []GetNotificationDestinationSecureUrl `pulumi:"secureUrls"`
 	// The status of the notification destination.
@@ -214,6 +220,8 @@ type LookupNotificationDestinationOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A nested block of scope of destination which has two parameters scope type and ID.
+	Scope GetNotificationDestinationScopePtrInput `pulumi:"scope"`
 	// The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
 	SecureUrls GetNotificationDestinationSecureUrlArrayInput `pulumi:"secureUrls"`
 }
@@ -267,6 +275,11 @@ func (o LookupNotificationDestinationResultOutput) Name() pulumi.StringPtrOutput
 // A nested block that describes a notification destination property.
 func (o LookupNotificationDestinationResultOutput) Properties() GetNotificationDestinationPropertyArrayOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) []GetNotificationDestinationProperty { return v.Properties }).(GetNotificationDestinationPropertyArrayOutput)
+}
+
+// A nested block of scope of destination which has two parameters scope type and ID.
+func (o LookupNotificationDestinationResultOutput) Scope() GetNotificationDestinationScopePtrOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) *GetNotificationDestinationScope { return v.Scope }).(GetNotificationDestinationScopePtrOutput)
 }
 
 // The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.

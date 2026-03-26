@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationScopeArgs;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationSecureUrlArgs;
 import java.lang.String;
 import java.util.List;
@@ -82,6 +83,21 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
     }
 
     /**
+     * A nested block of scope of destination which has two parameters scope type and ID.
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable Output<GetNotificationDestinationScopeArgs> scope;
+
+    /**
+     * @return A nested block of scope of destination which has two parameters scope type and ID.
+     * 
+     */
+    public Optional<Output<GetNotificationDestinationScopeArgs>> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+
+    /**
      * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
@@ -103,6 +119,7 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
         this.exactName = $.exactName;
         this.id = $.id;
         this.name = $.name;
+        this.scope = $.scope;
         this.secureUrls = $.secureUrls;
     }
 
@@ -210,6 +227,27 @@ public final class GetNotificationDestinationArgs extends com.pulumi.resources.I
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param scope A nested block of scope of destination which has two parameters scope type and ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable Output<GetNotificationDestinationScopeArgs> scope) {
+            $.scope = scope;
+            return this;
+        }
+
+        /**
+         * @param scope A nested block of scope of destination which has two parameters scope type and ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(GetNotificationDestinationScopeArgs scope) {
+            return scope(Output.of(scope));
         }
 
         /**

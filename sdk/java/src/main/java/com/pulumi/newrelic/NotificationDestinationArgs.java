@@ -10,6 +10,7 @@ import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationAuthCustomHeaderArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+import com.pulumi.newrelic.inputs.NotificationDestinationScopeArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationSecureUrlArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -115,6 +116,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
 
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      * 
      */
     @Import(name="properties", required=true)
@@ -122,10 +124,26 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
 
     /**
      * @return A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      * 
      */
     public Output<List<NotificationDestinationPropertyArgs>> properties() {
         return this.properties;
+    }
+
+    /**
+     * Scope of the destination
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable Output<NotificationDestinationScopeArgs> scope;
+
+    /**
+     * @return Scope of the destination
+     * 
+     */
+    public Optional<Output<NotificationDestinationScopeArgs>> scope() {
+        return Optional.ofNullable(this.scope);
     }
 
     /**
@@ -168,6 +186,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         this.authToken = $.authToken;
         this.name = $.name;
         this.properties = $.properties;
+        this.scope = $.scope;
         this.secureUrl = $.secureUrl;
         this.type = $.type;
     }
@@ -328,6 +347,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param properties A nested block that describes a notification destination property. See Nested property blocks below for details.
+         * *
          * 
          * @return builder
          * 
@@ -339,6 +359,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param properties A nested block that describes a notification destination property. See Nested property blocks below for details.
+         * *
          * 
          * @return builder
          * 
@@ -349,12 +370,34 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param properties A nested block that describes a notification destination property. See Nested property blocks below for details.
+         * *
          * 
          * @return builder
          * 
          */
         public Builder properties(NotificationDestinationPropertyArgs... properties) {
             return properties(List.of(properties));
+        }
+
+        /**
+         * @param scope Scope of the destination
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable Output<NotificationDestinationScopeArgs> scope) {
+            $.scope = scope;
+            return this;
+        }
+
+        /**
+         * @param scope Scope of the destination
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(NotificationDestinationScopeArgs scope) {
+            return scope(Output.of(scope));
         }
 
         /**

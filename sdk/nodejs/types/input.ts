@@ -219,6 +219,28 @@ export interface GetEntityTagArgs {
     value: pulumi.Input<string>;
 }
 
+export interface GetNotificationDestinationScope {
+    /**
+     * The id of the notification destination in New Relic.
+     */
+    id: string;
+    /**
+     * The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+     */
+    type: string;
+}
+
+export interface GetNotificationDestinationScopeArgs {
+    /**
+     * The id of the notification destination in New Relic.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface GetNotificationDestinationSecureUrl {
     prefix: string;
 }
@@ -341,6 +363,17 @@ export interface NotificationDestinationProperty {
      * Notification property value.
      */
     value: pulumi.Input<string>;
+}
+
+export interface NotificationDestinationScope {
+    /**
+     * The ID of the destination.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface NotificationDestinationSecureUrl {

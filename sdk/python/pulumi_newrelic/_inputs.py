@@ -49,6 +49,8 @@ __all__ = [
     'NotificationDestinationAuthTokenArgsDict',
     'NotificationDestinationPropertyArgs',
     'NotificationDestinationPropertyArgsDict',
+    'NotificationDestinationScopeArgs',
+    'NotificationDestinationScopeArgsDict',
     'NotificationDestinationSecureUrlArgs',
     'NotificationDestinationSecureUrlArgsDict',
     'NrqlAlertConditionCriticalArgs',
@@ -473,6 +475,8 @@ __all__ = [
     'WorkflowIssuesFilterPredicateArgsDict',
     'GetEntityTagArgs',
     'GetEntityTagArgsDict',
+    'GetNotificationDestinationScopeArgs',
+    'GetNotificationDestinationScopeArgsDict',
     'GetNotificationDestinationSecureUrlArgs',
     'GetNotificationDestinationSecureUrlArgsDict',
 ]
@@ -1925,6 +1929,53 @@ class NotificationDestinationPropertyArgs:
     @label.setter
     def label(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "label", value)
+
+
+class NotificationDestinationScopeArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the destination.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+    """
+
+@pulumi.input_type
+class NotificationDestinationScopeArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the destination.
+        :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the destination.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 
 class NotificationDestinationSecureUrlArgsDict(TypedDict):
@@ -19016,6 +19067,53 @@ class GetEntityTagArgs:
     @value.setter
     def value(self, value: _builtins.str):
         pulumi.set(self, "value", value)
+
+
+class GetNotificationDestinationScopeArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The id of the notification destination in New Relic.
+    """
+    type: _builtins.str
+    """
+    The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+    """
+
+@pulumi.input_type
+class GetNotificationDestinationScopeArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str id: The id of the notification destination in New Relic.
+        :param _builtins.str type: The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The id of the notification destination in New Relic.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
 
 
 class GetNotificationDestinationSecureUrlArgsDict(TypedDict):

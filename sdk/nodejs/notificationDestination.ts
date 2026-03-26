@@ -225,18 +225,6 @@ import * as utilities from "./utilities";
  * As a result, you cannot set up a Slack destination purely with Terraform code.
  * However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `newrelic.NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
  *
- * ## Additional Information
- *
- * More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
- * More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
- *
- * ### Moving from Legacy Alert Channels to Notification Channels
- * As stated in the documentation of this resource and `newrelic.NotificationChannel`, destinations, created using the resource `newrelic.NotificationDestination` can be paired with `newrelic.NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `newrelic.AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
- *
- * If you're currently using `newrelic.AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
- *
- * Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
- *
  * ## Import
  *
  * > **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
@@ -318,8 +306,13 @@ export class NotificationDestination extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      */
     declare public readonly properties: pulumi.Output<outputs.NotificationDestinationProperty[]>;
+    /**
+     * Scope of the destination
+     */
+    declare public readonly scope: pulumi.Output<outputs.NotificationDestinationScope | undefined>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */
@@ -355,6 +348,7 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["lastSent"] = state?.lastSent;
             resourceInputs["name"] = state?.name;
             resourceInputs["properties"] = state?.properties;
+            resourceInputs["scope"] = state?.scope;
             resourceInputs["secureUrl"] = state?.secureUrl;
             resourceInputs["status"] = state?.status;
             resourceInputs["type"] = state?.type;
@@ -373,6 +367,7 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["authToken"] = args?.authToken;
             resourceInputs["name"] = args?.name;
             resourceInputs["properties"] = args?.properties;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["secureUrl"] = args?.secureUrl;
             resourceInputs["type"] = args?.type;
             resourceInputs["guid"] = undefined /*out*/;
@@ -422,8 +417,13 @@ export interface NotificationDestinationState {
     name?: pulumi.Input<string>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
+    /**
+     * Scope of the destination
+     */
+    scope?: pulumi.Input<inputs.NotificationDestinationScope>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */
@@ -468,8 +468,13 @@ export interface NotificationDestinationArgs {
     name?: pulumi.Input<string>;
     /**
      * A nested block that describes a notification destination property. See Nested property blocks below for details.
+     * *
      */
     properties: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
+    /**
+     * Scope of the destination
+     */
+    scope?: pulumi.Input<inputs.NotificationDestinationScope>;
     /**
      * A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
      */
