@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationScope;
 import com.pulumi.newrelic.inputs.GetNotificationDestinationSecureUrl;
 import java.lang.String;
 import java.util.List;
@@ -81,6 +82,21 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     }
 
     /**
+     * A nested block of scope of destination which has two parameters scope type and ID.
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable GetNotificationDestinationScope scope;
+
+    /**
+     * @return A nested block of scope of destination which has two parameters scope type and ID.
+     * 
+     */
+    public Optional<GetNotificationDestinationScope> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+
+    /**
      * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      * 
      */
@@ -102,6 +118,7 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         this.exactName = $.exactName;
         this.id = $.id;
         this.name = $.name;
+        this.scope = $.scope;
         this.secureUrls = $.secureUrls;
     }
 
@@ -166,6 +183,17 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param scope A nested block of scope of destination which has two parameters scope type and ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable GetNotificationDestinationScope scope) {
+            $.scope = scope;
             return this;
         }
 

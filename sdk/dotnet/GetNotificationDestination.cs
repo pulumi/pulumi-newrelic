@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Name Example Usage (Contains Match)
+        /// ## Name Example Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -63,8 +63,8 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source - uses contains match
-        ///     // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+        ///     // Data source (uses contains match)
+        ///     // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
@@ -93,7 +93,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Exact Name Example Usage (Exact Match)
+        /// ## Exact Name Example Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -103,7 +103,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source - uses exact match
+        ///     // Data source (uses exact match)
         ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
@@ -132,6 +132,8 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// 
+        /// Use this data source to create cross account destination.
         /// </summary>
         public static Task<GetNotificationDestinationResult> InvokeAsync(GetNotificationDestinationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationArgs(), options.WithDefaults());
@@ -178,7 +180,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Name Example Usage (Contains Match)
+        /// ## Name Example Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -188,8 +190,8 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source - uses contains match
-        ///     // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+        ///     // Data source (uses contains match)
+        ///     // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
@@ -218,7 +220,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Exact Name Example Usage (Exact Match)
+        /// ## Exact Name Example Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -228,7 +230,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source - uses exact match
+        ///     // Data source (uses exact match)
         ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
@@ -257,6 +259,8 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// 
+        /// Use this data source to create cross account destination.
         /// </summary>
         public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
@@ -303,7 +307,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Name Example Usage (Contains Match)
+        /// ## Name Example Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -313,8 +317,8 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source - uses contains match
-        ///     // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+        ///     // Data source (uses contains match)
+        ///     // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
         ///         Name = "webhook-destination",
@@ -343,7 +347,7 @@ namespace Pulumi.NewRelic
         /// });
         /// ```
         /// 
-        /// ## Exact Name Example Usage (Exact Match)
+        /// ## Exact Name Example Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -353,7 +357,7 @@ namespace Pulumi.NewRelic
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // Data source - uses exact match
+        ///     // Data source (uses exact match)
         ///     // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
         ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
         ///     {
@@ -382,6 +386,8 @@ namespace Pulumi.NewRelic
         /// 
         /// });
         /// ```
+        /// 
+        /// Use this data source to create cross account destination.
         /// </summary>
         public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
@@ -415,6 +421,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// A nested block of scope of destination which has two parameters scope type and ID.
+        /// </summary>
+        [Input("scope")]
+        public Inputs.GetNotificationDestinationScopeArgs? Scope { get; set; }
 
         [Input("secureUrls")]
         private List<Inputs.GetNotificationDestinationSecureUrlArgs>? _secureUrls;
@@ -462,6 +474,12 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A nested block of scope of destination which has two parameters scope type and ID.
+        /// </summary>
+        [Input("scope")]
+        public Input<Inputs.GetNotificationDestinationScopeInputArgs>? Scope { get; set; }
+
         [Input("secureUrls")]
         private InputList<Inputs.GetNotificationDestinationSecureUrlInputArgs>? _secureUrls;
 
@@ -504,6 +522,10 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> Properties;
         /// <summary>
+        /// A nested block of scope of destination which has two parameters scope type and ID.
+        /// </summary>
+        public readonly Outputs.GetNotificationDestinationScopeResult? Scope;
+        /// <summary>
         /// The URL in secure format, showing only the `Prefix`, as the `SecureSuffix` is a secret.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> SecureUrls;
@@ -532,6 +554,8 @@ namespace Pulumi.NewRelic
 
             ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> properties,
 
+            Outputs.GetNotificationDestinationScopeResult? scope,
+
             ImmutableArray<Outputs.GetNotificationDestinationSecureUrlResult> secureUrls,
 
             string status,
@@ -545,6 +569,7 @@ namespace Pulumi.NewRelic
             Id = id;
             Name = name;
             Properties = properties;
+            Scope = scope;
             SecureUrls = secureUrls;
             Status = status;
             Type = type;

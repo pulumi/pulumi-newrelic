@@ -3418,7 +3418,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3445,8 +3445,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -3472,7 +3472,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3499,7 +3499,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -3525,6 +3525,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static Output<GetNotificationDestinationResult> getNotificationDestination() {
@@ -3586,7 +3588,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3613,8 +3615,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -3640,7 +3642,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3667,7 +3669,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -3693,6 +3695,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain() {
@@ -3754,7 +3758,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3781,8 +3785,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -3808,7 +3812,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3835,7 +3839,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -3861,6 +3865,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args) {
@@ -3922,7 +3928,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -3949,8 +3955,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -3976,7 +3982,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4003,7 +4009,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -4029,6 +4035,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args) {
@@ -4090,7 +4098,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4117,8 +4125,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -4144,7 +4152,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4171,7 +4179,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -4197,6 +4205,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args, InvokeOptions options) {
@@ -4258,7 +4268,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4285,8 +4295,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -4312,7 +4322,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4339,7 +4349,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -4365,6 +4375,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args, InvokeOutputOptions options) {
@@ -4426,7 +4438,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Name Example Usage (Contains Match)
+     * ## Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4453,8 +4465,8 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses contains match
-     *         // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+     *         // Data source (uses contains match)
+     *         // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .name("webhook-destination")
      *             .build());
@@ -4480,7 +4492,7 @@ public final class NewrelicFunctions {
      * }
      * </pre>
      * 
-     * ## Exact Name Example Usage (Exact Match)
+     * ## Exact Name Example Usage
      * 
      * <pre>
      * {@code
@@ -4507,7 +4519,7 @@ public final class NewrelicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // Data source - uses exact match
+     *         // Data source (uses exact match)
      *         // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
      *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
      *             .exactName("webhook-destination")
@@ -4533,6 +4545,8 @@ public final class NewrelicFunctions {
      * }
      * }
      * </pre>
+     * 
+     * Use this data source to create cross account destination.
      * 
      */
     public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args, InvokeOptions options) {

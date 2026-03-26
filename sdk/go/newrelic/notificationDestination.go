@@ -400,18 +400,6 @@ import (
 // As a result, you cannot set up a Slack destination purely with Terraform code.
 // However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
 //
-// ## Additional Information
-//
-// More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
-// More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
-//
-// ### Moving from Legacy Alert Channels to Notification Channels
-// As stated in the documentation of this resource and `NotificationChannel`, destinations, created using the resource `NotificationDestination` can be paired with `NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
-//
-// If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
-//
-// Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
-//
 // ## Import
 //
 // > **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
@@ -465,7 +453,10 @@ type NotificationDestination struct {
 	// The name of the destination.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
+	// *
 	Properties NotificationDestinationPropertyArrayOutput `pulumi:"properties"`
+	// Scope of the destination
+	Scope NotificationDestinationScopePtrOutput `pulumi:"scope"`
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl NotificationDestinationSecureUrlPtrOutput `pulumi:"secureUrl"`
 	// The status of the destination.
@@ -527,7 +518,10 @@ type notificationDestinationState struct {
 	// The name of the destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
+	// *
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
+	// Scope of the destination
+	Scope *NotificationDestinationScope `pulumi:"scope"`
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// The status of the destination.
@@ -554,7 +548,10 @@ type NotificationDestinationState struct {
 	// The name of the destination.
 	Name pulumi.StringPtrInput
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
+	// *
 	Properties NotificationDestinationPropertyArrayInput
+	// Scope of the destination
+	Scope NotificationDestinationScopePtrInput
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// The status of the destination.
@@ -581,7 +578,10 @@ type notificationDestinationArgs struct {
 	// The name of the destination.
 	Name *string `pulumi:"name"`
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
+	// *
 	Properties []NotificationDestinationProperty `pulumi:"properties"`
+	// Scope of the destination
+	Scope *NotificationDestinationScope `pulumi:"scope"`
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl *NotificationDestinationSecureUrl `pulumi:"secureUrl"`
 	// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
@@ -603,7 +603,10 @@ type NotificationDestinationArgs struct {
 	// The name of the destination.
 	Name pulumi.StringPtrInput
 	// A nested block that describes a notification destination property. See Nested property blocks below for details.
+	// *
 	Properties NotificationDestinationPropertyArrayInput
+	// Scope of the destination
+	Scope NotificationDestinationScopePtrInput
 	// A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.
 	SecureUrl NotificationDestinationSecureUrlPtrInput
 	// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
@@ -740,8 +743,14 @@ func (o NotificationDestinationOutput) Name() pulumi.StringOutput {
 }
 
 // A nested block that describes a notification destination property. See Nested property blocks below for details.
+// *
 func (o NotificationDestinationOutput) Properties() NotificationDestinationPropertyArrayOutput {
 	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationPropertyArrayOutput { return v.Properties }).(NotificationDestinationPropertyArrayOutput)
+}
+
+// Scope of the destination
+func (o NotificationDestinationOutput) Scope() NotificationDestinationScopePtrOutput {
+	return o.ApplyT(func(v *NotificationDestination) NotificationDestinationScopePtrOutput { return v.Scope }).(NotificationDestinationScopePtrOutput)
 }
 
 // A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secureUrl block is permitted per notification destination definition. See Nested secureUrl blocks below for details.

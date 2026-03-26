@@ -28,7 +28,7 @@ class GetNotificationDestinationResult:
     """
     A collection of values returned by getNotificationDestination.
     """
-    def __init__(__self__, account_id=None, active=None, exact_name=None, guid=None, id=None, name=None, properties=None, secure_urls=None, status=None, type=None):
+    def __init__(__self__, account_id=None, active=None, exact_name=None, guid=None, id=None, name=None, properties=None, scope=None, secure_urls=None, status=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -50,6 +50,9 @@ class GetNotificationDestinationResult:
         if properties and not isinstance(properties, list):
             raise TypeError("Expected argument 'properties' to be a list")
         pulumi.set(__self__, "properties", properties)
+        if scope and not isinstance(scope, dict):
+            raise TypeError("Expected argument 'scope' to be a dict")
+        pulumi.set(__self__, "scope", scope)
         if secure_urls and not isinstance(secure_urls, list):
             raise TypeError("Expected argument 'secure_urls' to be a list")
         pulumi.set(__self__, "secure_urls", secure_urls)
@@ -108,6 +111,14 @@ class GetNotificationDestinationResult:
         return pulumi.get(self, "properties")
 
     @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.GetNotificationDestinationScopeResult']:
+        """
+        A nested block of scope of destination which has two parameters scope type and ID.
+        """
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
     @pulumi.getter(name="secureUrls")
     def secure_urls(self) -> Sequence['outputs.GetNotificationDestinationSecureUrlResult']:
         """
@@ -145,6 +156,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
             id=self.id,
             name=self.name,
             properties=self.properties,
+            scope=self.scope,
             secure_urls=self.secure_urls,
             status=self.status,
             type=self.type)
@@ -154,6 +166,7 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
                                  exact_name: Optional[_builtins.str] = None,
                                  id: Optional[_builtins.str] = None,
                                  name: Optional[_builtins.str] = None,
+                                 scope: Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict']] = None,
                                  secure_urls: Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
@@ -182,14 +195,14 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
         }])
     ```
 
-    ## Name Example Usage (Contains Match)
+    ## Name Example Usage
 
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    # Data source - uses contains match
-    # Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+    # Data source (uses contains match)
+    # Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
     foo = newrelic.get_notification_destination(name="webhook-destination")
     # Resource
     foo_channel = newrelic.NotificationChannel("foo-channel",
@@ -206,13 +219,13 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
         }])
     ```
 
-    ## Exact Name Example Usage (Exact Match)
+    ## Exact Name Example Usage
 
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    # Data source - uses exact match
+    # Data source (uses exact match)
     # Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
     foo = newrelic.get_notification_destination(exact_name="webhook-destination")
     # Resource
@@ -230,6 +243,8 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
         }])
     ```
 
+    Use this data source to create cross account destination.
+
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param _builtins.str exact_name: The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
@@ -237,6 +252,7 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
            Optional:
     :param _builtins.str id: The id of the notification destination in New Relic.
     :param _builtins.str name: The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
+    :param Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict'] scope: A nested block of scope of destination which has two parameters scope type and ID.
     :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     __args__ = dict()
@@ -244,6 +260,7 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
     __args__['exactName'] = exact_name
     __args__['id'] = id
     __args__['name'] = name
+    __args__['scope'] = scope
     __args__['secureUrls'] = secure_urls
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult).value
@@ -256,6 +273,7 @@ def get_notification_destination(account_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
+        scope=pulumi.get(__ret__, 'scope'),
         secure_urls=pulumi.get(__ret__, 'secure_urls'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
@@ -263,6 +281,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
                                         exact_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                         id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                         name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                        scope: Optional[pulumi.Input[Optional[Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict']]]] = None,
                                         secure_urls: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
@@ -291,14 +310,14 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
         }])
     ```
 
-    ## Name Example Usage (Contains Match)
+    ## Name Example Usage
 
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    # Data source - uses contains match
-    # Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+    # Data source (uses contains match)
+    # Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
     foo = newrelic.get_notification_destination(name="webhook-destination")
     # Resource
     foo_channel = newrelic.NotificationChannel("foo-channel",
@@ -315,13 +334,13 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
         }])
     ```
 
-    ## Exact Name Example Usage (Exact Match)
+    ## Exact Name Example Usage
 
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    # Data source - uses exact match
+    # Data source (uses exact match)
     # Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
     foo = newrelic.get_notification_destination(exact_name="webhook-destination")
     # Resource
@@ -339,6 +358,8 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
         }])
     ```
 
+    Use this data source to create cross account destination.
+
 
     :param _builtins.str account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param _builtins.str exact_name: The exact name of the notification destination. Uses an **exact** match, so searching for "foo" would only match "foo", not "foobar".
@@ -346,6 +367,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
            Optional:
     :param _builtins.str id: The id of the notification destination in New Relic.
     :param _builtins.str name: The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
+    :param Union['GetNotificationDestinationScopeArgs', 'GetNotificationDestinationScopeArgsDict'] scope: A nested block of scope of destination which has two parameters scope type and ID.
     :param Sequence[Union['GetNotificationDestinationSecureUrlArgs', 'GetNotificationDestinationSecureUrlArgsDict']] secure_urls: The URL in secure format, showing only the `prefix`, as the `secure_suffix` is a secret.
     """
     __args__ = dict()
@@ -353,6 +375,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
     __args__['exactName'] = exact_name
     __args__['id'] = id
     __args__['name'] = name
+    __args__['scope'] = scope
     __args__['secureUrls'] = secure_urls
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult)
@@ -364,6 +387,7 @@ def get_notification_destination_output(account_id: Optional[pulumi.Input[Option
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
+        scope=pulumi.get(__response__, 'scope'),
         secure_urls=pulumi.get(__response__, 'secure_urls'),
         status=pulumi.get(__response__, 'status'),
         type=pulumi.get(__response__, 'type')))

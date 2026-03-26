@@ -29,11 +29,13 @@ class NotificationDestinationArgs:
                  auth_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]]] = None,
                  auth_token: Optional[pulumi.Input['NotificationDestinationAuthTokenArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input['NotificationDestinationScopeArgs']] = None,
                  secure_url: Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']] = None):
         """
         The set of arguments for constructing a NotificationDestination resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+               *
         :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         :param pulumi.Input[_builtins.str] account_id: Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[_builtins.bool] active: Indicates whether the destination is active.
@@ -41,6 +43,7 @@ class NotificationDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationAuthCustomHeaderArgs']]] auth_custom_headers: A nested block that describes a custom header authentication credentials. This field is required when the destination type is WORKFLOW_AUTOMATION and optional for other destination types. Multiple blocks are permitted per notification destination definition. Nested auth_custom_header blocks below for details.
         :param pulumi.Input['NotificationDestinationAuthTokenArgs'] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[_builtins.str] name: The name of the destination.
+        :param pulumi.Input['NotificationDestinationScopeArgs'] scope: Scope of the destination
         :param pulumi.Input['NotificationDestinationSecureUrlArgs'] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         """
         pulumi.set(__self__, "properties", properties)
@@ -57,6 +60,8 @@ class NotificationDestinationArgs:
             pulumi.set(__self__, "auth_token", auth_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if secure_url is not None:
             pulumi.set(__self__, "secure_url", secure_url)
 
@@ -65,6 +70,7 @@ class NotificationDestinationArgs:
     def properties(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]:
         """
         A nested block that describes a notification destination property. See Nested property blocks below for details.
+        *
         """
         return pulumi.get(self, "properties")
 
@@ -157,6 +163,18 @@ class NotificationDestinationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['NotificationDestinationScopeArgs']]:
+        """
+        Scope of the destination
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['NotificationDestinationScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
     @pulumi.getter(name="secureUrl")
     def secure_url(self) -> Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']]:
         """
@@ -181,6 +199,7 @@ class _NotificationDestinationState:
                  last_sent: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]] = None,
+                 scope: Optional[pulumi.Input['NotificationDestinationScopeArgs']] = None,
                  secure_url: Optional[pulumi.Input['NotificationDestinationSecureUrlArgs']] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
@@ -196,6 +215,8 @@ class _NotificationDestinationState:
         :param pulumi.Input[_builtins.str] last_sent: The last time a notification was sent.
         :param pulumi.Input[_builtins.str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+               *
+        :param pulumi.Input['NotificationDestinationScopeArgs'] scope: Scope of the destination
         :param pulumi.Input['NotificationDestinationSecureUrlArgs'] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[_builtins.str] status: The status of the destination.
         :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
@@ -218,6 +239,8 @@ class _NotificationDestinationState:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if secure_url is not None:
             pulumi.set(__self__, "secure_url", secure_url)
         if status is not None:
@@ -326,12 +349,25 @@ class _NotificationDestinationState:
     def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]]:
         """
         A nested block that describes a notification destination property. See Nested property blocks below for details.
+        *
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationDestinationPropertyArgs']]]]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['NotificationDestinationScopeArgs']]:
+        """
+        Scope of the destination
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['NotificationDestinationScopeArgs']]):
+        pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="secureUrl")
@@ -383,6 +419,7 @@ class NotificationDestination(pulumi.CustomResource):
                  auth_token: Optional[pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]]] = None,
+                 scope: Optional[pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']]] = None,
                  secure_url: Optional[pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -595,18 +632,6 @@ class NotificationDestination(pulumi.CustomResource):
         As a result, you cannot set up a Slack destination purely with Terraform code.
         However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
 
-        ## Additional Information
-
-        More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
-        More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
-
-        ### Moving from Legacy Alert Channels to Notification Channels
-        As stated in the documentation of this resource and `NotificationChannel`, destinations, created using the resource `NotificationDestination` can be paired with `NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
-
-        If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
-
-        Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
-
         ## Import
 
         > **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
@@ -636,6 +661,8 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']] auth_token: A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
         :param pulumi.Input[_builtins.str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+               *
+        :param pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']] scope: Scope of the destination
         :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
         """
@@ -854,18 +881,6 @@ class NotificationDestination(pulumi.CustomResource):
         As a result, you cannot set up a Slack destination purely with Terraform code.
         However, if you would like to use Slack-based destinations with other resources in the New Relic Terraform Provider, the data source `NotificationDestination` may be used to fetch the ID of the destination; alternatively, you might want to source the ID of the destination from  NerdGraph, or from the New Relic One UI.
 
-        ## Additional Information
-
-        More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
-        More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
-
-        ### Moving from Legacy Alert Channels to Notification Channels
-        As stated in the documentation of this resource and `NotificationChannel`, destinations, created using the resource `NotificationDestination` can be paired with `NotificationChannel` to set up channels. These resources combined, are an alternative to the legacy resource `AlertChannel`, which is **deprecated** and will be **removed in a future major release**, as stated in the documentation of the resource.
-
-        If you're currently using `AlertChannel` to manage channels, we **strongly recommend** migrating to these notifications-based resources at the earliest.
-
-        Please refer to the examples in this page, or this example for illustrations on setting up channels with these resources.
-
         ## Import
 
         > **WARNING:** Slack-based destinations can only be imported and destroyed; this resource **does not** support creating and updating Slack-based destinations, owing to the reasons stated above, under the **Slack** section.
@@ -908,6 +923,7 @@ class NotificationDestination(pulumi.CustomResource):
                  auth_token: Optional[pulumi.Input[Union['NotificationDestinationAuthTokenArgs', 'NotificationDestinationAuthTokenArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]]] = None,
+                 scope: Optional[pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']]] = None,
                  secure_url: Optional[pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -928,6 +944,7 @@ class NotificationDestination(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["scope"] = scope
             __props__.__dict__["secure_url"] = secure_url
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -954,6 +971,7 @@ class NotificationDestination(pulumi.CustomResource):
             last_sent: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]]] = None,
+            scope: Optional[pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']]] = None,
             secure_url: Optional[pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None) -> 'NotificationDestination':
@@ -973,6 +991,8 @@ class NotificationDestination(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_sent: The last time a notification was sent.
         :param pulumi.Input[_builtins.str] name: The name of the destination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationDestinationPropertyArgs', 'NotificationDestinationPropertyArgsDict']]]] properties: A nested block that describes a notification destination property. See Nested property blocks below for details.
+               *
+        :param pulumi.Input[Union['NotificationDestinationScopeArgs', 'NotificationDestinationScopeArgsDict']] scope: Scope of the destination
         :param pulumi.Input[Union['NotificationDestinationSecureUrlArgs', 'NotificationDestinationSecureUrlArgsDict']] secure_url: A nested block that describes a URL that contains sensitive data at the path or parameters. Only one secure_url block is permitted per notification destination definition. See Nested secure_url blocks below for details.
         :param pulumi.Input[_builtins.str] status: The status of the destination.
         :param pulumi.Input[_builtins.str] type: The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
@@ -990,6 +1010,7 @@ class NotificationDestination(pulumi.CustomResource):
         __props__.__dict__["last_sent"] = last_sent
         __props__.__dict__["name"] = name
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["scope"] = scope
         __props__.__dict__["secure_url"] = secure_url
         __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
@@ -1064,8 +1085,17 @@ class NotificationDestination(pulumi.CustomResource):
     def properties(self) -> pulumi.Output[Sequence['outputs.NotificationDestinationProperty']]:
         """
         A nested block that describes a notification destination property. See Nested property blocks below for details.
+        *
         """
         return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional['outputs.NotificationDestinationScope']]:
+        """
+        Scope of the destination
+        """
+        return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter(name="secureUrl")

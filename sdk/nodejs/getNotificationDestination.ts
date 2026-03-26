@@ -35,14 +35,14 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ## Name Example Usage (Contains Match)
+ * ## Name Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * // Data source - uses contains match
- * // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+ * // Data source (uses contains match)
+ * // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
  * const foo = newrelic.getNotificationDestination({
  *     name: "webhook-destination",
  * });
@@ -62,13 +62,13 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ## Exact Name Example Usage (Exact Match)
+ * ## Exact Name Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * // Data source - uses exact match
+ * // Data source (uses exact match)
  * // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
  * const foo = newrelic.getNotificationDestination({
  *     exactName: "webhook-destination",
@@ -88,6 +88,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ *
+ * Use this data source to create cross account destination.
  */
 export function getNotificationDestination(args?: GetNotificationDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationDestinationResult> {
     args = args || {};
@@ -97,6 +99,7 @@ export function getNotificationDestination(args?: GetNotificationDestinationArgs
         "exactName": args.exactName,
         "id": args.id,
         "name": args.name,
+        "scope": args.scope,
         "secureUrls": args.secureUrls,
     }, opts);
 }
@@ -123,6 +126,10 @@ export interface GetNotificationDestinationArgs {
      * The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
      */
     name?: string;
+    /**
+     * A nested block of scope of destination which has two parameters scope type and ID.
+     */
+    scope?: inputs.GetNotificationDestinationScope;
     /**
      * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      */
@@ -152,6 +159,10 @@ export interface GetNotificationDestinationResult {
      * A nested block that describes a notification destination property.
      */
     readonly properties: outputs.GetNotificationDestinationProperty[];
+    /**
+     * A nested block of scope of destination which has two parameters scope type and ID.
+     */
+    readonly scope?: outputs.GetNotificationDestinationScope;
     /**
      * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      */
@@ -194,14 +205,14 @@ export interface GetNotificationDestinationResult {
  * });
  * ```
  *
- * ## Name Example Usage (Contains Match)
+ * ## Name Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * // Data source - uses contains match
- * // Searching for "webhook" would match "webhook-destination", "my-webhook", etc.
+ * // Data source (uses contains match)
+ * // Searching for "webhook-destination" would match "webhook-destination", "webhook-destination-1", etc.
  * const foo = newrelic.getNotificationDestination({
  *     name: "webhook-destination",
  * });
@@ -221,13 +232,13 @@ export interface GetNotificationDestinationResult {
  * });
  * ```
  *
- * ## Exact Name Example Usage (Exact Match)
+ * ## Exact Name Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * // Data source - uses exact match
+ * // Data source (uses exact match)
  * // Searching for "webhook-destination" would only match "webhook-destination", not "my-webhook-destination"
  * const foo = newrelic.getNotificationDestination({
  *     exactName: "webhook-destination",
@@ -247,6 +258,8 @@ export interface GetNotificationDestinationResult {
  *     }],
  * });
  * ```
+ *
+ * Use this data source to create cross account destination.
  */
 export function getNotificationDestinationOutput(args?: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationDestinationResult> {
     args = args || {};
@@ -256,6 +269,7 @@ export function getNotificationDestinationOutput(args?: GetNotificationDestinati
         "exactName": args.exactName,
         "id": args.id,
         "name": args.name,
+        "scope": args.scope,
         "secureUrls": args.secureUrls,
     }, opts);
 }
@@ -282,6 +296,10 @@ export interface GetNotificationDestinationOutputArgs {
      * The name of the notification destination. Uses a **contains** match, so searching for "foo" would match "foobar", "myfoo", etc.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A nested block of scope of destination which has two parameters scope type and ID.
+     */
+    scope?: pulumi.Input<inputs.GetNotificationDestinationScopeArgs>;
     /**
      * The URL in secure format, showing only the `prefix`, as the `secureSuffix` is a secret.
      */

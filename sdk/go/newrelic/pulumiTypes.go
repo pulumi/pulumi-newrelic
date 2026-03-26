@@ -2867,6 +2867,162 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 	}).(NotificationDestinationPropertyOutput)
 }
 
+type NotificationDestinationScope struct {
+	// The ID of the destination.
+	Id string `pulumi:"id"`
+	// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+	Type string `pulumi:"type"`
+}
+
+// NotificationDestinationScopeInput is an input type that accepts NotificationDestinationScopeArgs and NotificationDestinationScopeOutput values.
+// You can construct a concrete instance of `NotificationDestinationScopeInput` via:
+//
+//	NotificationDestinationScopeArgs{...}
+type NotificationDestinationScopeInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationScopeOutput() NotificationDestinationScopeOutput
+	ToNotificationDestinationScopeOutputWithContext(context.Context) NotificationDestinationScopeOutput
+}
+
+type NotificationDestinationScopeArgs struct {
+	// The ID of the destination.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NotificationDestinationScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationScope)(nil)).Elem()
+}
+
+func (i NotificationDestinationScopeArgs) ToNotificationDestinationScopeOutput() NotificationDestinationScopeOutput {
+	return i.ToNotificationDestinationScopeOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationScopeArgs) ToNotificationDestinationScopeOutputWithContext(ctx context.Context) NotificationDestinationScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationScopeOutput)
+}
+
+func (i NotificationDestinationScopeArgs) ToNotificationDestinationScopePtrOutput() NotificationDestinationScopePtrOutput {
+	return i.ToNotificationDestinationScopePtrOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationScopeArgs) ToNotificationDestinationScopePtrOutputWithContext(ctx context.Context) NotificationDestinationScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationScopeOutput).ToNotificationDestinationScopePtrOutputWithContext(ctx)
+}
+
+// NotificationDestinationScopePtrInput is an input type that accepts NotificationDestinationScopeArgs, NotificationDestinationScopePtr and NotificationDestinationScopePtrOutput values.
+// You can construct a concrete instance of `NotificationDestinationScopePtrInput` via:
+//
+//	        NotificationDestinationScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationDestinationScopePtrInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationScopePtrOutput() NotificationDestinationScopePtrOutput
+	ToNotificationDestinationScopePtrOutputWithContext(context.Context) NotificationDestinationScopePtrOutput
+}
+
+type notificationDestinationScopePtrType NotificationDestinationScopeArgs
+
+func NotificationDestinationScopePtr(v *NotificationDestinationScopeArgs) NotificationDestinationScopePtrInput {
+	return (*notificationDestinationScopePtrType)(v)
+}
+
+func (*notificationDestinationScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationScope)(nil)).Elem()
+}
+
+func (i *notificationDestinationScopePtrType) ToNotificationDestinationScopePtrOutput() NotificationDestinationScopePtrOutput {
+	return i.ToNotificationDestinationScopePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationDestinationScopePtrType) ToNotificationDestinationScopePtrOutputWithContext(ctx context.Context) NotificationDestinationScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationScopePtrOutput)
+}
+
+type NotificationDestinationScopeOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationScope)(nil)).Elem()
+}
+
+func (o NotificationDestinationScopeOutput) ToNotificationDestinationScopeOutput() NotificationDestinationScopeOutput {
+	return o
+}
+
+func (o NotificationDestinationScopeOutput) ToNotificationDestinationScopeOutputWithContext(ctx context.Context) NotificationDestinationScopeOutput {
+	return o
+}
+
+func (o NotificationDestinationScopeOutput) ToNotificationDestinationScopePtrOutput() NotificationDestinationScopePtrOutput {
+	return o.ToNotificationDestinationScopePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationDestinationScopeOutput) ToNotificationDestinationScopePtrOutputWithContext(ctx context.Context) NotificationDestinationScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationDestinationScope) *NotificationDestinationScope {
+		return &v
+	}).(NotificationDestinationScopePtrOutput)
+}
+
+// The ID of the destination.
+func (o NotificationDestinationScopeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationScope) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+func (o NotificationDestinationScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationScopePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationScope)(nil)).Elem()
+}
+
+func (o NotificationDestinationScopePtrOutput) ToNotificationDestinationScopePtrOutput() NotificationDestinationScopePtrOutput {
+	return o
+}
+
+func (o NotificationDestinationScopePtrOutput) ToNotificationDestinationScopePtrOutputWithContext(ctx context.Context) NotificationDestinationScopePtrOutput {
+	return o
+}
+
+func (o NotificationDestinationScopePtrOutput) Elem() NotificationDestinationScopeOutput {
+	return o.ApplyT(func(v *NotificationDestinationScope) NotificationDestinationScope {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationDestinationScope
+		return ret
+	}).(NotificationDestinationScopeOutput)
+}
+
+// The ID of the destination.
+func (o NotificationDestinationScopePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `MICROSOFT_TEAMS`, `WORKFLOW_AUTOMATION`. The types `SLACK` and `SLACK_COLLABORATION` can only be imported, updated and destroyed (cannot be created via terraform).
+func (o NotificationDestinationScopePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type NotificationDestinationSecureUrl struct {
 	// The prefix of the URL.
 	Prefix string `pulumi:"prefix"`
@@ -32676,6 +32832,162 @@ func (o GetNotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetNotificationDestinationPropertyOutput)
 }
 
+type GetNotificationDestinationScope struct {
+	// The id of the notification destination in New Relic.
+	Id string `pulumi:"id"`
+	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+	Type string `pulumi:"type"`
+}
+
+// GetNotificationDestinationScopeInput is an input type that accepts GetNotificationDestinationScopeArgs and GetNotificationDestinationScopeOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationScopeInput` via:
+//
+//	GetNotificationDestinationScopeArgs{...}
+type GetNotificationDestinationScopeInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationScopeOutput() GetNotificationDestinationScopeOutput
+	ToGetNotificationDestinationScopeOutputWithContext(context.Context) GetNotificationDestinationScopeOutput
+}
+
+type GetNotificationDestinationScopeArgs struct {
+	// The id of the notification destination in New Relic.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetNotificationDestinationScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationScope)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationScopeArgs) ToGetNotificationDestinationScopeOutput() GetNotificationDestinationScopeOutput {
+	return i.ToGetNotificationDestinationScopeOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationScopeArgs) ToGetNotificationDestinationScopeOutputWithContext(ctx context.Context) GetNotificationDestinationScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationScopeOutput)
+}
+
+func (i GetNotificationDestinationScopeArgs) ToGetNotificationDestinationScopePtrOutput() GetNotificationDestinationScopePtrOutput {
+	return i.ToGetNotificationDestinationScopePtrOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationScopeArgs) ToGetNotificationDestinationScopePtrOutputWithContext(ctx context.Context) GetNotificationDestinationScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationScopeOutput).ToGetNotificationDestinationScopePtrOutputWithContext(ctx)
+}
+
+// GetNotificationDestinationScopePtrInput is an input type that accepts GetNotificationDestinationScopeArgs, GetNotificationDestinationScopePtr and GetNotificationDestinationScopePtrOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationScopePtrInput` via:
+//
+//	        GetNotificationDestinationScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetNotificationDestinationScopePtrInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationScopePtrOutput() GetNotificationDestinationScopePtrOutput
+	ToGetNotificationDestinationScopePtrOutputWithContext(context.Context) GetNotificationDestinationScopePtrOutput
+}
+
+type getNotificationDestinationScopePtrType GetNotificationDestinationScopeArgs
+
+func GetNotificationDestinationScopePtr(v *GetNotificationDestinationScopeArgs) GetNotificationDestinationScopePtrInput {
+	return (*getNotificationDestinationScopePtrType)(v)
+}
+
+func (*getNotificationDestinationScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNotificationDestinationScope)(nil)).Elem()
+}
+
+func (i *getNotificationDestinationScopePtrType) ToGetNotificationDestinationScopePtrOutput() GetNotificationDestinationScopePtrOutput {
+	return i.ToGetNotificationDestinationScopePtrOutputWithContext(context.Background())
+}
+
+func (i *getNotificationDestinationScopePtrType) ToGetNotificationDestinationScopePtrOutputWithContext(ctx context.Context) GetNotificationDestinationScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationScopePtrOutput)
+}
+
+type GetNotificationDestinationScopeOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationScope)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationScopeOutput) ToGetNotificationDestinationScopeOutput() GetNotificationDestinationScopeOutput {
+	return o
+}
+
+func (o GetNotificationDestinationScopeOutput) ToGetNotificationDestinationScopeOutputWithContext(ctx context.Context) GetNotificationDestinationScopeOutput {
+	return o
+}
+
+func (o GetNotificationDestinationScopeOutput) ToGetNotificationDestinationScopePtrOutput() GetNotificationDestinationScopePtrOutput {
+	return o.ToGetNotificationDestinationScopePtrOutputWithContext(context.Background())
+}
+
+func (o GetNotificationDestinationScopeOutput) ToGetNotificationDestinationScopePtrOutputWithContext(ctx context.Context) GetNotificationDestinationScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetNotificationDestinationScope) *GetNotificationDestinationScope {
+		return &v
+	}).(GetNotificationDestinationScopePtrOutput)
+}
+
+// The id of the notification destination in New Relic.
+func (o GetNotificationDestinationScopeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationDestinationScope) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+func (o GetNotificationDestinationScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationDestinationScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetNotificationDestinationScopePtrOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNotificationDestinationScope)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationScopePtrOutput) ToGetNotificationDestinationScopePtrOutput() GetNotificationDestinationScopePtrOutput {
+	return o
+}
+
+func (o GetNotificationDestinationScopePtrOutput) ToGetNotificationDestinationScopePtrOutputWithContext(ctx context.Context) GetNotificationDestinationScopePtrOutput {
+	return o
+}
+
+func (o GetNotificationDestinationScopePtrOutput) Elem() GetNotificationDestinationScopeOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationScope) GetNotificationDestinationScope {
+		if v != nil {
+			return *v
+		}
+		var ret GetNotificationDestinationScope
+		return ret
+	}).(GetNotificationDestinationScopeOutput)
+}
+
+// The id of the notification destination in New Relic.
+func (o GetNotificationDestinationScopePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `SERVICE_NOW_APP`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK`, `SLACK_COLLABORATION`, `MICROSOFT_TEAMS` and `WORKFLOW_AUTOMATION`.
+func (o GetNotificationDestinationScopePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetNotificationDestinationSecureUrl struct {
 	Prefix string `pulumi:"prefix"`
 }
@@ -33026,6 +33338,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenPtrInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyInput)(nil)).Elem(), NotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyArrayInput)(nil)).Elem(), NotificationDestinationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationScopeInput)(nil)).Elem(), NotificationDestinationScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationScopePtrInput)(nil)).Elem(), NotificationDestinationScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationSecureUrlPtrInput)(nil)).Elem(), NotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
@@ -33453,6 +33767,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagArrayInput)(nil)).Elem(), GetEntityTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyInput)(nil)).Elem(), GetNotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyArrayInput)(nil)).Elem(), GetNotificationDestinationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationScopeInput)(nil)).Elem(), GetNotificationDestinationScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationScopePtrInput)(nil)).Elem(), GetNotificationDestinationScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationSecureUrlArrayInput)(nil)).Elem(), GetNotificationDestinationSecureUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokInput)(nil)).Elem(), GetTestGrokPatternTestGrokArgs{})
@@ -33493,6 +33809,8 @@ func init() {
 	pulumi.RegisterOutputType(NotificationDestinationAuthTokenPtrOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationScopeOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationScopePtrOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationSecureUrlOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationSecureUrlPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
@@ -33920,6 +34238,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEntityTagArrayOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationScopeOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationScopePtrOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlOutput{})
 	pulumi.RegisterOutputType(GetNotificationDestinationSecureUrlArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokOutput{})

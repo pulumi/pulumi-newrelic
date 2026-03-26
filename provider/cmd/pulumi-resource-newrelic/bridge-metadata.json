@@ -1429,6 +1429,9 @@
                     "property": {
                         "maxItemsOne": false
                     },
+                    "scope": {
+                        "maxItemsOne": true
+                    },
                     "secure_url": {
                         "maxItemsOne": true
                     }
@@ -2814,6 +2817,9 @@
                 "fields": {
                     "property": {
                         "maxItemsOne": false
+                    },
+                    "scope": {
+                        "maxItemsOne": true
                     },
                     "secure_url": {
                         "maxItemsOne": false
