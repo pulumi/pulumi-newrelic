@@ -46,7 +46,7 @@ import (
 //				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.StringArray{
-//					pulumi.String(app.Id),
+//					pulumi.String(pulumi.String(app.Id)),
 //				},
 //				Metric:     pulumi.String("apdex"),
 //				RunbookUrl: pulumi.String("https://www.example.com"),

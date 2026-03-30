@@ -167,7 +167,7 @@ import (
 //								RefreshRate: pulumi.String("30000"),
 //								NrqlQueries: newrelic.OneDashboardPageWidgetLineNrqlQueryArray{
 //									&newrelic.OneDashboardPageWidgetLineNrqlQueryArgs{
-//										AccountId: pulumi.String(json0),
+//										AccountId: pulumi.String(pulumi.String(json0)),
 //										Query:     pulumi.String("FROM Transaction select max(duration) as 'max duration' where httpResponseCode = '504' timeseries since 5 minutes ago"),
 //									},
 //									&newrelic.OneDashboardPageWidgetLineNrqlQueryArgs{

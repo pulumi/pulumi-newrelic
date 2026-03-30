@@ -157,7 +157,7 @@ class EntityTags(pulumi.CustomResource):
         }
         foo = {__key: newrelic.get_entity(name=__key,
             type="APPLICATION",
-            domain="APM") for __key, __value in apps}
+            domain="APM") for __key, __value in enumerate(apps)}
         foo_entity_tags = []
         for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
             foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",
@@ -239,7 +239,7 @@ class EntityTags(pulumi.CustomResource):
         }
         foo = {__key: newrelic.get_entity(name=__key,
             type="APPLICATION",
-            domain="APM") for __key, __value in apps}
+            domain="APM") for __key, __value in enumerate(apps)}
         foo_entity_tags = []
         for range in [{"key": k, "value": v} for [k, v] in enumerate(apps)]:
             foo_entity_tags.append(newrelic.EntityTags(f"foo-{range['key']}",

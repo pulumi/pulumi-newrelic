@@ -44,7 +44,7 @@ import (
 //				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_kt_metric"),
 //				Entities: pulumi.StringArray{
-//					pulumi.String(txn.Id),
+//					pulumi.String(pulumi.String(txn.Id)),
 //				},
 //				Metric:     pulumi.String("error_percentage"),
 //				RunbookUrl: pulumi.String("https://www.example.com"),

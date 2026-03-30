@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
 //				LocationsPrivates: pulumi.StringArray{
-//					pulumi.String(example.Id),
+//					pulumi.String(pulumi.String(example.Id)),
 //				},
 //			})
 //			if err != nil {

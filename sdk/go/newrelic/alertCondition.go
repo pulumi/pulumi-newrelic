@@ -49,7 +49,7 @@ import (
 //				Name:     pulumi.String("foo"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.StringArray{
-//					pulumi.String(app.ApplicationId),
+//					pulumi.String(pulumi.String(app.ApplicationId)),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
@@ -116,7 +116,7 @@ import (
 //				Name:     pulumi.String("foo condition"),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.StringArray{
-//					pulumi.String(foo.ApplicationId),
+//					pulumi.String(pulumi.String(foo.ApplicationId)),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),

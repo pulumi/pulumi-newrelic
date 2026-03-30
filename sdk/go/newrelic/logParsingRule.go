@@ -75,10 +75,10 @@ import (
 //				Name:      pulumi.String("log_parse_rule"),
 //				Attribute: pulumi.String("message"),
 //				Enabled:   pulumi.Bool(true),
-//				Grok:      pulumi.String(grok.Grok),
+//				Grok:      pulumi.String(pulumi.String(grok.Grok)),
 //				Lucene:    pulumi.String("logtype:linux_messages"),
 //				Nrql:      pulumi.String("SELECT * FROM Log WHERE logtype = 'linux_messages'"),
-//				Matched:   pulumi.Bool(grok.TestGroks[0].Matched),
+//				Matched:   pulumi.Bool(pulumi.Bool(grok.TestGroks[0].Matched)),
 //			})
 //			if err != nil {
 //				return err

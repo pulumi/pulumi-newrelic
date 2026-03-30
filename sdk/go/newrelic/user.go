@@ -37,7 +37,7 @@ import (
 //			_, err = newrelic.NewUser(ctx, "foo", &newrelic.UserArgs{
 //				Name:                   pulumi.String("Test New User"),
 //				EmailId:                pulumi.String("test_user@test.com"),
-//				AuthenticationDomainId: pulumi.String(foo.Id),
+//				AuthenticationDomainId: pulumi.String(pulumi.String(foo.Id)),
 //				UserType:               pulumi.String("CORE_USER_TIER"),
 //			})
 //			if err != nil {
