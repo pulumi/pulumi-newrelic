@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewEntityTags(ctx, "foo", &newrelic.EntityTagsArgs{
-//				Guid: pulumi.String(foo.Guid),
+//				Guid: pulumi.String(pulumi.String(foo.Guid)),
 //				Tags: newrelic.EntityTagsTagArray{
 //					&newrelic.EntityTagsTagArgs{
 //						Key: pulumi.String("my-key"),

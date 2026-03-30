@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
 //				Name:                   pulumi.String("Test Group"),
-//				AuthenticationDomainId: pulumi.String(foo.Id),
+//				AuthenticationDomainId: pulumi.String(pulumi.String(foo.Id)),
 //				UserIds: pulumi.StringArray{
 //					pulumi.String("0001112222"),
 //					pulumi.String("2221110000"),
@@ -86,7 +86,7 @@ import (
 //			fooUser, err := newrelic.NewUser(ctx, "foo", &newrelic.UserArgs{
 //				Name:                   pulumi.String("Test User One"),
 //				EmailId:                pulumi.String("test_user_one@test.com"),
-//				AuthenticationDomainId: pulumi.String(foo.Id),
+//				AuthenticationDomainId: pulumi.String(pulumi.String(foo.Id)),
 //				UserType:               pulumi.String("CORE_USER_TIER"),
 //			})
 //			if err != nil {
@@ -95,7 +95,7 @@ import (
 //			bar, err := newrelic.NewUser(ctx, "bar", &newrelic.UserArgs{
 //				Name:                   pulumi.String("Test User Two"),
 //				EmailId:                pulumi.String("test_user_two@test.com"),
-//				AuthenticationDomainId: pulumi.String(foo.Id),
+//				AuthenticationDomainId: pulumi.String(pulumi.String(foo.Id)),
 //				UserType:               pulumi.String("BASIC_USER_TIER"),
 //			})
 //			if err != nil {
@@ -103,7 +103,7 @@ import (
 //			}
 //			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
 //				Name:                   pulumi.String("Test Group"),
-//				AuthenticationDomainId: pulumi.String(foo.Id),
+//				AuthenticationDomainId: pulumi.String(pulumi.String(foo.Id)),
 //				UserIds: pulumi.StringArray{
 //					fooUser.ID(),
 //					bar.ID(),
@@ -156,10 +156,10 @@ import (
 //			}
 //			_, err = newrelic.NewGroup(ctx, "foo", &newrelic.GroupArgs{
 //				Name:                   pulumi.String("Test Group"),
-//				AuthenticationDomainId: pulumi.String(foo.Id),
+//				AuthenticationDomainId: pulumi.String(pulumi.String(foo.Id)),
 //				UserIds: pulumi.StringArray{
-//					pulumi.String(fooGetUser.Id),
-//					pulumi.String(bar.Id),
+//					pulumi.String(pulumi.String(fooGetUser.Id)),
+//					pulumi.String(pulumi.String(bar.Id)),
 //				},
 //			})
 //			if err != nil {

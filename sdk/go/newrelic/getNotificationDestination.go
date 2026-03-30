@@ -38,7 +38,7 @@ import (
 //			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
 //				Name:          pulumi.String("webhook-example"),
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: pulumi.String(foo.Id),
+//				DestinationId: pulumi.String(pulumi.String(foo.Id)),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
@@ -83,7 +83,7 @@ import (
 //			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
 //				Name:          pulumi.String("webhook-example"),
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: pulumi.String(foo.Id),
+//				DestinationId: pulumi.String(pulumi.String(foo.Id)),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{
@@ -128,7 +128,7 @@ import (
 //			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
 //				Name:          pulumi.String("webhook-example"),
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: pulumi.String(foo.Id),
+//				DestinationId: pulumi.String(pulumi.String(foo.Id)),
 //				Product:       pulumi.String("IINT"),
 //				Properties: newrelic.NotificationChannelPropertyArray{
 //					&newrelic.NotificationChannelPropertyArgs{

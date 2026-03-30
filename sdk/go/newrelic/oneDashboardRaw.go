@@ -78,7 +78,7 @@ import (
 //								Height:          pulumi.Int(1),
 //								Width:           pulumi.Int(1),
 //								VisualizationId: pulumi.String("viz.bar"),
-//								Configuration:   pulumi.String(json0),
+//								Configuration:   pulumi.String(pulumi.String(json0)),
 //								LinkedEntityGuids: pulumi.StringArray{
 //									pulumi.String("MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"),
 //								},

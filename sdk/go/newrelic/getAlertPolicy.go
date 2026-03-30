@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
-//				PolicyId:  pulumi.String(fooGetAlertPolicy.Id),
+//				PolicyId:  pulumi.String(pulumi.String(fooGetAlertPolicy.Id)),
 //				ChannelId: foo.Id,
 //			})
 //			if err != nil {
