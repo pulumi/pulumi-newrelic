@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
 		r = &EventsToMetricsRule{}
+	case "newrelic:index/fleet:Fleet":
+		r = &Fleet{}
 	case "newrelic:index/group:Group":
 		r = &Group{}
 	case "newrelic:index/infraAlertCondition:InfraAlertCondition":
@@ -81,6 +83,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "newrelic:index/workflow:Workflow":
 		r = &Workflow{}
+	case "newrelic:index/workflowAutomation:WorkflowAutomation":
+		r = &WorkflowAutomation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -174,6 +178,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"index/fleet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"index/group",
 		&module{version},
 	)
@@ -260,6 +269,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/workflow",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/workflowAutomation",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

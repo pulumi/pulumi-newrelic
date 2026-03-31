@@ -18,6 +18,7 @@ from .browser_application import *
 from .data_partition_rule import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
+from .fleet import *
 from .get_account import *
 from .get_alert_channel import *
 from .get_alert_policy import *
@@ -51,6 +52,7 @@ from .provider import *
 from .service_level import *
 from .user import *
 from .workflow import *
+from .workflow_automation import *
 from ._inputs import *
 from . import outputs
 
@@ -262,6 +264,14 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "index/fleet",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/fleet:Fleet": "Fleet"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "index/group",
   "fqn": "pulumi_newrelic",
   "classes": {
@@ -402,6 +412,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/workflowAutomation",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/workflowAutomation:WorkflowAutomation": "WorkflowAutomation"
   }
  },
  {

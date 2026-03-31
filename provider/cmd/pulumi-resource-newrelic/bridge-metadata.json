@@ -1331,6 +1331,15 @@
                 "current": "newrelic:index/eventsToMetricsRule:EventsToMetricsRule",
                 "majorVersion": 5
             },
+            "newrelic_fleet": {
+                "current": "newrelic:index/fleet:Fleet",
+                "majorVersion": 5,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "newrelic_group": {
                 "current": "newrelic:index/group:Group",
                 "majorVersion": 5,
@@ -2695,6 +2704,10 @@
                         }
                     }
                 }
+            },
+            "newrelic_workflow_automation": {
+                "current": "newrelic:index/workflowAutomation:WorkflowAutomation",
+                "majorVersion": 5
             },
             "newrelic_workload": {
                 "current": "newrelic:plugins/workload:Workload",
@@ -4713,6 +4726,9 @@
                 "account_id",
                 "rule_id"
             ],
+            "newrelic_fleet": [
+                "organization_id"
+            ],
             "newrelic_group": [
                 "authentication_domain_id",
                 "user_ids"
@@ -4828,6 +4844,10 @@
                 "enrichments.$.nrql.$.enrichment_id",
                 "issues_filter.$.filter_id",
                 "workflow_id"
+            ],
+            "newrelic_workflow_automation": [
+                "definition_id",
+                "scope_id"
             ],
             "newrelic_workload": [
                 "account_id",
