@@ -39,6 +39,7 @@
         "dataPartitionRule.ts",
         "entityTags.ts",
         "eventsToMetricsRule.ts",
+        "fleet.ts",
         "getAccount.ts",
         "getAlertChannel.ts",
         "getAlertPolicy.ts",
@@ -93,6 +94,7 @@
         "types/output.ts",
         "user.ts",
         "utilities.ts",
-        "workflow.ts"
+        "workflow.ts",
+        "workflowAutomation.ts"
     ]
 }

@@ -65,6 +65,11 @@ export type EventsToMetricsRule = import("./eventsToMetricsRule").EventsToMetric
 export const EventsToMetricsRule: typeof import("./eventsToMetricsRule").EventsToMetricsRule = null as any;
 utilities.lazyLoad(exports, ["EventsToMetricsRule"], () => require("./eventsToMetricsRule"));
 
+export { FleetArgs, FleetState } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -228,6 +233,11 @@ export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
+export { WorkflowAutomationArgs, WorkflowAutomationState } from "./workflowAutomation";
+export type WorkflowAutomation = import("./workflowAutomation").WorkflowAutomation;
+export const WorkflowAutomation: typeof import("./workflowAutomation").WorkflowAutomation = null as any;
+utilities.lazyLoad(exports, ["WorkflowAutomation"], () => require("./workflowAutomation"));
+
 
 // Export sub-modules:
 import * as cloud from "./cloud";
@@ -274,6 +284,8 @@ const _module = {
                 return new EntityTags(name, <any>undefined, { urn })
             case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
                 return new EventsToMetricsRule(name, <any>undefined, { urn })
+            case "newrelic:index/fleet:Fleet":
+                return new Fleet(name, <any>undefined, { urn })
             case "newrelic:index/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "newrelic:index/infraAlertCondition:InfraAlertCondition":
@@ -310,6 +322,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "newrelic:index/workflow:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
+            case "newrelic:index/workflowAutomation:WorkflowAutomation":
+                return new WorkflowAutomation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -327,6 +341,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/browserApplication", _m
 pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/fleet", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/group", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/keyTransaction", _module)
@@ -345,6 +360,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/pipelineCloudRule", _mo
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/user", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/workflowAutomation", _module)
 pulumi.runtime.registerResourcePackage("newrelic", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
